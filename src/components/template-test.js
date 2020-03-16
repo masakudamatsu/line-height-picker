@@ -13,7 +13,7 @@
 // });
 
 // test('is accessible', async () => {
-//   const {container} = render(<Title />);
+//   const {container} = render(<COMPONENT />);
 //   const results = await axe(container);
 //   expect(results).toHaveNoViolations();
 //   cleanup();
