@@ -1,9 +1,9 @@
-import React from "react";
-
+import React from 'react';
+import GlobalStyle from './theme/GlobalStyle';
 function App() {
   return (
     <>
-      <h1>Hello, world!</h1>
+      <GlobalStyle />
     </>
   );
 }
