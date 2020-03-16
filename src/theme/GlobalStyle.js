@@ -257,9 +257,6 @@ progress {
   vertical-align: baseline;
 }
 
-svg:not([fill]) {
-  fill: currentColor;
-}
 
 /* # =================================================================
    # Accessibility
