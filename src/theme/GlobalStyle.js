@@ -1,6 +1,12 @@
 import {createGlobalStyle} from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+body {
+  background-color: hsl(0, 0%, 25%); /* Set the background color here so swiping the screen won't reveal the white part. */
+  color: hsl(0, 0%, 96%);
+
+}
+
 /*!
  * ress.css • v2.0.4
  * MIT License
