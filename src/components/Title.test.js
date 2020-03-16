@@ -9,7 +9,24 @@ import Title from './Title';
 
 test('renders the H1 element for the screen reader, but invisible on the browser', () => {
   const {container} = render(<Title />);
-  expect(container).toMatchInlineSnapshot();
+  expect(container).toMatchInlineSnapshot(`
+    .c0 {
+      height: 1px;
+      left: -10000px;
+      overflow: hidden;
+      position: absolute;
+      top: auto;
+      width: 1px;
+    }
+
+    <div>
+      <h1
+        class="c0"
+      >
+        Line-height Picker
+      </h1>
+    </div>
+  `);
 });
 
 test('is accessible', async () => {
