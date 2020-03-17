@@ -4,5 +4,6 @@ describe('Landing Page', () => {
     cy.get('h1').should('have.text', 'Line-height Picker');
     cy.findByTitle(/logo/i).should('exist');
     cy.findByTestId('description').should('exist');
+    cy.findByText(/upload/i).should('exist');
   });
 });
