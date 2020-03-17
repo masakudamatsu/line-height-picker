@@ -33,6 +33,7 @@ test('renders correctly', () => {
     <div>
       <p
         class="c0"
+        data-testid="description"
       >
         Beautify paragraphs on your website
         <span
