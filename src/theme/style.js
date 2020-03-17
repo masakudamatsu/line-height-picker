@@ -55,3 +55,37 @@ export const DescriptionWrapper = styled.p`
     width: ${maxLogoWidthPx}px;
   }
 `;
+
+export const ButtonContainer = styled.div`
+  margin: ${logoMarginTopBelowCutoff * 100}% ${marginLeft * 100}%;
+  max-width: ${maxLogoWidthPx}px;
+  width: ${logoWidth * 100}%;
+  @media (min-width: ${mediaQueryCutoff}px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+const buttonFontSize = 2;
+const buttonFontSizeBelowCutoff = (16 * buttonFontSize) / mediaQueryCutoff; // (VW)
+const buttonWidth = 0.45;
+const buttonMaxWidth = maxLogoWidthPx * buttonWidth;
+const buttonPaddingTop = buttonWidth * 0.125;
+const buttonPaddingLeft = buttonWidth * 0.25;
+export const Button = styled.button`
+  background-color: inherit;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  color: inherit;
+  cursor: pointer;
+  font-size: ${buttonFontSizeBelowCutoff * 100}vw;
+  font-weight: bold;
+  max-width: ${buttonMaxWidth}px;
+  padding: ${buttonPaddingTop * 100}% ${buttonPaddingLeft * 100}%;
+  text-align: left;
+  text-transform: uppercase;
+  width: ${buttonWidth * 100}%;
+  @media (min-width: ${mediaQueryCutoff}px) {
+    font-size: 2rem;
+  }
+`;
