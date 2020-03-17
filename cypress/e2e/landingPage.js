@@ -3,5 +3,6 @@ describe('Landing Page', () => {
     cy.visit('/');
     cy.get('h1').should('have.text', 'Line-height Picker');
     cy.findByTitle(/logo/i).should('exist');
+    cy.findByTestId('description').should('exist');
   });
 });
