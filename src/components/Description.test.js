@@ -17,16 +17,14 @@ test('renders correctly', () => {
     .c0 {
       font-size: 4.571428571428571vw;
       font-weight: 200;
-      margin: 0 9.999999999999998%;
+      margin: 0;
       text-indent: -1px;
+      width: 100%;
     }
 
     @media (min-width:875px) {
       .c0 {
         font-size: 2.5rem;
-        margin-left: auto;
-        margin-right: auto;
-        width: 700px;
       }
     }
 

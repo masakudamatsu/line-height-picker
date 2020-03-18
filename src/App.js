@@ -1,6 +1,7 @@
 import React from 'react';
 import GlobalStyle from './theme/GlobalStyle';
 import Title from './components/Title';
+import {SideMarginRegulator} from './theme/style';
 import Logo from './components/Logo';
 import Description from './components/Description';
 import {ButtonContainer} from './theme/style';
@@ -12,12 +13,14 @@ function App() {
     <>
       <GlobalStyle />
       <Title />
-      <Logo />
-      <Description />
-      <ButtonContainer>
-        <FontFileUploader />
-        <DemoStartButton />
-      </ButtonContainer>
+      <SideMarginRegulator>
+        <Logo />
+        <Description />
+        <ButtonContainer>
+          <FontFileUploader />
+          <DemoStartButton />
+        </ButtonContainer>
+      </SideMarginRegulator>
     </>
   );
 }

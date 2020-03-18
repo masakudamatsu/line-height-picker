@@ -14,11 +14,20 @@ export const HiddenH1 = styled.h1`
   /* Hide the h1 element except for the screen reader. For detail, see https://webaim.org/techniques/css/invisiblecontent/ */
 `;
 
-// SVG logo CSS values
+// Layout parameters
 const logoWidth = 0.8;
 const maxLogoWidthPx = 700;
 const mediaQueryCutoff = maxLogoWidthPx / logoWidth;
 const marginLeft = (1 - logoWidth) / 2;
+
+export const SideMarginRegulator = styled.div`
+  margin: 0 ${marginLeft * 100}%;
+  max-width: ${maxLogoWidthPx}px;
+  width: ${logoWidth * 100}%;
+  @media (min-width: ${mediaQueryCutoff}px) {
+    margin: 0 auto;
+  }
+`;
 
 // Calculate the Logo's margin-top property vaue
 const scale = 1.5;
@@ -30,11 +39,10 @@ export const LogoWrapper = styled.svg`
   display: block;
   fill: currentColor;
   height: auto;
-  margin: ${logoMarginTopBelowCutoff * 100}% ${marginLeft * 100}%;
-  max-width: ${maxLogoWidthPx}px;
-  width: ${logoWidth * 100}%;
+  margin: ${logoMarginTopBelowCutoff * 100}% 0;
+  width: 100%;
   @media (min-width: ${mediaQueryCutoff}px) {
-    margin: ${logoMarginTopAboveCutoffPx}px auto;
+    margin: ${logoMarginTopAboveCutoffPx}px 0;
   }
 `;
 
@@ -46,26 +54,20 @@ const descriptionFontSizeBelowCutoff =
 export const DescriptionWrapper = styled.p`
   font-size: ${descriptionFontSizeBelowCutoff * 100}vw;
   font-weight: 200;
-  margin: 0 ${marginLeft * 100}%;
+  margin: 0;
   text-indent: -1px;
+  width: 100%;
   @media (min-width: ${mediaQueryCutoff}px) {
     font-size: ${descriptionFontSize}rem;
-    margin-left: auto;
-    margin-right: auto;
-    width: ${maxLogoWidthPx}px;
   }
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: ${logoMarginTopBelowCutoff * 100}% ${marginLeft * 100}%;
+  margin: ${logoMarginTopBelowCutoff * 100}% 0;
   max-width: ${maxLogoWidthPx}px;
-  width: ${logoWidth * 100}%;
-  @media (min-width: ${mediaQueryCutoff}px) {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  width: 100%;
 `;
 
 const buttonFontSizeVw = 16 / 320;

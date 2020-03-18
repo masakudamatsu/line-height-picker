@@ -14,14 +14,13 @@ test('renders correctly', () => {
       display: block;
       fill: currentColor;
       height: auto;
-      margin: 7.199999999999999% 9.999999999999998%;
-      max-width: 700px;
-      width: 80%;
+      margin: 7.199999999999999% 0;
+      width: 100%;
     }
 
     @media (min-width:875px) {
       .c0 {
-        margin: 63px auto;
+        margin: 63px 0;
       }
     }
 
