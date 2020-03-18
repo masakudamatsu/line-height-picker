@@ -15,23 +15,33 @@ test('renders correctly', () => {
     }
 
     .c0 {
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
       background-color: inherit;
       border: 2px solid currentColor;
       border-radius: 4px;
       color: inherit;
       cursor: pointer;
-      font-size: 3.6571428571428575vw;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      font-size: 5vw;
       font-weight: bold;
       max-width: 315px;
       padding: 5.625% 11.25%;
-      text-align: left;
       text-transform: uppercase;
       width: 45%;
     }
 
     @media (min-width:875px) {
       .c0 {
-        font-size: 2rem;
+        font-size: 43.75px;
       }
     }
 
@@ -39,7 +49,9 @@ test('renders correctly', () => {
       <button
         class="c0"
       >
-        Upload 
+        <span>
+          Upload
+        </span>
         <span
           class="c1"
         >
