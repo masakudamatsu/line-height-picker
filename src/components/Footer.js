@@ -3,7 +3,7 @@ import {ExternalLink, FooterWrapper} from '../theme/style';
 
 const Footer = () => {
   return (
-    <FooterWrapper>
+    <FooterWrapper data-testid="footer">
       <p>
         Designed and Coded by Masa Kudamatsu in 2020 (
         <ExternalLink

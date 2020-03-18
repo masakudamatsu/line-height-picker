@@ -24,6 +24,7 @@ test('renders correctly', () => {
     <div>
       <footer
         class="c0"
+        data-testid="footer"
       >
         <p>
           Designed and Coded by Masa Kudamatsu in 2020 (

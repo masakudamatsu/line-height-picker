@@ -7,6 +7,7 @@ import Description from './components/Description';
 import {ButtonContainer} from './theme/style';
 import FontFileUploader from './components/FontFileUploader';
 import DemoStartButton from './components/DemoStartButton';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <FontFileUploader />
           <DemoStartButton />
         </ButtonContainer>
+        <Footer />
       </SideMarginRegulator>
     </>
   );
