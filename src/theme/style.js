@@ -66,8 +66,8 @@ export const ButtonContainer = styled.div`
   }
 `;
 
-const buttonFontSize = 2;
-const buttonFontSizeBelowCutoff = (16 * buttonFontSize) / mediaQueryCutoff; // (VW)
+const buttonFontSizeVw = 16 / 320;
+const buttonFontSizeAboveCutoffPx = mediaQueryCutoff * buttonFontSizeVw;
 const buttonWidth = 0.45;
 const buttonMaxWidth = maxLogoWidthPx * buttonWidth;
 const buttonPaddingTop = buttonWidth * 0.125;
@@ -81,12 +81,13 @@ export const Button = styled.button`
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  font-size: ${buttonFontSizeVw * 100}vw;
   font-weight: bold;
   max-width: ${buttonMaxWidth}px;
   padding: ${buttonPaddingTop * 100}% ${buttonPaddingLeft * 100}%;
   text-transform: uppercase;
   width: ${buttonWidth * 100}%;
   @media (min-width: ${mediaQueryCutoff}px) {
-    font-size: 2rem;
+    font-size: ${buttonFontSizeAboveCutoffPx}px;
   }
 `;
