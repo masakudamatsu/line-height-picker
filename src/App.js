@@ -5,6 +5,7 @@ import Logo from './components/Logo';
 import Description from './components/Description';
 import {ButtonContainer} from './theme/style';
 import FontFileUploader from './components/FontFileUploader';
+import DemoStartButton from './components/DemoStartButton';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Description />
       <ButtonContainer>
         <FontFileUploader />
+        <DemoStartButton />
       </ButtonContainer>
     </>
   );
