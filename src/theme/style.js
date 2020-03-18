@@ -57,6 +57,8 @@ export const DescriptionWrapper = styled.p`
 `;
 
 export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin: ${logoMarginTopBelowCutoff * 100}% ${marginLeft * 100}%;
   max-width: ${maxLogoWidthPx}px;
   width: ${logoWidth * 100}%;
