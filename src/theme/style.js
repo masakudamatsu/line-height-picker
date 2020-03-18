@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
+// Inline modifier
 export const NoWrap = styled.span`
   white-space: nowrap;
+`;
+
+export const ExternalLink = styled.a`
+  color: hsl(0, 0%, 96%);
 `;
 
 export const HiddenH1 = styled.h1`
