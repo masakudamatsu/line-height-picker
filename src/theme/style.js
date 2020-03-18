@@ -73,16 +73,17 @@ const buttonMaxWidth = maxLogoWidthPx * buttonWidth;
 const buttonPaddingTop = buttonWidth * 0.125;
 const buttonPaddingLeft = buttonWidth * 0.25;
 export const Button = styled.button`
+  align-items: center;
   background-color: inherit;
   border: 2px solid currentColor;
   border-radius: 4px;
   color: inherit;
   cursor: pointer;
-  font-size: ${buttonFontSizeBelowCutoff * 100}vw;
+  display: flex;
+  flex-direction: column;
   font-weight: bold;
   max-width: ${buttonMaxWidth}px;
   padding: ${buttonPaddingTop * 100}% ${buttonPaddingLeft * 100}%;
-  text-align: left;
   text-transform: uppercase;
   width: ${buttonWidth * 100}%;
   @media (min-width: ${mediaQueryCutoff}px) {

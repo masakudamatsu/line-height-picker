@@ -3,7 +3,8 @@ import {Button, NoWrap} from '../theme/style';
 const FontFileUploader = () => {
   return (
     <Button>
-      Upload <NoWrap>Font File</NoWrap>
+      <span>Upload</span>
+      <NoWrap>Font File</NoWrap>
     </Button>
   );
 };
