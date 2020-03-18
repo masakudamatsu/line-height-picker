@@ -100,3 +100,10 @@ export const Button = styled.button`
     font-size: ${buttonFontSizeAboveCutoffPx}px;
   }
 `;
+
+export const FooterWrapper = styled.footer`
+  border-top: 1px solid currentColor;
+  color: hsl(0, 0%, 67%);
+  font-size: 0.75rem;
+  padding: 0.75rem 0;
+`;
