@@ -5,5 +5,6 @@ describe('Landing Page', () => {
     cy.findByTitle(/logo/i).should('exist');
     cy.findByTestId('description').should('exist');
     cy.findByText(/upload/i).should('exist');
+    cy.findByText(/demo/i).should('exist');
   });
 });
