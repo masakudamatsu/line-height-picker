@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import {Link} from 'react-router-dom';
 // Inline modifier
 export const NoWrap = styled.span`
   white-space: nowrap;
@@ -7,6 +7,10 @@ export const NoWrap = styled.span`
 
 export const ExternalLink = styled.a`
   color: hsl(0, 0%, 96%);
+`;
+
+export const InternalLink = styled(Link)`
+  color: hsl(192, 90%, 50%);
 `;
 
 export const HiddenH1 = styled.h1`
