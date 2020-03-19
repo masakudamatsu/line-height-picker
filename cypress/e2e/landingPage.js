@@ -21,6 +21,7 @@ describe('The 404 Page', () => {
   it('shows up when the URL contains random text', () => {
     cy.visit('/random-text');
     cy.findByText(/404/).should('exist');
+    cy.get('h1').should('have.text', 'Line-height Picker');
   });
   it('guides the user to the landing page', () => {
     cy.visit('/random-text');
