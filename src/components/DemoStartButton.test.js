@@ -1,11 +1,18 @@
 import React from 'react';
-import {render, cleanup} from '@testing-library/react';
+import {Router} from 'react-router-dom';
+import {createMemoryHistory} from 'history';
+import {render as rtlRender, cleanup} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
 import DemoStartButton from './DemoStartButton';
+
+function render(ui, options = {}) {
+  const history = createMemoryHistory({initialEntries: ['/']});
+  return rtlRender(<Router history={history}>{ui}</Router>, options);
+}
 
 test('renders correctly', () => {
   const {container} = render(<DemoStartButton />);
@@ -46,8 +53,9 @@ test('renders correctly', () => {
     }
 
     <div>
-      <button
+      <a
         class="c0"
+        href="/x-height"
       >
         <span
           class="c1"
@@ -59,7 +67,7 @@ test('renders correctly', () => {
         >
           →
         </span>
-      </button>
+      </a>
     </div>
   `);
 });
