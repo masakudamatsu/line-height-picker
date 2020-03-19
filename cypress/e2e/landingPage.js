@@ -13,5 +13,6 @@ describe('Landing Page', () => {
     cy.visit('/');
     cy.findByText(/demo/i).click();
     cy.findByText(/x-height/i).should('exist');
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
   });
 });
