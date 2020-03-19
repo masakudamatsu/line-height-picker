@@ -22,6 +22,7 @@ describe('The 404 Page', () => {
     cy.visit('/random-text');
     cy.findByText(/404/).should('exist');
     cy.get('h1').should('have.text', 'Line-height Picker');
+    cy.findByTitle(/logo/i).should('exist');
   });
   it('guides the user to the landing page', () => {
     cy.visit('/random-text');
