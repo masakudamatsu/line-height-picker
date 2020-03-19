@@ -11,11 +11,25 @@ import Error from './Error';
 test('renders correctly', () => {
   const {container} = render(<Error />);
   expect(container).toMatchInlineSnapshot(`
-    .c0 {
+    .c1 {
       color: hsl(192,90%,50%);
     }
 
+    .c0 {
+      height: 1px;
+      left: -10000px;
+      overflow: hidden;
+      position: absolute;
+      top: auto;
+      width: 1px;
+    }
+
     <div>
+      <h1
+        class="c0"
+      >
+        Line-height Picker
+      </h1>
       <h2>
         404
       </h2>
@@ -23,7 +37,7 @@ test('renders correctly', () => {
         We can't find the page you're looking for.
          
         <a
-          class="c0"
+          class="c1"
           href="/"
         >
           Click here
