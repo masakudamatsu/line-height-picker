@@ -35,6 +35,8 @@ test('renders correctly', () => {
       font-weight: bold;
       max-width: 315px;
       padding: 5.625% 11.25%;
+      -webkit-text-decoration: none;
+      text-decoration: none;
       text-transform: uppercase;
       width: 45%;
     }

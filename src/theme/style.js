@@ -94,6 +94,7 @@ export const Button = styled.button`
   font-weight: bold;
   max-width: ${buttonMaxWidth}px;
   padding: ${buttonPaddingTop * 100}% ${buttonPaddingLeft * 100}%;
+  text-decoration: none; /* when the as={Link} attribute is added. */
   text-transform: uppercase;
   width: ${buttonWidth * 100}%;
   @media (min-width: ${mediaQueryCutoff}px) {
