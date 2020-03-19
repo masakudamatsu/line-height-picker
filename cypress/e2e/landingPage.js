@@ -8,4 +8,10 @@ describe('Landing Page', () => {
     cy.findByText(/demo/i).should('exist');
     cy.findByTestId('footer').should('exist');
   });
+
+  it('allows the user to choose x-height after clicking the demo button', () => {
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
+    cy.findByText(/x-height/i).should('exist');
+  });
 });
