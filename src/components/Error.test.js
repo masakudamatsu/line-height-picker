@@ -10,7 +10,13 @@ import Error from './Error';
 
 test('renders correctly', () => {
   const {container} = render(<Error />);
-  expect(container).toMatchInlineSnapshot();
+  expect(container).toMatchInlineSnapshot(`
+    <div>
+      <h2>
+        404
+      </h2>
+    </div>
+  `);
 });
 
 test('is accessible', async () => {
