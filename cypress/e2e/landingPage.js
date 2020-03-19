@@ -16,3 +16,10 @@ describe('Landing Page', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
   });
 });
+
+describe('The 404 Page', () => {
+  it('shows up when the URL contains random text', () => {
+    cy.visit('/random-text');
+    cy.findByText(/404/).should('exist');
+  });
+});
