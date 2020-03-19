@@ -1,28 +1,17 @@
 import React from 'react';
-import GlobalStyle from './theme/GlobalStyle';
-import Title from './components/Title';
-import {SideMarginRegulator} from './theme/style';
-import Logo from './components/Logo';
-import Description from './components/Description';
-import {ButtonContainer} from './theme/style';
-import FontFileUploader from './components/FontFileUploader';
-import DemoStartButton from './components/DemoStartButton';
-import Footer from './components/Footer';
+import {Route, Switch} from 'react-router-dom';
 
+import GlobalStyle from './theme/GlobalStyle';
+import Home from './components/Home';
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Title />
-      <SideMarginRegulator>
-        <Logo />
-        <Description />
-        <ButtonContainer>
-          <FontFileUploader />
-          <DemoStartButton />
-        </ButtonContainer>
-        <Footer />
-      </SideMarginRegulator>
+      <main>
+        <Switch>
+          <Route path="/" component={Home} exact />
+        </Switch>
+      </main>
     </>
   );
 }
