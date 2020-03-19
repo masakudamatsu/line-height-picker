@@ -11,10 +11,25 @@ import Error from './Error';
 test('renders correctly', () => {
   const {container} = render(<Error />);
   expect(container).toMatchInlineSnapshot(`
+    .c0 {
+      color: hsl(192,90%,50%);
+    }
+
     <div>
       <h2>
         404
       </h2>
+      <p>
+        We can't find the page you're looking for.
+         
+        <a
+          class="c0"
+          href="/"
+        >
+          Click here
+        </a>
+         to visit our web app's landing page.
+      </p>
     </div>
   `);
 });
