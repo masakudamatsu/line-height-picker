@@ -1,5 +1,4 @@
 import React from 'react';
-import Title from './Title';
 import {SideMarginRegulator} from '../theme/style';
 import Logo from './Logo';
 import Description from './Description';
@@ -11,7 +10,6 @@ import Footer from './Footer';
 const Home = () => {
   return (
     <>
-      <Title />
       <SideMarginRegulator>
         <Logo />
         <Description />

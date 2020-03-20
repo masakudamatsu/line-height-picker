@@ -1,5 +1,4 @@
 import React from 'react';
-import Title from './Title';
 import {SideMarginRegulator} from '../theme/style';
 import Logo from './Logo';
 import {InternalLink} from '../theme/style';
@@ -7,7 +6,6 @@ import {InternalLink} from '../theme/style';
 const Error = () => {
   return (
     <>
-      <Title />
       <SideMarginRegulator>
         <Logo />
         <h2>404</h2>
