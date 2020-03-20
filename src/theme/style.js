@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import LogoImage from '../components/LogoImage';
 
+// Parameters
+const minScreenWidthPx = 320;
+const minFontSizePx = 16;
+
 // Color
 const footerTextColor = 'hsl(0, 0%, 67%)';
 // Inline modifier
@@ -83,7 +87,7 @@ export const ButtonContainer = styled.div`
   width: 100%;
 `;
 
-const buttonFontSizeVw = 16 / 320;
+const buttonFontSizeVw = minFontSizePx / minScreenWidthPx;
 const buttonFontSizeAboveCutoffPx = mediaQueryCutoff * buttonFontSizeVw;
 const buttonWidth = 0.45;
 const buttonMaxWidth = maxLogoWidthPx * buttonWidth;
