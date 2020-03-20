@@ -17,6 +17,13 @@ describe('Landing Page', () => {
   });
 });
 
+describe('X-height page', () => {
+  it.only('shows the UI components correctly', () => {
+    cy.visit('/x-height');
+    cy.get('h1').should('have.text', 'Line-height Picker');
+  });
+});
+
 describe('The 404 Page', () => {
   it('shows up when the URL contains random text', () => {
     cy.visit('/random-text');
