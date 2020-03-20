@@ -20,6 +20,7 @@ describe('X-height page', () => {
   it('shows the UI components correctly', () => {
     cy.visit('/x-height');
     cy.get('h1').should('have.text', 'Line-height Picker');
+    cy.findByTitle(/logo/i).should('exist');
     cy.findByText(/x-height/i).should('exist');
     cy.findByTestId('footer').should('exist');
   });
