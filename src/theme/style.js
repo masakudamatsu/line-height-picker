@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import LogoImage from '../components/LogoImage';
+
 // Inline modifier
 export const NoWrap = styled.span`
   white-space: nowrap;
@@ -44,12 +46,12 @@ const verticalSpacePx = 42; // a space between the two lines when the logo width
 const logoMarginTopAboveCutoffPx = verticalSpacePx * scale;
 const logoMarginTopBelowCutoff = logoMarginTopAboveCutoffPx / mediaQueryCutoff;
 
-export const LogoWrapper = styled.svg`
+export const Logo = styled(LogoImage)`
   display: block;
   fill: currentColor;
   height: auto;
   margin: ${logoMarginTopBelowCutoff * 100}% 0;
-  width: 100%;
+  width: ${props => (props.header ? '20%' : '100%')};
   @media (min-width: ${mediaQueryCutoff}px) {
     margin: ${logoMarginTopAboveCutoffPx}px 0;
   }
