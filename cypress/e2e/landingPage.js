@@ -9,18 +9,18 @@ describe('Landing Page', () => {
     cy.findByTestId('footer').should('exist');
   });
 
-  it('allows the user to choose x-height after clicking the demo button', () => {
+  it('takes the user to the x-height page after clicking the demo button', () => {
     cy.visit('/');
     cy.findByText(/demo/i).click();
-    cy.findByText(/x-height/i).should('exist');
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
   });
 });
 
 describe('X-height page', () => {
-  it.only('shows the UI components correctly', () => {
+  it('shows the UI components correctly', () => {
     cy.visit('/x-height');
     cy.get('h1').should('have.text', 'Line-height Picker');
+    cy.findByText(/x-height/i).should('exist');
   });
 });
 
