@@ -1,7 +1,6 @@
 import React from 'react';
-import Logo from './Logo';
 import Description from './Description';
-import {ButtonContainer} from '../theme/style';
+import {ButtonContainer, Logo} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import DemoStartButton from './DemoStartButton';
 

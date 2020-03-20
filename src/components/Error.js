@@ -1,6 +1,5 @@
 import React from 'react';
-import Logo from './Logo';
-import {InternalLink} from '../theme/style';
+import {InternalLink, Logo} from '../theme/style';
 
 const Error = () => {
   return (
