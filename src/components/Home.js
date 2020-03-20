@@ -7,7 +7,6 @@ import {ButtonContainer} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import DemoStartButton from './DemoStartButton';
 import Footer from './Footer';
-import {Link} from 'react-router-dom';
 
 const Home = () => {
   return (
