@@ -1,9 +1,9 @@
 import React from 'react';
-import {LogoWrapper} from '../theme/style';
 
-const Logo = () => {
+const LogoImage = ({className}) => {
   return (
-    <LogoWrapper
+    <svg
+      className={className}
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       width="778.000000pt"
@@ -110,8 +110,8 @@ const Logo = () => {
         <path d="M20 500 l0 -490 120 0 120 0 0 490 0 490 -120 0 -120 0 0 -490z" />
         <path d="M3840 685 l0 -305 120 0 120 0 0 305 0 305 -120 0 -120 0 0 -305z" />
       </g>
-    </LogoWrapper>
+    </svg>
   );
 };
 
-export default Logo;
+export default LogoImage;

@@ -5,29 +5,14 @@ import 'jest-styled-components';
 import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
-import Logo from './Logo';
+import LogoImage from './LogoImage';
 
 test('renders correctly', () => {
-  const {container} = render(<Logo />);
+  const {container} = render(<LogoImage />);
   expect(container).toMatchInlineSnapshot(`
-    .c0 {
-      display: block;
-      fill: currentColor;
-      height: auto;
-      margin: 7.199999999999999% 0;
-      width: 100%;
-    }
-
-    @media (min-width:875px) {
-      .c0 {
-        margin: 63px 0;
-      }
-    }
-
     <div>
       <svg
         aria-labelledby="logoTitle"
-        class="c0"
         height="308.000000pt"
         preserveAspectRatio="xMidYMid meet"
         role="img"
@@ -136,7 +121,7 @@ test('renders correctly', () => {
 });
 
 test('is accessible', async () => {
-  const {container} = render(<Logo />);
+  const {container} = render(<LogoImage />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();
