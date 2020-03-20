@@ -42,4 +42,8 @@ describe('The 404 Page', () => {
     cy.findByText(/demo/i).should('exist');
     cy.findByTestId('footer').should('exist');
   });
+  it('shows other UI components', () => {
+    cy.visit('/random-text');
+    cy.findByTestId('footer').should('exist');
+  });
 });
