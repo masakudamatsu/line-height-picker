@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import LogoImage from '../components/LogoImage';
 
+// Color
+const footerTextColor = 'hsl(0, 0%, 67%)';
 // Inline modifier
 export const NoWrap = styled.span`
   white-space: nowrap;
@@ -110,7 +112,7 @@ export const Button = styled.button`
 
 export const FooterWrapper = styled.footer`
   border-top: 1px solid currentColor;
-  color: hsl(0, 0%, 67%);
+  color: ${footerTextColor};
   font-size: 0.75rem;
   padding: 0.75rem 0;
 `;
