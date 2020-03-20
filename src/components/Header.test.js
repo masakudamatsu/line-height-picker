@@ -11,7 +11,7 @@ import Header from './Header';
 test('renders correctly', () => {
   const {container} = render(<Header />);
   expect(container).toMatchInlineSnapshot(`
-    .c0 {
+    .c1 {
       display: block;
       fill: currentColor;
       height: auto;
@@ -19,17 +19,126 @@ test('renders correctly', () => {
       width: 20%;
     }
 
+    .c0 {
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .c4 {
+      color: currentColor;
+      font-size: 5vw;
+    }
+
+    .c6 {
+      color: hsl(0,0%,35%);
+      font-size: 5vw;
+    }
+
+    .c3 {
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      width: 10vw;
+    }
+
+    .c5 {
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: currentColor;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      width: 10vw;
+    }
+
+    .c2 {
+      -webkit-aling-items: center;
+      -webkit-box-aling: center;
+      -ms-flex-aling: center;
+      aling-items: center;
+      border-bottom: 1px solid currentColor;
+      border-top: 1px solid currentColor;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      width: 70%;
+    }
+
     @media (min-width:875px) {
-      .c0 {
+      .c1 {
         margin: 63px 0;
       }
     }
 
+    @media (min-width:875px) {
+      .c4 {
+        font-size: 43.75px;
+      }
+    }
+
+    @media (min-width:875px) {
+      .c6 {
+        font-size: 43.75px;
+      }
+    }
+
+    @media (min-width:875px) {
+      .c3 {
+        width: 87.5px;
+      }
+    }
+
+    @media (min-width:875px) {
+      .c5 {
+        width: 87.5px;
+      }
+    }
+
     <div>
-      <header>
+      <header
+        class="c0"
+      >
         <svg
           aria-labelledby="logoTitle"
-          class="c0"
+          class="c1"
           height="308.000000pt"
           preserveAspectRatio="xMidYMid meet"
           role="img"
@@ -133,6 +242,56 @@ test('renders correctly', () => {
             />
           </g>
         </svg>
+        <div
+          class="c2"
+          data-testid="stepIndicator"
+        >
+          <div
+            class="c3"
+          >
+            <span
+              class="c4"
+            >
+              1
+            </span>
+          </div>
+          <div
+            class="c5"
+          >
+            <span
+              class="c6"
+            >
+              2
+            </span>
+          </div>
+          <div
+            class="c3"
+          >
+            <span
+              class="c6"
+            >
+              3
+            </span>
+          </div>
+          <div
+            class="c3"
+          >
+            <span
+              class="c6"
+            >
+              4
+            </span>
+          </div>
+          <div
+            class="c3"
+          >
+            <span
+              class="c6"
+            >
+              5
+            </span>
+          </div>
+        </div>
       </header>
     </div>
   `);

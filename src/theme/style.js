@@ -8,6 +8,8 @@ const minFontSizePx = 16;
 
 // Color
 const footerTextColor = 'hsl(0, 0%, 67%)';
+const greyedOut = 'hsl(0, 0%, 35%)';
+
 // Inline modifier
 export const NoWrap = styled.span`
   white-space: nowrap;
@@ -61,6 +63,43 @@ export const Logo = styled(LogoImage)`
   @media (min-width: ${mediaQueryCutoff}px) {
     margin: ${logoMarginTopAboveCutoffPx}px 0;
   }
+`;
+
+export const HeaderWrapper = styled.header`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const StepNumber = styled.span`
+  color: ${props => (props.done ? 'currentColor' : greyedOut)};
+  font-size: ${(minFontSizePx / minScreenWidthPx) * 100}vw;
+  @media (min-width: ${mediaQueryCutoff}px) {
+    font-size: ${mediaQueryCutoff * (minFontSizePx / minScreenWidthPx)}px;
+  }
+`;
+
+const numberBoxWidth = 0.1;
+export const StepNumberBox = styled.div`
+  align-items: center;
+  background-color: ${props => props.now && 'currentColor'};
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: ${numberBoxWidth * 100}vw;
+  @media (min-width: ${mediaQueryCutoff}px) {
+    width: ${mediaQueryCutoff * numberBoxWidth}px;
+  }
+`;
+
+export const StepIndicator = styled.div`
+  aling-items: center;
+  border-bottom: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
 `;
 
 // Font-size for description
