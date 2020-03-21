@@ -36,11 +36,6 @@ test('renders correctly', () => {
     }
 
     .c4 {
-      color: currentColor;
-      font-size: 5vw;
-    }
-
-    .c6 {
       color: hsl(0,0%,35%);
       font-size: 5vw;
     }
@@ -50,26 +45,6 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: start;
-      -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-      justify-content: flex-start;
-      width: 10vw;
-    }
-
-    .c5 {
-      -webkit-align-items: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      background-color: currentColor;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -115,19 +90,7 @@ test('renders correctly', () => {
     }
 
     @media (min-width:875px) {
-      .c6 {
-        font-size: 43.75px;
-      }
-    }
-
-    @media (min-width:875px) {
       .c3 {
-        width: 87.5px;
-      }
-    }
-
-    @media (min-width:875px) {
-      .c5 {
         width: 87.5px;
       }
     }
@@ -256,10 +219,10 @@ test('renders correctly', () => {
             </span>
           </div>
           <div
-            class="c5"
+            class="c3"
           >
             <span
-              class="c6"
+              class="c4"
             >
               2
             </span>
@@ -268,7 +231,7 @@ test('renders correctly', () => {
             class="c3"
           >
             <span
-              class="c6"
+              class="c4"
             >
               3
             </span>
@@ -277,7 +240,7 @@ test('renders correctly', () => {
             class="c3"
           >
             <span
-              class="c6"
+              class="c4"
             >
               4
             </span>
@@ -286,7 +249,7 @@ test('renders correctly', () => {
             class="c3"
           >
             <span
-              class="c6"
+              class="c4"
             >
               5
             </span>

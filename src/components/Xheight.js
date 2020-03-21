@@ -4,7 +4,7 @@ import Header from './Header';
 const Xheight = () => {
   return (
     <>
-      <Header />
+      <Header stepNow={2} />
       <main>
         <h2>Set x-height</h2>
       </main>
