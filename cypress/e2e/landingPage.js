@@ -22,7 +22,8 @@ describe('X-height page', () => {
     cy.get('h1').should('have.text', 'Line-height Picker');
     cy.findByTitle(/logo/i).should('exist');
     cy.findByTestId('stepIndicator').should('exist');
-    cy.findByText(/x-height/i).should('exist');
+    cy.findByText(/set x-height/i).should('exist');
+    cy.findByLabelText(/x-height/i).should('exist');
     cy.findByTestId('footer').should('exist');
   });
 });
