@@ -48,6 +48,8 @@ export const SideMarginRegulator = styled.div`
   }
 `;
 
+// Logo
+
 // Calculate the Logo's margin-top property vaue
 const scale = 1.5;
 const verticalSpacePx = 42; // a space between the two lines when the logo width is 700px.
@@ -64,6 +66,8 @@ export const Logo = styled(LogoImage)`
     margin: ${logoMarginTopAboveCutoffPx}px 0;
   }
 `;
+
+// Header
 
 export const HeaderWrapper = styled.header`
   align-items: center;
@@ -102,6 +106,8 @@ export const StepIndicator = styled.div`
   width: 70%;
 `;
 
+// Landing Page
+
 // Font-size for description
 const descriptionFontSize = 2.5;
 const descriptionFontSizeBelowCutoff =
@@ -117,6 +123,8 @@ export const DescriptionWrapper = styled.p`
     font-size: ${descriptionFontSize}rem;
   }
 `;
+
+// Buttons
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -152,6 +160,8 @@ export const Button = styled.button`
     font-size: ${buttonFontSizeAboveCutoffPx}px;
   }
 `;
+
+// Footer
 
 export const FooterWrapper = styled.footer`
   border-top: 1px solid currentColor;
