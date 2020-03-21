@@ -161,6 +161,12 @@ export const Button = styled.button`
   }
 `;
 
+// Forms
+export const Form = styled.form``;
+export const Label = styled.label``;
+export const NumberInput = styled.input.attrs(props => ({
+  type: 'number',
+}))``;
 // Footer
 
 export const FooterWrapper = styled.footer`
