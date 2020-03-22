@@ -169,11 +169,52 @@ export const Button = styled.button`
 `;
 
 // Forms
-export const Form = styled.form``;
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  font-size: 3rem;
+  font-weight: ${fontWeight};
+  padding: 0 0 3rem 0;
+`;
 export const Label = styled.label``;
+export const NumberInputWrapper = styled.div`
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0 1rem 0;
+`;
 export const NumberInput = styled.input.attrs(props => ({
+  step: 0.0001,
   type: 'number',
-}))``;
+}))`
+  /* Remove the arrows */
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+
+  background-color: hsl(0, 0%, 25%);
+  border: none;
+  border-bottom: 2px solid hsl(0, 0%, 96%);
+  border-radius: 4px 4px 0 0;
+  color: hsl(0, 0%, 96%);
+  font-weight: 200;
+  width: 90%;
+  padding: 1rem;
+  font-size: 9rem;
+  text-align: center;
+
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: hsl(0, 0%, 35%);
+    outline: none;
+  }
+`;
 // Footer
 
 export const FooterWrapper = styled.footer`
