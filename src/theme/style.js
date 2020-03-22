@@ -6,6 +6,9 @@ import LogoImage from '../components/LogoImage';
 const minScreenWidthPx = 320;
 const minFontSizePx = 16;
 
+// Typography
+const fontWeight = 200;
+
 // Color
 const footerTextColor = 'hsl(0, 0%, 67%)';
 const greyedOut = 'hsl(0, 0%, 35%)';
@@ -115,7 +118,7 @@ const descriptionFontSizeBelowCutoff =
 
 export const DescriptionWrapper = styled.p`
   font-size: ${descriptionFontSizeBelowCutoff * 100}vw;
-  font-weight: 200;
+  font-weight: ${fontWeight};
   margin: 0;
   text-indent: -1px;
   width: 100%;
