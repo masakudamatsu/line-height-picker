@@ -7,7 +7,6 @@ const Xheight = () => {
     <>
       <Header stepNow={2} />
       <main>
-        <h2>Set x-height</h2>
         <XheightBox />
       </main>
     </>
