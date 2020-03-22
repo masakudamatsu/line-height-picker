@@ -26,6 +26,10 @@ export const InternalLink = styled(Link)`
   color: hsl(192, 90%, 50%);
 `;
 
+export const ParagraphOneRem = styled.p`
+  font-size: 1rem;
+`;
+
 export const HiddenH1 = styled.h1`
   height: 1px;
   left: -10000px;
