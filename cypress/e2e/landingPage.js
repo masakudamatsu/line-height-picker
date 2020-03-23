@@ -23,6 +23,7 @@ describe('X-height page', () => {
     cy.findByTitle(/logo/i).should('exist');
     cy.findByTestId('stepIndicator').should('exist');
     cy.findByLabelText(/x-height/i).should('exist');
+    cy.findByText(/font chosen/i).should('exist');
     cy.findByTestId('footer').should('exist');
   });
 });
