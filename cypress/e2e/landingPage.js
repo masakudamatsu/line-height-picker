@@ -45,6 +45,7 @@ describe('Modular Scale Page', () => {
     cy.checkHeaderFooterRendering();
     cy.findByTestId('FontNameDisplay').should('exist');
     cy.findByText(/change font/i).should('exist');
+    cy.findByTestId('XheightDisplay').should('exist');
   });
 
   it('takes the user to the preview page after clicking the button for it', () => {
