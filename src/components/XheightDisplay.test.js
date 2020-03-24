@@ -9,7 +9,39 @@ import XheightDisplay from './XheightDisplay';
 
 test('renders correctly', () => {
   const {container} = render(<XheightDisplay />);
-  expect(container).toMatchInlineSnapshot();
+  expect(container).toMatchInlineSnapshot(`
+    .c0 {
+      border-bottom: 1px solid white;
+      border-top: 1px solid white;
+      padding: 1rem 0;
+    }
+
+    .c1 {
+      font-size: 1.5rem;
+    }
+
+    .c2 {
+      font-size: 2rem;
+    }
+
+    <div>
+      <section
+        class="c0"
+        data-testid="XheightDisplay"
+      >
+        <h2
+          class="c1"
+        >
+          X-height chosen:
+        </h2>
+        <p
+          class="c2"
+        >
+          12.3456px
+        </p>
+      </section>
+    </div>
+  `);
 });
 
 test('is accessible', async () => {
