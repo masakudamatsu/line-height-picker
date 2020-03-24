@@ -18,6 +18,20 @@ export const NoWrap = styled.span`
   white-space: nowrap;
 `;
 
+export const CenterAlignWrapperHorizontal = styled.div`
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  width: 100%;
+`;
+export const RatioWrapper = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+`;
+
 export const ExternalLink = styled.a`
   color: hsl(0, 0%, 96%);
 `;
@@ -28,6 +42,10 @@ export const InternalLink = styled(Link)`
 
 export const ParagraphOneRem = styled.p`
   font-size: 1rem;
+`;
+
+export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
+  text-align: right;
 `;
 
 export const HiddenH1 = styled.h1`
@@ -183,13 +201,21 @@ export const Button = styled.button`
 `;
 
 // Forms
+
+const formFontSize = 3;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  font-size: 3rem;
+  font-size: ${formFontSize}rem;
   font-weight: ${fontWeight};
   padding: 0 0 3rem 0;
 `;
+export const FormTitle = styled.h2`
+  font-size: ${formFontSize}rem;
+  font-weight: ${fontWeight};
+`;
+
 export const Label = styled.label``;
 export const NumberInputWrapper = styled.div`
   align-items: baseline;
@@ -231,6 +257,10 @@ export const NumberInput = styled.input.attrs(props => ({
 export const XheightInput = styled(NumberInput)`
   padding: 1rem;
   width: 90%;
+`;
+
+export const ModularScaleInput = styled(NumberInput)`
+  width: 100%;
 `;
 
 // Footer
