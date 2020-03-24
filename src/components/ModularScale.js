@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from './Header';
 import FontNameDisplay from './FontNameDisplay';
-import {ButtonContainer} from '../theme/style';
+import {Button, ButtonContainer, NoWrap} from '../theme/style';
 import ChangeFontButton from './ChangeFontButton';
+import {Link} from 'react-router-dom';
 
 const ModularScale = () => {
   return (
@@ -12,6 +13,10 @@ const ModularScale = () => {
         <FontNameDisplay />
         <ButtonContainer>
           <ChangeFontButton />
+          <Button as={Link} to="/preview">
+            <NoWrap>Preview</NoWrap>
+            <NoWrap>→</NoWrap>
+          </Button>
         </ButtonContainer>
       </main>
     </>
