@@ -56,7 +56,7 @@ describe('Modular Scale Page', () => {
 
   it('takes the user back to the x-height page after clicking the button for it', () => {
     cy.visit('/modular-scale');
-    cy.findByText(/x-height/i).click();
+    cy.findByText(/x-height/i, {selector: 'a'}).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
   });
 });
