@@ -43,6 +43,7 @@ describe('Modular Scale Page', () => {
   it('shows the UI components correctly', () => {
     cy.visit('/modular-scale');
     cy.checkHeaderFooterRendering();
+    cy.findByTestId('FontNameDisplay').should('exist');
   });
 });
 
