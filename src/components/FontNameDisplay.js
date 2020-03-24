@@ -1,16 +1,16 @@
 import React from 'react';
 import {
-  FontName,
-  FontNameDisplayTitle,
-  FontNameDisplayWrapper,
+  UserDataDisplay,
+  UserDataDisplayTitle,
+  UserDataDisplayWrapper,
 } from '../theme/style';
 
 const FontNameDisplay = () => {
   return (
-    <FontNameDisplayWrapper data-testid="FontNameDisplay">
-      <FontNameDisplayTitle>Font chosen:</FontNameDisplayTitle>
-      <FontName>Open Sans Regular</FontName>
-    </FontNameDisplayWrapper>
+    <UserDataDisplayWrapper data-testid="FontNameDisplay">
+      <UserDataDisplayTitle>Font chosen:</UserDataDisplayTitle>
+      <UserDataDisplay>Open Sans Regular</UserDataDisplay>
+    </UserDataDisplayWrapper>
   );
 };
 

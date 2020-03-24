@@ -132,15 +132,15 @@ export const DescriptionWrapper = styled.p`
 `;
 
 // Font Name display
-export const FontNameDisplayWrapper = styled.section`
+export const UserDataDisplayWrapper = styled.section`
   border-bottom: 1px solid white;
   border-top: 1px solid white;
   padding: 1rem 0;
 `;
-export const FontNameDisplayTitle = styled.h2`
+export const UserDataDisplayTitle = styled.h2`
   font-size: 1.5rem;
 `;
-export const FontName = styled.p`
+export const UserDataDisplay = styled.p`
   font-size: 2rem;
 `;
 
