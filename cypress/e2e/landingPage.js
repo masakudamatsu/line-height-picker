@@ -27,6 +27,12 @@ describe('X-height page', () => {
     cy.findByText(/change font/i).should('exist');
     cy.findByTestId('footer').should('exist');
   });
+
+  it('takes the user to the modular-scale page after clicking the button for it', () => {
+    cy.visit('/x-height');
+    cy.findByText(/scale/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+  });
 });
 
 describe('The 404 Page', () => {
