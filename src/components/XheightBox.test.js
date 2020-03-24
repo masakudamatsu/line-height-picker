@@ -56,10 +56,10 @@ test('renders correctly', () => {
       border-radius: 4px 4px 0 0;
       color: hsl(0,0%,96%);
       font-weight: 200;
-      width: 90%;
-      padding: 1rem;
       font-size: 9rem;
       text-align: center;
+      padding: 1rem;
+      width: 90%;
     }
 
     .c2::-webkit-inner-spin-button,
@@ -88,7 +88,7 @@ test('renders correctly', () => {
           class="c1"
         >
           <input
-            class="c2"
+            class="sc-fznJRM c2"
             id="x-height"
             step="0.0001"
             type="number"

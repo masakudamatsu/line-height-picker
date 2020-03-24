@@ -217,8 +217,6 @@ export const NumberInput = styled.input.attrs(props => ({
   border-radius: 4px 4px 0 0;
   color: hsl(0, 0%, 96%);
   font-weight: 200;
-  width: 90%;
-  padding: 1rem;
   font-size: 9rem;
   text-align: center;
 
@@ -229,6 +227,12 @@ export const NumberInput = styled.input.attrs(props => ({
     outline: none;
   }
 `;
+
+export const XheightInput = styled(NumberInput)`
+  padding: 1rem;
+  width: 90%;
+`;
+
 // Footer
 
 export const FooterWrapper = styled.footer`

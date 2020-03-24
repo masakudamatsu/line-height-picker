@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Form,
-  NumberInput,
+  XheightInput,
   NumberInputWrapper,
   Label,
   ParagraphOneRem,
@@ -12,7 +12,7 @@ const XheightBox = () => {
     <Form>
       <Label htmlFor="x-height">Set x-height</Label>
       <NumberInputWrapper>
-        <NumberInput id="x-height" />
+        <XheightInput id="x-height" />
         <span>px</span>
       </NumberInputWrapper>
       <ParagraphOneRem>up to 4 decimal places</ParagraphOneRem>
