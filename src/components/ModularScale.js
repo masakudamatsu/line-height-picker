@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import ModularScaleBoxes from './ModularScaleBoxes';
 import FontNameDisplay from './FontNameDisplay';
 import XheightDisplay from './XheightDisplay';
 import {Button, ButtonContainer, NoWrap} from '../theme/style';
@@ -11,6 +12,7 @@ const ModularScale = () => {
     <>
       <Header stepNow={3} />
       <main>
+        <ModularScaleBoxes />
         <FontNameDisplay />
         <XheightDisplay />
         <ButtonContainer>
