@@ -17,6 +17,11 @@ const ModularScale = () => {
             <NoWrap>Preview</NoWrap>
             <NoWrap>→</NoWrap>
           </Button>
+          <Button as={Link} to="/x-height">
+            <NoWrap>Change</NoWrap>
+            <NoWrap>x-height</NoWrap>
+            <NoWrap>←</NoWrap>
+          </Button>
         </ButtonContainer>
       </main>
     </>

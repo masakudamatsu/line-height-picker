@@ -148,6 +148,7 @@ export const FontName = styled.p`
 
 export const ButtonContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: ${logoMarginTopBelowCutoff * 100}% 0;
   max-width: ${maxLogoWidthPx}px;
