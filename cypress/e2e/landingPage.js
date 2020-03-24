@@ -35,6 +35,16 @@ describe('X-height page', () => {
   });
 });
 
+describe('Modular Scale Page', () => {
+  it('shows the UI components correctly', () => {
+    cy.visit('/modular-scale');
+    cy.get('h1').should('have.text', 'Line-height Picker');
+    cy.findByTitle(/logo/i).should('exist');
+    cy.findByTestId('stepIndicator').should('exist');
+    cy.findByTestId('footer').should('exist');
+  });
+});
+
 describe('The 404 Page', () => {
   it('shows up when the URL contains random text', () => {
     cy.visit('/random-text');
