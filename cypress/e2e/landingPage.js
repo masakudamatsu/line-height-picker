@@ -33,6 +33,12 @@ describe('X-height page', () => {
     cy.findByText(/scale/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
   });
+
+  it('takes the user to the landing page after clicking the header logo', () => {
+    cy.visit('/x-height');
+    cy.findByTestId(/logo/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+  });
 });
 
 describe('The 404 Page', () => {
