@@ -44,6 +44,7 @@ describe('Modular Scale Page', () => {
     cy.visit('/modular-scale');
     cy.checkHeaderFooterRendering();
     cy.findByTestId('FontNameDisplay').should('exist');
+    cy.findByText(/change font/i).should('exist');
   });
 });
 
