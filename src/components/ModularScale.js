@@ -1,13 +1,16 @@
 import React from 'react';
 import Header from './Header';
+import FontNameDisplay from './FontNameDisplay';
 
-const Xheight = () => {
+const ModularScale = () => {
   return (
     <>
       <Header stepNow={3} />
-      <main></main>
+      <main>
+        <FontNameDisplay />
+      </main>
     </>
   );
 };
 
-export default Xheight;
+export default ModularScale;
