@@ -216,7 +216,7 @@ export const NumberInput = styled.input.attrs(props => ({
   border-bottom: 2px solid hsl(0, 0%, 96%);
   border-radius: 4px 4px 0 0;
   color: hsl(0, 0%, 96%);
-  font-weight: 200;
+  font-weight: ${fontWeight};
   font-size: 9rem;
   text-align: center;
 
