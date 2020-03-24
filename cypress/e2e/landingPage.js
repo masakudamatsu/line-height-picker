@@ -44,9 +44,8 @@ describe('Modular Scale Page', () => {
     cy.visit('/modular-scale');
     cy.checkHeaderFooterRendering();
     cy.findByText(/pick modular scale/i).should('exist');
-    cy.findByText(/set the ratio of/).should('exist');
+    cy.findByLabelText(/line-height/i, {selector: 'input'}).should('exist');
     cy.findByLabelText(/x-height/i).should('exist');
-    cy.findByLabelText(/line-height/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
     cy.findByText(/change font/i).should('exist');
     cy.findByTestId('XheightDisplay').should('exist');
