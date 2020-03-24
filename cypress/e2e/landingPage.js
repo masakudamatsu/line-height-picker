@@ -16,16 +16,20 @@ describe('Landing Page', () => {
   });
 });
 
+Cypress.Commands.add('checkHeaderFooterRendering', () => {
+  cy.get('h1').should('have.text', 'Line-height Picker');
+  cy.findByTitle(/logo/i).should('exist');
+  cy.findByTestId('stepIndicator').should('exist');
+  cy.findByTestId('footer').should('exist');
+});
+
 describe('X-height page', () => {
   it('shows the UI components correctly', () => {
+    cy.checkHeaderFooterRendering();
     cy.visit('/x-height');
-    cy.get('h1').should('have.text', 'Line-height Picker');
-    cy.findByTitle(/logo/i).should('exist');
-    cy.findByTestId('stepIndicator').should('exist');
     cy.findByLabelText(/x-height/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
     cy.findByText(/change font/i).should('exist');
-    cy.findByTestId('footer').should('exist');
   });
 
   it('takes the user to the modular-scale page after clicking the button for it', () => {
@@ -38,10 +42,7 @@ describe('X-height page', () => {
 describe('Modular Scale Page', () => {
   it('shows the UI components correctly', () => {
     cy.visit('/modular-scale');
-    cy.get('h1').should('have.text', 'Line-height Picker');
-    cy.findByTitle(/logo/i).should('exist');
-    cy.findByTestId('stepIndicator').should('exist');
-    cy.findByTestId('footer').should('exist');
+    cy.checkHeaderFooterRendering();
   });
 });
 
