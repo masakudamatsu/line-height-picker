@@ -46,10 +46,17 @@ describe('Modular Scale Page', () => {
     cy.findByTestId('FontNameDisplay').should('exist');
     cy.findByText(/change font/i).should('exist');
   });
+
   it('takes the user to the preview page after clicking the button for it', () => {
     cy.visit('/modular-scale');
     cy.findByText(/preview/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
+  });
+
+  it('takes the user back to the x-height page after clicking the button for it', () => {
+    cy.visit('/modular-scale');
+    cy.findByText(/x-height/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
   });
 });
 
