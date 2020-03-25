@@ -266,7 +266,7 @@ export const SampleParagraphs = styled.p`
   border: 1px solid hsl(0, 0%, 96%);
   line-height: 1.6;
   padding: 1rem;
-  margin: 2rem 0;
+  margin: 2rem 0 0.5rem 0;
   p:not(:first-child) {
     margin: 1rem 0 0 0;
   }

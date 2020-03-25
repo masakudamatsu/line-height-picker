@@ -1,6 +1,11 @@
 import React from 'react';
 import Header from './Header';
-import {PageTitle, SampleParagraphs} from '../theme/style';
+import {
+  ExternalLink,
+  PageTitle,
+  ParagraphOneRemRightAligned,
+  SampleParagraphs,
+} from '../theme/style';
 
 const Preview = () => {
   return (
@@ -37,6 +42,12 @@ const Preview = () => {
             later.
           </p>
         </SampleParagraphs>
+        <ParagraphOneRemRightAligned>
+          An excerpt from{' '}
+          <ExternalLink href="https://news.stanford.edu/2005/06/14/jobs-061505/">
+            Steve Jobs’s Stanford University Commencement address in 2005
+          </ExternalLink>
+        </ParagraphOneRemRightAligned>
       </main>
     </>
   );
