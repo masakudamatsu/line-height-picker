@@ -72,6 +72,8 @@ describe('Preview Page', () => {
     cy.findByTestId('sampleParagraph1').should('exist');
     cy.findByTestId('sampleParagraph2').should('exist');
     cy.findByText(/excerpt/i).should('exist');
+    cy.findByTestId('FontNameDisplay').should('exist');
+    cy.findByText(/change font/i).should('exist');
   });
 });
 
