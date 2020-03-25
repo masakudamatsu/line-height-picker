@@ -6,6 +6,7 @@ import {SideMarginRegulator} from './theme/style';
 import Home from './components/Home';
 import Xheight from './components/Xheight';
 import ModularScale from './components/ModularScale';
+import Preview from './components/Preview';
 import Error from './components/Error';
 import Footer from './components/Footer';
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" component={Home} exact />
             <Route path="/x-height" component={Xheight} />
             <Route path="/modular-scale" component={ModularScale} />
+            <Route path="/preview" component={Preview} />
             <Route component={Error} />
           </Switch>
         </main>
