@@ -3,6 +3,7 @@ import Header from './Header';
 import FontNameDisplay from './FontNameDisplay';
 import ChangeFontButton from './ChangeFontButton';
 import XheightBox from './XheightBox';
+import ModularScaleBoxes from './ModularScaleBoxes';
 import {
   ExternalLink,
   PageTitle,
@@ -54,6 +55,7 @@ const Preview = () => {
         <FontNameDisplay />
         <ChangeFontButton />
         <XheightBox />
+        <ModularScaleBoxes />
       </main>
     </>
   );
