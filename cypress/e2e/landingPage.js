@@ -64,6 +64,13 @@ describe('Modular Scale Page', () => {
   });
 });
 
+describe('Preview Page', () => {
+  it('shows the UI components correctly', () => {
+    cy.visit('/preview');
+    cy.checkHeaderFooterRendering();
+  });
+});
+
 describe('The 404 Page', () => {
   it('shows up when the URL contains random text', () => {
     cy.visit('/random-text');
