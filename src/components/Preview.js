@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import FontNameDisplay from './FontNameDisplay';
 import ChangeFontButton from './ChangeFontButton';
+import XheightBox from './XheightBox';
 import {
   ExternalLink,
   PageTitle,
@@ -52,6 +53,7 @@ const Preview = () => {
         </ParagraphOneRemRightAligned>
         <FontNameDisplay />
         <ChangeFontButton />
+        <XheightBox />
       </main>
     </>
   );
