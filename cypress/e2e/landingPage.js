@@ -68,6 +68,7 @@ describe('Preview Page', () => {
   it('shows the UI components correctly', () => {
     cy.visit('/preview');
     cy.checkHeaderFooterRendering();
+    cy.findByText(/preview/i).should('exist');
   });
 });
 
