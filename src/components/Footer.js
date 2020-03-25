@@ -6,17 +6,14 @@ const Footer = () => {
     <FooterWrapper data-testid="footer">
       <p>
         Designed and Coded by Masa Kudamatsu in 2020 (
-        <ExternalLink
-          href="https://github.com/masakudamatsu/line-height-picker"
-          target="_blank"
-        >
+        <ExternalLink href="https://github.com/masakudamatsu/line-height-picker">
           SOURCE CODE
         </ExternalLink>
         ).
       </p>
       <p>
         Powered by{' '}
-        <ExternalLink href="https://opentype.js.org/" target="_blank">
+        <ExternalLink href="https://opentype.js.org/">
           Opentype.js.
         </ExternalLink>
       </p>

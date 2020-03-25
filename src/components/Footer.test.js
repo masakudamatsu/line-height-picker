@@ -31,7 +31,6 @@ test('renders correctly', () => {
           <a
             class="c1"
             href="https://github.com/masakudamatsu/line-height-picker"
-            target="_blank"
           >
             SOURCE CODE
           </a>
@@ -43,7 +42,6 @@ test('renders correctly', () => {
           <a
             class="c1"
             href="https://opentype.js.org/"
-            target="_blank"
           >
             Opentype.js.
           </a>
