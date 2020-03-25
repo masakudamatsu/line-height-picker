@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from './Header';
+import FontNameDisplay from './FontNameDisplay';
+import ChangeFontButton from './ChangeFontButton';
 import {
   ExternalLink,
   PageTitle,
@@ -48,6 +50,8 @@ const Preview = () => {
             Steve Jobs’s Stanford University Commencement address in 2005
           </ExternalLink>
         </ParagraphOneRemRightAligned>
+        <FontNameDisplay />
+        <ChangeFontButton />
       </main>
     </>
   );
