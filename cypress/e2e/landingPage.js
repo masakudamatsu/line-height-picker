@@ -74,6 +74,7 @@ describe('Preview Page', () => {
     cy.findByText(/excerpt/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
     cy.findByText(/change font/i).should('exist');
+    cy.findByLabelText(/x-height/i).should('exist');
   });
 });
 
