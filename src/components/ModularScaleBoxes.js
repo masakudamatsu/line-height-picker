@@ -2,7 +2,7 @@ import React from 'react';
 import {
   CenterAlignWrapperHorizontal,
   Form,
-  FormTitle,
+  PageTitle,
   Label,
   ModularScaleInput,
   ParagraphOneRemRightAligned,
@@ -12,7 +12,7 @@ import {
 const ModularScaleBoxes = () => {
   return (
     <Form>
-      <FormTitle>Pick modular scale</FormTitle>
+      <PageTitle>Pick modular scale</PageTitle>
       <p>Set the ratio of</p>
       <CenterAlignWrapperHorizontal>
         <RatioWrapper>

@@ -40,6 +40,12 @@ export const InternalLink = styled(Link)`
   color: hsl(192, 90%, 50%);
 `;
 
+const h2FontSize = 3;
+export const PageTitle = styled.h2`
+  font-size: ${h2FontSize}rem;
+  font-weight: ${fontWeight};
+`;
+
 export const ParagraphOneRem = styled.p`
   font-size: 1rem;
 `;
@@ -201,19 +207,12 @@ export const Button = styled.button`
 `;
 
 // Forms
-
-const formFontSize = 3;
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  font-size: ${formFontSize}rem;
+  font-size: ${h2FontSize}rem;
   font-weight: ${fontWeight};
   padding: 0 0 3rem 0;
-`;
-export const FormTitle = styled.h2`
-  font-size: ${formFontSize}rem;
-  font-weight: ${fontWeight};
 `;
 
 export const Label = styled.label``;
@@ -262,6 +261,8 @@ export const XheightInput = styled(NumberInput)`
 export const ModularScaleInput = styled(NumberInput)`
   width: 100%;
 `;
+
+export const SampleParagraphs = styled.p``;
 
 // Footer
 

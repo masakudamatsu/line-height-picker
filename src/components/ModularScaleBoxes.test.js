@@ -43,6 +43,11 @@ test('renders correctly', () => {
       width: 40%;
     }
 
+    .c1 {
+      font-size: 3rem;
+      font-weight: 200;
+    }
+
     .c5 {
       font-size: 1rem;
       text-align: right;
@@ -59,11 +64,6 @@ test('renders correctly', () => {
       font-size: 3rem;
       font-weight: 200;
       padding: 0 0 3rem 0;
-    }
-
-    .c1 {
-      font-size: 3rem;
-      font-weight: 200;
     }
 
     .c4 {
@@ -147,7 +147,7 @@ test('renders correctly', () => {
           </div>
         </div>
         <p
-          class="sc-AxgMl c5"
+          class="sc-AxheI c5"
         >
           up to 4 decimal places
         </p>
