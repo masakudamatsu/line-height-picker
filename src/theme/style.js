@@ -262,7 +262,7 @@ export const ModularScaleInput = styled(NumberInput)`
   width: 100%;
 `;
 
-export const SampleParagraphs = styled.p`
+export const SampleParagraphWrapper = styled.section`
   border: 1px solid hsl(0, 0%, 96%);
   line-height: 1.6;
   padding: 1rem;
