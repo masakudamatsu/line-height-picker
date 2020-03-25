@@ -77,6 +77,12 @@ describe('Preview Page', () => {
     cy.findAllByLabelText(/x-height/i).should('exist');
     cy.findByLabelText(/line-height/i, {selector: 'input'}).should('exist');
   });
+
+  it('takes the user to the CSS page after clicking the button for it', () => {
+    cy.visit('/preview');
+    cy.findByText(/css/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/css`);
+  });
 });
 
 describe('The 404 Page', () => {
