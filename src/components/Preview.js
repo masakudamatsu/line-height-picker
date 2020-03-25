@@ -1,10 +1,14 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import Header from './Header';
 import FontNameDisplay from './FontNameDisplay';
 import ChangeFontButton from './ChangeFontButton';
 import XheightBox from './XheightBox';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import {
+  Button,
+  ButtonContainer,
   ExternalLink,
   PageTitle,
   ParagraphOneRemRightAligned,
@@ -52,6 +56,11 @@ const Preview = () => {
             Steve Jobs’s Stanford University Commencement address in 2005
           </ExternalLink>
         </ParagraphOneRemRightAligned>
+        <ButtonContainer>
+          <Button as={Link} to="/css">
+            Get CSS code
+          </Button>
+        </ButtonContainer>
         <FontNameDisplay />
         <ChangeFontButton />
         <XheightBox />
