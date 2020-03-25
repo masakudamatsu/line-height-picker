@@ -69,6 +69,8 @@ describe('Preview Page', () => {
     cy.visit('/preview');
     cy.checkHeaderFooterRendering();
     cy.findByText(/preview/i).should('exist');
+    cy.findByTestId('sampleParagraph1').should('exist');
+    cy.findByTestId('sampleParagraph2').should('exist');
   });
 });
 
