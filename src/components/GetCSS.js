@@ -12,6 +12,7 @@ const GetCSS = () => {
       <main>
         <PageTitle>Get CSS</PageTitle>
         <CssCode />
+        <Button>Copy to clipboard</Button>
         <Button as={Link} to="/preview">
           Back to preview
           <NoWrap>←</NoWrap>
