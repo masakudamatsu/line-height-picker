@@ -90,6 +90,12 @@ describe('Get CSS Page', () => {
     cy.visit('/css');
     cy.checkHeaderFooterRendering();
   });
+
+  it('takes the user back to the preview page after clicking the button for it', () => {
+    cy.visit('/css');
+    cy.findByText(/preview/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
+  });
 });
 
 describe('The 404 Page', () => {
