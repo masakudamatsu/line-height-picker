@@ -54,6 +54,11 @@ export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
   text-align: right;
 `;
 
+export const CodeSnippet = styled.pre`
+  border: 1px solid hsl(0, 0%, 96%);
+  padding: 1rem;
+`;
+
 export const HiddenH1 = styled.h1`
   height: 1px;
   left: -10000px;

@@ -10,7 +10,25 @@ import CssCode from './CssCode';
 
 test('renders correctly', () => {
   const {container} = render(<CssCode />);
-  expect(container).toMatchInlineSnapshot();
+  expect(container).toMatchInlineSnapshot(`
+    .c0 {
+      border: 1px solid hsl(0,0%,96%);
+      padding: 1rem;
+    }
+
+    <div>
+      <pre
+        class="c0"
+      >
+        <code>
+          font-family: 'Open Sans';
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+        </code>
+      </pre>
+    </div>
+  `);
 });
 
 test('is accessible', async () => {
