@@ -1,8 +1,12 @@
 import React from 'react';
 import {CodeSnippet} from '../theme/style';
 
-const CssCode = () => {
-  const cssOutput = `font-family: 'Open Sans';
+const CssCode = props => {
+  let fontFamilyName = props.fontFamily;
+  if (/\s/.test(fontFamilyName)) {
+    fontFamilyName = `'${fontFamilyName}'`;
+  }
+  const cssOutput = `font-family: ${fontFamilyName};
 font-size: 1rem;
 font-weight: 400;
 line-height: 1.4;`;

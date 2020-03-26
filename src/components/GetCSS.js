@@ -5,13 +5,13 @@ import Header from './Header';
 import CssCode from './CssCode';
 import {Button, NoWrap, PageTitle} from '../theme/style';
 
-const GetCSS = () => {
+const GetCSS = props => {
   return (
     <>
       <Header stepNow={5} />
       <main>
         <PageTitle>Get CSS</PageTitle>
-        <CssCode />
+        <CssCode fontFamily={props.fontFamily} />
         <Button>Copy to clipboard</Button>
         <Button as={Link} to="/preview">
           Back to preview

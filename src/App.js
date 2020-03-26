@@ -12,6 +12,7 @@ import Error from './components/Error';
 import Footer from './components/Footer';
 
 function App() {
+  const [fontFamily, setFontFamily] = React.useState('Open Sans');
   return (
     <>
       <GlobalStyle />
@@ -23,7 +24,9 @@ function App() {
             <Route path="/x-height" component={Xheight} />
             <Route path="/modular-scale" component={ModularScale} />
             <Route path="/preview" component={Preview} />
-            <Route path="/css" component={GetCSS} />
+            <Route path="/css">
+              <GetCSS fontFamily={fontFamily} />
+            </Route>
             <Route component={Error} />
           </Switch>
         </main>
