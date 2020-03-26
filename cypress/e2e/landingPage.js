@@ -91,6 +91,7 @@ describe('Get CSS Page', () => {
     cy.checkHeaderFooterRendering();
     cy.findByText(/css/i, {selector: 'h2'}).should('exist');
     cy.findByTestId('cssCode').should('exist');
+    cy.findByText(/copy/i).should('exist');
   });
 
   it('takes the user back to the preview page after clicking the button for it', () => {
