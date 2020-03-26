@@ -89,6 +89,7 @@ describe('Get CSS Page', () => {
   it('shows the UI components correctly', () => {
     cy.visit('/css');
     cy.checkHeaderFooterRendering();
+    cy.findByText(/css/i, {selector: 'h2'}).should('exist');
   });
 
   it('takes the user back to the preview page after clicking the button for it', () => {
