@@ -19,6 +19,7 @@ test('renders correctly', () => {
     <div>
       <pre
         class="c0"
+        data-testid="cssCode"
       >
         <code>
           font-family: 'Open Sans';
