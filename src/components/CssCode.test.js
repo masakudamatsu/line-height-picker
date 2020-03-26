@@ -19,10 +19,11 @@ test('renders correctly', () => {
     <div>
       <pre
         class="c0"
-        data-testid="cssCode"
       >
-        <code>
-          font-family: 'Open Sans';
+        <code
+          data-testid="cssCode"
+        >
+          font-family: undefined;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.4;
@@ -30,6 +31,21 @@ test('renders correctly', () => {
       </pre>
     </div>
   `);
+});
+
+test('renders props correctly', () => {
+  const mockProps = {
+    fontFamily: 'Open Sans',
+  };
+  const {getByTestId, rerender} = render(
+    <CssCode fontFamily={mockProps.fontFamily} />,
+  );
+  expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontFamily);
+  const mockNewProps = {
+    fontFamily: 'Roboto',
+  };
+  rerender(<CssCode fontFamily={mockNewProps.fontFamily} />);
+  expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontFamily);
 });
 
 test('is accessible', async () => {
