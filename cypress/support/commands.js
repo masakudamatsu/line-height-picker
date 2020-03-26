@@ -1,3 +1,10 @@
+Cypress.Commands.add('checkHeaderFooterRendering', () => {
+  cy.get('h1').should('have.text', 'Line-height Picker');
+  cy.findByTitle(/logo/i).should('exist');
+  cy.findByTestId('stepIndicator').should('exist');
+  cy.findByTestId('footer').should('exist');
+});
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
