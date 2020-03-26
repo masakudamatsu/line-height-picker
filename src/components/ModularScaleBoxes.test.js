@@ -120,7 +120,7 @@ test('renders correctly', () => {
               x-height
             </label>
             <input
-              class="sc-fznJRM c4"
+              class="sc-fznWqX c4"
               id="x-height-scale"
               step="0.0001"
               type="number"
@@ -139,7 +139,7 @@ test('renders correctly', () => {
               line-height
             </label>
             <input
-              class="sc-fznJRM c4"
+              class="sc-fznWqX c4"
               id="line-height-scale"
               step="0.0001"
               type="number"

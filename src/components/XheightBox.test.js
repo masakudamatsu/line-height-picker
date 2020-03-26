@@ -88,7 +88,7 @@ test('renders correctly', () => {
           class="c1"
         >
           <input
-            class="sc-fznJRM c2"
+            class="sc-fznWqX c2"
             id="x-height"
             step="0.0001"
             type="number"
