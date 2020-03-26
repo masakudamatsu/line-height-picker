@@ -36,16 +36,29 @@ test('renders correctly', () => {
 test('renders props correctly', () => {
   const mockProps = {
     fontFamily: 'Open Sans',
+    fontWeight: 400,
   };
   const {getByTestId, rerender} = render(
-    <CssCode fontFamily={mockProps.fontFamily} />,
+    <CssCode
+      fontFamily={mockProps.fontFamily}
+      fontWeight={mockProps.fontWeight}
+    />,
   );
   expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontFamily);
+  expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontWeight);
+
   const mockNewProps = {
     fontFamily: 'Roboto',
+    fontWeight: 500,
   };
-  rerender(<CssCode fontFamily={mockNewProps.fontFamily} />);
+  rerender(
+    <CssCode
+      fontFamily={mockNewProps.fontFamily}
+      fontWeight={mockNewProps.fontWeight}
+    />,
+  );
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontFamily);
+  expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontWeight);
 });
 
 test('is accessible', async () => {
