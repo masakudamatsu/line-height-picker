@@ -8,8 +8,8 @@ font-weight: 400;
 line-height: 1.4;`;
 
   return (
-    <CodeSnippet data-testid="cssCode">
-      <code>{cssOutput}</code>
+    <CodeSnippet>
+      <code data-testid="cssCode">{cssOutput}</code>
     </CodeSnippet>
   );
 };
