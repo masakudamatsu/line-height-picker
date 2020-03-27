@@ -7,12 +7,20 @@ import {
   ParagraphOneRem,
 } from '../theme/style';
 
-const XheightBox = () => {
+const XheightBox = props => {
+  const handleChange = event => {
+    const xHeightValue = event.target.value;
+    props.xHeightToFontSize(xHeightValue);
+  };
   return (
     <Form>
       <Label htmlFor="x-height">Set x-height</Label>
       <NumberInputWrapper>
-        <XheightInput id="x-height" />
+        <XheightInput
+          id="x-height"
+          onChange={handleChange}
+          value={props.xHeightPx}
+        />
         <span>px</span>
       </NumberInputWrapper>
       <ParagraphOneRem>up to 4 decimal places</ParagraphOneRem>

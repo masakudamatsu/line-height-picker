@@ -1,6 +1,6 @@
 import React from 'react';
 import render from './test-utils/render';
-import {cleanup} from '@testing-library/react';
+import {cleanup, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
@@ -105,6 +105,30 @@ test('renders correctly', () => {
       </form>
     </div>
   `);
+});
+
+test('The value attribute reflects props.xHeightPx', () => {
+  // setup
+  const xHeightPx = '10';
+  const {getByLabelText} = render(<XheightBox xHeightPx={xHeightPx} />);
+  expect(getByLabelText(/x-height/i)).toHaveAttribute('value', xHeightPx);
+});
+
+test('Entering x-height value calls the xHeightToFontSize function', () => {
+  // setup
+  const xHeightToFontSize = jest.fn();
+  const userXheight = '10';
+  // execute
+  const {getByLabelText} = render(
+    <XheightBox xHeightToFontSize={xHeightToFontSize} />,
+  );
+  const xHeightInput = getByLabelText(/x-height/i);
+  fireEvent.change(xHeightInput, {target: {value: userXheight}});
+  // verify
+  expect(xHeightToFontSize).toHaveBeenCalledTimes(1);
+  expect(xHeightToFontSize).toHaveBeenCalledWith(userXheight);
+  // isolate
+  xHeightToFontSize.mockClear();
 });
 
 test('is accessible', async () => {
