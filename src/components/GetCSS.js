@@ -11,7 +11,11 @@ const GetCSS = props => {
       <Header stepNow={5} />
       <main>
         <PageTitle>Get CSS</PageTitle>
-        <CssCode fontFamily={props.fontFamily} fontWeight={props.fontWeight} />
+        <CssCode
+          fontFamily={props.fontFamily}
+          fontSize={props.fontSize}
+          fontWeight={props.fontWeight}
+        />
         <Button>Copy to clipboard</Button>
         <Button as={Link} to="/preview">
           Back to preview

@@ -15,7 +15,18 @@ function App() {
   const [fontMetrics, setFontMetrics] = React.useState({
     fontFamily: 'Open Sans',
     fontWeight: 400,
+    xHeight: 1096,
+    unitsPerEm: 2048,
   });
+  const [xHeightPx, setXHeightPx] = React.useState('');
+  const [fontSizePx, setFontSizePx] = React.useState('');
+
+  const xHeightToFontSize = xHeight => {
+    setXHeightPx(xHeight);
+    const xHeightToFontSizeRatio = fontMetrics.xHeight / fontMetrics.unitsPerEm;
+    const newFontSize = (xHeight / xHeightToFontSizeRatio).toFixed(4);
+    setFontSizePx(newFontSize);
+  };
   return (
     <>
       <GlobalStyle />
@@ -24,12 +35,18 @@ function App() {
         <main>
           <Switch>
             <Route path="/" component={Home} exact />
-            <Route path="/x-height" component={Xheight} />
+            <Route path="/x-height">
+              <Xheight
+                xHeightPx={xHeightPx}
+                xHeightToFontSize={xHeightToFontSize}
+              />
+            </Route>
             <Route path="/modular-scale" component={ModularScale} />
             <Route path="/preview" component={Preview} />
             <Route path="/css">
               <GetCSS
                 fontFamily={fontMetrics.fontFamily}
+                fontSize={fontSizePx}
                 fontWeight={fontMetrics.fontWeight}
               />
             </Route>

@@ -6,12 +6,15 @@ import {Button, ButtonContainer, NoWrap} from '../theme/style';
 import ChangeFontButton from './ChangeFontButton';
 import {Link} from 'react-router-dom';
 
-const Xheight = () => {
+const Xheight = props => {
   return (
     <>
       <Header stepNow={2} />
       <main>
-        <XheightBox />
+        <XheightBox
+          xHeightPx={props.xHeightPx}
+          xHeightToFontSize={props.xHeightToFontSize}
+        />
         <FontNameDisplay />
         <ButtonContainer>
           <ChangeFontButton />
