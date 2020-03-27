@@ -36,28 +36,34 @@ test('renders correctly', () => {
 test('renders props correctly', () => {
   const mockProps = {
     fontFamily: 'Open Sans',
+    fontSize: 18.6543,
     fontWeight: 400,
   };
   const {getByTestId, rerender} = render(
     <CssCode
       fontFamily={mockProps.fontFamily}
+      fontSize={mockProps.fontSize}
       fontWeight={mockProps.fontWeight}
     />,
   );
   expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontFamily);
+  expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontSize);
   expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontWeight);
 
   const mockNewProps = {
     fontFamily: 'Roboto',
+    fontSize: 17.4059,
     fontWeight: 500,
   };
   rerender(
     <CssCode
       fontFamily={mockNewProps.fontFamily}
+      fontSize={mockNewProps.fontSize}
       fontWeight={mockNewProps.fontWeight}
     />,
   );
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontFamily);
+  expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontSize);
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontWeight);
 });
 
