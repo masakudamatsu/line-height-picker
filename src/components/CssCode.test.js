@@ -24,7 +24,7 @@ test('renders correctly', () => {
           data-testid="cssCode"
         >
           font-family: undefined;
-    font-size: 1rem;
+    font-size: undefinedpx;
     font-weight: undefined;
     line-height: 1.4;
         </code>

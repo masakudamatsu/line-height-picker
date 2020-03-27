@@ -92,6 +92,7 @@ test('renders correctly', () => {
             id="x-height"
             step="0.0001"
             type="number"
+            value=""
           />
           <span>
             px
