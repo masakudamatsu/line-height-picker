@@ -12,8 +12,10 @@ import Error from './components/Error';
 import Footer from './components/Footer';
 
 function App() {
-  const [fontFamily, setFontFamily] = React.useState('Open Sans');
-  const [fontWeight, setFontWeight] = React.useState(400);
+  const [fontMetrics, setFontMetrics] = React.useState({
+    fontFamily: 'Open Sans',
+    fontWeight: 400,
+  });
   return (
     <>
       <GlobalStyle />
@@ -26,7 +28,10 @@ function App() {
             <Route path="/modular-scale" component={ModularScale} />
             <Route path="/preview" component={Preview} />
             <Route path="/css">
-              <GetCSS fontFamily={fontFamily} fontWeight={fontWeight} />
+              <GetCSS
+                fontFamily={fontMetrics.fontFamily}
+                fontWeight={fontMetrics.fontWeight}
+              />
             </Route>
             <Route component={Error} />
           </Switch>
