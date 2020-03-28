@@ -15,6 +15,8 @@ const ModularScale = props => {
         <ModularScaleBoxes
           xHeightRatio={props.xHeightRatio}
           lineHeightRatio={props.lineHeightRatio}
+          handleXHeightRatio={props.handleXHeightRatio}
+          handleLineHeightRatio={props.handleLineHeightRatio}
         />
         <FontNameDisplay />
         <XheightDisplay />

@@ -30,6 +30,25 @@ function App() {
     const newFontSize = (xHeight / xHeightToFontSizeRatio).toFixed(4);
     setFontSizePx(newFontSize);
   };
+
+  const handleXHeightRatio = newXHeightRatio => {
+    setXHeightRatio(newXHeightRatio);
+    generateLineHeight(newXHeightRatio, lineHeightRatio);
+  };
+  const handleLineHeightRatio = newLineHeightRatio => {
+    setLineHeightRatio(newLineHeightRatio);
+    generateLineHeight(xHeightRatio, newLineHeightRatio);
+  };
+  const generateLineHeight = (xHeightRatio, lineHeightRatio) => {
+    if (xHeightRatio === 0) {
+      console.log('X-height ratio is zero...');
+      return;
+    }
+    const lineToXRatio = lineHeightRatio / xHeightRatio;
+    const newLineHeightPx = xHeightPx * lineToXRatio;
+    const newLineHeight = (newLineHeightPx / fontSizePx).toFixed(4);
+    setLineHeight(newLineHeight);
+  };
   return (
     <>
       <GlobalStyle />
@@ -48,6 +67,8 @@ function App() {
               <ModularScale
                 xHeightRatio={xHeightRatio}
                 lineHeightRatio={lineHeightRatio}
+                handleXHeightRatio={handleXHeightRatio}
+                handleLineHeightRatio={handleLineHeightRatio}
               />
             </Route>
             <Route path="/preview" component={Preview} />
