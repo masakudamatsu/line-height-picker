@@ -41,6 +41,29 @@ test('renders correctly', () => {
   `);
 });
 
+test('renders paragraphs according to the props values', () => {
+  const paragraphStyle = {
+    fontFamily: 'Roboto',
+    fontSize: 18,
+    fontWeight: 500,
+    lineHeight: 1.15,
+  };
+  const {getByTestId} = render(
+    <SampleParagraphs
+      fontFamily={paragraphStyle.fontFamily}
+      fontSize={paragraphStyle.fontSize}
+      fontWeight={paragraphStyle.fontWeight}
+      lineHeight={paragraphStyle.lineHeight}
+    />,
+  );
+  expect(getByTestId('sampleParagraphs')).toHaveStyle(`
+    font-family: ${paragraphStyle.fontFamily};
+    font-size: ${paragraphStyle.fontSize}px;
+    font-weight: ${paragraphStyle.fontWeight};
+    line-height: ${paragraphStyle.lineHeight};
+    `);
+});
+
 test('is accessible', async () => {
   const {container} = render(<SampleParagraphs />);
   const results = await axe(container);
