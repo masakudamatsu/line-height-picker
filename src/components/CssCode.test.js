@@ -38,33 +38,39 @@ test('renders props correctly', () => {
     fontFamily: 'Open Sans',
     fontSize: 18.6543,
     fontWeight: 400,
+    lineHeight: 1.6055,
   };
   const {getByTestId, rerender} = render(
     <CssCode
       fontFamily={mockProps.fontFamily}
       fontSize={mockProps.fontSize}
       fontWeight={mockProps.fontWeight}
+      lineHeight={mockProps.lineHeight}
     />,
   );
   expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontFamily);
   expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontSize);
   expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontWeight);
+  expect(getByTestId('cssCode')).toHaveTextContent(mockProps.lineHeight);
 
   const mockNewProps = {
     fontFamily: 'Roboto',
     fontSize: 17.4059,
     fontWeight: 500,
+    lineHeight: 1.5,
   };
   rerender(
     <CssCode
       fontFamily={mockNewProps.fontFamily}
       fontSize={mockNewProps.fontSize}
       fontWeight={mockNewProps.fontWeight}
+      lineHeight={mockNewProps.lineHeight}
     />,
   );
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontFamily);
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontSize);
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontWeight);
+  expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.lineHeight);
 });
 
 test('is accessible', async () => {
