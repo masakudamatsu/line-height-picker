@@ -26,7 +26,7 @@ test('renders correctly', () => {
           font-family: undefined;
     font-size: undefinedpx;
     font-weight: undefined;
-    line-height: 1.4;
+    line-height: undefined;
         </code>
       </pre>
     </div>

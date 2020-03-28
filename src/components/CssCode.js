@@ -9,7 +9,7 @@ const CssCode = props => {
   const cssOutput = `font-family: ${fontFamilyName};
 font-size: ${props.fontSize}px;
 font-weight: ${props.fontWeight};
-line-height: 1.4;`;
+line-height: ${props.lineHeight};`;
 
   return (
     <CodeSnippet>
