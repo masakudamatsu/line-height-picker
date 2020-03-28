@@ -25,6 +25,7 @@ test('renders correctly', () => {
     <div>
       <section
         class="c0"
+        data-testid="sampleParagraphs"
       >
         <p
           data-testid="sampleParagraph1"

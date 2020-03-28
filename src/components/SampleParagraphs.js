@@ -1,9 +1,18 @@
 import React from 'react';
 import {SampleParagraphWrapper} from '../theme/style';
 
-const SampleParagraphs = () => {
+const SampleParagraphs = props => {
+  const paragraphStyle = {
+    fontFamily: props.fontFamily,
+    fontSize: props.fontSize,
+    fontWeight: props.fontWeight,
+    lineHeight: props.lineHeight,
+  };
   return (
-    <SampleParagraphWrapper>
+    <SampleParagraphWrapper
+      data-testid="sampleParagraphs"
+      style={paragraphStyle}
+    >
       <p data-testid="sampleParagraph1">
         … I learned about serif and sans serif typefaces, about varying the
         amount of space between different letter combinations, about what makes
