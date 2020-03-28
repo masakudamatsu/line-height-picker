@@ -1,8 +1,8 @@
 describe('Demo', () => {
   it('shows the CSS code correctly', () => {
     // setup
-    const fontFamily = `font-family: 'Open Sans'`;
-    const fontWeight = `font-weight: 400`;
+    const fontFamily = `'Open Sans'`;
+    const fontWeight = `400`;
     const userData = {
       xHeight: 10,
       xHeightRatio: 1,
@@ -12,15 +12,14 @@ describe('Demo', () => {
       unitsPerEm: 2048,
       sxHeight: 1096,
     };
-    const fontSizeValue = (
+    const fontSize = (
       userData.xHeight *
       (OpenSansFontMetrics.unitsPerEm / OpenSansFontMetrics.sxHeight)
     ).toFixed(4);
-    const fontSize = `font-size: ${fontSizeValue}px`;
-    const lineHeight = `line-height: ${(
+    const lineHeight = (
       (userData.xHeight * (userData.lineHeightRatio / userData.xHeightRatio)) /
-      fontSizeValue
-    ).toFixed(4)}`;
+      fontSize
+    ).toFixed(4);
     // execute
     cy.visit('/');
     cy.findByText(/demo/i).click();
@@ -34,9 +33,9 @@ describe('Demo', () => {
     cy.findByText(/css/i).click();
     // verify
     cy.findByTestId('cssCode')
-      .contains(fontFamily)
-      .contains(fontWeight)
-      .contains(fontSize)
-      .contains(lineHeight);
+      .contains(`font-family: ${fontFamily}`)
+      .contains(`font-weight: ${fontWeight}`)
+      .contains(`font-size: ${fontSize}px`)
+      .contains(`line-height: ${lineHeight}`);
   });
 });
