@@ -1,7 +1,7 @@
 describe('Demo', () => {
   it('styles sample paragraphs correctly and then shows the CSS code correctly', () => {
     // setup
-    const fontFamily = `'Open Sans'`;
+    const fontFamily = `Open Sans`;
     const fontWeight = `400`;
     const userData = {
       xHeight: 10,
@@ -30,15 +30,19 @@ describe('Demo', () => {
       userData.lineHeightRatio,
     );
     cy.findByText(/preview/i).click();
-    cy.findByTestId('sampleParagraph1')
-      .should('have.css', 'font-family', fontFamily)
-      .should('have.css', 'font-size', fontSize)
+    cy.findByTestId('sampleParagraphs')
+      .should('have.css', 'font-family', `"${fontFamily}"`)
+      .should('have.css', 'font-size', `${fontSize}px`)
       .should('have.css', 'font-weight', fontWeight)
-      .should('have.css', 'line-height', lineHeight);
+      .should(
+        'have.css',
+        'line-height',
+        `${(fontSize * lineHeight).toFixed(4)}px`,
+      );
     cy.findByText(/css/i).click();
     // verify
     cy.findByTestId('cssCode')
-      .contains(`font-family: ${fontFamily}`)
+      .contains(`font-family: '${fontFamily}'`)
       .contains(`font-weight: ${fontWeight}`)
       .contains(`font-size: ${fontSize}px`)
       .contains(`line-height: ${lineHeight}`);
