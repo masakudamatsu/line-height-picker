@@ -1,6 +1,6 @@
 import React from 'react';
 import render from './test-utils/render';
-import {cleanup} from '@testing-library/react';
+import {cleanup, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
@@ -175,6 +175,21 @@ test('The value attribute reflects props value', () => {
     'value',
     lineHeightRatio,
   );
+});
+
+test('Entering x-height ratio value calls the handleXHeightRatio() function', () => {
+  // setup
+  const handleXHeightRatio = jest.fn();
+  const userdata = '2';
+  // execute
+  const {getByLabelText} = render(
+    <ModularScaleBoxes handleXHeightRatio={handleXHeightRatio} />,
+  );
+  const xHeightRatioInput = getByLabelText(/x-height/i);
+  fireEvent.change(xHeightRatioInput, {target: {value: userdata}});
+  // verify
+  expect(handleXHeightRatio).toHaveBeenCalledTimes(1);
+  expect(handleXHeightRatio).toHaveBeenCalledWith(userdata);
 });
 
 test('is accessible', async () => {
