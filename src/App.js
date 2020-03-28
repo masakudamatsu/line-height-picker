@@ -19,6 +19,8 @@ function App() {
     unitsPerEm: 2048,
   });
   const [xHeightPx, setXHeightPx] = React.useState('');
+  const [xHeightRatio, setXHeightRatio] = React.useState('');
+  const [lineHeightRatio, setLineHeightRatio] = React.useState('');
   const [fontSizePx, setFontSizePx] = React.useState('');
   const [lineHeight, setLineHeight] = React.useState('');
 
@@ -42,7 +44,12 @@ function App() {
                 xHeightToFontSize={xHeightToFontSize}
               />
             </Route>
-            <Route path="/modular-scale" component={ModularScale} />
+            <Route path="/modular-scale">
+              <ModularScale
+                xHeightRatio={xHeightRatio}
+                lineHeightRatio={lineHeightRatio}
+              />
+            </Route>
             <Route path="/preview" component={Preview} />
             <Route path="/css">
               <GetCSS

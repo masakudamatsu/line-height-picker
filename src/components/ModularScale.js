@@ -7,12 +7,15 @@ import {Button, ButtonContainer, NoWrap} from '../theme/style';
 import ChangeFontButton from './ChangeFontButton';
 import {Link} from 'react-router-dom';
 
-const ModularScale = () => {
+const ModularScale = props => {
   return (
     <>
       <Header stepNow={3} />
       <main>
-        <ModularScaleBoxes />
+        <ModularScaleBoxes
+          xHeightRatio={props.xHeightRatio}
+          lineHeightRatio={props.lineHeightRatio}
+        />
         <FontNameDisplay />
         <XheightDisplay />
         <ButtonContainer>
