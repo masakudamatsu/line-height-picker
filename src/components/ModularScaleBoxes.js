@@ -14,6 +14,10 @@ const ModularScaleBoxes = props => {
     const newXHeightRatio = event.target.value;
     props.handleXHeightRatio(newXHeightRatio);
   };
+  const handleLineHeightChange = event => {
+    const newLineHeightRatio = event.target.value;
+    props.handleLineHeightRatio(newLineHeightRatio);
+  };
   return (
     <Form>
       <PageTitle>Pick modular scale</PageTitle>
@@ -32,6 +36,7 @@ const ModularScaleBoxes = props => {
           <Label htmlFor="line-height-scale">line-height</Label>
           <ModularScaleInput
             id="line-height-scale"
+            onChange={handleLineHeightChange}
             value={props.lineHeightRatio}
           />
         </RatioWrapper>
