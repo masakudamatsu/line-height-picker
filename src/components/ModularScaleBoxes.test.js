@@ -124,6 +124,7 @@ test('renders correctly', () => {
               id="x-height-scale"
               step="0.0001"
               type="number"
+              value=""
             />
           </div>
           <span>
@@ -143,6 +144,7 @@ test('renders correctly', () => {
               id="line-height-scale"
               step="0.0001"
               type="number"
+              value=""
             />
           </div>
         </div>

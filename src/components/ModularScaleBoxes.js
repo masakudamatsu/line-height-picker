@@ -9,7 +9,7 @@ import {
   RatioWrapper,
 } from '../theme/style';
 
-const ModularScaleBoxes = () => {
+const ModularScaleBoxes = props => {
   return (
     <Form>
       <PageTitle>Pick modular scale</PageTitle>
@@ -17,12 +17,18 @@ const ModularScaleBoxes = () => {
       <CenterAlignWrapperHorizontal>
         <RatioWrapper>
           <Label htmlFor="x-height-scale">x-height</Label>
-          <ModularScaleInput id="x-height-scale" />
+          <ModularScaleInput
+            id="x-height-scale"
+            value={props.xHeightRatio}
+          />
         </RatioWrapper>
         <span>to</span>
         <RatioWrapper>
           <Label htmlFor="line-height-scale">line-height</Label>
-          <ModularScaleInput id="line-height-scale" />
+          <ModularScaleInput
+            id="line-height-scale"
+            value={props.lineHeightRatio}
+          />
         </RatioWrapper>
       </CenterAlignWrapperHorizontal>
       <ParagraphOneRemRightAligned>
