@@ -20,6 +20,7 @@ function App() {
   });
   const [xHeightPx, setXHeightPx] = React.useState('');
   const [fontSizePx, setFontSizePx] = React.useState('');
+  const [lineHeight, setLineHeight] = React.useState('');
 
   const xHeightToFontSize = xHeight => {
     setXHeightPx(xHeight);
@@ -48,6 +49,7 @@ function App() {
                 fontFamily={fontMetrics.fontFamily}
                 fontSize={fontSizePx}
                 fontWeight={fontMetrics.fontWeight}
+                lineHeight={lineHeight}
               />
             </Route>
             <Route component={Error} />

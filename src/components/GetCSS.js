@@ -15,6 +15,7 @@ const GetCSS = props => {
           fontFamily={props.fontFamily}
           fontSize={props.fontSize}
           fontWeight={props.fontWeight}
+          lineHeight={props.lineHeight}
         />
         <Button>Copy to clipboard</Button>
         <Button as={Link} to="/preview">
