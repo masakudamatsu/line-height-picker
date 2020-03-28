@@ -192,6 +192,23 @@ test('Entering x-height ratio value calls the handleXHeightRatio() function', ()
   expect(handleXHeightRatio).toHaveBeenCalledWith(userdata);
 });
 
+test('Entering line-height ratio value calls the handleLineHeightRatio() function', () => {
+  // setup
+  const handleLineHeightRatio = jest.fn();
+  const userdata = '3';
+  // execute
+  const {getByLabelText} = render(
+    <ModularScaleBoxes handleLineHeightRatio={handleLineHeightRatio} />,
+  );
+  const lineHeightRatioInput = getByLabelText(/line-height/i, {
+    selector: 'input',
+  });
+  fireEvent.change(lineHeightRatioInput, {target: {value: userdata}});
+  // verify
+  expect(handleLineHeightRatio).toHaveBeenCalledTimes(1);
+  expect(handleLineHeightRatio).toHaveBeenCalledWith(userdata);
+});
+
 test('is accessible', async () => {
   const {container} = render(<ModularScaleBoxes />);
   const results = await axe(container);
