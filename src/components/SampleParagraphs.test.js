@@ -26,6 +26,7 @@ test('renders correctly', () => {
       <section
         class="c0"
         data-testid="sampleParagraphs"
+        style="font-size: NaNpx;"
       >
         <p
           data-testid="sampleParagraph1"

@@ -71,7 +71,14 @@ function App() {
                 handleLineHeightRatio={handleLineHeightRatio}
               />
             </Route>
-            <Route path="/preview" component={Preview} />
+            <Route path="/preview">
+              <Preview
+                fontFamily={fontMetrics.fontFamily}
+                fontSize={fontSizePx}
+                fontWeight={fontMetrics.fontWeight}
+                lineHeight={lineHeight}
+              />
+            </Route>
             <Route path="/css">
               <GetCSS
                 fontFamily={fontMetrics.fontFamily}

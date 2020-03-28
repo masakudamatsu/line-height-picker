@@ -15,13 +15,18 @@ import {
   ParagraphOneRemRightAligned,
 } from '../theme/style';
 
-const Preview = () => {
+const Preview = props => {
   return (
     <>
       <Header stepNow={4} />
       <main>
         <PageTitle>Preview sample paragraphs</PageTitle>
-        <SampleParagraphs />
+        <SampleParagraphs
+          fontFamily={props.fontFamily}
+          fontSize={props.fontSize}
+          fontWeight={props.fontWeight}
+          lineHeight={props.lineHeight}
+        />
         <ParagraphOneRemRightAligned>
           An excerpt from{' '}
           <ExternalLink href="https://news.stanford.edu/2005/06/14/jobs-061505/">

@@ -4,7 +4,7 @@ import {SampleParagraphWrapper} from '../theme/style';
 const SampleParagraphs = props => {
   const paragraphStyle = {
     fontFamily: props.fontFamily,
-    fontSize: props.fontSize,
+    fontSize: Number(props.fontSize),
     fontWeight: props.fontWeight,
     lineHeight: props.lineHeight,
   };
