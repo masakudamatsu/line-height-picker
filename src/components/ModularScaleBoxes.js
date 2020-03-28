@@ -10,6 +10,10 @@ import {
 } from '../theme/style';
 
 const ModularScaleBoxes = props => {
+  const handleXHeightChange = event => {
+    const newXHeightRatio = event.target.value;
+    props.handleXHeightRatio(newXHeightRatio);
+  };
   return (
     <Form>
       <PageTitle>Pick modular scale</PageTitle>
@@ -19,6 +23,7 @@ const ModularScaleBoxes = props => {
           <Label htmlFor="x-height-scale">x-height</Label>
           <ModularScaleInput
             id="x-height-scale"
+            onChange={handleXHeightChange}
             value={props.xHeightRatio}
           />
         </RatioWrapper>
