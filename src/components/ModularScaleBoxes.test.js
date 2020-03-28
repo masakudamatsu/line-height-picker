@@ -156,6 +156,25 @@ test('renders correctly', () => {
   `);
 });
 
+test('The value attribute reflects props value', () => {
+  // setup
+  const xHeightRatio = '1';
+  const lineHeightRatio = '3';
+  // execute
+  const {getByLabelText} = render(
+    <ModularScaleBoxes
+      xHeightRatio={xHeightRatio}
+      lineHeightRatio={lineHeightRatio}
+    />,
+  );
+  // verify
+  expect(getByLabelText(/x-height/i)).toHaveAttribute('value', xHeightRatio);
+  expect(getByLabelText(/line-height/i, {selector: 'input'})).toHaveAttribute(
+    'value',
+    lineHeightRatio,
+  );
+});
+
 test('is accessible', async () => {
   const {container} = render(<ModularScaleBoxes />);
   const results = await axe(container);
