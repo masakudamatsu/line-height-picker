@@ -75,5 +75,10 @@ describe('Demo', () => {
       .should('have.value', userData.xHeight.toString())
       .type(`{backspace}{backspace}${newUserData.xHeight}`)
       .should('have.value', newUserData.xHeight.toString());
+    cy.findByTestId('sampleParagraphs').should(
+      'have.css',
+      'font-size',
+      `${fontSize(newUserData.xHeight)}px`,
+    );
   });
 });
