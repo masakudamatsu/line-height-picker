@@ -89,6 +89,7 @@ test('renders correctly', () => {
         >
           <input
             class="sc-fznWqX c2"
+            data-testid="x-height-in-pixel"
             id="x-height"
             step="0.0001"
             type="number"

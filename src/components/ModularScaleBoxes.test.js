@@ -121,6 +121,7 @@ test('renders correctly', () => {
             </label>
             <input
               class="sc-fznWqX c4"
+              data-testid="x-height-for-ratio"
               id="x-height-scale"
               step="0.0001"
               type="number"
@@ -141,6 +142,7 @@ test('renders correctly', () => {
             </label>
             <input
               class="sc-fznWqX c4"
+              data-testid="line-height-for-ratio"
               id="line-height-scale"
               step="0.0001"
               type="number"
