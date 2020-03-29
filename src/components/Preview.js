@@ -40,7 +40,10 @@ const Preview = props => {
         </ButtonContainer>
         <FontNameDisplay />
         <ChangeFontButton />
-        <XheightBox xHeightPx={props.xHeightPx} />
+        <XheightBox
+          xHeightToFontSize={props.xHeightToFontSize}
+          xHeightPx={props.xHeightPx}
+        />
         <ModularScaleBoxes />
       </main>
     </>
