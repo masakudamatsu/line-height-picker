@@ -82,5 +82,7 @@ describe('Demo', () => {
     );
     cy.findByTestId('x-height-for-ratio')
       .should('have.value', userData.xHeightRatio.toString())
+      .type(`{backspace}${newUserData.xHeightRatio}`)
+      .should('have.value', newUserData.xHeightRatio.toString());
   });
 });
