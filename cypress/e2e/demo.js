@@ -12,14 +12,18 @@ describe('Demo', () => {
       unitsPerEm: 2048,
       sxHeight: 1096,
     };
-    const fontSize = (
-      userData.xHeight *
-      (OpenSansFontMetrics.unitsPerEm / OpenSansFontMetrics.sxHeight)
-    ).toFixed(4);
-    const lineHeight = (
-      (userData.xHeight * (userData.lineHeightRatio / userData.xHeightRatio)) /
-      fontSize
-    ).toFixed(4);
+    const fontSize = xHeight => {
+      return (
+        xHeight *
+        (OpenSansFontMetrics.unitsPerEm / OpenSansFontMetrics.sxHeight)
+      ).toFixed(4);
+    };
+    const lineHeight = (xHeight, lineHeightRatio, xHeightRatio) => {
+      return (
+        (xHeight * (lineHeightRatio / xHeightRatio)) /
+        fontSize(xHeight)
+      ).toFixed(4);
+    };
     // execute
     cy.visit('/');
     cy.findByText(/demo/i).click();
@@ -32,20 +36,33 @@ describe('Demo', () => {
     cy.findByText(/preview/i).click();
     cy.findByTestId('sampleParagraphs')
       .should('have.css', 'font-family', `"${fontFamily}"`)
-      .should('have.css', 'font-size', `${fontSize}px`)
+      .should('have.css', 'font-size', `${fontSize(userData.xHeight)}px`)
       .should('have.css', 'font-weight', fontWeight)
       .should(
         'have.css',
         'line-height',
-        `${(fontSize * lineHeight).toFixed(4)}px`,
+        `${(
+          fontSize(userData.xHeight) *
+          lineHeight(
+            userData.xHeight,
+            userData.lineHeightRatio,
+            userData.xHeightRatio,
+          )
+        ).toFixed(4)}px`,
       );
     cy.findByText(/css/i).click();
     // verify
     cy.findByTestId('cssCode')
       .contains(`font-family: '${fontFamily}'`)
       .contains(`font-weight: ${fontWeight}`)
-      .contains(`font-size: ${fontSize}px`)
-      .contains(`line-height: ${lineHeight}`);
+      .contains(`font-size: ${fontSize(userData.xHeight)}px`)
+      .contains(
+        `line-height: ${lineHeight(
+          userData.xHeight,
+          userData.lineHeightRatio,
+          userData.xHeightRatio,
+        )}`,
+      );
     // setup for changing inputs
     const newUserData = {
       xHeight: 11,
