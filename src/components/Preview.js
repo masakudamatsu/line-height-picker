@@ -44,7 +44,7 @@ const Preview = props => {
           xHeightToFontSize={props.xHeightToFontSize}
           xHeightPx={props.xHeightPx}
         />
-        <ModularScaleBoxes />
+        <ModularScaleBoxes xHeightRatio={props.xHeightRatio} />
       </main>
     </>
   );
