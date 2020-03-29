@@ -77,6 +77,7 @@ function App() {
                 fontSize={fontSizePx}
                 fontWeight={fontMetrics.fontWeight}
                 lineHeight={lineHeight}
+                xHeightPx={xHeightPx}
               />
             </Route>
             <Route path="/css">
