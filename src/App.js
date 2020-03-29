@@ -82,6 +82,7 @@ function App() {
                 xHeightRatio={xHeightRatio}
                 handleXHeightRatio={handleXHeightRatio}
                 lineHeightRatio={lineHeightRatio}
+                handleLineHeightRatio={handleLineHeightRatio}
               />
             </Route>
             <Route path="/css">

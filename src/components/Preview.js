@@ -48,6 +48,7 @@ const Preview = props => {
           xHeightRatio={props.xHeightRatio}
           handleXHeightRatio={props.handleXHeightRatio}
           lineHeightRatio={props.lineHeightRatio}
+          handleLineHeightRatio={props.handleLineHeightRatio}
         />
       </main>
     </>
