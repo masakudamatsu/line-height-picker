@@ -100,5 +100,17 @@ describe('Demo', () => {
       .should('have.value', userData.lineHeightRatio.toString())
       .type(`{backspace}${newUserData.lineHeightRatio}`)
       .should('have.value', newUserData.lineHeightRatio.toString());
+    cy.findByTestId('sampleParagraphs').should(
+      'have.css',
+      'line-height',
+      `${(
+        fontSize(newUserData.xHeight) *
+        lineHeight(
+          newUserData.xHeight,
+          newUserData.lineHeightRatio,
+          newUserData.xHeightRatio,
+        )
+      ).toFixed(4)}px`,
+    );
   });
 });
