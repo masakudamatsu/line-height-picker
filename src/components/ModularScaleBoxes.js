@@ -26,6 +26,7 @@ const ModularScaleBoxes = props => {
         <RatioWrapper>
           <Label htmlFor="x-height-scale">x-height</Label>
           <ModularScaleInput
+            data-testid="x-height-for-ratio"
             id="x-height-scale"
             onChange={handleXHeightChange}
             value={props.xHeightRatio}

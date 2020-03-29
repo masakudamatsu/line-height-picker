@@ -80,5 +80,7 @@ describe('Demo', () => {
       'font-size',
       `${fontSize(newUserData.xHeight)}px`,
     );
+    cy.findByTestId('x-height-for-ratio')
+      .should('have.value', userData.xHeightRatio.toString())
   });
 });
