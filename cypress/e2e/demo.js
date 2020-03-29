@@ -39,10 +39,6 @@ describe('Demo', () => {
         'line-height',
         `${(fontSize * lineHeight).toFixed(4)}px`,
       );
-    cy.findByTestId('x-height-in-pixel').should(
-      'have.value',
-      userData.xHeight.toString(),
-    );
     cy.findByText(/css/i).click();
     // verify
     cy.findByTestId('cssCode')
@@ -50,5 +46,17 @@ describe('Demo', () => {
       .contains(`font-weight: ${fontWeight}`)
       .contains(`font-size: ${fontSize}px`)
       .contains(`line-height: ${lineHeight}`);
+    // setup for changing inputs
+    const newUserData = {
+      xHeight: 11,
+      xHeightRatio: 2,
+      lineHeightRatio: 5,
+    };
+    // execute
+    cy.findByText(/preview/i).click();
+    cy.findByTestId('x-height-in-pixel')
+      .should('have.value', userData.xHeight.toString())
+      .type(`{backspace}{backspace}${newUserData.xHeight}`)
+      .should('have.value', newUserData.xHeight.toString());
   });
 });
