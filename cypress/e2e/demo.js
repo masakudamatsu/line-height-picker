@@ -96,5 +96,9 @@ describe('Demo', () => {
         )
       ).toFixed(4)}px`,
     );
+    cy.findByTestId('line-height-for-ratio')
+      .should('have.value', userData.lineHeightRatio.toString())
+      .type(`{backspace}${newUserData.lineHeightRatio}`)
+      .should('have.value', newUserData.lineHeightRatio.toString());
   });
 });

@@ -37,6 +37,7 @@ const ModularScaleBoxes = props => {
           <Label htmlFor="line-height-scale">line-height</Label>
           <ModularScaleInput
             id="line-height-scale"
+            data-testid="line-height-for-ratio"
             onChange={handleLineHeightChange}
             value={props.lineHeightRatio}
           />
