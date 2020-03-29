@@ -17,6 +17,7 @@ const XheightBox = props => {
       <Label htmlFor="x-height">Set x-height</Label>
       <NumberInputWrapper>
         <XheightInput
+          data-testid="x-height-in-pixel"
           id="x-height"
           onChange={handleChange}
           value={props.xHeightPx}

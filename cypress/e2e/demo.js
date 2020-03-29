@@ -1,5 +1,5 @@
 describe('Demo', () => {
-  it('styles sample paragraphs correctly and then shows the CSS code correctly', () => {
+  it('styles sample paragraphs correctly, allows the user to change styles on the preview page, and then shows the CSS code correctly', () => {
     // setup
     const fontFamily = `Open Sans`;
     const fontWeight = `400`;
@@ -39,6 +39,10 @@ describe('Demo', () => {
         'line-height',
         `${(fontSize * lineHeight).toFixed(4)}px`,
       );
+    cy.findByTestId('x-height-in-pixel').should(
+      'have.value',
+      userData.xHeight.toString(),
+    );
     cy.findByText(/css/i).click();
     // verify
     cy.findByTestId('cssCode')
