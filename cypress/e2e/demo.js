@@ -112,5 +112,18 @@ describe('Demo', () => {
         )
       ).toFixed(4)}px`,
     );
+    cy.findByText(/css/i).click();
+    // verify
+    cy.findByTestId('cssCode')
+      .contains(`font-family: '${fontFamily}'`)
+      .contains(`font-weight: ${fontWeight}`)
+      .contains(`font-size: ${fontSize(newUserData.xHeight)}px`)
+      .contains(
+        `line-height: ${lineHeight(
+          newUserData.xHeight,
+          newUserData.lineHeightRatio,
+          newUserData.xHeightRatio,
+        )}`,
+      );
   });
 });
