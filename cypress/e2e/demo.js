@@ -84,5 +84,17 @@ describe('Demo', () => {
       .should('have.value', userData.xHeightRatio.toString())
       .type(`{backspace}${newUserData.xHeightRatio}`)
       .should('have.value', newUserData.xHeightRatio.toString());
+    cy.findByTestId('sampleParagraphs').should(
+      'have.css',
+      'line-height',
+      `${(
+        fontSize(newUserData.xHeight) *
+        lineHeight(
+          newUserData.xHeight,
+          userData.lineHeightRatio,
+          newUserData.xHeightRatio,
+        )
+      ).toFixed(4)}px`,
+    );
   });
 });
