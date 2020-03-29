@@ -47,6 +47,7 @@ const Preview = props => {
         <ModularScaleBoxes
           xHeightRatio={props.xHeightRatio}
           handleXHeightRatio={props.handleXHeightRatio}
+          lineHeightRatio={props.lineHeightRatio}
         />
       </main>
     </>

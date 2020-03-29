@@ -81,6 +81,7 @@ function App() {
                 xHeightToFontSize={xHeightToFontSize}
                 xHeightRatio={xHeightRatio}
                 handleXHeightRatio={handleXHeightRatio}
+                lineHeightRatio={lineHeightRatio}
               />
             </Route>
             <Route path="/css">
