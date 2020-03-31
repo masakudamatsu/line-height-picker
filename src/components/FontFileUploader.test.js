@@ -1,11 +1,16 @@
 import React from 'react';
-import {render, cleanup, fireEvent} from '@testing-library/react';
+import {render, cleanup, fireEvent, wait} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
 import FontFileUploader from './FontFileUploader';
+
+import {Redirect as MockRedirect} from 'react-router';
+jest.mock('react-router', () => {
+  return {Redirect: jest.fn(() => null)};
+});
 
 test('renders correctly', () => {
   const {container} = render(<FontFileUploader />);
@@ -70,7 +75,7 @@ test('renders correctly', () => {
   `);
 });
 
-test('calls the handleFontFile function upon font file uploading', () => {
+test('calls the handleFontFile function upon font file uploading, and then calls React-Router Redirect component', async () => {
   // setup
   const ttfFile = new File(['dummy data'], 'dummytypeface.ttf', {
     type: 'font/ttf',
@@ -85,6 +90,12 @@ test('calls the handleFontFile function upon font file uploading', () => {
   });
   expect(mockHandleFontFile).toHaveBeenCalledTimes(1);
   // I cannot find out how to assert whether it's been called with the appropriate argument...
+  await wait(() =>
+    expect(MockRedirect).toHaveBeenCalledWith(
+      {to: '/x-height', push: true},
+      {},
+    ),
+  ); // See https://testingjavascript.com/lessons/react-test-drive-mocking-react-router-s-redirect-component-on-a-form-submission
 });
 
 test('is accessible', async () => {
