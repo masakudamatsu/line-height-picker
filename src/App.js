@@ -59,6 +59,7 @@ function App() {
             <Route path="/" component={Home} exact />
             <Route path="/x-height">
               <Xheight
+                fontFamily={fontMetrics.fontFamily}
                 xHeightPx={xHeightPx}
                 xHeightToFontSize={xHeightToFontSize}
               />
