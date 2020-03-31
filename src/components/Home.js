@@ -4,13 +4,13 @@ import {ButtonContainer, Logo} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import DemoStartButton from './DemoStartButton';
 
-const Home = () => {
+const Home = props => {
   return (
     <>
       <Logo />
       <Description />
       <ButtonContainer>
-        <FontFileUploader />
+        <FontFileUploader handleFontFile={props.handleFontFile} />
         <DemoStartButton />
       </ButtonContainer>
     </>

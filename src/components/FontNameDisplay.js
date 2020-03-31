@@ -5,11 +5,13 @@ import {
   UserDataDisplayWrapper,
 } from '../theme/style';
 
-const FontNameDisplay = () => {
+const FontNameDisplay = props => {
   return (
     <UserDataDisplayWrapper data-testid="FontNameDisplay">
       <UserDataDisplayTitle>Font chosen:</UserDataDisplayTitle>
-      <UserDataDisplay>Open Sans Regular</UserDataDisplay>
+      <UserDataDisplay data-testid="UserDataDisplay">
+        {props.fontFamily}
+      </UserDataDisplay>
     </UserDataDisplayWrapper>
   );
 };

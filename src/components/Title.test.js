@@ -12,10 +12,9 @@ test('renders the H1 element for the screen reader, but invisible on the browser
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       height: 1px;
-      left: -10000px;
       overflow: hidden;
       position: absolute;
-      top: auto;
+      white-space: nowrap;
       width: 1px;
     }
 

@@ -11,6 +11,10 @@ import GetCSS from './components/GetCSS';
 import Error from './components/Error';
 import Footer from './components/Footer';
 
+import getFontMetrics from './helper/getFontMetrics';
+
+const opentype = require('opentype.js');
+
 function App() {
   const [fontMetrics, setFontMetrics] = React.useState({
     fontFamily: 'Open Sans',
@@ -18,11 +22,46 @@ function App() {
     xHeight: 1096,
     unitsPerEm: 2048,
   });
+  const [fontLoadFailure, setFontLoadFailure] = React.useState(false);
   const [xHeightPx, setXHeightPx] = React.useState('');
   const [xHeightRatio, setXHeightRatio] = React.useState('');
   const [lineHeightRatio, setLineHeightRatio] = React.useState('');
   const [fontSizePx, setFontSizePx] = React.useState('');
   const [lineHeight, setLineHeight] = React.useState('');
+
+  const handleFontFile = fontFile => {
+    try {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const font = opentype.parse(e.target.result, {lowMemory: true});
+        // Save font metrics as the state object
+        const newFontMetrics = getFontMetrics(font);
+        setFontMetrics({
+          fontFamily: newFontMetrics.fontFamily,
+          fontWeight: newFontMetrics.usWeightClass,
+          xHeight: fontMetrics.sxHeight,
+          unitsPerEm: fontMetrics.unitsPerEm,
+        });
+        // Load the uploaded font
+        const newFontFace = new FontFace(
+          newFontMetrics.fontFamily,
+          e.target.result,
+        );
+        newFontFace
+          .load()
+          .then(loaded_face => {
+            document.fonts.add(loaded_face);
+          })
+          .catch(error => {
+            setFontLoadFailure(true);
+            console.log('The uploaded font has failed to be loaded,');
+          });
+      };
+      reader.readAsArrayBuffer(fontFile);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const xHeightToFontSize = xHeight => {
     setXHeightPx(xHeight);
@@ -56,9 +95,12 @@ function App() {
       <SideMarginRegulator>
         <main>
           <Switch>
-            <Route path="/" component={Home} exact />
+            <Route path="/" exact>
+              <Home handleFontFile={handleFontFile} />
+            </Route>
             <Route path="/x-height">
               <Xheight
+                fontFamily={fontMetrics.fontFamily}
                 xHeightPx={xHeightPx}
                 xHeightToFontSize={xHeightToFontSize}
               />

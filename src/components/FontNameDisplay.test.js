@@ -44,6 +44,12 @@ test('renders correctly', () => {
   `);
 });
 
+test('displays the props value as the font name', () => {
+  const fontName = 'Open Sans';
+  const {getByTestId} = render(<FontNameDisplay fontFamily={fontName} />);
+  expect(getByTestId('UserDataDisplay')).toHaveTextContent(fontName);
+});
+
 test('is accessible', async () => {
   const {container} = render(<FontNameDisplay />);
   const results = await axe(container);

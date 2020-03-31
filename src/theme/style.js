@@ -61,10 +61,9 @@ export const CodeSnippet = styled.pre`
 
 export const HiddenH1 = styled.h1`
   height: 1px;
-  left: -10000px;
   overflow: hidden;
   position: absolute;
-  top: auto;
+  white-space: nowrap; /* See https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe */
   width: 1px;
   /* Hide the h1 element except for the screen reader. For detail, see https://webaim.org/techniques/css/invisiblecontent/ */
 `;

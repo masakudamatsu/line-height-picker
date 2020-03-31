@@ -1,11 +1,16 @@
 import React from 'react';
-import {render, cleanup} from '@testing-library/react';
+import {render, cleanup, fireEvent, wait} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
 import FontFileUploader from './FontFileUploader';
+
+import {Redirect as MockRedirect} from 'react-router';
+jest.mock('react-router', () => {
+  return {Redirect: jest.fn(() => null)};
+});
 
 test('renders correctly', () => {
   const {container} = render(<FontFileUploader />);
@@ -60,8 +65,37 @@ test('renders correctly', () => {
           Font File
         </span>
       </button>
+      <input
+        data-testid="hiddenFileInput"
+        id="hiddenFileInput"
+        style="display: none;"
+        type="file"
+      />
     </div>
   `);
+});
+
+test('calls the handleFontFile function upon font file uploading, and then calls React-Router Redirect component', async () => {
+  // setup
+  const ttfFile = new File(['dummy data'], 'dummytypeface.ttf', {
+    type: 'font/ttf',
+  });
+  const mockHandleFontFile = jest.fn();
+  // execute
+  const {getByTestId} = render(
+    <FontFileUploader handleFontFile={mockHandleFontFile} />,
+  );
+  fireEvent.change(getByTestId('hiddenFileInput'), {
+    target: {files: [ttfFile]},
+  });
+  expect(mockHandleFontFile).toHaveBeenCalledTimes(1);
+  // I cannot find out how to assert whether it's been called with the appropriate argument...
+  await wait(() =>
+    expect(MockRedirect).toHaveBeenCalledWith(
+      {to: '/x-height', push: true},
+      {},
+    ),
+  ); // See https://testingjavascript.com/lessons/react-test-drive-mocking-react-router-s-redirect-component-on-a-form-submission
 });
 
 test('is accessible', async () => {
