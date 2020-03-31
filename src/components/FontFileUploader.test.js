@@ -60,6 +60,12 @@ test('renders correctly', () => {
           Font File
         </span>
       </button>
+      <input
+        data-testid="hiddenFileInput"
+        id="hiddenFileInput"
+        style="display: none;"
+        type="file"
+      />
     </div>
   `);
 });
