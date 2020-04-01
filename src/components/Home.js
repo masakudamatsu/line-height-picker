@@ -10,7 +10,7 @@ const Home = props => {
       <Logo />
       <Description />
       <ButtonContainer>
-        <FontFileUploader handleFontFile={props.handleFontFile}>
+        <FontFileUploader home handleFontFile={props.handleFontFile}>
           Upload font file
         </FontFileUploader>
         <DemoStartButton />

@@ -10,7 +10,10 @@ const FontFileUploader = props => {
   const handleChange = event => {
     const fileUploaded = event.target.files[0];
     props.handleFontFile(fileUploaded);
-    setRedirect(true);
+    // Only if the user is on landing page, redirect to the x-height page
+    if (props.home) {
+      setRedirect(true);
+    }
   };
   if (redirect) {
     return <Redirect push to="/x-height" />;
