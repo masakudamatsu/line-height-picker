@@ -14,9 +14,7 @@ describe('X-height page', () => {
     // Execute
     cy.visit('/x-height');
     cy.findByText(/change font/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
-    cy.findByTestId('hiddenFileInput').attachFile({
-      filePath: fontFileName,
-    }); // This command does not exactly reflect how the user interacts with our UI. But there's no other way to simulate it. And it causes an error message from opentype.js for some reason.
+    cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
 
     // Verify
     cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
