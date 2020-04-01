@@ -4,7 +4,22 @@ describe('X-height page', () => {
     cy.checkHeaderFooterRendering();
     cy.findByLabelText(/x-height/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
-    cy.findByText(/change font/i).should('exist');
+  });
+
+  it.only('allows the user to change font by clicking the "change font" button', () => {
+    // Setup
+    const fontFileName = 'RobotoSlab-Light.ttf';
+    const expectedFontName = 'Roboto Slab';
+
+    // Execute
+    cy.visit('/x-height');
+    cy.findByText(/change font/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
+    cy.findByTestId('hiddenFileInput').attachFile({
+      filePath: fontFileName,
+    }); // This command does not exactly reflect how the user interacts with our UI. But there's no other way to simulate it. And it causes an error message from opentype.js for some reason.
+
+    // Verify
+    cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
   });
 
   it('takes the user to the modular-scale page after clicking the button for it', () => {
