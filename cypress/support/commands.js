@@ -7,6 +7,14 @@ Cypress.Commands.add('checkHeaderFooterRendering', () => {
   cy.findByTestId('footer').should('exist');
 });
 
+Cypress.Commands.add('upload', (testId, fontFileName) => {
+  cy.findByTestId(testId).attachFile({
+    filePath: fontFileName,
+    mimeType: 'font/ttf',
+    encoding: 'binary',
+  }); // This command does not exactly reflect how the user interacts with our UI. But there's no other way to simulate it.
+});
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
