@@ -13,12 +13,10 @@ jest.mock('react-router', () => {
 });
 
 test('renders correctly', () => {
-  const {container} = render(<FontFileUploader />);
+  const {container} = render(
+    <FontFileUploader>Upload font file</FontFileUploader>,
+  );
   expect(container).toMatchInlineSnapshot(`
-    .c1 {
-      white-space: nowrap;
-    }
-
     .c0 {
       -webkit-align-items: center;
       -webkit-box-align: center;
@@ -56,14 +54,7 @@ test('renders correctly', () => {
       <button
         class="c0"
       >
-        <span>
-          Upload
-        </span>
-        <span
-          class="c1"
-        >
-          Font File
-        </span>
+        Upload font file
       </button>
       <input
         data-testid="hiddenFileInput"
@@ -83,7 +74,9 @@ test('calls the handleFontFile function upon font file uploading, and then calls
   const mockHandleFontFile = jest.fn();
   // execute
   const {getByTestId} = render(
-    <FontFileUploader handleFontFile={mockHandleFontFile} />,
+    <FontFileUploader handleFontFile={mockHandleFontFile}>
+      Upload font file
+    </FontFileUploader>,
   );
   fireEvent.change(getByTestId('hiddenFileInput'), {
     target: {files: [ttfFile]},
@@ -99,7 +92,9 @@ test('calls the handleFontFile function upon font file uploading, and then calls
 });
 
 test('is accessible', async () => {
-  const {container} = render(<FontFileUploader />);
+  const {container} = render(
+    <FontFileUploader>Upload font file</FontFileUploader>,
+  );
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();
