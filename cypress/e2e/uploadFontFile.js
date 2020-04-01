@@ -1,7 +1,5 @@
-import 'cypress-file-upload';
-
-describe('Uploading a font file', () => {
-  it('shows the font name', () => {
+describe('Uploading a font file on landing page', () => {
+  it('takes the user to x-height page and shows the font name', () => {
     // This test ends up with an error message in Cypress, but the test does pass.
 
     // Setup

@@ -1,3 +1,5 @@
+import 'cypress-file-upload';
+
 Cypress.Commands.add('checkHeaderFooterRendering', () => {
   cy.get('h1').should('have.text', 'Line-height Picker');
   cy.findByTitle(/logo/i).should('exist');
