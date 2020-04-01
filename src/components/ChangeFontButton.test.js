@@ -1,6 +1,6 @@
 import React from 'react';
 import render from './test-utils/render';
-import {cleanup} from '@testing-library/react';
+import {cleanup, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
@@ -50,8 +50,30 @@ test('renders correctly', () => {
       >
         Change Font
       </button>
+      <input
+        data-testid="hiddenFileInput"
+        id="hiddenFileInput"
+        style="display: none;"
+        type="file"
+      />
     </div>
   `);
+});
+
+test('calls the handleFontFile function upon being clicked', () => {
+  // setup
+  const ttfFile = new File(['dummy data'], 'dummytypeface.ttf', {
+    type: 'font/ttf',
+  });
+  const mockHandleFontFile = jest.fn();
+  // execute
+  const {getByTestId} = render(
+    <ChangeFontButton handleFontFile={mockHandleFontFile} />,
+  );
+  fireEvent.change(getByTestId('hiddenFileInput'), {
+    target: {files: [ttfFile]},
+  });
+  expect(mockHandleFontFile).toHaveBeenCalledTimes(1);
 });
 
 test('is accessible', async () => {
