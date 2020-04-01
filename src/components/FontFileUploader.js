@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router';
-import {Button, NoWrap} from '../theme/style';
+import {Button} from '../theme/style';
 
 const FontFileUploader = props => {
   const [redirect, setRedirect] = React.useState(false);
