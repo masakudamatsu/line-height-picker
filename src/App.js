@@ -100,6 +100,7 @@ function App() {
             </Route>
             <Route path="/x-height">
               <Xheight
+                handleFontFile={handleFontFile}
                 fontFamily={fontMetrics.fontFamily}
                 xHeightPx={xHeightPx}
                 xHeightToFontSize={xHeightToFontSize}

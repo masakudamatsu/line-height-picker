@@ -17,7 +17,7 @@ const Xheight = props => {
         />
         <FontNameDisplay fontFamily={props.fontFamily} />
         <ButtonContainer>
-          <ChangeFontButton />
+          <ChangeFontButton handleFontFile={props.handleFontFile} />
           <Button as={Link} to="/modular-scale">
             <NoWrap>Pick</NoWrap>
             <NoWrap>Modular</NoWrap>
