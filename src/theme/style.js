@@ -60,12 +60,15 @@ export const CodeSnippet = styled.pre`
 `;
 
 export const HiddenH1 = styled.h1`
+  /* Hide the h1 element except for the screen reader. */
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap; /* See https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe */
   width: 1px;
-  /* Hide the h1 element except for the screen reader. For detail, see https://webaim.org/techniques/css/invisiblecontent/ */
 `;
 
 // Layout parameters
