@@ -14,5 +14,11 @@ describe('Uploading a font file on landing page', () => {
     // Verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
     cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
+
+    // execute
+    cy.findByText(/scale/i).click();
+
+    // verify
+    cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
   });
 });
