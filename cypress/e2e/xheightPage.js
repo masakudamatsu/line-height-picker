@@ -1,6 +1,9 @@
 describe('X-height page', () => {
-  it('shows the UI components correctly', () => {
+  beforeEach(() => {
     cy.visit('/x-height');
+  });
+
+  it('shows the UI components correctly', () => {
     cy.checkHeaderFooterRendering();
     cy.findByLabelText(/x-height/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
@@ -12,7 +15,6 @@ describe('X-height page', () => {
     const expectedFontName = 'Roboto Slab';
 
     // Execute
-    cy.visit('/x-height');
     cy.findByText(/change font/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
 
@@ -21,7 +23,6 @@ describe('X-height page', () => {
   });
 
   it('takes the user to the modular-scale page after clicking the button for it', () => {
-    cy.visit('/x-height');
     cy.findByText(/scale/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
   });

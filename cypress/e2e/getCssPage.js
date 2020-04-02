@@ -1,4 +1,8 @@
 describe('Get CSS Page', () => {
+  beforeEach(() => {
+    cy.visit('/css');
+  });
+
   it('shows the UI components correctly', () => {
     cy.visit('/css');
     cy.checkHeaderFooterRendering(); // See support/commands.js
