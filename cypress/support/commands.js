@@ -15,6 +15,44 @@ Cypress.Commands.add('upload', (testId, fontFileName) => {
   }); // This command does not exactly reflect how the user interacts with our UI. But there's no other way to simulate it.
 });
 
+Cypress.Commands.add(
+  'assertFontNameFromPreviewPageOn',
+  (expectedFontName, expectedFontWeight) => {
+    cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
+
+    cy.findByTestId('sampleParagraphs')
+      .should('have.css', 'font-family', `"${expectedFontName}"`)
+      .should('have.css', 'font-weight', expectedFontWeight);
+
+    cy.findByText(/css/i).click();
+    cy.findByTestId('cssCode')
+      .contains(`font-family: '${expectedFontName}'`)
+      .contains(`font-weight: ${expectedFontWeight}`);
+  },
+);
+
+Cypress.Commands.add(
+  'assertFontNameFromModularScalePageOn',
+  (expectedFontName, expectedFontWeight) => {
+    cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
+
+    cy.findByText(/preview/i).click();
+    cy.assertFontNameFromPreviewPageOn(expectedFontName, expectedFontWeight);
+  },
+);
+
+Cypress.Commands.add(
+  'assertFontNameFromXheightPageOn',
+  (expectedFontName, expectedFontWeight) => {
+    cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
+
+    cy.findByText(/scale/i).click();
+    cy.assertFontNameFromModularScalePageOn(
+      expectedFontName,
+      expectedFontWeight,
+    );
+  },
+);
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
