@@ -21,7 +21,7 @@ const ModularScale = props => {
         <FontNameDisplay fontFamily={props.fontFamily} />
         <XheightDisplay xHeightPx={props.xHeightPx} />
         <ButtonContainer>
-          <ChangeFontButton />
+          <ChangeFontButton handleFontFile={props.handleFontFile} />
           <Button as={Link} to="/preview">
             <NoWrap>Preview</NoWrap>
             <NoWrap>→</NoWrap>
