@@ -6,7 +6,7 @@ describe('X-height page', () => {
     cy.findByTestId('FontNameDisplay').should('exist');
   });
 
-  it.only('allows the user to change font by clicking the "change font" button', () => {
+  it('allows the user to change font by clicking the "change font" button', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
     const expectedFontName = 'Roboto Slab';
