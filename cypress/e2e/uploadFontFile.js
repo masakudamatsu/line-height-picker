@@ -1,5 +1,5 @@
 describe('Uploading a font file on landing page', () => {
-  it('takes the user to x-height page and shows the font name', () => {
+  it('takes the user to x-height page and shows the font name in all pages', () => {
     // This test ends up with an error message in Cypress, but the test does pass.
 
     // Setup
@@ -17,7 +17,11 @@ describe('Uploading a font file on landing page', () => {
 
     // execute
     cy.findByText(/scale/i).click();
+    // verify
+    cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
 
+    // execute
+    cy.findByText(/preview/i).click();
     // verify
     cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
   });
