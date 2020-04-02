@@ -120,6 +120,7 @@ function App() {
             <Route path="/preview">
               <Preview
                 fontFamily={fontMetrics.fontFamily}
+                handleFontFile={handleFontFile}
                 fontSize={fontSizePx}
                 fontWeight={fontMetrics.fontWeight}
                 lineHeight={lineHeight}
