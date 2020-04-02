@@ -36,9 +36,8 @@ test('renders correctly', () => {
         </h2>
         <p
           class="c2"
-        >
-          12.3456px
-        </p>
+          data-testid="xHeightValue"
+        />
       </section>
     </div>
   `);

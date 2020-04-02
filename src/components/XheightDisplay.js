@@ -5,11 +5,13 @@ import {
   UserDataDisplayWrapper,
 } from '../theme/style';
 
-const XheightDisplay = () => {
+const XheightDisplay = props => {
   return (
     <UserDataDisplayWrapper data-testid="XheightDisplay">
       <UserDataDisplayTitle>X-height chosen:</UserDataDisplayTitle>
-      <UserDataDisplay>12.3456px</UserDataDisplay>
+      <UserDataDisplay data-testid="xHeightValue">
+        {props.xHeight}
+      </UserDataDisplay>
     </UserDataDisplayWrapper>
   );
 };
