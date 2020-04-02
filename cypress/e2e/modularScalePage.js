@@ -20,7 +20,7 @@ describe('Modular Scale Page', () => {
     cy.findByLabelText(/x-height/i).type(userData.xHeight);
     cy.findByText(/scale/i).click();
     // verify
-    cy.findByTestId('XheightDisplay').contains(userData.xHeight);
+    cy.findByTestId('XheightDisplay').contains(`${userData.xHeight}px`);
   });
 
   it('takes the user to the preview page after clicking the button for it', () => {

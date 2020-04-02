@@ -45,8 +45,8 @@ test('renders correctly', () => {
 
 test('shows props.xHeight as x-height value', () => {
   const xHeightValue = 15;
-  const {getByTestId} = render(<XheightDisplay xHeight={xHeightValue} />);
-  expect(getByTestId('xHeightValue')).toHaveTextContent(xHeightValue);
+  const {getByTestId} = render(<XheightDisplay xHeightPx={xHeightValue} />);
+  expect(getByTestId('xHeightValue')).toHaveTextContent(`${xHeightValue}px`);
 });
 
 test('is accessible', async () => {
