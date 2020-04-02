@@ -39,8 +39,8 @@ function App() {
         setFontMetrics({
           fontFamily: newFontMetrics.fontFamily,
           fontWeight: newFontMetrics.usWeightClass,
-          xHeight: fontMetrics.sxHeight,
-          unitsPerEm: fontMetrics.unitsPerEm,
+          xHeight: newFontMetrics.sxHeight,
+          unitsPerEm: newFontMetrics.unitsPerEm,
         });
         // Load the uploaded font
         const newFontFace = new FontFace(
