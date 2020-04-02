@@ -54,20 +54,37 @@ Cypress.Commands.add(
   },
 );
 
-Cypress.Commands.add('assertFontSize', (xHeight, FontMetrics) => {
-  const fontSize = xHeight => {
-    return (xHeight * (FontMetrics.unitsPerEm / FontMetrics.sxHeight)).toFixed(
-      4,
+Cypress.Commands.add(
+  'assertXheightFontSizeFromPreviewPageOn',
+  (xHeight, FontMetrics) => {
+    cy.findByTestId('x-height-in-pixel').should(
+      'have.value',
+      xHeight.toString(),
     );
-  };
-  cy.findByTestId('sampleParagraphs').should(
-    'have.css',
-    'font-size',
-    `${fontSize(xHeight)}px`,
-  );
-  cy.findByText(/css/i).click();
-  cy.findByTestId('cssCode').contains(`font-size: ${fontSize(xHeight)}px`);
-});
+    const fontSize = xHeight => {
+      return (
+        xHeight *
+        (FontMetrics.unitsPerEm / FontMetrics.sxHeight)
+      ).toFixed(4);
+    };
+    cy.findByTestId('sampleParagraphs').should(
+      'have.css',
+      'font-size',
+      `${fontSize(xHeight)}px`,
+    );
+    cy.findByText(/css/i).click();
+    cy.findByTestId('cssCode').contains(`font-size: ${fontSize(xHeight)}px`);
+  },
+);
+
+Cypress.Commands.add(
+  'assertXheightFontSizeFromModularScalePageOn',
+  (xHeight, FontMetrics) => {
+    cy.findByTestId('XheightDisplay').contains(`${xHeight}px`);
+    cy.findByText(/preview/i).click();
+    cy.assertXheightFontSizeFromPreviewPageOn(xHeight, FontMetrics);
+  },
+);
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
