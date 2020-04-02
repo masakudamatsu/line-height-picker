@@ -12,6 +12,20 @@ describe('Preview Page', () => {
     cy.findByLabelText(/line-height/i, {selector: 'input'}).should('exist');
   });
 
+  it('allows the user to change font by clicking the "change font" button', () => {
+    // Setup
+    const fontFileName = 'RobotoSlab-Light.ttf';
+    const expectedFontName = 'Roboto Slab';
+
+    // Execute
+    cy.visit('/preview');
+    cy.findByText(/change font/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
+    cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
+
+    // verify
+    cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
+  });
+
   it('takes the user to the CSS page after clicking the button for it', () => {
     cy.visit('/preview');
     cy.findByText(/css/i).click();
