@@ -73,7 +73,8 @@ describe('Demo', () => {
     cy.findByText(/preview/i).click();
     cy.findByTestId('x-height-in-pixel')
       .should('have.value', userData.xHeight.toString())
-      .type(`{backspace}{backspace}${newUserData.xHeight}`)
+      .clear()
+      .type(newUserData.xHeight)
       .should('have.value', newUserData.xHeight.toString());
     cy.findByTestId('sampleParagraphs').should(
       'have.css',
@@ -82,7 +83,8 @@ describe('Demo', () => {
     );
     cy.findByTestId('x-height-for-ratio')
       .should('have.value', userData.xHeightRatio.toString())
-      .type(`{backspace}${newUserData.xHeightRatio}`)
+      .clear()
+      .type(newUserData.xHeightRatio)
       .should('have.value', newUserData.xHeightRatio.toString());
     cy.findByTestId('sampleParagraphs').should(
       'have.css',
