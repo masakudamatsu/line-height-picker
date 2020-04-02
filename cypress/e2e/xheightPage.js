@@ -14,6 +14,28 @@ describe('X-height page in demo', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
   });
 
+  it('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
+    // setup
+    const OpenSansFontMetrics = {
+      unitsPerEm: 2048,
+      sxHeight: 1096,
+    };
+    const userData = {
+      xHeight: 10,
+    };
+    // execute
+    cy.findByLabelText(/x-height/i).type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    // verify
+    cy.findByTestId('XheightDisplay').contains(`${userData.xHeight}px`);
+    cy.findByText(/preview/i).click();
+    cy.findByTestId('x-height-in-pixel').should(
+      'have.value',
+      userData.xHeight.toString(),
+    );
+    cy.assertFontSize(userData.xHeight, OpenSansFontMetrics);
+  });
+
   it('allows the user to change font by clicking the "change font" button', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
@@ -27,8 +49,6 @@ describe('X-height page in demo', () => {
     // Verify
     cy.assertFontNameFromXheightPageOn(expectedFontName, expectedFontWeight);
   });
-
-  it('The chosen x-height value will be reflected in subsequent pages', () => {});
 });
 
 describe('X-height page after uploading a font file', () => {
@@ -36,6 +56,28 @@ describe('X-height page after uploading a font file', () => {
     const fontFileName = 'RobotoSlab-Light.ttf';
     cy.visit('/');
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
+  });
+
+  it.only('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
+    // setup
+    const RobotoSlabFontMetrics = {
+      unitsPerEm: 2048,
+      sxHeight: 1082,
+    };
+    const userData = {
+      xHeight: 11,
+    };
+    // execute
+    cy.findByLabelText(/x-height/i).type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    // verify
+    cy.findByTestId('XheightDisplay').contains(`${userData.xHeight}px`);
+    cy.findByText(/preview/i).click();
+    cy.findByTestId('x-height-in-pixel').should(
+      'have.value',
+      userData.xHeight.toString(),
+    );
+    cy.assertFontSize(userData.xHeight, RobotoSlabFontMetrics);
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {

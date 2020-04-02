@@ -53,6 +53,21 @@ Cypress.Commands.add(
     );
   },
 );
+
+Cypress.Commands.add('assertFontSize', (xHeight, FontMetrics) => {
+  const fontSize = xHeight => {
+    return (xHeight * (FontMetrics.unitsPerEm / FontMetrics.sxHeight)).toFixed(
+      4,
+    );
+  };
+  cy.findByTestId('sampleParagraphs').should(
+    'have.css',
+    'font-size',
+    `${fontSize(xHeight)}px`,
+  );
+  cy.findByText(/css/i).click();
+  cy.findByTestId('cssCode').contains(`font-size: ${fontSize(xHeight)}px`);
+});
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
