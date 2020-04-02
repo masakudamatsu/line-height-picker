@@ -10,6 +10,19 @@ describe('Modular Scale Page', () => {
     cy.findByTestId('XheightDisplay').should('exist');
   });
 
+  it('shows the x-height value chosen', () => {
+    // setup
+    const userData = {
+      xHeight: 10,
+    };
+    // execute
+    cy.visit('/x-height');
+    cy.findByLabelText(/x-height/i).type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    // verify
+    cy.findByTestId('XheightDisplay').contains(userData.xHeight);
+  });
+
   it('takes the user to the preview page after clicking the button for it', () => {
     cy.visit('/modular-scale');
     cy.findByText(/preview/i).click();
