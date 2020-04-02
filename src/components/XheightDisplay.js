@@ -10,7 +10,7 @@ const XheightDisplay = props => {
     <UserDataDisplayWrapper data-testid="XheightDisplay">
       <UserDataDisplayTitle>X-height chosen:</UserDataDisplayTitle>
       <UserDataDisplay data-testid="xHeightValue">
-        {props.xHeight}
+        {props.xHeightPx}px
       </UserDataDisplay>
     </UserDataDisplayWrapper>
   );

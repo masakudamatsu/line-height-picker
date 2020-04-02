@@ -109,6 +109,7 @@ function App() {
             <Route path="/modular-scale">
               <ModularScale
                 fontFamily={fontMetrics.fontFamily}
+                xHeightPx={xHeightPx}
                 xHeightRatio={xHeightRatio}
                 lineHeightRatio={lineHeightRatio}
                 handleXHeightRatio={handleXHeightRatio}

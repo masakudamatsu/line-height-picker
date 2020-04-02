@@ -19,7 +19,7 @@ const ModularScale = props => {
           handleLineHeightRatio={props.handleLineHeightRatio}
         />
         <FontNameDisplay fontFamily={props.fontFamily} />
-        <XheightDisplay />
+        <XheightDisplay xHeightPx={props.xHeightPx} />
         <ButtonContainer>
           <ChangeFontButton />
           <Button as={Link} to="/preview">
