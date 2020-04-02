@@ -38,7 +38,7 @@ const Preview = props => {
             Get CSS code
           </Button>
         </ButtonContainer>
-        <FontNameDisplay />
+        <FontNameDisplay fontFamily={props.fontFamily} />
         <ChangeFontButton />
         <XheightBox
           xHeightToFontSize={props.xHeightToFontSize}
