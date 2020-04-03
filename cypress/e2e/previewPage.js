@@ -4,6 +4,12 @@ const userData = {
   lineHeightRatio: 3,
 };
 
+const newUserData = {
+  xHeight: 12,
+  xHeightRatio: 2,
+  lineHeightRatio: 7,
+};
+
 describe('Preview Page in demo', () => {
   // setup
   const fontFamily = `Open Sans`;
@@ -55,9 +61,6 @@ describe('Preview Page in demo', () => {
   });
 
   it('allows the user to change x-height, which will be shown immediately and used to calculate font-size', () => {
-    const newUserData = {
-      xHeight: 12,
-    };
     // execute
     cy.findByTestId('x-height-in-pixel')
       .clear()
@@ -65,6 +68,23 @@ describe('Preview Page in demo', () => {
     // verify
     cy.assertXheightFontSizeFromPreviewPageOn(
       newUserData.xHeight,
+      OpenSansFontMetrics,
+    );
+  });
+
+  it('allows the user to change the x-height-to-line-height ratio, which will be shown immeidately and used to calculate line-height', () => {
+    // execute
+    cy.findByTestId('x-height-for-ratio')
+      .clear()
+      .type(newUserData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio')
+      .clear()
+      .type(newUserData.lineHeightRatio);
+    // verify
+    cy.assertModularScaleLineHeightFromPreviewPageOn(
+      newUserData.xHeightRatio,
+      newUserData.lineHeightRatio,
+      userData.xHeight,
       OpenSansFontMetrics,
     );
   });
@@ -107,9 +127,6 @@ describe('Preview Page after uploading a font file', () => {
   });
 
   it('allows the user to change x-height, which will be shown immediately and used to calculate font-size', () => {
-    const newUserData = {
-      xHeight: 13,
-    };
     // execute
     cy.findByTestId('x-height-in-pixel')
       .clear()
@@ -117,6 +134,23 @@ describe('Preview Page after uploading a font file', () => {
     // verify
     cy.assertXheightFontSizeFromPreviewPageOn(
       newUserData.xHeight,
+      RobotoSlabFontMetrics,
+    );
+  });
+
+  it('allows the user to change the x-height-to-line-height ratio, which will be shown immeidately and used to calculate line-height', () => {
+    // execute
+    cy.findByTestId('x-height-for-ratio')
+      .clear()
+      .type(newUserData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio')
+      .clear()
+      .type(newUserData.lineHeightRatio);
+    // verify
+    cy.assertModularScaleLineHeightFromPreviewPageOn(
+      newUserData.xHeightRatio,
+      newUserData.lineHeightRatio,
+      userData.xHeight,
       RobotoSlabFontMetrics,
     );
   });
