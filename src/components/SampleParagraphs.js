@@ -4,7 +4,7 @@ import {SampleParagraphWrapper} from '../theme/style';
 const SampleParagraphs = props => {
   const paragraphStyle = {
     fontFamily: props.fontFamily,
-    fontSize: `${props.fontSize}px`, // Number(props.fontSize) can work as well
+    fontSize: `${props.fontSize}px`, // Number(props.fontSize) would cause a warning in concole. See issue #73
     fontWeight: props.fontWeight,
     lineHeight: props.lineHeight,
   };
