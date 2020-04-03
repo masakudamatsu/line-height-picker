@@ -1,6 +1,22 @@
+const userData = {
+  xHeight: 10,
+  xHeightRatio: 1,
+  lineHeightRatio: 3,
+};
+const OpenSansFontMetrics = {
+  unitsPerEm: 2048,
+  sxHeight: 1096,
+};
+const RobotoSlabFontMetrics = {
+  unitsPerEm: 2048,
+  sxHeight: 1082,
+};
+
 describe('Modular Scale Page in demo', () => {
   beforeEach(() => {
-    cy.visit('/modular-scale');
+    cy.visit('/x-height');
+    cy.findByLabelText(/x-height/i).type(userData.xHeight);
+    cy.findByText(/scale/i).click();
   });
 
   it('shows the UI components correctly', () => {
@@ -11,6 +27,21 @@ describe('Modular Scale Page in demo', () => {
     cy.findByTestId('FontNameDisplay').should('exist');
     cy.findByText(/change font/i).should('exist');
     cy.findByTestId('XheightDisplay').should('exist');
+  });
+
+  it('allows the user to enter the x-height-to-line-height ratio, which will be shown in subsequent pages and used to calculate line-height', () => {
+    // execute
+    cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
+    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
+      userData.lineHeightRatio,
+    );
+    // verify
+    cy.assertModularScaleLineHeightFromModularScalePageOn(
+      userData.xHeightRatio,
+      userData.lineHeightRatio,
+      userData.xHeight,
+      OpenSansFontMetrics,
+    );
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {
@@ -46,7 +77,23 @@ describe('Modular Scale Page after uploading a font file', () => {
     const fontFileName = 'RobotoSlab-Light.ttf';
     cy.visit('/');
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
+    cy.findByLabelText(/x-height/i).type(userData.xHeight);
     cy.findByText(/scale/i).click();
+  });
+
+  it('allows the user to enter the x-height-to-line-height ratio, which will be shown in subsequent pages and used to calculate line-height', () => {
+    // execute
+    cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
+    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
+      userData.lineHeightRatio,
+    );
+    // verify
+    cy.assertModularScaleLineHeightFromModularScalePageOn(
+      userData.xHeightRatio,
+      userData.lineHeightRatio,
+      userData.xHeight,
+      RobotoSlabFontMetrics,
+    );
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {

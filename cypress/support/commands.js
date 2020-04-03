@@ -1,4 +1,5 @@
-import 'cypress-file-upload';
+import 'cypress-file-upload'; // to use .attachFile()
+import {getFontSize, getLineHeight} from './utils';
 
 Cypress.Commands.add('checkHeaderFooterRendering', () => {
   cy.get('h1').should('have.text', 'Line-height Picker');
@@ -15,6 +16,7 @@ Cypress.Commands.add('upload', (testId, fontFileName) => {
   }); // This command does not exactly reflect how the user interacts with our UI. But there's no other way to simulate it.
 });
 
+// Assertions on font name, font-family and font-weight
 Cypress.Commands.add(
   'assertFontNameFromPreviewPageOn',
   (expectedFontName, expectedFontWeight) => {
@@ -54,6 +56,7 @@ Cypress.Commands.add(
   },
 );
 
+// Assertions on x-height and font-size
 Cypress.Commands.add(
   'assertXheightFontSizeFromPreviewPageOn',
   (xHeight, FontMetrics) => {
@@ -61,19 +64,14 @@ Cypress.Commands.add(
       'have.value',
       xHeight.toString(),
     );
-    const fontSize = xHeight => {
-      return (
-        xHeight *
-        (FontMetrics.unitsPerEm / FontMetrics.sxHeight)
-      ).toFixed(4);
-    };
+    const fontSize = getFontSize(xHeight, FontMetrics);
     cy.findByTestId('sampleParagraphs').should(
       'have.css',
       'font-size',
-      `${fontSize(xHeight)}px`,
+      `${fontSize}px`,
     );
     cy.findByText(/css/i).click();
-    cy.findByTestId('cssCode').contains(`font-size: ${fontSize(xHeight)}px`);
+    cy.findByTestId('cssCode').contains(`font-size: ${fontSize}px`);
   },
 );
 
@@ -83,6 +81,63 @@ Cypress.Commands.add(
     cy.findByTestId('XheightDisplay').contains(`${xHeight}px`);
     cy.findByText(/preview/i).click();
     cy.assertXheightFontSizeFromPreviewPageOn(xHeight, FontMetrics);
+  },
+);
+
+// Assertions on modular scale and line-height
+Cypress.Commands.add(
+  'assertModularScaleLineHeightFromPreviewPageOn',
+  (xHeightRatio, lineHeightRatio, xHeight, FontMetrics) => {
+    // setup
+    const expectedLineHeight = getLineHeight(
+      xHeight,
+      lineHeightRatio,
+      xHeightRatio,
+      FontMetrics,
+    );
+    const expectedLineHeightInPx = (
+      expectedLineHeight * getFontSize(xHeight, FontMetrics)
+    ).toFixed(4);
+
+    // verify
+    cy.findByTestId('x-height-for-ratio').should(
+      'have.value',
+      xHeightRatio.toString(),
+    );
+    cy.findByTestId('line-height-for-ratio').should(
+      'have.value',
+      lineHeightRatio.toString(),
+    );
+    cy.findByTestId('sampleParagraphs').should(
+      'have.css',
+      'line-height',
+      `${expectedLineHeightInPx}px`,
+    );
+    cy.findByText(/css/i).click();
+    // verify
+    cy.findByTestId('cssCode').contains(`line-height: ${expectedLineHeight}`);
+  },
+);
+
+Cypress.Commands.add(
+  'assertModularScaleLineHeightFromModularScalePageOn',
+  (xHeightRatio, lineHeightRatio, xHeight, FontMetrics) => {
+    cy.findByTestId('x-height-for-ratio').should(
+      'have.value',
+      xHeightRatio.toString(),
+    );
+    cy.findByTestId('line-height-for-ratio').should(
+      'have.value',
+      lineHeightRatio.toString(),
+    );
+
+    cy.findByText(/preview/i).click();
+    cy.assertModularScaleLineHeightFromPreviewPageOn(
+      xHeightRatio,
+      lineHeightRatio,
+      xHeight,
+      FontMetrics,
+    );
   },
 );
 // ***********************************************
