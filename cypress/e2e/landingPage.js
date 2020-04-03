@@ -12,7 +12,7 @@ describe('Landing Page', () => {
     cy.findByTestId('footer').should('exist');
   });
 
-  it('Clicking the demo button takes users to x-height page and shows "Open Sans" as the chosen font name', () => {
+  it('Clicking the demo button takes users to x-height page and shows "Open Sans" as the chosen font name in all subsequent pages', () => {
     // set up
     const expectedFontName = 'Open Sans';
     const expectedFontWeight = '400';
