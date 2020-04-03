@@ -1,4 +1,4 @@
-const getFontMetrics = (font) => {
+const getFontMetrics = font => {
   const fontMetrics = {};
 
   const namingTable = font.tables['name'];

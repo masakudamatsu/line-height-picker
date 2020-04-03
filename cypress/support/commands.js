@@ -1,4 +1,5 @@
-import 'cypress-file-upload';
+import 'cypress-file-upload'; // to use .attachFile()
+import {getFontSize, getLineHeight} from './utils';
 
 Cypress.Commands.add('checkHeaderFooterRendering', () => {
   cy.get('h1').should('have.text', 'Line-height Picker');
@@ -15,6 +16,130 @@ Cypress.Commands.add('upload', (testId, fontFileName) => {
   }); // This command does not exactly reflect how the user interacts with our UI. But there's no other way to simulate it.
 });
 
+// Assertions on font name, font-family and font-weight
+Cypress.Commands.add(
+  'assertFontNameFromPreviewPageOn',
+  (expectedFontName, expectedFontWeight) => {
+    cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
+
+    cy.findByTestId('sampleParagraphs')
+      .should('have.css', 'font-family', `"${expectedFontName}"`)
+      .should('have.css', 'font-weight', expectedFontWeight);
+
+    cy.findByText(/css/i).click();
+    cy.findByTestId('cssCode')
+      .contains(`font-family: '${expectedFontName}'`)
+      .contains(`font-weight: ${expectedFontWeight}`);
+  },
+);
+
+Cypress.Commands.add(
+  'assertFontNameFromModularScalePageOn',
+  (expectedFontName, expectedFontWeight) => {
+    cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
+
+    cy.findByText(/preview/i).click();
+    cy.assertFontNameFromPreviewPageOn(expectedFontName, expectedFontWeight);
+  },
+);
+
+Cypress.Commands.add(
+  'assertFontNameFromXheightPageOn',
+  (expectedFontName, expectedFontWeight) => {
+    cy.findByTestId('UserDataDisplay').should('have.text', expectedFontName);
+
+    cy.findByText(/scale/i).click();
+    cy.assertFontNameFromModularScalePageOn(
+      expectedFontName,
+      expectedFontWeight,
+    );
+  },
+);
+
+// Assertions on x-height and font-size
+Cypress.Commands.add(
+  'assertXheightFontSizeFromPreviewPageOn',
+  (xHeight, FontMetrics) => {
+    cy.findByTestId('x-height-in-pixel').should(
+      'have.value',
+      xHeight.toString(),
+    );
+    const fontSize = getFontSize(xHeight, FontMetrics);
+    cy.findByTestId('sampleParagraphs').should(
+      'have.css',
+      'font-size',
+      `${fontSize}px`,
+    );
+    cy.findByText(/css/i).click();
+    cy.findByTestId('cssCode').contains(`font-size: ${fontSize}px`);
+  },
+);
+
+Cypress.Commands.add(
+  'assertXheightFontSizeFromModularScalePageOn',
+  (xHeight, FontMetrics) => {
+    cy.findByTestId('XheightDisplay').contains(`${xHeight}px`);
+    cy.findByText(/preview/i).click();
+    cy.assertXheightFontSizeFromPreviewPageOn(xHeight, FontMetrics);
+  },
+);
+
+// Assertions on modular scale and line-height
+Cypress.Commands.add(
+  'assertModularScaleLineHeightFromPreviewPageOn',
+  (xHeightRatio, lineHeightRatio, xHeight, FontMetrics) => {
+    // setup
+    const expectedLineHeight = getLineHeight(
+      xHeight,
+      lineHeightRatio,
+      xHeightRatio,
+      FontMetrics,
+    );
+    const expectedLineHeightInPx = (
+      expectedLineHeight * getFontSize(xHeight, FontMetrics)
+    ).toFixed(4);
+
+    // verify
+    cy.findByTestId('x-height-for-ratio').should(
+      'have.value',
+      xHeightRatio.toString(),
+    );
+    cy.findByTestId('line-height-for-ratio').should(
+      'have.value',
+      lineHeightRatio.toString(),
+    );
+    cy.findByTestId('sampleParagraphs').should(
+      'have.css',
+      'line-height',
+      `${expectedLineHeightInPx}px`,
+    );
+    cy.findByText(/css/i).click();
+    // verify
+    cy.findByTestId('cssCode').contains(`line-height: ${expectedLineHeight}`);
+  },
+);
+
+Cypress.Commands.add(
+  'assertModularScaleLineHeightFromModularScalePageOn',
+  (xHeightRatio, lineHeightRatio, xHeight, FontMetrics) => {
+    cy.findByTestId('x-height-for-ratio').should(
+      'have.value',
+      xHeightRatio.toString(),
+    );
+    cy.findByTestId('line-height-for-ratio').should(
+      'have.value',
+      lineHeightRatio.toString(),
+    );
+
+    cy.findByText(/preview/i).click();
+    cy.assertModularScaleLineHeightFromPreviewPageOn(
+      xHeightRatio,
+      lineHeightRatio,
+      xHeight,
+      FontMetrics,
+    );
+  },
+);
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
