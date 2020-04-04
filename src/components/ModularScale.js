@@ -20,7 +20,7 @@ const ModularScale = props => {
         />
         <FontNameDisplay
           fontFamily={props.fontFamily}
-          fontWeightName={props.fontWeightName}
+          fontSubfamily={props.fontSubfamily}
         />
         <XheightDisplay xHeightPx={props.xHeightPx} />
         <ButtonContainer>

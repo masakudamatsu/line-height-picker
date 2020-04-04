@@ -36,7 +36,11 @@ test('renders correctly', () => {
         </h2>
         <p
           class="c2"
-          data-testid="UserDataDisplay"
+          data-testid="font-family-name"
+        />
+        <p
+          class="c2"
+          data-testid="font-subfamily-name"
         />
       </section>
     </div>
@@ -45,12 +49,12 @@ test('renders correctly', () => {
 
 test('displays the props value as the font name', () => {
   const fontName = 'Open Sans';
-  const fontWeightName = 'Regular';
+  const fontSubfamily = 'Regular';
   const {getByTestId} = render(
-    <FontNameDisplay fontFamily={fontName} fontWeightName={fontWeightName} />,
+    <FontNameDisplay fontFamily={fontName} fontSubfamily={fontSubfamily} />,
   );
   expect(getByTestId('font-family-name')).toHaveTextContent(fontName);
-  expect(getByTestId('font-weight-name')).toHaveTextContent(fontWeightName);
+  expect(getByTestId('font-subfamily-name')).toHaveTextContent(fontSubfamily);
 });
 
 test('is accessible', async () => {

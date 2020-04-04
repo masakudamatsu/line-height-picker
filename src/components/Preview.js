@@ -40,7 +40,7 @@ const Preview = props => {
         </ButtonContainer>
         <FontNameDisplay
           fontFamily={props.fontFamily}
-          fontWeightName={props.fontWeightName}
+          fontSubfamily={props.fontSubfamily}
         />
         <ChangeFontButton handleFontFile={props.handleFontFile} />
         <XheightBox

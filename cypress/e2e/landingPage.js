@@ -15,7 +15,7 @@ describe('Landing Page', () => {
   it('Clicking the demo button takes users to x-height page and shows "Open Sans" as the chosen font name in all subsequent pages', () => {
     // set up
     const expectedFontName = 'Open Sans';
-    const expectedFontWeightName = 'Regular';
+    const expectedFontSubfamily = 'Regular';
     const expectedFontWeight = '400';
     // execute
     cy.findByText(/demo/i).click();
@@ -23,7 +23,7 @@ describe('Landing Page', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
     cy.assertFontNameFromXheightPageOn(
       expectedFontName,
-      expectedFontWeightName,
+      expectedFontSubfamily,
       expectedFontWeight,
     );
   });
@@ -32,7 +32,7 @@ describe('Landing Page', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
     const expectedFontName = 'Roboto Slab';
-    const expectedFontWeightName = 'Light';
+    const expectedFontSubfamily = 'Light';
     const expectedFontWeight = '300';
     // execute
     cy.findByText(/upload/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
@@ -42,7 +42,7 @@ describe('Landing Page', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
     cy.assertFontNameFromXheightPageOn(
       expectedFontName,
-      expectedFontWeightName,
+      expectedFontSubfamily,
       expectedFontWeight,
     );
   });

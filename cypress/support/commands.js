@@ -19,11 +19,11 @@ Cypress.Commands.add('upload', (testId, fontFileName) => {
 // Assertions on font name, font-family and font-weight
 Cypress.Commands.add(
   'assertFontNameFromPreviewPageOn',
-  (expectedFontName, expectedFontWeightName, expectedFontWeight) => {
+  (expectedFontName, expectedFontSubfamily, expectedFontWeight) => {
     cy.findByTestId('font-family-name').should('have.text', expectedFontName);
-    cy.findByTestId('font-weight-name').should(
+    cy.findByTestId('font-subfamily-name').should(
       'have.text',
-      expectedFontWeightName,
+      expectedFontSubfamily,
     );
 
     cy.findByTestId('sampleParagraphs')
@@ -39,17 +39,17 @@ Cypress.Commands.add(
 
 Cypress.Commands.add(
   'assertFontNameFromModularScalePageOn',
-  (expectedFontName, expectedFontWeightName, expectedFontWeight) => {
+  (expectedFontName, expectedFontSubfamily, expectedFontWeight) => {
     cy.findByTestId('font-family-name').should('have.text', expectedFontName);
-    cy.findByTestId('font-weight-name').should(
+    cy.findByTestId('font-subfamily-name').should(
       'have.text',
-      expectedFontWeightName,
+      expectedFontSubfamily,
     );
 
     cy.findByText(/preview/i).click();
     cy.assertFontNameFromPreviewPageOn(
       expectedFontName,
-      expectedFontWeightName,
+      expectedFontSubfamily,
       expectedFontWeight,
     );
   },
@@ -57,17 +57,17 @@ Cypress.Commands.add(
 
 Cypress.Commands.add(
   'assertFontNameFromXheightPageOn',
-  (expectedFontName, expectedFontWeightName, expectedFontWeight) => {
+  (expectedFontName, expectedFontSubfamily, expectedFontWeight) => {
     cy.findByTestId('font-family-name').should('have.text', expectedFontName);
-    cy.findByTestId('font-weight-name').should(
+    cy.findByTestId('font-subfamily-name').should(
       'have.text',
-      expectedFontWeightName,
+      expectedFontSubfamily,
     );
 
     cy.findByText(/scale/i).click();
     cy.assertFontNameFromModularScalePageOn(
       expectedFontName,
-      expectedFontWeightName,
+      expectedFontSubfamily,
       expectedFontWeight,
     );
   },

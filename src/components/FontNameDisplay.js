@@ -12,8 +12,8 @@ const FontNameDisplay = props => {
       <UserDataDisplay data-testid="font-family-name">
         {props.fontFamily}
       </UserDataDisplay>
-      <UserDataDisplay data-testid="font-weight-name">
-        {props.fontWeightName}
+      <UserDataDisplay data-testid="font-subfamily-name">
+        {props.fontSubfamily}
       </UserDataDisplay>
     </UserDataDisplayWrapper>
   );
