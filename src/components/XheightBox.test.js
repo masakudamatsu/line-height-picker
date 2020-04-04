@@ -167,6 +167,22 @@ test('Entering a value less than 1 shows an alert message on the value range', (
   });
 });
 
+test('Entering a value more than 100 shows an alert message on the value range', () => {
+  // Setup
+  const {getByLabelText, getByText} = render(
+    <XheightBox xHeightToFontSize={mockXHeightToFontSize} />,
+  );
+  const xHeightInput = getByLabelText(/x-height/i);
+  const invalidUserInputs = ['234', '1056'];
+  invalidUserInputs.forEach(invalidUserInput => {
+    // Execute
+    fireEvent.change(xHeightInput, {target: {value: invalidUserInput}});
+    // verify
+    const alertText = getByText(/between/i);
+    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
+  });
+});
+
 test('is accessible', async () => {
   const {container} = render(<XheightBox />);
   const results = await axe(container);
