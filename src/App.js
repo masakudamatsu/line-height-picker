@@ -18,6 +18,7 @@ const opentype = require('opentype.js');
 function App() {
   const [fontMetrics, setFontMetrics] = React.useState({
     fontFamily: 'Open Sans',
+    fontWeightName: 'Regular',
     fontWeight: 400,
     xHeight: 1096,
     unitsPerEm: 2048,
@@ -38,6 +39,7 @@ function App() {
         const newFontMetrics = getFontMetrics(font);
         setFontMetrics({
           fontFamily: newFontMetrics.fontFamily,
+          fontWeightName: newFontMetrics.fontSubfamily,
           fontWeight: newFontMetrics.usWeightClass,
           xHeight: newFontMetrics.sxHeight,
           unitsPerEm: newFontMetrics.unitsPerEm,
@@ -102,6 +104,7 @@ function App() {
               <Xheight
                 handleFontFile={handleFontFile}
                 fontFamily={fontMetrics.fontFamily}
+                fontWeightName={fontMetrics.fontWeightName}
                 xHeightPx={xHeightPx}
                 xHeightToFontSize={xHeightToFontSize}
               />
@@ -109,6 +112,7 @@ function App() {
             <Route path="/modular-scale">
               <ModularScale
                 fontFamily={fontMetrics.fontFamily}
+                fontWeightName={fontMetrics.fontWeightName}
                 handleFontFile={handleFontFile}
                 xHeightPx={xHeightPx}
                 xHeightRatio={xHeightRatio}
@@ -120,6 +124,7 @@ function App() {
             <Route path="/preview">
               <Preview
                 fontFamily={fontMetrics.fontFamily}
+                fontWeightName={fontMetrics.fontWeightName}
                 handleFontFile={handleFontFile}
                 fontSize={fontSizePx}
                 fontWeight={fontMetrics.fontWeight}

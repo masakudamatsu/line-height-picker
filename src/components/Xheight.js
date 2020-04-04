@@ -15,7 +15,10 @@ const Xheight = props => {
           xHeightPx={props.xHeightPx}
           xHeightToFontSize={props.xHeightToFontSize}
         />
-        <FontNameDisplay fontFamily={props.fontFamily} />
+        <FontNameDisplay
+          fontFamily={props.fontFamily}
+          fontWeightName={props.fontWeightName}
+        />
         <ButtonContainer>
           <ChangeFontButton handleFontFile={props.handleFontFile} />
           <Button as={Link} to="/modular-scale">

@@ -3,6 +3,7 @@ const getFontMetrics = font => {
 
   const namingTable = font.tables['name'];
   fontMetrics.fontFamily = namingTable['fontFamily'].en;
+  fontMetrics.fontSubfamily = namingTable['fontSubfamily'].en;
   fontMetrics.fullName = namingTable['fullName'].en;
 
   const headTable = font.tables['head'];
