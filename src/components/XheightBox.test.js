@@ -8,6 +8,12 @@ import 'jest-axe/extend-expect';
 
 import XheightBox from './XheightBox';
 
+const xHeightToFontSize = jest.fn();
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 test('renders correctly', () => {
   const {container} = render(<XheightBox />);
   expect(container).toMatchInlineSnapshot(`
@@ -118,7 +124,6 @@ test('The value attribute reflects props.xHeightPx', () => {
 
 test('Entering x-height value calls the xHeightToFontSize function', () => {
   // setup
-  const xHeightToFontSize = jest.fn();
   const userXheight = '10';
   // execute
   const {getByLabelText} = render(
@@ -129,8 +134,20 @@ test('Entering x-height value calls the xHeightToFontSize function', () => {
   // verify
   expect(xHeightToFontSize).toHaveBeenCalledTimes(1);
   expect(xHeightToFontSize).toHaveBeenCalledWith(userXheight);
-  // isolate
-  xHeightToFontSize.mockClear();
+});
+
+test('Entering more than 4 decimal places changes the text color for "up to 4 decimal places"', () => {
+  // Setup
+  const invalidUserInput = '12.34567';
+  // Execute
+  const {getByLabelText, getByText} = render(
+    <XheightBox xHeightToFontSize={xHeightToFontSize} />,
+  );
+  const xHeightInput = getByLabelText(/x-height/i);
+  fireEvent.change(xHeightInput, {target: {value: invalidUserInput}});
+  // verify
+  const instructionText = getByText(/decimal/i);
+  expect(instructionText).toHaveStyle('color: hsl(335, 71%, 64%)');
 });
 
 test('is accessible', async () => {
