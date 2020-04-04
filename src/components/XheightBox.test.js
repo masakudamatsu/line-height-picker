@@ -9,7 +9,7 @@ import 'jest-axe/extend-expect';
 import XheightBox from './XheightBox';
 import colorPalette from '../theme/colorPalette';
 
-const xHeightToFontSize = jest.fn();
+const mockXHeightToFontSize = jest.fn();
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -128,13 +128,13 @@ test('Entering x-height value calls the xHeightToFontSize function', () => {
   const userXheight = '10';
   // execute
   const {getByLabelText} = render(
-    <XheightBox xHeightToFontSize={xHeightToFontSize} />,
+    <XheightBox xHeightToFontSize={mockXHeightToFontSize} />,
   );
   const xHeightInput = getByLabelText(/x-height/i);
   fireEvent.change(xHeightInput, {target: {value: userXheight}});
   // verify
-  expect(xHeightToFontSize).toHaveBeenCalledTimes(1);
-  expect(xHeightToFontSize).toHaveBeenCalledWith(userXheight);
+  expect(mockXHeightToFontSize).toHaveBeenCalledTimes(1);
+  expect(mockXHeightToFontSize).toHaveBeenCalledWith(userXheight);
 });
 
 test('Entering more than 4 decimal places changes the text color for "up to 4 decimal places"', () => {
@@ -142,7 +142,7 @@ test('Entering more than 4 decimal places changes the text color for "up to 4 de
   const invalidUserInput = '12.34567';
   // Execute
   const {getByLabelText, getByText} = render(
-    <XheightBox xHeightToFontSize={xHeightToFontSize} />,
+    <XheightBox xHeightToFontSize={mockXHeightToFontSize} />,
   );
   const xHeightInput = getByLabelText(/x-height/i);
   fireEvent.change(xHeightInput, {target: {value: invalidUserInput}});
@@ -154,7 +154,7 @@ test('Entering more than 4 decimal places changes the text color for "up to 4 de
 test('Entering a value less than 1 shows an alert message on the value range', () => {
   // Setup
   const {getByLabelText, getByText} = render(
-    <XheightBox xHeightToFontSize={xHeightToFontSize} />,
+    <XheightBox xHeightToFontSize={mockXHeightToFontSize} />,
   );
   const xHeightInput = getByLabelText(/x-height/i);
   const invalidUserInputs = ['0', '-1'];
