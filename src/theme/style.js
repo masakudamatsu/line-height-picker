@@ -47,6 +47,7 @@ export const PageTitle = styled.h2`
 `;
 
 export const ParagraphOneRem = styled.p`
+  color: ${props => (props.error ? 'hsl(335, 71%, 64%)' : 'currentColor')};
   font-size: 1rem;
 `;
 

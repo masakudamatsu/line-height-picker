@@ -8,10 +8,18 @@ import {
 } from '../theme/style';
 
 const XheightBox = props => {
+  const [stepError, setStepError] = React.useState(false);
   const handleChange = event => {
+    event.target.checkValidity();
+    if (event.target.validity.stepMismatch) {
+      setStepError(true);
+    } else {
+      setStepError(false);
+    }
     const xHeightValue = event.target.value;
     props.xHeightToFontSize(xHeightValue);
   };
+
   return (
     <Form>
       <Label htmlFor="x-height">Set x-height</Label>
@@ -24,7 +32,9 @@ const XheightBox = props => {
         />
         <span>px</span>
       </NumberInputWrapper>
-      <ParagraphOneRem>up to 4 decimal places</ParagraphOneRem>
+      <ParagraphOneRem error={stepError}>
+        up to 4 decimal places
+      </ParagraphOneRem>
     </Form>
   );
 };
