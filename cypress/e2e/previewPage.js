@@ -50,6 +50,7 @@ describe('Preview Page in demo', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
     const expectedFontName = 'Roboto Slab';
+    const expectedFontSubfamily = 'Light';
     const expectedFontWeight = '300';
 
     // Execute
@@ -57,7 +58,11 @@ describe('Preview Page in demo', () => {
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
 
     // verify
-    cy.assertFontNameFromPreviewPageOn(expectedFontName, expectedFontWeight);
+    cy.assertFontNameFromPreviewPageOn(
+      expectedFontName,
+      expectedFontSubfamily,
+      expectedFontWeight,
+    );
   });
 
   it('allows the user to change x-height, which will be shown immediately and used to calculate font-size', () => {
@@ -116,6 +121,7 @@ describe('Preview Page after uploading a font file', () => {
     // Setup
     const fontFileName = 'OpenSans-Regular.ttf';
     const expectedFontName = 'Open Sans';
+    const expectedFontSubfamily = 'Regular';
     const expectedFontWeight = '400';
 
     // Execute
@@ -123,7 +129,11 @@ describe('Preview Page after uploading a font file', () => {
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
 
     // verify
-    cy.assertFontNameFromPreviewPageOn(expectedFontName, expectedFontWeight);
+    cy.assertFontNameFromPreviewPageOn(
+      expectedFontName,
+      expectedFontSubfamily,
+      expectedFontWeight,
+    );
   });
 
   it('allows the user to change x-height, which will be shown immediately and used to calculate font-size', () => {

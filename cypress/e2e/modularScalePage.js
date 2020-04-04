@@ -48,6 +48,7 @@ describe('Modular Scale Page in demo', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
     const expectedFontName = 'Roboto Slab';
+    const expectedFontSubfamily = 'Light';
     const expectedFontWeight = '300';
 
     // Execute
@@ -57,6 +58,7 @@ describe('Modular Scale Page in demo', () => {
     // Verify
     cy.assertFontNameFromModularScalePageOn(
       expectedFontName,
+      expectedFontSubfamily,
       expectedFontWeight,
     );
   });
@@ -100,6 +102,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     // Setup
     const fontFileName = 'OpenSans-Regular.ttf';
     const expectedFontName = 'Open Sans';
+    const expectedFontSubfamily = 'Regular';
     const expectedFontWeight = '400';
 
     // Execute
@@ -109,6 +112,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     // Verify
     cy.assertFontNameFromModularScalePageOn(
       expectedFontName,
+      expectedFontSubfamily,
       expectedFontWeight,
     );
   });
