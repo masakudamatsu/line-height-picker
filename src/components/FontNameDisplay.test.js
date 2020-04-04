@@ -36,9 +36,8 @@ test('renders correctly', () => {
         </h2>
         <p
           class="c2"
-        >
-          Open Sans Regular
-        </p>
+          data-testid="UserDataDisplay"
+        />
       </section>
     </div>
   `);
@@ -47,7 +46,7 @@ test('renders correctly', () => {
 test('displays the props value as the font name', () => {
   const fontName = 'Open Sans';
   const {getByTestId} = render(<FontNameDisplay fontFamily={fontName} />);
-  expect(getByTestId('UserDataDisplay')).toHaveTextContent(fontName);
+  expect(getByTestId('font-family-name')).toHaveTextContent(fontName);
 });
 
 test('is accessible', async () => {

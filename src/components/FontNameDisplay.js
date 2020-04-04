@@ -9,7 +9,7 @@ const FontNameDisplay = props => {
   return (
     <UserDataDisplayWrapper data-testid="FontNameDisplay">
       <UserDataDisplayTitle>Font chosen:</UserDataDisplayTitle>
-      <UserDataDisplay data-testid="UserDataDisplay">
+      <UserDataDisplay data-testid="font-family-name">
         {props.fontFamily}
       </UserDataDisplay>
     </UserDataDisplayWrapper>
