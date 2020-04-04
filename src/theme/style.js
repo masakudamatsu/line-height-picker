@@ -48,7 +48,8 @@ export const PageTitle = styled.h2`
 `;
 
 export const ParagraphOneRem = styled.p`
-  color: ${props => (props.error ? colorPalette.errorText : 'currentColor')};
+  color: ${props =>
+    props.errorText ? colorPalette.errorText : 'currentColor'};
   font-size: 1rem;
 `;
 

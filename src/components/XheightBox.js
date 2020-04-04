@@ -43,11 +43,11 @@ const XheightBox = props => {
         />
         <span>px</span>
       </NumberInputWrapper>
-      <ParagraphOneRem error={stepError}>
+      <ParagraphOneRem errorText={stepError}>
         up to 4 decimal places
       </ParagraphOneRem>
       {rangeError ? (
-        <ParagraphOneRem error={rangeError}>
+        <ParagraphOneRem errorText={rangeError}>
           Enter a number between 1 and 100 inclusive
         </ParagraphOneRem>
       ) : null}
