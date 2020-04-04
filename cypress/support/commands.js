@@ -21,6 +21,10 @@ Cypress.Commands.add(
   'assertFontNameFromPreviewPageOn',
   (expectedFontName, expectedFontWeightName, expectedFontWeight) => {
     cy.findByTestId('font-family-name').should('have.text', expectedFontName);
+    cy.findByTestId('font-weight-name').should(
+      'have.text',
+      expectedFontWeightName,
+    );
 
     cy.findByTestId('sampleParagraphs')
       .should('have.css', 'font-family', `"${expectedFontName}"`)
@@ -37,6 +41,10 @@ Cypress.Commands.add(
   'assertFontNameFromModularScalePageOn',
   (expectedFontName, expectedFontWeightName, expectedFontWeight) => {
     cy.findByTestId('font-family-name').should('have.text', expectedFontName);
+    cy.findByTestId('font-weight-name').should(
+      'have.text',
+      expectedFontWeightName,
+    );
 
     cy.findByText(/preview/i).click();
     cy.assertFontNameFromPreviewPageOn(
@@ -51,6 +59,10 @@ Cypress.Commands.add(
   'assertFontNameFromXheightPageOn',
   (expectedFontName, expectedFontWeightName, expectedFontWeight) => {
     cy.findByTestId('font-family-name').should('have.text', expectedFontName);
+    cy.findByTestId('font-weight-name').should(
+      'have.text',
+      expectedFontWeightName,
+    );
 
     cy.findByText(/scale/i).click();
     cy.assertFontNameFromModularScalePageOn(

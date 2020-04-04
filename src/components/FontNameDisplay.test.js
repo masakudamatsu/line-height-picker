@@ -45,8 +45,12 @@ test('renders correctly', () => {
 
 test('displays the props value as the font name', () => {
   const fontName = 'Open Sans';
-  const {getByTestId} = render(<FontNameDisplay fontFamily={fontName} />);
+  const fontWeightName = 'Regular';
+  const {getByTestId} = render(
+    <FontNameDisplay fontFamily={fontName} fontWeightName={fontWeightName} />,
+  );
   expect(getByTestId('font-family-name')).toHaveTextContent(fontName);
+  expect(getByTestId('font-weight-name')).toHaveTextContent(fontWeightName);
 });
 
 test('is accessible', async () => {
