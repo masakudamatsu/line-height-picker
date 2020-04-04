@@ -13,6 +13,7 @@ const XheightBox = props => {
   const handleChange = event => {
     event.target.checkValidity();
     if (
+      event.target.validity.rangeOverflow ||
       event.target.validity.rangeUnderflow
     ) {
       setRangeError(true);
@@ -35,6 +36,7 @@ const XheightBox = props => {
         <XheightInput
           data-testid="x-height-in-pixel"
           id="x-height"
+          max="100"
           min="1"
           onChange={handleChange}
           value={props.xHeightPx}

@@ -19,6 +19,7 @@ test('renders correctly', () => {
   const {container} = render(<XheightBox />);
   expect(container).toMatchInlineSnapshot(`
     .c3 {
+      color: currentColor;
       font-size: 1rem;
     }
 
@@ -98,6 +99,9 @@ test('renders correctly', () => {
             class="sc-fznWqX c2"
             data-testid="x-height-in-pixel"
             id="x-height"
+            max="100"
+            min="1"
+            pattern="[0-9]*[.,]?[0-9]+"
             step="0.0001"
             type="number"
             value=""
