@@ -151,6 +151,22 @@ test('Entering more than 4 decimal places changes the text color for "up to 4 de
   expect(instructionText).toHaveStyle(`color: ${colorPalette.errorText}`);
 });
 
+test('Entering a value less than 1 shows an alert message on the value range', () => {
+  // Setup
+  const {getByLabelText, getByText} = render(
+    <XheightBox xHeightToFontSize={xHeightToFontSize} />,
+  );
+  const xHeightInput = getByLabelText(/x-height/i);
+  const invalidUserInputs = ['0', '-1'];
+  invalidUserInputs.forEach(invalidUserInput => {
+    // Execute
+    fireEvent.change(xHeightInput, {target: {value: invalidUserInput}});
+    // verify
+    const alertText = getByText(/between/i);
+    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
+  });
+});
+
 test('is accessible', async () => {
   const {container} = render(<XheightBox />);
   const results = await axe(container);
