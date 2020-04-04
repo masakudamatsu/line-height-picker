@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import colorPalette from './colorPalette';
 import LogoImage from '../components/LogoImage';
 
 // Parameters
@@ -47,7 +48,7 @@ export const PageTitle = styled.h2`
 `;
 
 export const ParagraphOneRem = styled.p`
-  color: ${props => (props.error ? 'hsl(335, 71%, 64%)' : 'currentColor')};
+  color: ${props => (props.error ? colorPalette.errorText : 'currentColor')};
   font-size: 1rem;
 `;
 
@@ -231,6 +232,8 @@ export const NumberInputWrapper = styled.div`
   padding: 3rem 0 1rem 0;
 `;
 export const NumberInput = styled.input.attrs(props => ({
+  pattern: '[0-9]*[.,]?[0-9]+',
+  // to support Opera Mini; see https://css-tricks.com/form-validation-part-1-constraint-validation-html/
   step: 0.0001,
   type: 'number',
 }))`

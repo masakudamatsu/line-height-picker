@@ -7,6 +7,7 @@ import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
 import XheightBox from './XheightBox';
+import colorPalette from '../theme/colorPalette';
 
 const xHeightToFontSize = jest.fn();
 
@@ -147,7 +148,7 @@ test('Entering more than 4 decimal places changes the text color for "up to 4 de
   fireEvent.change(xHeightInput, {target: {value: invalidUserInput}});
   // verify
   const instructionText = getByText(/decimal/i);
-  expect(instructionText).toHaveStyle('color: hsl(335, 71%, 64%)');
+  expect(instructionText).toHaveStyle(`color: ${colorPalette.errorText}`);
 });
 
 test('is accessible', async () => {
