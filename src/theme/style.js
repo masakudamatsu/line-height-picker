@@ -53,6 +53,10 @@ export const ParagraphOneRem = styled.p`
   font-size: 1rem;
 `;
 
+export const AlertMessage = styled(ParagraphOneRem)`
+  visibility: ${props => (props.error ? 'visible' : 'hidden')};
+`;
+
 export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
   text-align: right;
 `;

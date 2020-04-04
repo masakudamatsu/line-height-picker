@@ -23,6 +23,12 @@ test('renders correctly', () => {
       font-size: 1rem;
     }
 
+    .c4 {
+      color: currentColor;
+      font-size: 1rem;
+      visibility: hidden;
+    }
+
     .c0 {
       display: -webkit-box;
       display: -webkit-flex;
@@ -96,7 +102,7 @@ test('renders correctly', () => {
           class="c1"
         >
           <input
-            class="sc-fznWqX c2"
+            class="sc-fzoiQi c2"
             data-testid="x-height-in-pixel"
             id="x-height"
             max="100"
@@ -114,6 +120,11 @@ test('renders correctly', () => {
           class="c3"
         >
           up to 4 decimal places
+        </p>
+        <p
+          class="c4"
+        >
+          Enter a number between 1 and 100 inclusive
         </p>
       </form>
     </div>

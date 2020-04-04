@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  AlertMessage,
   Form,
   XheightInput,
   NumberInputWrapper,
@@ -46,11 +47,9 @@ const XheightBox = props => {
       <ParagraphOneRem errorText={stepError}>
         up to 4 decimal places
       </ParagraphOneRem>
-      {rangeError ? (
-        <ParagraphOneRem errorText={rangeError}>
-          Enter a number between 1 and 100 inclusive
-        </ParagraphOneRem>
-      ) : null}
+      <AlertMessage error={rangeError} errorText={rangeError}>
+        Enter a number between 1 and 100 inclusive
+      </AlertMessage>
     </Form>
   );
 };
