@@ -93,6 +93,47 @@ describe('Preview Page in demo', () => {
       OpenSansFontMetrics,
     );
   });
+
+  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
+    // setup
+    const invalidUserData = {
+      xHeight: 10.12345,
+      xHeightRatio: 1.12345,
+      lineHeightRatio: 3.12345,
+    };
+    // execute
+    cy.findByTestId('x-height-in-pixel')
+      .clear()
+      .type(invalidUserData.xHeight);
+    // verify
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-x-height');
+    // execute
+    cy.findByTestId('x-height-in-pixel').type('{backspace}'); // eliminate the 5th decimal place
+    // verify
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+
+    // execute
+    cy.findByTestId('x-height-for-ratio')
+      .clear()
+      .type(invalidUserData.xHeightRatio);
+    // verify
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
+    // execute
+    cy.findByTestId('x-height-for-ratio').type('{backspace}'); // eliminate the 5th decimal place
+    // verify
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+
+    // execute
+    cy.findByTestId('line-height-for-ratio')
+      .clear()
+      .type(invalidUserData.lineHeightRatio);
+    // verify
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
+    // execute
+    cy.findByTestId('line-height-for-ratio').type('{backspace}'); // eliminate the 5th decimal place
+    // verify
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+  });
 });
 
 describe('Preview Page after uploading a font file', () => {
