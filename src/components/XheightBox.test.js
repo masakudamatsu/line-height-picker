@@ -119,11 +119,13 @@ test('renders correctly', () => {
         </div>
         <p
           class="c3"
+          data-testid="instruction-x-height"
         >
           up to 4 decimal places
         </p>
         <p
           class="c4"
+          data-testid="error-message-x-height"
         >
           Enter a number between 1 and 100 inclusive
         </p>
