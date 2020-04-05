@@ -1,6 +1,6 @@
 import React from 'react';
 import render from './test-utils/render';
-import {cleanup, fireEvent} from '@testing-library/react';
+import {cleanup} from '@testing-library/react';
 import user from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
@@ -149,22 +149,24 @@ test('Entering x-height value calls the xHeightToFontSize function (for each key
   userXheightList.forEach(userXheight => {
     // execute
     user.type(xHeightInput, userXheight);
-  // verify
+    // verify
     expect(mockXHeightToFontSize).toHaveBeenCalledTimes(userXheight.length);
-  expect(mockXHeightToFontSize).toHaveBeenCalledWith(userXheight);
+    expect(mockXHeightToFontSize).toHaveBeenCalledWith(userXheight);
     mockXHeightToFontSize.mockClear();
-});
+  });
 });
 
 test('Entering more than 4 decimal places changes the text color for "up to 4 decimal places"', () => {
   // Setup
-  const invalidUserInput = '12.34567';
-  // Execute
   const {getByLabelText, getByText} = render(
     <XheightBox xHeightToFontSize={mockXHeightToFontSize} />,
   );
   const xHeightInput = getByLabelText(/x-height/i);
-  fireEvent.change(xHeightInput, {target: {value: invalidUserInput}});
+
+  // Execute
+  const invalidUserInput = '12.34567';
+  user.type(xHeightInput, invalidUserInput);
+
   // verify
   const instructionText = getByText(/decimal/i);
   expect(instructionText).toHaveStyle(`color: ${colorPalette.errorText}`);
@@ -179,7 +181,7 @@ test('Entering a value less than 1 shows an alert message on the value range', (
   const invalidUserInputs = ['0', '-1'];
   invalidUserInputs.forEach(invalidUserInput => {
     // Execute
-    fireEvent.change(xHeightInput, {target: {value: invalidUserInput}});
+    user.type(xHeightInput, invalidUserInput);
     // verify
     const alertText = getByText(/between/i);
     expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
@@ -195,7 +197,7 @@ test('Entering a value more than 100 shows an alert message on the value range',
   const invalidUserInputs = ['234', '1056'];
   invalidUserInputs.forEach(invalidUserInput => {
     // Execute
-    fireEvent.change(xHeightInput, {target: {value: invalidUserInput}});
+    user.type(xHeightInput, invalidUserInput);
     // verify
     const alertText = getByText(/between/i);
     expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
