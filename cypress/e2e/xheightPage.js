@@ -51,37 +51,11 @@ describe('X-height page in demo', () => {
   });
 
   it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
-    // setup
-    const invalidUserData = {
-      negativeValue: -1,
-      zero: 0,
-    };
-    const validUserData = '2';
-    // execute
-    cy.findByLabelText(/x-height/i).type(invalidUserData.negativeValue);
-    // verify
-    cy.assertIfErrorMessageAppears('error-message-x-height');
-    // execute
-    cy.findByLabelText(/x-height/i).clear();
-    // verify
-    cy.findByText(/between/i).should('be.hidden');
-    // execute
-    cy.findByLabelText(/x-height/i).type(invalidUserData.zero);
-    // verify
-    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.testAlertForValuesLessThanOne('x-height-in-pixel');
   });
 
   it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
-    // setup
-    const invalidUserData = '101';
-    // execute
-    cy.findByLabelText(/x-height/i).type(invalidUserData);
-    // verify
-    cy.assertIfErrorMessageAppears('error-message-x-height');
-    // execute
-    cy.findByLabelText(/x-height/i).type('{backspace}');
-    // verify
-    cy.findByText(/between/i).should('be.hidden');
+    cy.testAlertForValuesMoreThanHundred('x-height-in-pixel');
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {

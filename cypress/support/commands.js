@@ -176,6 +176,55 @@ Cypress.Commands.add('assertIfErrorMessageAppears', testId => {
 Cypress.Commands.add('assertIfErrorMessageDisappears', testId => {
   cy.findByTestId(testId).should('be.hidden');
 });
+
+// Test on alert for values outside the range of 1-100
+Cypress.Commands.add('testAlertForValuesLessThanOne', testId => {
+  // setup
+  const invalidUserData = {
+    negativeValue: -1,
+    zero: 0,
+  };
+  const validUserData = '2';
+  let errorMessageTestId;
+  if (testId === 'x-height-in-pixel') {
+    errorMessageTestId = 'error-message-x-height';
+  } else {
+    errorMessageTestId = 'error-message-modular-scale';
+  }
+  // execute
+  cy.findByTestId(testId).type(invalidUserData.negativeValue);
+  // verify
+  cy.assertIfErrorMessageAppears(errorMessageTestId);
+  // execute
+  cy.findByTestId(testId).clear();
+  // verify
+  cy.assertIfErrorMessageDisappears(errorMessageTestId);
+  // execute
+  cy.findByTestId(testId).type(invalidUserData.zero);
+  // verify
+  cy.assertIfErrorMessageAppears(errorMessageTestId);
+});
+
+Cypress.Commands.add('testAlertForValuesMoreThanHundred', testId => {
+  // setup
+  const invalidUserData = '101';
+  let errorMessageTestId;
+  if (testId === 'x-height-in-pixel') {
+    errorMessageTestId = 'error-message-x-height';
+  } else {
+    errorMessageTestId = 'error-message-modular-scale';
+  }
+
+  // execute
+  cy.findByTestId(testId).type(invalidUserData);
+  // verify
+  cy.assertIfErrorMessageAppears(errorMessageTestId);
+  // execute
+  cy.findByTestId(testId).type('{backspace}');
+  // verify
+  cy.assertIfErrorMessageDisappears(errorMessageTestId);
+});
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite

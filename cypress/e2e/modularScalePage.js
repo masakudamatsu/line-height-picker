@@ -76,54 +76,13 @@ describe('Modular Scale Page in demo', () => {
   });
 
   it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
-    // setup
-    const invalidUserData = {
-      negativeValue: -1,
-      zero: 0,
-    };
-    const validUserData = '2';
-    // execute
-    cy.findByLabelText(/x-height/i).type(invalidUserData.negativeValue);
-    // verify
-    cy.assertIfErrorMessageAppears('error-message-modular-scale');
-    // execute
-    cy.findByLabelText(/x-height/i).clear();
-    // verify
-    cy.findByText(/between/i).should('be.hidden');
-    // execute
-    cy.findByLabelText(/x-height/i).type(invalidUserData.zero);
-    // verify
-    cy.assertIfErrorMessageAppears('error-message-modular-scale');
-
-    // execute
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
-      invalidUserData.negativeValue,
-    );
-    // verify
-    cy.assertIfErrorMessageAppears('error-message-modular-scale');
-    // execute
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).clear();
-    // verify
-    cy.findByText(/between/i).should('be.hidden');
-    // execute
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
-      invalidUserData.zero,
-    );
-    // verify
-    cy.assertIfErrorMessageAppears('error-message-modular-scale');
+    cy.testAlertForValuesLessThanOne('x-height-for-ratio');
+    cy.testAlertForValuesLessThanOne('line-height-for-ratio');
   });
 
   it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
-    // setup
-    const invalidUserData = '101';
-    // execute
-    cy.findByLabelText(/x-height/i).type(invalidUserData);
-    // verify
-    cy.assertIfErrorMessageAppears('error-message-modular-scale');
-    // execute
-    cy.findByLabelText(/x-height/i).type('{backspace}');
-    // verify
-    cy.findByText(/between/i).should('be.hidden');
+    cy.testAlertForValuesMoreThanHundred('x-height-for-ratio');
+    cy.testAlertForValuesMoreThanHundred('line-height-for-ratio');
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {
