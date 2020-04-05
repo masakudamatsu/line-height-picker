@@ -1,6 +1,7 @@
 import React from 'react';
 import render from './test-utils/render';
 import {cleanup, fireEvent} from '@testing-library/react';
+import user from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
@@ -57,8 +58,14 @@ test('renders correctly', () => {
     }
 
     .c5 {
+      color: currentColor;
       font-size: 1rem;
-      text-align: right;
+    }
+
+    .c6 {
+      color: currentColor;
+      font-size: 1rem;
+      visibility: hidden;
     }
 
     .c0 {
@@ -128,9 +135,11 @@ test('renders correctly', () => {
               x-height
             </label>
             <input
-              class="sc-fznWqX c4"
+              class="sc-fzoiQi c4"
               data-testid="x-height-for-ratio"
               id="x-height-scale"
+              min="1"
+              pattern="[0-9]*[.,]?[0-9]+"
               step="0.0001"
               type="number"
               value=""
@@ -149,9 +158,11 @@ test('renders correctly', () => {
               line-height
             </label>
             <input
-              class="sc-fznWqX c4"
+              class="sc-fzoiQi c4"
               data-testid="line-height-for-ratio"
               id="line-height-scale"
+              min="1"
+              pattern="[0-9]*[.,]?[0-9]+"
               step="0.0001"
               type="number"
               value=""
@@ -159,9 +170,16 @@ test('renders correctly', () => {
           </div>
         </div>
         <p
-          class="sc-AxheI c5"
+          class="c5"
+          data-testid="instruction-modular-scale"
         >
           up to 4 decimal places
+        </p>
+        <p
+          class="c6"
+          data-testid="error-message-modular-scale"
+        >
+          Enter a number between 1 and 100 inclusive
         </p>
       </form>
     </div>
@@ -247,6 +265,74 @@ test('Entering more than 4 decimal places for line-height ratio changes the text
   // verify
   const instructionText = getByText(/decimal/i);
   expect(instructionText).toHaveStyle(`color: ${colorPalette.errorText}`);
+});
+
+test('Entering a value less than 1 for x-height shows an alert message on the value range', () => {
+  // Setup
+  const {getByLabelText, getByText} = render(
+    <ModularScaleBoxes handleXHeightRatio={mockHandleXHeightRatio} />,
+  );
+  const xHeightRatioInput = getByLabelText(/x-height/i);
+  const invalidUserInputs = ['0', '-1'];
+  invalidUserInputs.forEach(invalidUserInput => {
+    // Execute
+    user.type(xHeightRatioInput, invalidUserInput);
+    // verify
+    const alertText = getByText(/between/i);
+    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
+  });
+});
+
+test('Entering a value less than 1 for line-height shows an alert message on the value range', () => {
+  // Setup
+  const {getByLabelText, getByText} = render(
+    <ModularScaleBoxes handleLineHeightRatio={mockHandleLineHeightRatio} />,
+  );
+  const lineHeightRatioInput = getByLabelText(/line-height/i, {
+    selector: 'input',
+  });
+  const invalidUserInputs = ['0', '-1'];
+  invalidUserInputs.forEach(invalidUserInput => {
+    // Execute
+    user.type(lineHeightRatioInput, invalidUserInput);
+    // verify
+    const alertText = getByText(/between/i);
+    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
+  });
+});
+
+test('Entering a value more than 100 for x-height shows an alert message on the value range', () => {
+  // Setup
+  const {getByLabelText, getByText} = render(
+    <ModularScaleBoxes handleXHeightRatio={mockHandleXHeightRatio} />,
+  );
+  const xHeightInput = getByLabelText(/x-height/i);
+  const invalidUserInputs = ['234', '1056'];
+  invalidUserInputs.forEach(invalidUserInput => {
+    // Execute
+    user.type(xHeightInput, invalidUserInput);
+    // verify
+    const alertText = getByText(/between/i);
+    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
+  });
+});
+
+test('Entering a value more than 100 for line-height shows an alert message on the value range', () => {
+  // Setup
+  const {getByLabelText, getByText} = render(
+    <ModularScaleBoxes handleLineHeightRatio={mockHandleLineHeightRatio} />,
+  );
+  const lineHeightInput = getByLabelText(/line-height/i, {
+    selector: 'input',
+  });
+  const invalidUserInputs = ['234', '1056'];
+  invalidUserInputs.forEach(invalidUserInput => {
+    // Execute
+    user.type(lineHeightInput, invalidUserInput);
+    // verify
+    const alertText = getByText(/between/i);
+    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
+  });
 });
 
 test('is accessible', async () => {
