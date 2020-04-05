@@ -1,3 +1,5 @@
+import colorPalette from '../../src/theme/colorPalette';
+
 describe('X-height page in demo', () => {
   beforeEach(() => {
     cy.visit('/x-height');
@@ -31,6 +33,21 @@ describe('X-height page in demo', () => {
       userData.xHeight,
       OpenSansFontMetrics,
     );
+  });
+
+  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
+    // setup
+    const invalidUserData = {
+      xHeight: 10.12345,
+    };
+    // execute
+    cy.findByLabelText(/x-height/i).type(invalidUserData.xHeight);
+    // verify
+    cy.findByText(/decimal/i).should('have.css', 'color', 'rgb(228, 98, 152)');
+    // execute
+    cy.findByLabelText(/x-height/i).type('{backspace}'); // eliminate the 5th decimal place
+    // verify
+    cy.findByText(/decimal/i).should('have.css', 'color', 'rgb(245, 245, 245)');
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {
