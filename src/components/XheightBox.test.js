@@ -1,6 +1,7 @@
 import React from 'react';
 import render from './test-utils/render';
 import {cleanup, fireEvent} from '@testing-library/react';
+import user from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
@@ -138,18 +139,21 @@ test('The value attribute reflects props.xHeightPx', () => {
   expect(getByLabelText(/x-height/i)).toHaveAttribute('value', xHeightPx);
 });
 
-test('Entering x-height value calls the xHeightToFontSize function', () => {
+test('Entering x-height value calls the xHeightToFontSize function (for each keystroke)', () => {
   // setup
-  const userXheight = '10';
-  // execute
   const {getByLabelText} = render(
     <XheightBox xHeightToFontSize={mockXHeightToFontSize} />,
   );
   const xHeightInput = getByLabelText(/x-height/i);
-  fireEvent.change(xHeightInput, {target: {value: userXheight}});
+  const userXheightList = ['9', '10']; // check two-digits call the function twice
+  userXheightList.forEach(userXheight => {
+    // execute
+    user.type(xHeightInput, userXheight);
   // verify
-  expect(mockXHeightToFontSize).toHaveBeenCalledTimes(1);
+    expect(mockXHeightToFontSize).toHaveBeenCalledTimes(userXheight.length);
   expect(mockXHeightToFontSize).toHaveBeenCalledWith(userXheight);
+    mockXHeightToFontSize.mockClear();
+});
 });
 
 test('Entering more than 4 decimal places changes the text color for "up to 4 decimal places"', () => {
