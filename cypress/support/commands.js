@@ -177,7 +177,28 @@ Cypress.Commands.add('assertIfErrorMessageDisappears', testId => {
   cy.findByTestId(testId).should('be.hidden');
 });
 
-// Test on alert for values outside the range of 1-100
+// Tests on alert
+Cypress.Commands.add('testAlertForDecimalPlaces', testId => {
+  // setup
+  const invalidUserData = {
+    xHeight: 10.12345,
+  };
+  let errorMessageTestId;
+  if (testId === 'x-height-in-pixel') {
+    errorMessageTestId = 'instruction-x-height';
+  } else {
+    errorMessageTestId = 'instruction-modular-scale';
+  }
+  // execute
+  cy.findByTestId(testId).type(invalidUserData.xHeight);
+  // verify
+  cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
+  // execute
+  cy.findByTestId(testId).type('{backspace}'); // eliminate the 5th decimal place
+  // verify
+  cy.assertIfDecimalPlaceMessageTurnsNormal(errorMessageTestId);
+});
+
 Cypress.Commands.add('testAlertForValuesLessThanOne', testId => {
   // setup
   const invalidUserData = {

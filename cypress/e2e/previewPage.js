@@ -94,6 +94,19 @@ describe('Preview Page in demo', () => {
     );
   });
 
+  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for x-height', () => {
+    cy.findByTestId('x-height-in-pixel').clear();
+    cy.testAlertForDecimalPlaces('x-height-in-pixel');
+  });
+  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for x-height ratio', () => {
+    cy.findByTestId('x-height-for-ratio').clear();
+    cy.testAlertForDecimalPlaces('x-height-for-ratio');
+  });
+  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for line-height ratio', () => {
+    cy.findByTestId('line-height-for-ratio').clear();
+    cy.testAlertForDecimalPlaces('line-height-for-ratio');
+  });
+
   it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
     // setup
     const invalidUserData = {

@@ -45,34 +45,8 @@ describe('Modular Scale Page in demo', () => {
   });
 
   it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
-    // setup
-    const invalidUserData = {
-      xHeightRatio: 1.12345,
-      lineHeightRatio: 3.12345,
-    };
-    // x-height ratio
-    // execute
-    cy.findByLabelText(/x-height/i).type(invalidUserData.xHeightRatio);
-    // verify
-    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
-    // execute
-    cy.findByLabelText(/x-height/i).type('{backspace}'); // eliminate the 5th decimal place
-    // verify
-    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
-
-    // line-height ratio
-    // execute
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
-      invalidUserData.lineHeightRatio,
-    );
-    // verify
-    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
-    // execute
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
-      '{backspace}', // eliminate the 5th decimal place
-    );
-    // verify
-    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+    cy.testAlertForDecimalPlaces('x-height-for-ratio');
+    cy.testAlertForDecimalPlaces('line-height-for-ratio');
   });
 
   it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {

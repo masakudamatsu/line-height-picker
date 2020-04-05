@@ -36,18 +36,7 @@ describe('X-height page in demo', () => {
   });
 
   it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
-    // setup
-    const invalidUserData = {
-      xHeight: 10.12345,
-    };
-    // execute
-    cy.findByLabelText(/x-height/i).type(invalidUserData.xHeight);
-    // verify
-    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-x-height');
-    // execute
-    cy.findByLabelText(/x-height/i).type('{backspace}'); // eliminate the 5th decimal place
-    // verify
-    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.testAlertForDecimalPlaces('x-height-in-pixel');
   });
 
   it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
