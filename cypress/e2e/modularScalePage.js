@@ -75,7 +75,7 @@ describe('Modular Scale Page in demo', () => {
     cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
   });
 
-  it.only('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
+  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
     // setup
     const invalidUserData = {
       negativeValue: -1,
@@ -113,7 +113,7 @@ describe('Modular Scale Page in demo', () => {
     cy.assertIfErrorMessageAppears('error-message-modular-scale');
   });
 
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
+  it.only('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
     // setup
     const invalidUserData = '101';
     // execute

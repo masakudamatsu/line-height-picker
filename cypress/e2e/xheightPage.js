@@ -71,7 +71,7 @@ describe('X-height page in demo', () => {
     cy.assertIfErrorMessageAppears('error-message-x-height');
   });
 
-  it.only('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
+  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
     // setup
     const invalidUserData = '101';
     // execute
