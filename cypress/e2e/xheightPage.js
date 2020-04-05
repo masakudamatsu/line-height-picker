@@ -50,6 +50,31 @@ describe('X-height page in demo', () => {
     cy.findByText(/decimal/i).should('have.css', 'color', 'rgb(245, 245, 245)');
   });
 
+  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
+    // setup
+    const invalidUserData = {
+      negativeValue: -1,
+      zero: 0,
+    };
+    const validUserData = '2';
+    // execute
+    cy.findByLabelText(/x-height/i).type(invalidUserData.negativeValue);
+    // verify
+    cy.findByText(/between/i)
+      .should('be.visible')
+      .should('have.css', 'color', 'rgb(228, 98, 152)');
+    // execute
+    cy.findByLabelText(/x-height/i).clear();
+    // verify
+    cy.findByText(/between/i).should('be.hidden');
+    // execute
+    cy.findByLabelText(/x-height/i).type(invalidUserData.zero);
+    // verify
+    cy.findByText(/between/i)
+      .should('be.visible')
+      .should('have.css', 'color', 'rgb(228, 98, 152)');
+  });
+
   it('allows the user to change font by clicking the "change font" button', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
