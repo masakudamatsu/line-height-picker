@@ -7,6 +7,7 @@ import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
 import ModularScaleBoxes from './ModularScaleBoxes';
+import colorPalette from '../theme/colorPalette';
 
 const mockHandleXHeightRatio = jest.fn();
 const mockHandleLineHeightRatio = jest.fn();
@@ -214,6 +215,38 @@ test('Entering line-height ratio value calls the handleLineHeightRatio() functio
   // verify
   expect(mockHandleLineHeightRatio).toHaveBeenCalledTimes(1);
   expect(mockHandleLineHeightRatio).toHaveBeenCalledWith(userdata);
+});
+
+test('Entering more than 4 decimal places for x-height ratio changes the text color for "up to 4 decimal places"', () => {
+  // Setup
+  const invalidUserInput = '12.34567';
+  // execute
+  const {getByLabelText, getByText} = render(
+    <ModularScaleBoxes handleXHeightRatio={mockHandleXHeightRatio} />,
+  );
+  const xHeightRatioInput = getByLabelText(/x-height/i);
+  fireEvent.change(xHeightRatioInput, {target: {value: invalidUserInput}});
+
+  // verify
+  const instructionText = getByText(/decimal/i);
+  expect(instructionText).toHaveStyle(`color: ${colorPalette.errorText}`);
+});
+
+test('Entering more than 4 decimal places for line-height ratio changes the text color for "up to 4 decimal places"', () => {
+  // Setup
+  const invalidUserInput = '12.34567';
+  // execute
+  const {getByLabelText, getByText} = render(
+    <ModularScaleBoxes handleLineHeightRatio={mockHandleLineHeightRatio} />,
+  );
+  const lineHeightRatioInput = getByLabelText(/line-height/i, {
+    selector: 'input',
+  });
+  fireEvent.change(lineHeightRatioInput, {target: {value: invalidUserInput}});
+
+  // verify
+  const instructionText = getByText(/decimal/i);
+  expect(instructionText).toHaveStyle(`color: ${colorPalette.errorText}`);
 });
 
 test('is accessible', async () => {
