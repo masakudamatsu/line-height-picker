@@ -34,7 +34,7 @@ export const RatioWrapper = styled.div`
 `;
 
 export const ExternalLink = styled.a`
-  color: hsl(0, 0%, 96%);
+  color: ${colorPalette.bodyText};
 `;
 
 export const InternalLink = styled(Link)`
@@ -62,7 +62,7 @@ export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
 `;
 
 export const CodeSnippet = styled.pre`
-  border: 1px solid hsl(0, 0%, 96%);
+  border: 1px solid ${colorPalette.bodyText};
   padding: 1rem;
 `;
 
@@ -254,9 +254,9 @@ export const NumberInput = styled.input.attrs(props => ({
 
   background-color: hsl(0, 0%, 25%);
   border: none;
-  border-bottom: 2px solid hsl(0, 0%, 96%);
+  border-bottom: 2px solid ${colorPalette.bodyText};
   border-radius: 4px 4px 0 0;
-  color: hsl(0, 0%, 96%);
+  color: ${colorPalette.bodyText};
   font-weight: ${fontWeight};
   font-size: 9rem;
   text-align: center;
@@ -279,7 +279,7 @@ export const ModularScaleInput = styled(NumberInput)`
 `;
 
 export const SampleParagraphWrapper = styled.section`
-  border: 1px solid hsl(0, 0%, 96%);
+  border: 1px solid ${colorPalette.bodyText};
   line-height: 1.6;
   padding: 1rem;
   margin: 2rem 0 0.5rem 0;

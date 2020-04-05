@@ -1,9 +1,10 @@
 import {createGlobalStyle} from 'styled-components';
+import colorPalette from './colorPalette';
 
 const GlobalStyle = createGlobalStyle`
 body {
   background-color: hsl(0, 0%, 25%); /* Set the background color here so swiping the screen won't reveal the white part. */
-  color: hsl(0, 0%, 96%);
+  color: ${colorPalette.bodyText};
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
