@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  AlertMessage,
   CenterAlignWrapperHorizontal,
   Form,
   PageTitle,
@@ -10,9 +11,18 @@ import {
 } from '../theme/style';
 
 const ModularScaleBoxes = props => {
+  const [rangeError, setRangeError] = React.useState(false);
   const [stepError, setStepError] = React.useState(false);
   const checkValidity = event => {
     event.target.checkValidity();
+    if (
+      event.target.validity.rangeOverflow ||
+      event.target.validity.rangeUnderflow
+    ) {
+      setRangeError(true);
+    } else {
+      setRangeError(false);
+    }
     if (event.target.validity.stepMismatch) {
       setStepError(true);
     } else {
@@ -39,6 +49,8 @@ const ModularScaleBoxes = props => {
           <ModularScaleInput
             data-testid="x-height-for-ratio"
             id="x-height-scale"
+            max="100"
+            min="1"
             onChange={handleXHeightChange}
             value={props.xHeightRatio}
           />
@@ -49,6 +61,8 @@ const ModularScaleBoxes = props => {
           <ModularScaleInput
             id="line-height-scale"
             data-testid="line-height-for-ratio"
+            max="100"
+            min="1"
             onChange={handleLineHeightChange}
             value={props.lineHeightRatio}
           />
@@ -60,6 +74,13 @@ const ModularScaleBoxes = props => {
       >
         up to 4 decimal places
       </ParagraphOneRem>
+      <AlertMessage
+        data-testid="error-message-modular-scale"
+        error={rangeError}
+        errorText={rangeError}
+      >
+        Enter a number between 1 and 100 inclusive
+      </AlertMessage>
     </Form>
   );
 };
