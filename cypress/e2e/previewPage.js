@@ -134,6 +134,32 @@ describe('Preview Page in demo', () => {
     // verify
     cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
   });
+
+  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for x-height', () => {
+    cy.findByTestId('x-height-in-pixel').clear();
+    cy.testAlertForValuesLessThanOne('x-height-in-pixel');
+  });
+  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for x-height ratio', () => {
+    cy.findByTestId('x-height-for-ratio').clear();
+    cy.testAlertForValuesLessThanOne('x-height-for-ratio');
+  });
+  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for line-height ratio', () => {
+    cy.findByTestId('line-height-for-ratio').clear();
+    cy.testAlertForValuesLessThanOne('line-height-for-ratio');
+  });
+
+  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for x-height', () => {
+    cy.findByTestId('x-height-in-pixel').clear();
+    cy.testAlertForValuesMoreThanHundred('x-height-in-pixel');
+  });
+  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for x-height ratio', () => {
+    cy.findByTestId('x-height-for-ratio').clear();
+    cy.testAlertForValuesMoreThanHundred('x-height-for-ratio');
+  });
+  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for line-height ratio', () => {
+    cy.findByTestId('line-height-for-ratio').clear();
+    cy.testAlertForValuesMoreThanHundred('line-height-for-ratio');
+  });
 });
 
 describe('Preview Page after uploading a font file', () => {
