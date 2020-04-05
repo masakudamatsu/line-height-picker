@@ -50,7 +50,7 @@ describe('X-height page in demo', () => {
     cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
   });
 
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
+  it.only('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
     // setup
     const invalidUserData = {
       negativeValue: -1,
@@ -60,9 +60,7 @@ describe('X-height page in demo', () => {
     // execute
     cy.findByLabelText(/x-height/i).type(invalidUserData.negativeValue);
     // verify
-    cy.findByText(/between/i)
-      .should('be.visible')
-      .should('have.css', 'color', 'rgb(228, 98, 152)');
+    cy.assertIfErrorMessageAppears('error-message-x-height');
     // execute
     cy.findByLabelText(/x-height/i).clear();
     // verify
@@ -70,9 +68,7 @@ describe('X-height page in demo', () => {
     // execute
     cy.findByLabelText(/x-height/i).type(invalidUserData.zero);
     // verify
-    cy.findByText(/between/i)
-      .should('be.visible')
-      .should('have.css', 'color', 'rgb(228, 98, 152)');
+    cy.assertIfErrorMessageAppears('error-message-x-height');
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {

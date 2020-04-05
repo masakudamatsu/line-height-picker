@@ -167,6 +167,15 @@ Cypress.Commands.add('assertIfDecimalPlaceMessageTurnsNormal', testId => {
   cy.findByTestId(testId).should('have.css', 'color', 'rgb(245, 245, 245)');
 });
 
+Cypress.Commands.add('assertIfErrorMessageAppears', testId => {
+  cy.findByTestId(testId)
+    .should('be.visible')
+    .should('have.css', 'color', 'rgb(228, 98, 152)');
+});
+
+Cypress.Commands.add('assertIfErrorMessageDisappears', testId => {
+  cy.findByTestId(testId).should('be.hidden');
+});
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite

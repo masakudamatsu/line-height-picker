@@ -47,7 +47,11 @@ const XheightBox = props => {
       <ParagraphOneRem data-testid="instruction-x-height" errorText={stepError}>
         up to 4 decimal places
       </ParagraphOneRem>
-      <AlertMessage error={rangeError} errorText={rangeError}>
+      <AlertMessage
+        data-testid="error-message-x-height"
+        error={rangeError}
+        errorText={rangeError}
+      >
         Enter a number between 1 and 100 inclusive
       </AlertMessage>
     </Form>
