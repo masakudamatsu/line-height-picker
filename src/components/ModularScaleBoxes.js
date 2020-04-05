@@ -5,16 +5,27 @@ import {
   PageTitle,
   Label,
   ModularScaleInput,
-  ParagraphOneRemRightAligned,
+  ParagraphOneRem,
   RatioWrapper,
 } from '../theme/style';
 
 const ModularScaleBoxes = props => {
+  const [stepError, setStepError] = React.useState(false);
+  const checkValidity = event => {
+    event.target.checkValidity();
+    if (event.target.validity.stepMismatch) {
+      setStepError(true);
+    } else {
+      setStepError(false);
+    }
+  };
   const handleXHeightChange = event => {
+    checkValidity(event);
     const newXHeightRatio = event.target.value;
     props.handleXHeightRatio(newXHeightRatio);
   };
   const handleLineHeightChange = event => {
+    checkValidity(event);
     const newLineHeightRatio = event.target.value;
     props.handleLineHeightRatio(newLineHeightRatio);
   };
@@ -43,9 +54,9 @@ const ModularScaleBoxes = props => {
           />
         </RatioWrapper>
       </CenterAlignWrapperHorizontal>
-      <ParagraphOneRemRightAligned>
+      <ParagraphOneRem errorText={stepError}>
         up to 4 decimal places
-      </ParagraphOneRemRightAligned>
+      </ParagraphOneRem>
     </Form>
   );
 };
