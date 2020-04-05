@@ -54,7 +54,10 @@ const ModularScaleBoxes = props => {
           />
         </RatioWrapper>
       </CenterAlignWrapperHorizontal>
-      <ParagraphOneRem errorText={stepError}>
+      <ParagraphOneRem
+        data-testid="instruction-modular-scale"
+        errorText={stepError}
+      >
         up to 4 decimal places
       </ParagraphOneRem>
     </Form>

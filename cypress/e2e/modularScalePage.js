@@ -54,11 +54,11 @@ describe('Modular Scale Page in demo', () => {
     // execute
     cy.findByLabelText(/x-height/i).type(invalidUserData.xHeightRatio);
     // verify
-    cy.findByText(/decimal/i).should('have.css', 'color', 'rgb(228, 98, 152)');
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
     // execute
     cy.findByLabelText(/x-height/i).type('{backspace}'); // eliminate the 5th decimal place
     // verify
-    cy.findByText(/decimal/i).should('have.css', 'color', 'rgb(245, 245, 245)');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
 
     // line-height ratio
     // execute
@@ -66,13 +66,13 @@ describe('Modular Scale Page in demo', () => {
       invalidUserData.lineHeightRatio,
     );
     // verify
-    cy.findByText(/decimal/i).should('have.css', 'color', 'rgb(228, 98, 152)');
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
     // execute
     cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
       '{backspace}', // eliminate the 5th decimal place
     );
     // verify
-    cy.findByText(/decimal/i).should('have.css', 'color', 'rgb(245, 245, 245)');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {

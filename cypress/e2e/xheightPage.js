@@ -43,11 +43,11 @@ describe('X-height page in demo', () => {
     // execute
     cy.findByLabelText(/x-height/i).type(invalidUserData.xHeight);
     // verify
-    cy.findByText(/decimal/i).should('have.css', 'color', 'rgb(228, 98, 152)');
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-x-height');
     // execute
     cy.findByLabelText(/x-height/i).type('{backspace}'); // eliminate the 5th decimal place
     // verify
-    cy.findByText(/decimal/i).should('have.css', 'color', 'rgb(245, 245, 245)');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
   });
 
   it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
