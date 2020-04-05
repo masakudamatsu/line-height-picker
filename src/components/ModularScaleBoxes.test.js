@@ -8,6 +8,13 @@ import 'jest-axe/extend-expect';
 
 import ModularScaleBoxes from './ModularScaleBoxes';
 
+const mockHandleXHeightRatio = jest.fn();
+const mockHandleLineHeightRatio = jest.fn();
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 test('renders correctly', () => {
   const {container} = render(<ModularScaleBoxes />);
   expect(container).toMatchInlineSnapshot(`
@@ -181,34 +188,32 @@ test('The value attribute reflects props value', () => {
 
 test('Entering x-height ratio value calls the handleXHeightRatio() function', () => {
   // setup
-  const handleXHeightRatio = jest.fn();
   const userdata = '2';
   // execute
   const {getByLabelText} = render(
-    <ModularScaleBoxes handleXHeightRatio={handleXHeightRatio} />,
+    <ModularScaleBoxes handleXHeightRatio={mockHandleXHeightRatio} />,
   );
   const xHeightRatioInput = getByLabelText(/x-height/i);
   fireEvent.change(xHeightRatioInput, {target: {value: userdata}});
   // verify
-  expect(handleXHeightRatio).toHaveBeenCalledTimes(1);
-  expect(handleXHeightRatio).toHaveBeenCalledWith(userdata);
+  expect(mockHandleXHeightRatio).toHaveBeenCalledTimes(1);
+  expect(mockHandleXHeightRatio).toHaveBeenCalledWith(userdata);
 });
 
 test('Entering line-height ratio value calls the handleLineHeightRatio() function', () => {
   // setup
-  const handleLineHeightRatio = jest.fn();
   const userdata = '3';
   // execute
   const {getByLabelText} = render(
-    <ModularScaleBoxes handleLineHeightRatio={handleLineHeightRatio} />,
+    <ModularScaleBoxes handleLineHeightRatio={mockHandleLineHeightRatio} />,
   );
   const lineHeightRatioInput = getByLabelText(/line-height/i, {
     selector: 'input',
   });
   fireEvent.change(lineHeightRatioInput, {target: {value: userdata}});
   // verify
-  expect(handleLineHeightRatio).toHaveBeenCalledTimes(1);
-  expect(handleLineHeightRatio).toHaveBeenCalledWith(userdata);
+  expect(mockHandleLineHeightRatio).toHaveBeenCalledTimes(1);
+  expect(mockHandleLineHeightRatio).toHaveBeenCalledWith(userdata);
 });
 
 test('is accessible', async () => {
