@@ -113,13 +113,13 @@ describe('Modular Scale Page in demo', () => {
     cy.assertIfErrorMessageAppears('error-message-modular-scale');
   });
 
-  it.only('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
+  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
     // setup
     const invalidUserData = '101';
     // execute
     cy.findByLabelText(/x-height/i).type(invalidUserData);
     // verify
-    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfErrorMessageAppears('error-message-modular-scale');
     // execute
     cy.findByLabelText(/x-height/i).type('{backspace}');
     // verify
