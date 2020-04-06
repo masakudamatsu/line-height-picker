@@ -16,6 +16,24 @@ Cypress.Commands.add('upload', (testId, fontFileName) => {
   }); // This command does not exactly reflect how the user interacts with our UI. But there's no other way to simulate it.
 });
 
+Cypress.Commands.add('EnterValidXHeight', () => {
+  const userData = {
+    xHeight: 10,
+  };
+  cy.findByLabelText(/x-height/i).type(userData.xHeight);
+});
+
+Cypress.Commands.add('EnterValidModularScale', () => {
+  const userData = {
+    xHeightRatio: 1,
+    lineHeightRatio: 3,
+  };
+  cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
+  cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
+    userData.lineHeightRatio,
+  );
+});
+
 // Assertions on font name, font-family and font-weight
 Cypress.Commands.add(
   'assertFontNameFromPreviewPageOn',
@@ -45,7 +63,7 @@ Cypress.Commands.add(
       'have.text',
       expectedFontSubfamily,
     );
-
+    cy.EnterValidModularScale();
     cy.findByText(/preview/i).click();
     cy.assertFontNameFromPreviewPageOn(
       expectedFontName,
@@ -63,7 +81,7 @@ Cypress.Commands.add(
       'have.text',
       expectedFontSubfamily,
     );
-
+    cy.EnterValidXHeight();
     cy.findByText(/scale/i).click();
     cy.assertFontNameFromModularScalePageOn(
       expectedFontName,
@@ -96,6 +114,7 @@ Cypress.Commands.add(
   'assertXheightFontSizeFromModularScalePageOn',
   (xHeight, FontMetrics) => {
     cy.findByTestId('XheightDisplay').contains(`${xHeight}px`);
+    cy.EnterValidModularScale();
     cy.findByText(/preview/i).click();
     cy.assertXheightFontSizeFromPreviewPageOn(xHeight, FontMetrics);
   },
