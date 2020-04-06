@@ -46,12 +46,18 @@ const Preview = props => {
         <XheightBox
           xHeightToFontSize={props.xHeightToFontSize}
           xHeightPx={props.xHeightPx}
+          validateXHeight={props.validateXHeight}
+          xHeightRangeError={props.xHeightRangeError}
+          xHeightStepError={props.xHeightStepError}
         />
         <ModularScaleBoxes
           xHeightRatio={props.xHeightRatio}
           handleXHeightRatio={props.handleXHeightRatio}
           lineHeightRatio={props.lineHeightRatio}
           handleLineHeightRatio={props.handleLineHeightRatio}
+          validateModularScale={props.validateModularScale}
+          modularScaleRangeError={props.modularScaleRangeError}
+          modularScaleStepError={props.modularScaleStepError}
         />
       </main>
     </>

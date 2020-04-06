@@ -178,6 +178,12 @@ function App() {
                 handleXHeightRatio={handleXHeightRatio}
                 lineHeightRatio={lineHeightRatio}
                 handleLineHeightRatio={handleLineHeightRatio}
+                validateXHeight={validateXHeight}
+                xHeightRangeError={xHeightRangeError}
+                xHeightStepError={xHeightStepError}
+                validateModularScale={validateModularScale}
+                modularScaleRangeError={modularScaleRangeError}
+                modularScaleStepError={modularScaleStepError}
               />
             </Route>
             <Route path="/css">
