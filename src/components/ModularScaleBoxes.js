@@ -14,7 +14,6 @@ const ModularScaleBoxes = props => {
   const [rangeError, setRangeError] = React.useState(false);
   const [stepError, setStepError] = React.useState(false);
   const checkValidity = event => {
-    event.target.checkValidity();
     if (
       event.target.validity.rangeOverflow ||
       event.target.validity.rangeUnderflow
