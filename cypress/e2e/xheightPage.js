@@ -1,6 +1,13 @@
 import colorPalette from '../../src/theme/colorPalette';
 
+const validInputs = [{xHeight: 10}, {xHeight: 11}];
+
 describe('X-height page in demo', () => {
+  const OpenSansFontMetrics = {
+    unitsPerEm: 2048,
+    sxHeight: 1096,
+  };
+
   beforeEach(() => {
     cy.visit('/x-height');
   });
@@ -16,23 +23,17 @@ describe('X-height page in demo', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
   });
 
-  it('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
-    // setup
-    const OpenSansFontMetrics = {
-      unitsPerEm: 2048,
-      sxHeight: 1096,
-    };
-    const userData = {
-      xHeight: 10,
-    };
-    // execute
-    cy.findByLabelText(/x-height/i).type(userData.xHeight);
-    cy.findByText(/scale/i).click();
-    // verify
-    cy.assertXheightFontSizeFromModularScalePageOn(
-      userData.xHeight,
-      OpenSansFontMetrics,
-    );
+  validInputs.forEach(validInput => {
+    it('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
+      // execute
+      cy.findByLabelText(/x-height/i).type(validInput.xHeight);
+      cy.findByText(/scale/i).click();
+      // verify
+      cy.assertXheightFontSizeFromModularScalePageOn(
+        validInput.xHeight,
+        OpenSansFontMetrics,
+      );
+    });
   });
 
   it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
@@ -68,29 +69,29 @@ describe('X-height page in demo', () => {
 });
 
 describe('X-height page after uploading a font file', () => {
+  // setup
+  const RobotoSlabFontMetrics = {
+    unitsPerEm: 2048,
+    sxHeight: 1082,
+  };
+
   beforeEach(() => {
     const fontFileName = 'RobotoSlab-Light.ttf';
     cy.visit('/');
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
   });
 
-  it('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
-    // setup
-    const RobotoSlabFontMetrics = {
-      unitsPerEm: 2048,
-      sxHeight: 1082,
-    };
-    const userData = {
-      xHeight: 11,
-    };
-    // execute
-    cy.findByLabelText(/x-height/i).type(userData.xHeight);
-    cy.findByText(/scale/i).click();
-    // verify
-    cy.assertXheightFontSizeFromModularScalePageOn(
-      userData.xHeight,
-      RobotoSlabFontMetrics,
-    );
+  validInputs.forEach(validInput => {
+    it('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
+      // execute
+      cy.findByLabelText(/x-height/i).type(validInput.xHeight);
+      cy.findByText(/scale/i).click();
+      // verify
+      cy.assertXheightFontSizeFromModularScalePageOn(
+        validInput.xHeight,
+        RobotoSlabFontMetrics,
+      );
+    });
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {
