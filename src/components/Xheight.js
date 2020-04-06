@@ -4,9 +4,21 @@ import XheightBox from './XheightBox';
 import FontNameDisplay from './FontNameDisplay';
 import {Button, ButtonContainer, NoWrap} from '../theme/style';
 import ChangeFontButton from './ChangeFontButton';
-import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 const Xheight = props => {
+  const [redirect, setRedirect] = React.useState(false);
+  const handleClick = event => {
+    const errors = document.getElementById('x-height').validity;
+    console.log(errors);
+    if (errors.valid) {
+      setRedirect(true);
+    }
+  };
+  if (redirect) {
+    return <Redirect push to="/modular-scale" />;
+    // The push attribute keeps the browser history, instead of overriding, so the user can click the Back button in the browser to be back to the landing page. See https://reacttraining.com/react-router/web/api/Redirect/push-bool
+  }
   return (
     <>
       <Header stepNow={2} />
@@ -24,7 +36,7 @@ const Xheight = props => {
         />
         <ButtonContainer>
           <ChangeFontButton handleFontFile={props.handleFontFile} />
-          <Button as={Link} to="/modular-scale">
+          <Button onClick={handleClick}>
             <NoWrap>Pick</NoWrap>
             <NoWrap>Modular</NoWrap>
             <NoWrap>Scale</NoWrap>

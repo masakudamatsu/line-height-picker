@@ -26,6 +26,7 @@ const XheightBox = props => {
           max="100"
           min="1"
           onChange={handleChange}
+          required
           value={props.xHeightPx}
         />
         <span>px</span>
