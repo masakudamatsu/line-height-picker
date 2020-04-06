@@ -18,11 +18,6 @@ describe('X-height page in demo', () => {
     cy.findByTestId('FontNameDisplay').should('exist');
   });
 
-  it('takes the user to the modular-scale page after clicking the button for it', () => {
-    cy.findByText(/scale/i).click();
-    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
-  });
-
   validInputs.forEach(validInput => {
     it('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
       // execute
@@ -34,6 +29,23 @@ describe('X-height page in demo', () => {
         OpenSansFontMetrics,
       );
     });
+  });
+
+  it.only('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message', () => {
+    // execute
+    cy.findByText(/scale/i).click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+  });
+
+  it.only('takes the user to the modular-scale page after clicking the button for it, when the user has entered a valid x-height value', () => {
+    // execute
+    const validInput = '12';
+    cy.findByTestId('x-height-in-pixel').type(validInput);
+    cy.findByText(/scale/i).click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
   });
 
   it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
