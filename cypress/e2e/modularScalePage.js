@@ -78,8 +78,22 @@ describe('Modular Scale Page in demo', () => {
     );
   });
 
-  it('takes the user to the preview page after clicking the button for it', () => {
+  it.only('does not allow the user to move on to the preview page if the user has not entered modular scale values, and shows an error message', () => {
+    // execute
     cy.findByText(/preview/i).click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+    cy.assertIfErrorMessageAppears('error-message-modular-scale');
+  });
+
+  it.only('takes the user to the preview page after clicking the button for it, when the user has entered valid modular scale values', () => {
+    // execute
+    cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
+    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
+      userData.lineHeightRatio,
+    );
+    cy.findByText(/preview/i).click();
+    // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
   });
 
