@@ -90,7 +90,7 @@ function App() {
   };
 
   const validateModularScale = errors => {
-    if (errors.rangeOverflow || errors.rangeUnderflow) {
+    if (errors.valueMissing || errors.rangeOverflow || errors.rangeUnderflow) {
       setModularScaleRangeError(true);
     } else {
       setModularScaleRangeError(false);

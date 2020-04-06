@@ -38,6 +38,7 @@ const ModularScaleBoxes = props => {
             max="100"
             min="1"
             onChange={handleXHeightChange}
+            required
             value={props.xHeightRatio}
           />
         </RatioWrapper>
@@ -50,6 +51,7 @@ const ModularScaleBoxes = props => {
             max="100"
             min="1"
             onChange={handleLineHeightChange}
+            required
             value={props.lineHeightRatio}
           />
         </RatioWrapper>
