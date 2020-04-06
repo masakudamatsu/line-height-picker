@@ -31,7 +31,7 @@ describe('X-height page in demo', () => {
     });
   });
 
-  it.only('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message', () => {
+  it('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message', () => {
     // execute
     cy.findByText(/scale/i).click();
     // verify
@@ -39,7 +39,7 @@ describe('X-height page in demo', () => {
     cy.assertIfErrorMessageAppears('error-message-x-height');
   });
 
-  it.only('takes the user to the modular-scale page after clicking the button for it, when the user has entered a valid x-height value', () => {
+  it('takes the user to the modular-scale page after clicking the button for it, when the user has entered a valid x-height value', () => {
     // execute
     const validInput = '12';
     cy.findByTestId('x-height-in-pixel').type(validInput);
