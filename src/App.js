@@ -31,6 +31,13 @@ function App() {
 
   const [xHeightRatio, setXHeightRatio] = React.useState('');
   const [lineHeightRatio, setLineHeightRatio] = React.useState('');
+  const [modularScaleRangeError, setModularScaleRangeError] = React.useState(
+    false,
+  );
+  const [modularScaleStepError, setModularScaleStepError] = React.useState(
+    false,
+  );
+
   const [fontSizePx, setFontSizePx] = React.useState('');
   const [lineHeight, setLineHeight] = React.useState('');
 
@@ -79,6 +86,19 @@ function App() {
       setXHeightStepError(true);
     } else {
       setXHeightStepError(false);
+    }
+  };
+
+  const validateModularScale = errors => {
+    if (errors.rangeOverflow || errors.rangeUnderflow) {
+      setModularScaleRangeError(true);
+    } else {
+      setModularScaleRangeError(false);
+    }
+    if (errors.stepMismatch) {
+      setModularScaleStepError(true);
+    } else {
+      setModularScaleStepError(false);
     }
   };
 
@@ -137,6 +157,9 @@ function App() {
                 xHeightPx={xHeightPx}
                 xHeightRatio={xHeightRatio}
                 lineHeightRatio={lineHeightRatio}
+                validateModularScale={validateModularScale}
+                modularScaleRangeError={modularScaleRangeError}
+                modularScaleStepError={modularScaleStepError}
                 handleXHeightRatio={handleXHeightRatio}
                 handleLineHeightRatio={handleLineHeightRatio}
               />

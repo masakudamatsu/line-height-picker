@@ -11,22 +11,9 @@ import {
 } from '../theme/style';
 
 const ModularScaleBoxes = props => {
-  const [rangeError, setRangeError] = React.useState(false);
-  const [stepError, setStepError] = React.useState(false);
   const checkValidity = event => {
-    if (
-      event.target.validity.rangeOverflow ||
-      event.target.validity.rangeUnderflow
-    ) {
-      setRangeError(true);
-    } else {
-      setRangeError(false);
-    }
-    if (event.target.validity.stepMismatch) {
-      setStepError(true);
-    } else {
-      setStepError(false);
-    }
+    const errors = event.target.validity;
+    props.validateModularScale(errors);
   };
   const handleXHeightChange = event => {
     checkValidity(event);
@@ -69,14 +56,14 @@ const ModularScaleBoxes = props => {
       </CenterAlignWrapperHorizontal>
       <ParagraphOneRem
         data-testid="instruction-modular-scale"
-        errorText={stepError}
+        errorText={props.modularScaleStepError}
       >
         up to 4 decimal places
       </ParagraphOneRem>
       <AlertMessage
         data-testid="error-message-modular-scale"
-        error={rangeError}
-        errorText={rangeError}
+        error={props.modularScaleRangeError}
+        errorText={props.modularScaleRangeError}
       >
         Enter a number between 1 and 100 inclusive
       </AlertMessage>

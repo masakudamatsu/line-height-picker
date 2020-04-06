@@ -12,6 +12,7 @@ import colorPalette from '../theme/colorPalette';
 
 const mockHandleXHeightRatio = jest.fn();
 const mockHandleLineHeightRatio = jest.fn();
+const mockValidateModularScale = jest.fn();
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -207,133 +208,45 @@ test('The value attribute reflects props value', () => {
   );
 });
 
-test('Entering x-height ratio value calls the handleXHeightRatio() function', () => {
+test('Entering x-height ratio value calls the handleXHeightRatio() and validateModularScale() functions (for each keystroke)', () => {
   // setup
-  const userdata = '2';
-  // execute
   const {getByLabelText} = render(
-    <ModularScaleBoxes handleXHeightRatio={mockHandleXHeightRatio} />,
+    <ModularScaleBoxes
+      handleXHeightRatio={mockHandleXHeightRatio}
+      validateModularScale={mockValidateModularScale}
+    />,
   );
   const xHeightRatioInput = getByLabelText(/x-height/i);
-  fireEvent.change(xHeightRatioInput, {target: {value: userdata}});
-  // verify
-  expect(mockHandleXHeightRatio).toHaveBeenCalledTimes(1);
-  expect(mockHandleXHeightRatio).toHaveBeenCalledWith(userdata);
+  const userInputList = ['2', '11']; // check two-digits call the function twice
+  userInputList.forEach(userdata => {
+    // execute
+    fireEvent.change(xHeightRatioInput, {target: {value: userdata}});
+    // verify
+    expect(mockHandleXHeightRatio).toHaveBeenCalledTimes(userdata.length);
+    expect(mockHandleXHeightRatio).toHaveBeenCalledWith(userdata);
+    expect(mockValidateModularScale).toHaveBeenCalledTimes(userdata.length);
+  });
 });
 
-test('Entering line-height ratio value calls the handleLineHeightRatio() function', () => {
+test('Entering line-height ratio value calls the handleLineHeightRatio() and validateModularScale() functions (for each keystroke)', () => {
   // setup
-  const userdata = '3';
-  // execute
   const {getByLabelText} = render(
-    <ModularScaleBoxes handleLineHeightRatio={mockHandleLineHeightRatio} />,
+    <ModularScaleBoxes
+      handleLineHeightRatio={mockHandleLineHeightRatio}
+      validateModularScale={mockValidateModularScale}
+    />,
   );
   const lineHeightRatioInput = getByLabelText(/line-height/i, {
     selector: 'input',
   });
-  fireEvent.change(lineHeightRatioInput, {target: {value: userdata}});
-  // verify
-  expect(mockHandleLineHeightRatio).toHaveBeenCalledTimes(1);
-  expect(mockHandleLineHeightRatio).toHaveBeenCalledWith(userdata);
-});
-
-test('Entering more than 4 decimal places for x-height ratio changes the text color for "up to 4 decimal places"', () => {
-  // Setup
-  const invalidUserInput = '12.34567';
-  // execute
-  const {getByLabelText, getByText} = render(
-    <ModularScaleBoxes handleXHeightRatio={mockHandleXHeightRatio} />,
-  );
-  const xHeightRatioInput = getByLabelText(/x-height/i);
-  fireEvent.change(xHeightRatioInput, {target: {value: invalidUserInput}});
-
-  // verify
-  const instructionText = getByText(/decimal/i);
-  expect(instructionText).toHaveStyle(`color: ${colorPalette.errorText}`);
-});
-
-test('Entering more than 4 decimal places for line-height ratio changes the text color for "up to 4 decimal places"', () => {
-  // Setup
-  const invalidUserInput = '12.34567';
-  // execute
-  const {getByLabelText, getByText} = render(
-    <ModularScaleBoxes handleLineHeightRatio={mockHandleLineHeightRatio} />,
-  );
-  const lineHeightRatioInput = getByLabelText(/line-height/i, {
-    selector: 'input',
-  });
-  fireEvent.change(lineHeightRatioInput, {target: {value: invalidUserInput}});
-
-  // verify
-  const instructionText = getByText(/decimal/i);
-  expect(instructionText).toHaveStyle(`color: ${colorPalette.errorText}`);
-});
-
-test('Entering a value less than 1 for x-height shows an alert message on the value range', () => {
-  // Setup
-  const {getByLabelText, getByText} = render(
-    <ModularScaleBoxes handleXHeightRatio={mockHandleXHeightRatio} />,
-  );
-  const xHeightRatioInput = getByLabelText(/x-height/i);
-  const invalidUserInputs = ['0', '-1'];
-  invalidUserInputs.forEach(invalidUserInput => {
-    // Execute
-    user.type(xHeightRatioInput, invalidUserInput);
+  const userInputList = ['3', '12']; // check two-digits call the function twice
+  userInputList.forEach(userdata => {
+    // execute
+    fireEvent.change(lineHeightRatioInput, {target: {value: userdata}});
     // verify
-    const alertText = getByText(/between/i);
-    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
-  });
-});
-
-test('Entering a value less than 1 for line-height shows an alert message on the value range', () => {
-  // Setup
-  const {getByLabelText, getByText} = render(
-    <ModularScaleBoxes handleLineHeightRatio={mockHandleLineHeightRatio} />,
-  );
-  const lineHeightRatioInput = getByLabelText(/line-height/i, {
-    selector: 'input',
-  });
-  const invalidUserInputs = ['0', '-1'];
-  invalidUserInputs.forEach(invalidUserInput => {
-    // Execute
-    user.type(lineHeightRatioInput, invalidUserInput);
-    // verify
-    const alertText = getByText(/between/i);
-    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
-  });
-});
-
-test('Entering a value more than 100 for x-height shows an alert message on the value range', () => {
-  // Setup
-  const {getByLabelText, getByText} = render(
-    <ModularScaleBoxes handleXHeightRatio={mockHandleXHeightRatio} />,
-  );
-  const xHeightInput = getByLabelText(/x-height/i);
-  const invalidUserInputs = ['234', '1056'];
-  invalidUserInputs.forEach(invalidUserInput => {
-    // Execute
-    user.type(xHeightInput, invalidUserInput);
-    // verify
-    const alertText = getByText(/between/i);
-    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
-  });
-});
-
-test('Entering a value more than 100 for line-height shows an alert message on the value range', () => {
-  // Setup
-  const {getByLabelText, getByText} = render(
-    <ModularScaleBoxes handleLineHeightRatio={mockHandleLineHeightRatio} />,
-  );
-  const lineHeightInput = getByLabelText(/line-height/i, {
-    selector: 'input',
-  });
-  const invalidUserInputs = ['234', '1056'];
-  invalidUserInputs.forEach(invalidUserInput => {
-    // Execute
-    user.type(lineHeightInput, invalidUserInput);
-    // verify
-    const alertText = getByText(/between/i);
-    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
+    expect(mockHandleLineHeightRatio).toHaveBeenCalledTimes(userdata.length);
+    expect(mockHandleLineHeightRatio).toHaveBeenCalledWith(userdata);
+    expect(mockValidateModularScale).toHaveBeenCalledTimes(userdata.length);
   });
 });
 

@@ -15,6 +15,9 @@ const ModularScale = props => {
         <ModularScaleBoxes
           xHeightRatio={props.xHeightRatio}
           lineHeightRatio={props.lineHeightRatio}
+          modularScaleRangeError={props.modularScaleRangeError}
+          modularScaleStepError={props.modularScaleStepError}
+          validateModularScale={props.validateModularScale}
           handleXHeightRatio={props.handleXHeightRatio}
           handleLineHeightRatio={props.handleLineHeightRatio}
         />
