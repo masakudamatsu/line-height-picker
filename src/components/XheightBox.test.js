@@ -110,6 +110,7 @@ test('renders correctly', () => {
             max="100"
             min="1"
             pattern="[0-9]*[.,]?[0-9]+"
+            required=""
             step="0.0001"
             type="number"
             value=""
