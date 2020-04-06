@@ -77,7 +77,7 @@ function App() {
   };
 
   const validateXHeight = errors => {
-    if (errors.rangeOverflow || errors.rangeUnderflow) {
+    if (errors.valueMissing || errors.rangeOverflow || errors.rangeUnderflow) {
       setXHeightRangeError(true);
     } else {
       setXHeightRangeError(false);

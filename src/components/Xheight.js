@@ -10,9 +10,10 @@ const Xheight = props => {
   const [redirect, setRedirect] = React.useState(false);
   const handleClick = event => {
     const errors = document.getElementById('x-height').validity;
-    console.log(errors);
     if (errors.valid) {
       setRedirect(true);
+    } else {
+      props.validateXHeight(errors);
     }
   };
   if (redirect) {
