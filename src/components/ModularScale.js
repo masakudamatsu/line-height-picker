@@ -5,7 +5,7 @@ import FontNameDisplay from './FontNameDisplay';
 import XheightDisplay from './XheightDisplay';
 import {Button, ButtonContainer, NoWrap} from '../theme/style';
 import ChangeFontButton from './ChangeFontButton';
-import {Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 const ModularScale = props => {
   const [redirect, setRedirect] = React.useState(false);
@@ -49,8 +49,8 @@ const ModularScale = props => {
             <NoWrap>Preview</NoWrap>
             <NoWrap>→</NoWrap>
           </Button>
-          <Button>
-            Change x-height
+          <Button as={Link} to="/x-height">
+            > Change x-height
             <NoWrap>←</NoWrap>
           </Button>
         </ButtonContainer>
