@@ -13,6 +13,9 @@ const Xheight = props => {
       <main>
         <XheightBox
           xHeightPx={props.xHeightPx}
+          xHeightRangeError={props.xHeightRangeError}
+          xHeightStepError={props.xHeightStepError}
+          validateXHeight={props.validateXHeight}
           xHeightToFontSize={props.xHeightToFontSize}
         />
         <FontNameDisplay

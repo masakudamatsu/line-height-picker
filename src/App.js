@@ -24,7 +24,11 @@ function App() {
     unitsPerEm: 2048,
   });
   const [fontLoadFailure, setFontLoadFailure] = React.useState(false);
+
   const [xHeightPx, setXHeightPx] = React.useState('');
+  const [xHeightRangeError, setXHeightRangeError] = React.useState(false);
+  const [xHeightStepError, setXHeightStepError] = React.useState(false);
+
   const [xHeightRatio, setXHeightRatio] = React.useState('');
   const [lineHeightRatio, setLineHeightRatio] = React.useState('');
   const [fontSizePx, setFontSizePx] = React.useState('');
@@ -62,6 +66,19 @@ function App() {
       reader.readAsArrayBuffer(fontFile);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const validateXHeight = errors => {
+    if (errors.rangeOverflow || errors.rangeUnderflow) {
+      setXHeightRangeError(true);
+    } else {
+      setXHeightRangeError(false);
+    }
+    if (errors.stepMismatch) {
+      setXHeightStepError(true);
+    } else {
+      setXHeightStepError(false);
     }
   };
 
@@ -106,6 +123,9 @@ function App() {
                 fontFamily={fontMetrics.fontFamily}
                 fontSubfamily={fontMetrics.fontSubfamily}
                 xHeightPx={xHeightPx}
+                validateXHeight={validateXHeight}
+                xHeightRangeError={xHeightRangeError}
+                xHeightStepError={xHeightStepError}
                 xHeightToFontSize={xHeightToFontSize}
               />
             </Route>

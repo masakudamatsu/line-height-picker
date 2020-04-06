@@ -9,22 +9,9 @@ import {
 } from '../theme/style';
 
 const XheightBox = props => {
-  const [rangeError, setRangeError] = React.useState(false);
-  const [stepError, setStepError] = React.useState(false);
   const handleChange = event => {
-    if (
-      event.target.validity.rangeOverflow ||
-      event.target.validity.rangeUnderflow
-    ) {
-      setRangeError(true);
-    } else {
-      setRangeError(false);
-    }
-    if (event.target.validity.stepMismatch) {
-      setStepError(true);
-    } else {
-      setStepError(false);
-    }
+    const errors = event.target.validity;
+    props.validateXHeight(errors);
     const xHeightValue = event.target.value;
     props.xHeightToFontSize(xHeightValue);
   };
@@ -43,13 +30,16 @@ const XheightBox = props => {
         />
         <span>px</span>
       </NumberInputWrapper>
-      <ParagraphOneRem data-testid="instruction-x-height" errorText={stepError}>
+      <ParagraphOneRem
+        data-testid="instruction-x-height"
+        errorText={props.xHeightStepError}
+      >
         up to 4 decimal places
       </ParagraphOneRem>
       <AlertMessage
         data-testid="error-message-x-height"
-        error={rangeError}
-        errorText={rangeError}
+        error={props.xHeightRangeError}
+        errorText={props.xHeightRangeError}
       >
         Enter a number between 1 and 100 inclusive
       </AlertMessage>

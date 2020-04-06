@@ -11,6 +11,7 @@ import XheightBox from './XheightBox';
 import colorPalette from '../theme/colorPalette';
 
 const mockXHeightToFontSize = jest.fn();
+const mockValidateXHeight = jest.fn();
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -141,10 +142,13 @@ test('The value attribute reflects props.xHeightPx', () => {
   expect(getByLabelText(/x-height/i)).toHaveAttribute('value', xHeightPx);
 });
 
-test('Entering x-height value calls the xHeightToFontSize function (for each keystroke)', () => {
+test('Entering x-height value calls the xHeightToFontSize function and the validateXHeight function for each keystroke', () => {
   // setup
   const {getByLabelText} = render(
-    <XheightBox xHeightToFontSize={mockXHeightToFontSize} />,
+    <XheightBox
+      xHeightToFontSize={mockXHeightToFontSize}
+      validateXHeight={mockValidateXHeight}
+    />,
   );
   const xHeightInput = getByLabelText(/x-height/i);
   const userXheightList = ['9', '10']; // check two-digits call the function twice
@@ -155,54 +159,9 @@ test('Entering x-height value calls the xHeightToFontSize function (for each key
     expect(mockXHeightToFontSize).toHaveBeenCalledTimes(userXheight.length);
     expect(mockXHeightToFontSize).toHaveBeenCalledWith(userXheight);
     mockXHeightToFontSize.mockClear();
-  });
-});
 
-test('Entering more than 4 decimal places changes the text color for "up to 4 decimal places"', () => {
-  // Setup
-  const {getByLabelText, getByText} = render(
-    <XheightBox xHeightToFontSize={mockXHeightToFontSize} />,
-  );
-  const xHeightInput = getByLabelText(/x-height/i);
-
-  // Execute
-  const invalidUserInput = '12.34567';
-  user.type(xHeightInput, invalidUserInput);
-
-  // verify
-  const instructionText = getByText(/decimal/i);
-  expect(instructionText).toHaveStyle(`color: ${colorPalette.errorText}`);
-});
-
-test('Entering a value less than 1 shows an alert message on the value range', () => {
-  // Setup
-  const {getByLabelText, getByText} = render(
-    <XheightBox xHeightToFontSize={mockXHeightToFontSize} />,
-  );
-  const xHeightInput = getByLabelText(/x-height/i);
-  const invalidUserInputs = ['0', '-1'];
-  invalidUserInputs.forEach(invalidUserInput => {
-    // Execute
-    user.type(xHeightInput, invalidUserInput);
-    // verify
-    const alertText = getByText(/between/i);
-    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
-  });
-});
-
-test('Entering a value more than 100 shows an alert message on the value range', () => {
-  // Setup
-  const {getByLabelText, getByText} = render(
-    <XheightBox xHeightToFontSize={mockXHeightToFontSize} />,
-  );
-  const xHeightInput = getByLabelText(/x-height/i);
-  const invalidUserInputs = ['234', '1056'];
-  invalidUserInputs.forEach(invalidUserInput => {
-    // Execute
-    user.type(xHeightInput, invalidUserInput);
-    // verify
-    const alertText = getByText(/between/i);
-    expect(alertText).toHaveStyle(`color: ${colorPalette.errorText}`);
+    expect(mockValidateXHeight).toHaveBeenCalledTimes(userXheight.length);
+    mockValidateXHeight.mockClear();
   });
 });
 
