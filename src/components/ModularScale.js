@@ -16,9 +16,9 @@ const ModularScale = props => {
     if (xHeightErrors.valid && lineHeightErrors.valid) {
       setRedirect(true);
     } else if (!xHeightErrors.valid) {
-      props.validateModularScale(xHeightErrors);
+      props.handleNoModularScale(xHeightErrors);
     } else {
-      props.validateModularScale(lineHeightErrors);
+      props.handleNoModularScale(lineHeightErrors);
     }
   };
   if (redirect) {

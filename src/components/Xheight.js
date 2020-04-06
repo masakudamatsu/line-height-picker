@@ -13,7 +13,7 @@ const Xheight = props => {
     if (errors.valid) {
       setRedirect(true);
     } else {
-      props.validateXHeight(errors);
+      props.handleNoXHeight(errors);
     }
   };
   if (redirect) {

@@ -48,6 +48,13 @@ describe('X-height page in demo', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
   });
 
+  it('does not show alert when the user deletes an input', () => {
+    cy.findByTestId('x-height-in-pixel')
+      .type('1')
+      .clear();
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+  });
+
   it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
     cy.testAlertForDecimalPlaces('x-height-in-pixel');
   });

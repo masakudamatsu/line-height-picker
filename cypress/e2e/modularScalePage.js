@@ -44,6 +44,13 @@ describe('Modular Scale Page in demo', () => {
     );
   });
 
+  it('does not show alert when the user deletes an input', () => {
+    cy.findByTestId('x-height-for-ratio')
+      .type('1')
+      .clear();
+    cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+  });
+
   it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
     cy.testAlertForDecimalPlaces('x-height-for-ratio');
     cy.testAlertForDecimalPlaces('line-height-for-ratio');
@@ -78,7 +85,7 @@ describe('Modular Scale Page in demo', () => {
     );
   });
 
-  it.only('does not allow the user to move on to the preview page if the user has not entered modular scale values, and shows an error message', () => {
+  it('does not allow the user to move on to the preview page if the user has not entered modular scale values, and shows an error message', () => {
     // execute
     cy.findByText(/preview/i).click();
     // verify
@@ -86,7 +93,7 @@ describe('Modular Scale Page in demo', () => {
     cy.assertIfErrorMessageAppears('error-message-modular-scale');
   });
 
-  it.only('takes the user to the preview page after clicking the button for it, when the user has entered valid modular scale values', () => {
+  it('takes the user to the preview page after clicking the button for it, when the user has entered valid modular scale values', () => {
     // execute
     cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
     cy.findByLabelText(/line-height/i, {selector: 'input'}).type(

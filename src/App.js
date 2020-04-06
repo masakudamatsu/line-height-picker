@@ -76,8 +76,16 @@ function App() {
     }
   };
 
+  const handleNoXHeight = errors => {
+    if (errors.valueMissing) {
+      setXHeightRangeError(true);
+    } else {
+      setXHeightRangeError(false);
+    }
+  };
+
   const validateXHeight = errors => {
-    if (errors.valueMissing || errors.rangeOverflow || errors.rangeUnderflow) {
+    if (errors.rangeOverflow || errors.rangeUnderflow) {
       setXHeightRangeError(true);
     } else {
       setXHeightRangeError(false);
@@ -89,8 +97,16 @@ function App() {
     }
   };
 
+  const handleNoModularScale = errors => {
+    if (errors.valueMissing) {
+      setModularScaleRangeError(true);
+    } else {
+      setModularScaleRangeError(false);
+    }
+  };
+
   const validateModularScale = errors => {
-    if (errors.valueMissing || errors.rangeOverflow || errors.rangeUnderflow) {
+    if (errors.rangeOverflow || errors.rangeUnderflow) {
       setModularScaleRangeError(true);
     } else {
       setModularScaleRangeError(false);
@@ -144,6 +160,7 @@ function App() {
                 fontSubfamily={fontMetrics.fontSubfamily}
                 xHeightPx={xHeightPx}
                 validateXHeight={validateXHeight}
+                handleNoXHeight={handleNoXHeight}
                 xHeightRangeError={xHeightRangeError}
                 xHeightStepError={xHeightStepError}
                 xHeightToFontSize={xHeightToFontSize}
@@ -158,6 +175,7 @@ function App() {
                 xHeightRatio={xHeightRatio}
                 lineHeightRatio={lineHeightRatio}
                 validateModularScale={validateModularScale}
+                handleNoModularScale={handleNoModularScale}
                 modularScaleRangeError={modularScaleRangeError}
                 modularScaleStepError={modularScaleStepError}
                 handleXHeightRatio={handleXHeightRatio}
