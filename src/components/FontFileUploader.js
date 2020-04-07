@@ -2,6 +2,8 @@ import React from 'react';
 import {Redirect} from 'react-router';
 import {Button} from '../theme/style';
 
+const acceptableFileExtensions = ['.ttf', '.otf', '.woff'];
+
 const FontFileUploader = props => {
   const [redirect, setRedirect] = React.useState(false);
   const handleClick = event => {
@@ -26,6 +28,7 @@ const FontFileUploader = props => {
         type="file"
         data-testid="hiddenFileInput"
         id="hiddenFileInput"
+        accept={acceptableFileExtensions.join()}
         onChange={handleChange}
         style={{display: 'none'}}
       />
