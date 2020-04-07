@@ -47,11 +47,12 @@ describe('Preview Page in demo', () => {
   });
 
   ['x-height-in-pixel', 'x-height-for-ratio', 'line-height-for-ratio'].forEach(
-    input => {
-      it.only('disables the button to get the CSS code if the user deletes the ${input} value', () => {
-        cy.findByTestId(input).clear();
+    testId => {
+      it.only('disables the button to get the CSS code if the user deletes the ${testId} value', () => {
+        cy.findByTestId(testId).clear();
         cy.findByText(/css/i).click();
         cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
+        cy.assertIfErrorMessageAppears(testId);
       });
     },
   );
