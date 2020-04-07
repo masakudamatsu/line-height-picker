@@ -46,6 +46,16 @@ describe('Preview Page in demo', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/css`);
   });
 
+  ['x-height-in-pixel', 'x-height-for-ratio', 'line-height-for-ratio'].forEach(
+    input => {
+      it.only('disables the button to get the CSS code if the user deletes the ${input} value', () => {
+        cy.findByTestId(input).clear();
+        cy.findByText(/css/i).click();
+        cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
+      });
+    },
+  );
+
   it('allows the user to change font by clicking the "change font" button', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
