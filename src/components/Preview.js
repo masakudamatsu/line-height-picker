@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 import Header from './Header';
 import SampleParagraphs from './SampleParagraphs';
@@ -16,6 +16,27 @@ import {
 } from '../theme/style';
 
 const Preview = props => {
+  const [redirect, setRedirect] = React.useState(false);
+  const handleClick = event => {
+    const xHeightErrors = document.getElementById('x-height').validity;
+    const xHeightRatioErrors = document.getElementById('x-height-scale')
+      .validity;
+    const lineHeightRatioErrors = document.getElementById('line-height-scale')
+      .validity;
+    if (
+      xHeightErrors.valid &&
+      xHeightRatioErrors.valid &&
+      lineHeightRatioErrors.valid
+    ) {
+      setRedirect(true);
+    } else {
+      setRedirect(false);
+    }
+  };
+  if (redirect) {
+    return <Redirect push to="/css" />;
+    // The push attribute keeps the browser history, instead of overriding, so the user can click the Back button in the browser to be back to the landing page. See https://reacttraining.com/react-router/web/api/Redirect/push-bool
+  }
   return (
     <>
       <Header stepNow={4} />
@@ -34,9 +55,7 @@ const Preview = props => {
           </ExternalLink>
         </ParagraphOneRemRightAligned>
         <ButtonContainer>
-          <Button as={Link} to="/css">
-            Get CSS code
-          </Button>
+          <Button onClick={handleClick}>Get CSS code</Button>
         </ButtonContainer>
         <FontNameDisplay
           fontFamily={props.fontFamily}
