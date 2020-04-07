@@ -29,8 +29,12 @@ const Preview = props => {
       lineHeightRatioErrors.valid
     ) {
       setRedirect(true);
+    } else if (!xHeightErrors.valid) {
+      props.handleNoXHeight(xHeightErrors);
+    } else if (!xHeightRatioErrors.valid) {
+      props.handleNoModularScale(xHeightRatioErrors);
     } else {
-      setRedirect(false);
+      props.handleNoModularScale(lineHeightRatioErrors);
     }
   };
   if (redirect) {

@@ -199,9 +199,11 @@ function App() {
                 validateXHeight={validateXHeight}
                 xHeightRangeError={xHeightRangeError}
                 xHeightStepError={xHeightStepError}
+                handleNoXHeight={handleNoXHeight}
                 validateModularScale={validateModularScale}
                 modularScaleRangeError={modularScaleRangeError}
                 modularScaleStepError={modularScaleStepError}
+                handleNoModularScale={handleNoModularScale}
               />
             </Route>
             <Route path="/css">
