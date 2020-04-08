@@ -46,4 +46,17 @@ describe('Landing Page', () => {
       expectedFontWeight,
     );
   });
+
+  it.only('Uploading a file with an invalid extension alerts the user without moving to x-height page', () => {
+    // set up
+    const invalidFile = 'invalidFile.txt';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
 });
