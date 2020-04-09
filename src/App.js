@@ -203,7 +203,9 @@ function App() {
               <Preview
                 fontFamily={fontMetrics.fontFamily}
                 fontSubfamily={fontMetrics.fontSubfamily}
+                validateFileType={validateFileType}
                 handleFontFile={handleFontFile}
+                fontFileError={fontFileError}
                 fontSize={fontSizePx}
                 fontWeight={fontMetrics.fontWeight}
                 lineHeight={lineHeight}

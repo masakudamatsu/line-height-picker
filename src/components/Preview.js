@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom';
 import Header from './Header';
 import SampleParagraphs from './SampleParagraphs';
 import FontNameDisplay from './FontNameDisplay';
+import FontFileErrorMessage from './FontFileErrorMessage';
 import ChangeFontButton from './ChangeFontButton';
 import XheightBox from './XheightBox';
 import ModularScaleBoxes from './ModularScaleBoxes';
@@ -65,7 +66,14 @@ const Preview = props => {
           fontFamily={props.fontFamily}
           fontSubfamily={props.fontSubfamily}
         />
-        <ChangeFontButton handleFontFile={props.handleFontFile} />
+        <ChangeFontButton
+          validateFileType={props.validateFileType}
+          handleFontFile={props.handleFontFile}
+        />
+        <FontFileErrorMessage
+          data-testid="error-message-font-file"
+          fontFileError={props.fontFileError}
+        />
         <XheightBox
           xHeightToFontSize={props.xHeightToFontSize}
           xHeightPx={props.xHeightPx}
