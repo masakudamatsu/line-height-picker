@@ -85,6 +85,18 @@ describe('X-height page in demo', () => {
       expectedFontWeight,
     );
   });
+
+  it('Uploading a file with an invalid extension alerts the user', () => {
+    // set up
+    const invalidFile = 'invalidFile.txt';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
 });
 
 describe('X-height page after uploading a font file', () => {

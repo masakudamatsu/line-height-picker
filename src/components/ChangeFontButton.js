@@ -3,7 +3,10 @@ import FontFileUploader from './FontFileUploader';
 
 const ChangeFontButton = props => {
   return (
-    <FontFileUploader handleFontFile={props.handleFontFile}>
+    <FontFileUploader
+      validateFileType={props.validateFileType}
+      handleFontFile={props.handleFontFile}
+    >
       Change Font
     </FontFileUploader>
   );

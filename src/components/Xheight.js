@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import XheightBox from './XheightBox';
 import FontNameDisplay from './FontNameDisplay';
+import FontFileErrorMessage from './FontFileErrorMessage';
 import {Button, ButtonContainer, NoWrap} from '../theme/style';
 import ChangeFontButton from './ChangeFontButton';
 import {Redirect} from 'react-router-dom';
@@ -36,7 +37,14 @@ const Xheight = props => {
           fontSubfamily={props.fontSubfamily}
         />
         <ButtonContainer>
-          <ChangeFontButton handleFontFile={props.handleFontFile} />
+          <ChangeFontButton
+            validateFileType={props.validateFileType}
+            handleFontFile={props.handleFontFile}
+          />
+          <FontFileErrorMessage
+            data-testid="error-message-font-file"
+            fontFileError={props.fontFileError}
+          />
           <Button onClick={handleClick}>
             <NoWrap>Pick</NoWrap>
             <NoWrap>Modular</NoWrap>

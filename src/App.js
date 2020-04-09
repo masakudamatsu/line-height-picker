@@ -168,7 +168,9 @@ function App() {
             </Route>
             <Route path="/x-height">
               <Xheight
+                validateFileType={validateFileType}
                 handleFontFile={handleFontFile}
+                fontFileError={fontFileError}
                 fontFamily={fontMetrics.fontFamily}
                 fontSubfamily={fontMetrics.fontSubfamily}
                 xHeightPx={xHeightPx}
