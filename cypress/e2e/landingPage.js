@@ -47,7 +47,7 @@ describe('Landing Page', () => {
     );
   });
 
-  it.only('Uploading a file with an invalid extension alerts the user without moving to x-height page', () => {
+  it('Uploading a file with an invalid extension alerts the user without moving to x-height page', () => {
     // set up
     const invalidFile = 'invalidFile.txt';
     // execute
