@@ -61,6 +61,8 @@ export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
   text-align: right;
 `;
 
+export const Section = styled.section``;
+
 export const CodeSnippet = styled.pre`
   border: 1px solid ${colorPalette.bodyText};
   padding: 1rem;
