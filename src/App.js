@@ -11,6 +11,7 @@ import GetCSS from './components/GetCSS';
 import Error from './components/Error';
 import Footer from './components/Footer';
 
+import {fontFileExtensionsRegex as validFontFileTypes} from './helper/fontFileExtensions';
 import getFontMetrics from './helper/getFontMetrics';
 
 const opentype = require('opentype.js');
@@ -23,7 +24,7 @@ function App() {
     xHeight: 1096,
     unitsPerEm: 2048,
   });
-  const [fontLoadFailure, setFontLoadFailure] = React.useState(false);
+  const [fontFileError, setFontFileError] = React.useState('');
 
   const [xHeightPx, setXHeightPx] = React.useState('');
   const [xHeightRangeError, setXHeightRangeError] = React.useState(false);
@@ -40,6 +41,15 @@ function App() {
 
   const [fontSizePx, setFontSizePx] = React.useState('');
   const [lineHeight, setLineHeight] = React.useState('');
+
+  const validateFileType = file => {
+    if (validFontFileTypes.test(file.name)) {
+      return true;
+    } else {
+      setFontFileError('fileExtension');
+      return false;
+    }
+  };
 
   const handleFontFile = fontFile => {
     try {
@@ -66,7 +76,6 @@ function App() {
             document.fonts.add(loaded_face);
           })
           .catch(error => {
-            setFontLoadFailure(true);
             console.log('The uploaded font has failed to be loaded,');
           });
       };
@@ -151,7 +160,11 @@ function App() {
         <main>
           <Switch>
             <Route path="/" exact>
-              <Home handleFontFile={handleFontFile} />
+              <Home
+                validateFileType={validateFileType}
+                handleFontFile={handleFontFile}
+                fontFileError={fontFileError}
+              />
             </Route>
             <Route path="/x-height">
               <Xheight

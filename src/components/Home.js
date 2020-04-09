@@ -3,6 +3,7 @@ import Description from './Description';
 import {ButtonContainer, Logo} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import DemoStartButton from './DemoStartButton';
+import FontFileErrorMessage from './FontFileErrorMessage';
 
 const Home = props => {
   return (
@@ -10,11 +11,19 @@ const Home = props => {
       <Logo />
       <Description />
       <ButtonContainer>
-        <FontFileUploader home handleFontFile={props.handleFontFile}>
+        <FontFileUploader
+          home
+          validateFileType={props.validateFileType}
+          handleFontFile={props.handleFontFile}
+        >
           Upload font file
         </FontFileUploader>
         <DemoStartButton />
       </ButtonContainer>
+      <FontFileErrorMessage
+        data-testid="error-message-font-file"
+        fontFileError={props.fontFileError}
+      />
     </>
   );
 };
