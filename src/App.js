@@ -185,7 +185,9 @@ function App() {
               <ModularScale
                 fontFamily={fontMetrics.fontFamily}
                 fontSubfamily={fontMetrics.fontSubfamily}
+                validateFileType={validateFileType}
                 handleFontFile={handleFontFile}
+                fontFileError={fontFileError}
                 xHeightPx={xHeightPx}
                 xHeightRatio={xHeightRatio}
                 lineHeightRatio={lineHeightRatio}

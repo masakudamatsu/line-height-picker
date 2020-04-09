@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import FontNameDisplay from './FontNameDisplay';
+import FontFileErrorMessage from './FontFileErrorMessage';
 import XheightDisplay from './XheightDisplay';
 import {Button, ButtonContainer, NoWrap} from '../theme/style';
 import ChangeFontButton from './ChangeFontButton';
@@ -44,7 +45,14 @@ const ModularScale = props => {
         />
         <XheightDisplay xHeightPx={props.xHeightPx} />
         <ButtonContainer>
-          <ChangeFontButton handleFontFile={props.handleFontFile} />
+          <ChangeFontButton
+            validateFileType={props.validateFileType}
+            handleFontFile={props.handleFontFile}
+          />
+          <FontFileErrorMessage
+            data-testid="error-message-font-file"
+            fontFileError={props.fontFileError}
+          />
           <Button onClick={handleClick}>
             <NoWrap>Preview</NoWrap>
             <NoWrap>→</NoWrap>

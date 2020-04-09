@@ -85,6 +85,18 @@ describe('Modular Scale Page in demo', () => {
     );
   });
 
+  it('Uploading a file with an invalid extension alerts the user', () => {
+    // set up
+    const invalidFile = 'invalidFile.txt';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
+
   it('does not allow the user to move on to the preview page if the user has not entered modular scale values, and shows an error message', () => {
     // execute
     cy.findByText(/preview/i).click();
