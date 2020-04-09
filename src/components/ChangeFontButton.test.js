@@ -51,6 +51,7 @@ test('renders correctly', () => {
         Change Font
       </button>
       <input
+        accept=".ttf,.otf,.woff"
         data-testid="hiddenFileInput"
         id="hiddenFileInput"
         style="display: none;"

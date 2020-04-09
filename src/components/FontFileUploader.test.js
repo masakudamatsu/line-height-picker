@@ -62,6 +62,7 @@ test('renders correctly', () => {
         Upload font file
       </button>
       <input
+        accept=".ttf,.otf,.woff"
         data-testid="hiddenFileInput"
         id="hiddenFileInput"
         style="display: none;"

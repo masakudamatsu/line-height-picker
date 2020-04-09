@@ -1,8 +1,9 @@
 import React from 'react';
 import {Redirect} from 'react-router';
 import {Button} from '../theme/style';
+import {fontFileExtensionsArray} from '../helper/fontFileExtensions';
 
-const acceptableFileExtensions = ['.ttf', '.otf', '.woff'];
+const acceptableFileExtensions = fontFileExtensionsArray;
 
 const FontFileUploader = props => {
   const [redirect, setRedirect] = React.useState(false);
