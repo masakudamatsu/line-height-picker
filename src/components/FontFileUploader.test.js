@@ -13,6 +13,19 @@ jest.mock('react-router', () => {
   return {Redirect: jest.fn(() => null)};
 });
 
+const mockHandleFontFile = jest.fn();
+const mockValidateFileTypeReturningTrue = jest.fn(() => {
+  return true;
+});
+const mockValidateFileTypeReturningFalse = jest.fn(() => {
+  return false;
+});
+
+// mock ttf file
+const ttfFile = new File(['dummy data'], 'dummytypeface.ttf', {
+  type: 'font/ttf',
+});
+
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -72,15 +85,52 @@ test('renders correctly', () => {
   `);
 });
 
-test('calls the handleFontFile function upon font file uploading, and, if props.home is true, calls React-Router Redirect component', async () => {
-  // setup
-  const ttfFile = new File(['dummy data'], 'dummytypeface.ttf', {
-    type: 'font/ttf',
-  });
-  const mockHandleFontFile = jest.fn();
+test('Clicking the Button component triggers File API', () => {}); // I don't know how to test this feature.
+
+test('calls the validateFontFile function upon font file uploading', async () => {
   // execute
   const {getByTestId} = render(
-    <FontFileUploader home handleFontFile={mockHandleFontFile}>
+    <FontFileUploader
+      home
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    >
+      Upload font file
+    </FontFileUploader>,
+  );
+  fireEvent.change(getByTestId('hiddenFileInput'), {
+    target: {files: [ttfFile]},
+  });
+  // verify
+  expect(mockValidateFileTypeReturningTrue).toHaveBeenCalledTimes(1); // I cannot find out how to assert whether it's been called with the appropriate argument...
+});
+
+test('does not call the handleFontFile function if the validateFileType function returns false', async () => {
+  // execute
+  const {getByTestId} = render(
+    <FontFileUploader
+      home
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningFalse}
+    >
+      Upload font file
+    </FontFileUploader>,
+  );
+  fireEvent.change(getByTestId('hiddenFileInput'), {
+    target: {files: [ttfFile]},
+  });
+  // verify
+  expect(mockHandleFontFile).not.toHaveBeenCalled();
+});
+
+test('calls the handleFontFile function if the validateFileType function returns true, and, if props.home is true, calls React-Router Redirect component', async () => {
+  // execute
+  const {getByTestId} = render(
+    <FontFileUploader
+      home
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    >
       Upload font file
     </FontFileUploader>,
   );
@@ -97,15 +147,13 @@ test('calls the handleFontFile function upon font file uploading, and, if props.
   ); // See https://testingjavascript.com/lessons/react-test-drive-mocking-react-router-s-redirect-component-on-a-form-submission
 });
 
-test('calls the handleFontFile function upon font file uploading, and, if props.home is false, DOES NOT call React-Router Redirect component', async () => {
-  // setup
-  const ttfFile = new File(['dummy data'], 'dummytypeface.ttf', {
-    type: 'font/ttf',
-  });
-  const mockHandleFontFile = jest.fn();
+test('calls the handleFontFile function if the validateFileType function returns true, and, if props.home is false, DOES NOT call React-Router Redirect component', async () => {
   // execute
   const {getByTestId} = render(
-    <FontFileUploader handleFontFile={mockHandleFontFile}>
+    <FontFileUploader
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    >
       Upload font file
     </FontFileUploader>,
   );

@@ -7,15 +7,20 @@ const acceptableFileExtensions = fontFileExtensionsArray;
 
 const FontFileUploader = props => {
   const [redirect, setRedirect] = React.useState(false);
+
   const handleClick = event => {
     document.getElementById('hiddenFileInput').click();
   };
+
   const handleChange = event => {
     const fileUploaded = event.target.files[0];
-    props.handleFontFile(fileUploaded);
-    // Only if the user is on landing page, redirect to the x-height page
-    if (props.home) {
-      setRedirect(true);
+    const fileIsValid = props.validateFileType(fileUploaded);
+    if (fileIsValid) {
+      props.handleFontFile(fileUploaded);
+      // Only if the user is on landing page, redirect to the x-height page
+      if (props.home) {
+        setRedirect(true);
+      }
     }
   };
   if (redirect) {
