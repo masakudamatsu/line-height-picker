@@ -4,6 +4,7 @@ import {
   fileExtensionError,
   fileReaderApiError,
   opentypeParseError,
+  fontFaceApiError,
 } from '../helper/errorMessages';
 
 const FontFileErrorMessage = props => {
@@ -18,6 +19,8 @@ const FontFileErrorMessage = props => {
     case 'opentypeParse':
       errorMessage = {...opentypeParseError};
       break;
+    case 'fontFaceApi':
+      errorMessage = {...fontFaceApiError};
     default:
       break;
   }

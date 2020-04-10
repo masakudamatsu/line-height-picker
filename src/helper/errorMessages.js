@@ -68,3 +68,24 @@ export const opentypeParseError = {
     </>
   ),
 };
+
+export const fontFaceApiError = {
+  whatHappened: <>The browser cannot render the font you have selected.</>,
+  howToResolve: (
+    <>
+      The file may be broken. Obtain another copy from the font foundry. A
+      different browser may solve the problem. We suggest using Chrome (35 or
+      later), Edge (version 79 or later), Firefox (41 or later), Opera (22 or
+      later), or Safari (10 or later).
+    </>
+  ),
+  extraText: (
+    <>
+      Our webapp uses the Font Face API to render the font the user selects. For
+      the list of browsers that support the Font Face API, see{' '}
+      <ExternalLink href="https://caniuse.com/#feat=mdn-api_fontface">
+        Can I Use?
+      </ExternalLink>
+    </>
+  ),
+};

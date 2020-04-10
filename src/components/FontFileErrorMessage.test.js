@@ -11,6 +11,7 @@ import {
   fileExtensionError,
   fileReaderApiError,
   opentypeParseError,
+  fontFaceApiError,
 } from '../helper/errorMessages';
 
 test('renders correctly', () => {
@@ -65,6 +66,15 @@ test('shows an error message for failing File Reader API if the props value is "
   findByText(opentypeParseError.whatHappaned);
   findByText(opentypeParseError.hohowToResolve);
   findByText(opentypeParseError.extraText);
+});
+
+test('shows an error message for failing File Reader API if the props value is "fontFaceApi"', () => {
+  const {findByText} = render(
+    <FontFileErrorMessage fontFileError="fontFaceApi" />,
+  );
+  findByText(fontFaceApiError.whatHappaned);
+  findByText(fontFaceApiError.hohowToResolve);
+  findByText(fontFaceApiError.extraText);
 });
 
 test('is accessible', async () => {
