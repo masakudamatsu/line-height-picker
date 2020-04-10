@@ -36,7 +36,7 @@ test('renders correctly', () => {
   `);
 });
 
-test('shows an error message for wrong file extensions if the props value is "file extension"', () => {
+test('shows an error message for wrong file extensions if the props value is "fileExtension"', () => {
   const {findByText} = render(
     <FontFileErrorMessage fontFileError="fileExtension" />,
   );
