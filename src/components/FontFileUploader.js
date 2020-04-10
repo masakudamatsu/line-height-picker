@@ -10,15 +10,23 @@ const FontFileUploader = props => {
     document.getElementById('hiddenFileInput').click();
   };
 
-  const handleChange = event => {
+  const handleChange = async event => {
     const fileUploaded = event.target.files[0];
     const fileIsValid = props.validateFileType(fileUploaded);
     if (fileIsValid) {
-      const success = props.handleFontFile(fileUploaded);
-      // Only if the user is on landing page, redirect to the x-height page
-      if (success & props.home) {
-        setRedirect(true);
+      try {
+        await props.handleFontFile(fileUploaded);
+        // Only if the user is on landing page, redirect to the x-height page
+        if (props.home) {
+          setRedirect(true);
+        }
+      } catch (err) {
+        console.log(err);
       }
+    } else {
+      console.log(
+        'The file you have selected has an extension other than otf, ttf, or woff.',
+      );
     }
   };
   if (redirect) {

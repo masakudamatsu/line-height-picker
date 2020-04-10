@@ -52,39 +52,58 @@ function App() {
   };
 
   const handleFontFile = fontFile => {
-    try {
+    return new Promise((resolve, reject) => {
       const reader = new FileReader();
+      // If FileReader API succeeds:
       reader.onload = function(e) {
-        const font = opentype.parse(e.target.result, {lowMemory: true});
-        // Save font metrics as the state object
-        const newFontMetrics = getFontMetrics(font);
-        setFontMetrics({
-          fontFamily: newFontMetrics.fontFamily,
-          fontSubfamily: newFontMetrics.fontSubfamily,
-          fontWeight: newFontMetrics.usWeightClass,
-          xHeight: newFontMetrics.sxHeight,
-          unitsPerEm: newFontMetrics.unitsPerEm,
-        });
-        // Load the uploaded font
-        const newFontFace = new FontFace(
-          newFontMetrics.fontFamily,
-          e.target.result,
-        );
-        newFontFace
-          .load()
-          .then(loaded_face => {
-            document.fonts.add(loaded_face);
-          })
-          .catch(error => {
-            console.log('The uploaded font has failed to be loaded,');
+        try {
+          const font = opentype.parse(e.target.result, {lowMemory: true});
+          // Save font metrics as the state object
+          const newFontMetrics = getFontMetrics(font);
+          setFontMetrics({
+            fontFamily: newFontMetrics.fontFamily,
+            fontSubfamily: newFontMetrics.fontSubfamily,
+            fontWeight: newFontMetrics.usWeightClass,
+            xHeight: newFontMetrics.sxHeight,
+            unitsPerEm: newFontMetrics.unitsPerEm,
           });
+          // Load the uploaded font
+          const newFontFace = new FontFace(
+            newFontMetrics.fontFamily,
+            e.target.result,
+          );
+          newFontFace
+            .load()
+            .then(loaded_face => {
+              document.fonts.add(loaded_face);
+              setFontFileError('');
+              resolve('');
+            })
+            // If FontFace API fails
+            .catch(err => {
+              console.log(err.toString());
+              setFontFileError('fontFaceApi');
+              reject(
+                'FontFace API fails to read the font data from the file you have selected.',
+              );
+            });
+        } catch (err) {
+          // If opentype.parse() fails
+          console.log(err.toString());
+          if (err.stack) console.log(err.stack);
+          setFontFileError('opentypeParse');
+          reject('Opentype.js fails to read the file you have selected.');
+        }
       };
+      // If FileReader API fails
+      reader.onerror = function(err) {
+        console.log(err.toString());
+        setFontFileError('fileReaderApi');
+        reject('File Reader API fails to read the file you have selected.');
+      };
+      // Execute FileReader API
       reader.readAsArrayBuffer(fontFile);
-    } catch (error) {
-      console.log(error);
-      setFontFileError('fileReaderApi');
-      return false;
-    }
+    });
   };
 
   const handleNoXHeight = errors => {

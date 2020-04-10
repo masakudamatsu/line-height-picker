@@ -104,7 +104,9 @@ test('calls the validateFontFile function upon font file uploading', async () =>
     target: {files: [ttfFile]},
   });
   // verify
-  expect(mockValidateFileTypeReturningTrue).toHaveBeenCalledTimes(1); // I cannot find out how to assert whether it's been called with the appropriate argument...
+  await wait(() => {
+    expect(mockValidateFileTypeReturningTrue).toHaveBeenCalledTimes(1); // I cannot find out how to assert whether it's been called with the appropriate argument...
+  });
 });
 
 test('does not call the handleFontFile function if the validateFileType function returns false', async () => {
@@ -139,11 +141,15 @@ test('calls the handleFontFile function if the validateFileType function returns
   fireEvent.change(getByTestId('hiddenFileInput'), {
     target: {files: [ttfFile]},
   });
-  expect(mockHandleFontFile).toHaveBeenCalledTimes(1);
-  // I cannot find out how to assert whether it's been called with the appropriate argument...
+  await wait(() => {
+    expect(mockHandleFontFile).toHaveBeenCalledTimes(1);
+    // I cannot find out how to assert whether it's been called with the appropriate argument...
+  });
 });
 
 test('calls React-Router Redirect component if everything works and the props.home is true', async () => {
+  // setup
+  mockHandleFontFile.mockResolvedValueOnce();
   // execute
   const {getByTestId} = render(
     <FontFileUploader
@@ -165,16 +171,14 @@ test('calls React-Router Redirect component if everything works and the props.ho
   ); // See https://testingjavascript.com/lessons/react-test-drive-mocking-react-router-s-redirect-component-on-a-form-submission
 });
 
-test('DOES NOT call React-Router Redirect component if handleFontFile function returns false and the props.home is true', async () => {
+test('DOES NOT call React-Router Redirect component after handleFontFile function gets rejected, even if the props.home is true', async () => {
   // setup
-  const mockHandleFontFileReturningFalse = jest.fn(() => {
-    return false;
-  });
+  mockHandleFontFile.mockRejectedValueOnce();
   // execute
   const {getByTestId} = render(
     <FontFileUploader
       home
-      handleFontFile={mockHandleFontFileReturningFalse}
+      handleFontFile={mockHandleFontFile}
       validateFileType={mockValidateFileTypeReturningTrue}
     >
       Upload font file
@@ -192,6 +196,8 @@ test('DOES NOT call React-Router Redirect component if handleFontFile function r
 });
 
 test('DOES NOT call React-Router Redirect component if everything works and the props.home is FALSE', async () => {
+  // setup
+  mockHandleFontFile.mockResolvedValueOnce();
   // execute
   const {getByTestId} = render(
     <FontFileUploader
