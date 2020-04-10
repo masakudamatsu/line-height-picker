@@ -2,16 +2,13 @@ import React from 'react';
 import {SampleParagraphWrapper} from '../theme/style';
 
 const SampleParagraphs = props => {
-  const paragraphStyle = {
-    fontFamily: props.fontFamily,
-    fontSize: `${props.fontSize}px`, // Number(props.fontSize) would cause a warning in concole. See issue #73
-    fontWeight: props.fontWeight,
-    lineHeight: props.lineHeight,
-  };
   return (
     <SampleParagraphWrapper
       data-testid="sampleParagraphs"
-      style={paragraphStyle}
+      fontFamily={props.fontFamily}
+      fontSize={props.fontSize}
+      fontWeight={props.fontWeight}
+      lineHeight={props.lineHeight}
     >
       <p data-testid="sampleParagraph1">
         … I learned about serif and sans serif typefaces, about varying the

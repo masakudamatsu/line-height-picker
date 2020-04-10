@@ -13,7 +13,7 @@ test('renders correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       border: 1px solid hsl(0,0%,96%);
-      line-height: 1.6;
+      font-size: px;
       padding: 1rem;
       margin: 2rem 0 0.5rem 0;
     }
@@ -26,7 +26,6 @@ test('renders correctly', () => {
       <section
         class="c0"
         data-testid="sampleParagraphs"
-        style="font-size: undefinedpx;"
       >
         <p
           data-testid="sampleParagraph1"

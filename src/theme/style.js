@@ -282,7 +282,10 @@ export const ModularScaleInput = styled(NumberInput)`
 
 export const SampleParagraphWrapper = styled.section`
   border: 1px solid ${colorPalette.bodyText};
-  line-height: 1.6;
+  font-family: ${props => props.fontFamily};
+  font-size: ${props => props.fontSize}px;
+  font-weight: ${props => props.fontWeight};
+  line-height: ${props => props.lineHeight};
   padding: 1rem;
   margin: 2rem 0 0.5rem 0;
   p:not(:first-child) {
