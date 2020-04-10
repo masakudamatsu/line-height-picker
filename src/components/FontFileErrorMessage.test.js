@@ -7,7 +7,7 @@ import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
 import FontFileErrorMessage from './FontFileErrorMessage';
-import {fileExtensionError} from '../helper/errorMessages';
+import {fileExtensionError, fileReaderApiError} from '../helper/errorMessages';
 
 test('renders correctly', () => {
   const {container} = render(<FontFileErrorMessage />);
@@ -43,6 +43,15 @@ test('shows an error message for wrong file extensions if the props value is "fi
   findByText(fileExtensionError.whatHappaned);
   findByText(fileExtensionError.hohowToResolve);
   findByText(fileExtensionError.extraText);
+});
+
+test('shows an error message for failing File Reader API if the props value is "fileReaderApi"', () => {
+  const {findByText} = render(
+    <FontFileErrorMessage fontFileError="fileReaderApi" />,
+  );
+  findByText(fileReaderApiError.whatHappaned);
+  findByText(fileReaderApiError.hohowToResolve);
+  findByText(fileReaderApiError.extraText);
 });
 
 test('is accessible', async () => {

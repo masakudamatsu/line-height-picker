@@ -1,12 +1,15 @@
 import React from 'react';
 import {ParagraphOneRem, Section} from '../theme/style';
-import {fileExtensionError} from '../helper/errorMessages';
+import {fileExtensionError, fileReaderApiError} from '../helper/errorMessages';
 
 const FontFileErrorMessage = props => {
   let errorMessage = {};
   switch (props.fontFileError) {
     case 'fileExtension':
       errorMessage = {...fileExtensionError};
+      break;
+    case 'fileReaderApi':
+      errorMessage = {...fileReaderApiError};
       break;
     default:
       break;

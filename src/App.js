@@ -82,6 +82,7 @@ function App() {
       reader.readAsArrayBuffer(fontFile);
     } catch (error) {
       console.log(error);
+      setFontFileError('fileReaderApi');
     }
   };
 

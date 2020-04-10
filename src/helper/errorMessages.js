@@ -23,3 +23,23 @@ export const fileExtensionError = {
     </>
   ),
 };
+
+export const fileReaderApiError = {
+  whatHappened: <>The browser cannot open the file you have selected.</>,
+  howToResolve: (
+    <>
+      The file may be broken. Obtain another copy from the font foundry. If your
+      browser is Opera Mini, we suggest using another browser such as Chrome and
+      FireFox.
+    </>
+  ),
+  extraText: (
+    <>
+      Our webapp uses the File Reader API to read your font file data. For the
+      list of browsers that support the File Reader API, see{' '}
+      <ExternalLink href="https://caniuse.com/#feat=filereader">
+        Can I Use?
+      </ExternalLink>
+    </>
+  ),
+};
