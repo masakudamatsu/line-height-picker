@@ -13,7 +13,9 @@ jest.mock('react-router', () => {
   return {Redirect: jest.fn(() => null)};
 });
 
-const mockHandleFontFile = jest.fn();
+const mockHandleFontFile = jest.fn(() => {
+  return true;
+});
 const mockValidateFileTypeReturningTrue = jest.fn(() => {
   return true;
 });
@@ -123,7 +125,7 @@ test('does not call the handleFontFile function if the validateFileType function
   expect(mockHandleFontFile).not.toHaveBeenCalled();
 });
 
-test('calls the handleFontFile function if the validateFileType function returns true, and, if props.home is true, calls React-Router Redirect component', async () => {
+test('calls the handleFontFile function if the validateFileType function returns true', async () => {
   // execute
   const {getByTestId} = render(
     <FontFileUploader
@@ -139,6 +141,22 @@ test('calls the handleFontFile function if the validateFileType function returns
   });
   expect(mockHandleFontFile).toHaveBeenCalledTimes(1);
   // I cannot find out how to assert whether it's been called with the appropriate argument...
+});
+
+test('calls React-Router Redirect component if everything works and the props.home is true', async () => {
+  // execute
+  const {getByTestId} = render(
+    <FontFileUploader
+      home
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    >
+      Upload font file
+    </FontFileUploader>,
+  );
+  fireEvent.change(getByTestId('hiddenFileInput'), {
+    target: {files: [ttfFile]},
+  });
   await wait(() =>
     expect(MockRedirect).toHaveBeenCalledWith(
       {to: '/x-height', push: true},
@@ -147,7 +165,33 @@ test('calls the handleFontFile function if the validateFileType function returns
   ); // See https://testingjavascript.com/lessons/react-test-drive-mocking-react-router-s-redirect-component-on-a-form-submission
 });
 
-test('calls the handleFontFile function if the validateFileType function returns true, and, if props.home is false, DOES NOT call React-Router Redirect component', async () => {
+test('DOES NOT call React-Router Redirect component if handleFontFile function returns false and the props.home is true', async () => {
+  // setup
+  const mockHandleFontFileReturningFalse = jest.fn(() => {
+    return false;
+  });
+  // execute
+  const {getByTestId} = render(
+    <FontFileUploader
+      home
+      handleFontFile={mockHandleFontFileReturningFalse}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    >
+      Upload font file
+    </FontFileUploader>,
+  );
+  fireEvent.change(getByTestId('hiddenFileInput'), {
+    target: {files: [ttfFile]},
+  });
+  await wait(() =>
+    expect(MockRedirect).not.toHaveBeenCalledWith(
+      {to: '/x-height', push: true},
+      {},
+    ),
+  ); // See https://testingjavascript.com/lessons/react-test-drive-mocking-react-router-s-redirect-component-on-a-form-submission
+});
+
+test('DOES NOT call React-Router Redirect component if everything works and the props.home is FALSE', async () => {
   // execute
   const {getByTestId} = render(
     <FontFileUploader
@@ -160,8 +204,6 @@ test('calls the handleFontFile function if the validateFileType function returns
   fireEvent.change(getByTestId('hiddenFileInput'), {
     target: {files: [ttfFile]},
   });
-  expect(mockHandleFontFile).toHaveBeenCalledTimes(1);
-  // I cannot find out how to assert whether it's been called with the appropriate argument...
   await wait(() =>
     expect(MockRedirect).not.toHaveBeenCalledWith(
       {to: '/x-height', push: true},

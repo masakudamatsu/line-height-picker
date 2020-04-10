@@ -83,6 +83,7 @@ function App() {
     } catch (error) {
       console.log(error);
       setFontFileError('fileReaderApi');
+      return false;
     }
   };
 

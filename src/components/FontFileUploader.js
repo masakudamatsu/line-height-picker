@@ -16,9 +16,9 @@ const FontFileUploader = props => {
     const fileUploaded = event.target.files[0];
     const fileIsValid = props.validateFileType(fileUploaded);
     if (fileIsValid) {
-      props.handleFontFile(fileUploaded);
+      const success = props.handleFontFile(fileUploaded);
       // Only if the user is on landing page, redirect to the x-height page
-      if (props.home) {
+      if (success & props.home) {
         setRedirect(true);
       }
     }
