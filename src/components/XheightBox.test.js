@@ -104,7 +104,7 @@ test('renders correctly', () => {
           class="c1"
         >
           <input
-            class="sc-fzoiQi c2"
+            class="sc-fzqARJ c2"
             data-testid="x-height-in-pixel"
             id="x-height"
             max="100"
