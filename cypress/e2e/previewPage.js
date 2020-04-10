@@ -92,6 +92,18 @@ describe('Preview Page in demo', () => {
       .should('contain', '.woff');
   });
 
+  it('Uploading a wrong file with the valid extension alerts the user without moving to x-height page', () => {
+    // set up
+    const invalidFile = 'invalidFile.ttf';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
+
   it('allows the user to change x-height, which will be shown immediately and used to calculate font-size', () => {
     // execute
     cy.findByTestId('x-height-in-pixel')
