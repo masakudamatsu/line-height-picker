@@ -43,3 +43,28 @@ export const fileReaderApiError = {
     </>
   ),
 };
+
+export const opentypeParseError = {
+  whatHappened: (
+    <>
+      Opentype.js, the application that powers our webapp, cannot open the file
+      you have selected.
+    </>
+  ),
+  howToResolve: (
+    <>
+      Please upload an OpenType Font file (.otf), TrueType Font file (.ttf), or
+      Web Open Font Format file (.woff). The file may be broken. Obtain another
+      copy from the font foundry.
+    </>
+  ),
+  extraText: (
+    <>
+      For more detail on font files, have a look at{' '}
+      <ExternalLink href="https://www.suttle-straus.com/blog/a-simple-guide-to-font-file-types">
+        “A Simple Guide To Font File Types”
+      </ExternalLink>
+      , written by Amy Olson in 2017.
+    </>
+  ),
+};

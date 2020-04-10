@@ -7,7 +7,11 @@ import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
 import FontFileErrorMessage from './FontFileErrorMessage';
-import {fileExtensionError, fileReaderApiError} from '../helper/errorMessages';
+import {
+  fileExtensionError,
+  fileReaderApiError,
+  opentypeParseError,
+} from '../helper/errorMessages';
 
 test('renders correctly', () => {
   const {container} = render(<FontFileErrorMessage />);
@@ -52,6 +56,15 @@ test('shows an error message for failing File Reader API if the props value is "
   findByText(fileReaderApiError.whatHappaned);
   findByText(fileReaderApiError.hohowToResolve);
   findByText(fileReaderApiError.extraText);
+});
+
+test('shows an error message for failing File Reader API if the props value is "opentypeParse"', () => {
+  const {findByText} = render(
+    <FontFileErrorMessage fontFileError="opentypeParse" />,
+  );
+  findByText(opentypeParseError.whatHappaned);
+  findByText(opentypeParseError.hohowToResolve);
+  findByText(opentypeParseError.extraText);
 });
 
 test('is accessible', async () => {

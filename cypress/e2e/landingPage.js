@@ -59,4 +59,17 @@ describe('Landing Page', () => {
       .should('contain', '.otf')
       .should('contain', '.woff');
   });
+
+  it('Uploading a wrong file with the valid extension alerts the user without moving to x-height page', () => {
+    // set up
+    const invalidFile = 'invalidFile.ttf';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
 });
