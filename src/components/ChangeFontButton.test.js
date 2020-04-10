@@ -8,6 +8,22 @@ import 'jest-axe/extend-expect';
 
 import ChangeFontButton from './ChangeFontButton';
 
+const mockHandleFontFile = jest.fn();
+const mockValidateFileTypeReturningTrue = jest.fn(() => {
+  return true;
+});
+const mockValidateFileTypeReturningFalse = jest.fn(() => {
+  return false;
+});
+
+const ttfFile = new File(['dummy data'], 'dummytypeface.ttf', {
+  type: 'font/ttf',
+});
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 test('renders correctly', () => {
   const {container} = render(<ChangeFontButton />);
   expect(container).toMatchInlineSnapshot(`
@@ -61,20 +77,53 @@ test('renders correctly', () => {
   `);
 });
 
-test('calls the handleFontFile function upon being clicked', () => {
-  // setup
-  const ttfFile = new File(['dummy data'], 'dummytypeface.ttf', {
-    type: 'font/ttf',
-  });
-  const mockHandleFontFile = jest.fn();
+test('calls the validateFontFile function upon font file uploading', async () => {
   // execute
   const {getByTestId} = render(
-    <ChangeFontButton handleFontFile={mockHandleFontFile} />,
+    <ChangeFontButton
+      home
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    />,
+  );
+  fireEvent.change(getByTestId('hiddenFileInput'), {
+    target: {files: [ttfFile]},
+  });
+  // verify
+  expect(mockValidateFileTypeReturningTrue).toHaveBeenCalledTimes(1); // I cannot find out how to assert whether it's been called with the appropriate argument...
+});
+
+test('does not call the handleFontFile function if the validateFileType function returns false', async () => {
+  // execute
+  const {getByTestId} = render(
+    <ChangeFontButton
+      home
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningFalse}
+    >
+      Upload font file
+    </ChangeFontButton>,
+  );
+  fireEvent.change(getByTestId('hiddenFileInput'), {
+    target: {files: [ttfFile]},
+  });
+  // verify
+  expect(mockHandleFontFile).not.toHaveBeenCalled();
+});
+
+test('calls the handleFontFile function if the validateFileType function returns true', async () => {
+  // execute
+  const {getByTestId} = render(
+    <ChangeFontButton
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    />,
   );
   fireEvent.change(getByTestId('hiddenFileInput'), {
     target: {files: [ttfFile]},
   });
   expect(mockHandleFontFile).toHaveBeenCalledTimes(1);
+  // I cannot find out how to assert whether it's been called with the appropriate argument...
 });
 
 test('is accessible', async () => {
