@@ -46,6 +46,7 @@ test('renders props correctly', () => {
     fontSize: 18.6543,
     fontWeight: 400,
     lineHeight: 1.6055,
+    marginTop: 23.3394,
   };
   const {getByTestId, rerender} = render(
     <CssCode
@@ -53,18 +54,21 @@ test('renders props correctly', () => {
       fontSize={mockProps.fontSize}
       fontWeight={mockProps.fontWeight}
       lineHeight={mockProps.lineHeight}
+      marginTop={mockProps.marginTop}
     />,
   );
   expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontFamily);
   expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontSize);
   expect(getByTestId('cssCode')).toHaveTextContent(mockProps.fontWeight);
   expect(getByTestId('cssCode')).toHaveTextContent(mockProps.lineHeight);
+  expect(getByTestId('cssCode')).toHaveTextContent(mockProps.marginTop);
 
   const mockNewProps = {
     fontFamily: 'Roboto',
     fontSize: 17.4059,
     fontWeight: 500,
     lineHeight: 1.5,
+    marginTop: 23.5674,
   };
   rerender(
     <CssCode
@@ -72,12 +76,14 @@ test('renders props correctly', () => {
       fontSize={mockNewProps.fontSize}
       fontWeight={mockNewProps.fontWeight}
       lineHeight={mockNewProps.lineHeight}
+      marginTop={mockNewProps.marginTop}
     />,
   );
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontFamily);
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontSize);
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontWeight);
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.lineHeight);
+  expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.marginTop);
 });
 
 test('is accessible', async () => {
