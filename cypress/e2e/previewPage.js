@@ -10,11 +10,11 @@ const newUserData = {
   lineHeightRatio: 7,
 };
 
-  const OpenSansFontMetrics = {
-    unitsPerEm: 2048,
-    sxHeight: 1096,
-    sCapHeight: 1462,
-  };
+const OpenSansFontMetrics = {
+  unitsPerEm: 2048,
+  sxHeight: 1096,
+  sCapHeight: 1462,
+};
 
 const RobotoSlabFontMetrics = {
   unitsPerEm: 2048,
@@ -216,7 +216,6 @@ describe('Preview Page after uploading a font file', () => {
       userData.lineHeightRatio,
     );
   });
-
   it('allows the user to change font by clicking the "change font" button', () => {
     // Setup
     const fontFileName = 'OpenSans-Regular.ttf';
@@ -233,6 +232,25 @@ describe('Preview Page after uploading a font file', () => {
       expectedFontName,
       expectedFontSubfamily,
       expectedFontWeight,
+    );
+  });
+
+  it('changes the vertical space between paragraphs in response to the change of the user-selected font', () => {
+    // Setup
+    const fontFileName = 'OpenSans-Regular.ttf';
+    const expectedFontName = 'Open Sans';
+    const expectedFontSubfamily = 'Regular';
+    const expectedFontWeight = '400';
+
+    // Execute
+    cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
+
+    // verify
+    cy.assertMarginTop(
+      OpenSansFontMetrics,
+      userData.xHeight,
+      userData.xHeightRatio,
+      userData.lineHeightRatio,
     );
   });
 
