@@ -71,6 +71,16 @@ function App() {
             unitsPerEm: newFontMetrics.unitsPerEm,
             capHeight: newFontMetrics.capHeight,
           });
+          // Update CSS values
+          if (xHeightPx && xHeightRatio && lineHeightRatio) {
+            const newMarginTop = getMarginTop(
+              newFontMetrics,
+              xHeightPx,
+              xHeightRatio,
+              lineHeightRatio,
+            );
+            setMarginTop(newMarginTop);
+          }
           // Load the uploaded font
           const newFontFace = new FontFace(
             newFontMetrics.fontFamily,
