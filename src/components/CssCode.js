@@ -6,10 +6,17 @@ const CssCode = props => {
   if (/\s/.test(fontFamilyName)) {
     fontFamilyName = `'${fontFamilyName}'`;
   }
-  const cssOutput = `font-family: ${fontFamilyName};
-font-size: ${props.fontSize}px;
-font-weight: ${props.fontWeight};
-line-height: ${props.lineHeight};`;
+  const cssOutput = `p {
+  font-family: ${fontFamilyName};
+  font-size: ${props.fontSize}px;
+  font-weight: ${props.fontWeight};
+  line-height: ${props.lineHeight};
+}
+
+p:not(:first-child) {
+  margin-top: ${props.marginTop}px;
+}
+  `;
 
   return (
     <CodeSnippet>

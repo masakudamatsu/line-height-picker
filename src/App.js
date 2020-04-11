@@ -182,7 +182,7 @@ function App() {
     const a = (lineHeightRatio - xHeightRatio) * xHeightPx;
     const b =
       (fontMetrics.capHeight - fontMetrics.xHeight) / fontMetrics.unitsPerEm;
-    const newMarginTop = a + b * fontSizePx;
+    const newMarginTop = (a + b * fontSizePx).toFixed(4);
     setMarginTop(newMarginTop);
   };
   return (
@@ -265,6 +265,7 @@ function App() {
                 fontSize={fontSizePx}
                 fontWeight={fontMetrics.fontWeight}
                 lineHeight={lineHeight}
+                marginTop={marginTop}
               />
             </Route>
             <Route component={Error} />
