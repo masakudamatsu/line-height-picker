@@ -23,10 +23,17 @@ test('renders correctly', () => {
         <code
           data-testid="cssCode"
         >
-          font-family: undefined;
-    font-size: undefinedpx;
-    font-weight: undefined;
-    line-height: undefined;
+          p {
+      font-family: undefined;
+      font-size: undefinedpx;
+      font-weight: undefined;
+      line-height: undefined;
+    }
+
+    p:not(:first-child) {
+      margin-top: undefinedpx;
+    }
+      
         </code>
       </pre>
     </div>
