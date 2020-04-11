@@ -192,6 +192,8 @@ Cypress.Commands.add(
       'margin-top',
       `${marginTop}px`,
     );
+    cy.findByText(/css/i).click();
+    cy.findByTestId('cssCode').contains(`margin-top: ${marginTop}px`);
   },
 );
 
