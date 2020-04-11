@@ -68,7 +68,7 @@ function App() {
             fontWeight: newFontMetrics.usWeightClass,
             xHeight: newFontMetrics.sxHeight,
             unitsPerEm: newFontMetrics.unitsPerEm,
-            capHeight: fontMetrics.sCapHeight,
+            capHeight: newFontMetrics.sCapHeight,
           });
           // Load the uploaded font
           const newFontFace = new FontFace(

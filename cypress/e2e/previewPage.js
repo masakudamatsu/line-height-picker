@@ -190,6 +190,7 @@ describe('Preview Page after uploading a font file', () => {
   const RobotoSlabFontMetrics = {
     unitsPerEm: 2048,
     sxHeight: 1082,
+    sCapHeight: 1456,
   };
 
   beforeEach(() => {
@@ -203,6 +204,15 @@ describe('Preview Page after uploading a font file', () => {
       userData.lineHeightRatio,
     );
     cy.findByText(/preview/i).click();
+  });
+
+  it.only('correctly shows the vertical space between paragraphs', () => {
+    cy.assertMarginTop(
+      RobotoSlabFontMetrics,
+      userData.xHeight,
+      userData.xHeightRatio,
+      userData.lineHeightRatio,
+    );
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {
