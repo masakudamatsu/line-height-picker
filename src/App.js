@@ -66,10 +66,10 @@ function App() {
           setFontMetrics({
             fontFamily: newFontMetrics.fontFamily,
             fontSubfamily: newFontMetrics.fontSubfamily,
-            fontWeight: newFontMetrics.usWeightClass,
-            xHeight: newFontMetrics.sxHeight,
+            fontWeight: newFontMetrics.fontWeight,
+            xHeight: newFontMetrics.xHeight,
             unitsPerEm: newFontMetrics.unitsPerEm,
-            capHeight: newFontMetrics.sCapHeight,
+            capHeight: newFontMetrics.capHeight,
           });
           // Load the uploaded font
           const newFontFace = new FontFace(
