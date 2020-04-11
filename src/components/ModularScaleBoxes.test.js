@@ -10,8 +10,8 @@ import 'jest-axe/extend-expect';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import colorPalette from '../theme/colorPalette';
 
-const mockHandleXHeightRatio = jest.fn();
-const mockHandleLineHeightRatio = jest.fn();
+const mockHandleXHeightRatioChange = jest.fn();
+const mockHandleLineHeightRatioChange = jest.fn();
 const mockValidateModularScale = jest.fn();
 
 afterEach(() => {
@@ -210,11 +210,11 @@ test('The value attribute reflects props value', () => {
   );
 });
 
-test('Entering x-height ratio value calls the handleXHeightRatio() and validateModularScale() functions (for each keystroke)', () => {
+test('Entering x-height ratio value calls the handleXHeightRatioChange() and validateModularScale() functions (for each keystroke)', () => {
   // setup
   const {getByLabelText} = render(
     <ModularScaleBoxes
-      handleXHeightRatio={mockHandleXHeightRatio}
+      handleXHeightRatioChange={mockHandleXHeightRatioChange}
       validateModularScale={mockValidateModularScale}
     />,
   );
@@ -224,17 +224,17 @@ test('Entering x-height ratio value calls the handleXHeightRatio() and validateM
     // execute
     fireEvent.change(xHeightRatioInput, {target: {value: userdata}});
     // verify
-    expect(mockHandleXHeightRatio).toHaveBeenCalledTimes(userdata.length);
-    expect(mockHandleXHeightRatio).toHaveBeenCalledWith(userdata);
+    expect(mockHandleXHeightRatioChange).toHaveBeenCalledTimes(userdata.length);
+    expect(mockHandleXHeightRatioChange).toHaveBeenCalledWith(userdata);
     expect(mockValidateModularScale).toHaveBeenCalledTimes(userdata.length);
   });
 });
 
-test('Entering line-height ratio value calls the handleLineHeightRatio() and validateModularScale() functions (for each keystroke)', () => {
+test('Entering line-height ratio value calls the handleLineHeightRatioChange() and validateModularScale() functions (for each keystroke)', () => {
   // setup
   const {getByLabelText} = render(
     <ModularScaleBoxes
-      handleLineHeightRatio={mockHandleLineHeightRatio}
+      handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
       validateModularScale={mockValidateModularScale}
     />,
   );
@@ -246,8 +246,8 @@ test('Entering line-height ratio value calls the handleLineHeightRatio() and val
     // execute
     fireEvent.change(lineHeightRatioInput, {target: {value: userdata}});
     // verify
-    expect(mockHandleLineHeightRatio).toHaveBeenCalledTimes(userdata.length);
-    expect(mockHandleLineHeightRatio).toHaveBeenCalledWith(userdata);
+    expect(mockHandleLineHeightRatioChange).toHaveBeenCalledTimes(userdata.length);
+    expect(mockHandleLineHeightRatioChange).toHaveBeenCalledWith(userdata);
     expect(mockValidateModularScale).toHaveBeenCalledTimes(userdata.length);
   });
 });

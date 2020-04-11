@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 
 import {fontFileExtensionsRegex as validFontFileTypes} from './helper/fontFileExtensions';
 import getFontMetrics from './helper/getFontMetrics';
+import {getFontSize, getLineHeight, getMarginTop} from './helper/cssGenerators';
 
 const opentype = require('opentype.js');
 
@@ -151,43 +152,44 @@ function App() {
     }
   };
 
-  const xHeightToFontSize = xHeight => {
+  const handleXHeightChange = xHeight => {
     setXHeightPx(xHeight);
-    const xHeightToFontSizeRatio = fontMetrics.xHeight / fontMetrics.unitsPerEm;
-    const newFontSize = (xHeight / xHeightToFontSizeRatio).toFixed(4);
+    const newFontSize = getFontSize(fontMetrics, xHeight);
     setFontSizePx(newFontSize);
   };
 
-  const handleXHeightRatio = newXHeightRatio => {
+  const handleXHeightRatioChange = newXHeightRatio => {
     setXHeightRatio(newXHeightRatio);
-    generateLineHeight(newXHeightRatio, lineHeightRatio);
-    generateMarginTop(fontMetrics, xHeightPx, newXHeightRatio, lineHeightRatio);
-  };
-  const handleLineHeightRatio = newLineHeightRatio => {
-    setLineHeightRatio(newLineHeightRatio);
-    generateLineHeight(xHeightRatio, newLineHeightRatio);
-    generateMarginTop(fontMetrics, xHeightPx, xHeightRatio, newLineHeightRatio);
-  };
-  const generateLineHeight = (xHeightRatio, lineHeightRatio) => {
-    if (xHeightRatio === 0) {
-      console.log('X-height ratio is zero...');
-      return;
-    }
-    const lineToXRatio = lineHeightRatio / xHeightRatio;
-    const newLineHeightPx = xHeightPx * lineToXRatio;
-    const newLineHeight = (newLineHeightPx / fontSizePx).toFixed(4);
+    const newLineHeight = getLineHeight(
+      fontMetrics,
+      xHeightPx,
+      newXHeightRatio,
+      lineHeightRatio,
+    );
     setLineHeight(newLineHeight);
+    const newMarginTop = getMarginTop(
+      fontMetrics,
+      xHeightPx,
+      newXHeightRatio,
+      lineHeightRatio,
+    );
+    setMarginTop(newMarginTop);
   };
-  const generateMarginTop = (
-    fontMetrics,
-    xHeightPx,
-    xHeightRatio,
-    lineHeightRatio,
-  ) => {
-    const a = (lineHeightRatio - xHeightRatio) * xHeightPx;
-    const b =
-      (fontMetrics.capHeight - fontMetrics.xHeight) / fontMetrics.unitsPerEm;
-    const newMarginTop = (a + b * fontSizePx).toFixed(4);
+  const handleLineHeightRatioChange = newLineHeightRatio => {
+    setLineHeightRatio(newLineHeightRatio);
+    const newLineHeight = getLineHeight(
+      fontMetrics,
+      xHeightPx,
+      xHeightRatio,
+      newLineHeightRatio,
+    );
+    setLineHeight(newLineHeight);
+    const newMarginTop = getMarginTop(
+      fontMetrics,
+      xHeightPx,
+      xHeightRatio,
+      newLineHeightRatio,
+    );
     setMarginTop(newMarginTop);
   };
   return (
@@ -216,7 +218,7 @@ function App() {
                 handleNoXHeight={handleNoXHeight}
                 xHeightRangeError={xHeightRangeError}
                 xHeightStepError={xHeightStepError}
-                xHeightToFontSize={xHeightToFontSize}
+                handleXHeightChange={handleXHeightChange}
               />
             </Route>
             <Route path="/modular-scale">
@@ -233,8 +235,8 @@ function App() {
                 handleNoModularScale={handleNoModularScale}
                 modularScaleRangeError={modularScaleRangeError}
                 modularScaleStepError={modularScaleStepError}
-                handleXHeightRatio={handleXHeightRatio}
-                handleLineHeightRatio={handleLineHeightRatio}
+                handleXHeightRatioChange={handleXHeightRatioChange}
+                handleLineHeightRatioChange={handleLineHeightRatioChange}
               />
             </Route>
             <Route path="/preview">
@@ -249,11 +251,11 @@ function App() {
                 lineHeight={lineHeight}
                 marginTop={marginTop}
                 xHeightPx={xHeightPx}
-                xHeightToFontSize={xHeightToFontSize}
+                handleXHeightChange={handleXHeightChange}
                 xHeightRatio={xHeightRatio}
-                handleXHeightRatio={handleXHeightRatio}
+                handleXHeightRatioChange={handleXHeightRatioChange}
                 lineHeightRatio={lineHeightRatio}
-                handleLineHeightRatio={handleLineHeightRatio}
+                handleLineHeightRatioChange={handleLineHeightRatioChange}
                 validateXHeight={validateXHeight}
                 xHeightRangeError={xHeightRangeError}
                 xHeightStepError={xHeightStepError}

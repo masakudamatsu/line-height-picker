@@ -30,7 +30,7 @@ const Xheight = props => {
           xHeightRangeError={props.xHeightRangeError}
           xHeightStepError={props.xHeightStepError}
           validateXHeight={props.validateXHeight}
-          xHeightToFontSize={props.xHeightToFontSize}
+          handleXHeightChange={props.handleXHeightChange}
         />
         <FontNameDisplay
           fontFamily={props.fontFamily}

@@ -36,8 +36,8 @@ const ModularScale = props => {
           modularScaleRangeError={props.modularScaleRangeError}
           modularScaleStepError={props.modularScaleStepError}
           validateModularScale={props.validateModularScale}
-          handleXHeightRatio={props.handleXHeightRatio}
-          handleLineHeightRatio={props.handleLineHeightRatio}
+          handleXHeightRatioChange={props.handleXHeightRatioChange}
+          handleLineHeightRatioChange={props.handleLineHeightRatioChange}
         />
         <FontNameDisplay
           fontFamily={props.fontFamily}

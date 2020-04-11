@@ -18,12 +18,12 @@ const ModularScaleBoxes = props => {
   const handleXHeightChange = event => {
     checkValidity(event);
     const newXHeightRatio = event.target.value;
-    props.handleXHeightRatio(newXHeightRatio);
+    props.handleXHeightRatioChange(newXHeightRatio);
   };
   const handleLineHeightChange = event => {
     checkValidity(event);
     const newLineHeightRatio = event.target.value;
-    props.handleLineHeightRatio(newLineHeightRatio);
+    props.handleLineHeightRatioChange(newLineHeightRatio);
   };
   return (
     <Form>

@@ -13,7 +13,7 @@ const XheightBox = props => {
     const errors = event.target.validity;
     props.validateXHeight(errors);
     const xHeightValue = event.target.value;
-    props.xHeightToFontSize(xHeightValue);
+    props.handleXHeightChange(xHeightValue);
   };
 
   return (

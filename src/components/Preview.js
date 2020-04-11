@@ -76,7 +76,7 @@ const Preview = props => {
           fontFileError={props.fontFileError}
         />
         <XheightBox
-          xHeightToFontSize={props.xHeightToFontSize}
+          handleXHeightChange={props.handleXHeightChange}
           xHeightPx={props.xHeightPx}
           validateXHeight={props.validateXHeight}
           xHeightRangeError={props.xHeightRangeError}
@@ -84,9 +84,9 @@ const Preview = props => {
         />
         <ModularScaleBoxes
           xHeightRatio={props.xHeightRatio}
-          handleXHeightRatio={props.handleXHeightRatio}
+          handleXHeightRatioChange={props.handleXHeightRatioChange}
           lineHeightRatio={props.lineHeightRatio}
-          handleLineHeightRatio={props.handleLineHeightRatio}
+          handleLineHeightRatioChange={props.handleLineHeightRatioChange}
           validateModularScale={props.validateModularScale}
           modularScaleRangeError={props.modularScaleRangeError}
           modularScaleStepError={props.modularScaleStepError}

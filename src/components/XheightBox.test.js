@@ -143,11 +143,11 @@ test('The value attribute reflects props.xHeightPx', () => {
   expect(getByLabelText(/x-height/i)).toHaveAttribute('value', xHeightPx);
 });
 
-test('Entering x-height value calls the xHeightToFontSize function and the validateXHeight function for each keystroke', () => {
+test('Entering x-height value calls the handleXHeightChange function and the validateXHeight function for each keystroke', () => {
   // setup
   const {getByLabelText} = render(
     <XheightBox
-      xHeightToFontSize={mockXHeightToFontSize}
+      handleXHeightChange={mockXHeightToFontSize}
       validateXHeight={mockValidateXHeight}
     />,
   );
