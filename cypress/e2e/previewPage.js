@@ -17,6 +17,7 @@ describe('Preview Page in demo', () => {
   const OpenSansFontMetrics = {
     unitsPerEm: 2048,
     sxHeight: 1096,
+    sCapHeight: 1462,
   };
 
   beforeEach(() => {
@@ -44,6 +45,15 @@ describe('Preview Page in demo', () => {
   it('takes the user to the CSS page after clicking the button for it', () => {
     cy.findByText(/css/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/css`);
+  });
+
+  it.only('correctly shows the vertical space between paragraphs', () => {
+    cy.assertMarginTop(
+      OpenSansFontMetrics,
+      userData.xHeight,
+      userData.xHeightRatio,
+      userData.lineHeightRatio,
+    );
   });
 
   ['x-height-in-pixel', 'x-height-for-ratio', 'line-height-for-ratio'].forEach(

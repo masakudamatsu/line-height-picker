@@ -1,5 +1,5 @@
 import 'cypress-file-upload'; // to use .attachFile()
-import {getFontSize, getLineHeight} from './utils';
+import {getFontSize, getLineHeight, getMarginTop} from './utils';
 
 Cypress.Commands.add('checkHeaderFooterRendering', () => {
   cy.get('h1').should('have.text', 'Line-height Picker');
@@ -173,6 +173,24 @@ Cypress.Commands.add(
       lineHeightRatio,
       xHeight,
       FontMetrics,
+    );
+  },
+);
+
+// Assertions on margin-top
+Cypress.Commands.add(
+  'assertMarginTop',
+  (fontMetrics, xHeightPx, xHeightRatio, lineHeightRatio) => {
+    const marginTop = getMarginTop(
+      fontMetrics,
+      xHeightPx,
+      xHeightRatio,
+      lineHeightRatio,
+    );
+    cy.findByTestId('sampleParagraph2').should(
+      'have.css',
+      'margin-top',
+      `${marginTop}px`,
     );
   },
 );
