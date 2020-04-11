@@ -10,15 +10,22 @@ const newUserData = {
   lineHeightRatio: 7,
 };
 
-describe('Preview Page in demo', () => {
-  // setup
-  const fontFamily = `Open Sans`;
-  const fontWeight = `400`;
   const OpenSansFontMetrics = {
     unitsPerEm: 2048,
     sxHeight: 1096,
     sCapHeight: 1462,
   };
+
+const RobotoSlabFontMetrics = {
+  unitsPerEm: 2048,
+  sxHeight: 1082,
+  sCapHeight: 1456,
+};
+
+describe('Preview Page in demo', () => {
+  // setup
+  const fontFamily = `Open Sans`;
+  const fontWeight = `400`;
 
   beforeEach(() => {
     cy.visit('/x-height');
@@ -47,7 +54,7 @@ describe('Preview Page in demo', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/css`);
   });
 
-  it.only('correctly shows the vertical space between paragraphs', () => {
+  it('correctly shows the vertical space between paragraphs', () => {
     cy.assertMarginTop(
       OpenSansFontMetrics,
       userData.xHeight,
@@ -187,11 +194,6 @@ describe('Preview Page after uploading a font file', () => {
   // setup
   const fontFamily = `Roboto Slab`;
   const fontWeight = `300`;
-  const RobotoSlabFontMetrics = {
-    unitsPerEm: 2048,
-    sxHeight: 1082,
-    sCapHeight: 1456,
-  };
 
   beforeEach(() => {
     const fontFileName = 'RobotoSlab-Light.ttf';
@@ -206,7 +208,7 @@ describe('Preview Page after uploading a font file', () => {
     cy.findByText(/preview/i).click();
   });
 
-  it.only('correctly shows the vertical space between paragraphs', () => {
+  it('correctly shows the vertical space between paragraphs', () => {
     cy.assertMarginTop(
       RobotoSlabFontMetrics,
       userData.xHeight,
