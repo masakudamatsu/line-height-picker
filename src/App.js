@@ -161,12 +161,12 @@ function App() {
   const handleXHeightRatio = newXHeightRatio => {
     setXHeightRatio(newXHeightRatio);
     generateLineHeight(newXHeightRatio, lineHeightRatio);
-    generateMarginTop(newXHeightRatio, lineHeightRatio);
+    generateMarginTop(fontMetrics, xHeightPx, newXHeightRatio, lineHeightRatio);
   };
   const handleLineHeightRatio = newLineHeightRatio => {
     setLineHeightRatio(newLineHeightRatio);
     generateLineHeight(xHeightRatio, newLineHeightRatio);
-    generateMarginTop(xHeightRatio, newLineHeightRatio);
+    generateMarginTop(fontMetrics, xHeightPx, xHeightRatio, newLineHeightRatio);
   };
   const generateLineHeight = (xHeightRatio, lineHeightRatio) => {
     if (xHeightRatio === 0) {
@@ -178,7 +178,12 @@ function App() {
     const newLineHeight = (newLineHeightPx / fontSizePx).toFixed(4);
     setLineHeight(newLineHeight);
   };
-  const generateMarginTop = (xHeightRatio, lineHeightRatio) => {
+  const generateMarginTop = (
+    fontMetrics,
+    xHeightPx,
+    xHeightRatio,
+    lineHeightRatio,
+  ) => {
     const a = (lineHeightRatio - xHeightRatio) * xHeightPx;
     const b =
       (fontMetrics.capHeight - fontMetrics.xHeight) / fontMetrics.unitsPerEm;
