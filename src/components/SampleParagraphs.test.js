@@ -19,7 +19,7 @@ test('renders correctly', () => {
     }
 
     .c0 p:not(:first-child) {
-      margin: 1rem 0 0 0;
+      margin: 16px 0 0 0;
     }
 
     <div>

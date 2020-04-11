@@ -23,6 +23,7 @@ function App() {
     fontWeight: 400,
     xHeight: 1096,
     unitsPerEm: 2048,
+    capHeight: 1462,
   });
   const [fontFileError, setFontFileError] = React.useState('');
 
@@ -41,6 +42,7 @@ function App() {
 
   const [fontSizePx, setFontSizePx] = React.useState('');
   const [lineHeight, setLineHeight] = React.useState('');
+  const [marginTop, setMarginTop] = React.useState('');
 
   const validateFileType = file => {
     if (validFontFileTypes.test(file.name)) {
@@ -66,6 +68,7 @@ function App() {
             fontWeight: newFontMetrics.usWeightClass,
             xHeight: newFontMetrics.sxHeight,
             unitsPerEm: newFontMetrics.unitsPerEm,
+            capHeight: fontMetrics.sCapHeight,
           });
           // Load the uploaded font
           const newFontFace = new FontFace(
@@ -158,10 +161,12 @@ function App() {
   const handleXHeightRatio = newXHeightRatio => {
     setXHeightRatio(newXHeightRatio);
     generateLineHeight(newXHeightRatio, lineHeightRatio);
+    generateMarginTop(newXHeightRatio, lineHeightRatio);
   };
   const handleLineHeightRatio = newLineHeightRatio => {
     setLineHeightRatio(newLineHeightRatio);
     generateLineHeight(xHeightRatio, newLineHeightRatio);
+    generateMarginTop(xHeightRatio, newLineHeightRatio);
   };
   const generateLineHeight = (xHeightRatio, lineHeightRatio) => {
     if (xHeightRatio === 0) {
@@ -172,6 +177,13 @@ function App() {
     const newLineHeightPx = xHeightPx * lineToXRatio;
     const newLineHeight = (newLineHeightPx / fontSizePx).toFixed(4);
     setLineHeight(newLineHeight);
+  };
+  const generateMarginTop = (xHeightRatio, lineHeightRatio) => {
+    const a = (lineHeightRatio - xHeightRatio) * xHeightPx;
+    const b =
+      (fontMetrics.capHeight - fontMetrics.xHeight) / fontMetrics.unitsPerEm;
+    const newMarginTop = a + b * fontSizePx;
+    setMarginTop(newMarginTop);
   };
   return (
     <>
@@ -230,6 +242,7 @@ function App() {
                 fontSize={fontSizePx}
                 fontWeight={fontMetrics.fontWeight}
                 lineHeight={lineHeight}
+                marginTop={marginTop}
                 xHeightPx={xHeightPx}
                 xHeightToFontSize={xHeightToFontSize}
                 xHeightRatio={xHeightRatio}

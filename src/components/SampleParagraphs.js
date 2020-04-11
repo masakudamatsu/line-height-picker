@@ -9,6 +9,7 @@ const SampleParagraphs = props => {
       fontSize={props.fontSize}
       fontWeight={props.fontWeight}
       lineHeight={props.lineHeight}
+      marginTop={props.marginTop}
     >
       <p data-testid="sampleParagraph1">
         … I learned about serif and sans serif typefaces, about varying the

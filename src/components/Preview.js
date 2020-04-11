@@ -52,6 +52,7 @@ const Preview = props => {
           fontSize={props.fontSize}
           fontWeight={props.fontWeight}
           lineHeight={props.lineHeight}
+          marginTop={props.marginTop}
         />
         <ParagraphOneRemRightAligned>
           An excerpt from{' '}

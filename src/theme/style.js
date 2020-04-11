@@ -289,7 +289,7 @@ export const SampleParagraphWrapper = styled.section`
   padding: 1rem;
   margin: 2rem 0 0.5rem 0;
   p:not(:first-child) {
-    margin: 1rem 0 0 0;
+    margin: ${props => props.marginTop || '16'}px 0 0 0;
   }
 `;
 

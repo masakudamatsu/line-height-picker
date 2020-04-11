@@ -12,7 +12,7 @@ const getFontMetrics = font => {
   const os2Table = font.tables['os2'];
   fontMetrics.usWeightClass = os2Table['usWeightClass'];
   fontMetrics.sxHeight = os2Table['sxHeight'];
-
+  fontMetrics.sCapHeight = os2Table['sCapHeight'];
   return fontMetrics;
 };
 
