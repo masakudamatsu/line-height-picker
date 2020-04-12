@@ -97,7 +97,7 @@ describe('Preview Page in demo', () => {
     );
   });
 
-  it('updates CSS code after the user changes font', () => {
+  it('updates font-size after the user changes font', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
 
@@ -105,6 +105,21 @@ describe('Preview Page in demo', () => {
 
     // verify
     cy.assertFontSize(userData.xHeight, RobotoSlabFontMetrics);
+  });
+
+  it('updates line-height after the user changes font', () => {
+    // Setup
+    const fontFileName = 'RobotoSlab-Light.ttf';
+
+    cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
+
+    // verify
+    cy.assertLineHeight(
+      userData.xHeightRatio,
+      userData.lineHeightRatio,
+      userData.xHeight,
+      RobotoSlabFontMetrics,
+    );
   });
 
   it('Uploading a file with an invalid extension alerts the user', () => {

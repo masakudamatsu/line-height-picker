@@ -77,6 +77,13 @@ function App() {
             setFontSizePx(newFontSize);
           }
           if (xHeightPx && xHeightRatio && lineHeightRatio) {
+            const newLineHeight = getLineHeight(
+              newFontMetrics,
+              xHeightPx,
+              xHeightRatio,
+              lineHeightRatio,
+            );
+            setLineHeight(newLineHeight);
             const newMarginTop = getMarginTop(
               newFontMetrics,
               xHeightPx,
