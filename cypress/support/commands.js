@@ -92,6 +92,16 @@ Cypress.Commands.add(
 );
 
 // Assertions on x-height and font-size
+Cypress.Commands.add('assertFontSize', (xHeight, FontMetrics) => {
+  const fontSize = getFontSize(xHeight, FontMetrics);
+  cy.findByTestId('sampleParagraphs').should(
+    'have.css',
+    'font-size',
+    `${fontSize}px`,
+  );
+  cy.findByText(/css/i).click();
+  cy.findByTestId('cssCode').contains(`font-size: ${fontSize}px`);
+});
 Cypress.Commands.add(
   'assertXheightFontSizeFromPreviewPageOn',
   (xHeight, FontMetrics) => {
@@ -99,14 +109,7 @@ Cypress.Commands.add(
       'have.value',
       xHeight.toString(),
     );
-    const fontSize = getFontSize(xHeight, FontMetrics);
-    cy.findByTestId('sampleParagraphs').should(
-      'have.css',
-      'font-size',
-      `${fontSize}px`,
-    );
-    cy.findByText(/css/i).click();
-    cy.findByTestId('cssCode').contains(`font-size: ${fontSize}px`);
+    cy.assertFontSize(xHeight, FontMetrics);
   },
 );
 
