@@ -78,7 +78,7 @@ describe('Preview Page in demo', () => {
     },
   );
 
-  it('allows the user to change font by clicking the "change font" button', () => {
+  it('allows the user to change font by clicking the "change font" button, and updates CSS code', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
     const expectedFontName = 'Roboto Slab';
@@ -95,6 +95,16 @@ describe('Preview Page in demo', () => {
       expectedFontSubfamily,
       expectedFontWeight,
     );
+  });
+
+  it('updates CSS code after the user changes font', () => {
+    // Setup
+    const fontFileName = 'RobotoSlab-Light.ttf';
+
+    cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
+
+    // verify
+    cy.assertFontSize(userData.xHeight, RobotoSlabFontMetrics);
   });
 
   it('Uploading a file with an invalid extension alerts the user', () => {

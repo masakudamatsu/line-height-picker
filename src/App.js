@@ -72,6 +72,10 @@ function App() {
             capHeight: newFontMetrics.capHeight,
           });
           // Update CSS values
+          if (xHeightPx) {
+            const newFontSize = getFontSize(newFontMetrics, xHeightPx);
+            setFontSizePx(newFontSize);
+          }
           if (xHeightPx && xHeightRatio && lineHeightRatio) {
             const newMarginTop = getMarginTop(
               newFontMetrics,
