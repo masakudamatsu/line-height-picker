@@ -206,6 +206,23 @@ describe('Preview Page in demo', () => {
     );
   });
 
+  it('updates the vertical space between paragraphs after the user changes x-height-to-line-height ratio', () => {
+    // execute
+    cy.findByTestId('x-height-for-ratio')
+      .clear()
+      .type(newUserData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio')
+      .clear()
+      .type(newUserData.lineHeightRatio);
+    // verify
+    cy.assertMarginTop(
+      OpenSansFontMetrics,
+      userData.xHeight,
+      newUserData.xHeightRatio,
+      newUserData.lineHeightRatio,
+    );
+  });
+
   it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for x-height', () => {
     cy.findByTestId('x-height-in-pixel').clear();
     cy.testAlertForDecimalPlaces('x-height-in-pixel');
