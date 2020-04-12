@@ -59,21 +59,6 @@ describe('Preview Page in demo', () => {
     );
   });
 
-  ['x-height-in-pixel', 'x-height-for-ratio', 'line-height-for-ratio'].forEach(
-    testId => {
-      it(`disables the button to get the CSS code if the user deletes the ${testId} value`, () => {
-        cy.findByTestId(testId).clear();
-        cy.findByText(/css/i).click();
-        cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
-        if (testId === 'x-height-in-pixel') {
-          cy.assertIfErrorMessageAppears('error-message-x-height');
-        } else {
-          cy.assertIfErrorMessageAppears('error-message-modular-scale');
-        }
-      });
-    },
-  );
-
   it('allows the user to change font by clicking the "change font" button', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
@@ -132,30 +117,6 @@ describe('Preview Page in demo', () => {
       userData.xHeightRatio,
       userData.lineHeightRatio,
     );
-  });
-
-  it('Uploading a file with an invalid extension alerts the user', () => {
-    // set up
-    const invalidFile = 'invalidFile.txt';
-    // execute
-    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
-    // Verify
-    cy.findByTestId('error-message-font-file')
-      .should('contain', '.ttf')
-      .should('contain', '.otf')
-      .should('contain', '.woff');
-  });
-
-  it('Uploading a wrong file with the valid extension alerts the user without moving to x-height page', () => {
-    // set up
-    const invalidFile = 'invalidFile.ttf';
-    // execute
-    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
-    // Verify
-    cy.findByTestId('error-message-font-file')
-      .should('contain', '.ttf')
-      .should('contain', '.otf')
-      .should('contain', '.woff');
   });
 
   it('allows the user to change x-height, which will be shown immediately and used to calculate font-size', () => {
@@ -217,45 +178,6 @@ describe('Preview Page in demo', () => {
       newUserData.xHeightRatio,
       newUserData.lineHeightRatio,
     );
-  });
-
-  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for x-height', () => {
-    cy.findByTestId('x-height-in-pixel').clear();
-    cy.testAlertForDecimalPlaces('x-height-in-pixel');
-  });
-  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for x-height ratio', () => {
-    cy.findByTestId('x-height-for-ratio').clear();
-    cy.testAlertForDecimalPlaces('x-height-for-ratio');
-  });
-  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for line-height ratio', () => {
-    cy.findByTestId('line-height-for-ratio').clear();
-    cy.testAlertForDecimalPlaces('line-height-for-ratio');
-  });
-
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for x-height', () => {
-    cy.findByTestId('x-height-in-pixel').clear();
-    cy.testAlertForValuesLessThanOne('x-height-in-pixel');
-  });
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for x-height ratio', () => {
-    cy.findByTestId('x-height-for-ratio').clear();
-    cy.testAlertForValuesLessThanOne('x-height-for-ratio');
-  });
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for line-height ratio', () => {
-    cy.findByTestId('line-height-for-ratio').clear();
-    cy.testAlertForValuesLessThanOne('line-height-for-ratio');
-  });
-
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for x-height', () => {
-    cy.findByTestId('x-height-in-pixel').clear();
-    cy.testAlertForValuesMoreThanHundred('x-height-in-pixel');
-  });
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for x-height ratio', () => {
-    cy.findByTestId('x-height-for-ratio').clear();
-    cy.testAlertForValuesMoreThanHundred('x-height-for-ratio');
-  });
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for line-height ratio', () => {
-    cy.findByTestId('line-height-for-ratio').clear();
-    cy.testAlertForValuesMoreThanHundred('line-height-for-ratio');
   });
 });
 
@@ -329,5 +251,94 @@ describe('Preview Page after uploading a font file', () => {
       userData.xHeight,
       RobotoSlabFontMetrics,
     );
+  });
+});
+
+describe('Preview Page: Error-handling', () => {
+  beforeEach(() => {
+    cy.visit('/x-height');
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
+    cy.findByText(/preview/i).click();
+  });
+
+  ['x-height-in-pixel', 'x-height-for-ratio', 'line-height-for-ratio'].forEach(
+    testId => {
+      it(`disables the button to get the CSS code if the user deletes the ${testId} value`, () => {
+        cy.findByTestId(testId).clear();
+        cy.findByText(/css/i).click();
+        cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
+        if (testId === 'x-height-in-pixel') {
+          cy.assertIfErrorMessageAppears('error-message-x-height');
+        } else {
+          cy.assertIfErrorMessageAppears('error-message-modular-scale');
+        }
+      });
+    },
+  );
+
+  it('Uploading a file with an invalid extension alerts the user', () => {
+    // set up
+    const invalidFile = 'invalidFile.txt';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
+
+  it('Uploading a wrong file with the valid extension alerts the user without moving to x-height page', () => {
+    // set up
+    const invalidFile = 'invalidFile.ttf';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
+
+  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for x-height', () => {
+    cy.findByTestId('x-height-in-pixel').clear();
+    cy.testAlertForDecimalPlaces('x-height-in-pixel');
+  });
+  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for x-height ratio', () => {
+    cy.findByTestId('x-height-for-ratio').clear();
+    cy.testAlertForDecimalPlaces('x-height-for-ratio');
+  });
+  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for line-height ratio', () => {
+    cy.findByTestId('line-height-for-ratio').clear();
+    cy.testAlertForDecimalPlaces('line-height-for-ratio');
+  });
+
+  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for x-height', () => {
+    cy.findByTestId('x-height-in-pixel').clear();
+    cy.testAlertForValuesLessThanOne('x-height-in-pixel');
+  });
+  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for x-height ratio', () => {
+    cy.findByTestId('x-height-for-ratio').clear();
+    cy.testAlertForValuesLessThanOne('x-height-for-ratio');
+  });
+  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for line-height ratio', () => {
+    cy.findByTestId('line-height-for-ratio').clear();
+    cy.testAlertForValuesLessThanOne('line-height-for-ratio');
+  });
+
+  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for x-height', () => {
+    cy.findByTestId('x-height-in-pixel').clear();
+    cy.testAlertForValuesMoreThanHundred('x-height-in-pixel');
+  });
+  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for x-height ratio', () => {
+    cy.findByTestId('x-height-for-ratio').clear();
+    cy.testAlertForValuesMoreThanHundred('x-height-for-ratio');
+  });
+  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for line-height ratio', () => {
+    cy.findByTestId('line-height-for-ratio').clear();
+    cy.testAlertForValuesMoreThanHundred('line-height-for-ratio');
   });
 });
