@@ -18,7 +18,7 @@ describe('X-height page in demo', () => {
   });
 
   validInputs.forEach(validInput => {
-    it('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
+    it(`allows the user to set x-height (to ${validInput.xHeight}px), which will be shown in all subsequent pages and used to calculate font-size`, () => {
       // execute
       cy.findByTestId('x-height-in-pixel').type(validInput.xHeight);
       cy.findByText(/scale/i).click();
@@ -30,14 +30,6 @@ describe('X-height page in demo', () => {
     });
   });
 
-  it('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message', () => {
-    // execute
-    cy.findByText(/scale/i).click();
-    // verify
-    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
-    cy.assertIfErrorMessageAppears('error-message-x-height');
-  });
-
   it('takes the user to the modular-scale page after clicking the button for it, when the user has entered a valid x-height value', () => {
     // execute
     const validInput = '12';
@@ -45,25 +37,6 @@ describe('X-height page in demo', () => {
     cy.findByText(/scale/i).click();
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
-  });
-
-  it('does not show alert when the user deletes an input', () => {
-    cy.findByTestId('x-height-in-pixel')
-      .type('1')
-      .clear();
-    cy.assertIfErrorMessageDisappears('error-message-x-height');
-  });
-
-  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
-    cy.testAlertForDecimalPlaces('x-height-in-pixel');
-  });
-
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
-    cy.testAlertForValuesLessThanOne('x-height-in-pixel');
-  });
-
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
-    cy.testAlertForValuesMoreThanHundred('x-height-in-pixel');
   });
 
   it('allows the user to change font by clicking the "change font" button', () => {
@@ -84,30 +57,6 @@ describe('X-height page in demo', () => {
       expectedFontWeight,
     );
   });
-
-  it('Uploading a file with an invalid extension alerts the user', () => {
-    // set up
-    const invalidFile = 'invalidFile.txt';
-    // execute
-    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
-    // Verify
-    cy.findByTestId('error-message-font-file')
-      .should('contain', '.ttf')
-      .should('contain', '.otf')
-      .should('contain', '.woff');
-  });
-
-  it('Uploading a wrong file with the valid extension alerts the user without moving to x-height page', () => {
-    // set up
-    const invalidFile = 'invalidFile.ttf';
-    // execute
-    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
-    // Verify
-    cy.findByTestId('error-message-font-file')
-      .should('contain', '.ttf')
-      .should('contain', '.otf')
-      .should('contain', '.woff');
-  });
 });
 
 describe('X-height page after uploading a font file', () => {
@@ -124,7 +73,7 @@ describe('X-height page after uploading a font file', () => {
   });
 
   validInputs.forEach(validInput => {
-    it('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
+    it(`allows the user to set x-height (to ${validInput.xHeight}px), which will be shown in all subsequent pages and used to calculate font-size`, () => {
       // execute
       cy.findByTestId('x-height-in-pixel').type(validInput.xHeight);
       cy.findByText(/scale/i).click();
@@ -151,5 +100,62 @@ describe('X-height page after uploading a font file', () => {
       expectedFontSubfamily,
       expectedFontWeight,
     );
+  });
+});
+
+describe('X-height page: Error-handling', () => {
+  beforeEach(() => {
+    cy.visit('/x-height');
+  });
+
+  it('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message', () => {
+    // execute
+    cy.findByText(/scale/i).click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+  });
+
+  it('does not show alert when the user deletes an input', () => {
+    cy.findByTestId('x-height-in-pixel')
+      .type('1')
+      .clear();
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+  });
+
+  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
+    cy.testAlertForDecimalPlaces('x-height-in-pixel');
+  });
+
+  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
+    cy.testAlertForValuesLessThanOne('x-height-in-pixel');
+  });
+
+  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
+    cy.testAlertForValuesMoreThanHundred('x-height-in-pixel');
+  });
+
+  it('Uploading a file with an invalid extension alerts the user', () => {
+    // set up
+    const invalidFile = 'invalidFile.txt';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
+
+  it('Uploading a wrong file with the valid extension alerts the user without moving to x-height page', () => {
+    // set up
+    const invalidFile = 'invalidFile.ttf';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
   });
 });
