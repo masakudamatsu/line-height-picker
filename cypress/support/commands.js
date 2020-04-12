@@ -125,7 +125,7 @@ Cypress.Commands.add(
 
 // Assertions on modular scale and line-height
 Cypress.Commands.add(
-  'assertModularScaleLineHeightFromPreviewPageOn',
+  'assertLineHeight',
   (xHeightRatio, lineHeightRatio, xHeight, FontMetrics) => {
     // setup
     const expectedLineHeight = getLineHeight(
@@ -139,6 +139,20 @@ Cypress.Commands.add(
     ).toFixed(4);
 
     // verify
+    cy.findByTestId('sampleParagraphs').should(
+      'have.css',
+      'line-height',
+      `${expectedLineHeightInPx}px`,
+    );
+    cy.findByText(/css/i).click();
+    cy.findByTestId('cssCode').contains(`line-height: ${expectedLineHeight}`);
+  },
+);
+
+Cypress.Commands.add(
+  'assertModularScaleLineHeightFromPreviewPageOn',
+  (xHeightRatio, lineHeightRatio, xHeight, FontMetrics) => {
+    // verify
     cy.findByTestId('x-height-for-ratio').should(
       'have.value',
       xHeightRatio.toString(),
@@ -147,14 +161,7 @@ Cypress.Commands.add(
       'have.value',
       lineHeightRatio.toString(),
     );
-    cy.findByTestId('sampleParagraphs').should(
-      'have.css',
-      'line-height',
-      `${expectedLineHeightInPx}px`,
-    );
-    cy.findByText(/css/i).click();
-    // verify
-    cy.findByTestId('cssCode').contains(`line-height: ${expectedLineHeight}`);
+    cy.assertLineHeight(xHeightRatio, lineHeightRatio, xHeight, FontMetrics);
   },
 );
 
