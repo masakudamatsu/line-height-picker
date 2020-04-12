@@ -177,6 +177,14 @@ function App() {
     setXHeightPx(xHeight);
     const newFontSize = getFontSize(fontMetrics, xHeight);
     setFontSizePx(newFontSize);
+    const newMarginTop = getMarginTop(
+      fontMetrics,
+      xHeight,
+      xHeightRatio,
+      lineHeightRatio,
+    );
+    setMarginTop(newMarginTop);
+    // NOTE: Line-height won't change with x-height
   };
 
   const handleXHeightRatioChange = newXHeightRatio => {

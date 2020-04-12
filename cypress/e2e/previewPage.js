@@ -174,6 +174,21 @@ describe('Preview Page in demo', () => {
     );
   });
 
+  // NOTE: Line-height won't change with x-height
+  it('updates the vertical space between paragraphs after the user changes x-height', () => {
+    // execute
+    cy.findByTestId('x-height-in-pixel')
+      .clear()
+      .type(newUserData.xHeight);
+    // verify
+    cy.assertMarginTop(
+      OpenSansFontMetrics,
+      newUserData.xHeight,
+      userData.xHeightRatio,
+      userData.lineHeightRatio,
+    );
+  });
+
   it('allows the user to change the x-height-to-line-height ratio, which will be shown immeidately and used to calculate line-height', () => {
     // execute
     cy.findByTestId('x-height-for-ratio')
