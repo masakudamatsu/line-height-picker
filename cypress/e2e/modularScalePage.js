@@ -39,28 +39,6 @@ describe('Modular Scale Page in demo', () => {
     );
   });
 
-  it('does not show alert when the user deletes an input', () => {
-    cy.findByTestId('x-height-for-ratio')
-      .type('1')
-      .clear();
-    cy.assertIfErrorMessageDisappears('error-message-modular-scale');
-  });
-
-  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
-    cy.testAlertForDecimalPlaces('x-height-for-ratio');
-    cy.testAlertForDecimalPlaces('line-height-for-ratio');
-  });
-
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
-    cy.testAlertForValuesLessThanOne('x-height-for-ratio');
-    cy.testAlertForValuesLessThanOne('line-height-for-ratio');
-  });
-
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
-    cy.testAlertForValuesMoreThanHundred('x-height-for-ratio');
-    cy.testAlertForValuesMoreThanHundred('line-height-for-ratio');
-  });
-
   it('allows the user to change font by clicking the "change font" button', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
@@ -78,38 +56,6 @@ describe('Modular Scale Page in demo', () => {
       expectedFontSubfamily,
       expectedFontWeight,
     );
-  });
-
-  it('Uploading a file with an invalid extension alerts the user', () => {
-    // set up
-    const invalidFile = 'invalidFile.txt';
-    // execute
-    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
-    // Verify
-    cy.findByTestId('error-message-font-file')
-      .should('contain', '.ttf')
-      .should('contain', '.otf')
-      .should('contain', '.woff');
-  });
-
-  it('Uploading a wrong file with the valid extension alerts the user without moving to x-height page', () => {
-    // set up
-    const invalidFile = 'invalidFile.ttf';
-    // execute
-    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
-    // Verify
-    cy.findByTestId('error-message-font-file')
-      .should('contain', '.ttf')
-      .should('contain', '.otf')
-      .should('contain', '.woff');
-  });
-
-  it('does not allow the user to move on to the preview page if the user has not entered modular scale values, and shows an error message', () => {
-    // execute
-    cy.findByText(/preview/i).click();
-    // verify
-    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
-    cy.assertIfErrorMessageAppears('error-message-modular-scale');
   });
 
   it('takes the user to the preview page after clicking the button for it, when the user has entered valid modular scale values', () => {
@@ -166,5 +112,67 @@ describe('Modular Scale Page after uploading a font file', () => {
       expectedFontSubfamily,
       expectedFontWeight,
     );
+  });
+});
+
+describe('Modular Scale Page: Error-handling', () => {
+  beforeEach(() => {
+    cy.visit('/x-height');
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+  });
+
+  it('does not show alert when the user deletes an input', () => {
+    cy.findByTestId('x-height-for-ratio')
+      .type('1')
+      .clear();
+    cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+  });
+
+  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
+    cy.testAlertForDecimalPlaces('x-height-for-ratio');
+    cy.testAlertForDecimalPlaces('line-height-for-ratio');
+  });
+
+  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
+    cy.testAlertForValuesLessThanOne('x-height-for-ratio');
+    cy.testAlertForValuesLessThanOne('line-height-for-ratio');
+  });
+
+  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
+    cy.testAlertForValuesMoreThanHundred('x-height-for-ratio');
+    cy.testAlertForValuesMoreThanHundred('line-height-for-ratio');
+  });
+
+  it('Uploading a file with an invalid extension alerts the user', () => {
+    // set up
+    const invalidFile = 'invalidFile.txt';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
+
+  it('Uploading a wrong file with the valid extension alerts the user without moving to x-height page', () => {
+    // set up
+    const invalidFile = 'invalidFile.ttf';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
+
+  it('does not allow the user to move on to the preview page if the user has not entered modular scale values, and shows an error message', () => {
+    // execute
+    cy.findByText(/preview/i).click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+    cy.assertIfErrorMessageAppears('error-message-modular-scale');
   });
 });
