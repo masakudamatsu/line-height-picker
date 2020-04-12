@@ -29,12 +29,10 @@ describe('Preview Page in demo', () => {
 
   beforeEach(() => {
     cy.visit('/x-height');
-    cy.findByLabelText(/x-height/i).type(userData.xHeight);
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();
-    cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
-      userData.lineHeightRatio,
-    );
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
   });
 
@@ -46,7 +44,7 @@ describe('Preview Page in demo', () => {
     cy.findByText(/excerpt/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
     cy.findByText(/change font/i).should('exist');
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).should('exist');
+    cy.findByTestId('line-height-for-ratio').should('exist');
   });
 
   it('takes the user to the CSS page after clicking the button for it', () => {
@@ -272,12 +270,10 @@ describe('Preview Page after uploading a font file', () => {
     const fontFileName = 'RobotoSlab-Light.ttf';
     cy.visit('/');
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
-    cy.findByLabelText(/x-height/i).type(userData.xHeight);
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();
-    cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
-      userData.lineHeightRatio,
-    );
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
   });
 

@@ -14,14 +14,14 @@ describe('X-height page in demo', () => {
 
   it('shows the UI components correctly', () => {
     cy.checkHeaderFooterRendering();
-    cy.findByLabelText(/x-height/i).should('exist');
+    cy.findByTestId('x-height-in-pixel').should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
   });
 
   validInputs.forEach(validInput => {
     it('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
       // execute
-      cy.findByLabelText(/x-height/i).type(validInput.xHeight);
+      cy.findByTestId('x-height-in-pixel').type(validInput.xHeight);
       cy.findByText(/scale/i).click();
       // verify
       cy.assertXheightFontSizeFromModularScalePageOn(
@@ -127,7 +127,7 @@ describe('X-height page after uploading a font file', () => {
   validInputs.forEach(validInput => {
     it('allows the user to set x-height, which will be shown in all subsequent pages and used to calculate font-size', () => {
       // execute
-      cy.findByLabelText(/x-height/i).type(validInput.xHeight);
+      cy.findByTestId('x-height-in-pixel').type(validInput.xHeight);
       cy.findByText(/scale/i).click();
       // verify
       cy.assertXheightFontSizeFromModularScalePageOn(

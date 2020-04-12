@@ -15,15 +15,15 @@ const RobotoSlabFontMetrics = {
 describe('Modular Scale Page in demo', () => {
   beforeEach(() => {
     cy.visit('/x-height');
-    cy.findByLabelText(/x-height/i).type(userData.xHeight);
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();
   });
 
   it('shows the UI components correctly', () => {
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByText(/pick modular scale/i).should('exist');
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).should('exist');
-    cy.findByLabelText(/x-height/i).should('exist');
+    cy.findByTestId('line-height-for-ratio').should('exist');
+    cy.findByTestId('x-height-for-ratio').should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
     cy.findByText(/change font/i).should('exist');
     cy.findByTestId('XheightDisplay').should('exist');
@@ -31,10 +31,8 @@ describe('Modular Scale Page in demo', () => {
 
   it('allows the user to enter the x-height-to-line-height ratio, which will be shown in subsequent pages and used to calculate line-height', () => {
     // execute
-    cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
-      userData.lineHeightRatio,
-    );
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     // verify
     cy.assertModularScaleLineHeightFromModularScalePageOn(
       userData.xHeightRatio,
@@ -119,10 +117,8 @@ describe('Modular Scale Page in demo', () => {
 
   it('takes the user to the preview page after clicking the button for it, when the user has entered valid modular scale values', () => {
     // execute
-    cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
-      userData.lineHeightRatio,
-    );
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
@@ -139,16 +135,14 @@ describe('Modular Scale Page after uploading a font file', () => {
     const fontFileName = 'RobotoSlab-Light.ttf';
     cy.visit('/');
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
-    cy.findByLabelText(/x-height/i).type(userData.xHeight);
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();
   });
 
   it('allows the user to enter the x-height-to-line-height ratio, which will be shown in subsequent pages and used to calculate line-height', () => {
     // execute
-    cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
-    cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
-      userData.lineHeightRatio,
-    );
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     // verify
     cy.assertModularScaleLineHeightFromModularScalePageOn(
       userData.xHeightRatio,

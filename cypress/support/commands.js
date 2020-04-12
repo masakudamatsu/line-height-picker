@@ -20,7 +20,7 @@ Cypress.Commands.add('EnterValidXHeight', () => {
   const userData = {
     xHeight: 10,
   };
-  cy.findByLabelText(/x-height/i).type(userData.xHeight);
+  cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
 });
 
 Cypress.Commands.add('EnterValidModularScale', () => {
@@ -28,10 +28,8 @@ Cypress.Commands.add('EnterValidModularScale', () => {
     xHeightRatio: 1,
     lineHeightRatio: 3,
   };
-  cy.findByLabelText(/x-height/i).type(userData.xHeightRatio);
-  cy.findByLabelText(/line-height/i, {selector: 'input'}).type(
-    userData.lineHeightRatio,
-  );
+  cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+  cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
 });
 
 // Assertions on font name, font-family and font-weight
