@@ -3,12 +3,10 @@ describe('Landing Page', () => {
     cy.visit('/');
   });
 
-  it('shows the UI components correctly', () => {
+  it('shows the non-interactive UI components correctly', () => {
     cy.get('h1').should('have.text', 'Line-height Picker');
     cy.findByTitle(/logo/i).should('exist');
     cy.findByTestId('description').should('exist');
-    cy.findByText(/upload/i).should('exist');
-    cy.findByText(/demo/i).should('exist');
     cy.findByTestId('footer').should('exist');
   });
 
