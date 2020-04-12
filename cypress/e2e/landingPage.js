@@ -26,7 +26,7 @@ describe('Landing Page', () => {
     );
   });
 
-  it('Uploading a font file takes uers to x-height page and shows its font name in all successive pages', () => {
+  it('Uploading a font file takes users to x-height page and shows its font name in all successive pages', () => {
     // Setup
     const fontFileName = 'RobotoSlab-Light.ttf';
     const expectedFontName = 'Roboto Slab';
@@ -43,6 +43,12 @@ describe('Landing Page', () => {
       expectedFontSubfamily,
       expectedFontWeight,
     );
+  });
+});
+
+describe('Landing Page: Error-handling', () => {
+  beforeEach(() => {
+    cy.visit('/');
   });
 
   it('Uploading a file with an invalid extension alerts the user without moving to x-height page', () => {
