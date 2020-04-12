@@ -12,9 +12,8 @@ describe('X-height page in demo', () => {
     cy.visit('/x-height');
   });
 
-  it('shows the UI components correctly', () => {
+  it('shows the non-interactive UI components correctly', () => {
     cy.checkHeaderFooterRendering();
-    cy.findByTestId('x-height-in-pixel').should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
   });
 

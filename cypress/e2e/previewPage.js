@@ -36,15 +36,13 @@ describe('Preview Page in demo', () => {
     cy.findByText(/preview/i).click();
   });
 
-  it('shows the UI components correctly', () => {
+  it('shows the non-interactive UI components correctly', () => {
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByText(/preview/i).should('exist');
     cy.findByTestId('sampleParagraph1').should('exist');
     cy.findByTestId('sampleParagraph2').should('exist');
     cy.findByText(/excerpt/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
-    cy.findByText(/change font/i).should('exist');
-    cy.findByTestId('line-height-for-ratio').should('exist');
   });
 
   it('takes the user to the CSS page after clicking the button for it', () => {

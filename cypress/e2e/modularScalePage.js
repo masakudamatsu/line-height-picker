@@ -19,13 +19,10 @@ describe('Modular Scale Page in demo', () => {
     cy.findByText(/scale/i).click();
   });
 
-  it('shows the UI components correctly', () => {
+  it('shows the non-interactive UI components correctly', () => {
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByText(/pick modular scale/i).should('exist');
-    cy.findByTestId('line-height-for-ratio').should('exist');
-    cy.findByTestId('x-height-for-ratio').should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
-    cy.findByText(/change font/i).should('exist');
     cy.findByTestId('XheightDisplay').should('exist');
   });
 

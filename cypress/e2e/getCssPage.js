@@ -3,7 +3,7 @@ describe('Get CSS Page', () => {
     cy.visit('/css');
   });
 
-  it('shows the UI components correctly', () => {
+  it('shows the non-interactive UI components correctly', () => {
     cy.visit('/css');
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByText(/css/i, {selector: 'h2'}).should('exist');
