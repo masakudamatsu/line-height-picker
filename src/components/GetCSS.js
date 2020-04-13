@@ -68,19 +68,24 @@ p:not(:first-child) {
             {cssOutput}
           </code>
         </CodeSnippet>
-        <Button onClick={copyToClipboard}>Copy to clipboard</Button>
+        <Button
+          onClick={copyToClipboard}
+          aria-describedby="whatHappened howToResolve extraText"
+        >
+          Copy to clipboard
+        </Button>
         <Button as={Link} to="/preview">
           Back to preview
           <NoWrap>←</NoWrap>
         </Button>
         <Section data-testid="error-message-clipboard">
-          <AlertMessage error={error} errorText>
+          <AlertMessage id="whatHappened" error={error} errorText>
             {clipboardError.whatHappened}
           </AlertMessage>
-          <AlertMessage error={error} errorText>
+          <AlertMessage id="howToResolve" error={error} errorText>
             {clipboardError.howToResolve}
           </AlertMessage>
-          <AlertMessage error={error} errorText>
+          <AlertMessage id="extraText" error={error} errorText>
             {clipboardError.extraText}
           </AlertMessage>
         </Section>{' '}

@@ -15,9 +15,19 @@ test('renders correctly', () => {
       white-space: nowrap;
     }
 
+    .c13 {
+      color: hsl(0,0%,96%);
+    }
+
     .c8 {
       font-size: 3rem;
       font-weight: 200;
+    }
+
+    .c12 {
+      color: hsl(335,71%,64%);
+      font-size: 1rem;
+      visibility: hidden;
     }
 
     .c9 {
@@ -371,6 +381,7 @@ test('renders correctly', () => {
         >
           <code
             data-testid="cssCode"
+            id="cssCode"
           >
             p {
       font-family: undefined;
@@ -386,6 +397,7 @@ test('renders correctly', () => {
           </code>
         </pre>
         <button
+          aria-describedby="whatHappened howToResolve extraText"
           class="c10"
         >
           Copy to clipboard
@@ -401,6 +413,38 @@ test('renders correctly', () => {
             ←
           </span>
         </a>
+        <section
+          class=""
+          data-testid="error-message-clipboard"
+        >
+          <p
+            class="sc-AxheI c12"
+            id="whatHappened"
+          >
+            The browser doesn't allow us to copy the CSS code into your clipboard.
+          </p>
+          <p
+            class="sc-AxheI c12"
+            id="howToResolve"
+          >
+            Please select the CSS code on your own to copy and paste it.
+          </p>
+          <p
+            class="sc-AxheI c12"
+            id="extraText"
+          >
+            Alternatively, consider using the browsers that support the "click to copy into clipboard" feature: Edge (version 79 or later), Chrome (76 or later), Opera (63 or later). See
+             
+            <a
+              class="c13"
+              href="https://caniuse.com/#feat=mdn-api_fontface"
+            >
+              Can I Use?
+            </a>
+            for the latest list of supporting browsers.
+          </p>
+        </section>
+         
       </main>
     </div>
   `);
