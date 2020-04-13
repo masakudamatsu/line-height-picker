@@ -11,6 +11,10 @@ describe('Get CSS Page', () => {
     cy.findByText(/copy/i).should('exist');
   });
 
+  it('allows the user to copy the CSS code onto their clipboard', () => {
+    // This feature cannot be tested with Cypress. See https://github.com/cypress-io/cypress/issues/2752
+  });
+
   it('takes the user back to the preview page after clicking the button for it', () => {
     cy.visit('/css');
     cy.findByText(/preview/i).click();

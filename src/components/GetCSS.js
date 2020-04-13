@@ -21,6 +21,17 @@ p:not(:first-child) {
   margin-top: ${props.marginTop}px;
 }
   `;
+  // Handling copy to clipboard
+  const copyToClipboard = () => {
+    if (navigator.clipboard) {
+      // For browsers supporting Clipboard API
+      navigator.clipboard.writeText(cssOutput);
+    } else {
+      // For browsers not supporting Clipboard API
+      return;
+    }
+  };
+
   return (
     <>
       <Header stepNow={5} />
@@ -29,7 +40,7 @@ p:not(:first-child) {
         <CodeSnippet>
           <code data-testid="cssCode">{cssOutput}</code>
         </CodeSnippet>
-        <Button>Copy to clipboard</Button>
+        <Button onClick={copyToClipboard}>Copy to clipboard</Button>
         <Button as={Link} to="/preview">
           Back to preview
           <NoWrap>←</NoWrap>
