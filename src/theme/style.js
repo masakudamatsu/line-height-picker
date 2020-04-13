@@ -108,6 +108,7 @@ export const Logo = styled(LogoImage)`
   fill: currentColor;
   height: auto;
   margin: ${logoMarginTopBelowCutoff * 100}% 0;
+  visibility: ${props => (props.topPage ? 'hidden' : 'visible')};
   width: ${props => (props.header ? '20%' : '100%')};
   @media (min-width: ${mediaQueryCutoff}px) {
     margin: ${logoMarginTopAboveCutoffPx}px 0;

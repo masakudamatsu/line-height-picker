@@ -5,9 +5,10 @@ describe('Landing Page', () => {
 
   it('shows the non-interactive UI components correctly', () => {
     cy.get('h1').should('have.text', 'Line-height Picker');
-    cy.findByTitle(/logo/i).should('exist');
-    cy.findByTestId('description').should('exist');
+    cy.findAllByTitle(/logo/i).should('exist'); // The logo exists both in the header and the body.
+    cy.findByTestId('stepIndicator').should('exist');
     cy.findByTestId('footer').should('exist');
+    cy.findByTestId('description').should('exist');
   });
 
   it('Clicking the demo button takes users to x-height page and shows "Open Sans" as the chosen font name in all subsequent pages', () => {

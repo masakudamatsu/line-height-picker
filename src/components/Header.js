@@ -54,7 +54,7 @@ const Header = props => {
   }
   return (
     <HeaderWrapper>
-      <Logo header />
+      <Logo header topPage={props.topPage} />
       <StepIndicator data-testid="stepIndicator">
         {step1}
         {step2}
