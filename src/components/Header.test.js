@@ -12,10 +12,25 @@ test('renders correctly', () => {
   const {container} = render(<Header />);
   expect(container).toMatchInlineSnapshot(`
     .c1 {
+      -webkit-clip: rect(1px 1px 1px 1px);
+      clip: rect(1px 1px 1px 1px);
+      -webkit-clip: rect(1px,1px,1px,1px);
+      clip: rect(1px,1px,1px,1px);
+      -webkit-clip-path: inset(50%);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    .c2 {
       display: block;
       fill: currentColor;
       height: auto;
       margin: 7.199999999999999% 0;
+      visibility: visible;
       width: 20%;
     }
 
@@ -35,12 +50,12 @@ test('renders correctly', () => {
       width: 100%;
     }
 
-    .c4 {
+    .c5 {
       color: hsl(0,0%,35%);
       font-size: 5vw;
     }
 
-    .c3 {
+    .c4 {
       -webkit-align-items: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -59,7 +74,7 @@ test('renders correctly', () => {
       width: 10vw;
     }
 
-    .c2 {
+    .c3 {
       -webkit-aling-items: center;
       -webkit-box-aling: center;
       -ms-flex-aling: center;
@@ -78,19 +93,19 @@ test('renders correctly', () => {
     }
 
     @media (min-width:875px) {
-      .c1 {
+      .c2 {
         margin: 63px 0;
       }
     }
 
     @media (min-width:875px) {
-      .c4 {
+      .c5 {
         font-size: 43.75px;
       }
     }
 
     @media (min-width:875px) {
-      .c3 {
+      .c4 {
         width: 87.5px;
       }
     }
@@ -99,9 +114,14 @@ test('renders correctly', () => {
       <header
         class="c0"
       >
+        <h1
+          class="c1"
+        >
+          Line-height Picker
+        </h1>
         <svg
           aria-labelledby="logoTitle"
-          class="c1"
+          class="c2"
           height="308.000000pt"
           preserveAspectRatio="xMidYMid meet"
           role="img"
@@ -206,50 +226,50 @@ test('renders correctly', () => {
           </g>
         </svg>
         <div
-          class="c2"
+          class="c3"
           data-testid="stepIndicator"
         >
           <div
-            class="c3"
+            class="c4"
           >
             <span
-              class="c4"
+              class="c5"
             >
               1
             </span>
           </div>
           <div
-            class="c3"
+            class="c4"
           >
             <span
-              class="c4"
+              class="c5"
             >
               2
             </span>
           </div>
           <div
-            class="c3"
+            class="c4"
           >
             <span
-              class="c4"
+              class="c5"
             >
               3
             </span>
           </div>
           <div
-            class="c3"
+            class="c4"
           >
             <span
-              class="c4"
+              class="c5"
             >
               4
             </span>
           </div>
           <div
-            class="c3"
+            class="c4"
           >
             <span
-              class="c4"
+              class="c5"
             >
               5
             </span>
