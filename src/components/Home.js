@@ -10,22 +10,24 @@ const Home = props => {
   return (
     <>
       <Header stepNow={1} topPage={true} />
-      <Logo />
-      <Description />
-      <ButtonContainer>
-        <FontFileUploader
-          home
-          validateFileType={props.validateFileType}
-          handleFontFile={props.handleFontFile}
-        >
-          Upload font file
-        </FontFileUploader>
-        <DemoStartButton />
-      </ButtonContainer>
-      <FontFileErrorMessage
-        data-testid="error-message-font-file"
-        fontFileError={props.fontFileError}
-      />
+      <main>
+        <Logo />
+        <Description />
+        <ButtonContainer>
+          <FontFileUploader
+            home
+            validateFileType={props.validateFileType}
+            handleFontFile={props.handleFontFile}
+          >
+            Upload font file
+          </FontFileUploader>
+          <DemoStartButton />
+        </ButtonContainer>
+        <FontFileErrorMessage
+          data-testid="error-message-font-file"
+          fontFileError={props.fontFileError}
+        />
+      </main>
     </>
   );
 };

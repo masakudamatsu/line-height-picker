@@ -224,7 +224,6 @@ function App() {
     <>
       <GlobalStyle />
       <SideMarginRegulator>
-        <main>
         <Switch>
           <Route path="/" exact>
             <Home
@@ -304,7 +303,6 @@ function App() {
           </Route>
           <Route component={Error} />
         </Switch>
-        </main>
         <Footer />
       </SideMarginRegulator>
     </>
