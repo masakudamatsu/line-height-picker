@@ -5,7 +5,10 @@ import {render as rtlRender} from '@testing-library/react';
 
 function render(ui, options = {}) {
   const history = createMemoryHistory({initialEntries: ['/']});
-  return rtlRender(<Router history={history}>{ui}</Router>, options);
+  function Wrapper({children}) {
+    return <Router history={history}>{children}</Router>;
+  }
+  return rtlRender(ui, {wrapper: Wrapper, ...options});
 }
 
 export default render;
