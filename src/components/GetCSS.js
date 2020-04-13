@@ -28,7 +28,18 @@ p:not(:first-child) {
       navigator.clipboard.writeText(cssOutput);
     } else {
       // For browsers not supporting Clipboard API
-      return;
+      const cssCode = document.getElementById('cssCode');
+      const range = document.createRange();
+      range.selectNode(cssCode);
+      window.getSelection().addRange(range);
+      try {
+        const success = document.execCommand('copy');
+        const message = success ? 'successful' : 'unsuccessful';
+        console.log(`Copying was ${message}`);
+      } catch (err) {
+        console.log('unable to copy');
+      }
+      window.getSelection().removeAllRanges();
     }
   };
 
@@ -38,7 +49,9 @@ p:not(:first-child) {
       <main>
         <PageTitle>Get CSS</PageTitle>
         <CodeSnippet>
-          <code data-testid="cssCode">{cssOutput}</code>
+          <code data-testid="cssCode" id="cssCode">
+            {cssOutput}
+          </code>
         </CodeSnippet>
         <Button onClick={copyToClipboard}>Copy to clipboard</Button>
         <Button as={Link} to="/preview">
