@@ -1,4 +1,5 @@
 import React from 'react';
+import Title from './Title';
 import {Logo} from '../theme/style';
 import {
   HeaderWrapper,
@@ -54,6 +55,7 @@ const Header = props => {
   }
   return (
     <HeaderWrapper>
+      <Title />
       <Logo header topPage={props.topPage} />
       <StepIndicator data-testid="stepIndicator">
         {step1}

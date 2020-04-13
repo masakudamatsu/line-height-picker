@@ -1,7 +1,6 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import GlobalStyle from './theme/GlobalStyle';
-import Title from './components/Title';
 import {SideMarginRegulator} from './theme/style';
 import Home from './components/Home';
 import Xheight from './components/Xheight';
@@ -224,88 +223,87 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Title />
       <SideMarginRegulator>
         <main>
-          <Switch>
-            <Route path="/" exact>
-              <Home
-                validateFileType={validateFileType}
-                handleFontFile={handleFontFile}
-                fontFileError={fontFileError}
-              />
-            </Route>
-            <Route path="/x-height">
-              <Xheight
-                validateFileType={validateFileType}
-                handleFontFile={handleFontFile}
-                fontFileError={fontFileError}
-                fontFamily={fontMetrics.fontFamily}
-                fontSubfamily={fontMetrics.fontSubfamily}
-                xHeightPx={xHeightPx}
-                validateXHeight={validateXHeight}
-                handleNoXHeight={handleNoXHeight}
-                xHeightRangeError={xHeightRangeError}
-                xHeightStepError={xHeightStepError}
-                handleXHeightChange={handleXHeightChange}
-              />
-            </Route>
-            <Route path="/modular-scale">
-              <ModularScale
-                fontFamily={fontMetrics.fontFamily}
-                fontSubfamily={fontMetrics.fontSubfamily}
-                validateFileType={validateFileType}
-                handleFontFile={handleFontFile}
-                fontFileError={fontFileError}
-                xHeightPx={xHeightPx}
-                xHeightRatio={xHeightRatio}
-                lineHeightRatio={lineHeightRatio}
-                validateModularScale={validateModularScale}
-                handleNoModularScale={handleNoModularScale}
-                modularScaleRangeError={modularScaleRangeError}
-                modularScaleStepError={modularScaleStepError}
-                handleXHeightRatioChange={handleXHeightRatioChange}
-                handleLineHeightRatioChange={handleLineHeightRatioChange}
-              />
-            </Route>
-            <Route path="/preview">
-              <Preview
-                fontFamily={fontMetrics.fontFamily}
-                fontSubfamily={fontMetrics.fontSubfamily}
-                validateFileType={validateFileType}
-                handleFontFile={handleFontFile}
-                fontFileError={fontFileError}
-                fontSize={fontSizePx}
-                fontWeight={fontMetrics.fontWeight}
-                lineHeight={lineHeight}
-                marginTop={marginTop}
-                xHeightPx={xHeightPx}
-                handleXHeightChange={handleXHeightChange}
-                xHeightRatio={xHeightRatio}
-                handleXHeightRatioChange={handleXHeightRatioChange}
-                lineHeightRatio={lineHeightRatio}
-                handleLineHeightRatioChange={handleLineHeightRatioChange}
-                validateXHeight={validateXHeight}
-                xHeightRangeError={xHeightRangeError}
-                xHeightStepError={xHeightStepError}
-                handleNoXHeight={handleNoXHeight}
-                validateModularScale={validateModularScale}
-                modularScaleRangeError={modularScaleRangeError}
-                modularScaleStepError={modularScaleStepError}
-                handleNoModularScale={handleNoModularScale}
-              />
-            </Route>
-            <Route path="/css">
-              <GetCSS
-                fontFamily={fontMetrics.fontFamily}
-                fontSize={fontSizePx}
-                fontWeight={fontMetrics.fontWeight}
-                lineHeight={lineHeight}
-                marginTop={marginTop}
-              />
-            </Route>
-            <Route component={Error} />
-          </Switch>
+        <Switch>
+          <Route path="/" exact>
+            <Home
+              validateFileType={validateFileType}
+              handleFontFile={handleFontFile}
+              fontFileError={fontFileError}
+            />
+          </Route>
+          <Route path="/x-height">
+            <Xheight
+              validateFileType={validateFileType}
+              handleFontFile={handleFontFile}
+              fontFileError={fontFileError}
+              fontFamily={fontMetrics.fontFamily}
+              fontSubfamily={fontMetrics.fontSubfamily}
+              xHeightPx={xHeightPx}
+              validateXHeight={validateXHeight}
+              handleNoXHeight={handleNoXHeight}
+              xHeightRangeError={xHeightRangeError}
+              xHeightStepError={xHeightStepError}
+              handleXHeightChange={handleXHeightChange}
+            />
+          </Route>
+          <Route path="/modular-scale">
+            <ModularScale
+              fontFamily={fontMetrics.fontFamily}
+              fontSubfamily={fontMetrics.fontSubfamily}
+              validateFileType={validateFileType}
+              handleFontFile={handleFontFile}
+              fontFileError={fontFileError}
+              xHeightPx={xHeightPx}
+              xHeightRatio={xHeightRatio}
+              lineHeightRatio={lineHeightRatio}
+              validateModularScale={validateModularScale}
+              handleNoModularScale={handleNoModularScale}
+              modularScaleRangeError={modularScaleRangeError}
+              modularScaleStepError={modularScaleStepError}
+              handleXHeightRatioChange={handleXHeightRatioChange}
+              handleLineHeightRatioChange={handleLineHeightRatioChange}
+            />
+          </Route>
+          <Route path="/preview">
+            <Preview
+              fontFamily={fontMetrics.fontFamily}
+              fontSubfamily={fontMetrics.fontSubfamily}
+              validateFileType={validateFileType}
+              handleFontFile={handleFontFile}
+              fontFileError={fontFileError}
+              fontSize={fontSizePx}
+              fontWeight={fontMetrics.fontWeight}
+              lineHeight={lineHeight}
+              marginTop={marginTop}
+              xHeightPx={xHeightPx}
+              handleXHeightChange={handleXHeightChange}
+              xHeightRatio={xHeightRatio}
+              handleXHeightRatioChange={handleXHeightRatioChange}
+              lineHeightRatio={lineHeightRatio}
+              handleLineHeightRatioChange={handleLineHeightRatioChange}
+              validateXHeight={validateXHeight}
+              xHeightRangeError={xHeightRangeError}
+              xHeightStepError={xHeightStepError}
+              handleNoXHeight={handleNoXHeight}
+              validateModularScale={validateModularScale}
+              modularScaleRangeError={modularScaleRangeError}
+              modularScaleStepError={modularScaleStepError}
+              handleNoModularScale={handleNoModularScale}
+            />
+          </Route>
+          <Route path="/css">
+            <GetCSS
+              fontFamily={fontMetrics.fontFamily}
+              fontSize={fontSizePx}
+              fontWeight={fontMetrics.fontWeight}
+              lineHeight={lineHeight}
+              marginTop={marginTop}
+            />
+          </Route>
+          <Route component={Error} />
+        </Switch>
         </main>
         <Footer />
       </SideMarginRegulator>
