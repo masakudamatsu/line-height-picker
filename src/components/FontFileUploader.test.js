@@ -78,6 +78,7 @@ test('renders correctly', () => {
       </button>
       <input
         accept=".ttf,.otf,.woff"
+        aria-describedby="whatHappened-fontFile howToResolve-fontFile extraText-fontFile"
         data-testid="hiddenFileInput"
         id="hiddenFileInput"
         style="display: none;"

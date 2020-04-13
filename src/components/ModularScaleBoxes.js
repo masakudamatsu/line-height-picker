@@ -40,6 +40,7 @@ const ModularScaleBoxes = props => {
             onChange={handleXHeightChange}
             required
             value={props.xHeightRatio}
+            aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           />
         </RatioWrapper>
         <span>to</span>
@@ -53,16 +54,19 @@ const ModularScaleBoxes = props => {
             onChange={handleLineHeightChange}
             required
             value={props.lineHeightRatio}
+            aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           />
         </RatioWrapper>
       </CenterAlignWrapperHorizontal>
       <ParagraphOneRem
+        id="howManyDecimalPlacesAllowed"
         data-testid="instruction-modular-scale"
         errorText={props.modularScaleStepError}
       >
         up to 4 decimal places
       </ParagraphOneRem>
       <AlertMessage
+        id="rangeOfNumbersAllowed"
         data-testid="error-message-modular-scale"
         error={props.modularScaleRangeError}
         errorText={props.modularScaleRangeError}

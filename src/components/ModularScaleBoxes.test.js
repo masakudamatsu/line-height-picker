@@ -136,6 +136,7 @@ test('renders correctly', () => {
               x-height
             </label>
             <input
+              aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
               class="sc-fzqARJ c4"
               data-testid="x-height-for-ratio"
               id="x-height-scale"
@@ -161,6 +162,7 @@ test('renders correctly', () => {
               line-height
             </label>
             <input
+              aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
               class="sc-fzqARJ c4"
               data-testid="line-height-for-ratio"
               id="line-height-scale"
@@ -177,12 +179,14 @@ test('renders correctly', () => {
         <p
           class="c5"
           data-testid="instruction-modular-scale"
+          id="howManyDecimalPlacesAllowed"
         >
           up to 4 decimal places
         </p>
         <p
           class="c6"
           data-testid="error-message-modular-scale"
+          id="rangeOfNumbersAllowed"
         >
           Enter a number between 1 and 100 inclusive
         </p>
@@ -246,7 +250,9 @@ test('Entering line-height ratio value calls the handleLineHeightRatioChange() a
     // execute
     fireEvent.change(lineHeightRatioInput, {target: {value: userdata}});
     // verify
-    expect(mockHandleLineHeightRatioChange).toHaveBeenCalledTimes(userdata.length);
+    expect(mockHandleLineHeightRatioChange).toHaveBeenCalledTimes(
+      userdata.length,
+    );
     expect(mockHandleLineHeightRatioChange).toHaveBeenCalledWith(userdata);
     expect(mockValidateModularScale).toHaveBeenCalledTimes(userdata.length);
   });

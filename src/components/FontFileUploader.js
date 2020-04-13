@@ -43,6 +43,7 @@ const FontFileUploader = props => {
         accept={acceptableFileExtensions.join()}
         onChange={handleChange}
         style={{display: 'none'}}
+        aria-describedby="whatHappened-fontFile howToResolve-fontFile extraText-fontFile"
       />
     </>
   );

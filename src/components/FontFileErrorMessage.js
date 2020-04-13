@@ -26,9 +26,15 @@ const FontFileErrorMessage = props => {
   }
   return (
     <Section data-testid="error-message-font-file">
-      <ParagraphOneRem errorText>{errorMessage.whatHappened}</ParagraphOneRem>
-      <ParagraphOneRem errorText>{errorMessage.howToResolve}</ParagraphOneRem>
-      <ParagraphOneRem errorText>{errorMessage.extraText}</ParagraphOneRem>
+      <ParagraphOneRem id="whatHappened-fontFile" errorText>
+        {errorMessage.whatHappened}
+      </ParagraphOneRem>
+      <ParagraphOneRem id="howToResolve-fontFile" errorText>
+        {errorMessage.howToResolve}
+      </ParagraphOneRem>
+      <ParagraphOneRem id="extraText-fontFile" errorText>
+        {errorMessage.extraText}
+      </ParagraphOneRem>
     </Section>
   );
 };

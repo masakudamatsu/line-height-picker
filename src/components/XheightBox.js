@@ -28,16 +28,19 @@ const XheightBox = props => {
           onChange={handleChange}
           required
           value={props.xHeightPx}
+          aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
         />
         <span>px</span>
       </NumberInputWrapper>
       <ParagraphOneRem
+        id="howManyDecimalPlacesAllowed"
         data-testid="instruction-x-height"
         errorText={props.xHeightStepError}
       >
         up to 4 decimal places
       </ParagraphOneRem>
       <AlertMessage
+        id="rangeOfNumbersAllowed"
         data-testid="error-message-x-height"
         error={props.xHeightRangeError}
         errorText={props.xHeightRangeError}

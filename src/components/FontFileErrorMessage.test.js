@@ -29,12 +29,15 @@ test('renders correctly', () => {
       >
         <p
           class="c0"
+          id="whatHappened-fontFile"
         />
         <p
           class="c0"
+          id="howToResolve-fontFile"
         />
         <p
           class="c0"
+          id="extraText-fontFile"
         />
       </section>
     </div>

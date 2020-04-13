@@ -104,6 +104,7 @@ test('renders correctly', () => {
           class="c1"
         >
           <input
+            aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
             class="sc-fzqARJ c2"
             data-testid="x-height-in-pixel"
             id="x-height"
@@ -122,12 +123,14 @@ test('renders correctly', () => {
         <p
           class="c3"
           data-testid="instruction-x-height"
+          id="howManyDecimalPlacesAllowed"
         >
           up to 4 decimal places
         </p>
         <p
           class="c4"
           data-testid="error-message-x-height"
+          id="rangeOfNumbersAllowed"
         >
           Enter a number between 1 and 100 inclusive
         </p>
