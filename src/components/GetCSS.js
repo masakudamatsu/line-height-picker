@@ -2,22 +2,33 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import Header from './Header';
-import CssCode from './CssCode';
-import {Button, NoWrap, PageTitle} from '../theme/style';
+import {Button, CodeSnippet, NoWrap, PageTitle} from '../theme/style';
 
 const GetCSS = props => {
+  // Create CSS code
+  let fontFamilyName = props.fontFamily;
+  if (/\s/.test(fontFamilyName)) {
+    fontFamilyName = `'${fontFamilyName}'`;
+  }
+  const cssOutput = `p {
+  font-family: ${fontFamilyName};
+  font-size: ${props.fontSize}px;
+  font-weight: ${props.fontWeight};
+  line-height: ${props.lineHeight};
+}
+
+p:not(:first-child) {
+  margin-top: ${props.marginTop}px;
+}
+  `;
   return (
     <>
       <Header stepNow={5} />
       <main>
         <PageTitle>Get CSS</PageTitle>
-        <CssCode
-          fontFamily={props.fontFamily}
-          fontSize={props.fontSize}
-          fontWeight={props.fontWeight}
-          lineHeight={props.lineHeight}
-          marginTop={props.marginTop}
-        />
+        <CodeSnippet>
+          <code data-testid="cssCode">{cssOutput}</code>
+        </CodeSnippet>
         <Button>Copy to clipboard</Button>
         <Button as={Link} to="/preview">
           Back to preview
