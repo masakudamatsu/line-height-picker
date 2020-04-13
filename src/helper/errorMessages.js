@@ -89,3 +89,23 @@ export const fontFaceApiError = {
     </>
   ),
 };
+
+export const clipboardError = {
+  whatHappened: (
+    <>The browser doesn't allow us to copy the CSS code into your clipboard.</>
+  ),
+  howToResolve: (
+    <>Please select the CSS code on your own to copy and paste it.</>
+  ),
+  extraText: (
+    <>
+      Alternatively, consider using the browsers that support the "click to copy
+      into clipboard" feature: Edge (version 79 or later), Chrome (76 or later),
+      Opera (63 or later). See{' '}
+      <ExternalLink href="https://caniuse.com/#feat=mdn-api_fontface">
+        Can I Use?
+      </ExternalLink>
+      for the latest list of supporting browsers.
+    </>
+  ),
+};

@@ -2,9 +2,18 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import Header from './Header';
-import {Button, CodeSnippet, NoWrap, PageTitle} from '../theme/style';
+import {
+  AlertMessage,
+  Button,
+  CodeSnippet,
+  NoWrap,
+  PageTitle,
+  Section,
+} from '../theme/style';
+import {clipboardError} from '../helper/errorMessages';
 
 const GetCSS = props => {
+  const [error, setError] = React.useState(false);
   // Create CSS code
   let fontFamilyName = props.fontFamily;
   if (/\s/.test(fontFamilyName)) {
@@ -27,19 +36,25 @@ p:not(:first-child) {
       // For browsers supporting Clipboard API
       navigator.clipboard.writeText(cssOutput);
     } else {
-      // For browsers not supporting Clipboard API
-      const cssCode = document.getElementById('cssCode');
-      const range = document.createRange();
-      range.selectNode(cssCode);
-      window.getSelection().addRange(range);
-      try {
-        const success = document.execCommand('copy');
-        const message = success ? 'successful' : 'unsuccessful';
-        console.log(`Copying was ${message}`);
-      } catch (err) {
+      if (document.queryCommandSupported('copy')) {
+        // For browsers not supporting Clipboard API
+        const cssCode = document.getElementById('cssCode');
+        const range = document.createRange();
+        range.selectNode(cssCode);
+        window.getSelection().addRange(range);
+        try {
+          const success = document.execCommand('copy');
+          const message = success ? 'successful' : 'unsuccessful';
+          console.log(`Copying was ${message}`);
+        } catch (err) {
+          console.log('unable to copy');
+          setError(true);
+        }
+        window.getSelection().removeAllRanges();
+      } else {
         console.log('unable to copy');
+        setError(true);
       }
-      window.getSelection().removeAllRanges();
     }
   };
 
@@ -58,6 +73,17 @@ p:not(:first-child) {
           Back to preview
           <NoWrap>←</NoWrap>
         </Button>
+        <Section data-testid="error-message-clipboard">
+          <AlertMessage error={error} errorText>
+            {clipboardError.whatHappened}
+          </AlertMessage>
+          <AlertMessage error={error} errorText>
+            {clipboardError.howToResolve}
+          </AlertMessage>
+          <AlertMessage error={error} errorText>
+            {clipboardError.extraText}
+          </AlertMessage>
+        </Section>{' '}
       </main>
     </>
   );
