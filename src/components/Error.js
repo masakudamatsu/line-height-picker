@@ -1,10 +1,11 @@
 import React from 'react';
-import {InternalLink, Logo} from '../theme/style';
+import Header from './Header';
+import {InternalLink} from '../theme/style';
 
 const Error = () => {
   return (
     <>
-      <Logo />
+      <Header />
       <h2>404</h2>
       <p>
         We can't find the page you're looking for.{' '}
