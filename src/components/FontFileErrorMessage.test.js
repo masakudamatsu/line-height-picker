@@ -15,7 +15,7 @@ import {
 } from '../helper/errorMessages';
 
 test('renders correctly', () => {
-  const {container} = render(<FontFileErrorMessage />);
+  const {container} = render(<FontFileErrorMessage fontFileError="" />);
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       color: hsl(335,71%,64%);
@@ -81,7 +81,7 @@ test('shows an error message for failing File Reader API if the props value is "
 });
 
 test('is accessible', async () => {
-  const {container} = render(<FontFileErrorMessage />);
+  const {container} = render(<FontFileErrorMessage fontFileError="" />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();

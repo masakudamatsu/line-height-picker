@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {ParagraphOneRem, Section} from '../theme/style';
 import {
   fileExtensionError,
@@ -37,6 +39,10 @@ const FontFileErrorMessage = props => {
       </ParagraphOneRem>
     </Section>
   );
+};
+
+FontFileErrorMessage.propTypes = {
+  fontFileError: PropTypes.string.isRequired,
 };
 
 export default FontFileErrorMessage;
