@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Header from './Header';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import FontNameDisplay from './FontNameDisplay';
@@ -31,13 +33,13 @@ const ModularScale = props => {
       <Header stepNow={3} />
       <main>
         <ModularScaleBoxes
-          xHeightRatio={props.xHeightRatio}
+          handleXHeightRatioChange={props.handleXHeightRatioChange}
+          handleLineHeightRatioChange={props.handleLineHeightRatioChange}
           lineHeightRatio={props.lineHeightRatio}
           modularScaleRangeError={props.modularScaleRangeError}
           modularScaleStepError={props.modularScaleStepError}
           validateModularScale={props.validateModularScale}
-          handleXHeightRatioChange={props.handleXHeightRatioChange}
-          handleLineHeightRatioChange={props.handleLineHeightRatioChange}
+          xHeightRatio={props.xHeightRatio}
         />
         <FontNameDisplay
           fontFamily={props.fontFamily}
@@ -65,6 +67,23 @@ const ModularScale = props => {
       </main>
     </>
   );
+};
+
+ModularScale.propTypes = {
+  fontFamily: PropTypes.string.isRequired,
+  fontFileError: PropTypes.string.isRequired,
+  fontSubfamily: PropTypes.string.isRequired,
+  handleFontFile: PropTypes.func.isRequired,
+  handleLineHeightRatioChange: PropTypes.func.isRequired,
+  handleNoModularScale: PropTypes.func.isRequired,
+  handleXHeightRatioChange: PropTypes.func.isRequired,
+  lineHeightRatio: PropTypes.number,
+  modularScaleRangeError: PropTypes.bool,
+  modularScaleStepError: PropTypes.bool,
+  validateFileType: PropTypes.func.isRequired,
+  validateModularScale: PropTypes.func.isRequired,
+  xHeightPx: PropTypes.number.isRequired,
+  xHeightRatio: PropTypes.number,
 };
 
 export default ModularScale;
