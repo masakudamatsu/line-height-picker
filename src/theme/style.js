@@ -11,9 +11,6 @@ const minFontSizePx = 16;
 // Typography
 const fontWeight = 200;
 
-// Color
-const greyedOut = 'hsl(0, 0%, 35%)';
-
 // Inline modifier
 export const NoWrap = styled.span`
   white-space: nowrap;
@@ -130,7 +127,7 @@ export const HeaderWrapper = styled.header`
 `;
 
 export const StepNumber = styled.span`
-  color: ${props => (props.done ? 'currentColor' : greyedOut)};
+  color: ${props => (props.done ? 'currentColor' : colorPalette.disabledText)};
   font-size: ${(minFontSizePx / minScreenWidthPx) * 100}vw;
   @media (min-width: ${mediaQueryCutoff}px) {
     font-size: ${mediaQueryCutoff * (minFontSizePx / minScreenWidthPx)}px;
