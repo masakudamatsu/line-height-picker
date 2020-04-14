@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   AlertMessage,
   Form,
@@ -49,6 +51,14 @@ const XheightBox = props => {
       </AlertMessage>
     </Form>
   );
+};
+
+XheightBox.propTypes = {
+  handleXHeightChange: PropTypes.func.isRequired,
+  validateXHeight: PropTypes.func.isRequired,
+  xHeightPx: PropTypes.number,
+  xHeightRangeError: PropTypes.bool,
+  xHeightStepError: PropTypes.bool,
 };
 
 export default XheightBox;
