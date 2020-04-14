@@ -6,7 +6,7 @@ import Header from './Header';
 import SampleParagraphs from './SampleParagraphs';
 import FontNameDisplay from './FontNameDisplay';
 import FontFileErrorMessage from './FontFileErrorMessage';
-import ChangeFontButton from './ChangeFontButton';
+import FontFileUploader from './FontFileUploader';
 import XheightBox from './XheightBox';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import {
@@ -68,10 +68,12 @@ const Preview = props => {
           fontFamily={props.fontFamily}
           fontSubfamily={props.fontSubfamily}
         />
-        <ChangeFontButton
-          validateFileType={props.validateFileType}
+        <FontFileUploader
           handleFontFile={props.handleFontFile}
-        />
+          validateFileType={props.validateFileType}
+        >
+          Change font
+        </FontFileUploader>
         <FontFileErrorMessage
           data-testid="error-message-font-file"
           fontFileError={props.fontFileError}

@@ -6,7 +6,7 @@ import XheightBox from './XheightBox';
 import FontNameDisplay from './FontNameDisplay';
 import FontFileErrorMessage from './FontFileErrorMessage';
 import {Button, ButtonContainer, NoWrap} from '../theme/style';
-import ChangeFontButton from './ChangeFontButton';
+import FontFileUploader from './FontFileUploader';
 import {Redirect} from 'react-router-dom';
 
 const Xheight = props => {
@@ -39,10 +39,12 @@ const Xheight = props => {
           fontSubfamily={props.fontSubfamily}
         />
         <ButtonContainer>
-          <ChangeFontButton
+          <FontFileUploader
             handleFontFile={props.handleFontFile}
             validateFileType={props.validateFileType}
-          />
+          >
+            Change font
+          </FontFileUploader>
           <FontFileErrorMessage
             data-testid="error-message-font-file"
             fontFileError={props.fontFileError}

@@ -7,7 +7,7 @@ import FontNameDisplay from './FontNameDisplay';
 import FontFileErrorMessage from './FontFileErrorMessage';
 import XheightDisplay from './XheightDisplay';
 import {Button, ButtonContainer, NoWrap} from '../theme/style';
-import ChangeFontButton from './ChangeFontButton';
+import FontFileUploader from './FontFileUploader';
 import {Link, Redirect} from 'react-router-dom';
 
 const ModularScale = props => {
@@ -47,10 +47,12 @@ const ModularScale = props => {
         />
         <XheightDisplay xHeightPx={props.xHeightPx} />
         <ButtonContainer>
-          <ChangeFontButton
-            validateFileType={props.validateFileType}
+          <FontFileUploader
             handleFontFile={props.handleFontFile}
-          />
+            validateFileType={props.validateFileType}
+          >
+            Change font
+          </FontFileUploader>
           <FontFileErrorMessage
             data-testid="error-message-font-file"
             fontFileError={props.fontFileError}
