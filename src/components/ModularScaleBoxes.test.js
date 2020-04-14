@@ -19,7 +19,13 @@ afterEach(() => {
 });
 
 test('renders correctly', () => {
-  const {container} = render(<ModularScaleBoxes />);
+  const {container} = render(
+    <ModularScaleBoxes
+      handleXHeightRatioChange={mockHandleXHeightRatioChange}
+      handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
+      validateModularScale={mockValidateModularScale}
+    />,
+  );
   expect(container).toMatchInlineSnapshot(`
     .c2 {
       -webkit-align-items: flex-end;
@@ -197,20 +203,26 @@ test('renders correctly', () => {
 
 test('The value attribute reflects props value', () => {
   // setup
-  const xHeightRatio = '1';
-  const lineHeightRatio = '3';
+  const xHeightRatio = 1;
+  const lineHeightRatio = 3;
   // execute
   const {getByLabelText} = render(
     <ModularScaleBoxes
       xHeightRatio={xHeightRatio}
       lineHeightRatio={lineHeightRatio}
+      handleXHeightRatioChange={mockHandleXHeightRatioChange}
+      handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
+      validateModularScale={mockValidateModularScale}
     />,
   );
   // verify
-  expect(getByLabelText(/x-height/i)).toHaveAttribute('value', xHeightRatio);
+  expect(getByLabelText(/x-height/i)).toHaveAttribute(
+    'value',
+    `${xHeightRatio}`,
+  );
   expect(getByLabelText(/line-height/i, {selector: 'input'})).toHaveAttribute(
     'value',
-    lineHeightRatio,
+    `${lineHeightRatio}`,
   );
 });
 
@@ -219,6 +231,7 @@ test('Entering x-height ratio value calls the handleXHeightRatioChange() and val
   const {getByLabelText} = render(
     <ModularScaleBoxes
       handleXHeightRatioChange={mockHandleXHeightRatioChange}
+      handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
       validateModularScale={mockValidateModularScale}
     />,
   );
@@ -238,6 +251,7 @@ test('Entering line-height ratio value calls the handleLineHeightRatioChange() a
   // setup
   const {getByLabelText} = render(
     <ModularScaleBoxes
+      handleXHeightRatioChange={mockHandleXHeightRatioChange}
       handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
       validateModularScale={mockValidateModularScale}
     />,
@@ -259,7 +273,13 @@ test('Entering line-height ratio value calls the handleLineHeightRatioChange() a
 });
 
 test('is accessible', async () => {
-  const {container} = render(<ModularScaleBoxes />);
+  const {container} = render(
+    <ModularScaleBoxes
+      handleXHeightRatioChange={mockHandleXHeightRatioChange}
+      handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
+      validateModularScale={mockValidateModularScale}
+    />,
+  );
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();

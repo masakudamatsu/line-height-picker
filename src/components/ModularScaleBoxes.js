@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   AlertMessage,
   CenterAlignWrapperHorizontal,
@@ -75,6 +77,16 @@ const ModularScaleBoxes = props => {
       </AlertMessage>
     </Form>
   );
+};
+
+ModularScaleBoxes.propTypes = {
+  handleLineHeightRatioChange: PropTypes.func.isRequired,
+  handleXHeightRatioChange: PropTypes.func.isRequired,
+  lineHeightRatio: PropTypes.number,
+  modularScaleRangeError: PropTypes.bool,
+  modularScaleStepError: PropTypes.bool,
+  validateModularScale: PropTypes.func.isRequired,
+  xHeightRatio: PropTypes.number,
 };
 
 export default ModularScaleBoxes;
