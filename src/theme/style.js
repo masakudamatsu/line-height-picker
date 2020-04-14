@@ -255,7 +255,7 @@ export const NumberInput = styled.input.attrs(props => ({
     -webkit-appearance: none;
   }
 
-  background-color: hsl(0, 0%, 25%);
+  background-color: ${colorPalette.background};
   border: none;
   border-bottom: 2px solid ${colorPalette.bodyText};
   border-radius: 4px 4px 0 0;
