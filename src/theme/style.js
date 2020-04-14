@@ -269,7 +269,7 @@ export const NumberInput = styled.input.attrs(props => ({
   &:active,
   &:hover,
   &:focus {
-    background-color: hsl(0, 0%, 35%);
+    background-color: ${colorPalette.disabledText};
     outline: none;
   }
 `;
