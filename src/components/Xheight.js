@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Header from './Header';
 import XheightBox from './XheightBox';
 import FontNameDisplay from './FontNameDisplay';
@@ -26,11 +28,11 @@ const Xheight = props => {
       <Header stepNow={2} />
       <main>
         <XheightBox
+          handleXHeightChange={props.handleXHeightChange}
+          validateXHeight={props.validateXHeight}
           xHeightPx={props.xHeightPx}
           xHeightRangeError={props.xHeightRangeError}
           xHeightStepError={props.xHeightStepError}
-          validateXHeight={props.validateXHeight}
-          handleXHeightChange={props.handleXHeightChange}
         />
         <FontNameDisplay
           fontFamily={props.fontFamily}
@@ -38,8 +40,8 @@ const Xheight = props => {
         />
         <ButtonContainer>
           <ChangeFontButton
-            validateFileType={props.validateFileType}
             handleFontFile={props.handleFontFile}
+            validateFileType={props.validateFileType}
           />
           <FontFileErrorMessage
             data-testid="error-message-font-file"
@@ -55,6 +57,20 @@ const Xheight = props => {
       </main>
     </>
   );
+};
+
+Xheight.propTypes = {
+  fontFamily: PropTypes.string.isRequired,
+  fontFileError: PropTypes.string.isRequired,
+  fontSubfamily: PropTypes.string.isRequired,
+  handleFontFile: PropTypes.func.isRequired,
+  handleNoXHeight: PropTypes.func.isRequired,
+  handleXHeightChange: PropTypes.func.isRequired,
+  validateFileType: PropTypes.func.isRequired,
+  validateXHeight: PropTypes.func.isRequired,
+  xHeightPx: PropTypes.number.isRequired,
+  xHeightRangeError: PropTypes.bool.isRequired,
+  xHeightStepError: PropTypes.bool.isRequired,
 };
 
 export default Xheight;
