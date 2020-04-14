@@ -8,8 +8,24 @@ import 'jest-axe/extend-expect';
 
 import GetCSS from './GetCSS';
 
+const mockProps = {
+  fontFamily: 'Open Sans',
+  fontSize: 18.6543,
+  fontWeight: 400,
+  lineHeight: 1.6055,
+  marginTop: 23.3394,
+};
+
 test('renders correctly', () => {
-  const {container} = render(<GetCSS />);
+  const {container} = render(
+    <GetCSS
+      fontFamily={mockProps.fontFamily}
+      fontSize={mockProps.fontSize}
+      fontWeight={mockProps.fontWeight}
+      lineHeight={mockProps.lineHeight}
+      marginTop={mockProps.marginTop}
+    />,
+  );
   expect(container).toMatchInlineSnapshot(`
     .c12 {
       white-space: nowrap;
@@ -390,14 +406,14 @@ test('renders correctly', () => {
             id="cssCode"
           >
             p {
-      font-family: undefined;
-      font-size: undefinedpx;
-      font-weight: undefined;
-      line-height: undefined;
+      font-family: 'Open Sans';
+      font-size: 18.6543px;
+      font-weight: 400;
+      line-height: 1.6055;
     }
 
     p:not(:first-child) {
-      margin-top: undefinedpx;
+      margin-top: 23.3394px;
     }
           </code>
         </pre>
@@ -455,13 +471,6 @@ test('renders correctly', () => {
 });
 
 test('renders props correctly', () => {
-  const mockProps = {
-    fontFamily: 'Open Sans',
-    fontSize: 18.6543,
-    fontWeight: 400,
-    lineHeight: 1.6055,
-    marginTop: 23.3394,
-  };
   const {getByTestId, rerender} = render(
     <GetCSS
       fontFamily={mockProps.fontFamily}
@@ -506,7 +515,15 @@ test('Clicking the button copys the CSS code into the user clipboard', async () 
 });
 
 test('is accessible', async () => {
-  const {container} = render(<GetCSS />);
+  const {container} = render(
+    <GetCSS
+      fontFamily={mockProps.fontFamily}
+      fontSize={mockProps.fontSize}
+      fontWeight={mockProps.fontWeight}
+      lineHeight={mockProps.lineHeight}
+      marginTop={mockProps.marginTop}
+    />,
+  );
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();

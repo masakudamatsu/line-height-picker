@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 import Header from './Header';
@@ -93,6 +94,14 @@ p:not(:first-child) {
       </main>
     </>
   );
+};
+
+GetCSS.propTypes = {
+  fontFamily: PropTypes.string.isRequired,
+  fontSize: PropTypes.number.isRequired,
+  fontWeight: PropTypes.number.isRequired,
+  lineHeight: PropTypes.number.isRequired,
+  marginTop: PropTypes.number.isRequired,
 };
 
 export default GetCSS;
