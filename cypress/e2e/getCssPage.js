@@ -8,7 +8,7 @@ describe('Get CSS Page', () => {
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByText(/css/i, {selector: 'h2'}).should('exist');
     cy.findByTestId('cssCode').should('exist');
-    cy.findByText(/copy/i).should('exist');
+    cy.findByTestId('copy-button').should('exist');
   });
 
   it('allows the user to copy the CSS code onto their clipboard', () => {

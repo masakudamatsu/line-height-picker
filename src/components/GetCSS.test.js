@@ -404,6 +404,7 @@ test('renders correctly', () => {
         <button
           aria-describedby="whatHappened howToResolve extraText"
           class="c11"
+          data-testid="copy-button"
         >
           Copy to clipboard
         </button>
