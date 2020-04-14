@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {SampleParagraphWrapper} from '../theme/style';
 
 const SampleParagraphs = props => {
@@ -31,6 +33,14 @@ const SampleParagraphs = props => {
       </p>
     </SampleParagraphWrapper>
   );
+};
+
+SampleParagraphs.propTypes = {
+  fontFamily: PropTypes.string.isRequired,
+  fontSize: PropTypes.number.isRequired,
+  fontWeight: PropTypes.number.isRequired,
+  lineHeight: PropTypes.number.isRequired,
+  marginTop: PropTypes.number.isRequired,
 };
 
 export default SampleParagraphs;

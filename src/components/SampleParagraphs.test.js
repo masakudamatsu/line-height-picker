@@ -17,23 +17,37 @@ const paragraphStyle = {
 };
 
 test('renders correctly', () => {
-  const {container} = render(<SampleParagraphs />);
+  const {container} = render(
+    <SampleParagraphs
+      fontFamily={paragraphStyle.fontFamily}
+      fontSize={paragraphStyle.fontSize}
+      fontWeight={paragraphStyle.fontWeight}
+      lineHeight={paragraphStyle.lineHeight}
+      marginTop={paragraphStyle.marginTop}
+    />,
+  );
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       border: 1px solid hsl(0,0%,96%);
-      font-size: px;
+      font-family: Roboto;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.15;
       padding: 1rem;
       margin: 2rem 0 0.5rem 0;
     }
 
     .c0 p:not(:first-child) {
-      margin: 16px 0 0 0;
+      margin: 23.467px 0 0 0;
     }
 
     <div>
       <section
         class="c0"
         data-testid="sampleParagraphs"
+        font-family="Roboto"
+        font-size="18"
+        font-weight="500"
       >
         <p
           data-testid="sampleParagraph1"
@@ -72,7 +86,15 @@ test('renders paragraphs according to the props values', () => {
 });
 
 test('is accessible', async () => {
-  const {container} = render(<SampleParagraphs />);
+  const {container} = render(
+    <SampleParagraphs
+      fontFamily={paragraphStyle.fontFamily}
+      fontSize={paragraphStyle.fontSize}
+      fontWeight={paragraphStyle.fontWeight}
+      lineHeight={paragraphStyle.lineHeight}
+      marginTop={paragraphStyle.marginTop}
+    />,
+  );
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();
