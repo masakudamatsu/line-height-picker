@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Redirect} from 'react-router-dom';
 
 import Header from './Header';
@@ -94,6 +95,32 @@ const Preview = props => {
       </main>
     </>
   );
+};
+
+Preview.propTypes = {
+  fontFamily: PropTypes.string.isRequired,
+  fontFileError: PropTypes.string.isRequired,
+  fontSize: PropTypes.number.isRequired,
+  fontSubfamily: PropTypes.string.isRequired,
+  fontWeight: PropTypes.number.isRequired,
+  handleFontFile: PropTypes.func.isRequired,
+  handleLineHeightRatioChange: PropTypes.func.isRequired,
+  handleNoModularScale: PropTypes.func.isRequired,
+  handleNoXHeight: PropTypes.func.isRequired,
+  handleXHeightChange: PropTypes.func.isRequired,
+  handleXHeightRatioChange: PropTypes.func.isRequired,
+  lineHeight: PropTypes.number.isRequired,
+  lineHeightRatio: PropTypes.number.isRequired,
+  marginTop: PropTypes.number.isRequired,
+  modularScaleRangeError: PropTypes.bool,
+  modularScaleStepError: PropTypes.bool,
+  xHeightPx: PropTypes.number.isRequired,
+  xHeightRangeError: PropTypes.bool,
+  xHeightRatio: PropTypes.number.isRequired,
+  xHeightStepError: PropTypes.bool,
+  validateFileType: PropTypes.func.isRequired,
+  validateModularScale: PropTypes.func.isRequired,
+  validateXHeight: PropTypes.func.isRequired,
 };
 
 export default Preview;
