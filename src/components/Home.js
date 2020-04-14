@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Header from './Header';
 import Description from './Description';
 import {ButtonContainer, Logo} from '../theme/style';
@@ -31,4 +33,11 @@ const Home = props => {
     </>
   );
 };
+
+Home.propTypes = {
+  validateFileType: PropTypes.func.isRequired,
+  handleFontFile: PropTypes.func.isRequired,
+  fontFileError: PropTypes.string.isRequired,
+};
+
 export default Home;
