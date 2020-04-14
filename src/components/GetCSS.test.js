@@ -393,7 +393,7 @@ test('renders correctly', () => {
     p:not(:first-child) {
       margin-top: undefinedpx;
     }
-      
+
           </code>
         </pre>
         <button
@@ -434,7 +434,7 @@ test('renders correctly', () => {
             id="extraText"
           >
             Alternatively, consider using the browsers that support the "click to copy into clipboard" feature: Edge (version 79 or later), Chrome (76 or later), Opera (63 or later). See
-             
+
             <a
               class="c13"
               href="https://caniuse.com/#feat=mdn-api_fontface"
@@ -444,7 +444,7 @@ test('renders correctly', () => {
             for the latest list of supporting browsers.
           </p>
         </section>
-         
+
       </main>
     </div>
   `);
@@ -494,6 +494,11 @@ test('renders props correctly', () => {
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.fontWeight);
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.lineHeight);
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.marginTop);
+});
+
+test('Clicking the button copys the CSS code into the user clipboard', async () => {
+  // I'm not sure how we can access to the content of the clipboard.
+  // navigator.clipboard.readText() does not work.
 });
 
 test('is accessible', async () => {
