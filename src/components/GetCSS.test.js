@@ -11,11 +11,11 @@ import GetCSS from './GetCSS';
 test('renders correctly', () => {
   const {container} = render(<GetCSS />);
   expect(container).toMatchInlineSnapshot(`
-    .c11 {
+    .c12 {
       white-space: nowrap;
     }
 
-    .c13 {
+    .c14 {
       color: hsl(0,0%,96%);
     }
 
@@ -24,7 +24,7 @@ test('renders correctly', () => {
       font-weight: 200;
     }
 
-    .c12 {
+    .c13 {
       color: hsl(335,71%,64%);
       font-size: 1rem;
       visibility: hidden;
@@ -33,6 +33,11 @@ test('renders correctly', () => {
     .c9 {
       border: 1px solid hsl(0,0%,96%);
       padding: 1rem;
+    }
+
+    .c10 {
+      font-family: monospace;
+      font-size: 1rem;
     }
 
     .c1 {
@@ -141,7 +146,7 @@ test('renders correctly', () => {
       width: 70%;
     }
 
-    .c10 {
+    .c11 {
       -webkit-align-items: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -199,7 +204,7 @@ test('renders correctly', () => {
     }
 
     @media (min-width:875px) {
-      .c10 {
+      .c11 {
         font-size: 43.75px;
       }
     }
@@ -380,6 +385,7 @@ test('renders correctly', () => {
           class="c9"
         >
           <code
+            class="c10"
             data-testid="cssCode"
             id="cssCode"
           >
@@ -397,17 +403,17 @@ test('renders correctly', () => {
         </pre>
         <button
           aria-describedby="whatHappened howToResolve extraText"
-          class="c10"
+          class="c11"
         >
           Copy to clipboard
         </button>
         <a
-          class="c10"
+          class="c11"
           href="/preview"
         >
           Back to preview
           <span
-            class="c11"
+            class="c12"
           >
             ←
           </span>
@@ -417,24 +423,24 @@ test('renders correctly', () => {
           data-testid="error-message-clipboard"
         >
           <p
-            class="sc-AxheI c12"
+            class="sc-AxheI c13"
             id="whatHappened"
           >
             The browser doesn't allow us to copy the CSS code into your clipboard.
           </p>
           <p
-            class="sc-AxheI c12"
+            class="sc-AxheI c13"
             id="howToResolve"
           >
             Please select the CSS code on your own to copy and paste it.
           </p>
           <p
-            class="sc-AxheI c12"
+            class="sc-AxheI c13"
             id="extraText"
           >
             Alternatively, consider using the browsers that support the "click to copy into clipboard" feature: Edge (version 79 or later), Chrome (76 or later), Opera (63 or later). See
             <a
-              class="c13"
+              class="c14"
               href="https://caniuse.com/#feat=mdn-api_fontface"
             >
               Can I Use?

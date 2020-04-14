@@ -5,6 +5,7 @@ import Header from './Header';
 import {
   AlertMessage,
   Button,
+  Code,
   CodeSnippet,
   NoWrap,
   PageTitle,
@@ -63,9 +64,9 @@ p:not(:first-child) {
       <main>
         <PageTitle>Get CSS</PageTitle>
         <CodeSnippet>
-          <code data-testid="cssCode" id="cssCode">
+          <Code data-testid="cssCode" id="cssCode">
             {cssOutput}
-          </code>
+          </Code>
         </CodeSnippet>
         <Button
           onClick={copyToClipboard}

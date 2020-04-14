@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import colorPalette from './colorPalette';
+import fontPalette from './fontPalette';
 import LogoImage from '../components/LogoImage';
 
 // Parameters
@@ -66,6 +67,11 @@ export const Section = styled.section``;
 export const CodeSnippet = styled.pre`
   border: 1px solid ${colorPalette.bodyText};
   padding: 1rem;
+`;
+
+export const Code = styled.code`
+  font-family: ${fontPalette.code};
+  font-size: 1rem;
 `;
 
 export const HiddenH1 = styled.h1`

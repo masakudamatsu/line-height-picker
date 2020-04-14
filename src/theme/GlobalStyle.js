@@ -1,11 +1,12 @@
 import {createGlobalStyle} from 'styled-components';
 import colorPalette from './colorPalette';
+import fontPalette from './fontPalette';
 
 const GlobalStyle = createGlobalStyle`
 body {
   background-color: ${colorPalette.background}; /* Set the background color here so swiping the screen won't reveal the white part. */
   color: ${colorPalette.bodyText};
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: ${fontPalette.bodyText};
 }
 
 /*!
@@ -90,7 +91,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace; /* Specify the font family of code elements */
+  font-family: monospace; /* Specify the font family of code elements */
 }
 
 pre {
