@@ -234,62 +234,62 @@ function App() {
           </Route>
           <Route path="/x-height">
             <Xheight
-              validateFileType={validateFileType}
-              handleFontFile={handleFontFile}
-              fontFileError={fontFileError}
               fontFamily={fontMetrics.fontFamily}
+              fontFileError={fontFileError}
               fontSubfamily={fontMetrics.fontSubfamily}
-              xHeightPx={xHeightPx}
-              validateXHeight={validateXHeight}
+              handleFontFile={handleFontFile}
               handleNoXHeight={handleNoXHeight}
+              handleXHeightChange={handleXHeightChange}
+              validateFileType={validateFileType}
+              validateXHeight={validateXHeight}
+              xHeightPx={xHeightPx}
               xHeightRangeError={xHeightRangeError}
               xHeightStepError={xHeightStepError}
-              handleXHeightChange={handleXHeightChange}
             />
           </Route>
           <Route path="/modular-scale">
             <ModularScale
               fontFamily={fontMetrics.fontFamily}
-              fontSubfamily={fontMetrics.fontSubfamily}
-              validateFileType={validateFileType}
-              handleFontFile={handleFontFile}
               fontFileError={fontFileError}
-              xHeightPx={xHeightPx}
-              xHeightRatio={xHeightRatio}
-              lineHeightRatio={lineHeightRatio}
-              validateModularScale={validateModularScale}
+              fontSubfamily={fontMetrics.fontSubfamily}
+              handleFontFile={handleFontFile}
+              handleLineHeightRatioChange={handleLineHeightRatioChange}
               handleNoModularScale={handleNoModularScale}
+              handleXHeightRatioChange={handleXHeightRatioChange}
+              lineHeightRatio={lineHeightRatio}
               modularScaleRangeError={modularScaleRangeError}
               modularScaleStepError={modularScaleStepError}
-              handleXHeightRatioChange={handleXHeightRatioChange}
-              handleLineHeightRatioChange={handleLineHeightRatioChange}
+              validateFileType={validateFileType}
+              validateModularScale={validateModularScale}
+              xHeightPx={xHeightPx}
+              xHeightRatio={xHeightRatio}
             />
           </Route>
           <Route path="/preview">
             <Preview
               fontFamily={fontMetrics.fontFamily}
-              fontSubfamily={fontMetrics.fontSubfamily}
-              validateFileType={validateFileType}
-              handleFontFile={handleFontFile}
               fontFileError={fontFileError}
               fontSize={fontSizePx}
+              fontSubfamily={fontMetrics.fontSubfamily}
               fontWeight={fontMetrics.fontWeight}
-              lineHeight={lineHeight}
-              marginTop={marginTop}
-              xHeightPx={xHeightPx}
-              handleXHeightChange={handleXHeightChange}
-              xHeightRatio={xHeightRatio}
-              handleXHeightRatioChange={handleXHeightRatioChange}
-              lineHeightRatio={lineHeightRatio}
+              handleFontFile={handleFontFile}
               handleLineHeightRatioChange={handleLineHeightRatioChange}
-              validateXHeight={validateXHeight}
-              xHeightRangeError={xHeightRangeError}
-              xHeightStepError={xHeightStepError}
+              handleNoModularScale={handleNoModularScale}
               handleNoXHeight={handleNoXHeight}
-              validateModularScale={validateModularScale}
+              handleXHeightChange={handleXHeightChange}
+              handleXHeightRatioChange={handleXHeightRatioChange}
+              lineHeight={lineHeight}
+              lineHeightRatio={lineHeightRatio}
+              marginTop={marginTop}
               modularScaleRangeError={modularScaleRangeError}
               modularScaleStepError={modularScaleStepError}
-              handleNoModularScale={handleNoModularScale}
+              xHeightPx={xHeightPx}
+              xHeightRangeError={xHeightRangeError}
+              xHeightRatio={xHeightRatio}
+              xHeightStepError={xHeightStepError}
+              validateFileType={validateFileType}
+              validateModularScale={validateModularScale}
+              validateXHeight={validateXHeight}
             />
           </Route>
           <Route path="/css">
