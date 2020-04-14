@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
   UserDataDisplay,
   UserDataDisplayTitle,
@@ -17,6 +19,11 @@ const FontNameDisplay = props => {
       </UserDataDisplay>
     </UserDataDisplayWrapper>
   );
+};
+
+FontNameDisplay.propTypes = {
+  fontFamily: PropTypes.string.isRequired,
+  fontSubfamily: PropTypes.string.isRequired,
 };
 
 export default FontNameDisplay;

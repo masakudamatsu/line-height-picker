@@ -7,8 +7,13 @@ import 'jest-axe/extend-expect';
 
 import FontNameDisplay from './FontNameDisplay';
 
+const fontName = 'Open Sans';
+const fontSubfamily = 'Regular';
+
 test('renders correctly', () => {
-  const {container} = render(<FontNameDisplay />);
+  const {container} = render(
+    <FontNameDisplay fontFamily={fontName} fontSubfamily={fontSubfamily} />,
+  );
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       border-bottom: 1px solid white;
@@ -37,19 +42,21 @@ test('renders correctly', () => {
         <p
           class="c2"
           data-testid="font-family-name"
-        />
+        >
+          Open Sans
+        </p>
         <p
           class="c2"
           data-testid="font-subfamily-name"
-        />
+        >
+          Regular
+        </p>
       </section>
     </div>
   `);
 });
 
 test('displays the props value as the font name', () => {
-  const fontName = 'Open Sans';
-  const fontSubfamily = 'Regular';
   const {getByTestId} = render(
     <FontNameDisplay fontFamily={fontName} fontSubfamily={fontSubfamily} />,
   );
@@ -58,7 +65,9 @@ test('displays the props value as the font name', () => {
 });
 
 test('is accessible', async () => {
-  const {container} = render(<FontNameDisplay />);
+  const {container} = render(
+    <FontNameDisplay fontFamily={fontName} fontSubfamily={fontSubfamily} />,
+  );
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();
