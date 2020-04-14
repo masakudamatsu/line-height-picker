@@ -12,7 +12,6 @@ const minFontSizePx = 16;
 const fontWeight = 200;
 
 // Color
-const footerTextColor = 'hsl(0, 0%, 67%)';
 const greyedOut = 'hsl(0, 0%, 35%)';
 
 // Inline modifier
@@ -304,7 +303,7 @@ export const SampleParagraphWrapper = styled.section`
 
 export const FooterWrapper = styled.footer`
   border-top: 1px solid currentColor;
-  color: ${footerTextColor};
+  color: ${colorPalette.footerText};
   font-size: 0.75rem;
   padding: 0.75rem 0;
 `;
