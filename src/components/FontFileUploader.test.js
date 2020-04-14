@@ -34,7 +34,12 @@ afterEach(() => {
 
 test('renders correctly', () => {
   const {container} = render(
-    <FontFileUploader>Upload font file</FontFileUploader>,
+    <FontFileUploader
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    >
+      Upload font file
+    </FontFileUploader>,
   );
   expect(container).toMatchInlineSnapshot(`
     .c0 {
@@ -221,7 +226,12 @@ test('DOES NOT call React-Router Redirect component if everything works and the 
 
 test('is accessible', async () => {
   const {container} = render(
-    <FontFileUploader>Upload font file</FontFileUploader>,
+    <FontFileUploader
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    >
+      Upload font file
+    </FontFileUploader>,
   );
   const results = await axe(container);
   expect(results).toHaveNoViolations();

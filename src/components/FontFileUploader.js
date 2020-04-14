@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import {Redirect} from 'react-router';
 import {Button} from '../theme/style';
 import {fontFileExtensionsArray as acceptableFileExtensions} from '../helper/fontFileExtensions';
@@ -49,4 +51,11 @@ const FontFileUploader = props => {
   );
   // See the section "Using hidden file input elements using the click() method” in https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications
 };
+
+FontFileUploader.propTypes = {
+  home: PropTypes.bool,
+  validateFileType: PropTypes.func.isRequired,
+  handleFontFile: PropTypes.func.isRequired,
+};
+
 export default FontFileUploader;
