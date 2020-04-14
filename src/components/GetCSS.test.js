@@ -393,7 +393,6 @@ test('renders correctly', () => {
     p:not(:first-child) {
       margin-top: undefinedpx;
     }
-
           </code>
         </pre>
         <button
@@ -434,7 +433,6 @@ test('renders correctly', () => {
             id="extraText"
           >
             Alternatively, consider using the browsers that support the "click to copy into clipboard" feature: Edge (version 79 or later), Chrome (76 or later), Opera (63 or later). See
-
             <a
               class="c13"
               href="https://caniuse.com/#feat=mdn-api_fontface"
@@ -444,7 +442,6 @@ test('renders correctly', () => {
             for the latest list of supporting browsers.
           </p>
         </section>
-
       </main>
     </div>
   `);

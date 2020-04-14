@@ -28,8 +28,7 @@ const GetCSS = props => {
 
 p:not(:first-child) {
   margin-top: ${props.marginTop}px;
-}
-  `;
+}`;
   // Handling copy to clipboard
   const copyToClipboard = () => {
     if (navigator.clipboard) {
@@ -88,7 +87,7 @@ p:not(:first-child) {
           <AlertMessage id="extraText" error={error} errorText>
             {clipboardError.extraText}
           </AlertMessage>
-        </Section>{' '}
+        </Section>
       </main>
     </>
   );

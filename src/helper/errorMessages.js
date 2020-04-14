@@ -101,7 +101,7 @@ export const clipboardError = {
     <>
       Alternatively, consider using the browsers that support the "click to copy
       into clipboard" feature: Edge (version 79 or later), Chrome (76 or later),
-      Opera (63 or later). See{' '}
+      Opera (63 or later). See
       <ExternalLink href="https://caniuse.com/#feat=mdn-api_fontface">
         Can I Use?
       </ExternalLink>
