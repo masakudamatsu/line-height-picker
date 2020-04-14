@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import FontFileUploader from './FontFileUploader';
 
 const ChangeFontButton = props => {
@@ -11,4 +13,10 @@ const ChangeFontButton = props => {
     </FontFileUploader>
   );
 };
+
+ChangeFontButton.propTypes = {
+  handleFontFile: PropTypes.func.isRequired,
+  validateFileType: PropTypes.func.isRequired,
+};
+
 export default ChangeFontButton;

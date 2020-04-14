@@ -25,7 +25,12 @@ afterEach(() => {
 });
 
 test('renders correctly', () => {
-  const {container} = render(<ChangeFontButton />);
+  const {container} = render(
+    <ChangeFontButton
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    />,
+  );
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       -webkit-align-items: center;
@@ -128,7 +133,12 @@ test('calls the handleFontFile function if the validateFileType function returns
 });
 
 test('is accessible', async () => {
-  const {container} = render(<ChangeFontButton />);
+  const {container} = render(
+    <ChangeFontButton
+      handleFontFile={mockHandleFontFile}
+      validateFileType={mockValidateFileTypeReturningTrue}
+    />,
+  );
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();
