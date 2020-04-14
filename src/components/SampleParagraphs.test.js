@@ -8,6 +8,14 @@ import 'jest-axe/extend-expect';
 
 import SampleParagraphs from './SampleParagraphs';
 
+const paragraphStyle = {
+  fontFamily: 'Roboto',
+  fontSize: 18,
+  fontWeight: 500,
+  lineHeight: 1.15,
+  marginTop: 23.467,
+};
+
 test('renders correctly', () => {
   const {container} = render(<SampleParagraphs />);
   expect(container).toMatchInlineSnapshot(`
@@ -43,18 +51,13 @@ test('renders correctly', () => {
 });
 
 test('renders paragraphs according to the props values', () => {
-  const paragraphStyle = {
-    fontFamily: 'Roboto',
-    fontSize: 18,
-    fontWeight: 500,
-    lineHeight: 1.15,
-  };
   const {getByTestId} = render(
     <SampleParagraphs
       fontFamily={paragraphStyle.fontFamily}
       fontSize={paragraphStyle.fontSize}
       fontWeight={paragraphStyle.fontWeight}
       lineHeight={paragraphStyle.lineHeight}
+      marginTop={paragraphStyle.marginTop}
     />,
   );
   expect(getByTestId('sampleParagraphs')).toHaveStyle(`
@@ -62,6 +65,9 @@ test('renders paragraphs according to the props values', () => {
     font-size: ${paragraphStyle.fontSize}px;
     font-weight: ${paragraphStyle.fontWeight};
     line-height: ${paragraphStyle.lineHeight};
+    `);
+  expect(getByTestId('sampleParagraph2')).toHaveStyle(`
+    margin-top: ${paragraphStyle.marginTop}px;
     `);
 });
 
