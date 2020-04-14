@@ -35,7 +35,7 @@ export const ExternalLink = styled.a`
 `;
 
 export const InternalLink = styled(Link)`
-  color: hsl(192, 90%, 50%);
+  color: ${colorPalette.linkText};
 `;
 
 const h2FontSize = 3;

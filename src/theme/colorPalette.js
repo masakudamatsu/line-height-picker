@@ -4,6 +4,7 @@ const colorPalette = {
   disabledText: 'hsl(0, 0%, 35%)',
   footerText: 'hsl(0, 0%, 67%)',
   errorText: 'hsl(335, 71%, 64%)',
+  linkText: 'hsl(192, 90%, 50%)',
 };
 
 export default colorPalette;
