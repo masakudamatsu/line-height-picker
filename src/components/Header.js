@@ -64,7 +64,7 @@ const Header = props => {
   );
 };
 
-Step.propTypes = {
+Header.propTypes = {
   stepNow: PropTypes.number.isRequired,
   topPage: PropTypes.bool,
 };
