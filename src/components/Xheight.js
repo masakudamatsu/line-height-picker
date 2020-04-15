@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from './Header';
 import XheightBox from './XheightBox';
 import FontNameDisplay from './FontNameDisplay';
 import FontFileErrorMessage from './FontFileErrorMessage';
@@ -25,7 +24,6 @@ const Xheight = props => {
   }
   return (
     <>
-      <Header stepNow={2} />
       <main>
         <XheightBox
           handleXHeightChange={props.handleXHeightChange}

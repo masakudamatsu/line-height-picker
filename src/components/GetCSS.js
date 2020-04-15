@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-import Header from './Header';
 import {
   AlertMessage,
   Button,
@@ -61,7 +60,6 @@ p:not(:first-child) {
 
   return (
     <>
-      <Header stepNow={5} />
       <main>
         <PageTitle>Get CSS</PageTitle>
         <CodeSnippet>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import GlobalStyle from './theme/GlobalStyle';
 import {SideMarginRegulator} from './theme/style';
+import Header from './components/Header';
 import Home from './components/Home';
 import Xheight from './components/Xheight';
 import ModularScale from './components/ModularScale';
@@ -226,6 +227,7 @@ function App() {
       <SideMarginRegulator>
         <Switch>
           <Route path="/" exact>
+            <Header stepNow={1} topPage />
             <Home
               validateFileType={validateFileType}
               handleFontFile={handleFontFile}
@@ -233,6 +235,7 @@ function App() {
             />
           </Route>
           <Route path="/x-height">
+            <Header stepNow={2} />
             <Xheight
               fontFamily={fontMetrics.fontFamily}
               fontFileError={fontFileError}
@@ -248,6 +251,7 @@ function App() {
             />
           </Route>
           <Route path="/modular-scale">
+            <Header stepNow={3} />
             <ModularScale
               fontFamily={fontMetrics.fontFamily}
               fontFileError={fontFileError}
@@ -266,6 +270,7 @@ function App() {
             />
           </Route>
           <Route path="/preview">
+            <Header stepNow={4} />
             <Preview
               fontFamily={fontMetrics.fontFamily}
               fontFileError={fontFileError}
@@ -293,6 +298,7 @@ function App() {
             />
           </Route>
           <Route path="/css">
+            <Header stepNow={5} />
             <GetCSS
               fontFamily={fontMetrics.fontFamily}
               fontSize={fontSizePx}
@@ -301,7 +307,10 @@ function App() {
               marginTop={marginTop}
             />
           </Route>
-          <Route component={Error} />
+          <Route>
+            <Header stepNow={0} />
+            <Error />
+          </Route>
         </Switch>
         <Footer />
       </SideMarginRegulator>

@@ -1,11 +1,9 @@
 import React from 'react';
-import Header from './Header';
 import {InternalLink} from '../theme/style';
 
 const Error = () => {
   return (
     <>
-      <Header />
       <main>
         <h2>404</h2>
         <p>

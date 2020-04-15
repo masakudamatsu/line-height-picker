@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Redirect} from 'react-router-dom';
 
-import Header from './Header';
 import SampleParagraphs from './SampleParagraphs';
 import FontNameDisplay from './FontNameDisplay';
 import FontFileErrorMessage from './FontFileErrorMessage';
@@ -45,7 +44,6 @@ const Preview = props => {
   }
   return (
     <>
-      <Header stepNow={4} />
       <main>
         <PageTitle>Preview sample paragraphs</PageTitle>
         <SampleParagraphs

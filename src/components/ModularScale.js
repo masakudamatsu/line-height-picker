@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from './Header';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import FontNameDisplay from './FontNameDisplay';
 import FontFileErrorMessage from './FontFileErrorMessage';
@@ -30,7 +29,6 @@ const ModularScale = props => {
   }
   return (
     <>
-      <Header stepNow={3} />
       <main>
         <ModularScaleBoxes
           handleXHeightRatioChange={props.handleXHeightRatioChange}
