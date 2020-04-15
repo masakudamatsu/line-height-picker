@@ -135,7 +135,7 @@ export const StepNumber = styled.span`
 `;
 
 const numberBoxWidth = 0.1;
-export const StepNumberBox = styled.div`
+export const StepNumberBox = styled.li`
   align-items: center;
   background-color: ${props => props.now && 'currentColor'};
   display: flex;
@@ -147,13 +147,17 @@ export const StepNumberBox = styled.div`
   }
 `;
 
-export const StepIndicator = styled.div`
+export const StepIndicatorWrapper = styled.nav`
+  width: 70%;
+`;
+export const StepIndicator = styled.ol`
   aling-items: center;
   border-bottom: 1px solid currentColor;
   border-top: 1px solid currentColor;
   display: flex;
   justify-content: space-between;
-  width: 70%;
+  list-style: none;
+  width: 100%;
 `;
 
 // Landing Page

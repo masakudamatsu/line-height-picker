@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 
 import Title from './Title';
 import Step from './Step';
-import {HeaderWrapper, Logo, StepIndicator} from '../theme/style';
+import {
+  HeaderWrapper,
+  Logo,
+  StepIndicator,
+  StepIndicatorWrapper,
+} from '../theme/style';
 
 const Header = props => {
   let step1 = <Step number="1" />;
@@ -46,13 +51,15 @@ const Header = props => {
     <HeaderWrapper>
       <Title />
       <Logo header topPage={props.topPage} />
-      <StepIndicator data-testid="stepIndicator">
-        {step1}
-        {step2}
-        {step3}
-        {step4}
-        {step5}
-      </StepIndicator>
+      <StepIndicatorWrapper>
+        <StepIndicator data-testid="stepIndicator">
+          {step1}
+          {step2}
+          {step3}
+          {step4}
+          {step5}
+        </StepIndicator>
+      </StepIndicatorWrapper>
     </HeaderWrapper>
   );
 };
