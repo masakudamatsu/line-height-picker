@@ -125,15 +125,18 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   width: 100%;
 `;
-
-export const StepNumber = styled.span`
-  color: ${props => (props.done ? 'currentColor' : colorPalette.disabledText)};
-  font-size: ${(minFontSizePx / minScreenWidthPx) * 100}vw;
-  @media (min-width: ${mediaQueryCutoff}px) {
-    font-size: ${mediaQueryCutoff * (minFontSizePx / minScreenWidthPx)}px;
-  }
+export const StepIndicatorWrapper = styled.nav`
+  width: 70%;
 `;
-
+export const StepIndicator = styled.ol`
+  aling-items: center;
+  border-bottom: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 100%;
+`;
 const numberBoxWidth = 0.1;
 export const StepNumberBox = styled.li`
   align-items: center;
@@ -146,18 +149,12 @@ export const StepNumberBox = styled.li`
     width: ${mediaQueryCutoff * numberBoxWidth}px;
   }
 `;
-
-export const StepIndicatorWrapper = styled.nav`
-  width: 70%;
-`;
-export const StepIndicator = styled.ol`
-  aling-items: center;
-  border-bottom: 1px solid currentColor;
-  border-top: 1px solid currentColor;
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-  width: 100%;
+export const StepNumber = styled.span`
+  color: ${props => (props.done ? 'currentColor' : colorPalette.disabledText)};
+  font-size: ${(minFontSizePx / minScreenWidthPx) * 100}vw;
+  @media (min-width: ${mediaQueryCutoff}px) {
+    font-size: ${mediaQueryCutoff * (minFontSizePx / minScreenWidthPx)}px;
+  }
 `;
 
 // Landing Page
