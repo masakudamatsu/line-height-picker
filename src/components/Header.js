@@ -1,20 +1,7 @@
 import React from 'react';
 import Title from './Title';
-import {Logo} from '../theme/style';
-import {
-  HeaderWrapper,
-  StepIndicator,
-  StepNumber,
-  StepNumberBox,
-} from '../theme/style';
-
-const Step = props => {
-  return (
-    <StepNumberBox now={props.now}>
-      <StepNumber done={props.done}>{props.number}</StepNumber>
-    </StepNumberBox>
-  );
-};
+import Step from './Step';
+import {HeaderWrapper, Logo, StepIndicator} from '../theme/style';
 
 const Header = props => {
   let step1 = <Step number="1" />;
@@ -23,32 +10,32 @@ const Header = props => {
   let step4 = <Step number="4" />;
   let step5 = <Step number="5" />;
   if (props.stepNow > 1) {
-    step1 = <Step number="1" done="done" />;
+    step1 = <Step number="1" done />;
   }
   if (props.stepNow > 2) {
-    step2 = <Step number="2" done="done" />;
+    step2 = <Step number="2" done />;
   }
   if (props.stepNow > 3) {
-    step3 = <Step number="3" done="done" />;
+    step3 = <Step number="3" done />;
   }
   if (props.stepNow > 4) {
-    step4 = <Step number="4" done="done" />;
+    step4 = <Step number="4" done />;
   }
   switch (props.stepNow) {
     case 1:
-      step1 = <Step number="1" now="now" />;
+      step1 = <Step number="1" now />;
       break;
     case 2:
-      step2 = <Step number="2" now="now" />;
+      step2 = <Step number="2" now />;
       break;
     case 3:
-      step3 = <Step number="3" now="now" />;
+      step3 = <Step number="3" now />;
       break;
     case 4:
-      step4 = <Step number="4" now="now" />;
+      step4 = <Step number="4" now />;
       break;
     case 5:
-      step5 = <Step number="5" now="now" />;
+      step5 = <Step number="5" now />;
       break;
     default:
       break;
