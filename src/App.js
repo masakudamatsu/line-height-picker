@@ -28,12 +28,12 @@ function App() {
   });
   const [fontFileError, setFontFileError] = React.useState('');
 
-  const [xHeightPx, setXHeightPx] = React.useState('');
+  const [xHeightPx, setXHeightPx] = React.useState(null);
   const [xHeightRangeError, setXHeightRangeError] = React.useState(false);
   const [xHeightStepError, setXHeightStepError] = React.useState(false);
 
-  const [xHeightRatio, setXHeightRatio] = React.useState('');
-  const [lineHeightRatio, setLineHeightRatio] = React.useState('');
+  const [xHeightRatio, setXHeightRatio] = React.useState(null);
+  const [lineHeightRatio, setLineHeightRatio] = React.useState(null);
   const [modularScaleRangeError, setModularScaleRangeError] = React.useState(
     false,
   );
@@ -41,9 +41,9 @@ function App() {
     false,
   );
 
-  const [fontSizePx, setFontSizePx] = React.useState('');
-  const [lineHeight, setLineHeight] = React.useState('');
-  const [marginTop, setMarginTop] = React.useState('');
+  const [fontSizePx, setFontSizePx] = React.useState(null);
+  const [lineHeight, setLineHeight] = React.useState(null);
+  const [marginTop, setMarginTop] = React.useState(null);
 
   const validateFileType = file => {
     if (validFontFileTypes.test(file.name)) {

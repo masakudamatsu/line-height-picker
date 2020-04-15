@@ -96,10 +96,10 @@ p:not(:first-child) {
 
 GetCSS.propTypes = {
   fontFamily: PropTypes.string.isRequired,
-  fontSize: PropTypes.number.isRequired,
+  fontSize: PropTypes.number,
   fontWeight: PropTypes.number.isRequired,
-  lineHeight: PropTypes.number.isRequired,
-  marginTop: PropTypes.number.isRequired,
+  lineHeight: PropTypes.number,
+  marginTop: PropTypes.number,
 };
 
 export default GetCSS;

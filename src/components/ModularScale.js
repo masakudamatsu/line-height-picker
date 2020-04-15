@@ -82,7 +82,7 @@ ModularScale.propTypes = {
   modularScaleStepError: PropTypes.bool,
   validateFileType: PropTypes.func.isRequired,
   validateModularScale: PropTypes.func.isRequired,
-  xHeightPx: PropTypes.number.isRequired,
+  xHeightPx: PropTypes.number,
   xHeightRatio: PropTypes.number,
 };
 
