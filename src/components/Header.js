@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Title from './Title';
 import Step from './Step';
 import {HeaderWrapper, Logo, StepIndicator} from '../theme/style';
@@ -55,4 +57,8 @@ const Header = props => {
   );
 };
 
+Step.propTypes = {
+  stepNow: PropTypes.number.isRequired,
+  topPage: PropTypes.bool,
+};
 export default Header;

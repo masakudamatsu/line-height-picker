@@ -8,8 +8,10 @@ import 'jest-axe/extend-expect';
 
 import Header from './Header';
 
+const mockStepNow = 1;
+
 test('renders correctly', () => {
-  const {container} = render(<Header />);
+  const {container} = render(<Header stepNow={mockStepNow} />);
   expect(container).toMatchInlineSnapshot(`
     .c1 {
       -webkit-clip: rect(1px 1px 1px 1px);
@@ -281,7 +283,7 @@ test('renders correctly', () => {
 });
 
 test('is accessible', async () => {
-  const {container} = render(<Header />);
+  const {container} = render(<Header stepNow={mockStepNow} />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();
