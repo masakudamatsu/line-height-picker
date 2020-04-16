@@ -68,7 +68,7 @@ Xheight.propTypes = {
   handleXHeightChange: PropTypes.func.isRequired,
   validateFileType: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
-  xHeightPx: PropTypes.number,
+  xHeightPx: PropTypes.string,
   xHeightRangeError: PropTypes.bool.isRequired,
   xHeightStepError: PropTypes.bool.isRequired,
 };

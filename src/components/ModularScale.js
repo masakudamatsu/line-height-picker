@@ -77,13 +77,13 @@ ModularScale.propTypes = {
   handleLineHeightRatioChange: PropTypes.func.isRequired,
   handleNoModularScale: PropTypes.func.isRequired,
   handleXHeightRatioChange: PropTypes.func.isRequired,
-  lineHeightRatio: PropTypes.number,
+  lineHeightRatio: PropTypes.string,
   modularScaleRangeError: PropTypes.bool,
   modularScaleStepError: PropTypes.bool,
   validateFileType: PropTypes.func.isRequired,
   validateModularScale: PropTypes.func.isRequired,
-  xHeightPx: PropTypes.number,
-  xHeightRatio: PropTypes.number,
+  xHeightPx: PropTypes.string,
+  xHeightRatio: PropTypes.string,
 };
 
 export default ModularScale;

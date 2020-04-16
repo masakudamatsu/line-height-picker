@@ -56,7 +56,7 @@ const XheightBox = props => {
 XheightBox.propTypes = {
   handleXHeightChange: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
-  xHeightPx: PropTypes.number,
+  xHeightPx: PropTypes.string,
   xHeightRangeError: PropTypes.bool,
   xHeightStepError: PropTypes.bool,
 };

@@ -82,11 +82,11 @@ const ModularScaleBoxes = props => {
 ModularScaleBoxes.propTypes = {
   handleLineHeightRatioChange: PropTypes.func.isRequired,
   handleXHeightRatioChange: PropTypes.func.isRequired,
-  lineHeightRatio: PropTypes.number,
+  lineHeightRatio: PropTypes.string,
   modularScaleRangeError: PropTypes.bool,
   modularScaleStepError: PropTypes.bool,
   validateModularScale: PropTypes.func.isRequired,
-  xHeightRatio: PropTypes.number,
+  xHeightRatio: PropTypes.string,
 };
 
 export default ModularScaleBoxes;

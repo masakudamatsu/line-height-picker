@@ -37,10 +37,10 @@ const SampleParagraphs = props => {
 
 SampleParagraphs.propTypes = {
   fontFamily: PropTypes.string.isRequired,
-  fontSize: PropTypes.number,
+  fontSize: PropTypes.string,
   fontWeight: PropTypes.number.isRequired,
-  lineHeight: PropTypes.number,
-  marginTop: PropTypes.number,
+  lineHeight: PropTypes.string,
+  marginTop: PropTypes.string,
 };
 
 export default SampleParagraphs;
