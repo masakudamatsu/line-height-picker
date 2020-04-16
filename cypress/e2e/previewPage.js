@@ -342,3 +342,31 @@ describe('Preview Page: Error-handling', () => {
     cy.testAlertForValuesMoreThanHundred('line-height-for-ratio');
   });
 });
+
+describe('Preview page: Navigation bar', () => {
+  beforeEach(() => {
+    cy.visit('/x-height');
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
+    cy.findByText(/preview/i).click();
+  });
+
+  it('takes the user to the landing page after clicking number 1 in the header', () => {
+    cy.findByText('1').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+  });
+  it('takes the user to the x-height page after clicking number 2 in the header', () => {
+    cy.findByText('2').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+  });
+  it('takes the user to the modular-scale page after clicking number 3 in the header', () => {
+    cy.findByText('3').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+  });
+  it('DOES NOT take the user to the css page after clicking number 5 in the header', () => {
+    cy.findByText('5').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
+  });
+});

@@ -159,3 +159,26 @@ describe('X-height page: Error-handling', () => {
       .should('contain', '.woff');
   });
 });
+
+describe('X-height page: Navigation bar', () => {
+  beforeEach(() => {
+    cy.visit('/x-height');
+  });
+
+  it('takes the user to the landing page after clicking number 1 in the header', () => {
+    cy.findByText('1').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+  });
+  it('DOES NOT take the user to the modular-scale page after clicking number 3 in the header', () => {
+    cy.findByText('3').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+  });
+  it('DOES NOT take the user to the preview page after clicking number 4 in the header', () => {
+    cy.findByText('4').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+  });
+  it('DOES NOT take the user to the css page after clicking number 5 in the header', () => {
+    cy.findByText('5').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+  });
+});

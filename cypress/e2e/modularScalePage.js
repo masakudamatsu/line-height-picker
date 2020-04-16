@@ -176,3 +176,28 @@ describe('Modular Scale Page: Error-handling', () => {
     cy.assertIfErrorMessageAppears('error-message-modular-scale');
   });
 });
+
+describe('Preview page: Navigation bar', () => {
+  beforeEach(() => {
+    cy.visit('/x-height');
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+  });
+
+  it('takes the user to the landing page after clicking number 1 in the header', () => {
+    cy.findByText('1').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+  });
+  it('takes the user to the x-height page after clicking number 2 in the header', () => {
+    cy.findByText('2').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+  });
+  it('DOES NOT take the user to the preview page after clicking number 4 in the header', () => {
+    cy.findByText('4').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+  });
+  it('DOES NOT take the user to the css page after clicking number 5 in the header', () => {
+    cy.findByText('5').click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+  });
+});
