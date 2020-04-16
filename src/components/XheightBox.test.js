@@ -110,7 +110,7 @@ test('renders correctly', () => {
         >
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-            class="sc-fzqNqU c2"
+            class="sc-fzoyTs c2"
             data-testid="x-height-in-pixel"
             id="x-height"
             max="100"
