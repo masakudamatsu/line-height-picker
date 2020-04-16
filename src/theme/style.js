@@ -149,9 +149,11 @@ export const StepNumberBox = styled.li`
     width: ${mediaQueryCutoff * numberBoxWidth}px;
   }
 `;
-export const StepNumber = styled.span`
+export const StepNumber = styled(Link)`
   color: ${props => (props.done ? 'currentColor' : colorPalette.disabledText)};
+  cursor: ${props => (props.done ? 'pointer' : 'default')};
   font-size: ${(minFontSizePx / minScreenWidthPx) * 100}vw;
+  text-decoration: none;
   @media (min-width: ${mediaQueryCutoff}px) {
     font-size: ${mediaQueryCutoff * (minFontSizePx / minScreenWidthPx)}px;
   }

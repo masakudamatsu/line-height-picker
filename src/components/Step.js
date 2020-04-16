@@ -2,11 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {StepNumber, StepNumberBox} from '../theme/style';
+import {Link} from 'react-router-dom';
 
 const Step = props => {
+  let internalURL;
+  if (props.done) {
+    switch (props.number) {
+      case 1:
+        internalURL = '/';
+        break;
+      case 2:
+        internalURL = '/x-height';
+        break;
+      case 3:
+        internalURL = '/modular-scale';
+        break;
+      case 4:
+        internalURL = '/preview';
+        break;
+      case 5:
+        internalURL = '';
+        break;
+      default:
+        break;
+    }
+  }
   return (
     <StepNumberBox data-testid="StepNumberBox" now={props.now}>
-      <StepNumber done={props.done}>{props.number}</StepNumber>
+      <StepNumber to={internalURL} done={props.done}>
+        {props.number}
+      </StepNumber>
     </StepNumberBox>
   );
 };
