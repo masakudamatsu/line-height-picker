@@ -8,7 +8,6 @@ import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
 import XheightBox from './XheightBox';
-import colorPalette from '../theme/colorPalette';
 
 const mockXHeightToFontSize = jest.fn();
 const mockValidateXHeight = jest.fn();
