@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {StepNumber, StepNumberBox} from '../theme/style';
 
 const Step = props => {
-  let internalURL;
+  let internalURL = '';
   if (props.done) {
     switch (props.number) {
       case 1:
