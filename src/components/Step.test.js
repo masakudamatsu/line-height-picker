@@ -61,7 +61,7 @@ test('renders correctly', () => {
       >
         <a
           class="c1"
-          href="/"
+          href=""
         >
           1
         </a>
