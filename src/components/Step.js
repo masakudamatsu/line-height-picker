@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {StepNumber, StepNumberBox} from '../theme/style';
-import {Link} from 'react-router-dom';
 
 const Step = props => {
   let internalURL;
