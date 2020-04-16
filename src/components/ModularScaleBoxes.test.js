@@ -203,8 +203,8 @@ test('renders correctly', () => {
 
 test('The value attribute reflects props value', () => {
   // setup
-  const xHeightRatio = 1;
-  const lineHeightRatio = 3;
+  const xHeightRatio = '1';
+  const lineHeightRatio = '3';
   // execute
   const {getByLabelText} = render(
     <ModularScaleBoxes

@@ -146,7 +146,7 @@ test('renders correctly', () => {
 
 test('The value attribute reflects props.xHeightPx', () => {
   // setup
-  const xHeightPx = 10;
+  const xHeightPx = '10';
   const {getByLabelText} = render(
     <XheightBox
       handleXHeightChange={mockXHeightToFontSize}

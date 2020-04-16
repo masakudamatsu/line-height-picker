@@ -10,10 +10,10 @@ import GetCSS from './GetCSS';
 
 const mockProps = {
   fontFamily: 'Open Sans',
-  fontSize: 18.6543,
+  fontSize: '18.6543',
   fontWeight: 400,
-  lineHeight: 1.6055,
-  marginTop: 23.3394,
+  lineHeight: '1.6055',
+  marginTop: '23.3394',
 };
 
 test('renders correctly', () => {
@@ -187,10 +187,10 @@ test('renders props correctly', () => {
 
   const mockNewProps = {
     fontFamily: 'Roboto',
-    fontSize: 17.4059,
+    fontSize: '17.4059',
     fontWeight: 500,
-    lineHeight: 1.5,
-    marginTop: 23.5674,
+    lineHeight: '1.5',
+    marginTop: '23.5674',
   };
   rerender(
     <GetCSS
