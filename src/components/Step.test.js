@@ -7,6 +7,7 @@ import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
 import Step from './Step';
+import {StepIndicator} from '../theme/style'; // Avoid the a11y error, not wrapping <li> with <ol> or <ul>
 import colorPalette from '../theme/colorPalette';
 
 const mockNumber = 1;
@@ -14,11 +15,6 @@ const mockNumber = 1;
 test('renders correctly', () => {
   const {container} = render(<Step number={mockNumber} />);
   expect(container).toMatchInlineSnapshot(`
-    .c1 {
-      color: hsl(0,0%,35%);
-      font-size: 5vw;
-    }
-
     .c0 {
       -webkit-align-items: center;
       -webkit-box-align: center;
@@ -38,10 +34,12 @@ test('renders correctly', () => {
       width: 10vw;
     }
 
-    @media (min-width:875px) {
-      .c1 {
-        font-size: 43.75px;
-      }
+    .c1 {
+      color: hsl(0,0%,35%);
+      cursor: default;
+      font-size: 5vw;
+      -webkit-text-decoration: none;
+      text-decoration: none;
     }
 
     @media (min-width:875px) {
@@ -50,17 +48,24 @@ test('renders correctly', () => {
       }
     }
 
+    @media (min-width:875px) {
+      .c1 {
+        font-size: 43.75px;
+      }
+    }
+
     <div>
-      <div
+      <li
         class="c0"
         data-testid="StepNumberBox"
       >
-        <span
+        <a
           class="c1"
+          href="/"
         >
           1
-        </span>
-      </div>
+        </a>
+      </li>
     </div>
   `);
 });
@@ -95,7 +100,11 @@ test('sets the color to be the one for disabled text if props.done is false', ()
 });
 
 test('is accessible', async () => {
-  const {container} = render(<Step number={mockNumber} />);
+  const {container} = render(
+    <StepIndicator>
+      <Step number={mockNumber} />
+    </StepIndicator>,
+  );
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();
