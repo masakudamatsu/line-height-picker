@@ -23,6 +23,7 @@ const FontFileErrorMessage = props => {
       break;
     case 'fontFaceApi':
       errorMessage = {...fontFaceApiError};
+      break;
     default:
       break;
   }
