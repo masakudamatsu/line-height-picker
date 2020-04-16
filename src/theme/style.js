@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import colorPalette from './colorPalette';
@@ -149,7 +150,9 @@ export const StepNumberBox = styled.li`
     width: ${mediaQueryCutoff * numberBoxWidth}px;
   }
 `;
-export const StepNumber = styled(Link)`
+
+// https://github.com/styled-components/styled-components/issues/1198#issuecomment-425650423
+export const StepNumber = styled(({done, ...props}) => <Link {...props} />)`
   color: ${props => (props.done ? 'currentColor' : colorPalette.disabledText)};
   cursor: ${props => (props.done ? 'pointer' : 'default')};
   font-size: ${(minFontSizePx / minScreenWidthPx) * 100}vw;
