@@ -84,7 +84,7 @@ describe('Landing page: Navigation bar', () => {
     cy.visit('/');
   });
 
-  it('DOES NOT take the user to the landing page after clicking number 2 in the header', () => {
+  it('does not take the user to the x-height page after clicking number 2 in the header', () => {
     cy.findByText('2').click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
