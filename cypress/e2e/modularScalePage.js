@@ -177,7 +177,7 @@ describe('Modular Scale Page: Error-handling', () => {
   });
 });
 
-describe('Preview page: Navigation bar', () => {
+describe('Modular-scale page: Navigation bar', () => {
   beforeEach(() => {
     cy.visit('/x-height');
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
