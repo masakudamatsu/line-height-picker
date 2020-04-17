@@ -100,4 +100,19 @@ describe('Landing page: Navigation bar', () => {
     cy.findByText('5').click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
+
+  const userData = {
+    xHeight: 10,
+    xHeightRatio: 1,
+    lineHeightRatio: 3,
+  };
+
+  it.only('DOES take the user to the x-height page after clicking number 2 in the header, if the user has already visited', () => {
+    // set up
+    cy.findByText(/demo/i).click();
+    cy.findByText('1').click();
+    // execute
+    cy.findByText('2').click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
 });
