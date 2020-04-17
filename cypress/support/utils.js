@@ -18,7 +18,7 @@ export const getMarginTop = (
   xHeightRatio,
   lineHeightRatio,
 ) => {
-  const a = (lineHeightRatio - xHeightRatio) * xHeightPx;
+  const a = (lineHeightRatio - xHeightRatio) * (xHeightPx / xHeightRatio);
   const b =
     (fontMetrics.sCapHeight - fontMetrics.sxHeight) / fontMetrics.unitsPerEm;
   return (a + b * getFontSize(xHeightPx, fontMetrics)).toFixed(4);
