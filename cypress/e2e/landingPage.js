@@ -107,7 +107,7 @@ describe('Landing page: Navigation bar', () => {
     lineHeightRatio: 3,
   };
 
-  it.only('DOES take the user to the x-height page after clicking number 2 in the header, if the user has already visited', () => {
+  it('DOES take the user to the x-height page after clicking number 2 in the header, if the user has already visited', () => {
     // set up
     cy.findByText(/demo/i).click();
     cy.findByText('1').click();
@@ -117,7 +117,7 @@ describe('Landing page: Navigation bar', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
   });
 
-  it.only('DOES take the user to the modular-scale page after clicking number 3 in the header, if the user has already visited', () => {
+  it('DOES take the user to the modular-scale page after clicking number 3 in the header, if the user has already visited', () => {
     // set up
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
@@ -129,7 +129,7 @@ describe('Landing page: Navigation bar', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
   });
 
-  it.only('DOES take the user to the preview page after clicking number 4 in the header, if the user has already visited', () => {
+  it('DOES take the user to the preview page after clicking number 4 in the header, if the user has already visited', () => {
     // set up
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
@@ -144,7 +144,7 @@ describe('Landing page: Navigation bar', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
   });
 
-  it.only('DOES take the user to the get CSS page after clicking number 5 in the header, if the user has already visited', () => {
+  it('DOES take the user to the get CSS page after clicking number 5 in the header, if the user has already visited', () => {
     // set up
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
