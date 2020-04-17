@@ -181,4 +181,50 @@ describe('X-height page: Navigation bar', () => {
     cy.findByText('5').click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
   });
+
+  const userData = {
+    xHeight: 10,
+    xHeightRatio: 1,
+    lineHeightRatio: 3,
+  };
+
+  it.only('DOES take the user to the modular-scale page after clicking number 3 in the header, if the user has already visited', () => {
+    // set up
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    cy.findByText('2').click();
+    // execute
+    cy.findByText('3').click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+  });
+
+  it.only('DOES take the user to the preview page after clicking number 4 in the header, if the user has already visited', () => {
+    // set up
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
+    cy.findByText(/preview/i).click();
+    cy.findByText('2').click();
+    // execute
+    cy.findByText('4').click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
+  });
+
+  it.only('DOES take the user to the get CSS page after clicking number 5 in the header, if the user has already visited', () => {
+    // set up
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
+    cy.findByText(/preview/i).click();
+    cy.findByText(/css/i).click();
+    cy.findByText('2').click();
+    // execute
+    cy.findByText('5').click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/css`);
+  });
 });
