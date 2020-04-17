@@ -369,4 +369,13 @@ describe('Preview page: Navigation bar', () => {
     cy.findByText('5').click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
   });
+  it.only('DOES take the user to the get CSS page after clicking number 5 in the header, if the user has already visited', () => {
+    // set up
+    cy.findByText(/css/i).click();
+    cy.findByText('4').click();
+    // execute
+    cy.findByText('5').click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/css`);
+  });
 });
