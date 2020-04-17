@@ -22,7 +22,10 @@ const Header = props => {
   if (props.stepNow > 2 || sessionStorage.getItem('x-height') === 'visited') {
     step2 = <Step number={2} done />;
   }
-  if (props.stepNow > 3) {
+  if (
+    props.stepNow > 3 ||
+    sessionStorage.getItem('modular-scale') === 'visited'
+  ) {
     step3 = <Step number={3} done />;
   }
   if (props.stepNow > 4) {

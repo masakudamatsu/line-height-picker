@@ -116,3 +116,15 @@ describe('Landing page: Navigation bar', () => {
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
 });
+
+  it.only('DOES take the user to the modular-scale page after clicking number 3 in the header, if the user has already visited', () => {
+    // set up
+    cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    cy.findByText('1').click();
+    // execute
+    cy.findByText('3').click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+  });
