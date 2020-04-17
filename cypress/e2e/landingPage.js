@@ -128,3 +128,18 @@ describe('Landing page: Navigation bar', () => {
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
   });
+
+  it.only('DOES take the user to the preview page after clicking number 4 in the header, if the user has already visited', () => {
+    // set up
+    cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
+    cy.findByText(/preview/i).click();
+    cy.findByText('1').click();
+    // execute
+    cy.findByText('4').click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
+  });

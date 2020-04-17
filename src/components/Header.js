@@ -28,7 +28,7 @@ const Header = props => {
   ) {
     step3 = <Step number={3} done />;
   }
-  if (props.stepNow > 4) {
+  if (props.stepNow > 4 || sessionStorage.getItem('preview') === 'visited') {
     step4 = <Step number={4} done />;
   }
   switch (props.stepNow) {

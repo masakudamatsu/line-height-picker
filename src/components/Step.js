@@ -35,6 +35,9 @@ const Step = props => {
   ) {
     internalURL = '/modular-scale';
   }
+  if (props.number === 4 && sessionStorage.getItem('preview') === 'visited') {
+    internalURL = '/preview';
+  }
   return (
     <StepNumberBox data-testid="StepNumberBox" now={props.now}>
       <StepNumber to={internalURL} done={props.done}>
