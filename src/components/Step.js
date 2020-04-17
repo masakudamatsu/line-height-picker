@@ -20,7 +20,7 @@ const Step = props => {
         internalURL = '/preview';
         break;
       case 5:
-        internalURL = '';
+        internalURL = '/css';
         break;
       default:
         break;
@@ -38,6 +38,10 @@ const Step = props => {
   if (props.number === 4 && sessionStorage.getItem('preview') === 'visited') {
     internalURL = '/preview';
   }
+  if (props.number === 5 && sessionStorage.getItem('css') === 'visited') {
+    internalURL = '/css';
+  }
+
   return (
     <StepNumberBox data-testid="StepNumberBox" now={props.now}>
       <StepNumber to={internalURL} done={props.done}>

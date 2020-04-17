@@ -31,6 +31,9 @@ const Header = props => {
   if (props.stepNow > 4 || sessionStorage.getItem('preview') === 'visited') {
     step4 = <Step number={4} done />;
   }
+  if (sessionStorage.getItem('css') === 'visited') {
+    step5 = <Step number={5} done />;
+  }
   switch (props.stepNow) {
     case 1:
       step1 = <Step number={1} now />;

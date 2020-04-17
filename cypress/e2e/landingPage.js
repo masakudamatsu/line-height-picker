@@ -115,7 +115,7 @@ describe('Landing page: Navigation bar', () => {
     cy.findByText('2').click();
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
-});
+  });
 
   it.only('DOES take the user to the modular-scale page after clicking number 3 in the header, if the user has already visited', () => {
     // set up
@@ -143,3 +143,20 @@ describe('Landing page: Navigation bar', () => {
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
   });
+
+  it.only('DOES take the user to the get CSS page after clicking number 5 in the header, if the user has already visited', () => {
+    // set up
+    cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/scale/i).click();
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
+    cy.findByText(/preview/i).click();
+    cy.findByText(/css/i).click();
+    cy.findByText('1').click();
+    // execute
+    cy.findByText('5').click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/css`);
+  });
+});
