@@ -9,6 +9,10 @@ import FontFileUploader from './FontFileUploader';
 import {Redirect} from 'react-router-dom';
 
 const Xheight = props => {
+  React.useEffect(() => {
+    sessionStorage.setItem('x-height', 'visited');
+  }, []);
+
   const [redirect, setRedirect] = React.useState(false);
   const handleClick = event => {
     const errors = document.getElementById('x-height').validity;

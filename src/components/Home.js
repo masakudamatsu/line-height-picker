@@ -8,6 +8,9 @@ import DemoStartButton from './DemoStartButton';
 import FontFileErrorMessage from './FontFileErrorMessage';
 
 const Home = props => {
+  React.useEffect(() => {
+    sessionStorage.setItem('home', 'visited');
+  }, []);
   return (
     <>
       <main>

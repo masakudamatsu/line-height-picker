@@ -14,6 +14,10 @@ import {
 import {clipboardError} from '../helper/errorMessages';
 
 const GetCSS = props => {
+  React.useEffect(() => {
+    sessionStorage.setItem('css', 'visited');
+  }, []);
+
   const [error, setError] = React.useState(false);
   // Create CSS code
   let fontFamilyName = props.fontFamily;

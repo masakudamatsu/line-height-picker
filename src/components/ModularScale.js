@@ -10,6 +10,10 @@ import FontFileUploader from './FontFileUploader';
 import {Link, Redirect} from 'react-router-dom';
 
 const ModularScale = props => {
+  React.useEffect(() => {
+    sessionStorage.setItem('modular-scale', 'visited');
+  }, []);
+
   const [redirect, setRedirect] = React.useState(false);
   const handleClick = event => {
     const xHeightErrors = document.getElementById('x-height-scale').validity;

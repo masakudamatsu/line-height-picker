@@ -17,6 +17,10 @@ import {
 } from '../theme/style';
 
 const Preview = props => {
+  React.useEffect(() => {
+    sessionStorage.setItem('preview', 'visited');
+  }, []);
+
   const [redirect, setRedirect] = React.useState(false);
   const handleClick = event => {
     const xHeightErrors = document.getElementById('x-height').validity;
