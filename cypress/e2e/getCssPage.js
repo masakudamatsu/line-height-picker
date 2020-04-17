@@ -6,6 +6,7 @@ const userData = {
 
 describe('Get CSS Page', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/x-height');
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();

@@ -9,6 +9,7 @@ describe('X-height page in demo', () => {
   };
 
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/x-height');
   });
 
@@ -67,6 +68,7 @@ describe('X-height page after uploading a font file', () => {
   };
 
   beforeEach(() => {
+    sessionStorage.clear();
     const fontFileName = 'RobotoSlab-Light.ttf';
     cy.visit('/');
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
@@ -105,6 +107,7 @@ describe('X-height page after uploading a font file', () => {
 
 describe('X-height page: Error-handling', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/x-height');
   });
 
@@ -162,6 +165,7 @@ describe('X-height page: Error-handling', () => {
 
 describe('X-height page: Navigation bar', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/x-height');
   });
 

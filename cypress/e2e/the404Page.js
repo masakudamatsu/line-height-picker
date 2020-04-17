@@ -1,5 +1,6 @@
 describe('The 404 Page', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/random-text');
   });
 

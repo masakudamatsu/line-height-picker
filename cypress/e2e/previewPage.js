@@ -28,6 +28,7 @@ describe('Preview Page in demo', () => {
   const fontWeight = `400`;
 
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/x-height');
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();
@@ -187,6 +188,7 @@ describe('Preview Page after uploading a font file', () => {
   const fontWeight = `300`;
 
   beforeEach(() => {
+    sessionStorage.clear();
     const fontFileName = 'RobotoSlab-Light.ttf';
     cy.visit('/');
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
@@ -256,6 +258,7 @@ describe('Preview Page after uploading a font file', () => {
 
 describe('Preview Page: Error-handling', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/x-height');
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();
@@ -345,6 +348,7 @@ describe('Preview Page: Error-handling', () => {
 
 describe('Preview page: Navigation bar', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/x-height');
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();

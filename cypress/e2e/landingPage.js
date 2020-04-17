@@ -1,5 +1,6 @@
 describe('Landing Page', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/');
   });
 
@@ -49,6 +50,7 @@ describe('Landing Page', () => {
 
 describe('Landing Page: Error-handling', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/');
   });
 
@@ -81,6 +83,7 @@ describe('Landing Page: Error-handling', () => {
 
 describe('Landing page: Navigation bar', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/');
   });
 

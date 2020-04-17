@@ -14,6 +14,7 @@ const RobotoSlabFontMetrics = {
 
 describe('Modular Scale Page in demo', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/x-height');
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();
@@ -75,6 +76,7 @@ describe('Modular Scale Page in demo', () => {
 
 describe('Modular Scale Page after uploading a font file', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     const fontFileName = 'RobotoSlab-Light.ttf';
     cy.visit('/');
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
@@ -117,6 +119,7 @@ describe('Modular Scale Page after uploading a font file', () => {
 
 describe('Modular Scale Page: Error-handling', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/x-height');
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();
@@ -179,6 +182,7 @@ describe('Modular Scale Page: Error-handling', () => {
 
 describe('Modular-scale page: Navigation bar', () => {
   beforeEach(() => {
+    sessionStorage.clear();
     cy.visit('/x-height');
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/scale/i).click();
