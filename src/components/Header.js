@@ -19,7 +19,7 @@ const Header = props => {
   if (props.stepNow > 1) {
     step1 = <Step number={1} done />;
   }
-  if (props.stepNow > 2) {
+  if (props.stepNow > 2 || sessionStorage.getItem('x-height') === 'visited') {
     step2 = <Step number={2} done />;
   }
   if (props.stepNow > 3) {

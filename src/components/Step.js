@@ -26,6 +26,9 @@ const Step = props => {
         break;
     }
   }
+  if (props.number === 2 && sessionStorage.getItem('x-height') === 'visited') {
+    internalURL = '/x-height';
+  }
   return (
     <StepNumberBox data-testid="StepNumberBox" now={props.now}>
       <StepNumber to={internalURL} done={props.done}>
