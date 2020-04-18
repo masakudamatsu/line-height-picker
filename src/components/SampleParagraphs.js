@@ -38,7 +38,7 @@ const SampleParagraphs = props => {
 SampleParagraphs.propTypes = {
   fontFamily: PropTypes.string.isRequired,
   fontSize: PropTypes.string,
-  fontWeight: PropTypes.number.isRequired,
+  fontWeight: PropTypes.string,
   lineHeight: PropTypes.string,
   marginTop: PropTypes.string,
 };

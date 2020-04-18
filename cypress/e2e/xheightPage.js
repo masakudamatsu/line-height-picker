@@ -10,7 +10,8 @@ describe('X-height page in demo', () => {
 
   beforeEach(() => {
     sessionStorage.clear();
-    cy.visit('/x-height');
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
   });
 
   it('shows the non-interactive UI components correctly', () => {
@@ -108,7 +109,8 @@ describe('X-height page after uploading a font file', () => {
 describe('X-height page: Error-handling', () => {
   beforeEach(() => {
     sessionStorage.clear();
-    cy.visit('/x-height');
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
   });
 
   it('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message', () => {
@@ -166,7 +168,8 @@ describe('X-height page: Error-handling', () => {
 describe('X-height page: Navigation bar', () => {
   beforeEach(() => {
     sessionStorage.clear();
-    cy.visit('/x-height');
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
   });
 
   it('takes the user to the landing page after clicking number 1 in the header', () => {

@@ -19,12 +19,12 @@ const opentype = require('opentype.js');
 
 function App() {
   const [fontMetrics, setFontMetrics] = React.useState({
-    fontFamily: 'Open Sans',
-    fontSubfamily: 'Regular',
-    fontWeight: 400,
-    xHeight: 1096,
-    unitsPerEm: 2048,
-    capHeight: 1462,
+    fontFamily: '',
+    fontSubfamily: '',
+    fontWeight: '',
+    xHeight: '',
+    unitsPerEm: '',
+    capHeight: '',
   });
   const [fontFileError, setFontFileError] = React.useState('');
 
@@ -131,6 +131,16 @@ function App() {
     });
   };
 
+  const handleDemo = () => {
+    setFontMetrics({
+      fontFamily: 'Open Sans',
+      fontSubfamily: 'Regular',
+      fontWeight: '400',
+      xHeight: 1096,
+      unitsPerEm: 2048,
+      capHeight: 1462,
+    });
+  };
   const handleNoXHeight = errors => {
     if (errors.valueMissing) {
       setXHeightRangeError(true);
@@ -230,6 +240,7 @@ function App() {
             <Header stepNow={1} topPage />
             <Home
               validateFileType={validateFileType}
+              handleDemo={handleDemo}
               handleFontFile={handleFontFile}
               fontFileError={fontFileError}
             />

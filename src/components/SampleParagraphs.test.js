@@ -11,7 +11,7 @@ import SampleParagraphs from './SampleParagraphs';
 const paragraphStyle = {
   fontFamily: 'Roboto',
   fontSize: '18',
-  fontWeight: 500,
+  fontWeight: '500',
   lineHeight: '1.15',
   marginTop: '23.467',
 };

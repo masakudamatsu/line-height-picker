@@ -8,8 +8,14 @@ import 'jest-axe/extend-expect';
 
 import DemoStartButton from './DemoStartButton';
 
+const mockHandleDemo = jest.fn();
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
 test('renders correctly', () => {
-  const {container} = render(<DemoStartButton />);
+  const {container} = render(<DemoStartButton handleDemo={mockHandleDemo} />);
   expect(container).toMatchInlineSnapshot(`
     .c1 {
       white-space: nowrap;
@@ -68,8 +74,14 @@ test('renders correctly', () => {
   `);
 });
 
+test('Clicking the DEMO button calls the handleDemo function', () => {
+  const {getByText} = render(<DemoStartButton handleDemo={mockHandleDemo} />);
+  getByText(/demo/i).click();
+  expect(mockHandleDemo).toHaveBeenCalledTimes(1);
+});
+
 test('is accessible', async () => {
-  const {container} = render(<DemoStartButton />);
+  const {container} = render(<DemoStartButton handleDemo={mockHandleDemo} />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();

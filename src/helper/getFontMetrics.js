@@ -10,7 +10,7 @@ const getFontMetrics = font => {
   fontMetrics.unitsPerEm = headTable['unitsPerEm'];
 
   const os2Table = font.tables['os2'];
-  fontMetrics.fontWeight = os2Table['usWeightClass'];
+  fontMetrics.fontWeight = os2Table['usWeightClass'].toString();
   fontMetrics.xHeight = os2Table['sxHeight'];
   fontMetrics.capHeight = os2Table['sCapHeight'];
   return fontMetrics;

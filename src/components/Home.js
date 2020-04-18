@@ -24,7 +24,7 @@ const Home = props => {
           >
             Upload font file
           </FontFileUploader>
-          <DemoStartButton />
+          <DemoStartButton handleDemo={props.handleDemo} />
         </ButtonContainer>
         <FontFileErrorMessage
           data-testid="error-message-font-file"
@@ -37,6 +37,7 @@ const Home = props => {
 
 Home.propTypes = {
   validateFileType: PropTypes.func.isRequired,
+  handleDemo: PropTypes.func.isRequired,
   handleFontFile: PropTypes.func.isRequired,
   fontFileError: PropTypes.string.isRequired,
 };
