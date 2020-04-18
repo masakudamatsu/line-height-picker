@@ -41,6 +41,7 @@ const ModularScaleBoxes = props => {
             min="1"
             onChange={handleXHeightChange}
             required
+            step="0.0001"
             value={props.xHeightRatio}
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           />
@@ -55,6 +56,7 @@ const ModularScaleBoxes = props => {
             min="1"
             onChange={handleLineHeightChange}
             required
+            step="0.0001"
             value={props.lineHeightRatio}
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           />

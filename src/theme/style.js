@@ -250,7 +250,6 @@ export const NumberInputWrapper = styled.div`
 export const NumberInput = styled.input.attrs(props => ({
   pattern: '[0-9]*[.,]?[0-9]+',
   // to support Opera Mini; see https://css-tricks.com/form-validation-part-1-constraint-validation-html/
-  step: 0.0001,
   type: 'number',
 }))`
   /* Remove the arrows */

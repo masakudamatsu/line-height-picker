@@ -29,6 +29,7 @@ const XheightBox = props => {
           min="1"
           onChange={handleChange}
           required
+          step="0.0001"
           value={props.xHeightPx}
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
         />
