@@ -89,11 +89,6 @@ test('renders correctly', () => {
     }
 
     .c4 {
-      -moz-appearance: textfield;
-      -webkit-appearance: textfield;
-      -webkit-appearance: textfield;
-      -moz-appearance: textfield;
-      appearance: textfield;
       background-color: hsl(0,0%,25%);
       border: none;
       border-bottom: 2px solid hsl(0,0%,96%);
@@ -102,12 +97,12 @@ test('renders correctly', () => {
       font-weight: 200;
       font-size: 9rem;
       text-align: center;
+      -moz-appearance: textfield;
+      -webkit-appearance: textfield;
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: textfield;
       width: 100%;
-    }
-
-    .c4::-webkit-inner-spin-button,
-    .c4::-webkit-outer-spin-button {
-      -webkit-appearance: none;
     }
 
     .c4:active,
@@ -115,6 +110,11 @@ test('renders correctly', () => {
     .c4:focus {
       background-color: hsl(0,0%,35%);
       outline: none;
+    }
+
+    .c4::-webkit-inner-spin-button,
+    .c4::-webkit-outer-spin-button {
+      -webkit-appearance: none;
     }
 
     <div>
@@ -143,7 +143,7 @@ test('renders correctly', () => {
             </label>
             <input
               aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-              class="sc-fzoyTs c4"
+              class="sc-fzoyTs sc-fzoNJl c4"
               data-testid="x-height-for-ratio"
               id="x-height-scale"
               max="100"
@@ -169,7 +169,7 @@ test('renders correctly', () => {
             </label>
             <input
               aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-              class="sc-fzoyTs c4"
+              class="sc-fzoyTs sc-fzoNJl c4"
               data-testid="line-height-for-ratio"
               id="line-height-scale"
               max="100"

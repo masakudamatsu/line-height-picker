@@ -65,11 +65,6 @@ test('renders correctly', () => {
     }
 
     .c2 {
-      -moz-appearance: textfield;
-      -webkit-appearance: textfield;
-      -webkit-appearance: textfield;
-      -moz-appearance: textfield;
-      appearance: textfield;
       background-color: hsl(0,0%,25%);
       border: none;
       border-bottom: 2px solid hsl(0,0%,96%);
@@ -78,13 +73,13 @@ test('renders correctly', () => {
       font-weight: 200;
       font-size: 9rem;
       text-align: center;
+      -moz-appearance: textfield;
+      -webkit-appearance: textfield;
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: textfield;
       padding: 1rem;
       width: 90%;
-    }
-
-    .c2::-webkit-inner-spin-button,
-    .c2::-webkit-outer-spin-button {
-      -webkit-appearance: none;
     }
 
     .c2:active,
@@ -92,6 +87,11 @@ test('renders correctly', () => {
     .c2:focus {
       background-color: hsl(0,0%,35%);
       outline: none;
+    }
+
+    .c2::-webkit-inner-spin-button,
+    .c2::-webkit-outer-spin-button {
+      -webkit-appearance: none;
     }
 
     <div>
@@ -109,7 +109,7 @@ test('renders correctly', () => {
         >
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-            class="sc-fzoyTs c2"
+            class="sc-fzoyTs sc-fzoNJl c2"
             data-testid="x-height-in-pixel"
             id="x-height"
             max="100"

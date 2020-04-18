@@ -247,21 +247,9 @@ export const NumberInputWrapper = styled.div`
   justify-content: space-between;
   padding: 3rem 0 1rem 0;
 `;
-export const NumberInput = styled.input.attrs(props => ({
-  pattern: '[0-9]*[.,]?[0-9]+',
-  // to support Opera Mini; see https://css-tricks.com/form-validation-part-1-constraint-validation-html/
-  type: 'number',
+export const Input = styled.input.attrs(props => ({
+  type: 'text',
 }))`
-  /* Remove the arrows */
-  -moz-appearance: textfield;
-  -webkit-appearance: textfield;
-  appearance: textfield;
-
-  &::-webkit-inner-spin-button,
-  &::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-  }
-
   background-color: ${colorPalette.background};
   border: none;
   border-bottom: 2px solid ${colorPalette.bodyText};
@@ -276,6 +264,21 @@ export const NumberInput = styled.input.attrs(props => ({
   &:focus {
     background-color: ${colorPalette.disabledText};
     outline: none;
+  }
+`;
+export const NumberInput = styled(Input).attrs(props => ({
+  pattern: '[0-9]*[.,]?[0-9]+',
+  // to support Opera Mini; see https://css-tricks.com/form-validation-part-1-constraint-validation-html/
+  type: 'number',
+}))`
+  /* Remove the arrows */
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
   }
 `;
 
