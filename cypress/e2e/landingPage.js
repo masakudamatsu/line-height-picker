@@ -48,6 +48,104 @@ describe('Landing Page', () => {
   });
 });
 
+describe('Landing Page: Direct entry', () => {
+  const userInput = {
+    sCapHeight: '1456',
+    fontFamily: 'Roboto Slab',
+    fontSubfamily: 'Light',
+    unitsPerEm: '2048',
+    usWeightClass: '300',
+    sxHeight: '1082',
+    xHeight: 10,
+    xHeightRatio: 1,
+    lineHeightRatio: 3,
+  };
+  const userFontMetrics = {
+    sCapHeight: userInput.sCapHeight,
+    sxHeight: userInput.sxHeight,
+    unitsPerEm: userInput.unitsPerEm,
+  };
+  beforeEach(() => {
+    sessionStorage.clear();
+    cy.visit('/');
+    cy.findByLabelText('sxHeight').type(userInput.sxHeight);
+    cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
+    cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
+    cy.findByLabelText('fontFamily').type(userInput.fontFamily);
+    cy.findByLabelText('fontSubfamily').type(userInput.fontSubfamily);
+    cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
+  });
+
+  it('takes the user to the x-height page after clicking the NEXT button', () => {
+    // execute
+    cy.findByText(/next/i).click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+  });
+
+  it('shows the entered font name in all subsequent pages', () => {
+    //setup
+    const expectedFontName = 'Roboto Slab';
+    const expectedFontSubfamily = 'Light';
+    const expectedFontWeight = '300';
+    // execute
+    cy.findByText(/next/i).click();
+    // verify
+    cy.assertFontNameFromXheightPageOn(
+      expectedFontName,
+      expectedFontSubfamily,
+      expectedFontWeight,
+    );
+  });
+
+  it('calculates the font-size value based on the entered sxHeight and unitsPerEm values', () => {
+    // setup
+    // execute
+    cy.findByText(/next/i).click();
+    cy.findByTestId('x-height-in-pixel').type(userInput.xHeight);
+    cy.findByText(/scale/i).click();
+    // verify
+    cy.assertXheightFontSizeFromModularScalePageOn(
+      userInput.xHeight,
+      userFontMetrics,
+    );
+  });
+
+  it('calculates the line-height value based on the entered sxHeight and unitsPerEm values', () => {
+    // setup
+    // execute
+    cy.findByText(/next/i).click();
+    cy.findByTestId('x-height-in-pixel').type(userInput.xHeight);
+    cy.findByText(/scale/i).click();
+    cy.findByTestId('x-height-for-ratio').type(userInput.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userInput.lineHeightRatio);
+    // verify
+    cy.assertModularScaleLineHeightFromModularScalePageOn(
+      userInput.xHeightRatio,
+      userInput.lineHeightRatio,
+      userInput.xHeight,
+      userFontMetrics,
+    );
+  });
+
+  it('calculates the vertical space between paragraphs based on the entered cap height etc.', () => {
+    // execute
+    cy.findByText(/next/i).click();
+    cy.findByTestId('x-height-in-pixel').type(userInput.xHeight);
+    cy.findByText(/scale/i).click();
+    cy.findByTestId('x-height-for-ratio').type(userInput.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userInput.lineHeightRatio);
+    cy.findByText(/preview/i).click();
+    // verify
+    cy.assertMarginTop(
+      userFontMetrics,
+      userInput.xHeight,
+      userInput.xHeightRatio,
+      userInput.lineHeightRatio,
+    );
+  });
+});
+
 describe('Landing Page: Error-handling', () => {
   beforeEach(() => {
     sessionStorage.clear();

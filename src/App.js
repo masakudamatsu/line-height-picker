@@ -141,6 +141,18 @@ function App() {
       capHeight: 1462,
     });
   };
+
+  const updateFontMetrics = newFontMetrics => {
+    setFontMetrics({
+      fontFamily: newFontMetrics.fontFamily,
+      fontSubfamily: newFontMetrics.fontSubfamily,
+      fontWeight: newFontMetrics.usWeightClass,
+      xHeight: newFontMetrics.sxHeight,
+      unitsPerEm: newFontMetrics.unitsPerEm,
+      capHeight: newFontMetrics.sCapHeight,
+    });
+  };
+
   const handleNoXHeight = errors => {
     if (errors.valueMissing) {
       setXHeightRangeError(true);
@@ -243,6 +255,7 @@ function App() {
               handleDemo={handleDemo}
               handleFontFile={handleFontFile}
               fontFileError={fontFileError}
+              updateFontMetrics={updateFontMetrics}
             />
           </Route>
           <Route path="/x-height">

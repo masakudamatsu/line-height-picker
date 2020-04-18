@@ -6,6 +6,7 @@ import {ButtonContainer, Logo} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import DemoStartButton from './DemoStartButton';
 import FontFileErrorMessage from './FontFileErrorMessage';
+import FontTableBox from './FontTableBox';
 
 const Home = props => {
   React.useEffect(() => {
@@ -30,6 +31,9 @@ const Home = props => {
           data-testid="error-message-font-file"
           fontFileError={props.fontFileError}
         />
+        <FontTableBox
+          updateFontMetrics={props.updateFontMetrics}
+        />
       </main>
     </>
   );
@@ -40,6 +44,7 @@ Home.propTypes = {
   handleDemo: PropTypes.func.isRequired,
   handleFontFile: PropTypes.func.isRequired,
   fontFileError: PropTypes.string.isRequired,
+  updateFontMetrics: PropTypes.func.isRequired,
 };
 
 export default Home;
