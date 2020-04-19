@@ -10,6 +10,7 @@ import 'jest-axe/extend-expect';
 import FontTableBox from './FontTableBox';
 
 const mockUpdateFontMetrics = jest.fn();
+const mockValidateFontMetrics = jest.fn();
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -17,7 +18,10 @@ afterEach(() => {
 
 test('renders correctly', () => {
   const {container} = render(
-    <FontTableBox updateFontMetrics={mockUpdateFontMetrics} />,
+    <FontTableBox
+      updateFontMetrics={mockUpdateFontMetrics}
+      validateFontMetrics={mockValidateFontMetrics}
+    />,
   );
   expect(container).toMatchInlineSnapshot(`
     .c1 {
@@ -25,12 +29,18 @@ test('renders correctly', () => {
       font-size: 1rem;
     }
 
+    .c4 {
+      color: currentColor;
+      font-size: 1rem;
+      visibility: hidden;
+    }
+
     .c2 {
       font-family: monospace;
       font-size: 1rem;
     }
 
-    .c5 {
+    .c6 {
       -webkit-align-items: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -88,7 +98,7 @@ test('renders correctly', () => {
       outline: none;
     }
 
-    .c4 {
+    .c5 {
       background-color: hsl(0,0%,25%);
       border: none;
       border-bottom: 2px solid hsl(0,0%,96%);
@@ -104,20 +114,20 @@ test('renders correctly', () => {
       appearance: textfield;
     }
 
-    .c4:active,
-    .c4:hover,
-    .c4:focus {
+    .c5:active,
+    .c5:hover,
+    .c5:focus {
       background-color: hsl(0,0%,35%);
       outline: none;
     }
 
-    .c4::-webkit-inner-spin-button,
-    .c4::-webkit-outer-spin-button {
+    .c5::-webkit-inner-spin-button,
+    .c5::-webkit-outer-spin-button {
       -webkit-appearance: none;
     }
 
     @media (min-width:875px) {
-      .c5 {
+      .c6 {
         font-size: 43.75px;
       }
     }
@@ -125,6 +135,7 @@ test('renders correctly', () => {
     <div>
       <form
         class="c0"
+        novalidate=""
       >
         <p
           class="c1"
@@ -168,8 +179,16 @@ test('renders correctly', () => {
           id="preferredFamily"
           name="preferredFamily"
           placeholder="Open Sans"
+          required=""
           type="text"
         />
+        <p
+          class="c4"
+          data-testid="error-message-preferredFamily"
+          id="error-message-preferredFamily"
+        >
+          Enter the font family name.
+        </p>
         <label
           class=""
           for="preferredSubfamily"
@@ -230,7 +249,7 @@ test('renders correctly', () => {
         </p>
         <input
           aria-describedby="instruction--usWeightClass"
-          class="c4"
+          class="c5"
           data-testid="usWeightClass"
           id="usWeightClass"
           name="usWeightClass"
@@ -264,7 +283,7 @@ test('renders correctly', () => {
         </p>
         <input
           aria-describedby="instruction-unitsPerEm"
-          class="c4"
+          class="c5"
           data-testid="unitsPerEm"
           id="unitsPerEm"
           name="unitsPerEm"
@@ -292,7 +311,7 @@ test('renders correctly', () => {
         </p>
         <input
           aria-describedby="instruction-sxHeight"
-          class="c4"
+          class="c5"
           data-testid="sxHeight"
           id="sxHeight"
           name="sxHeight"
@@ -320,7 +339,7 @@ test('renders correctly', () => {
         </p>
         <input
           aria-describedby="instruction-sCapHeight"
-          class="c4"
+          class="c5"
           data-testid="sCapHeight"
           id="sCapHeight"
           name="sCapHeight"
@@ -329,7 +348,7 @@ test('renders correctly', () => {
           type="number"
         />
         <button
-          class="c5"
+          class="c6"
         >
           Next
         </button>
@@ -338,7 +357,7 @@ test('renders correctly', () => {
   `);
 });
 
-test('calls the updateFontMetrics function when the Next button is clicked', () => {
+test('calls the updateFontMetrics function after clicking the next buton with all font metric values supplied', () => {
   const userInput = {
     preferredFamily: 'Roboto Slab',
     preferredSubfamily: 'Light',
@@ -348,7 +367,10 @@ test('calls the updateFontMetrics function when the Next button is clicked', () 
     usWeightClass: '300',
   };
   const {getByLabelText, getByText} = render(
-    <FontTableBox updateFontMetrics={mockUpdateFontMetrics} />,
+    <FontTableBox
+      updateFontMetrics={mockUpdateFontMetrics}
+      validateFontMetrics={mockValidateFontMetrics}
+    />,
   );
   user.type(getByLabelText('sxHeight'), userInput.sxHeight);
   user.type(getByLabelText('sCapHeight'), userInput.sCapHeight);
@@ -360,9 +382,24 @@ test('calls the updateFontMetrics function when the Next button is clicked', () 
   expect(mockUpdateFontMetrics).toHaveBeenCalledTimes(1);
   expect(mockUpdateFontMetrics).toHaveBeenCalledWith(userInput);
 });
+
+test('calls the validateFontMetrics function after clicking the next button when preferredFamily is missing', () => {
+  const {getByText} = render(
+    <FontTableBox
+      updateFontMetrics={mockUpdateFontMetrics}
+      validateFontMetrics={mockValidateFontMetrics}
+    />,
+  );
+  getByText(/next/i).click();
+  expect(mockValidateFontMetrics).toHaveBeenCalledTimes(1);
+});
+
 test('is accessible', async () => {
   const {container} = render(
-    <FontTableBox updateFontMetrics={mockUpdateFontMetrics} />,
+    <FontTableBox
+      updateFontMetrics={mockUpdateFontMetrics}
+      validateFontMetrics={mockValidateFontMetrics}
+    />,
   );
   const results = await axe(container);
   expect(results).toHaveNoViolations();

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  AlertMessage,
   Button,
   Code,
   Form,
@@ -22,6 +23,13 @@ const FontTableBox = props => {
       .call(event.target.elements)
       .filter(inputField => inputField.name.length > 0); // Remove empty string key-value pair
 
+    // Validation
+    const errors = inputFieldArray[0].validity;
+    if (!errors.valid) {
+      props.validateFontMetrics(errors);
+      return;
+    }
+
     let newFontMetrics = {};
     inputFieldArray.forEach(inputField => {
       newFontMetrics[inputField.name] = inputField.value;
@@ -34,7 +42,7 @@ const FontTableBox = props => {
     // The push attribute keeps the browser history, instead of overriding, so the user can click the Back button in the browser to be back to the landing page. See https://reacttraining.com/react-router/web/api/Redirect/push-bool
   }
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form noValidate onSubmit={handleSubmit}>
       <ParagraphOneRem>Or enter font table values:</ParagraphOneRem>
 
       <Label htmlFor="preferredFamily">preferredFamily</Label>
@@ -48,8 +56,17 @@ const FontTableBox = props => {
         id="preferredFamily"
         name="preferredFamily"
         placeholder="Open Sans"
+        required
         aria-describedby="instruction-preferredFamily"
       />
+      <AlertMessage
+        data-testid="error-message-preferredFamily"
+        id="error-message-preferredFamily"
+        error={props.fontFamilyError}
+        errorText={props.fontFamilyError}
+      >
+        Enter the font family name.
+      </AlertMessage>
 
       <Label htmlFor="preferredSubfamily">preferredSubfamily</Label>
       <ParagraphOneRem id="instruction-preferredSubfamily">
@@ -124,6 +141,8 @@ const FontTableBox = props => {
 };
 
 FontTableBox.propTypes = {
+  fontFamilyError: PropTypes.bool,
   updateFontMetrics: PropTypes.func.isRequired,
+  validateFontMetrics: PropTypes.func.isRequired,
 };
 export default FontTableBox;

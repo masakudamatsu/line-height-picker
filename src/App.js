@@ -28,6 +28,8 @@ function App() {
   });
   const [fontFileError, setFontFileError] = React.useState('');
 
+  const [fontFamilyError, setFontFamilyError] = React.useState(false);
+
   const [xHeightPx, setXHeightPx] = React.useState('');
   const [xHeightRangeError, setXHeightRangeError] = React.useState(false);
   const [xHeightStepError, setXHeightStepError] = React.useState(false);
@@ -142,6 +144,13 @@ function App() {
     });
   };
 
+  const validateFontMetrics = errors => {
+    if (errors.valueMissing) {
+      setFontFamilyError(true);
+    } else {
+      setFontFamilyError(false);
+    }
+  };
   const updateFontMetrics = newFontMetrics => {
     setFontMetrics({
       fontFamily: newFontMetrics.preferredFamily,
@@ -256,6 +265,8 @@ function App() {
               handleFontFile={handleFontFile}
               fontFileError={fontFileError}
               updateFontMetrics={updateFontMetrics}
+              validateFontMetrics={validateFontMetrics}
+              fontFamilyError={fontFamilyError}
             />
           </Route>
           <Route path="/x-height">

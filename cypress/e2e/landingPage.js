@@ -51,7 +51,7 @@ describe('Landing Page', () => {
 describe('Landing Page: Direct entry', () => {
   const userInput = {
     sCapHeight: '1456',
-    fontFamily: 'Roboto Slab',
+    preferredFamily: 'Roboto Slab',
     fontSubfamily: 'Light',
     unitsPerEm: '2048',
     usWeightClass: '300',
@@ -71,7 +71,7 @@ describe('Landing Page: Direct entry', () => {
     cy.findByLabelText('sxHeight').type(userInput.sxHeight);
     cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
     cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
-    cy.findByLabelText('preferredFamily').type(userInput.fontFamily);
+    cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
     cy.findByLabelText('preferredSubfamily').type(userInput.fontSubfamily);
     cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
   });
@@ -143,6 +143,13 @@ describe('Landing Page: Direct entry', () => {
       userInput.xHeightRatio,
       userInput.lineHeightRatio,
     );
+  });
+  it.only('shows an error message for preferredFamily if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input', () => {
+    // execute 1
+    cy.findByLabelText('preferredFamily').clear();
+    cy.findByText(/next/i).click();
+    // verify
+    cy.assertIfErrorMessageAppears('error-message-preferredFamily');
   });
 });
 
