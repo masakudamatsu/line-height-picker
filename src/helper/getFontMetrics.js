@@ -2,9 +2,12 @@ const getFontMetrics = font => {
   const fontMetrics = {};
 
   const namingTable = font.tables['name'];
-  fontMetrics.fontFamily = namingTable['fontFamily'].en;
-  fontMetrics.fontSubfamily = namingTable['fontSubfamily'].en;
-  fontMetrics.fullName = namingTable['fullName'].en;
+  fontMetrics.fontFamily = namingTable['preferredFamily']
+    ? namingTable['preferredFamily'].en
+    : (fontMetrics.fontFamily = namingTable['fontFamily'].en);
+  fontMetrics.fontSubfamily = namingTable['preferredSubfamily']
+    ? namingTable['preferredSubfamily'].en
+    : namingTable['fontSubfamily'].en;
 
   const headTable = font.tables['head'];
   fontMetrics.unitsPerEm = headTable['unitsPerEm'];
