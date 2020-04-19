@@ -37,6 +37,15 @@ const FontTableBox = props => {
     props.updateFontMetrics(newFontMetrics);
     setRedirect(true);
   };
+  const handleChange = event => {
+    // Do nothing if there's no error
+    if (!props.fontFamilyError) {
+      return;
+    }
+    // Erase the error message when the user enters something
+    const errors = event.target.validity;
+    props.validateFontMetrics(errors);
+  };
   if (redirect) {
     return <Redirect push to="/x-height" />;
     // The push attribute keeps the browser history, instead of overriding, so the user can click the Back button in the browser to be back to the landing page. See https://reacttraining.com/react-router/web/api/Redirect/push-bool
@@ -55,6 +64,7 @@ const FontTableBox = props => {
         data-testid="preferredFamily"
         id="preferredFamily"
         name="preferredFamily"
+        onChange={handleChange}
         placeholder="Open Sans"
         required
         aria-describedby="instruction-preferredFamily"

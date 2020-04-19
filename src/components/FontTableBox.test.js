@@ -12,6 +12,15 @@ import FontTableBox from './FontTableBox';
 const mockUpdateFontMetrics = jest.fn();
 const mockValidateFontMetrics = jest.fn();
 
+const userInput = {
+  preferredFamily: 'Roboto Slab',
+  preferredSubfamily: 'Light',
+  sCapHeight: '1456',
+  sxHeight: '1082',
+  unitsPerEm: '2048',
+  usWeightClass: '300',
+};
+
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -358,14 +367,6 @@ test('renders correctly', () => {
 });
 
 test('calls the updateFontMetrics function after clicking the next buton with all font metric values supplied', () => {
-  const userInput = {
-    preferredFamily: 'Roboto Slab',
-    preferredSubfamily: 'Light',
-    sCapHeight: '1456',
-    sxHeight: '1082',
-    unitsPerEm: '2048',
-    usWeightClass: '300',
-  };
   const {getByLabelText, getByText} = render(
     <FontTableBox
       updateFontMetrics={mockUpdateFontMetrics}
@@ -383,14 +384,16 @@ test('calls the updateFontMetrics function after clicking the next buton with al
   expect(mockUpdateFontMetrics).toHaveBeenCalledWith(userInput);
 });
 
-test('calls the validateFontMetrics function after clicking the next button when preferredFamily is missing', () => {
-  const {getByText} = render(
+test('calls the validateFontMetrics function after clicking the next button when preferredFamily is missing, and again when the user enters something for preferredFamily', () => {
+  const {getByLabelText, getByText} = render(
     <FontTableBox
       updateFontMetrics={mockUpdateFontMetrics}
       validateFontMetrics={mockValidateFontMetrics}
     />,
   );
   getByText(/next/i).click();
+  expect(mockValidateFontMetrics).toHaveBeenCalledTimes(1);
+  user.type(getByLabelText('preferredFamily'), userInput.preferredFamily);
   expect(mockValidateFontMetrics).toHaveBeenCalledTimes(1);
 });
 

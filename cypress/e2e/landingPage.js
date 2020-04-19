@@ -150,6 +150,10 @@ describe('Landing Page: Direct entry', () => {
     cy.findByText(/next/i).click();
     // verify
     cy.assertIfErrorMessageAppears('error-message-preferredFamily');
+    // execute 2
+    cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
+    // verify
+    cy.assertIfErrorMessageDisappears(`error-message-preferredFamily`);
   });
 });
 
