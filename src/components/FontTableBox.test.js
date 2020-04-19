@@ -25,7 +25,12 @@ test('renders correctly', () => {
       font-size: 1rem;
     }
 
-    .c4 {
+    .c2 {
+      font-family: monospace;
+      font-size: 1rem;
+    }
+
+    .c5 {
       -webkit-align-items: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -83,7 +88,7 @@ test('renders correctly', () => {
       outline: none;
     }
 
-    .c2 {
+    .c4 {
       background-color: hsl(0,0%,25%);
       border: none;
       border-bottom: 2px solid hsl(0,0%,96%);
@@ -99,20 +104,20 @@ test('renders correctly', () => {
       appearance: textfield;
     }
 
-    .c2:active,
-    .c2:hover,
-    .c2:focus {
+    .c4:active,
+    .c4:hover,
+    .c4:focus {
       background-color: hsl(0,0%,35%);
       outline: none;
     }
 
-    .c2::-webkit-inner-spin-button,
-    .c2::-webkit-outer-spin-button {
+    .c4::-webkit-inner-spin-button,
+    .c4::-webkit-outer-spin-button {
       -webkit-appearance: none;
     }
 
     @media (min-width:875px) {
-      .c4 {
+      .c5 {
         font-size: 43.75px;
       }
     }
@@ -128,70 +133,75 @@ test('renders correctly', () => {
         </p>
         <label
           class=""
-          for="sxHeight"
+          for="preferredFamily"
         >
-          sxHeight
+          preferredFamily
         </label>
-        <input
-          class="c2"
-          data-testid="sxHeight"
-          id="sxHeight"
-          name="sxHeight"
-          pattern="[0-9]*[.,]?[0-9]+"
-          type="number"
-        />
-        <label
-          class=""
-          for="sCapHeight"
+        <p
+          class="c1"
+          id="instruction-preferredFamily"
         >
-          sCapHeight
-        </label>
+          Font family name to be used for the 
+          <code
+            class="c2"
+          >
+            font-family
+          </code>
+           CSS property. It can be found in the 
+          <code
+            class="c2"
+          >
+            name
+          </code>
+           table. If it doesn't exist, enter the 
+          <code
+            class="c2"
+          >
+            fontFamily
+          </code>
+           value.
+        </p>
         <input
-          class="c2"
-          data-testid="sCapHeight"
-          id="sCapHeight"
-          name="sCapHeight"
-          pattern="[0-9]*[.,]?[0-9]+"
-          type="number"
-        />
-        <label
-          class=""
-          for="unitsPerEm"
-        >
-          unitsPerEm
-        </label>
-        <input
-          class="c2"
-          data-testid="unitsPerEm"
-          id="unitsPerEm"
-          name="unitsPerEm"
-          pattern="[0-9]*[.,]?[0-9]+"
-          type="number"
-        />
-        <label
-          class=""
-          for="fontFamily"
-        >
-          fontFamily
-        </label>
-        <input
+          aria-describedby="instruction-preferredFamily"
           class="c3"
-          data-testid="fontFamily"
-          id="fontFamily"
-          name="fontFamily"
+          data-testid="preferredFamily"
+          id="preferredFamily"
+          name="preferredFamily"
+          placeholder="Open Sans"
           type="text"
         />
         <label
           class=""
-          for="fontSubfamily"
+          for="preferredSubfamily"
         >
-          fontSubfamily
+          preferredSubfamily
         </label>
+        <p
+          class="c1"
+          id="instruction-preferredSubfamily"
+        >
+          Font subfamily name (e.g. Light, Regular, Bold). It can be found in the
+          <code
+            class="c2"
+          >
+            name
+          </code>
+           table. If it doesn't exist, enter the
+           
+          <code
+            class="c2"
+          >
+            fontSubfamily
+          </code>
+           value.
+        </p>
         <input
+          aria-describedby="instruction-preferredSubfamily"
           class="c3"
-          data-testid="fontSubfamily"
-          id="fontSubfamily"
-          name="fontSubfamily"
+          data-testid="preferredSubfamily"
+          id="preferredSubfamily"
+          name="preferredSubfamily"
+          placeholder="Regular"
           type="text"
         />
         <label
@@ -200,16 +210,126 @@ test('renders correctly', () => {
         >
           usWeightClass
         </label>
+        <p
+          class="c1"
+          id="instruction-usWeightClass"
+        >
+          Number to be used for the 
+          <code
+            class="c2"
+          >
+            font-weight
+          </code>
+           CSS property. It can be found in the 
+          <code
+            class="c2"
+          >
+            OS/2
+          </code>
+           table.
+        </p>
         <input
-          class="c2"
+          aria-describedby="instruction--usWeightClass"
+          class="c4"
           data-testid="usWeightClass"
           id="usWeightClass"
           name="usWeightClass"
           pattern="[0-9]*[.,]?[0-9]+"
+          placeholder="400"
+          type="number"
+        />
+        <label
+          class=""
+          for="unitsPerEm"
+        >
+          unitsPerEm
+        </label>
+        <p
+          class="c1"
+          id="instruction-unitsPerEm"
+        >
+          Number of units for the length set by the 
+          <code
+            class="c2"
+          >
+            font-size
+          </code>
+           CSS property. It can be found in the 
+          <code
+            class="c2"
+          >
+            head
+          </code>
+           table. Usually, either 1000, 1024 or 2048.
+        </p>
+        <input
+          aria-describedby="instruction-unitsPerEm"
+          class="c4"
+          data-testid="unitsPerEm"
+          id="unitsPerEm"
+          name="unitsPerEm"
+          pattern="[0-9]*[.,]?[0-9]+"
+          placeholder="2048"
+          type="number"
+        />
+        <label
+          class=""
+          for="sxHeight"
+        >
+          sxHeight
+        </label>
+        <p
+          class="c1"
+          id="instruction-sxHeight"
+        >
+          Number of units for x-height (the height of lowercase x). It can be found in the 
+          <code
+            class="c2"
+          >
+            OS/2
+          </code>
+           table.
+        </p>
+        <input
+          aria-describedby="instruction-sxHeight"
+          class="c4"
+          data-testid="sxHeight"
+          id="sxHeight"
+          name="sxHeight"
+          pattern="[0-9]*[.,]?[0-9]+"
+          placeholder="1096"
+          type="number"
+        />
+        <label
+          class=""
+          for="sCapHeight"
+        >
+          sCapHeight
+        </label>
+        <p
+          class="c1"
+          id="instruction-sCapHeight"
+        >
+          Number of units for cap-height (the height of uppercase H). It can be found in the 
+          <code
+            class="c2"
+          >
+            OS/2
+          </code>
+           table.
+        </p>
+        <input
+          aria-describedby="instruction-sCapHeight"
+          class="c4"
+          data-testid="sCapHeight"
+          id="sCapHeight"
+          name="sCapHeight"
+          pattern="[0-9]*[.,]?[0-9]+"
+          placeholder="1462"
           type="number"
         />
         <button
-          class="c4"
+          class="c5"
         >
           Next
         </button>

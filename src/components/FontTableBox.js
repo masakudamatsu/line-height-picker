@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Button,
+  Code,
   Form,
   Label,
   Input,
@@ -33,30 +34,88 @@ const FontTableBox = props => {
   return (
     <Form onSubmit={handleSubmit}>
       <ParagraphOneRem>Or enter font table values:</ParagraphOneRem>
-      <Label htmlFor="sxHeight">sxHeight</Label>
-      <NumberInput data-testid="sxHeight" id="sxHeight" name="sxHeight" />
-      <Label htmlFor="sCapHeight">sCapHeight</Label>
-      <NumberInput data-testid="sCapHeight" id="sCapHeight" name="sCapHeight" />
-      <Label htmlFor="unitsPerEm">unitsPerEm</Label>
-      <NumberInput data-testid="unitsPerEm" id="unitsPerEm" name="unitsPerEm" />
+
       <Label htmlFor="preferredFamily">preferredFamily</Label>
+      <ParagraphOneRem id="instruction-preferredFamily">
+        Font family name to be used for the <Code>font-family</Code> CSS
+        property. It can be found in the <Code>name</Code> table. If it doesn't
+        exist, enter the <Code>fontFamily</Code> value.
+      </ParagraphOneRem>
       <Input
         data-testid="preferredFamily"
         id="preferredFamily"
         name="preferredFamily"
+        placeholder="Open Sans"
+        aria-describedby="instruction-preferredFamily"
       />
+
       <Label htmlFor="preferredSubfamily">preferredSubfamily</Label>
+      <ParagraphOneRem id="instruction-preferredSubfamily">
+        Font subfamily name (e.g. Light, Regular, Bold). It can be found in the
+        <Code>name</Code> table. If it doesn't exist, enter the{' '}
+        <Code>fontSubfamily</Code> value.
+      </ParagraphOneRem>
       <Input
         data-testid="preferredSubfamily"
         id="preferredSubfamily"
         name="preferredSubfamily"
+        placeholder="Regular"
+        aria-describedby="instruction-preferredSubfamily"
       />
+
       <Label htmlFor="usWeightClass">usWeightClass</Label>
+      <ParagraphOneRem id="instruction-usWeightClass">
+        Number to be used for the <Code>font-weight</Code> CSS property. It can
+        be found in the <Code>OS/2</Code> table.
+      </ParagraphOneRem>
       <NumberInput
         data-testid="usWeightClass"
         id="usWeightClass"
         name="usWeightClass"
+        placeholder="400"
+        aria-describedby="instruction--usWeightClass"
       />
+
+      <Label htmlFor="unitsPerEm">unitsPerEm</Label>
+      <ParagraphOneRem id="instruction-unitsPerEm">
+        Number of units for the length set by the <Code>font-size</Code> CSS
+        property. It can be found in the <Code>head</Code> table. Usually,
+        either 1000, 1024 or 2048.
+      </ParagraphOneRem>
+      <NumberInput
+        data-testid="unitsPerEm"
+        id="unitsPerEm"
+        name="unitsPerEm"
+        placeholder="2048"
+        aria-describedby="instruction-unitsPerEm"
+      />
+
+      <Label htmlFor="sxHeight">sxHeight</Label>
+      <ParagraphOneRem id="instruction-sxHeight">
+        Number of units for x-height (the height of lowercase x). It can be
+        found in the <Code>OS/2</Code> table.
+      </ParagraphOneRem>
+      <NumberInput
+        data-testid="sxHeight"
+        id="sxHeight"
+        name="sxHeight"
+        placeholder="1096"
+        aria-describedby="instruction-sxHeight"
+      />
+
+      <Label htmlFor="sCapHeight">sCapHeight</Label>
+      <ParagraphOneRem id="instruction-sCapHeight">
+        Number of units for cap-height (the height of uppercase H). It can be
+        found in the <Code>OS/2</Code> table.
+      </ParagraphOneRem>
+      <NumberInput
+        data-testid="sCapHeight"
+        id="sCapHeight"
+        name="sCapHeight"
+        placeholder="1462"
+        aria-describedby="instruction-sCapHeight"
+      />
+
       <Button>Next</Button>
     </Form>
   );
