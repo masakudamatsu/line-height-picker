@@ -16,14 +16,16 @@ const FontTableBox = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    let newFontMetrics = {};
+
     // Convert event.target.elements (an object) into an array of input elements
-    const inputFieldArray = Array.prototype.slice.call(event.target.elements);
-    inputFieldArray
-      .filter(inputField => inputField.name.length > 0) // Remove empty string key-value pair
-      .forEach(inputField => {
-        newFontMetrics[inputField.name] = inputField.value;
-      });
+    const inputFieldArray = Array.prototype.slice
+      .call(event.target.elements)
+      .filter(inputField => inputField.name.length > 0); // Remove empty string key-value pair
+
+    let newFontMetrics = {};
+    inputFieldArray.forEach(inputField => {
+      newFontMetrics[inputField.name] = inputField.value;
+    });
     props.updateFontMetrics(newFontMetrics);
     setRedirect(true);
   };
