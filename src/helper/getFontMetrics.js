@@ -2,6 +2,8 @@ const getFontMetrics = font => {
   const fontMetrics = {};
 
   const namingTable = font.tables['name'];
+
+  // For the rationale for the code block below, see https://github.com/adobe-fonts/source-sans-pro/issues/50#issuecomment-59972936
   fontMetrics.fontFamily = namingTable['preferredFamily']
     ? namingTable['preferredFamily'].en
     : (fontMetrics.fontFamily = namingTable['fontFamily'].en);
