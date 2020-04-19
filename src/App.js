@@ -144,8 +144,8 @@ function App() {
 
   const updateFontMetrics = newFontMetrics => {
     setFontMetrics({
-      fontFamily: newFontMetrics.fontFamily,
-      fontSubfamily: newFontMetrics.fontSubfamily,
+      fontFamily: newFontMetrics.preferredFamily,
+      fontSubfamily: newFontMetrics.preferredSubfamily,
       fontWeight: newFontMetrics.usWeightClass,
       xHeight: newFontMetrics.sxHeight,
       unitsPerEm: newFontMetrics.unitsPerEm,

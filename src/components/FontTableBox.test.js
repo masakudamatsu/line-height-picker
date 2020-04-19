@@ -220,8 +220,8 @@ test('renders correctly', () => {
 
 test('calls the updateFontMetrics function when the Next button is clicked', () => {
   const userInput = {
-    fontFamily: 'Roboto Slab',
-    fontSubfamily: 'Light',
+    preferredFamily: 'Roboto Slab',
+    preferredSubfamily: 'Light',
     sCapHeight: '1456',
     sxHeight: '1082',
     unitsPerEm: '2048',
@@ -233,8 +233,8 @@ test('calls the updateFontMetrics function when the Next button is clicked', () 
   user.type(getByLabelText('sxHeight'), userInput.sxHeight);
   user.type(getByLabelText('sCapHeight'), userInput.sCapHeight);
   user.type(getByLabelText('unitsPerEm'), userInput.unitsPerEm);
-  user.type(getByLabelText('fontFamily'), userInput.fontFamily);
-  user.type(getByLabelText('fontSubfamily'), userInput.fontSubfamily);
+  user.type(getByLabelText('preferredFamily'), userInput.preferredFamily);
+  user.type(getByLabelText('preferredSubfamily'), userInput.preferredSubfamily);
   user.type(getByLabelText('usWeightClass'), userInput.usWeightClass);
   getByText(/next/i).click();
   expect(mockUpdateFontMetrics).toHaveBeenCalledTimes(1);

@@ -39,13 +39,17 @@ const FontTableBox = props => {
       <NumberInput data-testid="sCapHeight" id="sCapHeight" name="sCapHeight" />
       <Label htmlFor="unitsPerEm">unitsPerEm</Label>
       <NumberInput data-testid="unitsPerEm" id="unitsPerEm" name="unitsPerEm" />
-      <Label htmlFor="fontFamily">fontFamily</Label>
-      <Input data-testid="fontFamily" id="fontFamily" name="fontFamily" />
-      <Label htmlFor="fontSubfamily">fontSubfamily</Label>
+      <Label htmlFor="preferredFamily">preferredFamily</Label>
       <Input
-        data-testid="fontSubfamily"
-        id="fontSubfamily"
-        name="fontSubfamily"
+        data-testid="preferredFamily"
+        id="preferredFamily"
+        name="preferredFamily"
+      />
+      <Label htmlFor="preferredSubfamily">preferredSubfamily</Label>
+      <Input
+        data-testid="preferredSubfamily"
+        id="preferredSubfamily"
+        name="preferredSubfamily"
       />
       <Label htmlFor="usWeightClass">usWeightClass</Label>
       <NumberInput

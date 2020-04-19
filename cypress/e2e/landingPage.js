@@ -71,8 +71,8 @@ describe('Landing Page: Direct entry', () => {
     cy.findByLabelText('sxHeight').type(userInput.sxHeight);
     cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
     cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
-    cy.findByLabelText('fontFamily').type(userInput.fontFamily);
-    cy.findByLabelText('fontSubfamily').type(userInput.fontSubfamily);
+    cy.findByLabelText('preferredFamily').type(userInput.fontFamily);
+    cy.findByLabelText('preferredSubfamily').type(userInput.fontSubfamily);
     cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
   });
 
