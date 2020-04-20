@@ -31,13 +31,7 @@ const Home = props => {
           data-testid="error-message-font-file"
           fontFileError={props.fontFileError}
         />
-        <FontTableBox
-          fontFamilyError={props.fontFamilyError}
-          fontSubfamilyError={props.fontSubfamilyError}
-          updateFontMetrics={props.updateFontMetrics}
-          validateFontFamily={props.validateFontFamily}
-          validateFontSubfamily={props.validateFontSubfamily}
-        />
+        <FontTableBox updateFontMetrics={props.updateFontMetrics} />
       </main>
     </>
   );
@@ -48,11 +42,7 @@ Home.propTypes = {
   handleDemo: PropTypes.func.isRequired,
   handleFontFile: PropTypes.func.isRequired,
   fontFileError: PropTypes.string.isRequired,
-  fontFamilyError: PropTypes.bool,
-  fontSubfamilyError: PropTypes.bool,
   updateFontMetrics: PropTypes.func.isRequired,
-  validateFontFamily: PropTypes.func.isRequired,
-  validateFontSubfamily: PropTypes.func.isRequired,
 };
 
 export default Home;

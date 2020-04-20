@@ -15,6 +15,24 @@ import {Redirect} from 'react-router-dom';
 const FontTableBox = props => {
   const [redirect, setRedirect] = React.useState(false);
 
+  const [fontFamilyError, setFontFamilyError] = React.useState(false);
+  const [fontSubfamilyError, setFontSubfamilyError] = React.useState(false);
+
+  const validateFontFamily = errors => {
+    if (errors.valueMissing) {
+      setFontFamilyError(true);
+    } else {
+      setFontFamilyError(false);
+    }
+  };
+  const validateFontSubfamily = errors => {
+    if (errors.valueMissing) {
+      setFontSubfamilyError(true);
+    } else {
+      setFontSubfamilyError(false);
+    }
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -23,12 +41,12 @@ const FontTableBox = props => {
     // Validation
     const fontFamilyErrors = inputs['preferredFamily'].validity;
     if (!fontFamilyErrors.valid) {
-      props.validateFontFamily(fontFamilyErrors);
+      validateFontFamily(fontFamilyErrors);
       return;
     }
     const fontSubfamilyErrors = inputs['preferredSubfamily'].validity;
     if (!fontSubfamilyErrors.valid) {
-      props.validateFontSubfamily(fontSubfamilyErrors);
+      validateFontSubfamily(fontSubfamilyErrors);
       return;
     }
 
@@ -48,21 +66,21 @@ const FontTableBox = props => {
   const handleChange = event => {
     if (event.target.name === 'preferredFamily') {
       // Do nothing if there's no error
-      if (!props.fontFamilyError) {
+      if (!fontFamilyError) {
         return;
       }
       // Erase the error message when the user enters something
       const errors = event.target.validity;
-      props.validateFontFamily(errors);
+      validateFontFamily(errors);
     }
     if (event.target.name === 'preferredSubfamily') {
       // Do nothing if there's no error
-      if (!props.fontSubfamilyError) {
+      if (!fontSubfamilyError) {
         return;
       }
       // Erase the error message when the user enters something
       const errors = event.target.validity;
-      props.validateFontSubfamily(errors);
+      validateFontSubfamily(errors);
     }
   };
   if (redirect) {
@@ -91,8 +109,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-preferredFamily"
         id="error-message-preferredFamily"
-        error={props.fontFamilyError}
-        errorText={props.fontFamilyError}
+        error={fontFamilyError}
+        errorText={fontFamilyError}
       >
         Enter the font family name.
       </AlertMessage>
@@ -115,8 +133,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-preferredSubfamily"
         id="error-message-preferredSubfamily"
-        error={props.fontSubfamilyError}
-        errorText={props.fontSubfamilyError}
+        error={fontSubfamilyError}
+        errorText={fontSubfamilyError}
       >
         Enter the font subfamily name (such as Regular, Italic, Bold, Light).
       </AlertMessage>
@@ -180,10 +198,6 @@ const FontTableBox = props => {
 };
 
 FontTableBox.propTypes = {
-  fontFamilyError: PropTypes.bool,
-  fontSubfamilyError: PropTypes.bool,
   updateFontMetrics: PropTypes.func.isRequired,
-  validateFontFamily: PropTypes.func.isRequired,
-  validateFontSubfamily: PropTypes.func.isRequired,
 };
 export default FontTableBox;

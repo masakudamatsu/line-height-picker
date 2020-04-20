@@ -10,7 +10,6 @@ import 'jest-axe/extend-expect';
 import FontTableBox from './FontTableBox';
 
 const mockUpdateFontMetrics = jest.fn();
-const mockvalidateFontFamily = jest.fn();
 
 const userInput = {
   preferredFamily: 'Roboto Slab',
@@ -27,10 +26,7 @@ afterEach(() => {
 
 test('renders correctly', () => {
   const {container} = render(
-    <FontTableBox
-      updateFontMetrics={mockUpdateFontMetrics}
-      validateFontFamily={mockvalidateFontFamily}
-    />,
+    <FontTableBox updateFontMetrics={mockUpdateFontMetrics} />,
   );
   expect(container).toMatchInlineSnapshot(`
     .c1 {
@@ -376,10 +372,7 @@ test('renders correctly', () => {
 
 test('calls the updateFontMetrics function after clicking the next buton with all font metric values supplied', () => {
   const {getByLabelText, getByText} = render(
-    <FontTableBox
-      updateFontMetrics={mockUpdateFontMetrics}
-      validateFontFamily={mockvalidateFontFamily}
-    />,
+    <FontTableBox updateFontMetrics={mockUpdateFontMetrics} />,
   );
   user.type(getByLabelText('sxHeight'), userInput.sxHeight);
   user.type(getByLabelText('sCapHeight'), userInput.sCapHeight);
@@ -392,25 +385,9 @@ test('calls the updateFontMetrics function after clicking the next buton with al
   expect(mockUpdateFontMetrics).toHaveBeenCalledWith(userInput);
 });
 
-test('calls the validateFontFamily function after clicking the next button when preferredFamily is missing, and again when the user enters something for preferredFamily', () => {
-  const {getByLabelText, getByText} = render(
-    <FontTableBox
-      updateFontMetrics={mockUpdateFontMetrics}
-      validateFontFamily={mockvalidateFontFamily}
-    />,
-  );
-  getByText(/next/i).click();
-  expect(mockvalidateFontFamily).toHaveBeenCalledTimes(1);
-  user.type(getByLabelText('preferredFamily'), userInput.preferredFamily);
-  expect(mockvalidateFontFamily).toHaveBeenCalledTimes(1);
-});
-
 test('is accessible', async () => {
   const {container} = render(
-    <FontTableBox
-      updateFontMetrics={mockUpdateFontMetrics}
-      validateFontFamily={mockvalidateFontFamily}
-    />,
+    <FontTableBox updateFontMetrics={mockUpdateFontMetrics} />,
   );
   const results = await axe(container);
   expect(results).toHaveNoViolations();
