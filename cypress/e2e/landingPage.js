@@ -147,17 +147,18 @@ describe('Landing Page: Direct entry', () => {
 
   ['preferredFamily', 'preferredSubfamily', 'usWeightClass'].forEach(
     fontMetric => {
-    it.only(`shows an error message for ${fontMetric} if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input`, () => {
-    // execute 1
-      cy.findByLabelText(fontMetric).clear();
-    cy.findByText(/next/i).click();
-    // verify
-      cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
-    // execute 2
-      cy.findByLabelText(fontMetric).type(userInput[fontMetric]);
-    // verify
-      cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
-});
+      it.only(`shows an error message for ${fontMetric} if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input`, () => {
+        // execute 1
+        cy.findByLabelText(fontMetric).clear();
+        cy.findByText(/next/i).click();
+        // verify
+        cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+        cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
+        // execute 2
+        cy.findByLabelText(fontMetric).type(userInput[fontMetric]);
+        // verify
+        cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
+      });
     },
   );
 });
