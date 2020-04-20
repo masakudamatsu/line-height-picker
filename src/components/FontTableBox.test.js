@@ -182,7 +182,7 @@ test('renders correctly', () => {
            value.
         </p>
         <input
-          aria-describedby="instruction-preferredFamily"
+          aria-describedby="instruction-preferredFamily error-message-preferredFamily"
           class="c3"
           data-testid="preferredFamily"
           id="preferredFamily"

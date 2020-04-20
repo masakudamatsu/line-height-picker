@@ -67,7 +67,7 @@ const FontTableBox = props => {
         onChange={handleChange}
         placeholder="Open Sans"
         required
-        aria-describedby="instruction-preferredFamily"
+        aria-describedby="instruction-preferredFamily error-message-preferredFamily"
       />
       <AlertMessage
         data-testid="error-message-preferredFamily"
