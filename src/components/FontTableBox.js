@@ -28,6 +28,9 @@ const FontTableBox = props => {
     [names[i]]: false,
     [names[++i]]: false,
     [names[++i]]: false,
+    [names[++i]]: false,
+    [names[++i]]: false,
+    [names[++i]]: false,
   });
 
   const handleSubmit = event => {
@@ -160,9 +163,19 @@ const FontTableBox = props => {
         data-testid="unitsPerEm"
         id="unitsPerEm"
         name="unitsPerEm"
+        onChange={handleChange}
         placeholder="2048"
-        aria-describedby="instruction-unitsPerEm"
+        required
+        aria-describedby="instruction-unitsPerEm error-message-unitsPerEm"
       />
+      <AlertMessage
+        data-testid="error-message-unitsPerEm"
+        id="error-message-unitsPerEm"
+        error={fontMetricsError['unitsPerEm']}
+        errorText={fontMetricsError['unitsPerEm']}
+      >
+        Please enter a whole number between 16 and 16384.
+      </AlertMessage>
 
       <Label htmlFor="sxHeight">sxHeight</Label>
       <ParagraphOneRem id="instruction-sxHeight">
@@ -173,9 +186,19 @@ const FontTableBox = props => {
         data-testid="sxHeight"
         id="sxHeight"
         name="sxHeight"
+        onChange={handleChange}
         placeholder="1096"
-        aria-describedby="instruction-sxHeight"
+        required
+        aria-describedby="instruction-sxHeight error-message-sxHeight"
       />
+      <AlertMessage
+        data-testid="error-message-sxHeight"
+        id="error-message-sxHeight"
+        error={fontMetricsError['sxHeight']}
+        errorText={fontMetricsError['sxHeight']}
+      >
+        Please enter a whole number between 16 and 16384.
+      </AlertMessage>
 
       <Label htmlFor="sCapHeight">sCapHeight</Label>
       <ParagraphOneRem id="instruction-sCapHeight">
@@ -186,9 +209,19 @@ const FontTableBox = props => {
         data-testid="sCapHeight"
         id="sCapHeight"
         name="sCapHeight"
+        onChange={handleChange}
         placeholder="1462"
-        aria-describedby="instruction-sCapHeight"
+        required
+        aria-describedby="instruction-sCapHeight error-message-sCapHeight"
       />
+      <AlertMessage
+        data-testid="error-message-sCapHeight"
+        id="error-message-sCapHeight"
+        error={fontMetricsError['sCapHeight']}
+        errorText={fontMetricsError['sCapHeight']}
+      >
+        Please enter a whole number between 16 and 16384.
+      </AlertMessage>
 
       <Button>Next</Button>
     </Form>

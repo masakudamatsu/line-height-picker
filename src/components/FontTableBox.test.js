@@ -303,15 +303,23 @@ test('renders correctly', () => {
            table. Usually, either 1000, 1024 or 2048.
         </p>
         <input
-          aria-describedby="instruction-unitsPerEm"
+          aria-describedby="instruction-unitsPerEm error-message-unitsPerEm"
           class="c5"
           data-testid="unitsPerEm"
           id="unitsPerEm"
           name="unitsPerEm"
           pattern="[0-9]*[.,]?[0-9]+"
           placeholder="2048"
+          required=""
           type="number"
         />
+        <p
+          class="c4"
+          data-testid="error-message-unitsPerEm"
+          id="error-message-unitsPerEm"
+        >
+          Please enter a whole number between 16 and 16384.
+        </p>
         <label
           class=""
           for="sxHeight"
@@ -331,15 +339,23 @@ test('renders correctly', () => {
            table.
         </p>
         <input
-          aria-describedby="instruction-sxHeight"
+          aria-describedby="instruction-sxHeight error-message-sxHeight"
           class="c5"
           data-testid="sxHeight"
           id="sxHeight"
           name="sxHeight"
           pattern="[0-9]*[.,]?[0-9]+"
           placeholder="1096"
+          required=""
           type="number"
         />
+        <p
+          class="c4"
+          data-testid="error-message-sxHeight"
+          id="error-message-sxHeight"
+        >
+          Please enter a whole number between 16 and 16384.
+        </p>
         <label
           class=""
           for="sCapHeight"
@@ -359,15 +375,23 @@ test('renders correctly', () => {
            table.
         </p>
         <input
-          aria-describedby="instruction-sCapHeight"
+          aria-describedby="instruction-sCapHeight error-message-sCapHeight"
           class="c5"
           data-testid="sCapHeight"
           id="sCapHeight"
           name="sCapHeight"
           pattern="[0-9]*[.,]?[0-9]+"
           placeholder="1462"
+          required=""
           type="number"
         />
+        <p
+          class="c4"
+          data-testid="error-message-sCapHeight"
+          id="error-message-sCapHeight"
+        >
+          Please enter a whole number between 16 and 16384.
+        </p>
         <button
           class="c6"
         >
