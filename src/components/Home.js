@@ -34,7 +34,7 @@ const Home = props => {
         <FontTableBox
           fontFamilyError={props.fontFamilyError}
           updateFontMetrics={props.updateFontMetrics}
-          validateFontMetrics={props.validateFontMetrics}
+          validateFontFamily={props.validateFontFamily}
         />
       </main>
     </>
@@ -48,7 +48,7 @@ Home.propTypes = {
   fontFileError: PropTypes.string.isRequired,
   fontFamilyError: PropTypes.bool,
   updateFontMetrics: PropTypes.func.isRequired,
-  validateFontMetrics: PropTypes.func.isRequired,
+  validateFontFamily: PropTypes.func.isRequired,
 };
 
 export default Home;

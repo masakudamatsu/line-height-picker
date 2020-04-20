@@ -10,7 +10,7 @@ import 'jest-axe/extend-expect';
 import FontTableBox from './FontTableBox';
 
 const mockUpdateFontMetrics = jest.fn();
-const mockValidateFontMetrics = jest.fn();
+const mockvalidateFontFamily = jest.fn();
 
 const userInput = {
   preferredFamily: 'Roboto Slab',
@@ -29,7 +29,7 @@ test('renders correctly', () => {
   const {container} = render(
     <FontTableBox
       updateFontMetrics={mockUpdateFontMetrics}
-      validateFontMetrics={mockValidateFontMetrics}
+      validateFontFamily={mockvalidateFontFamily}
     />,
   );
   expect(container).toMatchInlineSnapshot(`
@@ -224,14 +224,22 @@ test('renders correctly', () => {
            value.
         </p>
         <input
-          aria-describedby="instruction-preferredSubfamily"
+          aria-describedby="instruction-preferredSubfamily error-message-preferredSubfamily"
           class="c3"
           data-testid="preferredSubfamily"
           id="preferredSubfamily"
           name="preferredSubfamily"
           placeholder="Regular"
+          required=""
           type="text"
         />
+        <p
+          class="c4"
+          data-testid="error-message-preferredSubfamily"
+          id="error-message-preferredSubfamily"
+        >
+          Enter the font subfamily name (such as Regular, Italic, Bold, Light).
+        </p>
         <label
           class=""
           for="usWeightClass"
@@ -370,7 +378,7 @@ test('calls the updateFontMetrics function after clicking the next buton with al
   const {getByLabelText, getByText} = render(
     <FontTableBox
       updateFontMetrics={mockUpdateFontMetrics}
-      validateFontMetrics={mockValidateFontMetrics}
+      validateFontFamily={mockvalidateFontFamily}
     />,
   );
   user.type(getByLabelText('sxHeight'), userInput.sxHeight);
@@ -384,24 +392,24 @@ test('calls the updateFontMetrics function after clicking the next buton with al
   expect(mockUpdateFontMetrics).toHaveBeenCalledWith(userInput);
 });
 
-test('calls the validateFontMetrics function after clicking the next button when preferredFamily is missing, and again when the user enters something for preferredFamily', () => {
+test('calls the validateFontFamily function after clicking the next button when preferredFamily is missing, and again when the user enters something for preferredFamily', () => {
   const {getByLabelText, getByText} = render(
     <FontTableBox
       updateFontMetrics={mockUpdateFontMetrics}
-      validateFontMetrics={mockValidateFontMetrics}
+      validateFontFamily={mockvalidateFontFamily}
     />,
   );
   getByText(/next/i).click();
-  expect(mockValidateFontMetrics).toHaveBeenCalledTimes(1);
+  expect(mockvalidateFontFamily).toHaveBeenCalledTimes(1);
   user.type(getByLabelText('preferredFamily'), userInput.preferredFamily);
-  expect(mockValidateFontMetrics).toHaveBeenCalledTimes(1);
+  expect(mockvalidateFontFamily).toHaveBeenCalledTimes(1);
 });
 
 test('is accessible', async () => {
   const {container} = render(
     <FontTableBox
       updateFontMetrics={mockUpdateFontMetrics}
-      validateFontMetrics={mockValidateFontMetrics}
+      validateFontFamily={mockvalidateFontFamily}
     />,
   );
   const results = await axe(container);

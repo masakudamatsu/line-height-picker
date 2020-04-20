@@ -24,9 +24,9 @@ const FontTableBox = props => {
       .filter(inputField => inputField.name.length > 0); // Remove empty string key-value pair
 
     // Validation
-    const errors = inputFieldArray[0].validity;
-    if (!errors.valid) {
-      props.validateFontMetrics(errors);
+    const fontFamilyErrors = inputFieldArray[0].validity;
+    if (!fontFamilyErrors.valid) {
+      props.validateFontFamily(fontFamilyErrors);
       return;
     }
 
@@ -38,13 +38,15 @@ const FontTableBox = props => {
     setRedirect(true);
   };
   const handleChange = event => {
+    if (event.target.name === 'preferredFamily') {
     // Do nothing if there's no error
     if (!props.fontFamilyError) {
       return;
     }
     // Erase the error message when the user enters something
     const errors = event.target.validity;
-    props.validateFontMetrics(errors);
+    props.validateFontFamily(errors);
+    }
   };
   if (redirect) {
     return <Redirect push to="/x-height" />;
@@ -153,6 +155,6 @@ const FontTableBox = props => {
 FontTableBox.propTypes = {
   fontFamilyError: PropTypes.bool,
   updateFontMetrics: PropTypes.func.isRequired,
-  validateFontMetrics: PropTypes.func.isRequired,
+  validateFontFamily: PropTypes.func.isRequired,
 };
 export default FontTableBox;

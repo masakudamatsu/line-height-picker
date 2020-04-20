@@ -144,7 +144,7 @@ function App() {
     });
   };
 
-  const validateFontMetrics = errors => {
+  const validateFontFamily = errors => {
     if (errors.valueMissing) {
       setFontFamilyError(true);
     } else {
@@ -265,7 +265,7 @@ function App() {
               handleFontFile={handleFontFile}
               fontFileError={fontFileError}
               updateFontMetrics={updateFontMetrics}
-              validateFontMetrics={validateFontMetrics}
+              validateFontFamily={validateFontFamily}
               fontFamilyError={fontFamilyError}
             />
           </Route>
