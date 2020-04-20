@@ -15,95 +15,62 @@ import {Redirect} from 'react-router-dom';
 const FontTableBox = props => {
   const [redirect, setRedirect] = React.useState(false);
 
-  const [fontFamilyError, setFontFamilyError] = React.useState(false);
-  const [fontSubfamilyError, setFontSubfamilyError] = React.useState(false);
-  const [weightClassError, setWeightClassError] = React.useState(false);
+  const names = [
+    'preferredFamily',
+    'preferredSubfamily',
+    'usWeightClass',
+    'unitsPerEm',
+    'sxHeight',
+    'sCapHeight',
+  ];
+  let i = 0;
+  const [fontMetricsError, setFontMetricsError] = React.useState({
+    [names[i]]: false,
+    [names[++i]]: false,
+    [names[++i]]: false,
+  });
 
-  const validateFontFamily = errors => {
-    if (errors.valueMissing) {
-      setFontFamilyError(true);
-    } else {
-      setFontFamilyError(false);
-    }
-  };
-  const validateFontSubfamily = errors => {
-    if (errors.valueMissing) {
-      setFontSubfamilyError(true);
-    } else {
-      setFontSubfamilyError(false);
-    }
-  };
-  const validateWeightClass = errors => {
-    if (errors.valueMissing) {
-      setWeightClassError(true);
-    } else {
-      setWeightClassError(false);
-    }
-  };
   const handleSubmit = event => {
     event.preventDefault();
 
     const inputs = event.target.elements;
 
     // Validation
-    const fontFamilyErrors = inputs['preferredFamily'].validity;
-    if (!fontFamilyErrors.valid) {
-      validateFontFamily(fontFamilyErrors);
-      return;
+    const newFontMetricsError = {};
+    names.forEach(name => {
+      const errorStatus = inputs[name].validity;
+      newFontMetricsError[name] = errorStatus.valueMissing;
+    });
+    const someError = Object.keys(newFontMetricsError).some(
+      name => newFontMetricsError[name] === true,
+    );
+    if (someError) {
+      setFontMetricsError(newFontMetricsError);
+      return; // Won't do anything below if there is at least one error.
     }
-    const fontSubfamilyErrors = inputs['preferredSubfamily'].validity;
-    if (!fontSubfamilyErrors.valid) {
-      validateFontSubfamily(fontSubfamilyErrors);
-      return;
-    }
-    const weightClassErrors = inputs['usWeightClass'].validity;
-    if (!weightClassErrors.valid) {
-      validateWeightClass(weightClassErrors);
-      return;
-    }
-
-    // Convert event.target.elements (an object) into an array of input elements
-    const inputFieldArray = Array.prototype.slice
-      .call(inputs)
-      .filter(inputField => inputField.name.length > 0); // Remove empty string key-value pair
-    // Update the state with input values
+    // Update font metrics
     let newFontMetrics = {};
-    inputFieldArray.forEach(inputField => {
-      newFontMetrics[inputField.name] = inputField.value;
+    names.forEach(name => {
+      newFontMetrics[name] = inputs[name].value;
     });
     props.updateFontMetrics(newFontMetrics);
     setRedirect(true);
   };
 
   const handleChange = event => {
-    if (event.target.name === 'preferredFamily') {
-      // Do nothing if there's no error
-      if (!fontFamilyError) {
-        return;
-      }
-      // Erase the error message when the user enters something
-      const errors = event.target.validity;
-      validateFontFamily(errors);
+    const name = event.target.name;
+    // Do nothing if there's no error
+    if (!fontMetricsError[name]) {
+      return;
     }
-    if (event.target.name === 'preferredSubfamily') {
-      // Do nothing if there's no error
-      if (!fontSubfamilyError) {
-        return;
-      }
-      // Erase the error message when the user enters something
-      const errors = event.target.validity;
-      validateFontSubfamily(errors);
-    }
-    if (event.target.name === 'usWeightClass') {
-      // Do nothing if there's no error
-      if (!weightClassError) {
-        return;
-      }
-      // Erase the error message when the user enters something
-      const errors = event.target.validity;
-      validateWeightClass(errors);
-    }
+    // Erase the error message when the user enters something
+    const newErrorStatus = {
+      [name]: event.target.validity.valueMissing,
+    };
+    const newFontMetricsError = {...fontMetricsError, ...newErrorStatus};
+    setFontMetricsError(newFontMetricsError);
   };
+
   if (redirect) {
     return <Redirect push to="/x-height" />;
     // The push attribute keeps the browser history, instead of overriding, so the user can click the Back button in the browser to be back to the landing page. See https://reacttraining.com/react-router/web/api/Redirect/push-bool
@@ -130,8 +97,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-preferredFamily"
         id="error-message-preferredFamily"
-        error={fontFamilyError}
-        errorText={fontFamilyError}
+        error={fontMetricsError['preferredFamily']}
+        errorText={fontMetricsError['preferredFamily']}
       >
         Enter the font family name.
       </AlertMessage>
@@ -154,8 +121,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-preferredSubfamily"
         id="error-message-preferredSubfamily"
-        error={fontSubfamilyError}
-        errorText={fontSubfamilyError}
+        error={fontMetricsError['preferredSubfamily']}
+        errorText={fontMetricsError['preferredSubfamily']}
       >
         Enter the font subfamily name (such as Regular, Italic, Bold, Light).
       </AlertMessage>
@@ -177,8 +144,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-usWeightClass"
         id="error-message-usWeightClass"
-        error={weightClassError}
-        errorText={weightClassError}
+        error={fontMetricsError['usWeightClass']}
+        errorText={fontMetricsError['usWeightClass']}
       >
         Please enter a whole number between 1 and 1000.
       </AlertMessage>
