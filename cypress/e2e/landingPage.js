@@ -145,7 +145,8 @@ describe('Landing Page: Direct entry', () => {
     );
   });
 
-  ['preferredFamily', 'preferredSubfamily'].forEach(fontMetric => {
+  ['preferredFamily', 'preferredSubfamily', 'usWeightClass'].forEach(
+    fontMetric => {
     it.only(`shows an error message for ${fontMetric} if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input`, () => {
     // execute 1
       cy.findByLabelText(fontMetric).clear();
@@ -157,7 +158,8 @@ describe('Landing Page: Direct entry', () => {
     // verify
       cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
 });
-});
+    },
+  );
 });
 
 describe('Landing Page: Error-handling', () => {

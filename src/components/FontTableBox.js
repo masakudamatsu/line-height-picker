@@ -17,6 +17,7 @@ const FontTableBox = props => {
 
   const [fontFamilyError, setFontFamilyError] = React.useState(false);
   const [fontSubfamilyError, setFontSubfamilyError] = React.useState(false);
+  const [weightClassError, setWeightClassError] = React.useState(false);
 
   const validateFontFamily = errors => {
     if (errors.valueMissing) {
@@ -32,7 +33,13 @@ const FontTableBox = props => {
       setFontSubfamilyError(false);
     }
   };
-
+  const validateWeightClass = errors => {
+    if (errors.valueMissing) {
+      setWeightClassError(true);
+    } else {
+      setWeightClassError(false);
+    }
+  };
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -47,6 +54,11 @@ const FontTableBox = props => {
     const fontSubfamilyErrors = inputs['preferredSubfamily'].validity;
     if (!fontSubfamilyErrors.valid) {
       validateFontSubfamily(fontSubfamilyErrors);
+      return;
+    }
+    const weightClassErrors = inputs['usWeightClass'].validity;
+    if (!weightClassErrors.valid) {
+      validateWeightClass(weightClassErrors);
       return;
     }
 
@@ -81,6 +93,15 @@ const FontTableBox = props => {
       // Erase the error message when the user enters something
       const errors = event.target.validity;
       validateFontSubfamily(errors);
+    }
+    if (event.target.name === 'usWeightClass') {
+      // Do nothing if there's no error
+      if (!weightClassError) {
+        return;
+      }
+      // Erase the error message when the user enters something
+      const errors = event.target.validity;
+      validateWeightClass(errors);
     }
   };
   if (redirect) {
@@ -148,9 +169,19 @@ const FontTableBox = props => {
         data-testid="usWeightClass"
         id="usWeightClass"
         name="usWeightClass"
+        onChange={handleChange}
         placeholder="400"
-        aria-describedby="instruction--usWeightClass"
+        required
+        aria-describedby="instruction--usWeightClass error-message-usWeightClass"
       />
+      <AlertMessage
+        data-testid="error-message-usWeightClass"
+        id="error-message-usWeightClass"
+        error={weightClassError}
+        errorText={weightClassError}
+      >
+        Please enter a whole number between 1 and 1000.
+      </AlertMessage>
 
       <Label htmlFor="unitsPerEm">unitsPerEm</Label>
       <ParagraphOneRem id="instruction-unitsPerEm">

@@ -261,15 +261,23 @@ test('renders correctly', () => {
            table.
         </p>
         <input
-          aria-describedby="instruction--usWeightClass"
+          aria-describedby="instruction--usWeightClass error-message-usWeightClass"
           class="c5"
           data-testid="usWeightClass"
           id="usWeightClass"
           name="usWeightClass"
           pattern="[0-9]*[.,]?[0-9]+"
           placeholder="400"
+          required=""
           type="number"
         />
+        <p
+          class="c4"
+          data-testid="error-message-usWeightClass"
+          id="error-message-usWeightClass"
+        >
+          Please enter a whole number between 1 and 1000.
+        </p>
         <label
           class=""
           for="unitsPerEm"
