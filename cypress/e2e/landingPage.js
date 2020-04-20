@@ -52,7 +52,7 @@ describe('Landing Page: Direct entry', () => {
   const userInput = {
     sCapHeight: '1456',
     preferredFamily: 'Roboto Slab',
-    fontSubfamily: 'Light',
+    preferredSubfamily: 'Light',
     unitsPerEm: '2048',
     usWeightClass: '300',
     sxHeight: '1082',
@@ -72,7 +72,7 @@ describe('Landing Page: Direct entry', () => {
     cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
     cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
     cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
-    cy.findByLabelText('preferredSubfamily').type(userInput.fontSubfamily);
+    cy.findByLabelText('preferredSubfamily').type(userInput.preferredSubfamily);
     cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
   });
 
@@ -144,17 +144,20 @@ describe('Landing Page: Direct entry', () => {
       userInput.lineHeightRatio,
     );
   });
-  it.only('shows an error message for preferredFamily if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input', () => {
+
+  ['preferredFamily', 'preferredSubfamily'].forEach(fontMetric => {
+    it.only(`shows an error message for ${fontMetric} if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input`, () => {
     // execute 1
-    cy.findByLabelText('preferredFamily').clear();
+      cy.findByLabelText(fontMetric).clear();
     cy.findByText(/next/i).click();
     // verify
-    cy.assertIfErrorMessageAppears('error-message-preferredFamily');
+      cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
     // execute 2
-    cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
+      cy.findByLabelText(fontMetric).type(userInput[fontMetric]);
     // verify
-    cy.assertIfErrorMessageDisappears(`error-message-preferredFamily`);
-  });
+      cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
+});
+});
 });
 
 describe('Landing Page: Error-handling', () => {

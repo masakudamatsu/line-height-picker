@@ -29,6 +29,11 @@ const FontTableBox = props => {
       props.validateFontFamily(fontFamilyErrors);
       return;
     }
+    const fontSubfamilyErrors = inputFieldArray[1].validity;
+    if (!fontSubfamilyErrors.valid) {
+      props.validateFontSubfamily(fontSubfamilyErrors);
+      return;
+    }
 
     let newFontMetrics = {};
     inputFieldArray.forEach(inputField => {
@@ -39,13 +44,22 @@ const FontTableBox = props => {
   };
   const handleChange = event => {
     if (event.target.name === 'preferredFamily') {
-    // Do nothing if there's no error
-    if (!props.fontFamilyError) {
-      return;
+      // Do nothing if there's no error
+      if (!props.fontFamilyError) {
+        return;
+      }
+      // Erase the error message when the user enters something
+      const errors = event.target.validity;
+      props.validateFontFamily(errors);
     }
-    // Erase the error message when the user enters something
-    const errors = event.target.validity;
-    props.validateFontFamily(errors);
+    if (event.target.name === 'preferredSubfamily') {
+      // Do nothing if there's no error
+      if (!props.fontSubfamilyError) {
+        return;
+      }
+      // Erase the error message when the user enters something
+      const errors = event.target.validity;
+      props.validateFontSubfamily(errors);
     }
   };
   if (redirect) {
@@ -90,9 +104,19 @@ const FontTableBox = props => {
         data-testid="preferredSubfamily"
         id="preferredSubfamily"
         name="preferredSubfamily"
+        onChange={handleChange}
         placeholder="Regular"
-        aria-describedby="instruction-preferredSubfamily"
+        required
+        aria-describedby="instruction-preferredSubfamily error-message-preferredSubfamily"
       />
+      <AlertMessage
+        data-testid="error-message-preferredSubfamily"
+        id="error-message-preferredSubfamily"
+        error={props.fontSubfamilyError}
+        errorText={props.fontSubfamilyError}
+      >
+        Enter the font subfamily name (such as Regular, Italic, Bold, Light).
+      </AlertMessage>
 
       <Label htmlFor="usWeightClass">usWeightClass</Label>
       <ParagraphOneRem id="instruction-usWeightClass">
@@ -154,7 +178,9 @@ const FontTableBox = props => {
 
 FontTableBox.propTypes = {
   fontFamilyError: PropTypes.bool,
+  fontSubfamilyError: PropTypes.bool,
   updateFontMetrics: PropTypes.func.isRequired,
   validateFontFamily: PropTypes.func.isRequired,
+  validateFontSubfamily: PropTypes.func.isRequired,
 };
 export default FontTableBox;
