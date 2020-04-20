@@ -18,23 +18,25 @@ const FontTableBox = props => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    // Convert event.target.elements (an object) into an array of input elements
-    const inputFieldArray = Array.prototype.slice
-      .call(event.target.elements)
-      .filter(inputField => inputField.name.length > 0); // Remove empty string key-value pair
+    const inputs = event.target.elements;
 
     // Validation
-    const fontFamilyErrors = inputFieldArray[0].validity;
+    const fontFamilyErrors = inputs['preferredFamily'].validity;
     if (!fontFamilyErrors.valid) {
       props.validateFontFamily(fontFamilyErrors);
       return;
     }
-    const fontSubfamilyErrors = inputFieldArray[1].validity;
+    const fontSubfamilyErrors = inputs['preferredSubfamily'].validity;
     if (!fontSubfamilyErrors.valid) {
       props.validateFontSubfamily(fontSubfamilyErrors);
       return;
     }
 
+    // Convert event.target.elements (an object) into an array of input elements
+    const inputFieldArray = Array.prototype.slice
+      .call(inputs)
+      .filter(inputField => inputField.name.length > 0); // Remove empty string key-value pair
+    // Update the state with input values
     let newFontMetrics = {};
     inputFieldArray.forEach(inputField => {
       newFontMetrics[inputField.name] = inputField.value;
@@ -42,6 +44,7 @@ const FontTableBox = props => {
     props.updateFontMetrics(newFontMetrics);
     setRedirect(true);
   };
+
   const handleChange = event => {
     if (event.target.name === 'preferredFamily') {
       // Do nothing if there's no error
