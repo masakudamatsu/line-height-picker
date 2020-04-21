@@ -267,18 +267,39 @@ Cypress.Commands.add('testAlertForValuesLessThanOne', testId => {
   } else {
     errorMessageTestId = 'error-message-modular-scale';
   }
-  // execute
+  // wrong input, but not yet blur
   cy.findByTestId(testId).type(invalidUserData.negativeValue);
-  // verify
-  cy.assertIfErrorMessageAppears(errorMessageTestId);
-  // execute
-  cy.findByTestId(testId).clear();
-  // verify
   cy.assertIfErrorMessageDisappears(errorMessageTestId);
-  // execute
-  cy.findByTestId(testId).type(invalidUserData.zero);
-  // verify
+
+  // wrong input and blur
+  cy.findByTestId(testId).blur();
   cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // delete input, but not yet blur
+  cy.findByTestId(testId).clear();
+  cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // delete input and blur
+  cy.findByTestId(testId).blur();
+  cy.assertIfErrorMessageDisappears(errorMessageTestId);
+
+  // wrong input again, not yet blur
+  cy.findByTestId(testId).type(invalidUserData.zero);
+  cy.assertIfErrorMessageDisappears(errorMessageTestId);
+
+  // wrong input and blur
+  cy.findByTestId(testId).blur();
+  cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // correct input and not yet blur
+  cy.findByTestId(testId)
+    .clear()
+    .type(validUserData);
+  cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // correct input and blur
+  cy.findByTestId(testId).blur();
+  cy.assertIfErrorMessageDisappears(errorMessageTestId);
 });
 
 Cypress.Commands.add('testAlertForValuesMoreThanHundred', testId => {
@@ -291,13 +312,20 @@ Cypress.Commands.add('testAlertForValuesMoreThanHundred', testId => {
     errorMessageTestId = 'error-message-modular-scale';
   }
 
-  // execute
+  // Wrong input and not yet blur
   cy.findByTestId(testId).type(invalidUserData);
-  // verify
+  cy.assertIfErrorMessageDisappears(errorMessageTestId);
+
+  // Wrong input and blur
+  cy.findByTestId(testId).blur();
   cy.assertIfErrorMessageAppears(errorMessageTestId);
-  // execute
+
+  // Correct input and not yet blur
   cy.findByTestId(testId).type('{backspace}');
-  // verify
+  cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // Correct input and blur
+  cy.findByTestId(testId).blur();
   cy.assertIfErrorMessageDisappears(errorMessageTestId);
 });
 

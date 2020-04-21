@@ -132,11 +132,11 @@ describe('X-height page: Error-handling', () => {
     cy.testAlertForDecimalPlaces('x-height-in-pixel');
   });
 
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
+  it('alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
     cy.testAlertForValuesLessThanOne('x-height-in-pixel');
   });
 
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
+  it('alerts the user if they enter a value more than 100 AND blur the input field, but the alert disappears when they correct the input value AND blur the input field', () => {
     cy.testAlertForValuesMoreThanHundred('x-height-in-pixel');
   });
 
