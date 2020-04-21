@@ -17,6 +17,10 @@ export const NoWrap = styled.span`
   white-space: nowrap;
 `;
 
+export const BringAttention = styled.b`
+  font-weight: ${props => (props.yes ? '700' : 'inherit')};
+`;
+
 export const CenterAlignWrapperHorizontal = styled.div`
   align-items: flex-end;
   display: flex;

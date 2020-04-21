@@ -29,6 +29,10 @@ test('renders correctly', () => {
     <FontTableBox updateFontMetrics={mockUpdateFontMetrics} />,
   );
   expect(container).toMatchInlineSnapshot(`
+    .c6 {
+      font-weight: inherit;
+    }
+
     .c1 {
       color: currentColor;
       font-size: 1rem;
@@ -45,7 +49,7 @@ test('renders correctly', () => {
       font-size: 1rem;
     }
 
-    .c6 {
+    .c7 {
       -webkit-align-items: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -132,7 +136,7 @@ test('renders correctly', () => {
     }
 
     @media (min-width:875px) {
-      .c6 {
+      .c7 {
         font-size: 43.75px;
       }
     }
@@ -271,6 +275,7 @@ test('renders correctly', () => {
           pattern="[0-9]*[.,]?[0-9]+"
           placeholder="400"
           required=""
+          step="1"
           type="number"
         />
         <p
@@ -278,7 +283,16 @@ test('renders correctly', () => {
           data-testid="error-message-usWeightClass"
           id="error-message-usWeightClass"
         >
-          Please enter a whole number between 1 and 1000.
+          Please enter a
+           
+          <b
+            class="c6"
+            data-testid="bring-attention-usWeightClass"
+          >
+            whole number
+          </b>
+           
+          between 1 and 1000.
         </p>
         <label
           class=""
@@ -315,6 +329,7 @@ test('renders correctly', () => {
           pattern="[0-9]*[.,]?[0-9]+"
           placeholder="2048"
           required=""
+          step="1"
           type="number"
         />
         <p
@@ -322,7 +337,16 @@ test('renders correctly', () => {
           data-testid="error-message-unitsPerEm"
           id="error-message-unitsPerEm"
         >
-          Please enter a whole number between 16 and 16384.
+          Please enter a
+           
+          <b
+            class="c6"
+            data-testid="bring-attention-unitsPerEm"
+          >
+            whole number
+          </b>
+           
+          between 16 and 16384.
         </p>
         <label
           class=""
@@ -353,6 +377,7 @@ test('renders correctly', () => {
           pattern="[0-9]*[.,]?[0-9]+"
           placeholder="1096"
           required=""
+          step="1"
           type="number"
         />
         <p
@@ -360,7 +385,16 @@ test('renders correctly', () => {
           data-testid="error-message-sxHeight"
           id="error-message-sxHeight"
         >
-          Please enter a whole number between 16 and 16384.
+          Please enter a
+           
+          <b
+            class="c6"
+            data-testid="bring-attention-sxHeight"
+          >
+            whole number
+          </b>
+           
+          between 16 and 16384.
         </p>
         <label
           class=""
@@ -391,6 +425,7 @@ test('renders correctly', () => {
           pattern="[0-9]*[.,]?[0-9]+"
           placeholder="1462"
           required=""
+          step="1"
           type="number"
         />
         <p
@@ -398,10 +433,19 @@ test('renders correctly', () => {
           data-testid="error-message-sCapHeight"
           id="error-message-sCapHeight"
         >
-          Please enter a whole number between 16 and 16384.
+          Please enter a
+           
+          <b
+            class="c6"
+            data-testid="bring-attention-sCapHeight"
+          >
+            whole number
+          </b>
+           
+          between 16 and 16384.
         </p>
         <button
-          class="c6"
+          class="c7"
         >
           Next
         </button>

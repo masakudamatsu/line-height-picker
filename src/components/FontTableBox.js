@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   AlertMessage,
+  BringAttention,
   Button,
   Code,
   Form,
@@ -200,7 +201,14 @@ const FontTableBox = props => {
           stepError['usWeightClass']
         }
       >
-        Please enter a whole number between 1 and 1000.
+        Please enter a{' '}
+        <BringAttention
+          data-testid="bring-attention-usWeightClass"
+          yes={stepError['usWeightClass']}
+        >
+          whole number
+        </BringAttention>{' '}
+        between 1 and 1000.
       </AlertMessage>
 
       <Label htmlFor="unitsPerEm">unitsPerEm</Label>
@@ -236,7 +244,14 @@ const FontTableBox = props => {
           stepError['unitsPerEm']
         }
       >
-        Please enter a whole number between 16 and 16384.
+        Please enter a{' '}
+        <BringAttention
+          data-testid="bring-attention-unitsPerEm"
+          yes={stepError['unitsPerEm']}
+        >
+          whole number
+        </BringAttention>{' '}
+        between 16 and 16384.
       </AlertMessage>
 
       <Label htmlFor="sxHeight">sxHeight</Label>
@@ -271,7 +286,14 @@ const FontTableBox = props => {
           stepError['sxHeight']
         }
       >
-        Please enter a whole number between 16 and 16384.
+        Please enter a{' '}
+        <BringAttention
+          data-testid="bring-attention-sxHeight"
+          yes={stepError['sxHeight']}
+        >
+          whole number
+        </BringAttention>{' '}
+        between 16 and 16384.
       </AlertMessage>
 
       <Label htmlFor="sCapHeight">sCapHeight</Label>
@@ -306,7 +328,14 @@ const FontTableBox = props => {
           stepError['sCapHeight']
         }
       >
-        Please enter a whole number between 16 and 16384.
+        Please enter a{' '}
+        <BringAttention
+          data-testid="bring-attention-sCapHeight"
+          yes={stepError['sCapHeight']}
+        >
+          whole number
+        </BringAttention>{' '}
+        between 16 and 16384.
       </AlertMessage>
 
       <Button>Next</Button>

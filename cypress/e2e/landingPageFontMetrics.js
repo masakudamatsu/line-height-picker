@@ -181,10 +181,11 @@ describe('Landing Page: Direct entry', () => {
 
   ['usWeightClass', 'unitsPerEm', 'sxHeight', 'sCapHeight'].forEach(
     fontMetric => {
-      it.only(`shows alert for ${fontMetric} if the user enters a decimal value, but not until the user clicks somewhere else to blur the focused input element`, () => {
+      it(`shows alert for ${fontMetric} if the user enters a decimal value, but not until the user clicks somewhere else to blur the focused input element`, () => {
         // setup
         const invalidInputValue = 160.5;
         const validInputValue = 160;
+        const expectedFontWeight = '700';
 
         // without blurring doesn't reveal the message
         cy.findByLabelText(fontMetric).type(invalidInputValue);
@@ -194,6 +195,11 @@ describe('Landing Page: Direct entry', () => {
         cy.findByLabelText(fontMetric).blur();
         // verify
         cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
+        cy.findByTestId(`bring-attention-${fontMetric}`).should(
+          'have.css',
+          'font-weight',
+          expectedFontWeight,
+        );
 
         // correcting a value doesn't hide the message yet
         cy.findByLabelText(fontMetric)
@@ -201,6 +207,11 @@ describe('Landing Page: Direct entry', () => {
           .type(validInputValue);
         // verify
         cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
+        cy.findByTestId(`bring-attention-${fontMetric}`).should(
+          'have.css',
+          'font-weight',
+          expectedFontWeight,
+        );
 
         // blurring finally hides the message
         cy.findByLabelText(fontMetric).blur();
