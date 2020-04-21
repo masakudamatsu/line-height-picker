@@ -1,6 +1,6 @@
 import React from 'react';
 import render from './test-utils/render';
-import {cleanup, fireEvent} from '@testing-library/react';
+import {cleanup} from '@testing-library/react';
 import user from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
@@ -8,7 +8,6 @@ import {axe} from 'jest-axe';
 import 'jest-axe/extend-expect';
 
 import ModularScaleBoxes from './ModularScaleBoxes';
-import colorPalette from '../theme/colorPalette';
 
 const mockHandleXHeightRatioChange = jest.fn();
 const mockHandleLineHeightRatioChange = jest.fn();
@@ -239,11 +238,13 @@ test('Entering x-height ratio value calls the handleXHeightRatioChange() and val
   const userInputList = ['2', '11']; // check two-digits call the function twice
   userInputList.forEach(userdata => {
     // execute
-    fireEvent.change(xHeightRatioInput, {target: {value: userdata}});
+    user.type(xHeightRatioInput, userdata);
     // verify
     expect(mockHandleXHeightRatioChange).toHaveBeenCalledTimes(userdata.length);
     expect(mockHandleXHeightRatioChange).toHaveBeenCalledWith(userdata);
     expect(mockValidateModularScale).toHaveBeenCalledTimes(userdata.length);
+    // isolate
+    jest.clearAllMocks();
   });
 });
 
@@ -262,13 +263,15 @@ test('Entering line-height ratio value calls the handleLineHeightRatioChange() a
   const userInputList = ['3', '12']; // check two-digits call the function twice
   userInputList.forEach(userdata => {
     // execute
-    fireEvent.change(lineHeightRatioInput, {target: {value: userdata}});
+    user.type(lineHeightRatioInput, userdata);
     // verify
     expect(mockHandleLineHeightRatioChange).toHaveBeenCalledTimes(
       userdata.length,
     );
     expect(mockHandleLineHeightRatioChange).toHaveBeenCalledWith(userdata);
     expect(mockValidateModularScale).toHaveBeenCalledTimes(userdata.length);
+    // isolate
+    jest.clearAllMocks();
   });
 });
 
