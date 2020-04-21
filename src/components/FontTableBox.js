@@ -39,6 +39,13 @@ const FontTableBox = props => {
     [names[++j]]: false,
     [names[++j]]: false,
   });
+  let k = 2;
+  const [stepError, setStepError] = React.useState({
+    [names[k]]: false,
+    [names[++k]]: false,
+    [names[++k]]: false,
+    [names[++k]]: false,
+  });
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -93,6 +100,16 @@ const FontTableBox = props => {
     }
     const newRangeError = {...rangeError, ...newErrorStatus};
     setRangeError(newRangeError);
+
+    const valueNotWholeNumber = event.target.validity.stepMismatch;
+    let newStepErrorStatus = {};
+    if (valueNotWholeNumber) {
+      newStepErrorStatus[name] = true;
+    } else {
+      newStepErrorStatus[name] = false;
+    }
+    const newStepError = {...stepError, ...newStepErrorStatus};
+    setStepError(newStepError);
   };
 
   if (redirect) {
@@ -166,14 +183,21 @@ const FontTableBox = props => {
         onChange={handleChange}
         placeholder="400"
         required
+        step="1"
         aria-describedby="instruction--usWeightClass error-message-usWeightClass"
       />
       <AlertMessage
         data-testid="error-message-usWeightClass"
         id="error-message-usWeightClass"
-        error={missingValues['usWeightClass'] || rangeError['usWeightClass']}
+        error={
+          missingValues['usWeightClass'] ||
+          rangeError['usWeightClass'] ||
+          stepError['usWeightClass']
+        }
         errorText={
-          missingValues['usWeightClass'] || rangeError['usWeightClass']
+          missingValues['usWeightClass'] ||
+          rangeError['usWeightClass'] ||
+          stepError['usWeightClass']
         }
       >
         Please enter a whole number between 1 and 1000.
@@ -195,13 +219,22 @@ const FontTableBox = props => {
         onChange={handleChange}
         placeholder="2048"
         required
+        step="1"
         aria-describedby="instruction-unitsPerEm error-message-unitsPerEm"
       />
       <AlertMessage
         data-testid="error-message-unitsPerEm"
         id="error-message-unitsPerEm"
-        error={missingValues['unitsPerEm'] || rangeError['unitsPerEm']}
-        errorText={missingValues['unitsPerEm'] || rangeError['unitsPerEm']}
+        error={
+          missingValues['unitsPerEm'] ||
+          rangeError['unitsPerEm'] ||
+          stepError['unitsPerEm']
+        }
+        errorText={
+          missingValues['unitsPerEm'] ||
+          rangeError['unitsPerEm'] ||
+          stepError['unitsPerEm']
+        }
       >
         Please enter a whole number between 16 and 16384.
       </AlertMessage>
@@ -221,13 +254,22 @@ const FontTableBox = props => {
         onChange={handleChange}
         placeholder="1096"
         required
+        step="1"
         aria-describedby="instruction-sxHeight error-message-sxHeight"
       />
       <AlertMessage
         data-testid="error-message-sxHeight"
         id="error-message-sxHeight"
-        error={missingValues['sxHeight'] || rangeError['sxHeight']}
-        errorText={missingValues['sxHeight'] || rangeError['sxHeight']}
+        error={
+          missingValues['sxHeight'] ||
+          rangeError['sxHeight'] ||
+          stepError['sxHeight']
+        }
+        errorText={
+          missingValues['sxHeight'] ||
+          rangeError['sxHeight'] ||
+          stepError['sxHeight']
+        }
       >
         Please enter a whole number between 16 and 16384.
       </AlertMessage>
@@ -247,13 +289,22 @@ const FontTableBox = props => {
         onChange={handleChange}
         placeholder="1462"
         required
+        step="1"
         aria-describedby="instruction-sCapHeight error-message-sCapHeight"
       />
       <AlertMessage
         data-testid="error-message-sCapHeight"
         id="error-message-sCapHeight"
-        error={missingValues['sCapHeight'] || rangeError['sCapHeight']}
-        errorText={missingValues['sCapHeight'] || rangeError['sCapHeight']}
+        error={
+          missingValues['sCapHeight'] ||
+          rangeError['sCapHeight'] ||
+          stepError['sCapHeight']
+        }
+        errorText={
+          missingValues['sCapHeight'] ||
+          rangeError['sCapHeight'] ||
+          stepError['sCapHeight']
+        }
       >
         Please enter a whole number between 16 and 16384.
       </AlertMessage>
