@@ -18,16 +18,16 @@ describe('Landing Page: Direct entry', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
+  });
+
+  it('takes the user to the x-height page after clicking the NEXT button', () => {
+    // execute
     cy.findByLabelText('sxHeight').type(userInput.sxHeight);
     cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
     cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
     cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
     cy.findByLabelText('preferredSubfamily').type(userInput.preferredSubfamily);
     cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
-  });
-
-  it('takes the user to the x-height page after clicking the NEXT button', () => {
-    // execute
     cy.findByText(/next/i).click();
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
@@ -39,6 +39,12 @@ describe('Landing Page: Direct entry', () => {
     const expectedFontSubfamily = 'Light';
     const expectedFontWeight = '300';
     // execute
+    cy.findByLabelText('sxHeight').type(userInput.sxHeight);
+    cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
+    cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
+    cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
+    cy.findByLabelText('preferredSubfamily').type(userInput.preferredSubfamily);
+    cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
     cy.findByText(/next/i).click();
     // verify
     cy.assertFontNameFromXheightPageOn(
@@ -51,6 +57,12 @@ describe('Landing Page: Direct entry', () => {
   it('calculates the font-size value based on the entered sxHeight and unitsPerEm values', () => {
     // setup
     // execute
+    cy.findByLabelText('sxHeight').type(userInput.sxHeight);
+    cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
+    cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
+    cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
+    cy.findByLabelText('preferredSubfamily').type(userInput.preferredSubfamily);
+    cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-in-pixel').type(userInput.xHeight);
     cy.findByText(/scale/i).click();
@@ -64,6 +76,12 @@ describe('Landing Page: Direct entry', () => {
   it('calculates the line-height value based on the entered sxHeight and unitsPerEm values', () => {
     // setup
     // execute
+    cy.findByLabelText('sxHeight').type(userInput.sxHeight);
+    cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
+    cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
+    cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
+    cy.findByLabelText('preferredSubfamily').type(userInput.preferredSubfamily);
+    cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-in-pixel').type(userInput.xHeight);
     cy.findByText(/scale/i).click();
@@ -80,6 +98,12 @@ describe('Landing Page: Direct entry', () => {
 
   it('calculates the vertical space between paragraphs based on the entered cap height etc.', () => {
     // execute
+    cy.findByLabelText('sxHeight').type(userInput.sxHeight);
+    cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
+    cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
+    cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
+    cy.findByLabelText('preferredSubfamily').type(userInput.preferredSubfamily);
+    cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-in-pixel').type(userInput.xHeight);
     cy.findByText(/scale/i).click();
@@ -105,6 +129,14 @@ describe('Landing Page: Direct entry', () => {
   ].forEach(fontMetric => {
     it(`shows an error message for ${fontMetric} if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input`, () => {
       // execute 1
+      cy.findByLabelText('sxHeight').type(userInput.sxHeight);
+      cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
+      cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
+      cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
+      cy.findByLabelText('preferredSubfamily').type(
+        userInput.preferredSubfamily,
+      );
+      cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
       cy.findByLabelText(fontMetric).clear();
       cy.findByText(/next/i).click();
       // verify
