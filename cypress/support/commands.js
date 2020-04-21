@@ -236,13 +236,21 @@ Cypress.Commands.add('testAlertForDecimalPlaces', testId => {
   } else {
     errorMessageTestId = 'instruction-modular-scale';
   }
-  // execute
+
+  // wrong input, but not yet blur
   cy.findByTestId(testId).type(invalidUserData.xHeight);
-  // verify
+  cy.assertIfDecimalPlaceMessageTurnsNormal(errorMessageTestId);
+
+  // wrong input and blur
+  cy.findByTestId(testId).blur();
   cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
-  // execute
+
+  // correct input, but not yet blur
   cy.findByTestId(testId).type('{backspace}'); // eliminate the 5th decimal place
-  // verify
+  cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
+
+  // correct input and blur
+  cy.findByTestId(testId).blur();
   cy.assertIfDecimalPlaceMessageTurnsNormal(errorMessageTestId);
 });
 

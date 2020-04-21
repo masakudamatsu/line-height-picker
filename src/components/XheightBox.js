@@ -12,12 +12,13 @@ import {
 
 const XheightBox = props => {
   const handleChange = event => {
-    const errors = event.target.validity;
-    props.validateXHeight(errors);
     const xHeightValue = event.target.value;
     props.handleXHeightChange(xHeightValue);
   };
-
+  const handleBlur = event => {
+    const errors = event.target.validity;
+    props.validateXHeight(errors);
+  };
   return (
     <Form>
       <Label htmlFor="x-height">Set x-height</Label>
@@ -27,6 +28,7 @@ const XheightBox = props => {
           id="x-height"
           max="100"
           min="1"
+          onBlur={handleBlur}
           onChange={handleChange}
           required
           step="0.0001"
