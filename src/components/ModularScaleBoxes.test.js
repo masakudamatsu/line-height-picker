@@ -143,7 +143,7 @@ test('renders correctly', () => {
             </label>
             <input
               aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-              class="sc-fzoyTs sc-fzoNJl c4"
+              class="sc-fzoNJl sc-fzoXWK c4"
               data-testid="x-height-for-ratio"
               id="x-height-scale"
               max="100"
@@ -169,7 +169,7 @@ test('renders correctly', () => {
             </label>
             <input
               aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-              class="sc-fzoyTs sc-fzoNJl c4"
+              class="sc-fzoNJl sc-fzoXWK c4"
               data-testid="line-height-for-ratio"
               id="line-height-scale"
               max="100"

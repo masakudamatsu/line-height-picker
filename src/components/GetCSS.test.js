@@ -139,19 +139,19 @@ test('renders correctly', () => {
           data-testid="error-message-clipboard"
         >
           <p
-            class="sc-AxheI c5"
+            class="sc-Axmtr c5"
             id="whatHappened"
           >
             The browser doesn't allow us to copy the CSS code into your clipboard.
           </p>
           <p
-            class="sc-AxheI c5"
+            class="sc-Axmtr c5"
             id="howToResolve"
           >
             Please select the CSS code on your own to copy and paste it.
           </p>
           <p
-            class="sc-AxheI c5"
+            class="sc-Axmtr c5"
             id="extraText"
           >
             Alternatively, consider using the browsers that support the "click to copy into clipboard" feature: Edge (version 79 or later), Chrome (76 or later), Opera (63 or later). See
