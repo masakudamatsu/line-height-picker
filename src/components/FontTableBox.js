@@ -32,6 +32,13 @@ const FontTableBox = props => {
     [names[++i]]: false,
     [names[++i]]: false,
   });
+  let j = 2;
+  const [rangeError, setRangeError] = React.useState({
+    [names[j]]: false,
+    [names[++j]]: false,
+    [names[++j]]: false,
+    [names[++j]]: false,
+  });
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -72,6 +79,20 @@ const FontTableBox = props => {
     };
     const newFontMetricsError = {...fontMetricsError, ...newErrorStatus};
     setFontMetricsError(newFontMetricsError);
+  };
+
+  const handleBlur = event => {
+    const name = event.target.name;
+    const valueHigherThanMax = event.target.validity.rangeOverflow;
+    const valueLowerThanMix = event.target.validity.rangeUnderflow;
+    let newErrorStatus = {};
+    if (valueHigherThanMax || valueLowerThanMix) {
+      newErrorStatus[name] = true;
+    } else {
+      newErrorStatus[name] = false;
+    }
+    const newFontMetricsError = {...fontMetricsError, ...newErrorStatus};
+    setRangeError(newFontMetricsError);
   };
 
   if (redirect) {
@@ -138,7 +159,10 @@ const FontTableBox = props => {
       <NumberInput
         data-testid="usWeightClass"
         id="usWeightClass"
+        max="1000"
+        min="1"
         name="usWeightClass"
+        onBlur={handleBlur}
         onChange={handleChange}
         placeholder="400"
         required
@@ -147,8 +171,10 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-usWeightClass"
         id="error-message-usWeightClass"
-        error={fontMetricsError['usWeightClass']}
-        errorText={fontMetricsError['usWeightClass']}
+        error={fontMetricsError['usWeightClass'] || rangeError['usWeightClass']}
+        errorText={
+          fontMetricsError['usWeightClass'] || rangeError['usWeightClass']
+        }
       >
         Please enter a whole number between 1 and 1000.
       </AlertMessage>
@@ -162,7 +188,10 @@ const FontTableBox = props => {
       <NumberInput
         data-testid="unitsPerEm"
         id="unitsPerEm"
+        max="16384"
+        min="16"
         name="unitsPerEm"
+        onBlur={handleBlur}
         onChange={handleChange}
         placeholder="2048"
         required
@@ -171,8 +200,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-unitsPerEm"
         id="error-message-unitsPerEm"
-        error={fontMetricsError['unitsPerEm']}
-        errorText={fontMetricsError['unitsPerEm']}
+        error={fontMetricsError['unitsPerEm'] || rangeError['unitsPerEm']}
+        errorText={fontMetricsError['unitsPerEm'] || rangeError['unitsPerEm']}
       >
         Please enter a whole number between 16 and 16384.
       </AlertMessage>
@@ -185,7 +214,10 @@ const FontTableBox = props => {
       <NumberInput
         data-testid="sxHeight"
         id="sxHeight"
+        max="16384"
+        min="16"
         name="sxHeight"
+        onBlur={handleBlur}
         onChange={handleChange}
         placeholder="1096"
         required
@@ -194,8 +226,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-sxHeight"
         id="error-message-sxHeight"
-        error={fontMetricsError['sxHeight']}
-        errorText={fontMetricsError['sxHeight']}
+        error={fontMetricsError['sxHeight'] || rangeError['sxHeight']}
+        errorText={fontMetricsError['sxHeight'] || rangeError['sxHeight']}
       >
         Please enter a whole number between 16 and 16384.
       </AlertMessage>
@@ -208,7 +240,10 @@ const FontTableBox = props => {
       <NumberInput
         data-testid="sCapHeight"
         id="sCapHeight"
+        max="16384"
+        min="16"
         name="sCapHeight"
+        onBlur={handleBlur}
         onChange={handleChange}
         placeholder="1462"
         required
@@ -217,8 +252,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-sCapHeight"
         id="error-message-sCapHeight"
-        error={fontMetricsError['sCapHeight']}
-        errorText={fontMetricsError['sCapHeight']}
+        error={fontMetricsError['sCapHeight'] || rangeError['sCapHeight']}
+        errorText={fontMetricsError['sCapHeight'] || rangeError['sCapHeight']}
       >
         Please enter a whole number between 16 and 16384.
       </AlertMessage>

@@ -148,4 +148,34 @@ describe('Landing Page: Direct entry', () => {
       cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
     });
   });
+
+  ['usWeightClass', 'unitsPerEm', 'sxHeight', 'sCapHeight'].forEach(
+    fontMetric => {
+      it.only(`shows alert for ${fontMetric} if the user enters the value outside the required range, but not until the user clicks somewhere else to blur the focused input element`, () => {
+        // setup
+        const invalidInputValue = 0;
+        const validInputValue = 1000;
+
+        // without blurring doesn't reveal the message
+        cy.findByLabelText(fontMetric).type(invalidInputValue);
+        cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
+
+        // blurring reveals the message
+        cy.findByLabelText(fontMetric).blur();
+        // verify
+        cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
+
+        // correcting a value doesn't hide the message yet
+        cy.findByLabelText(fontMetric)
+          .clear()
+          .type(validInputValue);
+        // verify
+        cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
+
+        // blurring finally hides the message
+        cy.findByLabelText(fontMetric).blur();
+        cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
+      });
+    },
+  );
 });
