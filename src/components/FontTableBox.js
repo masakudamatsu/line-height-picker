@@ -24,7 +24,7 @@ const FontTableBox = props => {
     'sCapHeight',
   ];
   let i = 0;
-  const [fontMetricsError, setFontMetricsError] = React.useState({
+  const [missingValues, setMissingValues] = React.useState({
     [names[i]]: false,
     [names[++i]]: false,
     [names[++i]]: false,
@@ -55,7 +55,7 @@ const FontTableBox = props => {
       name => newFontMetricsError[name] === true,
     );
     if (someError) {
-      setFontMetricsError(newFontMetricsError);
+      setMissingValues(newFontMetricsError);
       return; // Won't do anything below if there is at least one error.
     }
     // Update font metrics
@@ -70,15 +70,15 @@ const FontTableBox = props => {
   const handleChange = event => {
     const name = event.target.name;
     // Do nothing if there's no error
-    if (!fontMetricsError[name]) {
+    if (!missingValues[name]) {
       return;
     }
     // Erase the error message when the user enters something
     const newErrorStatus = {
       [name]: event.target.validity.valueMissing,
     };
-    const newFontMetricsError = {...fontMetricsError, ...newErrorStatus};
-    setFontMetricsError(newFontMetricsError);
+    const newFontMetricsError = {...missingValues, ...newErrorStatus};
+    setMissingValues(newFontMetricsError);
   };
 
   const handleBlur = event => {
@@ -91,8 +91,8 @@ const FontTableBox = props => {
     } else {
       newErrorStatus[name] = false;
     }
-    const newFontMetricsError = {...fontMetricsError, ...newErrorStatus};
-    setRangeError(newFontMetricsError);
+    const newRangeError = {...rangeError, ...newErrorStatus};
+    setRangeError(newRangeError);
   };
 
   if (redirect) {
@@ -121,8 +121,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-preferredFamily"
         id="error-message-preferredFamily"
-        error={fontMetricsError['preferredFamily']}
-        errorText={fontMetricsError['preferredFamily']}
+        error={missingValues['preferredFamily']}
+        errorText={missingValues['preferredFamily']}
       >
         Enter the font family name.
       </AlertMessage>
@@ -145,8 +145,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-preferredSubfamily"
         id="error-message-preferredSubfamily"
-        error={fontMetricsError['preferredSubfamily']}
-        errorText={fontMetricsError['preferredSubfamily']}
+        error={missingValues['preferredSubfamily']}
+        errorText={missingValues['preferredSubfamily']}
       >
         Enter the font subfamily name (such as Regular, Italic, Bold, Light).
       </AlertMessage>
@@ -171,9 +171,9 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-usWeightClass"
         id="error-message-usWeightClass"
-        error={fontMetricsError['usWeightClass'] || rangeError['usWeightClass']}
+        error={missingValues['usWeightClass'] || rangeError['usWeightClass']}
         errorText={
-          fontMetricsError['usWeightClass'] || rangeError['usWeightClass']
+          missingValues['usWeightClass'] || rangeError['usWeightClass']
         }
       >
         Please enter a whole number between 1 and 1000.
@@ -200,8 +200,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-unitsPerEm"
         id="error-message-unitsPerEm"
-        error={fontMetricsError['unitsPerEm'] || rangeError['unitsPerEm']}
-        errorText={fontMetricsError['unitsPerEm'] || rangeError['unitsPerEm']}
+        error={missingValues['unitsPerEm'] || rangeError['unitsPerEm']}
+        errorText={missingValues['unitsPerEm'] || rangeError['unitsPerEm']}
       >
         Please enter a whole number between 16 and 16384.
       </AlertMessage>
@@ -226,8 +226,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-sxHeight"
         id="error-message-sxHeight"
-        error={fontMetricsError['sxHeight'] || rangeError['sxHeight']}
-        errorText={fontMetricsError['sxHeight'] || rangeError['sxHeight']}
+        error={missingValues['sxHeight'] || rangeError['sxHeight']}
+        errorText={missingValues['sxHeight'] || rangeError['sxHeight']}
       >
         Please enter a whole number between 16 and 16384.
       </AlertMessage>
@@ -252,8 +252,8 @@ const FontTableBox = props => {
       <AlertMessage
         data-testid="error-message-sCapHeight"
         id="error-message-sCapHeight"
-        error={fontMetricsError['sCapHeight'] || rangeError['sCapHeight']}
-        errorText={fontMetricsError['sCapHeight'] || rangeError['sCapHeight']}
+        error={missingValues['sCapHeight'] || rangeError['sCapHeight']}
+        errorText={missingValues['sCapHeight'] || rangeError['sCapHeight']}
       >
         Please enter a whole number between 16 and 16384.
       </AlertMessage>

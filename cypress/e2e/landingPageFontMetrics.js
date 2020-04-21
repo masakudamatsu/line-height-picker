@@ -151,7 +151,7 @@ describe('Landing Page: Direct entry', () => {
 
   ['usWeightClass', 'unitsPerEm', 'sxHeight', 'sCapHeight'].forEach(
     fontMetric => {
-      it.only(`shows alert for ${fontMetric} if the user enters the value outside the required range, but not until the user clicks somewhere else to blur the focused input element`, () => {
+      it(`shows alert for ${fontMetric} if the user enters a value outside the required range, but not until the user clicks somewhere else to blur the focused input element`, () => {
         // setup
         const invalidInputValue = 0;
         const validInputValue = 1000;
