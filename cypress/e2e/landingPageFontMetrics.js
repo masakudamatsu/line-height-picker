@@ -129,7 +129,7 @@ describe('Landing Page: Direct entry', () => {
     'sxHeight',
     'sCapHeight',
   ].forEach(fontMetric => {
-    it(`shows an error message for ${fontMetric} if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input, but not until the user clicks somewhere else to blur the focused input element`, () => {
+    it(`shows an error message for ${fontMetric}, and focus on that element, if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input, but not until the user clicks somewhere else to blur the focused input element`, () => {
       // execute: leave one input field empty
       cy.findByLabelText('sxHeight').type(userInput.sxHeight);
       cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
@@ -148,6 +148,7 @@ describe('Landing Page: Direct entry', () => {
       cy.findByText(/next/i).click();
       cy.url().should('eq', `${Cypress.config().baseUrl}/`);
       cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
+      cy.focused().should('have.attr', 'name', fontMetric);
 
       // filling in without blurring
       cy.findByLabelText(fontMetric).type(userInput[fontMetric]);

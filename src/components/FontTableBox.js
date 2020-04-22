@@ -17,6 +17,7 @@ const FontTableBox = props => {
   const [redirect, setRedirect] = React.useState(false);
 
   const names = [
+    // Order must coincide with the actual HTML so the first invalid input will be focused.
     'preferredFamily',
     'preferredSubfamily',
     'usWeightClass',
@@ -79,6 +80,12 @@ const FontTableBox = props => {
       newMissingValues[name] = inputs[name].validity.valueMissing;
     });
     setMissingValues(newMissingValues);
+
+    // Focus on the first invalid input element
+    const fistInvalidInputName = Object.keys(inputIsValid).find(
+      name => inputIsValid[name] === false,
+    );
+    inputs[fistInvalidInputName].focus();
   };
 
   const handleBlur = event => {
