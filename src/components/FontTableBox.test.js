@@ -446,6 +446,7 @@ test('renders correctly', () => {
         </p>
         <button
           class="c7"
+          type="submit"
         >
           Next
         </button>

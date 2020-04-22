@@ -45,7 +45,7 @@ const ModularScale = props => {
             validateModularScale={props.validateModularScale}
             xHeightRatio={props.xHeightRatio}
           />{' '}
-          <Button>
+          <Button type="submit">
             <NoWrap>Preview</NoWrap>
             <NoWrap>→</NoWrap>
           </Button>

@@ -38,7 +38,7 @@ const Xheight = props => {
             xHeightRangeError={props.xHeightRangeError}
             xHeightStepError={props.xHeightStepError}
           />{' '}
-          <Button>
+          <Button type="submit">
             <NoWrap>Pick</NoWrap>
             <NoWrap>Modular</NoWrap>
             <NoWrap>Scale</NoWrap>

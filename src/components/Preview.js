@@ -67,7 +67,7 @@ const Preview = props => {
         </ParagraphOneRemRightAligned>
         <Form noValidate onSubmit={handleSubmit}>
           <ButtonContainer>
-            <Button>Get CSS code</Button>
+            <Button type="submit">Get CSS code</Button>
           </ButtonContainer>
           <FontNameDisplay
             fontFamily={props.fontFamily}

@@ -336,7 +336,7 @@ const FontTableBox = props => {
         between 16 and 16384.
       </AlertMessage>
 
-      <Button>Next</Button>
+      <Button type="submit">Next</Button>
     </Form>
   );
 };
