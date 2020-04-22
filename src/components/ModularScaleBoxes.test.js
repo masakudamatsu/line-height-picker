@@ -120,7 +120,7 @@ test('renders correctly', () => {
         >
           <label
             class=""
-            for="x-height-scale"
+            for="x-height-for-ratio"
           >
             x-height
           </label>
@@ -128,7 +128,7 @@ test('renders correctly', () => {
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
             class="sc-fzoNJl sc-fzoXWK c3"
             data-testid="x-height-for-ratio"
-            id="x-height-scale"
+            id="x-height-for-ratio"
             max="100"
             min="1"
             pattern="[0-9]*[.,]?[0-9]+"
@@ -146,7 +146,7 @@ test('renders correctly', () => {
         >
           <label
             class=""
-            for="line-height-scale"
+            for="line-height-for-ratio"
           >
             line-height
           </label>
@@ -154,7 +154,7 @@ test('renders correctly', () => {
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
             class="sc-fzoNJl sc-fzoXWK c3"
             data-testid="line-height-for-ratio"
-            id="line-height-scale"
+            id="line-height-for-ratio"
             max="100"
             min="1"
             pattern="[0-9]*[.,]?[0-9]+"

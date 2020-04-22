@@ -84,7 +84,7 @@ test('renders correctly', () => {
     <div>
       <label
         class=""
-        for="x-height"
+        for="x-height-in-pixel"
       >
         Set x-height
       </label>
@@ -95,7 +95,7 @@ test('renders correctly', () => {
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           class="sc-fzoNJl sc-fzoXWK c1"
           data-testid="x-height-in-pixel"
-          id="x-height"
+          id="x-height-in-pixel"
           max="100"
           min="1"
           pattern="[0-9]*[.,]?[0-9]+"

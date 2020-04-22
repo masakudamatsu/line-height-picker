@@ -20,11 +20,11 @@ const XheightBox = props => {
   };
   return (
     <>
-      <Label htmlFor="x-height">Set x-height</Label>
+      <Label htmlFor="x-height-in-pixel">Set x-height</Label>
       <NumberInputWrapper>
         <XheightInput
           data-testid="x-height-in-pixel"
-          id="x-height"
+          id="x-height-in-pixel"
           max="100"
           min="1"
           onBlur={handleBlur}

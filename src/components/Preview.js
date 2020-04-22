@@ -25,11 +25,12 @@ const Preview = props => {
   const [redirect, setRedirect] = React.useState(false);
   const handleSubmit = event => {
     event.preventDefault();
-    const xHeightErrors = document.getElementById('x-height').validity;
-    const xHeightRatioErrors = document.getElementById('x-height-scale')
+    const xHeightErrors = document.getElementById('x-height-in-pixel').validity;
+    const xHeightRatioErrors = document.getElementById('x-height-for-ratio')
       .validity;
-    const lineHeightRatioErrors = document.getElementById('line-height-scale')
-      .validity;
+    const lineHeightRatioErrors = document.getElementById(
+      'line-height-for-ratio',
+    ).validity;
     if (
       xHeightErrors.valid &&
       xHeightRatioErrors.valid &&

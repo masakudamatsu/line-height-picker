@@ -30,10 +30,10 @@ const ModularScaleBoxes = props => {
       <p>Set the ratio of</p>
       <CenterAlignWrapperHorizontal>
         <RatioWrapper>
-          <Label htmlFor="x-height-scale">x-height</Label>
+          <Label htmlFor="x-height-for-ratio">x-height</Label>
           <ModularScaleInput
             data-testid="x-height-for-ratio"
-            id="x-height-scale"
+            id="x-height-for-ratio"
             max="100"
             min="1"
             onBlur={handleBlur}
@@ -46,9 +46,9 @@ const ModularScaleBoxes = props => {
         </RatioWrapper>
         <span>to</span>
         <RatioWrapper>
-          <Label htmlFor="line-height-scale">line-height</Label>
+          <Label htmlFor="line-height-for-ratio">line-height</Label>
           <ModularScaleInput
-            id="line-height-scale"
+            id="line-height-for-ratio"
             data-testid="line-height-for-ratio"
             max="100"
             min="1"

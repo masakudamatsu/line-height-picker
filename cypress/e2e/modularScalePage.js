@@ -181,7 +181,7 @@ describe('Modular Scale Page: Error-handling', () => {
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
     cy.assertIfErrorMessageAppears('error-message-modular-scale');
-    cy.focused().should('have.attr', 'id', 'x-height-scale');
+    cy.focused().should('have.attr', 'id', 'x-height-for-ratio');
   });
 
   it('does not allow the user to move on to the preview page if the user has not entered a line-height ratio value, and shows an error message with the invalid field focused', () => {
@@ -192,7 +192,7 @@ describe('Modular Scale Page: Error-handling', () => {
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
     cy.assertIfErrorMessageAppears('error-message-modular-scale');
-    cy.focused().should('have.attr', 'id', 'line-height-scale');
+    cy.focused().should('have.attr', 'id', 'line-height-for-ratio');
   });
 });
 

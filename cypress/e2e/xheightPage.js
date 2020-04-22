@@ -119,7 +119,7 @@ describe('X-height page: Error-handling', () => {
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
     cy.assertIfErrorMessageAppears('error-message-x-height');
-    cy.focused().should('have.attr', 'id', 'x-height');
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
   });
 
   it('does not show alert when the user deletes an input', () => {

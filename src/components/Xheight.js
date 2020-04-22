@@ -16,7 +16,7 @@ const Xheight = props => {
   const [redirect, setRedirect] = React.useState(false);
   const handleSubmit = event => {
     event.preventDefault();
-    const xHeightInputField = document.getElementById('x-height');
+    const xHeightInputField = document.getElementById('x-height-in-pixel');
     const errors = xHeightInputField.validity;
     if (errors.valid) {
       setRedirect(true);

@@ -17,17 +17,18 @@ const ModularScale = props => {
   const [redirect, setRedirect] = React.useState(false);
   const handleSubmit = event => {
     event.preventDefault();
-    const xHeightErrors = document.getElementById('x-height-scale').validity;
-    const lineHeightErrors = document.getElementById('line-height-scale')
+    const xHeightErrors = document.getElementById('x-height-for-ratio')
+      .validity;
+    const lineHeightErrors = document.getElementById('line-height-for-ratio')
       .validity;
     if (xHeightErrors.valid && lineHeightErrors.valid) {
       setRedirect(true);
     } else if (!xHeightErrors.valid) {
       props.handleNoModularScale(xHeightErrors);
-      document.getElementById('x-height-scale').focus();
+      document.getElementById('x-height-for-ratio').focus();
     } else {
       props.handleNoModularScale(lineHeightErrors);
-      document.getElementById('line-height-scale').focus();
+      document.getElementById('line-height-for-ratio').focus();
     }
   };
   if (redirect) {
