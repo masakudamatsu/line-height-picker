@@ -173,12 +173,26 @@ describe('Modular Scale Page: Error-handling', () => {
       .should('contain', '.woff');
   });
 
-  it('does not allow the user to move on to the preview page if the user has not entered modular scale values, and shows an error message', () => {
+  it('does not allow the user to move on to the preview page if the user has not entered an x-height ratio value, and shows an error message with the invalid field focused', () => {
     // execute
+    cy.findByTestId('x-height-for-ratio').clear();
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
     cy.assertIfErrorMessageAppears('error-message-modular-scale');
+    cy.focused().should('have.attr', 'id', 'x-height-scale');
+  });
+
+  it('does not allow the user to move on to the preview page if the user has not entered a line-height ratio value, and shows an error message with the invalid field focused', () => {
+    // execute
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').clear();
+    cy.findByText(/preview/i).click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+    cy.assertIfErrorMessageAppears('error-message-modular-scale');
+    cy.focused().should('have.attr', 'id', 'line-height-scale');
   });
 });
 

@@ -24,8 +24,10 @@ const ModularScale = props => {
       setRedirect(true);
     } else if (!xHeightErrors.valid) {
       props.handleNoModularScale(xHeightErrors);
+      document.getElementById('x-height-scale').focus();
     } else {
       props.handleNoModularScale(lineHeightErrors);
+      document.getElementById('line-height-scale').focus();
     }
   };
   if (redirect) {
