@@ -13,17 +13,15 @@ import {
 } from '../theme/style';
 
 const ModularScaleBoxes = props => {
-  const checkValidity = event => {
+  const handleBlur = event => {
     const errors = event.target.validity;
     props.validateModularScale(errors);
   };
   const handleXHeightChange = event => {
-    checkValidity(event);
     const newXHeightRatio = event.target.value;
     props.handleXHeightRatioChange(newXHeightRatio);
   };
   const handleLineHeightChange = event => {
-    checkValidity(event);
     const newLineHeightRatio = event.target.value;
     props.handleLineHeightRatioChange(newLineHeightRatio);
   };
@@ -39,6 +37,7 @@ const ModularScaleBoxes = props => {
             id="x-height-scale"
             max="100"
             min="1"
+            onBlur={handleBlur}
             onChange={handleXHeightChange}
             required
             step="0.0001"
@@ -54,6 +53,7 @@ const ModularScaleBoxes = props => {
             data-testid="line-height-for-ratio"
             max="100"
             min="1"
+            onBlur={handleBlur}
             onChange={handleLineHeightChange}
             required
             step="0.0001"

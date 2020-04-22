@@ -134,17 +134,17 @@ describe('Modular Scale Page: Error-handling', () => {
     cy.assertIfErrorMessageDisappears('error-message-modular-scale');
   });
 
-  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it', () => {
+  it('alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
     cy.testAlertForDecimalPlaces('x-height-for-ratio');
     cy.testAlertForDecimalPlaces('line-height-for-ratio');
   });
 
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value', () => {
+  it('alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
     cy.testAlertForValuesLessThanOne('x-height-for-ratio');
     cy.testAlertForValuesLessThanOne('line-height-for-ratio');
   });
 
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit', () => {
+  it('lerts the user if they enter a value more than 100 AND blur the input field, but the alert disappears when they correct the input value AND blur the input field', () => {
     cy.testAlertForValuesMoreThanHundred('x-height-for-ratio');
     cy.testAlertForValuesMoreThanHundred('line-height-for-ratio');
   });
