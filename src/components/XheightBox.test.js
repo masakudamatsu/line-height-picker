@@ -179,20 +179,19 @@ test('Entering x-height value calls the handleXHeightChange function, but not th
   });
 });
 
-test('Blurring the input field calls the validateXHeight function after entering a value', () => {
+test('Blurring the input field calls the validateXHeight function', () => {
   // setup
-  const {getByLabelText} = render(
+  const {getByLabelText, getByTestId} = render(
     <XheightBox
       handleXHeightChange={mockXHeightToFontSize}
       validateXHeight={mockValidateXHeight}
     />,
   );
-  const xHeightInput = getByLabelText(/x-height/i);
-  const userXheightValue = 9;
-  // execute
-  user.type(xHeightInput, userXheightValue);
-  xHeightInput.blur();
-  expect(mockValidateXHeight).not.toHaveBeenCalled();
+  // execute (mocking the blur event)
+  getByLabelText(/x-height/i).focus(); // to simulate not only click but also the tab key focus
+  user.click(getByTestId('instruction-x-height')); // .focus() doesn't work as this node is not focusable
+  // verify
+  expect(mockValidateXHeight).toHaveBeenCalled();
 });
 
 test('is accessible', async () => {
