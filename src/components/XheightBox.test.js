@@ -187,9 +187,9 @@ test('Blurring the input field calls the validateXHeight function', () => {
       validateXHeight={mockValidateXHeight}
     />,
   );
-  // execute (mocking the blur event)
-  getByLabelText(/x-height/i).focus(); // to simulate not only click but also the tab key focus
-  user.click(getByTestId('instruction-x-height')); // .focus() doesn't work as this node is not focusable
+  // execute
+  getByLabelText(/x-height/i).focus();
+  getByLabelText(/x-height/i).blur();
   // verify
   expect(mockValidateXHeight).toHaveBeenCalled();
 });

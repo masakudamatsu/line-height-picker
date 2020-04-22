@@ -258,9 +258,9 @@ test('Blurring the x-height input field calls the validateModularScale function 
       validateModularScale={mockValidateModularScale}
     />,
   );
-  // execute (mocking the blur event)
-  getByTestId('x-height-for-ratio').focus(); // to simulate not only click but also the tab key focus
-  getByTestId('line-height-for-ratio').focus();
+  // execute
+  getByTestId('x-height-for-ratio').focus();
+  getByTestId('x-height-for-ratio').blur();
   // verify
   expect(mockValidateModularScale).toHaveBeenCalledTimes(1);
 });
@@ -299,9 +299,9 @@ test('Blurring the line-height input field calls the validateModularScale functi
       validateModularScale={mockValidateModularScale}
     />,
   );
-  // execute (mocking the blur event)
-  getByTestId('line-height-for-ratio').focus(); // to simulate not only click but also the tab key focus
-  getByTestId('x-height-for-ratio').focus();
+  // execute
+  getByTestId('line-height-for-ratio').focus();
+  getByTestId('line-height-for-ratio').blur();
   // verify
   expect(mockValidateModularScale).toHaveBeenCalledTimes(1);
 });
