@@ -15,7 +15,8 @@ const ModularScale = props => {
   }, []);
 
   const [redirect, setRedirect] = React.useState(false);
-  const handleClick = event => {
+  const handleSubmit = event => {
+    event.preventDefault();
     const xHeightErrors = document.getElementById('x-height-scale').validity;
     const lineHeightErrors = document.getElementById('line-height-scale')
       .validity;
@@ -34,7 +35,7 @@ const ModularScale = props => {
   return (
     <>
       <main>
-        <Form>
+        <Form noValidate onSubmit={handleSubmit}>
           <ModularScaleBoxes
             handleXHeightRatioChange={props.handleXHeightRatioChange}
             handleLineHeightRatioChange={props.handleLineHeightRatioChange}
@@ -44,7 +45,7 @@ const ModularScale = props => {
             validateModularScale={props.validateModularScale}
             xHeightRatio={props.xHeightRatio}
           />{' '}
-          <Button onClick={handleClick}>
+          <Button>
             <NoWrap>Preview</NoWrap>
             <NoWrap>→</NoWrap>
           </Button>

@@ -14,7 +14,8 @@ const Xheight = props => {
   }, []);
 
   const [redirect, setRedirect] = React.useState(false);
-  const handleClick = event => {
+  const handleSubmit = event => {
+    event.preventDefault();
     const errors = document.getElementById('x-height').validity;
     if (errors.valid) {
       setRedirect(true);
@@ -29,7 +30,7 @@ const Xheight = props => {
   return (
     <>
       <main>
-        <Form>
+        <Form noValidate onSubmit={handleSubmit}>
           <XheightBox
             handleXHeightChange={props.handleXHeightChange}
             validateXHeight={props.validateXHeight}
@@ -37,7 +38,7 @@ const Xheight = props => {
             xHeightRangeError={props.xHeightRangeError}
             xHeightStepError={props.xHeightStepError}
           />{' '}
-          <Button onClick={handleClick}>
+          <Button>
             <NoWrap>Pick</NoWrap>
             <NoWrap>Modular</NoWrap>
             <NoWrap>Scale</NoWrap>

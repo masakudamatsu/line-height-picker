@@ -23,7 +23,8 @@ const Preview = props => {
   }, []);
 
   const [redirect, setRedirect] = React.useState(false);
-  const handleClick = event => {
+  const handleSubmit = event => {
+    event.preventDefault();
     const xHeightErrors = document.getElementById('x-height').validity;
     const xHeightRatioErrors = document.getElementById('x-height-scale')
       .validity;
@@ -64,9 +65,9 @@ const Preview = props => {
             Steve Jobs’s Stanford University Commencement address in 2005
           </ExternalLink>
         </ParagraphOneRemRightAligned>
-        <Form>
+        <Form noValidate onSubmit={handleSubmit}>
           <ButtonContainer>
-            <Button onClick={handleClick}>Get CSS code</Button>
+            <Button>Get CSS code</Button>
           </ButtonContainer>
           <FontNameDisplay
             fontFamily={props.fontFamily}
