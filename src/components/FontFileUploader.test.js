@@ -78,6 +78,7 @@ test('renders correctly', () => {
     <div>
       <button
         class="c0"
+        type="button"
       >
         Upload font file
       </button>

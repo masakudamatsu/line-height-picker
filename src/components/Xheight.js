@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import XheightBox from './XheightBox';
 import FontNameDisplay from './FontNameDisplay';
 import FontFileErrorMessage from './FontFileErrorMessage';
-import {Button, ButtonContainer, NoWrap} from '../theme/style';
+import {Button, ButtonContainer, Form, NoWrap} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import {Redirect} from 'react-router-dom';
 
@@ -29,13 +29,21 @@ const Xheight = props => {
   return (
     <>
       <main>
-        <XheightBox
-          handleXHeightChange={props.handleXHeightChange}
-          validateXHeight={props.validateXHeight}
-          xHeightPx={props.xHeightPx}
-          xHeightRangeError={props.xHeightRangeError}
-          xHeightStepError={props.xHeightStepError}
-        />
+        <Form>
+          <XheightBox
+            handleXHeightChange={props.handleXHeightChange}
+            validateXHeight={props.validateXHeight}
+            xHeightPx={props.xHeightPx}
+            xHeightRangeError={props.xHeightRangeError}
+            xHeightStepError={props.xHeightStepError}
+          />{' '}
+          <Button onClick={handleClick}>
+            <NoWrap>Pick</NoWrap>
+            <NoWrap>Modular</NoWrap>
+            <NoWrap>Scale</NoWrap>
+            <NoWrap>→</NoWrap>
+          </Button>
+        </Form>
         <FontNameDisplay
           fontFamily={props.fontFamily}
           fontSubfamily={props.fontSubfamily}
@@ -51,12 +59,6 @@ const Xheight = props => {
             data-testid="error-message-font-file"
             fontFileError={props.fontFileError}
           />
-          <Button onClick={handleClick}>
-            <NoWrap>Pick</NoWrap>
-            <NoWrap>Modular</NoWrap>
-            <NoWrap>Scale</NoWrap>
-            <NoWrap>→</NoWrap>
-          </Button>
         </ButtonContainer>
       </main>
     </>

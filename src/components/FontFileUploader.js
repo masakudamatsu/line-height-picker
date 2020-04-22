@@ -37,7 +37,9 @@ const FontFileUploader = props => {
   }
   return (
     <>
-      <Button onClick={handleClick}>{props.children}</Button>
+      <Button type="button" onClick={handleClick}>
+        {props.children}
+      </Button>
       <input
         type="file"
         data-testid="hiddenFileInput"

@@ -26,7 +26,7 @@ const ModularScaleBoxes = props => {
     props.handleLineHeightRatioChange(newLineHeightRatio);
   };
   return (
-    <Form>
+    <>
       <PageTitle>Pick modular scale</PageTitle>
       <p>Set the ratio of</p>
       <CenterAlignWrapperHorizontal>
@@ -77,7 +77,7 @@ const ModularScaleBoxes = props => {
       >
         Enter a number between 1 and 100 inclusive
       </AlertMessage>
-    </Form>
+    </>
   );
 };
 

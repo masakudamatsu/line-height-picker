@@ -12,6 +12,7 @@ import {
   Button,
   ButtonContainer,
   ExternalLink,
+  Form,
   PageTitle,
   ParagraphOneRemRightAligned,
 } from '../theme/style';
@@ -63,39 +64,41 @@ const Preview = props => {
             Steve Jobs’s Stanford University Commencement address in 2005
           </ExternalLink>
         </ParagraphOneRemRightAligned>
-        <ButtonContainer>
-          <Button onClick={handleClick}>Get CSS code</Button>
-        </ButtonContainer>
-        <FontNameDisplay
-          fontFamily={props.fontFamily}
-          fontSubfamily={props.fontSubfamily}
-        />
-        <FontFileUploader
-          handleFontFile={props.handleFontFile}
-          validateFileType={props.validateFileType}
-        >
-          Change font
-        </FontFileUploader>
-        <FontFileErrorMessage
-          data-testid="error-message-font-file"
-          fontFileError={props.fontFileError}
-        />
-        <XheightBox
-          handleXHeightChange={props.handleXHeightChange}
-          xHeightPx={props.xHeightPx}
-          validateXHeight={props.validateXHeight}
-          xHeightRangeError={props.xHeightRangeError}
-          xHeightStepError={props.xHeightStepError}
-        />
-        <ModularScaleBoxes
-          xHeightRatio={props.xHeightRatio}
-          handleXHeightRatioChange={props.handleXHeightRatioChange}
-          lineHeightRatio={props.lineHeightRatio}
-          handleLineHeightRatioChange={props.handleLineHeightRatioChange}
-          validateModularScale={props.validateModularScale}
-          modularScaleRangeError={props.modularScaleRangeError}
-          modularScaleStepError={props.modularScaleStepError}
-        />
+        <Form>
+          <ButtonContainer>
+            <Button onClick={handleClick}>Get CSS code</Button>
+          </ButtonContainer>
+          <FontNameDisplay
+            fontFamily={props.fontFamily}
+            fontSubfamily={props.fontSubfamily}
+          />
+          <FontFileUploader
+            handleFontFile={props.handleFontFile}
+            validateFileType={props.validateFileType}
+          >
+            Change font
+          </FontFileUploader>
+          <FontFileErrorMessage
+            data-testid="error-message-font-file"
+            fontFileError={props.fontFileError}
+          />
+          <XheightBox
+            handleXHeightChange={props.handleXHeightChange}
+            xHeightPx={props.xHeightPx}
+            validateXHeight={props.validateXHeight}
+            xHeightRangeError={props.xHeightRangeError}
+            xHeightStepError={props.xHeightStepError}
+          />
+          <ModularScaleBoxes
+            xHeightRatio={props.xHeightRatio}
+            handleXHeightRatioChange={props.handleXHeightRatioChange}
+            lineHeightRatio={props.lineHeightRatio}
+            handleLineHeightRatioChange={props.handleLineHeightRatioChange}
+            validateModularScale={props.validateModularScale}
+            modularScaleRangeError={props.modularScaleRangeError}
+            modularScaleStepError={props.modularScaleStepError}
+          />
+        </Form>
       </main>
     </>
   );

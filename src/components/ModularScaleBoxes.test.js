@@ -26,7 +26,7 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c2 {
+    .c1 {
       -webkit-align-items: flex-end;
       -webkit-box-align: flex-end;
       -ms-flex-align: flex-end;
@@ -43,7 +43,7 @@ test('renders correctly', () => {
       width: 100%;
     }
 
-    .c3 {
+    .c2 {
       -webkit-align-items: flex-start;
       -webkit-box-align: flex-start;
       -ms-flex-align: flex-start;
@@ -58,36 +58,23 @@ test('renders correctly', () => {
       width: 40%;
     }
 
-    .c1 {
+    .c0 {
       font-size: 3rem;
       font-weight: 200;
+    }
+
+    .c4 {
+      color: currentColor;
+      font-size: 1rem;
     }
 
     .c5 {
       color: currentColor;
       font-size: 1rem;
-    }
-
-    .c6 {
-      color: currentColor;
-      font-size: 1rem;
       visibility: hidden;
     }
 
-    .c0 {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      font-size: 3rem;
-      font-weight: 200;
-      padding: 0 0 3rem 0;
-    }
-
-    .c4 {
+    .c3 {
       background-color: hsl(0,0%,25%);
       border: none;
       border-bottom: 2px solid hsl(0,0%,96%);
@@ -104,98 +91,94 @@ test('renders correctly', () => {
       width: 100%;
     }
 
-    .c4:active,
-    .c4:hover,
-    .c4:focus {
+    .c3:active,
+    .c3:hover,
+    .c3:focus {
       background-color: hsl(0,0%,35%);
       outline: none;
     }
 
-    .c4::-webkit-inner-spin-button,
-    .c4::-webkit-outer-spin-button {
+    .c3::-webkit-inner-spin-button,
+    .c3::-webkit-outer-spin-button {
       -webkit-appearance: none;
     }
 
     <div>
-      <form
+      <h2
         class="c0"
       >
-        <h2
-          class="c1"
-        >
-          Pick modular scale
-        </h2>
-        <p>
-          Set the ratio of
-        </p>
+        Pick modular scale
+      </h2>
+      <p>
+        Set the ratio of
+      </p>
+      <div
+        class="c1"
+      >
         <div
           class="c2"
         >
-          <div
-            class="c3"
+          <label
+            class=""
+            for="x-height-scale"
           >
-            <label
-              class=""
-              for="x-height-scale"
-            >
-              x-height
-            </label>
-            <input
-              aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-              class="sc-fzoNJl sc-fzoXWK c4"
-              data-testid="x-height-for-ratio"
-              id="x-height-scale"
-              max="100"
-              min="1"
-              pattern="[0-9]*[.,]?[0-9]+"
-              required=""
-              step="0.0001"
-              type="number"
-              value=""
-            />
-          </div>
-          <span>
-            to
-          </span>
-          <div
-            class="c3"
-          >
-            <label
-              class=""
-              for="line-height-scale"
-            >
-              line-height
-            </label>
-            <input
-              aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-              class="sc-fzoNJl sc-fzoXWK c4"
-              data-testid="line-height-for-ratio"
-              id="line-height-scale"
-              max="100"
-              min="1"
-              pattern="[0-9]*[.,]?[0-9]+"
-              required=""
-              step="0.0001"
-              type="number"
-              value=""
-            />
-          </div>
+            x-height
+          </label>
+          <input
+            aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
+            class="sc-fzoNJl sc-fzoXWK c3"
+            data-testid="x-height-for-ratio"
+            id="x-height-scale"
+            max="100"
+            min="1"
+            pattern="[0-9]*[.,]?[0-9]+"
+            required=""
+            step="0.0001"
+            type="number"
+            value=""
+          />
         </div>
-        <p
-          class="c5"
-          data-testid="instruction-modular-scale"
-          id="howManyDecimalPlacesAllowed"
+        <span>
+          to
+        </span>
+        <div
+          class="c2"
         >
-          up to 4 decimal places
-        </p>
-        <p
-          class="c6"
-          data-testid="error-message-modular-scale"
-          id="rangeOfNumbersAllowed"
-        >
-          Enter a number between 1 and 100 inclusive
-        </p>
-      </form>
+          <label
+            class=""
+            for="line-height-scale"
+          >
+            line-height
+          </label>
+          <input
+            aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
+            class="sc-fzoNJl sc-fzoXWK c3"
+            data-testid="line-height-for-ratio"
+            id="line-height-scale"
+            max="100"
+            min="1"
+            pattern="[0-9]*[.,]?[0-9]+"
+            required=""
+            step="0.0001"
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+      <p
+        class="c4"
+        data-testid="instruction-modular-scale"
+        id="howManyDecimalPlacesAllowed"
+      >
+        up to 4 decimal places
+      </p>
+      <p
+        class="c5"
+        data-testid="error-message-modular-scale"
+        id="rangeOfNumbersAllowed"
+      >
+        Enter a number between 1 and 100 inclusive
+      </p>
     </div>
   `);
 });

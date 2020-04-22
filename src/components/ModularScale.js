@@ -5,7 +5,7 @@ import ModularScaleBoxes from './ModularScaleBoxes';
 import FontNameDisplay from './FontNameDisplay';
 import FontFileErrorMessage from './FontFileErrorMessage';
 import XheightDisplay from './XheightDisplay';
-import {Button, ButtonContainer, NoWrap} from '../theme/style';
+import {Button, ButtonContainer, Form, NoWrap} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import {Link, Redirect} from 'react-router-dom';
 
@@ -34,15 +34,22 @@ const ModularScale = props => {
   return (
     <>
       <main>
-        <ModularScaleBoxes
-          handleXHeightRatioChange={props.handleXHeightRatioChange}
-          handleLineHeightRatioChange={props.handleLineHeightRatioChange}
-          lineHeightRatio={props.lineHeightRatio}
-          modularScaleRangeError={props.modularScaleRangeError}
-          modularScaleStepError={props.modularScaleStepError}
-          validateModularScale={props.validateModularScale}
-          xHeightRatio={props.xHeightRatio}
-        />
+        <Form>
+          <ModularScaleBoxes
+            handleXHeightRatioChange={props.handleXHeightRatioChange}
+            handleLineHeightRatioChange={props.handleLineHeightRatioChange}
+            lineHeightRatio={props.lineHeightRatio}
+            modularScaleRangeError={props.modularScaleRangeError}
+            modularScaleStepError={props.modularScaleStepError}
+            validateModularScale={props.validateModularScale}
+            xHeightRatio={props.xHeightRatio}
+          />{' '}
+          <Button onClick={handleClick}>
+            <NoWrap>Preview</NoWrap>
+            <NoWrap>→</NoWrap>
+          </Button>
+        </Form>
+
         <FontNameDisplay
           fontFamily={props.fontFamily}
           fontSubfamily={props.fontSubfamily}
@@ -59,10 +66,6 @@ const ModularScale = props => {
             data-testid="error-message-font-file"
             fontFileError={props.fontFileError}
           />
-          <Button onClick={handleClick}>
-            <NoWrap>Preview</NoWrap>
-            <NoWrap>→</NoWrap>
-          </Button>
           <Button as={Link} to="/x-height">
             > Change x-height
             <NoWrap>←</NoWrap>

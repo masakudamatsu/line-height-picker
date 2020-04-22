@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import {
   AlertMessage,
-  Form,
   XheightInput,
   NumberInputWrapper,
   Label,
@@ -20,7 +19,7 @@ const XheightBox = props => {
     props.validateXHeight(errors);
   };
   return (
-    <Form>
+    <>
       <Label htmlFor="x-height">Set x-height</Label>
       <NumberInputWrapper>
         <XheightInput
@@ -52,7 +51,7 @@ const XheightBox = props => {
       >
         Enter a number between 1 and 100 inclusive
       </AlertMessage>
-    </Form>
+    </>
   );
 };
 
