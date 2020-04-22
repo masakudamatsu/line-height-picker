@@ -308,44 +308,22 @@ describe('Preview Page: Error-handling', () => {
       .should('contain', '.woff');
   });
 
-  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for x-height', () => {
-    cy.findByTestId('x-height-in-pixel').clear();
-    cy.testAlertForDecimalPlaces('x-height-in-pixel');
-  });
-  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for x-height ratio', () => {
-    cy.findByTestId('x-height-for-ratio').clear();
-    cy.testAlertForDecimalPlaces('x-height-for-ratio');
-  });
-  it('alerts the user if they enter more than 4 decimal places, but the alert disappears when they correct it, for line-height ratio', () => {
-    cy.findByTestId('line-height-for-ratio').clear();
-    cy.testAlertForDecimalPlaces('line-height-for-ratio');
-  });
-
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for x-height', () => {
-    cy.findByTestId('x-height-in-pixel').clear();
-    cy.testAlertForValuesLessThanOne('x-height-in-pixel');
-  });
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for x-height ratio', () => {
-    cy.findByTestId('x-height-for-ratio').clear();
-    cy.testAlertForValuesLessThanOne('x-height-for-ratio');
-  });
-  it('alerts the user if they enter a value less than 1, but the alert disappears when they delete the invalid value, for line-height ratio', () => {
-    cy.findByTestId('line-height-for-ratio').clear();
-    cy.testAlertForValuesLessThanOne('line-height-for-ratio');
-  });
-
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for x-height', () => {
-    cy.findByTestId('x-height-in-pixel').clear();
-    cy.testAlertForValuesMoreThanHundred('x-height-in-pixel');
-  });
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for x-height ratio', () => {
-    cy.findByTestId('x-height-for-ratio').clear();
-    cy.testAlertForValuesMoreThanHundred('x-height-for-ratio');
-  });
-  it('alerts the user if they enter a value more than 100, but the alert disappears when they delete the last digit, for line-height ratio', () => {
-    cy.findByTestId('line-height-for-ratio').clear();
-    cy.testAlertForValuesMoreThanHundred('line-height-for-ratio');
-  });
+  ['x-height-in-pixel', 'x-height-for-ratio', 'line-height-for-ratio'].forEach(
+    testId => {
+      it(`alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field, for ${testId}`, () => {
+        cy.findByTestId(testId).clear();
+        cy.testAlertForDecimalPlaces(testId);
+      });
+      it(`alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field, for ${testId}`, () => {
+        cy.findByTestId(testId).clear();
+        cy.testAlertForValuesLessThanOne(testId);
+      });
+      it(`alerts the user if they enter a value more than 100 AND blur the input field, but the alert disappears when they delete the last digit AND blur the input field, for ${testId}`, () => {
+        cy.findByTestId(testId).clear();
+        cy.testAlertForValuesMoreThanHundred(testId);
+      });
+    },
+  );
 });
 
 describe('Preview page: Navigation bar', () => {
