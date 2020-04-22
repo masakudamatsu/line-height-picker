@@ -113,12 +113,13 @@ describe('X-height page: Error-handling', () => {
     cy.findByText(/demo/i).click();
   });
 
-  it('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message', () => {
+  it('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message with the input field focused', () => {
     // execute
     cy.findByText(/scale/i).click();
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
     cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.focused().should('have.attr', 'id', 'x-height');
   });
 
   it('does not show alert when the user deletes an input', () => {

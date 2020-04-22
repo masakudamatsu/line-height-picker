@@ -16,11 +16,14 @@ const Xheight = props => {
   const [redirect, setRedirect] = React.useState(false);
   const handleSubmit = event => {
     event.preventDefault();
-    const errors = document.getElementById('x-height').validity;
+    const xHeightInputField = document.getElementById('x-height');
+    const errors = xHeightInputField.validity;
     if (errors.valid) {
       setRedirect(true);
     } else {
       props.handleNoXHeight(errors);
+      // Focus on the first invalid input element
+      xHeightInputField.focus();
     }
   };
   if (redirect) {
