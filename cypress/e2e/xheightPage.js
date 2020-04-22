@@ -113,7 +113,7 @@ describe('X-height page: Error-handling', () => {
     cy.findByText(/demo/i).click();
   });
 
-  it('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message with the input field focused', () => {
+  it.only('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message with the input field focused', () => {
     // execute
     cy.findByText(/scale/i).click();
     // verify
@@ -122,22 +122,22 @@ describe('X-height page: Error-handling', () => {
     cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
   });
 
-  it('does not show alert when the user deletes an input', () => {
+  it.only('does not show alert when the user deletes an input', () => {
     cy.findByTestId('x-height-in-pixel')
       .type('1')
       .clear();
     cy.assertIfErrorMessageDisappears('error-message-x-height');
   });
 
-  it('alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
+  it.only('alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
     cy.testAlertForDecimalPlaces('x-height-in-pixel');
   });
 
-  it('alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
+  it.only('alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
     cy.testAlertForValuesLessThanOne('x-height-in-pixel');
   });
 
-  it('alerts the user if they enter a value more than 100 AND blur the input field, but the alert disappears when they correct the input value AND blur the input field', () => {
+  it.only('alerts the user if they enter a value more than 100 AND blur the input field, but the alert disappears when they correct the input value AND blur the input field', () => {
     cy.testAlertForValuesMoreThanHundred('x-height-in-pixel');
   });
 

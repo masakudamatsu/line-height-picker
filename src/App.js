@@ -157,7 +157,15 @@ function App() {
     if (errors.valueMissing) {
       setXHeightRangeError(true);
     } else {
-      setXHeightRangeError(false);
+      if (
+        errors.rangeOverflow ||
+        errors.rangeUnderflow ||
+        errors.stepMismatch
+      ) {
+        return; // Keep the error status intact
+      } else {
+        setXHeightRangeError(false);
+      }
     }
   };
 

@@ -245,6 +245,16 @@ Cypress.Commands.add('testAlertForDecimalPlaces', testId => {
   cy.findByTestId(testId).blur();
   cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
 
+  // click next doesn't move the page, and the input field gets focused
+  let buttonLabel;
+  if (testId === 'x-height-in-pixel') {
+    buttonLabel = /scale/i;
+  } else {
+    buttonLabel = /preview/i;
+  }
+  cy.findByText(buttonLabel).click();
+  cy.focused().should('have.attr', 'id', testId);
+
   // correct input, but not yet blur
   cy.findByTestId(testId).type('{backspace}'); // eliminate the 5th decimal place
   cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
@@ -274,6 +284,16 @@ Cypress.Commands.add('testAlertForValuesLessThanOne', testId => {
   // wrong input and blur
   cy.findByTestId(testId).blur();
   cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // click next doesn't move the page, and the input field gets focused
+  let buttonLabel;
+  if (testId === 'x-height-in-pixel') {
+    buttonLabel = /scale/i;
+  } else {
+    buttonLabel = /preview/i;
+  }
+  cy.findByText(buttonLabel).click();
+  cy.focused().should('have.attr', 'id', testId);
 
   // delete input, but not yet blur
   cy.findByTestId(testId).clear();
@@ -319,6 +339,16 @@ Cypress.Commands.add('testAlertForValuesMoreThanHundred', testId => {
   // Wrong input and blur
   cy.findByTestId(testId).blur();
   cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // click next doesn't move the page, and the input field gets focused
+  let buttonLabel;
+  if (testId === 'x-height-in-pixel') {
+    buttonLabel = /scale/i;
+  } else {
+    buttonLabel = /preview/i;
+  }
+  cy.findByText(buttonLabel).click();
+  cy.focused().should('have.attr', 'id', testId);
 
   // Correct input and not yet blur
   cy.findByTestId(testId).type('{backspace}');
