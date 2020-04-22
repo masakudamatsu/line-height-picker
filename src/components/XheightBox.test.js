@@ -129,25 +129,28 @@ test('renders correctly', () => {
 test('The value attribute reflects props.xHeightPx', () => {
   // setup
   const xHeightPx = '10';
-  const {getByLabelText} = render(
+  const {getByTestId} = render(
     <XheightBox
       handleXHeightChange={mockXHeightToFontSize}
       validateXHeight={mockValidateXHeight}
       xHeightPx={xHeightPx}
     />,
   );
-  expect(getByLabelText(/x-height/i)).toHaveAttribute('value', `${xHeightPx}`);
+  expect(getByTestId('x-height-in-pixel')).toHaveAttribute(
+    'value',
+    `${xHeightPx}`,
+  );
 });
 
 test('Entering x-height value calls the handleXHeightChange function, but not the validateXHeight function, for each keystroke', () => {
   // setup
-  const {getByLabelText} = render(
+  const {getByTestId} = render(
     <XheightBox
       handleXHeightChange={mockXHeightToFontSize}
       validateXHeight={mockValidateXHeight}
     />,
   );
-  const xHeightInput = getByLabelText(/x-height/i);
+  const xHeightInput = getByTestId('x-height-in-pixel');
   const userXheightList = ['9', '10']; // check if a two-digit number calls the function twice
   userXheightList.forEach(userXheight => {
     // execute
@@ -164,15 +167,15 @@ test('Entering x-height value calls the handleXHeightChange function, but not th
 
 test('Blurring the input field calls the validateXHeight function', () => {
   // setup
-  const {getByLabelText, getByTestId} = render(
+  const {getByTestId} = render(
     <XheightBox
       handleXHeightChange={mockXHeightToFontSize}
       validateXHeight={mockValidateXHeight}
     />,
   );
   // execute
-  getByLabelText(/x-height/i).focus();
-  getByLabelText(/x-height/i).blur();
+  getByTestId('x-height-in-pixel').focus();
+  getByTestId('x-height-in-pixel').blur();
   // verify
   expect(mockValidateXHeight).toHaveBeenCalled();
 });
