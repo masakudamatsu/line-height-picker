@@ -119,6 +119,8 @@ describe('Landing Page: Direct entry', () => {
     );
   });
 
+  // Error handling
+
   [
     'preferredFamily',
     'preferredSubfamily',
@@ -127,8 +129,8 @@ describe('Landing Page: Direct entry', () => {
     'sxHeight',
     'sCapHeight',
   ].forEach(fontMetric => {
-    it(`shows an error message for ${fontMetric} if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input`, () => {
-      // execute 1
+    it(`shows an error message for ${fontMetric} if the user clicks the next button without entering its input field, and hides the error message if the use enters a valid input, but not until the user clicks somewhere else to blur the focused input element`, () => {
+      // execute: leave one input field empty
       cy.findByLabelText('sxHeight').type(userInput.sxHeight);
       cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
       cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
@@ -138,16 +140,51 @@ describe('Landing Page: Direct entry', () => {
       );
       cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
       cy.findByLabelText(fontMetric).clear();
+
+      // verify: error message not yet shown
+      cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
+
+      // validate upon submit
       cy.findByText(/next/i).click();
-      // verify
       cy.url().should('eq', `${Cypress.config().baseUrl}/`);
       cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
-      // execute 2
+
+      // filling in without blurring
       cy.findByLabelText(fontMetric).type(userInput[fontMetric]);
-      // verify
+      cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
+
+      // filling in with blurring
+      cy.findByLabelText(fontMetric).blur();
       cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
     });
   });
+
+  ['usWeightClass', 'unitsPerEm', 'sxHeight', 'sCapHeight'].forEach(
+    fontMetric => {
+      it(`blocks the user to move on after clicking the next button if the user enters a value outside the required range`, () => {
+        // setup
+        const invalidInputValue = 0;
+        const validInputValue = 1000;
+
+        // execute: leave one input field violating the restriction & click the next
+        cy.findByLabelText('sxHeight').type(userInput.sxHeight);
+        cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
+        cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
+        cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
+        cy.findByLabelText('preferredSubfamily').type(
+          userInput.preferredSubfamily,
+        );
+        cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
+        cy.findByLabelText(fontMetric)
+          .clear()
+          .type(invalidInputValue);
+        cy.findByText(/next/i).click();
+
+        // verify
+        cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+      });
+    },
+  );
 
   ['usWeightClass', 'unitsPerEm', 'sxHeight', 'sCapHeight'].forEach(
     fontMetric => {
@@ -175,6 +212,32 @@ describe('Landing Page: Direct entry', () => {
         // blurring finally hides the message
         cy.findByLabelText(fontMetric).blur();
         cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
+      });
+    },
+  );
+
+  ['usWeightClass', 'unitsPerEm', 'sxHeight', 'sCapHeight'].forEach(
+    fontMetric => {
+      it(`blocks the user to move on after clicking the next button if the user enters a decimal value`, () => {
+        // setup
+        const invalidInputValue = 160.5;
+
+        // execute: leave one input field violating the restriction & click the next
+        cy.findByLabelText('sxHeight').type(userInput.sxHeight);
+        cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
+        cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
+        cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
+        cy.findByLabelText('preferredSubfamily').type(
+          userInput.preferredSubfamily,
+        );
+        cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
+        cy.findByLabelText(fontMetric)
+          .clear()
+          .type(invalidInputValue);
+        cy.findByText(/next/i).click();
+
+        // verify
+        cy.url().should('eq', `${Cypress.config().baseUrl}/`);
       });
     },
   );

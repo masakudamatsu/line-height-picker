@@ -53,55 +53,57 @@ const FontTableBox = props => {
 
     const inputs = event.target.elements;
 
-    // Validation
-    const newFontMetricsError = {};
+    // Overall Validation
+    const inputIsValid = {};
     names.forEach(name => {
-      const errorStatus = inputs[name].validity;
-      newFontMetricsError[name] = errorStatus.valueMissing;
+      inputIsValid[name] = inputs[name].validity.valid;
     });
-    const someError = Object.keys(newFontMetricsError).some(
-      name => newFontMetricsError[name] === true,
+    const allValid = Object.keys(inputIsValid).every(
+      name => inputIsValid[name] === true,
     );
-    if (someError) {
-      setMissingValues(newFontMetricsError);
-      return; // Won't do anything below if there is at least one error.
-    }
-    // Update font metrics
-    let newFontMetrics = {};
-    names.forEach(name => {
-      newFontMetrics[name] = inputs[name].value;
-    });
-    props.updateFontMetrics(newFontMetrics);
-    setRedirect(true);
-  };
+    if (allValid) {
+      // Update font metrics
+      let newFontMetrics = {};
+      names.forEach(name => {
+        newFontMetrics[name] = inputs[name].value;
+      });
+      props.updateFontMetrics(newFontMetrics);
+      setRedirect(true);
 
-  const handleChange = event => {
-    const name = event.target.name;
-    // Do nothing if there's no error
-    if (!missingValues[name]) {
       return;
     }
-    // Erase the error message when the user enters something
-    const newErrorStatus = {
-      [name]: event.target.validity.valueMissing,
-    };
-    const newFontMetricsError = {...missingValues, ...newErrorStatus};
-    setMissingValues(newFontMetricsError);
+
+    // Error handling
+    const newMissingValues = {};
+    names.forEach(name => {
+      newMissingValues[name] = inputs[name].validity.valueMissing;
+    });
+    setMissingValues(newMissingValues);
   };
 
   const handleBlur = event => {
     const name = event.target.name;
+    // Check if the value is missing only when its error status is true after clicking the next button
+    if (missingValues[name]) {
+      console.log('yes');
+      const newMissingValueStatus = {
+        [name]: event.target.validity.valueMissing,
+      };
+      const newMissingValues = {...missingValues, ...newMissingValueStatus};
+      setMissingValues(newMissingValues);
+    }
+    // Check range error
     const valueHigherThanMax = event.target.validity.rangeOverflow;
     const valueLowerThanMix = event.target.validity.rangeUnderflow;
-    let newErrorStatus = {};
+    let newRangeErrorStatus = {};
     if (valueHigherThanMax || valueLowerThanMix) {
-      newErrorStatus[name] = true;
+      newRangeErrorStatus[name] = true;
     } else {
-      newErrorStatus[name] = false;
+      newRangeErrorStatus[name] = false;
     }
-    const newRangeError = {...rangeError, ...newErrorStatus};
+    const newRangeError = {...rangeError, ...newRangeErrorStatus};
     setRangeError(newRangeError);
-
+    // Check step error
     const valueNotWholeNumber = event.target.validity.stepMismatch;
     let newStepErrorStatus = {};
     if (valueNotWholeNumber) {
@@ -131,7 +133,7 @@ const FontTableBox = props => {
         data-testid="preferredFamily"
         id="preferredFamily"
         name="preferredFamily"
-        onChange={handleChange}
+        onBlur={handleBlur}
         placeholder="Open Sans"
         required
         aria-describedby="instruction-preferredFamily error-message-preferredFamily"
@@ -155,7 +157,7 @@ const FontTableBox = props => {
         data-testid="preferredSubfamily"
         id="preferredSubfamily"
         name="preferredSubfamily"
-        onChange={handleChange}
+        onBlur={handleBlur}
         placeholder="Regular"
         required
         aria-describedby="instruction-preferredSubfamily error-message-preferredSubfamily"
@@ -181,7 +183,6 @@ const FontTableBox = props => {
         min="1"
         name="usWeightClass"
         onBlur={handleBlur}
-        onChange={handleChange}
         placeholder="400"
         required
         step="1"
@@ -224,7 +225,6 @@ const FontTableBox = props => {
         min="16"
         name="unitsPerEm"
         onBlur={handleBlur}
-        onChange={handleChange}
         placeholder="2048"
         required
         step="1"
@@ -266,7 +266,6 @@ const FontTableBox = props => {
         min="16"
         name="sxHeight"
         onBlur={handleBlur}
-        onChange={handleChange}
         placeholder="1096"
         required
         step="1"
@@ -308,7 +307,6 @@ const FontTableBox = props => {
         min="16"
         name="sCapHeight"
         onBlur={handleBlur}
-        onChange={handleChange}
         placeholder="1462"
         required
         step="1"
