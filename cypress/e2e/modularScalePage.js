@@ -168,18 +168,33 @@ describe('Modular Scale Page: Error-handling', () => {
     cy.assertIfErrorMessageDisappears('error-message-modular-scale');
   });
 
-  it('alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
+  it('alerts the user if they enter more than 4 decimal places AND blur the X-HEIGHT ratio input field, but the alert disappears when they correct it AND blur the input field', () => {
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.testAlertForDecimalPlaces('x-height-for-ratio', 'modular-scale');
+  });
+
+  it('alerts the user if they enter more than 4 decimal places AND blur the LINE-HEIGHT ratio input field, but the alert disappears when they correct it AND blur the input field', () => {
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.testAlertForDecimalPlaces('line-height-for-ratio', 'modular-scale');
   });
 
-  it('alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
+  it('alerts the user if they enter a value less than 1 AND blur the X-HEIGHT ratio input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.testAlertForValuesLessThanOne('x-height-for-ratio', 'modular-scale');
+  });
+
+  it('alerts the user if they enter a value less than 1 AND blur the LINE-HEIGHT ratio input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.testAlertForValuesLessThanOne('line-height-for-ratio', 'modular-scale');
   });
 
-  it('lerts the user if they enter a value more than 100 AND blur the input field, but the alert disappears when they correct the input value AND blur the input field', () => {
+  it('alerts the user if they enter a value more than 100 AND blur the X-HEIGHT ratio input field, but the alert disappears when they correct the input value AND blur the input field', () => {
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.testAlertForValuesMoreThanHundred('x-height-for-ratio', 'modular-scale');
+  });
+
+  it('alerts the user if they enter a value more than 100 AND blur the LINE-HEIGHT ratio input field, but the alert disappears when they correct the input value AND blur the input field', () => {
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.testAlertForValuesMoreThanHundred(
       'line-height-for-ratio',
       'modular-scale',
