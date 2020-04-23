@@ -161,19 +161,19 @@ test('renders correctly', () => {
           class="c1"
           id="instruction-preferredFamily"
         >
-          Font family name to be used for the 
+          Font family name to be used for the
           <code
             class="c2"
           >
             font-family
           </code>
-           CSS property. It can be found in the 
+           CSS property. It can be found in the
           <code
             class="c2"
           >
             name
           </code>
-           table. If it doesn't exist, enter the 
+           table. If it doesn't exist, enter the
           <code
             class="c2"
           >
@@ -215,7 +215,7 @@ test('renders correctly', () => {
             name
           </code>
            table. If it doesn't exist, enter the
-           
+
           <code
             class="c2"
           >
@@ -250,13 +250,13 @@ test('renders correctly', () => {
           class="c1"
           id="instruction-usWeightClass"
         >
-          Number to be used for the 
+          Number to be used for the
           <code
             class="c2"
           >
             font-weight
           </code>
-           CSS property. It can be found in the 
+           CSS property. It can be found in the
           <code
             class="c2"
           >
@@ -284,14 +284,14 @@ test('renders correctly', () => {
           id="error-message-usWeightClass"
         >
           Please enter a
-           
+
           <b
             class="c6"
             data-testid="bring-attention-usWeightClass"
           >
             whole number
           </b>
-           
+
           between 1 and 1000.
         </p>
         <label
@@ -304,13 +304,13 @@ test('renders correctly', () => {
           class="c1"
           id="instruction-unitsPerEm"
         >
-          Number of units for the length set by the 
+          Number of units for the length set by the
           <code
             class="c2"
           >
             font-size
           </code>
-           CSS property. It can be found in the 
+           CSS property. It can be found in the
           <code
             class="c2"
           >
@@ -338,14 +338,14 @@ test('renders correctly', () => {
           id="error-message-unitsPerEm"
         >
           Please enter a
-           
+
           <b
             class="c6"
             data-testid="bring-attention-unitsPerEm"
           >
             whole number
           </b>
-           
+
           between 16 and 16384.
         </p>
         <label
@@ -358,7 +358,7 @@ test('renders correctly', () => {
           class="c1"
           id="instruction-sxHeight"
         >
-          Number of units for x-height (the height of lowercase x). It can be found in the 
+          Number of units for x-height (the height of lowercase x). It can be found in the
           <code
             class="c2"
           >
@@ -386,14 +386,14 @@ test('renders correctly', () => {
           id="error-message-sxHeight"
         >
           Please enter a
-           
+
           <b
             class="c6"
             data-testid="bring-attention-sxHeight"
           >
             whole number
           </b>
-           
+
           between 16 and 16384.
         </p>
         <label
@@ -406,7 +406,7 @@ test('renders correctly', () => {
           class="c1"
           id="instruction-sCapHeight"
         >
-          Number of units for cap-height (the height of uppercase H). It can be found in the 
+          Number of units for cap-height (the height of uppercase H). It can be found in the
           <code
             class="c2"
           >
@@ -434,14 +434,14 @@ test('renders correctly', () => {
           id="error-message-sCapHeight"
         >
           Please enter a
-           
+
           <b
             class="c6"
             data-testid="bring-attention-sCapHeight"
           >
             whole number
           </b>
-           
+
           between 16 and 16384.
         </p>
         <button
@@ -465,8 +465,8 @@ test('calls the updateFontMetrics function after clicking the next buton with al
   user.type(getByLabelText('preferredFamily'), userInput.preferredFamily);
   user.type(getByLabelText('preferredSubfamily'), userInput.preferredSubfamily);
   user.type(getByLabelText('usWeightClass'), userInput.usWeightClass);
-  getByText(/next/i).click();
-  expect(mockUpdateFontMetrics).toHaveBeenCalledTimes(1);
+  user.click(getByText(/next/i));
+  expect(mockUpdateFontMetrics).toHaveBeenCalledTimes(1); // this assertion fails because userInput numerical values return stepMismatch errors for some reason...
   expect(mockUpdateFontMetrics).toHaveBeenCalledWith(userInput);
 });
 
