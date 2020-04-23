@@ -90,6 +90,7 @@ const FontTableBox = props => {
 
   const handleBlur = event => {
     const name = event.target.name;
+    const userInput = event.target.value;
     // Check if the value is missing only when its error status is true after clicking the next button
     if (missingValues[name]) {
       console.log('yes');
@@ -99,27 +100,24 @@ const FontTableBox = props => {
       const newMissingValues = {...missingValues, ...newMissingValueStatus};
       setMissingValues(newMissingValues);
     }
-    // Check range error
-    const valueHigherThanMax = event.target.validity.rangeOverflow;
-    const valueLowerThanMix = event.target.validity.rangeUnderflow;
+    // Check non-missing errors
+    let newStepErrorStatus = {};
     let newRangeErrorStatus = {};
-    if (valueHigherThanMax || valueLowerThanMix) {
-      newRangeErrorStatus[name] = true;
+    if (event.target.validity.patternMismatch) {
+      if (/\./.test(userInput)) {
+        // Check if the user input is a decimal value
+        newStepErrorStatus[name] = true;
+      } else {
+        newRangeErrorStatus[name] = true;
+      }
     } else {
       newRangeErrorStatus[name] = false;
-    }
-    const newRangeError = {...rangeError, ...newRangeErrorStatus};
-    setRangeError(newRangeError);
-    // Check step error
-    const valueNotWholeNumber = event.target.validity.stepMismatch;
-    let newStepErrorStatus = {};
-    if (valueNotWholeNumber) {
-      newStepErrorStatus[name] = true;
-    } else {
       newStepErrorStatus[name] = false;
     }
     const newStepError = {...stepError, ...newStepErrorStatus};
     setStepError(newStepError);
+    const newRangeError = {...rangeError, ...newRangeErrorStatus};
+    setRangeError(newRangeError);
   };
 
   if (redirect) {
@@ -186,13 +184,11 @@ const FontTableBox = props => {
       <NumberInput
         data-testid="usWeightClass"
         id="usWeightClass"
-        max="1000"
-        min="1"
         name="usWeightClass"
         onBlur={handleBlur}
+        pattern="[1-9]|[1-9][0-9]|[1-9][0-9]{2}|1000"
         placeholder="400"
         required
-        step="1"
         aria-describedby="instruction--usWeightClass error-message-usWeightClass"
       />
       <AlertMessage
@@ -228,13 +224,11 @@ const FontTableBox = props => {
       <NumberInput
         data-testid="unitsPerEm"
         id="unitsPerEm"
-        max="16384"
-        min="16"
         name="unitsPerEm"
         onBlur={handleBlur}
+        pattern="1[6-9]|[2-9][0-9]|[1-9][0-9]{2}|[1-9][0-9]{3}|1[0-5][0-9]{3}|16[0-2][0-9]{2}|163[0-7][0-9]|1638[0-4]"
         placeholder="2048"
         required
-        step="1"
         aria-describedby="instruction-unitsPerEm error-message-unitsPerEm"
       />
       <AlertMessage
@@ -269,13 +263,11 @@ const FontTableBox = props => {
       <NumberInput
         data-testid="sxHeight"
         id="sxHeight"
-        max="16384"
-        min="16"
         name="sxHeight"
         onBlur={handleBlur}
+        pattern="1[6-9]|[2-9][0-9]|[1-9][0-9]{2}|[1-9][0-9]{3}|1[0-5][0-9]{3}|16[0-2][0-9]{2}|163[0-7][0-9]|1638[0-4]"
         placeholder="1096"
         required
-        step="1"
         aria-describedby="instruction-sxHeight error-message-sxHeight"
       />
       <AlertMessage
@@ -310,13 +302,11 @@ const FontTableBox = props => {
       <NumberInput
         data-testid="sCapHeight"
         id="sCapHeight"
-        max="16384"
-        min="16"
         name="sCapHeight"
         onBlur={handleBlur}
+        pattern="1[6-9]|[2-9][0-9]|[1-9][0-9]{2}|[1-9][0-9]{3}|1[0-5][0-9]{3}|16[0-2][0-9]{2}|163[0-7][0-9]|1638[0-4]"
         placeholder="1462"
         required
-        step="1"
         aria-describedby="instruction-sCapHeight error-message-sCapHeight"
       />
       <AlertMessage

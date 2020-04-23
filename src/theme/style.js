@@ -271,20 +271,8 @@ export const Input = styled.input.attrs(props => ({
   }
 `;
 export const NumberInput = styled(Input).attrs(props => ({
-  pattern: '[0-9]*[.,]?[0-9]+',
-  // to support Opera Mini; see https://css-tricks.com/form-validation-part-1-constraint-validation-html/
-  type: 'number',
-}))`
-  /* Remove the arrows */
-  -moz-appearance: textfield;
-  -webkit-appearance: textfield;
-  appearance: textfield;
-
-  &::-webkit-inner-spin-button,
-  &::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-  }
-`;
+  inputMode: 'decimal', // for not only Chrome but also iOS to show number key pad. See https://css-tricks.com/better-form-inputs-for-better-mobile-user-experiences/
+}))``;
 
 export const XheightInput = styled(NumberInput)`
   padding: 1rem;

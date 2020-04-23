@@ -116,11 +116,6 @@ test('renders correctly', () => {
       font-weight: 200;
       font-size: 9rem;
       text-align: center;
-      -moz-appearance: textfield;
-      -webkit-appearance: textfield;
-      -webkit-appearance: textfield;
-      -moz-appearance: textfield;
-      appearance: textfield;
     }
 
     .c5:active,
@@ -128,11 +123,6 @@ test('renders correctly', () => {
     .c5:focus {
       background-color: hsl(0,0%,35%);
       outline: none;
-    }
-
-    .c5::-webkit-inner-spin-button,
-    .c5::-webkit-outer-spin-button {
-      -webkit-appearance: none;
     }
 
     @media (min-width:875px) {
@@ -161,19 +151,19 @@ test('renders correctly', () => {
           class="c1"
           id="instruction-preferredFamily"
         >
-          Font family name to be used for the
+          Font family name to be used for the 
           <code
             class="c2"
           >
             font-family
           </code>
-           CSS property. It can be found in the
+           CSS property. It can be found in the 
           <code
             class="c2"
           >
             name
           </code>
-           table. If it doesn't exist, enter the
+           table. If it doesn't exist, enter the 
           <code
             class="c2"
           >
@@ -215,7 +205,7 @@ test('renders correctly', () => {
             name
           </code>
            table. If it doesn't exist, enter the
-
+           
           <code
             class="c2"
           >
@@ -250,13 +240,13 @@ test('renders correctly', () => {
           class="c1"
           id="instruction-usWeightClass"
         >
-          Number to be used for the
+          Number to be used for the 
           <code
             class="c2"
           >
             font-weight
           </code>
-           CSS property. It can be found in the
+           CSS property. It can be found in the 
           <code
             class="c2"
           >
@@ -269,14 +259,12 @@ test('renders correctly', () => {
           class="c5"
           data-testid="usWeightClass"
           id="usWeightClass"
-          max="1000"
-          min="1"
+          inputmode="decimal"
           name="usWeightClass"
-          pattern="[0-9]*[.,]?[0-9]+"
+          pattern="[1-9]|[1-9][0-9]|[1-9][0-9]{2}|1000"
           placeholder="400"
           required=""
-          step="1"
-          type="number"
+          type="text"
         />
         <p
           class="c4"
@@ -284,14 +272,14 @@ test('renders correctly', () => {
           id="error-message-usWeightClass"
         >
           Please enter a
-
+           
           <b
             class="c6"
             data-testid="bring-attention-usWeightClass"
           >
             whole number
           </b>
-
+           
           between 1 and 1000.
         </p>
         <label
@@ -304,13 +292,13 @@ test('renders correctly', () => {
           class="c1"
           id="instruction-unitsPerEm"
         >
-          Number of units for the length set by the
+          Number of units for the length set by the 
           <code
             class="c2"
           >
             font-size
           </code>
-           CSS property. It can be found in the
+           CSS property. It can be found in the 
           <code
             class="c2"
           >
@@ -323,14 +311,12 @@ test('renders correctly', () => {
           class="c5"
           data-testid="unitsPerEm"
           id="unitsPerEm"
-          max="16384"
-          min="16"
+          inputmode="decimal"
           name="unitsPerEm"
-          pattern="[0-9]*[.,]?[0-9]+"
+          pattern="1[6-9]|[2-9][0-9]|[1-9][0-9]{2}|[1-9][0-9]{3}|1[0-5][0-9]{3}|16[0-2][0-9]{2}|163[0-7][0-9]|1638[0-4]"
           placeholder="2048"
           required=""
-          step="1"
-          type="number"
+          type="text"
         />
         <p
           class="c4"
@@ -338,14 +324,14 @@ test('renders correctly', () => {
           id="error-message-unitsPerEm"
         >
           Please enter a
-
+           
           <b
             class="c6"
             data-testid="bring-attention-unitsPerEm"
           >
             whole number
           </b>
-
+           
           between 16 and 16384.
         </p>
         <label
@@ -358,7 +344,7 @@ test('renders correctly', () => {
           class="c1"
           id="instruction-sxHeight"
         >
-          Number of units for x-height (the height of lowercase x). It can be found in the
+          Number of units for x-height (the height of lowercase x). It can be found in the 
           <code
             class="c2"
           >
@@ -371,14 +357,12 @@ test('renders correctly', () => {
           class="c5"
           data-testid="sxHeight"
           id="sxHeight"
-          max="16384"
-          min="16"
+          inputmode="decimal"
           name="sxHeight"
-          pattern="[0-9]*[.,]?[0-9]+"
+          pattern="1[6-9]|[2-9][0-9]|[1-9][0-9]{2}|[1-9][0-9]{3}|1[0-5][0-9]{3}|16[0-2][0-9]{2}|163[0-7][0-9]|1638[0-4]"
           placeholder="1096"
           required=""
-          step="1"
-          type="number"
+          type="text"
         />
         <p
           class="c4"
@@ -386,14 +370,14 @@ test('renders correctly', () => {
           id="error-message-sxHeight"
         >
           Please enter a
-
+           
           <b
             class="c6"
             data-testid="bring-attention-sxHeight"
           >
             whole number
           </b>
-
+           
           between 16 and 16384.
         </p>
         <label
@@ -406,7 +390,7 @@ test('renders correctly', () => {
           class="c1"
           id="instruction-sCapHeight"
         >
-          Number of units for cap-height (the height of uppercase H). It can be found in the
+          Number of units for cap-height (the height of uppercase H). It can be found in the 
           <code
             class="c2"
           >
@@ -419,14 +403,12 @@ test('renders correctly', () => {
           class="c5"
           data-testid="sCapHeight"
           id="sCapHeight"
-          max="16384"
-          min="16"
+          inputmode="decimal"
           name="sCapHeight"
-          pattern="[0-9]*[.,]?[0-9]+"
+          pattern="1[6-9]|[2-9][0-9]|[1-9][0-9]{2}|[1-9][0-9]{3}|1[0-5][0-9]{3}|16[0-2][0-9]{2}|163[0-7][0-9]|1638[0-4]"
           placeholder="1462"
           required=""
-          step="1"
-          type="number"
+          type="text"
         />
         <p
           class="c4"
@@ -434,14 +416,14 @@ test('renders correctly', () => {
           id="error-message-sCapHeight"
         >
           Please enter a
-
+           
           <b
             class="c6"
             data-testid="bring-attention-sCapHeight"
           >
             whole number
           </b>
-
+           
           between 16 and 16384.
         </p>
         <button
