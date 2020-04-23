@@ -81,8 +81,8 @@ ModularScaleBoxes.propTypes = {
   handleLineHeightRatioChange: PropTypes.func.isRequired,
   handleXHeightRatioChange: PropTypes.func.isRequired,
   lineHeightRatio: PropTypes.string,
-  modularScaleRangeError: PropTypes.bool,
-  modularScaleStepError: PropTypes.bool,
+  modularScaleRangeError: PropTypes.string,
+  modularScaleStepError: PropTypes.string,
   validateModularScale: PropTypes.func.isRequired,
   xHeightRatio: PropTypes.string,
 };

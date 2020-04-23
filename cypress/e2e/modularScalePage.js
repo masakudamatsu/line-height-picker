@@ -4,6 +4,8 @@ const userData = {
   lineHeightRatio: 3,
 };
 const OpenSansFontMetrics = {
+  fontFamily: 'Open Sans',
+  fontSubfamily: 'Regular',
   unitsPerEm: 2048,
   sxHeight: 1096,
 };
@@ -34,6 +36,38 @@ describe('Modular Scale Page in demo', () => {
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     // verify
     cy.assertModularScaleLineHeightFromModularScalePageOn(
+      userData.xHeightRatio,
+      userData.lineHeightRatio,
+      userData.xHeight,
+      OpenSansFontMetrics,
+    );
+  });
+
+  it('keeps the entered x-height-to-line-height ratio and the other user inputs after the user reloads the page', () => {
+    // execute
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
+    cy.reload();
+    // verify
+    cy.findByTestId('x-height-for-ratio').should(
+      'have.value',
+      `${userData.xHeightRatio}`,
+    );
+    cy.findByTestId('line-height-for-ratio').should(
+      'have.value',
+      `${userData.lineHeightRatio}`,
+    );
+    cy.findByTestId('font-family-name').should(
+      'have.text',
+      OpenSansFontMetrics.fontFamily,
+    );
+    cy.findByTestId('font-subfamily-name').should(
+      'have.text',
+      OpenSansFontMetrics.fontSubfamily,
+    );
+    // Verify the other font metrics
+    cy.findByText(/preview/i).click();
+    cy.assertModularScaleLineHeightFromPreviewPageOn(
       userData.xHeightRatio,
       userData.lineHeightRatio,
       userData.xHeight,

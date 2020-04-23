@@ -58,14 +58,33 @@ function App() {
     sessionStorage.setItem('xHeightStepError', xHeightStepError);
   }, [xHeightStepError]);
 
-  const [xHeightRatio, setXHeightRatio] = React.useState('');
-  const [lineHeightRatio, setLineHeightRatio] = React.useState('');
+  const [xHeightRatio, setXHeightRatio] = React.useState(
+    sessionStorage.getItem('xHeightRatio'),
+  );
+  React.useEffect(() => {
+    sessionStorage.setItem('xHeightRatio', xHeightRatio);
+  }, [xHeightRatio]);
+
+  const [lineHeightRatio, setLineHeightRatio] = React.useState(
+    sessionStorage.getItem('lineHeightRatio'),
+  );
+  React.useEffect(() => {
+    sessionStorage.setItem('lineHeightRatio', lineHeightRatio);
+  }, [lineHeightRatio]);
+
   const [modularScaleRangeError, setModularScaleRangeError] = React.useState(
-    false,
+    sessionStorage.getItem('modularScaleRangeError'),
   );
+  React.useEffect(() => {
+    sessionStorage.setItem('modularScaleRangeError', modularScaleRangeError);
+  }, [modularScaleRangeError]);
+
   const [modularScaleStepError, setModularScaleStepError] = React.useState(
-    false,
+    sessionStorage.getItem('modularScaleStepError'),
   );
+  React.useEffect(() => {
+    sessionStorage.setItem('modularScaleStepError', modularScaleStepError);
+  }, [modularScaleStepError]);
 
   const [fontSizePx, setFontSizePx] = React.useState(
     sessionStorage.getItem('fontSizePx'),
@@ -74,7 +93,13 @@ function App() {
     sessionStorage.setItem('fontSizePx', fontSizePx);
   }, [fontSizePx]);
 
-  const [lineHeight, setLineHeight] = React.useState('');
+  const [lineHeight, setLineHeight] = React.useState(
+    sessionStorage.getItem('lineHeight'),
+  );
+  React.useEffect(() => {
+    sessionStorage.setItem('lineHeight', lineHeight);
+  }, [lineHeight]);
+
   const [marginTop, setMarginTop] = React.useState('');
 
   const validateFileType = file => {
@@ -212,12 +237,12 @@ function App() {
 
   const handleNoModularScale = errors => {
     if (errors.valueMissing) {
-      setModularScaleRangeError(true);
+      setModularScaleRangeError('true');
     } else {
       if (errors.patternMismatch) {
         return; // Keep the error status intact
       } else {
-        setModularScaleRangeError(false);
+        setModularScaleRangeError('');
       }
     }
   };
@@ -225,13 +250,13 @@ function App() {
   const validateModularScale = (inputValue, errors) => {
     if (errors.patternMismatch) {
       if (/\.\d{5}/.test(inputValue)) {
-        setModularScaleStepError(true);
+        setModularScaleStepError('true');
       } else {
-        setModularScaleRangeError(true);
+        setModularScaleRangeError('true');
       }
     } else {
-      setModularScaleRangeError(false);
-      setModularScaleStepError(false);
+      setModularScaleRangeError('');
+      setModularScaleStepError('');
     }
   };
 
