@@ -299,7 +299,7 @@ Cypress.Commands.add('testAlertForValuesLessThanOne', (testId, page) => {
 
   // reload doesn't erase the alert
   cy.reload();
-  cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
+  cy.assertIfErrorMessageAppears(errorMessageTestId);
 
   // click next doesn't move the page, and the input field gets focused
   let buttonLabel;
