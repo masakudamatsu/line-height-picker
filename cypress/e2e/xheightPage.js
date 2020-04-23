@@ -130,7 +130,7 @@ describe('X-height page: Error-handling', () => {
   });
 
   it.only('alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
-    cy.testAlertForDecimalPlaces('x-height-in-pixel');
+    cy.testAlertForDecimalPlaces('x-height-in-pixel', 'x-height');
   });
 
   it.only('alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {

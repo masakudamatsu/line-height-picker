@@ -225,7 +225,7 @@ Cypress.Commands.add('assertIfErrorMessageDisappears', testId => {
 });
 
 // Tests on alert
-Cypress.Commands.add('testAlertForDecimalPlaces', testId => {
+Cypress.Commands.add('testAlertForDecimalPlaces', (testId, page) => {
   // setup
   const invalidUserData = {
     xHeight: 10.12345,
@@ -247,10 +247,15 @@ Cypress.Commands.add('testAlertForDecimalPlaces', testId => {
 
   // click next doesn't move the page, and the input field gets focused
   let buttonLabel;
-  if (testId === 'x-height-in-pixel') {
-    buttonLabel = /scale/i;
-  } else {
-    buttonLabel = /preview/i;
+  switch (page) {
+    case 'x-height':
+      buttonLabel = /scale/i;
+      break;
+    case 'modular-scale':
+      buttonLabel = /preview/i;
+      break;
+    default:
+      break;
   }
   cy.findByText(buttonLabel).click();
   cy.focused().should('have.attr', 'id', testId);

@@ -135,8 +135,8 @@ describe('Modular Scale Page: Error-handling', () => {
   });
 
   it('alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
-    cy.testAlertForDecimalPlaces('x-height-for-ratio');
-    cy.testAlertForDecimalPlaces('line-height-for-ratio');
+    cy.testAlertForDecimalPlaces('x-height-for-ratio', 'modular-scale');
+    cy.testAlertForDecimalPlaces('line-height-for-ratio', 'modular-scale');
   });
 
   it('alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
