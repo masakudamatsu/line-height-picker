@@ -311,7 +311,7 @@ describe('Preview Page: Error-handling', () => {
 
   ['x-height-in-pixel', 'x-height-for-ratio', 'line-height-for-ratio'].forEach(
     testId => {
-      it.only(`alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field, for ${testId}`, () => {
+      it(`alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field, for ${testId}`, () => {
         cy.findByTestId(testId).clear();
         cy.testAlertForDecimalPlaces(testId, 'preview');
       });
