@@ -271,10 +271,11 @@ describe('Preview Page: Error-handling', () => {
 
   ['x-height-in-pixel', 'x-height-for-ratio', 'line-height-for-ratio'].forEach(
     testId => {
-      it(`disables the button to get the CSS code if the user deletes the ${testId} value`, () => {
+      it(`disables the button to get the CSS code, focuses the invalid field, and shows the error message, if the user deletes the ${testId} value`, () => {
         cy.findByTestId(testId).clear();
         cy.findByText(/css/i).click();
         cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
+        cy.focused().should('have.attr', 'id', testId);
         if (testId === 'x-height-in-pixel') {
           cy.assertIfErrorMessageAppears('error-message-x-height');
         } else {
@@ -310,17 +311,17 @@ describe('Preview Page: Error-handling', () => {
 
   ['x-height-in-pixel', 'x-height-for-ratio', 'line-height-for-ratio'].forEach(
     testId => {
-      it(`alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field, for ${testId}`, () => {
+      it.only(`alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field, for ${testId}`, () => {
         cy.findByTestId(testId).clear();
-        cy.testAlertForDecimalPlaces(testId);
+        cy.testAlertForDecimalPlaces(testId, 'preview');
       });
       it(`alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field, for ${testId}`, () => {
         cy.findByTestId(testId).clear();
-        cy.testAlertForValuesLessThanOne(testId);
+        cy.testAlertForValuesLessThanOne(testId, 'preview');
       });
       it(`alerts the user if they enter a value more than 100 AND blur the input field, but the alert disappears when they delete the last digit AND blur the input field, for ${testId}`, () => {
         cy.findByTestId(testId).clear();
-        cy.testAlertForValuesMoreThanHundred(testId);
+        cy.testAlertForValuesMoreThanHundred(testId, 'preview');
       });
     },
   );

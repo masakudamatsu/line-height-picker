@@ -39,10 +39,13 @@ const Preview = props => {
       setRedirect(true);
     } else if (!xHeightErrors.valid) {
       props.handleNoXHeight(xHeightErrors);
+      document.getElementById('x-height-in-pixel').focus();
     } else if (!xHeightRatioErrors.valid) {
       props.handleNoModularScale(xHeightRatioErrors);
+      document.getElementById('x-height-for-ratio').focus();
     } else {
       props.handleNoModularScale(lineHeightRatioErrors);
+      document.getElementById('line-height-for-ratio').focus();
     }
   };
   if (redirect) {

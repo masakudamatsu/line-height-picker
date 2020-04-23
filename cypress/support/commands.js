@@ -254,6 +254,9 @@ Cypress.Commands.add('testAlertForDecimalPlaces', (testId, page) => {
     case 'modular-scale':
       buttonLabel = /preview/i;
       break;
+    case 'preview':
+      buttonLabel = /css/i;
+      break;
     default:
       break;
   }
@@ -298,6 +301,9 @@ Cypress.Commands.add('testAlertForValuesLessThanOne', (testId, page) => {
       break;
     case 'modular-scale':
       buttonLabel = /preview/i;
+      break;
+    case 'preview':
+      buttonLabel = /css/i;
       break;
     default:
       break;
@@ -358,6 +364,9 @@ Cypress.Commands.add('testAlertForValuesMoreThanHundred', (testId, page) => {
       break;
     case 'modular-scale':
       buttonLabel = /preview/i;
+      break;
+    case 'preview':
+      buttonLabel = /css/i;
       break;
     default:
       break;

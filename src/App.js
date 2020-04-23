@@ -186,7 +186,15 @@ function App() {
     if (errors.valueMissing) {
       setModularScaleRangeError(true);
     } else {
-      setModularScaleRangeError(false);
+      if (
+        errors.rangeOverflow ||
+        errors.rangeUnderflow ||
+        errors.stepMismatch
+      ) {
+        return; // Keep the error status intact
+      } else {
+        setModularScaleRangeError(false);
+      }
     }
   };
 
