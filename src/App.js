@@ -187,12 +187,12 @@ function App() {
 
   const handleNoXHeight = errors => {
     if (errors.valueMissing) {
-      setXHeightRangeError(true);
+      setXHeightRangeError('true');
     } else {
       if (errors.patternMismatch) {
         return; // Keep the error status intact
       } else {
-        setXHeightRangeError(false);
+        setXHeightRangeError('');
       }
     }
   };
@@ -200,13 +200,13 @@ function App() {
   const validateXHeight = (inputValue, errors) => {
     if (errors.patternMismatch) {
       if (/\.\d{5}/.test(inputValue)) {
-        setXHeightStepError(true);
+        setXHeightStepError('true');
       } else {
-        setXHeightRangeError(true);
+        setXHeightRangeError('true');
       }
     } else {
-      setXHeightRangeError(false);
-      setXHeightStepError(false);
+      setXHeightRangeError('');
+      setXHeightStepError('');
     }
   };
 

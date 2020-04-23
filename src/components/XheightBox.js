@@ -58,8 +58,8 @@ XheightBox.propTypes = {
   handleXHeightChange: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
-  xHeightRangeError: PropTypes.bool,
-  xHeightStepError: PropTypes.bool,
+  xHeightRangeError: PropTypes.string,
+  xHeightStepError: PropTypes.string,
 };
 
 export default XheightBox;

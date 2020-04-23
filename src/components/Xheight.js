@@ -79,8 +79,8 @@ Xheight.propTypes = {
   validateFileType: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
-  xHeightRangeError: PropTypes.bool.isRequired,
-  xHeightStepError: PropTypes.bool.isRequired,
+  xHeightRangeError: PropTypes.string.isRequired,
+  xHeightStepError: PropTypes.string.isRequired,
 };
 
 export default Xheight;
