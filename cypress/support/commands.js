@@ -269,7 +269,7 @@ Cypress.Commands.add('testAlertForDecimalPlaces', (testId, page) => {
   cy.assertIfDecimalPlaceMessageTurnsNormal(errorMessageTestId);
 });
 
-Cypress.Commands.add('testAlertForValuesLessThanOne', testId => {
+Cypress.Commands.add('testAlertForValuesLessThanOne', (testId, page) => {
   // setup
   const invalidUserData = {
     negativeValue: -1,
@@ -292,10 +292,15 @@ Cypress.Commands.add('testAlertForValuesLessThanOne', testId => {
 
   // click next doesn't move the page, and the input field gets focused
   let buttonLabel;
-  if (testId === 'x-height-in-pixel') {
-    buttonLabel = /scale/i;
-  } else {
-    buttonLabel = /preview/i;
+  switch (page) {
+    case 'x-height':
+      buttonLabel = /scale/i;
+      break;
+    case 'modular-scale':
+      buttonLabel = /preview/i;
+      break;
+    default:
+      break;
   }
   cy.findByText(buttonLabel).click();
   cy.focused().should('have.attr', 'id', testId);
@@ -327,7 +332,7 @@ Cypress.Commands.add('testAlertForValuesLessThanOne', testId => {
   cy.assertIfErrorMessageDisappears(errorMessageTestId);
 });
 
-Cypress.Commands.add('testAlertForValuesMoreThanHundred', testId => {
+Cypress.Commands.add('testAlertForValuesMoreThanHundred', (testId, page) => {
   // setup
   const invalidUserData = '101';
   let errorMessageTestId;
@@ -347,10 +352,15 @@ Cypress.Commands.add('testAlertForValuesMoreThanHundred', testId => {
 
   // click next doesn't move the page, and the input field gets focused
   let buttonLabel;
-  if (testId === 'x-height-in-pixel') {
-    buttonLabel = /scale/i;
-  } else {
-    buttonLabel = /preview/i;
+  switch (page) {
+    case 'x-height':
+      buttonLabel = /scale/i;
+      break;
+    case 'modular-scale':
+      buttonLabel = /preview/i;
+      break;
+    default:
+      break;
   }
   cy.findByText(buttonLabel).click();
   cy.focused().should('have.attr', 'id', testId);

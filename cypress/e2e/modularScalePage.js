@@ -140,13 +140,16 @@ describe('Modular Scale Page: Error-handling', () => {
   });
 
   it('alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
-    cy.testAlertForValuesLessThanOne('x-height-for-ratio');
-    cy.testAlertForValuesLessThanOne('line-height-for-ratio');
+    cy.testAlertForValuesLessThanOne('x-height-for-ratio', 'modular-scale');
+    cy.testAlertForValuesLessThanOne('line-height-for-ratio', 'modular-scale');
   });
 
   it('lerts the user if they enter a value more than 100 AND blur the input field, but the alert disappears when they correct the input value AND blur the input field', () => {
-    cy.testAlertForValuesMoreThanHundred('x-height-for-ratio');
-    cy.testAlertForValuesMoreThanHundred('line-height-for-ratio');
+    cy.testAlertForValuesMoreThanHundred('x-height-for-ratio', 'modular-scale');
+    cy.testAlertForValuesMoreThanHundred(
+      'line-height-for-ratio',
+      'modular-scale',
+    );
   });
 
   it('Uploading a file with an invalid extension alerts the user', () => {
