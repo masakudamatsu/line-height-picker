@@ -83,11 +83,6 @@ test('renders correctly', () => {
       font-weight: 200;
       font-size: 9rem;
       text-align: center;
-      -moz-appearance: textfield;
-      -webkit-appearance: textfield;
-      -webkit-appearance: textfield;
-      -moz-appearance: textfield;
-      appearance: textfield;
       width: 100%;
     }
 
@@ -96,11 +91,6 @@ test('renders correctly', () => {
     .c3:focus {
       background-color: hsl(0,0%,35%);
       outline: none;
-    }
-
-    .c3::-webkit-inner-spin-button,
-    .c3::-webkit-outer-spin-button {
-      -webkit-appearance: none;
     }
 
     <div>
@@ -129,12 +119,10 @@ test('renders correctly', () => {
             class="sc-fzoNJl sc-fzoXWK c3"
             data-testid="x-height-for-ratio"
             id="x-height-for-ratio"
-            max="100"
-            min="1"
-            pattern="[0-9]*[.,]?[0-9]+"
+            inputmode="decimal"
+            pattern="([1-9]|[1-9][0-9])([.,]\\\\d{1,4})?|100"
             required=""
-            step="0.0001"
-            type="number"
+            type="text"
             value=""
           />
         </div>
@@ -155,12 +143,10 @@ test('renders correctly', () => {
             class="sc-fzoNJl sc-fzoXWK c3"
             data-testid="line-height-for-ratio"
             id="line-height-for-ratio"
-            max="100"
-            min="1"
-            pattern="[0-9]*[.,]?[0-9]+"
+            inputmode="decimal"
+            pattern="([1-9]|[1-9][0-9])([.,]\\\\d{1,4})?|100"
             required=""
-            step="0.0001"
-            type="number"
+            type="text"
             value=""
           />
         </div>

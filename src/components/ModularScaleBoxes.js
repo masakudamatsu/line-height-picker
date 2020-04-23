@@ -13,8 +13,9 @@ import {
 
 const ModularScaleBoxes = props => {
   const handleBlur = event => {
+    const inputValue = event.target.value;
     const errors = event.target.validity;
-    props.validateModularScale(errors);
+    props.validateModularScale(inputValue, errors);
   };
   const handleXHeightChange = event => {
     const newXHeightRatio = event.target.value;
@@ -34,12 +35,10 @@ const ModularScaleBoxes = props => {
           <ModularScaleInput
             data-testid="x-height-for-ratio"
             id="x-height-for-ratio"
-            max="100"
-            min="1"
             onBlur={handleBlur}
             onChange={handleXHeightChange}
+            pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
             required
-            step="0.0001"
             value={props.xHeightRatio}
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           />
@@ -50,12 +49,10 @@ const ModularScaleBoxes = props => {
           <ModularScaleInput
             id="line-height-for-ratio"
             data-testid="line-height-for-ratio"
-            max="100"
-            min="1"
             onBlur={handleBlur}
             onChange={handleLineHeightChange}
+            pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
             required
-            step="0.0001"
             value={props.lineHeightRatio}
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           />

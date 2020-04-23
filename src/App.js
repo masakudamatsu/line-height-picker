@@ -182,11 +182,7 @@ function App() {
     if (errors.valueMissing) {
       setModularScaleRangeError(true);
     } else {
-      if (
-        errors.rangeOverflow ||
-        errors.rangeUnderflow ||
-        errors.stepMismatch
-      ) {
+      if (errors.patternMismatch) {
         return; // Keep the error status intact
       } else {
         setModularScaleRangeError(false);
@@ -194,15 +190,15 @@ function App() {
     }
   };
 
-  const validateModularScale = errors => {
-    if (errors.rangeOverflow || errors.rangeUnderflow) {
-      setModularScaleRangeError(true);
+  const validateModularScale = (inputValue, errors) => {
+    if (errors.patternMismatch) {
+      if (/\.\d{5}/.test(inputValue)) {
+        setModularScaleStepError(true);
+      } else {
+        setModularScaleRangeError(true);
+      }
     } else {
       setModularScaleRangeError(false);
-    }
-    if (errors.stepMismatch) {
-      setModularScaleStepError(true);
-    } else {
       setModularScaleStepError(false);
     }
   };
