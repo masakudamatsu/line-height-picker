@@ -15,8 +15,9 @@ const XheightBox = props => {
     props.handleXHeightChange(xHeightValue);
   };
   const handleBlur = event => {
+    const inputValue = event.target.value;
     const errors = event.target.validity;
-    props.validateXHeight(errors);
+    props.validateXHeight(inputValue, errors);
   };
   return (
     <>
@@ -25,12 +26,10 @@ const XheightBox = props => {
         <XheightInput
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"
-          max="100"
-          min="1"
           onBlur={handleBlur}
           onChange={handleChange}
+          pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
           required
-          step="0.0001"
           value={props.xHeightPx}
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
         />

@@ -157,11 +157,7 @@ function App() {
     if (errors.valueMissing) {
       setXHeightRangeError(true);
     } else {
-      if (
-        errors.rangeOverflow ||
-        errors.rangeUnderflow ||
-        errors.stepMismatch
-      ) {
+      if (errors.patternMismatch) {
         return; // Keep the error status intact
       } else {
         setXHeightRangeError(false);
@@ -169,15 +165,15 @@ function App() {
     }
   };
 
-  const validateXHeight = errors => {
-    if (errors.rangeOverflow || errors.rangeUnderflow) {
-      setXHeightRangeError(true);
+  const validateXHeight = (inputValue, errors) => {
+    if (errors.patternMismatch) {
+      if (/\.\d{5}/.test(inputValue)) {
+        setXHeightStepError(true);
+      } else {
+        setXHeightRangeError(true);
+      }
     } else {
       setXHeightRangeError(false);
-    }
-    if (errors.stepMismatch) {
-      setXHeightStepError(true);
-    } else {
       setXHeightStepError(false);
     }
   };
