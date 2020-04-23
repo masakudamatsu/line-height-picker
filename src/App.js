@@ -19,18 +19,44 @@ const opentype = require('opentype.js');
 
 function App() {
   const [fontMetrics, setFontMetrics] = React.useState({
-    fontFamily: '',
-    fontSubfamily: '',
-    fontWeight: '',
-    xHeight: '',
-    unitsPerEm: '',
-    capHeight: '',
+    fontFamily: sessionStorage.getItem('fontFamily'),
+    fontSubfamily: sessionStorage.getItem('fontSubfamily'),
+    fontWeight: sessionStorage.getItem('fontWeight'),
+    xHeight: sessionStorage.getItem('xHeight'),
+    unitsPerEm: sessionStorage.getItem('unitsPerEm'),
+    capHeight: sessionStorage.getItem('capHeight'),
   });
+  React.useEffect(() => {
+    sessionStorage.setItem('fontFamily', fontMetrics.fontFamily);
+    sessionStorage.setItem('fontSubfamily', fontMetrics.fontSubfamily);
+    sessionStorage.setItem('fontWeight', fontMetrics.fontWeight);
+    sessionStorage.setItem('xHeight', fontMetrics.xHeight);
+    sessionStorage.setItem('unitsPerEm', fontMetrics.unitsPerEm);
+    sessionStorage.setItem('capHeight', fontMetrics.capHeight);
+  }, [fontMetrics]);
+
   const [fontFileError, setFontFileError] = React.useState('');
 
-  const [xHeightPx, setXHeightPx] = React.useState('');
-  const [xHeightRangeError, setXHeightRangeError] = React.useState(false);
-  const [xHeightStepError, setXHeightStepError] = React.useState(false);
+  const [xHeightPx, setXHeightPx] = React.useState(
+    sessionStorage.getItem('xHeightPx'),
+  );
+  React.useEffect(() => {
+    sessionStorage.setItem('xHeightPx', xHeightPx);
+  }, [xHeightPx]);
+
+  const [xHeightRangeError, setXHeightRangeError] = React.useState(
+    sessionStorage.getItem('xHeightRangeError'),
+  );
+  React.useEffect(() => {
+    sessionStorage.setItem('xHeightRangeError', xHeightRangeError);
+  }, [xHeightRangeError]);
+
+  const [xHeightStepError, setXHeightStepError] = React.useState(
+    sessionStorage.getItem('xHeightStepError'),
+  );
+  React.useEffect(() => {
+    sessionStorage.setItem('xHeightStepError', xHeightStepError);
+  }, [xHeightStepError]);
 
   const [xHeightRatio, setXHeightRatio] = React.useState('');
   const [lineHeightRatio, setLineHeightRatio] = React.useState('');
@@ -41,7 +67,13 @@ function App() {
     false,
   );
 
-  const [fontSizePx, setFontSizePx] = React.useState('');
+  const [fontSizePx, setFontSizePx] = React.useState(
+    sessionStorage.getItem('fontSizePx'),
+  );
+  React.useEffect(() => {
+    sessionStorage.setItem('fontSizePx', fontSizePx);
+  }, [fontSizePx]);
+
   const [lineHeight, setLineHeight] = React.useState('');
   const [marginTop, setMarginTop] = React.useState('');
 

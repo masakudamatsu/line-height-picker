@@ -245,6 +245,10 @@ Cypress.Commands.add('testAlertForDecimalPlaces', (testId, page) => {
   cy.findByTestId(testId).blur();
   cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
 
+  // reload doesn't erase the alert
+  cy.reload();
+  cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
+
   // click next doesn't move the page, and the input field gets focused
   let buttonLabel;
   switch (page) {
@@ -292,6 +296,10 @@ Cypress.Commands.add('testAlertForValuesLessThanOne', (testId, page) => {
   // wrong input and blur
   cy.findByTestId(testId).blur();
   cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // reload doesn't erase the alert
+  cy.reload();
+  cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
 
   // click next doesn't move the page, and the input field gets focused
   let buttonLabel;
@@ -356,6 +364,10 @@ Cypress.Commands.add('testAlertForValuesMoreThanHundred', (testId, page) => {
   cy.findByTestId(testId).blur();
   cy.assertIfErrorMessageAppears(errorMessageTestId);
 
+  // reload doesn't erase the alert
+  cy.reload();
+  cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
+
   // click next doesn't move the page, and the input field gets focused
   let buttonLabel;
   switch (page) {
@@ -400,6 +412,10 @@ Cypress.Commands.add('testAlertForString', (testId, page) => {
   // Wrong input and blur
   cy.findByTestId(testId).blur();
   cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // reload doesn't erase the alert
+  cy.reload();
+  cy.assertIfDecimalPlaceMessageTurnsRed(errorMessageTestId);
 
   // click next doesn't move the page, and the input field gets focused
   let buttonLabel;

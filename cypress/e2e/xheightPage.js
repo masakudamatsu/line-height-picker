@@ -4,8 +4,11 @@ const validInputs = [{xHeight: 10}, {xHeight: 11}];
 
 describe('X-height page in demo', () => {
   const OpenSansFontMetrics = {
+    fontFamily: 'Open Sans',
+    fontSubfamily: 'Regular',
     unitsPerEm: 2048,
     sxHeight: 1096,
+    sCapHeight: 1462,
   };
 
   beforeEach(() => {
@@ -57,6 +60,28 @@ describe('X-height page in demo', () => {
       expectedFontName,
       expectedFontSubfamily,
       expectedFontWeight,
+    );
+  });
+
+  it('keeps the entered x-height value and the font information after the user reloads the page', () => {
+    const validInput = '12';
+    cy.findByTestId('x-height-in-pixel').type(validInput);
+    cy.reload();
+    // verify
+    cy.findByTestId('x-height-in-pixel').should('have.value', validInput);
+    cy.findByTestId('font-family-name').should(
+      'have.text',
+      OpenSansFontMetrics.fontFamily,
+    );
+    cy.findByTestId('font-subfamily-name').should(
+      'have.text',
+      OpenSansFontMetrics.fontSubfamily,
+    );
+    // Verify the other font metrics
+    cy.findByText(/scale/i).click();
+    cy.assertXheightFontSizeFromModularScalePageOn(
+      validInput,
+      OpenSansFontMetrics,
     );
   });
 });
