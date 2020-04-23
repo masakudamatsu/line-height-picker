@@ -22,8 +22,8 @@ const FontNameDisplay = props => {
 };
 
 FontNameDisplay.propTypes = {
-  fontFamily: PropTypes.string.isRequired,
-  fontSubfamily: PropTypes.string.isRequired,
+  fontFamily: PropTypes.string,
+  fontSubfamily: PropTypes.string,
 };
 
 export default FontNameDisplay;

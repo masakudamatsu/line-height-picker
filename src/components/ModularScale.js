@@ -81,9 +81,9 @@ const ModularScale = props => {
 };
 
 ModularScale.propTypes = {
-  fontFamily: PropTypes.string.isRequired,
+  fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
-  fontSubfamily: PropTypes.string.isRequired,
+  fontSubfamily: PropTypes.string,
   handleFontFile: PropTypes.func.isRequired,
   handleLineHeightRatioChange: PropTypes.func.isRequired,
   handleNoModularScale: PropTypes.func.isRequired,

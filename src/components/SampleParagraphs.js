@@ -36,7 +36,7 @@ const SampleParagraphs = props => {
 };
 
 SampleParagraphs.propTypes = {
-  fontFamily: PropTypes.string.isRequired,
+  fontFamily: PropTypes.string,
   fontSize: PropTypes.string,
   fontWeight: PropTypes.string,
   lineHeight: PropTypes.string,

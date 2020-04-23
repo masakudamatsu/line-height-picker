@@ -70,9 +70,9 @@ const Xheight = props => {
 };
 
 Xheight.propTypes = {
-  fontFamily: PropTypes.string.isRequired,
+  fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
-  fontSubfamily: PropTypes.string.isRequired,
+  fontSubfamily: PropTypes.string,
   handleFontFile: PropTypes.func.isRequired,
   handleNoXHeight: PropTypes.func.isRequired,
   handleXHeightChange: PropTypes.func.isRequired,
