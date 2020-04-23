@@ -283,4 +283,60 @@ describe('Landing Page: Direct entry', () => {
       });
     },
   );
+  ['usWeightClass', 'unitsPerEm', 'sxHeight', 'sCapHeight'].forEach(
+    fontMetric => {
+      it(`blocks the user to move on after clicking the next button if the user enters a string value`, () => {
+        // setup
+        const invalidInputValue = 'Nan';
+        const validInputValue = 1000;
+
+        // execute: leave one input field violating the restriction & click the next
+        cy.findByLabelText('sxHeight').type(userInput.sxHeight);
+        cy.findByLabelText('sCapHeight').type(userInput.sCapHeight);
+        cy.findByLabelText('unitsPerEm').type(userInput.unitsPerEm);
+        cy.findByLabelText('preferredFamily').type(userInput.preferredFamily);
+        cy.findByLabelText('preferredSubfamily').type(
+          userInput.preferredSubfamily,
+        );
+        cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
+        cy.findByLabelText(fontMetric)
+          .clear()
+          .type(invalidInputValue);
+        cy.findByText(/next/i).click();
+
+        // verify
+        cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+      });
+    },
+  );
+
+  ['usWeightClass', 'unitsPerEm', 'sxHeight', 'sCapHeight'].forEach(
+    fontMetric => {
+      it(`shows alert for ${fontMetric} if the user enters a string value, but not until the user clicks somewhere else to blur the focused input element`, () => {
+        // setup
+        const invalidInputValue = 'Nan';
+        const validInputValue = 1000;
+
+        // without blurring doesn't reveal the message
+        cy.findByLabelText(fontMetric).type(invalidInputValue);
+        cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
+
+        // blurring reveals the message
+        cy.findByLabelText(fontMetric).blur();
+        // verify
+        cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
+
+        // correcting a value doesn't hide the message yet
+        cy.findByLabelText(fontMetric)
+          .clear()
+          .type(validInputValue);
+        // verify
+        cy.assertIfErrorMessageAppears(`error-message-${fontMetric}`);
+
+        // blurring finally hides the message
+        cy.findByLabelText(fontMetric).blur();
+        cy.assertIfErrorMessageDisappears(`error-message-${fontMetric}`);
+      });
+    },
+  );
 });

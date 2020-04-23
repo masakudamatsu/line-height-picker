@@ -152,6 +152,11 @@ describe('Modular Scale Page: Error-handling', () => {
     );
   });
 
+  it('alerts the user if they enter a string AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
+    cy.testAlertForString('x-height-for-ratio', 'modular-scale');
+    cy.testAlertForString('line-height-for-ratio', 'modular-scale');
+  });
+
   it('Uploading a file with an invalid extension alerts the user', () => {
     // set up
     const invalidFile = 'invalidFile.txt';

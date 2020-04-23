@@ -383,6 +383,53 @@ Cypress.Commands.add('testAlertForValuesMoreThanHundred', (testId, page) => {
   cy.assertIfErrorMessageDisappears(errorMessageTestId);
 });
 
+Cypress.Commands.add('testAlertForString', (testId, page) => {
+  // setup
+  const invalidUserData = 'NaN';
+  const validUserData = '10';
+  let errorMessageTestId;
+  if (testId === 'x-height-in-pixel') {
+    errorMessageTestId = 'error-message-x-height';
+  } else {
+    errorMessageTestId = 'error-message-modular-scale';
+  }
+  // Wrong input and not yet blur
+  cy.findByTestId(testId).type(invalidUserData);
+  cy.assertIfErrorMessageDisappears(errorMessageTestId);
+
+  // Wrong input and blur
+  cy.findByTestId(testId).blur();
+  cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // click next doesn't move the page, and the input field gets focused
+  let buttonLabel;
+  switch (page) {
+    case 'x-height':
+      buttonLabel = /scale/i;
+      break;
+    case 'modular-scale':
+      buttonLabel = /preview/i;
+      break;
+    case 'preview':
+      buttonLabel = /css/i;
+      break;
+    default:
+      break;
+  }
+  cy.findByText(buttonLabel).click();
+  cy.focused().should('have.attr', 'id', testId);
+
+  // Correct input and not yet blur
+  cy.findByTestId(testId)
+    .clear()
+    .type(validUserData);
+  cy.assertIfErrorMessageAppears(errorMessageTestId);
+
+  // Correct input and blur
+  cy.findByTestId(testId).blur();
+  cy.assertIfErrorMessageDisappears(errorMessageTestId);
+});
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite

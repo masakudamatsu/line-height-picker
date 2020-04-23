@@ -323,6 +323,10 @@ describe('Preview Page: Error-handling', () => {
         cy.findByTestId(testId).clear();
         cy.testAlertForValuesMoreThanHundred(testId, 'preview');
       });
+      it(`alerts the user if they enter a string AND blur the input field, but the alert disappears when they correct it AND blur the input field, for ${testId}`, () => {
+        cy.findByTestId(testId).clear();
+        cy.testAlertForString(testId, 'preview');
+      });
     },
   );
 });

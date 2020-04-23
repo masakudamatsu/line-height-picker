@@ -129,6 +129,10 @@ describe('X-height page: Error-handling', () => {
     cy.assertIfErrorMessageDisappears('error-message-x-height');
   });
 
+  it('alerts the user if they enter a string AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
+    cy.testAlertForString('x-height-in-pixel', 'x-height');
+  });
+
   it('alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
     cy.testAlertForDecimalPlaces('x-height-in-pixel', 'x-height');
   });
