@@ -58,6 +58,9 @@ function App() {
     sessionStorage.getItem('xHeightStepError'),
   );
   React.useEffect(() => {
+    if (xHeightStepError === null) {
+      return;
+    }
     sessionStorage.setItem('xHeightStepError', xHeightStepError);
   }, [xHeightStepError]);
 
