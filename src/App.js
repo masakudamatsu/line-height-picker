@@ -91,6 +91,9 @@ function App() {
     sessionStorage.getItem('modularScaleRangeError'),
   );
   React.useEffect(() => {
+    if (modularScaleRangeError === null) {
+      return;
+    }
     sessionStorage.setItem('modularScaleRangeError', modularScaleRangeError);
   }, [modularScaleRangeError]);
 
@@ -98,6 +101,9 @@ function App() {
     sessionStorage.getItem('modularScaleStepError'),
   );
   React.useEffect(() => {
+    if (modularScaleStepError === null) {
+      return;
+    }
     sessionStorage.setItem('modularScaleStepError', modularScaleStepError);
   }, [modularScaleStepError]);
 
