@@ -51,6 +51,9 @@ function App() {
     sessionStorage.getItem('xHeightRangeError'),
   );
   React.useEffect(() => {
+    if (xHeightRangeError === null) {
+      return;
+    }
     sessionStorage.setItem('xHeightRangeError', xHeightRangeError);
   }, [xHeightRangeError]);
 

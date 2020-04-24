@@ -63,10 +63,11 @@ describe('X-height page in demo', () => {
     );
   });
 
-  it.only('keeps the x-height input field empty, and does not show alerts, when the user reloads the page', () => {
+  it('keeps the x-height input field empty, and does not show alerts, when the user reloads the page', () => {
     cy.reload();
     cy.findByTestId('x-height-in-pixel').should('have.value', '');
     cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
   });
 
   it('keeps the entered x-height value and the font information after the user reloads the page', () => {
