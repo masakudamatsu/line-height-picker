@@ -124,7 +124,7 @@ Cypress.Commands.add(
 // Assertions on modular scale and line-height
 Cypress.Commands.add(
   'assertLineHeight',
-  (xHeightRatio, lineHeightRatio, xHeight, FontMetrics) => {
+  (xHeight, xHeightRatio, lineHeightRatio, FontMetrics) => {
     // setup
     const expectedLineHeight = getLineHeight(
       xHeight,
@@ -159,7 +159,7 @@ Cypress.Commands.add(
       'have.value',
       lineHeightRatio.toString(),
     );
-    cy.assertLineHeight(xHeightRatio, lineHeightRatio, xHeight, FontMetrics);
+    cy.assertLineHeight(xHeight, xHeightRatio, lineHeightRatio, FontMetrics);
   },
 );
 

@@ -55,9 +55,9 @@ describe('Preview Page in demo', () => {
   it('Reloading the page does not alter the line-height', () => {
     cy.reload();
     cy.assertLineHeight(
+      userData.xHeight,
       userData.xHeightRatio,
       userData.lineHeightRatio,
-      userData.xHeight,
       OpenSansFontMetrics,
     );
   });
@@ -123,9 +123,9 @@ describe('Preview Page in demo', () => {
 
     // verify
     cy.assertLineHeight(
+      userData.xHeight,
       userData.xHeightRatio,
       userData.lineHeightRatio,
-      userData.xHeight,
       RobotoSlabFontMetrics,
     );
   });
