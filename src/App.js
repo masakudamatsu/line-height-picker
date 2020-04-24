@@ -121,7 +121,15 @@ function App() {
     sessionStorage.setItem('lineHeight', lineHeight);
   }, [lineHeight]);
 
-  const [marginTop, setMarginTop] = React.useState('');
+  const [marginTop, setMarginTop] = React.useState(
+    sessionStorage.getItem('marginTop'),
+  );
+  React.useEffect(() => {
+    if (marginTop === null) {
+      return;
+    }
+    sessionStorage.setItem('marginTop', marginTop);
+  }, [marginTop]);
 
   const validateFileType = file => {
     if (validFontFileTypes.test(file.name)) {

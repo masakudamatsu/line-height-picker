@@ -47,6 +47,16 @@ describe('Preview Page in demo', () => {
     cy.findByTestId('FontNameDisplay').should('exist');
   });
 
+  it('Reloading the page does not alter the vertical space between paragraphs', () => {
+    cy.reload();
+    cy.assertMarginTop(
+      OpenSansFontMetrics,
+      userData.xHeight,
+      userData.xHeightRatio,
+      userData.lineHeightRatio,
+    );
+  });
+
   it('takes the user to the CSS page after clicking the button for it', () => {
     cy.findByText(/css/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/css`);
