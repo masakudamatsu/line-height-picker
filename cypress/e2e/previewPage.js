@@ -47,6 +47,11 @@ describe('Preview Page in demo', () => {
     cy.findByTestId('FontNameDisplay').should('exist');
   });
 
+  it('Reloading the page does not alter the font size', () => {
+    cy.reload();
+    cy.assertFontSize(userData.xHeight, OpenSansFontMetrics);
+  });
+
   it('Reloading the page does not alter the vertical space between paragraphs', () => {
     cy.reload();
     cy.assertMarginTop(

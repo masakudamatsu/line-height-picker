@@ -111,6 +111,9 @@ function App() {
     sessionStorage.getItem('fontSizePx'),
   );
   React.useEffect(() => {
+    if (fontSizePx === null) {
+      return;
+    }
     sessionStorage.setItem('fontSizePx', fontSizePx);
   }, [fontSizePx]);
 
