@@ -188,7 +188,7 @@ Cypress.Commands.add(
 // Assertions on margin-top
 Cypress.Commands.add(
   'assertMarginTop',
-  (fontMetrics, xHeightPx, xHeightRatio, lineHeightRatio) => {
+  (xHeightPx, xHeightRatio, lineHeightRatio, fontMetrics) => {
     const marginTop = getMarginTop(
       fontMetrics,
       xHeightPx,

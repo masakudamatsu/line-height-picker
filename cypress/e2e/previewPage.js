@@ -65,10 +65,10 @@ describe('Preview Page in demo', () => {
   it('Reloading the page does not alter the vertical space between paragraphs', () => {
     cy.reload();
     cy.assertMarginTop(
-      OpenSansFontMetrics,
       userData.xHeight,
       userData.xHeightRatio,
       userData.lineHeightRatio,
+      OpenSansFontMetrics,
     );
   });
 
@@ -79,10 +79,10 @@ describe('Preview Page in demo', () => {
 
   it('correctly shows the vertical space between paragraphs', () => {
     cy.assertMarginTop(
-      OpenSansFontMetrics,
       userData.xHeight,
       userData.xHeightRatio,
       userData.lineHeightRatio,
+      OpenSansFontMetrics,
     );
   });
 
@@ -139,10 +139,10 @@ describe('Preview Page in demo', () => {
 
     // verify
     cy.assertMarginTop(
-      OpenSansFontMetrics,
       userData.xHeight,
       userData.xHeightRatio,
       userData.lineHeightRatio,
+      OpenSansFontMetrics,
     );
   });
 
@@ -166,10 +166,10 @@ describe('Preview Page in demo', () => {
       .type(newUserData.xHeight);
     // verify
     cy.assertMarginTop(
-      OpenSansFontMetrics,
       newUserData.xHeight,
       userData.xHeightRatio,
       userData.lineHeightRatio,
+      OpenSansFontMetrics,
     );
   });
 
@@ -200,10 +200,10 @@ describe('Preview Page in demo', () => {
       .type(newUserData.lineHeightRatio);
     // verify
     cy.assertMarginTop(
-      OpenSansFontMetrics,
       userData.xHeight,
       newUserData.xHeightRatio,
       newUserData.lineHeightRatio,
+      OpenSansFontMetrics,
     );
   });
 });
@@ -227,10 +227,10 @@ describe('Preview Page after uploading a font file', () => {
 
   it('correctly shows the vertical space between paragraphs', () => {
     cy.assertMarginTop(
-      RobotoSlabFontMetrics,
       userData.xHeight,
       userData.xHeightRatio,
       userData.lineHeightRatio,
+      RobotoSlabFontMetrics,
     );
   });
   it('allows the user to change font by clicking the "change font" button', () => {

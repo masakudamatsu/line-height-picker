@@ -112,10 +112,10 @@ describe('Landing Page: Direct entry', () => {
     cy.findByText(/preview/i).click();
     // verify
     cy.assertMarginTop(
-      userFontMetrics,
       userInput.xHeight,
       userInput.xHeightRatio,
       userInput.lineHeightRatio,
+      userFontMetrics,
     );
   });
 
