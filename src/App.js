@@ -41,6 +41,9 @@ function App() {
     sessionStorage.getItem('xHeightPx'),
   );
   React.useEffect(() => {
+    if (xHeightPx === null) {
+      return; // otherwise, the string "null" will be assigned.
+    }
     sessionStorage.setItem('xHeightPx', xHeightPx);
   }, [xHeightPx]);
 
