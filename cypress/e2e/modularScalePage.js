@@ -30,6 +30,12 @@ describe('Modular Scale Page in demo', () => {
     cy.findByTestId('XheightDisplay').should('exist');
   });
 
+  it.only('keeps input fields empty, and does not show alerts, when the user reloads the page', () => {
+    cy.reload();
+    cy.findByTestId('x-height-for-ratio').should('have.value', '');
+    cy.findByTestId('line-height-for-ratio').should('have.value', '');
+  });
+
   it('allows the user to enter the x-height-to-line-height ratio, which will be shown in subsequent pages and used to calculate line-height', () => {
     // execute
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);

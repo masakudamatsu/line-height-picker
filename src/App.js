@@ -71,6 +71,9 @@ function App() {
     sessionStorage.getItem('xHeightRatio'),
   );
   React.useEffect(() => {
+    if (xHeightRatio === null) {
+      return;
+    }
     sessionStorage.setItem('xHeightRatio', xHeightRatio);
   }, [xHeightRatio]);
 
@@ -78,6 +81,9 @@ function App() {
     sessionStorage.getItem('lineHeightRatio'),
   );
   React.useEffect(() => {
+    if (lineHeightRatio === null) {
+      return;
+    }
     sessionStorage.setItem('lineHeightRatio', lineHeightRatio);
   }, [lineHeightRatio]);
 
