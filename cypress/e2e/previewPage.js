@@ -52,6 +52,16 @@ describe('Preview Page in demo', () => {
     cy.assertFontSize(userData.xHeight, OpenSansFontMetrics);
   });
 
+  it('Reloading the page does not alter the line-height', () => {
+    cy.reload();
+    cy.assertLineHeight(
+      userData.xHeightRatio,
+      userData.lineHeightRatio,
+      userData.xHeight,
+      OpenSansFontMetrics,
+    );
+  });
+
   it('Reloading the page does not alter the vertical space between paragraphs', () => {
     cy.reload();
     cy.assertMarginTop(

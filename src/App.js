@@ -121,6 +121,9 @@ function App() {
     sessionStorage.getItem('lineHeight'),
   );
   React.useEffect(() => {
+    if (lineHeight === null) {
+      return;
+    }
     sessionStorage.setItem('lineHeight', lineHeight);
   }, [lineHeight]);
 
