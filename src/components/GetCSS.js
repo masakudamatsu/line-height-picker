@@ -63,14 +63,15 @@ p:not(:first-child) {
         } catch (err) {
           console.log('unable to copy');
           setError(true);
+          return;
         }
         window.getSelection().removeAllRanges();
       } else {
         console.log('unable to copy');
         setError(true);
+        return;
       }
     }
-    console.log('about to change text');
     setButtonText(copyButtonText.afterClick);
     setTimeout(() => {
       setButtonText(copyButtonText.default);
