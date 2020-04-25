@@ -137,22 +137,24 @@ test('renders correctly', () => {
         </a>
         <section
           class=""
-          data-testid="error-message-clipboard"
         >
           <p
             class="sc-Axmtr c5"
+            data-testid="whatHappened"
             id="whatHappened"
           >
             The browser doesn't allow us to copy the CSS code into your clipboard.
           </p>
           <p
             class="sc-Axmtr c5"
+            data-testid="howToResolve"
             id="howToResolve"
           >
             Please select the CSS code on your own to copy and paste it.
           </p>
           <p
             class="sc-Axmtr c5"
+            data-testid="extraText"
             id="extraText"
           >
             Alternatively, consider using the browsers that support the "click to copy into clipboard" feature: Edge (version 79 or later), Chrome (76 or later), Opera (63 or later). See
@@ -286,6 +288,38 @@ test('Clicking the copy button calls document.execCommand if Clipboard API fails
   navigatorSpy.mockRestore();
   document.queryCommandSupported = originalQueryCommandSupported;
 });
+
+test('Clicking the copy button reveals the alert message when neither Clipboard API nor document.execCommand works', () => {
+  // Simulate Clipboard API failure
+  const originalNavigator = {...navigator};
+  const navigatorSpy = jest.spyOn(global, 'navigator', 'get');
+  navigatorSpy.mockImplementation(() => ({
+    ...originalNavigator,
+    clipboard: false,
+  }));
+  // Simulate execCommand failure
+  const mockQueryCommandSupported = jest.fn(command => {
+    return false;
+  });
+  const originalQueryCommandSupported = document.queryCommandSupported;
+  document.queryCommandSupported = mockQueryCommandSupported;
+
+  const {getByTestId} = render(
+    <GetCSS
+      fontFamily={mockProps.fontFamily}
+      fontSize={mockProps.fontSize}
+      fontWeight={mockProps.fontWeight}
+      lineHeight={mockProps.lineHeight}
+      marginTop={mockProps.marginTop}
+    />,
+  );
+  expect(getByTestId('whatHappened')).not.toBeVisible();
+  expect(getByTestId('howToResolve')).not.toBeVisible();
+  expect(getByTestId('extraText')).not.toBeVisible();
+  user.click(getByTestId('copy-button'));
+  expect(getByTestId('whatHappened')).toBeVisible();
+  expect(getByTestId('howToResolve')).toBeVisible();
+  expect(getByTestId('extraText')).toBeVisible();
 
   navigatorSpy.mockRestore();
   document.queryCommandSupported = originalQueryCommandSupported;

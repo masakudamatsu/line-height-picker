@@ -20,7 +20,6 @@ const GetCSS = props => {
     store.set('css', 'visited');
   }, []);
 
-  const [error, setError] = React.useState(false);
   // Create CSS code
   let fontFamilyName = props.fontFamily;
   if (/\s/.test(fontFamilyName)) {
@@ -36,12 +35,16 @@ const GetCSS = props => {
 p:not(:first-child) {
   margin-top: ${props.marginTop}px;
 }`;
-  // Handling copy to clipboard
+
+  // Copy button text
   const copyButtonText = {
     default: 'Copy to clipboard',
     afterClick: 'Copied!',
   };
   const [buttonText, setButtonText] = React.useState(copyButtonText.default);
+
+  // Handling copy to clipboard
+  const [error, setError] = React.useState(false);
   const copyToClipboard = () => {
     if (navigator.clipboard) {
       // For browsers supporting Clipboard API
@@ -94,14 +97,29 @@ p:not(:first-child) {
           Back to preview
           <NoWrap>←</NoWrap>
         </Button>
-        <Section data-testid="error-message-clipboard">
-          <AlertMessage id="whatHappened" error={error} errorText>
+        <Section>
+          <AlertMessage
+            id="whatHappened"
+            data-testid="whatHappened"
+            error={error}
+            errorText
+          >
             {clipboardError.whatHappened}
           </AlertMessage>
-          <AlertMessage id="howToResolve" error={error} errorText>
+          <AlertMessage
+            id="howToResolve"
+            data-testid="howToResolve"
+            error={error}
+            errorText
+          >
             {clipboardError.howToResolve}
           </AlertMessage>
-          <AlertMessage id="extraText" error={error} errorText>
+          <AlertMessage
+            id="extraText"
+            data-testid="extraText"
+            error={error}
+            errorText
+          >
             {clipboardError.extraText}
           </AlertMessage>
         </Section>
