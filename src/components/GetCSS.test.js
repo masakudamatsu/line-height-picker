@@ -1,6 +1,7 @@
 import React from 'react';
 import render from './test-utils/render';
 import {cleanup} from '@testing-library/react';
+import user from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
@@ -208,9 +209,86 @@ test('renders props correctly', () => {
   expect(getByTestId('cssCode')).toHaveTextContent(mockNewProps.marginTop);
 });
 
-test('Clicking the button copys the CSS code into the user clipboard', async () => {
-  // I'm not sure how we can access to the content of the clipboard.
-  // navigator.clipboard.readText() does not work.
+test('Clicking the button calls navigator.clipboard.writeText() with the appropriate argument', () => {
+  // Mock the Clipboard function
+  const mockWriteText = jest.fn();
+  const originalNavigator = {...navigator};
+  const originalClipboard = {...navigator.clipboard};
+  const navigatorSpy = jest.spyOn(global, 'navigator', 'get');
+  navigatorSpy.mockImplementation(() => ({
+    ...originalNavigator,
+    clipboard: {
+      ...originalClipboard,
+      writeText: mockWriteText,
+    },
+  }));
+
+  const cssOutput = `p {
+  font-family: '${mockProps.fontFamily}';
+  font-size: ${mockProps.fontSize}px;
+  font-weight: ${mockProps.fontWeight};
+  line-height: ${mockProps.lineHeight};
+}
+
+p:not(:first-child) {
+  margin-top: ${mockProps.marginTop}px;
+}`;
+
+  const {getByTestId} = render(
+    <GetCSS
+      fontFamily={mockProps.fontFamily}
+      fontSize={mockProps.fontSize}
+      fontWeight={mockProps.fontWeight}
+      lineHeight={mockProps.lineHeight}
+      marginTop={mockProps.marginTop}
+    />,
+  );
+  user.click(getByTestId('copy-button'));
+
+  expect(mockWriteText).toHaveBeenCalledTimes(1);
+  expect(mockWriteText).toHaveBeenCalledWith(cssOutput);
+
+  navigatorSpy.mockRestore();
+});
+
+test('Clicking the copy button calls document.execCommand if Clipboard API fails', () => {
+  // Simulate Clipboard API failure
+  const originalNavigator = {...navigator};
+  const navigatorSpy = jest.spyOn(global, 'navigator', 'get');
+  navigatorSpy.mockImplementation(() => ({
+    ...originalNavigator,
+    clipboard: false,
+  }));
+  // Mock document.queryCommandSupported
+  const mockQueryCommandSupported = jest.fn();
+  const originalQueryCommandSupported = document.queryCommandSupported;
+  document.queryCommandSupported = mockQueryCommandSupported;
+
+  const {getByTestId} = render(
+    <GetCSS
+      fontFamily={mockProps.fontFamily}
+      fontSize={mockProps.fontSize}
+      fontWeight={mockProps.fontWeight}
+      lineHeight={mockProps.lineHeight}
+      marginTop={mockProps.marginTop}
+    />,
+  );
+  user.click(getByTestId('copy-button'));
+
+  // verify
+  expect(mockQueryCommandSupported).toHaveBeenCalledTimes(1);
+  expect(mockQueryCommandSupported).toHaveBeenCalledWith('copy');
+  // These assertions do not exactly test whether execCommand('copy') was called.
+  // But QueryCommandSupported('copy') will be called when Clipboard API fails.
+  // To assert on execCommand('copy'), we also need to mock document.createRange()
+  // Jest is not meant to mock these "going-to-be-obsolete" functions.
+
+  navigatorSpy.mockRestore();
+  document.queryCommandSupported = originalQueryCommandSupported;
+});
+
+  navigatorSpy.mockRestore();
+  document.queryCommandSupported = originalQueryCommandSupported;
 });
 
 test('is accessible', async () => {
