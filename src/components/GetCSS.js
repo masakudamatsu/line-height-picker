@@ -37,6 +37,11 @@ p:not(:first-child) {
   margin-top: ${props.marginTop}px;
 }`;
   // Handling copy to clipboard
+  const copyButtonText = {
+    default: 'Copy to clipboard',
+    afterClick: 'Copied!',
+  };
+  const [buttonText, setButtonText] = React.useState(copyButtonText.default);
   const copyToClipboard = () => {
     if (navigator.clipboard) {
       // For browsers supporting Clipboard API
@@ -62,6 +67,11 @@ p:not(:first-child) {
         setError(true);
       }
     }
+    console.log('about to change text');
+    setButtonText(copyButtonText.afterClick);
+    setTimeout(() => {
+      setButtonText(copyButtonText.default);
+    }, 1500);
   };
 
   return (
@@ -78,7 +88,7 @@ p:not(:first-child) {
           onClick={copyToClipboard}
           aria-describedby="whatHappened howToResolve extraText"
         >
-          Copy to clipboard
+          {buttonText}
         </Button>
         <Button as={Link} to="/preview">
           Back to preview

@@ -28,6 +28,24 @@ describe('Get CSS Page', () => {
     // This feature cannot be tested with Cypress. See https://github.com/cypress-io/cypress/issues/2752
   });
 
+  it('temporarily changes the copy button text upon the click ', () => {
+    // test the text before clicking
+    const buttonText = 'Copy to clipboard';
+    cy.findByTestId('copy-button').should('have.text', buttonText);
+
+    // setup
+    const buttonTextAfterClick = 'Copied!';
+    cy.clock();
+
+    // execute
+    cy.findByTestId('copy-button').click();
+
+    // verify
+    cy.findByTestId('copy-button').should('have.text', buttonTextAfterClick);
+    cy.tick(1500);
+    cy.findByTestId('copy-button').should('have.text', buttonText);
+  });
+
   it('takes the user back to the preview page after clicking the button for it', () => {
     cy.findByText(/preview/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
