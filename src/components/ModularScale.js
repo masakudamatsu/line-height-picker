@@ -9,9 +9,11 @@ import {Button, ButtonContainer, Form, NoWrap} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import {Link, Redirect} from 'react-router-dom';
 
+import store from '../helper/store';
+
 const ModularScale = props => {
   React.useEffect(() => {
-    sessionStorage.setItem('modular-scale', 'visited');
+    store.set('modular-scale', 'visited');
   }, []);
 
   const [redirect, setRedirect] = React.useState(false);

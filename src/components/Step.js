@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import {StepNumber, StepNumberBox} from '../theme/style';
 
+import store from '../helper/store';
+
 const Step = props => {
   let internalURL;
   if (props.done) {
@@ -26,19 +28,16 @@ const Step = props => {
         break;
     }
   }
-  if (props.number === 2 && sessionStorage.getItem('x-height') === 'visited') {
+  if (props.number === 2 && store.get('x-height') === 'visited') {
     internalURL = '/x-height';
   }
-  if (
-    props.number === 3 &&
-    sessionStorage.getItem('modular-scale') === 'visited'
-  ) {
+  if (props.number === 3 && store.get('modular-scale') === 'visited') {
     internalURL = '/modular-scale';
   }
-  if (props.number === 4 && sessionStorage.getItem('preview') === 'visited') {
+  if (props.number === 4 && store.get('preview') === 'visited') {
     internalURL = '/preview';
   }
-  if (props.number === 5 && sessionStorage.getItem('css') === 'visited') {
+  if (props.number === 5 && store.get('css') === 'visited') {
     internalURL = '/css';
   }
 

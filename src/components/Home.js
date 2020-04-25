@@ -8,9 +8,11 @@ import DemoStartButton from './DemoStartButton';
 import FontFileErrorMessage from './FontFileErrorMessage';
 import FontTableBox from './FontTableBox';
 
+import store from '../helper/store';
+
 const Home = props => {
   React.useEffect(() => {
-    sessionStorage.setItem('home', 'visited');
+    store.set('home', 'visited');
   }, []);
   return (
     <>

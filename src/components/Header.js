@@ -10,6 +10,8 @@ import {
   StepIndicatorWrapper,
 } from '../theme/style';
 
+import store from '../helper/store';
+
 const Header = props => {
   let step1 = <Step number={1} />;
   let step2 = <Step number={2} />;
@@ -19,19 +21,16 @@ const Header = props => {
   if (props.stepNow > 1) {
     step1 = <Step number={1} done />;
   }
-  if (props.stepNow > 2 || sessionStorage.getItem('x-height') === 'visited') {
+  if (props.stepNow > 2 || store.get('x-height') === 'visited') {
     step2 = <Step number={2} done />;
   }
-  if (
-    props.stepNow > 3 ||
-    sessionStorage.getItem('modular-scale') === 'visited'
-  ) {
+  if (props.stepNow > 3 || store.get('modular-scale') === 'visited') {
     step3 = <Step number={3} done />;
   }
-  if (props.stepNow > 4 || sessionStorage.getItem('preview') === 'visited') {
+  if (props.stepNow > 4 || store.get('preview') === 'visited') {
     step4 = <Step number={4} done />;
   }
-  if (sessionStorage.getItem('css') === 'visited') {
+  if (store.get('css') === 'visited') {
     step5 = <Step number={5} done />;
   }
   switch (props.stepNow) {

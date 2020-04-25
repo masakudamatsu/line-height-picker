@@ -17,9 +17,11 @@ import {
   ParagraphOneRemRightAligned,
 } from '../theme/style';
 
+import store from '../helper/store';
+
 const Preview = props => {
   React.useEffect(() => {
-    sessionStorage.setItem('preview', 'visited');
+    store.set('preview', 'visited');
   }, []);
 
   const [redirect, setRedirect] = React.useState(false);

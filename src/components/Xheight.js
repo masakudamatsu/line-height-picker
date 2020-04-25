@@ -8,9 +8,11 @@ import {Button, ButtonContainer, Form, NoWrap} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import {Redirect} from 'react-router-dom';
 
+import store from '../helper/store';
+
 const Xheight = props => {
   React.useEffect(() => {
-    sessionStorage.setItem('x-height', 'visited');
+    store.set('x-height', 'visited');
   }, []);
 
   const [redirect, setRedirect] = React.useState(false);

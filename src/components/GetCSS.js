@@ -13,9 +13,11 @@ import {
 } from '../theme/style';
 import {clipboardError} from '../helper/errorMessages';
 
+import store from '../helper/store';
+
 const GetCSS = props => {
   React.useEffect(() => {
-    sessionStorage.setItem('css', 'visited');
+    store.set('css', 'visited');
   }, []);
 
   const [error, setError] = React.useState(false);
