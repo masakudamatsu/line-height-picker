@@ -89,6 +89,7 @@ p:not(:first-child) {
         </CodeSnippet>
         <Button
           data-testid="copy-button"
+          disabled={error}
           onClick={copyToClipboard}
           aria-describedby="whatHappened howToResolve extraText"
         >
