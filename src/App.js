@@ -18,13 +18,19 @@ import {getFontSize, getLineHeight, getMarginTop} from './helper/cssGenerators';
 const opentype = require('opentype.js');
 
 function App() {
+  const initialState = name => {
+    return sessionStorage.getItem(name) || '';
+    // During the first rendering of the app, getItem() returns null.
+    // The useEffect() will then assign a string "null" to sessionStorage.
+    // This short-circuit evaluation avoids this.
+  };
   const [fontMetrics, setFontMetrics] = React.useState({
-    fontFamily: sessionStorage.getItem('fontFamily'),
-    fontSubfamily: sessionStorage.getItem('fontSubfamily'),
-    fontWeight: sessionStorage.getItem('fontWeight'),
-    xHeight: sessionStorage.getItem('xHeight'),
-    unitsPerEm: sessionStorage.getItem('unitsPerEm'),
-    capHeight: sessionStorage.getItem('capHeight'),
+    fontFamily: initialState('fontFamily'),
+    fontSubfamily: initialState('fontSubfamily'),
+    fontWeight: initialState('fontWeight'),
+    xHeight: initialState('xHeight'),
+    unitsPerEm: initialState('unitsPerEm'),
+    capHeight: initialState('capHeight'),
   });
   React.useEffect(() => {
     sessionStorage.setItem('fontFamily', fontMetrics.fontFamily);
@@ -37,99 +43,68 @@ function App() {
 
   const [fontFileError, setFontFileError] = React.useState('');
 
-  const [xHeightPx, setXHeightPx] = React.useState(
-    sessionStorage.getItem('xHeightPx'),
-  );
+  const [xHeightPx, setXHeightPx] = React.useState(initialState('xHeightPx'));
   React.useEffect(() => {
-    if (xHeightPx === null) {
-      return; // otherwise, the string "null" will be assigned.
-    }
     sessionStorage.setItem('xHeightPx', xHeightPx);
   }, [xHeightPx]);
 
   const [xHeightRangeError, setXHeightRangeError] = React.useState(
-    sessionStorage.getItem('xHeightRangeError'),
+    initialState('xHeightRangeError'),
   );
   React.useEffect(() => {
-    if (xHeightRangeError === null) {
-      return;
-    }
     sessionStorage.setItem('xHeightRangeError', xHeightRangeError);
   }, [xHeightRangeError]);
 
   const [xHeightStepError, setXHeightStepError] = React.useState(
-    sessionStorage.getItem('xHeightStepError'),
+    initialState('xHeightStepError'),
   );
   React.useEffect(() => {
-    if (xHeightStepError === null) {
-      return;
-    }
     sessionStorage.setItem('xHeightStepError', xHeightStepError);
   }, [xHeightStepError]);
 
   const [xHeightRatio, setXHeightRatio] = React.useState(
-    sessionStorage.getItem('xHeightRatio'),
+    initialState('xHeightRatio'),
   );
   React.useEffect(() => {
-    if (xHeightRatio === null) {
-      return;
-    }
     sessionStorage.setItem('xHeightRatio', xHeightRatio);
   }, [xHeightRatio]);
 
   const [lineHeightRatio, setLineHeightRatio] = React.useState(
-    sessionStorage.getItem('lineHeightRatio'),
+    initialState('lineHeightRatio'),
   );
   React.useEffect(() => {
-    if (lineHeightRatio === null) {
-      return;
-    }
     sessionStorage.setItem('lineHeightRatio', lineHeightRatio);
   }, [lineHeightRatio]);
 
   const [modularScaleRangeError, setModularScaleRangeError] = React.useState(
-    sessionStorage.getItem('modularScaleRangeError'),
+    initialState('modularScaleRangeError'),
   );
   React.useEffect(() => {
-    if (modularScaleRangeError === null) {
-      return;
-    }
     sessionStorage.setItem('modularScaleRangeError', modularScaleRangeError);
   }, [modularScaleRangeError]);
 
   const [modularScaleStepError, setModularScaleStepError] = React.useState(
-    sessionStorage.getItem('modularScaleStepError'),
+    initialState('modularScaleStepError'),
   );
   React.useEffect(() => {
-    if (modularScaleStepError === null) {
-      return;
-    }
     sessionStorage.setItem('modularScaleStepError', modularScaleStepError);
   }, [modularScaleStepError]);
 
   const [fontSizePx, setFontSizePx] = React.useState(
-    sessionStorage.getItem('fontSizePx'),
+    initialState('fontSizePx'),
   );
   React.useEffect(() => {
-    if (fontSizePx === null) {
-      return;
-    }
     sessionStorage.setItem('fontSizePx', fontSizePx);
   }, [fontSizePx]);
 
   const [lineHeight, setLineHeight] = React.useState(
-    sessionStorage.getItem('lineHeight'),
+    initialState('lineHeight'),
   );
   React.useEffect(() => {
-    if (lineHeight === null) {
-      return;
-    }
     sessionStorage.setItem('lineHeight', lineHeight);
   }, [lineHeight]);
 
-  const [marginTop, setMarginTop] = React.useState(
-    sessionStorage.getItem('marginTop'),
-  );
+  const [marginTop, setMarginTop] = React.useState(initialState('marginTop'));
   React.useEffect(() => {
     if (marginTop === null) {
       return;
