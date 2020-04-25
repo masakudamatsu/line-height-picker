@@ -15,11 +15,12 @@ import {fontFileExtensionsRegex as validFontFileTypes} from './helper/fontFileEx
 import getFontMetrics from './helper/getFontMetrics';
 import {getFontSize, getLineHeight, getMarginTop} from './helper/cssGenerators';
 
+import store from './helper/store';
 const opentype = require('opentype.js');
 
 function App() {
   const initialState = name => {
-    return sessionStorage.getItem(name) || '';
+    return store.get(name) || '';
     // During the first rendering of the app, getItem() returns null.
     // The useEffect() will then assign a string "null" to sessionStorage.
     // This short-circuit evaluation avoids this.
@@ -33,75 +34,75 @@ function App() {
     capHeight: initialState('capHeight'),
   });
   React.useEffect(() => {
-    sessionStorage.setItem('fontFamily', fontMetrics.fontFamily);
-    sessionStorage.setItem('fontSubfamily', fontMetrics.fontSubfamily);
-    sessionStorage.setItem('fontWeight', fontMetrics.fontWeight);
-    sessionStorage.setItem('xHeight', fontMetrics.xHeight);
-    sessionStorage.setItem('unitsPerEm', fontMetrics.unitsPerEm);
-    sessionStorage.setItem('capHeight', fontMetrics.capHeight);
+    store.set('fontFamily', fontMetrics.fontFamily);
+    store.set('fontSubfamily', fontMetrics.fontSubfamily);
+    store.set('fontWeight', fontMetrics.fontWeight);
+    store.set('xHeight', fontMetrics.xHeight);
+    store.set('unitsPerEm', fontMetrics.unitsPerEm);
+    store.set('capHeight', fontMetrics.capHeight);
   }, [fontMetrics]);
 
   const [fontFileError, setFontFileError] = React.useState('');
 
   const [xHeightPx, setXHeightPx] = React.useState(initialState('xHeightPx'));
   React.useEffect(() => {
-    sessionStorage.setItem('xHeightPx', xHeightPx);
+    store.set('xHeightPx', xHeightPx);
   }, [xHeightPx]);
 
   const [xHeightRangeError, setXHeightRangeError] = React.useState(
     initialState('xHeightRangeError'),
   );
   React.useEffect(() => {
-    sessionStorage.setItem('xHeightRangeError', xHeightRangeError);
+    store.set('xHeightRangeError', xHeightRangeError);
   }, [xHeightRangeError]);
 
   const [xHeightStepError, setXHeightStepError] = React.useState(
     initialState('xHeightStepError'),
   );
   React.useEffect(() => {
-    sessionStorage.setItem('xHeightStepError', xHeightStepError);
+    store.set('xHeightStepError', xHeightStepError);
   }, [xHeightStepError]);
 
   const [xHeightRatio, setXHeightRatio] = React.useState(
     initialState('xHeightRatio'),
   );
   React.useEffect(() => {
-    sessionStorage.setItem('xHeightRatio', xHeightRatio);
+    store.set('xHeightRatio', xHeightRatio);
   }, [xHeightRatio]);
 
   const [lineHeightRatio, setLineHeightRatio] = React.useState(
     initialState('lineHeightRatio'),
   );
   React.useEffect(() => {
-    sessionStorage.setItem('lineHeightRatio', lineHeightRatio);
+    store.set('lineHeightRatio', lineHeightRatio);
   }, [lineHeightRatio]);
 
   const [modularScaleRangeError, setModularScaleRangeError] = React.useState(
     initialState('modularScaleRangeError'),
   );
   React.useEffect(() => {
-    sessionStorage.setItem('modularScaleRangeError', modularScaleRangeError);
+    store.set('modularScaleRangeError', modularScaleRangeError);
   }, [modularScaleRangeError]);
 
   const [modularScaleStepError, setModularScaleStepError] = React.useState(
     initialState('modularScaleStepError'),
   );
   React.useEffect(() => {
-    sessionStorage.setItem('modularScaleStepError', modularScaleStepError);
+    store.set('modularScaleStepError', modularScaleStepError);
   }, [modularScaleStepError]);
 
   const [fontSizePx, setFontSizePx] = React.useState(
     initialState('fontSizePx'),
   );
   React.useEffect(() => {
-    sessionStorage.setItem('fontSizePx', fontSizePx);
+    store.set('fontSizePx', fontSizePx);
   }, [fontSizePx]);
 
   const [lineHeight, setLineHeight] = React.useState(
     initialState('lineHeight'),
   );
   React.useEffect(() => {
-    sessionStorage.setItem('lineHeight', lineHeight);
+    store.set('lineHeight', lineHeight);
   }, [lineHeight]);
 
   const [marginTop, setMarginTop] = React.useState(initialState('marginTop'));
@@ -109,7 +110,7 @@ function App() {
     if (marginTop === null) {
       return;
     }
-    sessionStorage.setItem('marginTop', marginTop);
+    store.set('marginTop', marginTop);
   }, [marginTop]);
 
   const validateFileType = file => {
