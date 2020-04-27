@@ -20,7 +20,7 @@ describe('Modular Scale Page in demo', () => {
     cy.visit('/');
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
   });
 
   it('shows the non-interactive UI components correctly', () => {
@@ -91,7 +91,7 @@ describe('Modular Scale Page in demo', () => {
     const expectedFontWeight = '300';
 
     // Execute
-    cy.findByText(/change font/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
+    cy.findByTestId('font-button').click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
 
     // Verify
@@ -124,7 +124,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     cy.visit('/');
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
   });
 
   it('allows the user to enter the x-height-to-line-height ratio, which will be shown in subsequent pages and used to calculate line-height', () => {
@@ -148,7 +148,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     const expectedFontWeight = '400';
 
     // Execute
-    cy.findByText(/change font/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
+    cy.findByTestId('font-button').click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
 
     // Verify
@@ -166,7 +166,7 @@ describe('Modular Scale Page: Error-handling', () => {
     cy.visit('/');
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
   });
 
   it('does not show alert when the user deletes an input', () => {
@@ -267,7 +267,7 @@ describe('Modular-scale page: Navigation bar', () => {
     cy.visit('/');
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
   });
 
   it('takes the user to the landing page after clicking number 1 in the header', () => {

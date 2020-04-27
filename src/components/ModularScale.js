@@ -51,7 +51,7 @@ const ModularScale = props => {
             xHeightRatio={props.xHeightRatio}
           />{' '}
           <Button type="submit">
-            <NoWrap>Preview</NoWrap>
+            Preview sample paragraphs
             <NoWrap>→</NoWrap>
           </Button>
         </Form>
@@ -66,14 +66,14 @@ const ModularScale = props => {
             handleFontFile={props.handleFontFile}
             validateFileType={props.validateFileType}
           >
-            Change font
+            Open different font file…
           </FontFileUploader>
           <FontFileErrorMessage
             data-testid="error-message-font-file"
             fontFileError={props.fontFileError}
           />
           <Button as={Link} to="/x-height">
-            > Change x-height
+            > Change x-height…
             <NoWrap>←</NoWrap>
           </Button>
         </ButtonContainer>

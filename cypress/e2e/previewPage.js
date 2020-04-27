@@ -32,7 +32,7 @@ describe('Preview Page in demo', () => {
     cy.visit('/');
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
@@ -94,7 +94,7 @@ describe('Preview Page in demo', () => {
     const expectedFontWeight = '300';
 
     // Execute
-    cy.findByText(/change font/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
+    cy.findByTestId('font-button').click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
 
     // verify
@@ -219,7 +219,7 @@ describe('Preview Page after uploading a font file', () => {
     cy.visit('/');
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
@@ -241,7 +241,7 @@ describe('Preview Page after uploading a font file', () => {
     const expectedFontWeight = '400';
 
     // Execute
-    cy.findByText(/change font/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
+    cy.findByTestId('font-button').click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
 
     // verify
@@ -288,7 +288,7 @@ describe('Preview Page: Error-handling', () => {
     cy.visit('/');
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
@@ -362,7 +362,7 @@ describe('Preview page: Navigation bar', () => {
     cy.visit('/');
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();

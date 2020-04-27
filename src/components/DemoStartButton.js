@@ -10,7 +10,7 @@ const DemoStartButton = props => {
   };
   return (
     <Button as={Link} to="/x-height" onClick={handleClick}>
-      <NoWrap>Demo</NoWrap>
+      Demo with Open Sans
       <NoWrap>→</NoWrap>
     </Button>
   );

@@ -26,7 +26,7 @@ describe('X-height page in demo', () => {
     it(`allows the user to set x-height (to ${validInput.xHeight}px), which will be shown in all subsequent pages and used to calculate font-size`, () => {
       // execute
       cy.findByTestId('x-height-in-pixel').type(validInput.xHeight);
-      cy.findByText(/scale/i).click();
+      cy.findByText(/next/i).click();
       // verify
       cy.assertXheightFontSizeFromModularScalePageOn(
         validInput.xHeight,
@@ -39,7 +39,7 @@ describe('X-height page in demo', () => {
     // execute
     const validInput = '12';
     cy.findByTestId('x-height-in-pixel').type(validInput);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
   });
@@ -52,7 +52,7 @@ describe('X-height page in demo', () => {
     const expectedFontWeight = '300';
 
     // Execute
-    cy.findByText(/change font/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
+    cy.findByTestId('font-button').click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
 
     // Verify
@@ -85,7 +85,7 @@ describe('X-height page in demo', () => {
       OpenSansFontMetrics.fontSubfamily,
     );
     // Verify the other font metrics
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.assertXheightFontSizeFromModularScalePageOn(
       validInput,
       OpenSansFontMetrics,
@@ -111,7 +111,7 @@ describe('X-height page after uploading a font file', () => {
     it(`allows the user to set x-height (to ${validInput.xHeight}px), which will be shown in all subsequent pages and used to calculate font-size`, () => {
       // execute
       cy.findByTestId('x-height-in-pixel').type(validInput.xHeight);
-      cy.findByText(/scale/i).click();
+      cy.findByText(/next/i).click();
       // verify
       cy.assertXheightFontSizeFromModularScalePageOn(
         validInput.xHeight,
@@ -147,7 +147,7 @@ describe('X-height page: Error-handling', () => {
 
   it('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message with the input field focused', () => {
     // execute
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
     cy.assertIfErrorMessageAppears('error-message-x-height');
@@ -235,7 +235,7 @@ describe('X-height page: Navigation bar', () => {
   it('DOES take the user to the modular-scale page after clicking number 3 in the header, if the user has already visited', () => {
     // set up
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByText('2').click();
     // execute
     cy.findByText('3').click();
@@ -246,7 +246,7 @@ describe('X-height page: Navigation bar', () => {
   it('DOES take the user to the preview page after clicking number 4 in the header, if the user has already visited', () => {
     // set up
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
@@ -260,7 +260,7 @@ describe('X-height page: Navigation bar', () => {
   it('DOES take the user to the get CSS page after clicking number 5 in the header, if the user has already visited', () => {
     // set up
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();

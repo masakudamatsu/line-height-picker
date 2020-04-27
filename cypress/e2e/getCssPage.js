@@ -10,7 +10,7 @@ describe('Get CSS Page', () => {
     cy.visit('/');
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();

@@ -35,7 +35,7 @@ describe('Landing Page', () => {
     const expectedFontSubfamily = 'Light';
     const expectedFontWeight = '300';
     // execute
-    cy.findByText(/upload/i).click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
+    cy.findByTestId('font-button').click(); // Just to make sure that the user can find and then click the upload button. This command does not launch the file upload dialog box in Cypress. So we need the next command:
     cy.upload('hiddenFileInput', fontFileName); // see support/commands.js
 
     // Verify
@@ -124,7 +124,7 @@ describe('Landing page: Navigation bar', () => {
     // set up
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByText('1').click();
     // execute
     cy.findByText('3').click();
@@ -136,7 +136,7 @@ describe('Landing page: Navigation bar', () => {
     // set up
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
@@ -151,7 +151,7 @@ describe('Landing page: Navigation bar', () => {
     // set up
     cy.findByText(/demo/i).click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
