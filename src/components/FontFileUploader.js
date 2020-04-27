@@ -37,7 +37,7 @@ const FontFileUploader = props => {
   }
   return (
     <>
-      <Button type="button" onClick={handleClick}>
+      <Button data-testid="font-button" type="button" onClick={handleClick}>
         {props.children}
       </Button>
       <input

@@ -80,7 +80,7 @@ Cypress.Commands.add(
       expectedFontSubfamily,
     );
     cy.EnterValidXHeight();
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.assertFontNameFromModularScalePageOn(
       expectedFontName,
       expectedFontSubfamily,
@@ -253,7 +253,7 @@ Cypress.Commands.add('testAlertForDecimalPlaces', (testId, page) => {
   let buttonLabel;
   switch (page) {
     case 'x-height':
-      buttonLabel = /scale/i;
+      buttonLabel = /next/i;
       break;
     case 'modular-scale':
       buttonLabel = /preview/i;
@@ -305,7 +305,7 @@ Cypress.Commands.add('testAlertForValuesLessThanOne', (testId, page) => {
   let buttonLabel;
   switch (page) {
     case 'x-height':
-      buttonLabel = /scale/i;
+      buttonLabel = /next/i;
       break;
     case 'modular-scale':
       buttonLabel = /preview/i;
@@ -372,7 +372,7 @@ Cypress.Commands.add('testAlertForValuesMoreThanHundred', (testId, page) => {
   let buttonLabel;
   switch (page) {
     case 'x-height':
-      buttonLabel = /scale/i;
+      buttonLabel = /next/i;
       break;
     case 'modular-scale':
       buttonLabel = /preview/i;
@@ -421,7 +421,7 @@ Cypress.Commands.add('testAlertForString', (testId, page) => {
   let buttonLabel;
   switch (page) {
     case 'x-height':
-      buttonLabel = /scale/i;
+      buttonLabel = /next/i;
       break;
     case 'modular-scale':
       buttonLabel = /preview/i;

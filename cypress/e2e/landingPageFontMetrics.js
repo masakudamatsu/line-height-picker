@@ -65,7 +65,7 @@ describe('Landing Page: Direct entry', () => {
     cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-in-pixel').type(userInput.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     // verify
     cy.assertXheightFontSizeFromModularScalePageOn(
       userInput.xHeight,
@@ -84,7 +84,7 @@ describe('Landing Page: Direct entry', () => {
     cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-in-pixel').type(userInput.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userInput.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userInput.lineHeightRatio);
     // verify
@@ -106,7 +106,7 @@ describe('Landing Page: Direct entry', () => {
     cy.findByLabelText('usWeightClass').type(userInput.usWeightClass);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-in-pixel').type(userInput.xHeight);
-    cy.findByText(/scale/i).click();
+    cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userInput.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userInput.lineHeightRatio);
     cy.findByText(/preview/i).click();

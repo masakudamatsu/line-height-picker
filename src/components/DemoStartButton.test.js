@@ -59,11 +59,7 @@ test('renders correctly', () => {
         class="c0"
         href="/x-height"
       >
-        <span
-          class="c1"
-        >
-          Demo
-        </span>
+        Demo with Open Sans
         <span
           class="c1"
         >
