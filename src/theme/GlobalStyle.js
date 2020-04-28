@@ -7,6 +7,7 @@ body {
   background-color: ${colorPalette.background}; /* Set the background color here so swiping the screen won't reveal the white part. */
   color: ${colorPalette.bodyText};
   font-family: ${fontPalette.bodyText.fontFamily};
+  font-size: ${fontPalette.bodyText.fontSize.mobile}rem;
   /* Enable Opentype features */
   font-kerning: normal;
   font-variant-ligatures: common-ligatures contextual;
@@ -14,6 +15,11 @@ body {
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'lnum';
 }
 
+@media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  body {
+    font-size: ${fontPalette.bodyText.fontSize.desktop}rem;
+  }
+}
 /*!
  * ress.css • v2.0.4
  * MIT License
