@@ -53,6 +53,8 @@ export const ParagraphOneRem = styled.p`
   color: ${props =>
     props.errorText ? colorPalette.errorText : 'currentColor'};
   font-size: 1rem;
+  font-variant-numeric: oldstyle-nums;
+  font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
 `;
 
 export const AlertMessage = styled(ParagraphOneRem)`
