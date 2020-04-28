@@ -52,7 +52,7 @@ export const PageTitle = styled.h2`
 export const ParagraphOneRem = styled.p`
   color: ${props =>
     props.errorText ? colorPalette.errorText : 'currentColor'};
-  font-size: 1rem;
+  font-family: ${fontPalette.paragraph.fontFamily};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
 `;
@@ -73,7 +73,7 @@ export const CodeSnippet = styled.pre`
 `;
 
 export const Code = styled.code`
-  font-family: ${fontPalette.code};
+  font-family: ${fontPalette.code.fontFamily};
   font-size: 1rem;
 `;
 

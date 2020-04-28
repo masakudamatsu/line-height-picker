@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
 body {
   background-color: ${colorPalette.background}; /* Set the background color here so swiping the screen won't reveal the white part. */
   color: ${colorPalette.bodyText};
-  font-family: ${fontPalette.bodyText};
+  font-family: ${fontPalette.bodyText.fontFamily};
   /* Enable Opentype features */
   font-kerning: normal;
   font-variant-ligatures: common-ligatures contextual;
