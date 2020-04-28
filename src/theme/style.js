@@ -261,7 +261,7 @@ export const Input = styled.input.attrs(props => ({
   border-bottom: 2px solid ${colorPalette.bodyText};
   border-radius: 4px 4px 0 0;
   color: ${colorPalette.bodyText};
-  font-weight: ${fontWeight};
+  font-size: ${fontPalette.largeText.fontSize.mobile}rem;
   font-size: 9rem;
   text-align: center;
 
@@ -270,6 +270,10 @@ export const Input = styled.input.attrs(props => ({
   &:focus {
     background-color: ${colorPalette.disabledText};
     outline: none;
+  }
+
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    font-size: ${fontPalette.largeText.fontSize.desktop}rem;
   }
 `;
 export const NumberInput = styled(Input).attrs(props => ({

@@ -34,6 +34,12 @@ const fontPalette = {
   code: {
     fontFamily: "'Fedra Mono Book', monospace",
   },
+  largeText: {
+    fontSize: {
+      mobile: fontSize(xHeightPx.mobile) * 4,
+      desktop: fontSize(xHeightPx.desktop) * 4,
+    },
+  },
   mediaQueryCutoff: '1024px', // common threshold between tablets and laptops
   paragraph: {
     fontFamily:
