@@ -74,11 +74,14 @@ Cypress.Commands.add(
 Cypress.Commands.add(
   'assertFontNameFromXheightPageOn',
   (expectedFontName, expectedFontSubfamily, expectedFontWeight) => {
-    cy.findByTestId('font-family-name').should('have.text', expectedFontName);
-    cy.findByTestId('font-subfamily-name').should(
-      'have.text',
-      expectedFontSubfamily,
-    );
+    cy.findByTestId('font-family-name')
+      .should('have.text', expectedFontName)
+      .should('have.css', 'font-family', `"${expectedFontName}"`)
+      .should('have.css', 'font-weight', expectedFontWeight);
+    cy.findByTestId('font-subfamily-name')
+      .should('have.text', expectedFontSubfamily)
+      .should('have.css', 'font-family', `"${expectedFontName}"`)
+      .should('have.css', 'font-weight', expectedFontWeight);
     cy.EnterValidXHeight();
     cy.findByText(/next/i).click();
     cy.assertFontNameFromModularScalePageOn(

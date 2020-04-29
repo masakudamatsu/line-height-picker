@@ -11,10 +11,18 @@ const FontNameDisplay = props => {
   return (
     <UserDataDisplayWrapper data-testid="FontNameDisplay">
       <UserDataDisplayTitle>Font chosen:</UserDataDisplayTitle>
-      <UserDataDisplay data-testid="font-family-name">
+      <UserDataDisplay
+        data-testid="font-family-name"
+        fontFamily={props.fontFamily}
+        fontWeight={props.fontWeight}
+      >
         {props.fontFamily}
       </UserDataDisplay>
-      <UserDataDisplay data-testid="font-subfamily-name">
+      <UserDataDisplay
+        data-testid="font-subfamily-name"
+        fontFamily={props.fontFamily}
+        fontWeight={props.fontWeight}
+      >
         {props.fontSubfamily}
       </UserDataDisplay>
     </UserDataDisplayWrapper>
@@ -24,6 +32,7 @@ const FontNameDisplay = props => {
 FontNameDisplay.propTypes = {
   fontFamily: PropTypes.string,
   fontSubfamily: PropTypes.string,
+  fontWeight: PropTypes.string,
 };
 
 export default FontNameDisplay;

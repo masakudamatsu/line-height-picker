@@ -196,7 +196,9 @@ export const UserDataDisplayTitle = styled.h2`
   font-size: 1.5rem;
 `;
 export const UserDataDisplay = styled.p`
+  font-family: ${props => props.fontFamily};
   font-size: 2rem;
+  font-weight: ${props => props.fontWeight};
 `;
 
 // Buttons

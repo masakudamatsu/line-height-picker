@@ -26,6 +26,7 @@ test('renders correctly', () => {
     }
 
     .c2 {
+      font-family: Open Sans;
       font-size: 2rem;
     }
 
@@ -42,12 +43,14 @@ test('renders correctly', () => {
         <p
           class="c2"
           data-testid="font-family-name"
+          font-family="Open Sans"
         >
           Open Sans
         </p>
         <p
           class="c2"
           data-testid="font-subfamily-name"
+          font-family="Open Sans"
         >
           Regular
         </p>

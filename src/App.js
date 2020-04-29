@@ -340,6 +340,7 @@ function App() {
               fontFamily={fontMetrics.fontFamily}
               fontFileError={fontFileError}
               fontSubfamily={fontMetrics.fontSubfamily}
+              fontWeight={fontMetrics.fontWeight}
               handleFontFile={handleFontFile}
               handleNoXHeight={handleNoXHeight}
               handleXHeightChange={handleXHeightChange}

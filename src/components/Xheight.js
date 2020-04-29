@@ -53,6 +53,7 @@ const Xheight = props => {
         <FontNameDisplay
           fontFamily={props.fontFamily}
           fontSubfamily={props.fontSubfamily}
+          fontWeight={props.fontWeight}
         />
         <ButtonContainer>
           <FontFileUploader
