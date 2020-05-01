@@ -16,6 +16,11 @@ const xHeightPx = {
   mobile: 18 * (10 / 21), // Medium.com
   desktop: 10, // Medium.com and Dev.to
 };
+const xHeightRatio = 1;
+const lineHeightRatio = {
+  paragraph: 3,
+};
+
 // Calculate CSS font property values for paragraph text
 const fontSize = xHeightPx => {
   const fontSizeInPx = getFontSize(fontMetricsFedraSans, xHeightPx);
@@ -40,6 +45,7 @@ const fontPalette = {
       desktop: fontSize(xHeightPx.desktop) * 4,
     },
   },
+  marginSide: xHeightPx.mobile * (lineHeightRatio.paragraph - xHeightRatio),
   mediaQueryCutoff: '1024px', // common threshold between tablets and laptops
   paragraph: {
     fontFamily:

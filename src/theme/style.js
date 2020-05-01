@@ -93,12 +93,10 @@ export const HiddenH1 = styled.h1`
 const logoWidth = 0.8;
 const maxLogoWidthPx = 700;
 const mediaQueryCutoff = maxLogoWidthPx / logoWidth;
-const marginLeft = (1 - logoWidth) / 2;
 
 export const SideMarginRegulator = styled.div`
-  margin: 0 ${marginLeft * 100}%;
+  margin: 0 ${fontPalette.marginSide}px;
   max-width: ${maxLogoWidthPx}px;
-  width: ${logoWidth * 100}%;
   @media (min-width: ${mediaQueryCutoff}px) {
     margin: 0 auto;
   }
