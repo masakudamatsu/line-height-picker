@@ -5,7 +5,7 @@ import ModularScaleBoxes from './ModularScaleBoxes';
 import FontNameDisplay from './FontNameDisplay';
 import FontFileErrorMessage from './FontFileErrorMessage';
 import XheightDisplay from './XheightDisplay';
-import {Button, ButtonContainer, Form, NoWrap} from '../theme/style';
+import {Button, ButtonContainer, Form} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import {Link, Redirect} from 'react-router-dom';
 
@@ -50,10 +50,7 @@ const ModularScale = props => {
             validateModularScale={props.validateModularScale}
             xHeightRatio={props.xHeightRatio}
           />{' '}
-          <Button type="submit">
-            Preview sample paragraphs
-            <NoWrap>→</NoWrap>
-          </Button>
+          <Button type="submit">Preview</Button>
         </Form>
 
         <FontNameDisplay
@@ -66,15 +63,14 @@ const ModularScale = props => {
             handleFontFile={props.handleFontFile}
             validateFileType={props.validateFileType}
           >
-            Open different font file…
+            Change font…
           </FontFileUploader>
           <FontFileErrorMessage
             data-testid="error-message-font-file"
             fontFileError={props.fontFileError}
           />
           <Button as={Link} to="/x-height">
-            > Change x-height…
-            <NoWrap>←</NoWrap>
+            Change x-height
           </Button>
         </ButtonContainer>
       </main>

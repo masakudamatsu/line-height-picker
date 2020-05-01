@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Button, NoWrap} from '../theme/style';
+import {Button} from '../theme/style';
 import {Link} from 'react-router-dom';
 
 const DemoStartButton = props => {
@@ -10,8 +10,7 @@ const DemoStartButton = props => {
   };
   return (
     <Button as={Link} to="/x-height" onClick={handleClick}>
-      Demo with Open Sans
-      <NoWrap>→</NoWrap>
+      Start demo
     </Button>
   );
 };

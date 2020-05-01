@@ -83,7 +83,7 @@ const Preview = props => {
             handleFontFile={props.handleFontFile}
             validateFileType={props.validateFileType}
           >
-            Open different font file…
+            Change font…
           </FontFileUploader>
           <FontFileErrorMessage
             data-testid="error-message-font-file"

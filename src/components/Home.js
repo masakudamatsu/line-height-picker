@@ -25,7 +25,7 @@ const Home = props => {
             validateFileType={props.validateFileType}
             handleFontFile={props.handleFontFile}
           >
-            Open your font file…
+            Open font file…
           </FontFileUploader>
           <DemoStartButton handleDemo={props.handleDemo} />
         </ButtonContainer>

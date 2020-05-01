@@ -38,7 +38,7 @@ p + p {
 
   // Copy button text
   const copyButtonText = {
-    default: 'Copy to clipboard',
+    default: 'Copy CSS code',
     afterClick: 'Copied!',
   };
   const [buttonText, setButtonText] = React.useState(copyButtonText.default);
@@ -96,8 +96,7 @@ p + p {
           {buttonText}
         </Button>
         <Button as={Link} to="/preview">
-          Back to preview
-          <NoWrap>←</NoWrap>
+          Back
         </Button>
         <Section>
           <AlertMessage

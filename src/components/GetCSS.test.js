@@ -28,11 +28,7 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c4 {
-      white-space: nowrap;
-    }
-
-    .c6 {
+    .c5 {
       color: hsl(0,0%,96%);
     }
 
@@ -42,7 +38,7 @@ test('renders correctly', () => {
       line-height: 1.3650;
     }
 
-    .c5 {
+    .c4 {
       color: hsl(335,71%,64%);
       font-family: 'Fedra Sans Book 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-variant-numeric: oldstyle-nums;
@@ -128,44 +124,39 @@ test('renders correctly', () => {
           class="c3"
           data-testid="copy-button"
         >
-          Copy to clipboard
+          Copy CSS code
         </button>
         <a
           class="c3"
           href="/preview"
         >
-          Back to preview
-          <span
-            class="c4"
-          >
-            ←
-          </span>
+          Back
         </a>
         <section
           class=""
         >
           <p
-            class="sc-Axmtr c5"
+            class="sc-Axmtr c4"
             data-testid="whatHappened"
             id="whatHappened"
           >
             The browser doesn't allow us to copy the CSS code into your clipboard.
           </p>
           <p
-            class="sc-Axmtr c5"
+            class="sc-Axmtr c4"
             data-testid="howToResolve"
             id="howToResolve"
           >
             Please select the CSS code on your own to copy and paste it.
           </p>
           <p
-            class="sc-Axmtr c5"
+            class="sc-Axmtr c4"
             data-testid="extraText"
             id="extraText"
           >
             Alternatively, consider using the browsers that support the "click to copy into clipboard" feature: Edge (version 79 or later), Chrome (76 or later), Opera (63 or later). See
             <a
-              class="c6"
+              class="c5"
               href="https://caniuse.com/#feat=mdn-api_fontface"
             >
               Can I Use?

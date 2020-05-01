@@ -43,12 +43,7 @@ const Xheight = props => {
             xHeightRangeError={props.xHeightRangeError}
             xHeightStepError={props.xHeightStepError}
           />{' '}
-          <Button type="submit">
-            <NoWrap>Next</NoWrap>
-            <NoWrap>Modular</NoWrap>
-            <NoWrap>Scale</NoWrap>
-            <NoWrap>→</NoWrap>
-          </Button>
+          <Button type="submit">Next</Button>
         </Form>
         <FontNameDisplay
           fontFamily={props.fontFamily}
@@ -60,7 +55,7 @@ const Xheight = props => {
             handleFontFile={props.handleFontFile}
             validateFileType={props.validateFileType}
           >
-            Open different font file…
+            Change font…
           </FontFileUploader>
           <FontFileErrorMessage
             data-testid="error-message-font-file"
