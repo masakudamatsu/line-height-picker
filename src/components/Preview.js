@@ -9,8 +9,8 @@ import FontFileUploader from './FontFileUploader';
 import XheightBox from './XheightBox';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import {
-  Button,
   ButtonContainer,
+  ButtonWithRightArrow,
   ExternalLink,
   Form,
   PageTitle,
@@ -73,7 +73,9 @@ const Preview = props => {
         </ParagraphOneRemRightAligned>
         <Form noValidate onSubmit={handleSubmit}>
           <ButtonContainer>
-            <Button type="submit">Get CSS code</Button>
+            <ButtonWithRightArrow type="submit">
+              Get CSS code
+            </ButtonWithRightArrow>
           </ButtonContainer>
           <FontNameDisplay
             fontFamily={props.fontFamily}

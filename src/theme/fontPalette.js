@@ -51,7 +51,9 @@ const fontPalette = {
     fontFamily:
       "'Fedra Sans Book 2',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
   },
+  rem: oneRemPx,
   },
+  xHeight: xHeightPx,
 };
 
 export default fontPalette;

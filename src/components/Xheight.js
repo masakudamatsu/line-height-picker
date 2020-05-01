@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 import XheightBox from './XheightBox';
 import FontNameDisplay from './FontNameDisplay';
 import FontFileErrorMessage from './FontFileErrorMessage';
-import {Button, ButtonContainer, Form, NoWrap} from '../theme/style';
+import {
+  ButtonWithRightArrow,
+  ButtonContainer,
+  Form,
+} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import {Redirect} from 'react-router-dom';
 
@@ -43,7 +47,7 @@ const Xheight = props => {
             xHeightRangeError={props.xHeightRangeError}
             xHeightStepError={props.xHeightStepError}
           />{' '}
-          <Button type="submit">Next</Button>
+          <ButtonWithRightArrow type="submit">Next</ButtonWithRightArrow>
         </Form>
         <FontNameDisplay
           fontFamily={props.fontFamily}

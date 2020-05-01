@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   AlertMessage,
   BringAttention,
-  Button,
+  ButtonWithRightArrow,
   Code,
   Form,
   Label,
@@ -333,7 +333,7 @@ const FontTableBox = props => {
         between 16 and 16384.
       </AlertMessage>
 
-      <Button type="submit">Next</Button>
+      <ButtonWithRightArrow type="submit">Next</ButtonWithRightArrow>
     </Form>
   );
 };

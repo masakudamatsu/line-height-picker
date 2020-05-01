@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import {
   AlertMessage,
   Button,
+  ButtonWithLeftArrow,
   Code,
   CodeSnippet,
   NoWrap,
@@ -95,9 +96,9 @@ p + p {
         >
           {buttonText}
         </Button>
-        <Button as={Link} to="/preview">
+        <ButtonWithLeftArrow as={Link} to="/preview">
           Back
-        </Button>
+        </ButtonWithLeftArrow>
         <Section>
           <AlertMessage
             id="whatHappened"

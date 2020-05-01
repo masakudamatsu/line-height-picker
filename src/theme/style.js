@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import colorPalette from './colorPalette';
 import fontPalette from './fontPalette';
+import buttonSize from './buttonSize';
 import LogoImage from '../components/LogoImage';
 
 // Parameters
@@ -210,30 +211,47 @@ export const ButtonContainer = styled.div`
   width: 100%;
 `;
 
-const buttonFontSizeVw = minFontSizePx / minScreenWidthPx;
-const buttonFontSizeAboveCutoffPx = mediaQueryCutoff * buttonFontSizeVw;
-const buttonWidth = 0.45;
-const buttonMaxWidth = maxLogoWidthPx * buttonWidth;
-const buttonPaddingTop = buttonWidth * 0.125;
-const buttonPaddingLeft = buttonWidth * 0.25;
 export const Button = styled.button`
-  align-items: center;
-  background-color: inherit;
-  border: 2px solid currentColor;
-  border-radius: 4px;
+  align-items: center; /* For when the as={Link} attribute is added.  */
+  background-color: ${colorPalette.button};
+  border: none;
+  border-radius: ${buttonSize.borderRadius.mobile}px;
   color: inherit;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
-  font-size: ${buttonFontSizeVw * 100}vw;
-  font-weight: bold;
-  max-width: ${buttonMaxWidth}px;
-  padding: ${buttonPaddingTop * 100}% ${buttonPaddingLeft * 100}%;
+  font-size: ${buttonSize.fontSize.mobile}rem;
+  height: ${buttonSize.height.mobile}px;
+  justify-content: center;
+  position: relative;
   text-decoration: none; /* when the as={Link} attribute is added. */
-  text-transform: uppercase;
-  width: ${buttonWidth * 100}%;
+  width: ${buttonSize.width.mobile}px;
   @media (min-width: ${mediaQueryCutoff}px) {
-    font-size: ${buttonFontSizeAboveCutoffPx}px;
+    border-radius: ${buttonSize.borderRadius.desktop};
+    font-size: ${buttonSize.fontSize.desktop}rem;
+    height: ${buttonSize.height.desktop}px;
+    width: ${buttonSize.width.desktop}px;
+  }
+`;
+
+export const ButtonWithRightArrow = styled(Button)`
+  &::after {
+    content: '→';
+    position: absolute;
+    right: ${buttonSize.paddingSide.mobile / 2}px;
+    @media (min-width: ${fontPalette.mediaQueryCutoff}px) {
+      right: ${buttonSize.paddingSide.desktop / 2}px;
+    }
+  }
+`;
+
+export const ButtonWithLeftArrow = styled(Button)`
+  &::before {
+    content: '←';
+    position: absolute;
+    left: ${buttonSize.paddingSide.mobile / 2}px;
+    @media (min-width: ${fontPalette.mediaQueryCutoff}px) {
+      left: ${buttonSize.paddingSide.desktop / 2}px;
+    }
   }
 `;
 
