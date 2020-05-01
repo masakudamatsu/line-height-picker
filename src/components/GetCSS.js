@@ -32,7 +32,7 @@ const GetCSS = props => {
   line-height: ${props.lineHeight};
 }
 
-p:not(:first-child) {
+p + p {
   margin-top: ${props.marginTop}px;
 }`;
 

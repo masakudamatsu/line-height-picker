@@ -37,7 +37,7 @@ test('renders correctly', () => {
       margin: 2rem 0 0.5rem 0;
     }
 
-    .c0 p:not(:first-child) {
+    .c0 p + p {
       margin: 23.467px 0 0 0;
     }
 

@@ -299,7 +299,7 @@ export const SampleParagraphWrapper = styled.section`
   line-height: ${props => props.lineHeight};
   padding: 1rem;
   margin: 2rem 0 0.5rem 0;
-  p:not(:first-child) {
+  p + p {
     margin: ${props => props.marginTop || '16'}px 0 0 0;
   }
 `;

@@ -37,13 +37,16 @@ test('renders correctly', () => {
     }
 
     .c0 {
-      font-size: 3rem;
-      font-weight: 200;
+      font-size: 2.4529062500000003rem;
+      font-weight: 300;
+      line-height: 1.3650;
     }
 
     .c5 {
       color: hsl(335,71%,64%);
-      font-size: 1rem;
+      font-family: 'Fedra Sans Book 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
       visibility: hidden;
     }
 
@@ -53,8 +56,7 @@ test('renders correctly', () => {
     }
 
     .c2 {
-      font-family: monospace;
-      font-size: 1rem;
+      font-family: 'Fedra Mono Book',monospace;
     }
 
     .c3 {
@@ -71,17 +73,21 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      font-size: 5vw;
-      font-weight: bold;
-      max-width: 315px;
-      padding: 5.625% 11.25%;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      font-size: 2.4529062500000003rem;
+      max-width: 700px;
+      padding: 0%;
       -webkit-text-decoration: none;
       text-decoration: none;
-      text-transform: uppercase;
-      width: 45%;
+      width: 100%;
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c0 {
+        font-size: 2.86171875rem;
+      }
     }
 
     @media (min-width:875px) {
@@ -112,7 +118,7 @@ test('renders correctly', () => {
       line-height: 1.6055;
     }
 
-    p:not(:first-child) {
+    p + p {
       margin-top: 23.3394px;
     }
           </code>
@@ -232,7 +238,7 @@ test('Clicking the button calls navigator.clipboard.writeText() with the appropr
   line-height: ${mockProps.lineHeight};
 }
 
-p:not(:first-child) {
+p + p {
   margin-top: ${mockProps.marginTop}px;
 }`;
 
