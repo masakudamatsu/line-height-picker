@@ -12,7 +12,7 @@ body {
   font-kerning: normal;
   font-variant-ligatures: common-ligatures contextual;
   font-variant-numeric: lining-nums;
-  font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'lnum';
+  font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'tnum';
 }
 
 @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
