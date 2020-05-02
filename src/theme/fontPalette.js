@@ -94,7 +94,12 @@ const fontPalette = {
     paddingTop: {
       mobile: 4,
       desktop: 4 * (xHeightPx.desktop / xHeightPx.mobile),
-  },
+    },
+    pxBottom: {
+      // Derived visually to align at the baseline
+      mobile: 31,
+      desktop: 31 * (xHeightPx.desktop / xHeightPx.mobile) - 2,
+    },
   },
   largeText: {
     fontSize: {

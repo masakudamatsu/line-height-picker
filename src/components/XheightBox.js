@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   AlertMessage,
   XheightInput,
+  XheightInputUnit,
   NumberInputWrapper,
   Label,
   ParagraphOneRem,
@@ -33,7 +34,7 @@ const XheightBox = props => {
           value={props.xHeightPx}
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
         />
-        <span>px</span>
+        <XheightInputUnit>px</XheightInputUnit>
       </NumberInputWrapper>
       <ParagraphOneRem
         id="howManyDecimalPlacesAllowed"

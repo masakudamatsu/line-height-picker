@@ -266,7 +266,6 @@ export const ButtonWithLeftArrow = styled(Button)`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  font-size: ${h2FontSize}rem;
   font-weight: ${fontWeight};
   padding: 0 0 3rem 0;
 `;
@@ -277,6 +276,7 @@ export const NumberInputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 3rem 0 1rem 0;
+  position: relative;
 `;
 export const Input = styled.input.attrs(props => ({
   type: 'text',
@@ -309,8 +309,19 @@ export const NumberInput = styled(Input).attrs(props => ({
 }))``;
 
 export const XheightInput = styled(NumberInput)`
-  padding: 1rem;
-  width: 90%;
+  width: 100%;
+`;
+
+export const XheightInputUnit = styled.span`
+  display: inline-block;
+  font-weight: 500; /* to match the large font-size of input values */
+  position: absolute;
+  right: 1rem;
+  bottom: ${fontPalette.inputNumber.pxBottom
+    .mobile}px; /* to aligh with input values at the baseline */
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    bottom: ${fontPalette.inputNumber.pxBottom.desktop}px;
+  }
 `;
 
 export const ModularScaleInput = styled(NumberInput)`
