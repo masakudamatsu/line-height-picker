@@ -49,6 +49,14 @@ const marginTop = xHeightPx => {
   return marginTopPx / oneRemPx;
 };
 
+// Input number font size
+const mapCapHeightToFontSize = capHeight => {
+  const fontSizeInPx =
+    capHeight *
+    (fontMetricsFedraSans.unitsPerEm / fontMetricsFedraSans.capHeight);
+  return fontSizeInPx / oneRemPx;
+};
+
 // Font CSS property value
 const fontPalette = {
   alertText: {
@@ -78,6 +86,16 @@ const fontPalette = {
     fontWeight: 400,
   },
   fontMetrics: fontMetricsFedraSans,
+  inputNumber: {
+    fontSize: {
+      mobile: mapCapHeightToFontSize(xHeightPx.mobile * 2.5),
+      desktop: mapCapHeightToFontSize(xHeightPx.desktop * 2.5),
+    },
+    paddingTop: {
+      mobile: 4,
+      desktop: 4 * (xHeightPx.desktop / xHeightPx.mobile),
+  },
+  },
   largeText: {
     fontSize: {
       mobile: fontSize(xHeightPx.mobile) * 4,

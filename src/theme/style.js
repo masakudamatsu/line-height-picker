@@ -284,10 +284,11 @@ export const Input = styled.input.attrs(props => ({
   background-color: ${colorPalette.background};
   border: 2px solid ${colorPalette.button};
   border-radius: 4px;
-  border-radius: 4px 4px 0 0;
   color: ${colorPalette.bodyText};
-  font-size: ${fontPalette.largeText.fontSize.mobile}rem;
+  font-size: ${fontPalette.inputNumber.fontSize.mobile}rem;
   height: ${buttonSize.height.mobile}px;
+  line-height: 1;
+  padding-top ${fontPalette.inputNumber.paddingTop.mobile}px;
   text-align: center;
 
   &:active,
@@ -298,8 +299,9 @@ export const Input = styled.input.attrs(props => ({
   }
 
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    font-size: ${fontPalette.largeText.fontSize.desktop}rem;
+    font-size: ${fontPalette.inputNumber.fontSize.desktop}rem;
     height: ${buttonSize.height.desktop}px;
+    padding-top ${fontPalette.inputNumber.paddingTop.desktop}px;
   }
 `;
 export const NumberInput = styled(Input).attrs(props => ({
