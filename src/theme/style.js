@@ -54,12 +54,16 @@ export const ParagraphOneRem = styled.p`
   color: ${props =>
     props.errorText ? colorPalette.errorText : 'currentColor'};
   font-family: ${fontPalette.paragraph.fontFamily};
-  font-weight: ${fontPalette.paragraph.fontWeight};
+  font-weight: ${props =>
+    props.errorText
+      ? fontPalette.alertText.fontWeight
+      : fontPalette.paragraph.fontWeight};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
 `;
 
 export const AlertMessage = styled(ParagraphOneRem)`
+  font-weight: ${fontPalette.alertText.fontWeight};
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
 `;
 

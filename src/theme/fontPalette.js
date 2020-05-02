@@ -51,6 +51,9 @@ const marginTop = xHeightPx => {
 
 // Font CSS property value
 const fontPalette = {
+  alertText: {
+    fontWeight: 500,
+  },
   bodyText: {
     fontFamily:
       "'Fedra Sans Alt',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
