@@ -9,6 +9,7 @@ body {
   font-family: ${fontPalette.bodyText.fontFamily};
   font-size: ${fontPalette.bodyText.fontSize.mobile}rem;
   font-weight: ${fontPalette.bodyText.fontWeight};
+  line-height: ${fontPalette.bodyText.lineHeight};
   /* Enable Opentype features */
   font-kerning: normal;
   font-variant-ligatures: common-ligatures contextual;
@@ -16,11 +17,19 @@ body {
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'tnum';
 }
 
+p + p {
+  margin-top: ${fontPalette.bodyText.marginTop.mobile}rem;
+}
+
 @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
   body {
     font-size: ${fontPalette.bodyText.fontSize.desktop}rem;
   }
+  p + p {
+    margin-top: ${fontPalette.bodyText.marginTop.desktop}rem;
+  }
 }
+
 /*!
  * ress.css • v2.0.4
  * MIT License

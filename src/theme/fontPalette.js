@@ -1,5 +1,7 @@
 import {
   getFontSize,
+  getLineHeight,
+  getMarginTop,
 } from '../helper/cssGenerators';
 
 // # of pixels for 1rem
@@ -28,6 +30,25 @@ const fontSize = xHeightPx => {
   return fontSizeInPx / oneRemPx;
 };
 
+const lineHeight = {
+  paragraph: getLineHeight(
+    fontMetricsFedraSans,
+    xHeightPx.desktop,
+    xHeightRatio,
+    lineHeightRatio.paragraph,
+  ),
+};
+
+const marginTop = xHeightPx => {
+  const marginTopPx = getMarginTop(
+    fontMetricsFedraSans,
+    xHeightPx,
+    xHeightRatio,
+    lineHeightRatio.paragraph,
+  );
+  return marginTopPx / oneRemPx;
+};
+
 // Font CSS property value
 const fontPalette = {
   bodyText: {
@@ -36,8 +57,14 @@ const fontPalette = {
     fontSize: {
       mobile: fontSize(xHeightPx.mobile),
       desktop: fontSize(xHeightPx.desktop),
-  },
+    },
     fontWeight: 300,
+    lineHeight: lineHeight.paragraph,
+    marginTop: {
+      mobile: marginTop(xHeightPx.mobile),
+      desktop: marginTop(xHeightPx.desktop),
+    },
+  },
   buttonLabel: {
     fontFamily:
       "'Fedra Sans Alt',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
@@ -62,6 +89,12 @@ const fontPalette = {
     fontWeight: 400,
   },
   rem: oneRemPx,
+  sectionTitle: {
+    fontSize: {
+      mobile: fontSize(xHeightPx.mobile) * 2.5,
+      desktop: fontSize(xHeightPx.desktop) * 2.5,
+    },
+    lineHeight: lineHeight.sectionTitle,
   },
   xHeight: xHeightPx,
 };
