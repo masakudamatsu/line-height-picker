@@ -282,23 +282,24 @@ export const Input = styled.input.attrs(props => ({
   type: 'text',
 }))`
   background-color: ${colorPalette.background};
-  border: none;
-  border-bottom: 2px solid ${colorPalette.bodyText};
+  border: 2px solid ${colorPalette.button};
+  border-radius: 4px;
   border-radius: 4px 4px 0 0;
   color: ${colorPalette.bodyText};
   font-size: ${fontPalette.largeText.fontSize.mobile}rem;
-  font-size: 9rem;
+  height: ${buttonSize.height.mobile}px;
   text-align: center;
 
   &:active,
   &:hover,
   &:focus {
-    background-color: ${colorPalette.disabledText};
+    border: 2px solid ${colorPalette.bodyText};
     outline: none;
   }
 
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${fontPalette.largeText.fontSize.desktop}rem;
+    height: ${buttonSize.height.desktop}px;
   }
 `;
 export const NumberInput = styled(Input).attrs(props => ({
