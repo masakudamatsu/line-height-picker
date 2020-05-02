@@ -220,7 +220,9 @@ export const Button = styled.button`
   color: inherit;
   cursor: pointer;
   display: flex;
+  font-family: ${fontPalette.buttonLabel.fontFamily};
   font-size: ${buttonSize.fontSize.mobile}rem;
+  font-weight: ${fontPalette.buttonLabel.fontWeight};
   height: ${buttonSize.height.mobile}px;
   justify-content: center;
   position: relative;

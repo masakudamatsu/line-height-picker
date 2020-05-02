@@ -37,6 +37,11 @@ const fontPalette = {
       desktop: fontSize(xHeightPx.desktop),
   },
     fontWeight: 300,
+  buttonLabel: {
+    fontFamily:
+      "'Fedra Sans Alt',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    fontWeight: 500,
+  },
   code: {
     fontFamily: "'Fedra Mono', monospace",
     fontWeight: 400,
