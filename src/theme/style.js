@@ -309,6 +309,7 @@ export const NumberInput = styled(Input).attrs(props => ({
 }))``;
 
 export const XheightInput = styled(NumberInput)`
+  padding: 0 2.5rem 0 ${fontPalette.inputNumber.paddingSide}rem;
   width: 100%;
 `;
 
@@ -316,7 +317,7 @@ export const XheightInputUnit = styled.span`
   display: inline-block;
   font-weight: 500; /* to match the large font-size of input values */
   position: absolute;
-  right: 1rem;
+  right: ${fontPalette.inputNumber.paddingSide}rem;
   bottom: ${fontPalette.inputNumber.pxBottom
     .mobile}px; /* to aligh with input values at the baseline */
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {

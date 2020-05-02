@@ -91,6 +91,7 @@ const fontPalette = {
       mobile: mapCapHeightToFontSize(xHeightPx.mobile * 2.5),
       desktop: mapCapHeightToFontSize(xHeightPx.desktop * 2.5),
     },
+    paddingSide: 1,
     paddingTop: {
       mobile: 4,
       desktop: 4 * (xHeightPx.desktop / xHeightPx.mobile),
