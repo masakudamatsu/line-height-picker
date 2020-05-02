@@ -54,6 +54,7 @@ export const ParagraphOneRem = styled.p`
   color: ${props =>
     props.errorText ? colorPalette.errorText : 'currentColor'};
   font-family: ${fontPalette.paragraph.fontFamily};
+  font-weight: ${fontPalette.paragraph.fontWeight};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
 `;
@@ -75,7 +76,7 @@ export const CodeSnippet = styled.pre`
 
 export const Code = styled.code`
   font-family: ${fontPalette.code.fontFamily};
-  font-size: 1rem;
+  font-weight: ${fontPalette.code.fontWeight};
 `;
 
 export const HiddenH1 = styled.h1`

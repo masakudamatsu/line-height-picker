@@ -8,6 +8,7 @@ body {
   color: ${colorPalette.bodyText};
   font-family: ${fontPalette.bodyText.fontFamily};
   font-size: ${fontPalette.bodyText.fontSize.mobile}rem;
+  font-weight: ${fontPalette.bodyText.fontWeight};
   /* Enable Opentype features */
   font-kerning: normal;
   font-variant-ligatures: common-ligatures contextual;

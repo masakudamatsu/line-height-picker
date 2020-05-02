@@ -31,13 +31,15 @@ const fontSize = xHeightPx => {
 const fontPalette = {
   bodyText: {
     fontFamily:
-      "'Fedra Sans Alt Light',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+      "'Fedra Sans Alt',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     fontSize: {
       mobile: fontSize(xHeightPx.mobile),
       desktop: fontSize(xHeightPx.desktop),
   },
+    fontWeight: 300,
   code: {
-    fontFamily: "'Fedra Mono Book', monospace",
+    fontFamily: "'Fedra Mono', monospace",
+    fontWeight: 400,
   },
   largeText: {
     fontSize: {
@@ -49,7 +51,8 @@ const fontPalette = {
   mediaQueryCutoff: '1024px', // common threshold between tablets and laptops
   paragraph: {
     fontFamily:
-      "'Fedra Sans Book 2',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+      "'Fedra Sans 2',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    fontWeight: 400,
   },
   rem: oneRemPx,
   },
