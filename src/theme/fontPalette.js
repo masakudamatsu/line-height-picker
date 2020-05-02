@@ -9,6 +9,7 @@ const oneRemPx = 16;
 const fontMetricsFedraSans = {
   unitsPerEm: 1000, // Contact with designer himself
   xHeight: 546, // Contact with designer himself
+  capHeight: 708, // My own investigation. 707.5 to be exact
 };
 
 // Set x-height and modular scale
@@ -46,6 +47,7 @@ const fontPalette = {
     fontFamily: "'Fedra Mono', monospace",
     fontWeight: 400,
   },
+  fontMetrics: fontMetricsFedraSans,
   largeText: {
     fontSize: {
       mobile: fontSize(xHeightPx.mobile) * 4,

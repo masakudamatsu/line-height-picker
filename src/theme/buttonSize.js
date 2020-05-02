@@ -15,9 +15,18 @@ const getButtonMetrics = scale => {
 
 const buttonBorderRadius = getButtonMetrics(2 / 18);
 
+const capHeightToFontSizeRatio =
+  fontPalette.fontMetrics.capHeight / fontPalette.fontMetrics.unitsPerEm;
+
 const buttonFontSize = {
-  mobile: getButtonMetrics(7 / 18).mobile / fontPalette.rem,
-  desktop: getButtonMetrics(7 / 18).desktop / fontPalette.rem,
+  mobile:
+    getButtonMetrics(5 / 18).mobile /
+    capHeightToFontSizeRatio /
+    fontPalette.rem,
+  desktop:
+    getButtonMetrics(5 / 18).desktop /
+    capHeightToFontSizeRatio /
+    fontPalette.rem,
 };
 const buttonPaddingSide = getButtonMetrics(8 / 18);
 
