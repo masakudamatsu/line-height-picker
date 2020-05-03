@@ -76,12 +76,12 @@ const fontPalette = {
   },
   bodyText: {
     fontFamily:
-      "'Fedra Sans 2',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+      "'Fedra Sans Alt',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     fontSize: {
       mobile: fontSize(xHeightPx.mobile),
       desktop: fontSize(xHeightPx.desktop),
     },
-    fontWeight: 400,
+    fontWeight: 300,
     lineHeight: lineHeight.paragraph,
     marginTop: {
       mobile: marginTop(xHeightPx.mobile),
