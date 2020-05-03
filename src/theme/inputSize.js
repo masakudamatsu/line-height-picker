@@ -53,6 +53,10 @@ const inputSize = {
     desktop: getExtraTopPadding(fontPalette.inputNumber.fontSize.desktop),
   },
   labelTextCapHeightRem: labelTextHeightInRem,
+  suffixBottomRem: {
+    mobile: 0.8125 /* 13px */,
+    desktop: 0.9375 /* 15px */,
+  } /* to aligh with input values at the baseline */,
 };
 
 export default inputSize;

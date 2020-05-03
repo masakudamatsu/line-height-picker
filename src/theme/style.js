@@ -343,10 +343,10 @@ export const XheightInputUnit = styled.span`
   font-weight: 500; /* to match the large font-size of input values */
   position: absolute;
   right: ${fontPalette.inputNumber.paddingSide}rem;
-  bottom: ${fontPalette.inputNumber.pxBottom
-    .mobile}px; /* to aligh with input values at the baseline */
+  bottom: ${inputSize.suffixBottomRem
+    .mobile}rem; /* to aligh with input values at the baseline */
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    bottom: ${fontPalette.inputNumber.pxBottom.desktop}px;
+    bottom: ${inputSize.suffixBottomRem.desktop}rem;
   }
 `;
 
