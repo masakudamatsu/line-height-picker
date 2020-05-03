@@ -53,11 +53,8 @@ export const PageTitle = styled.h2`
 export const ParagraphOneRem = styled.p`
   color: ${props =>
     props.errorText ? colorPalette.errorText : 'currentColor'};
-  font-family: ${fontPalette.paragraph.fontFamily};
   font-weight: ${props =>
-    props.errorText
-      ? fontPalette.alertText.fontWeight
-      : fontPalette.paragraph.fontWeight};
+    props.errorText ? fontPalette.alertText.fontWeight : 'inherit'};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
 `;
@@ -266,7 +263,6 @@ export const ButtonWithLeftArrow = styled(Button)`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  font-weight: ${fontWeight};
   padding: 0 0 3rem 0;
 `;
 
