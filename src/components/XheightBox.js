@@ -5,7 +5,7 @@ import {
   AlertMessage,
   XheightInput,
   XheightInputUnit,
-  NumberInputWrapper,
+  XheightBoxWrapper,
   Label,
   ParagraphOneRem,
 } from '../theme/style';
@@ -22,8 +22,8 @@ const XheightBox = props => {
   };
   return (
     <>
-      <Label htmlFor="x-height-in-pixel">Set x-height</Label>
-      <NumberInputWrapper>
+      <XheightBoxWrapper>
+        <Label htmlFor="x-height-in-pixel">Enter x-height</Label>
         <XheightInput
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"
@@ -35,7 +35,7 @@ const XheightBox = props => {
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
         />
         <XheightInputUnit>px</XheightInputUnit>
-      </NumberInputWrapper>
+      </XheightBoxWrapper>
       <ParagraphOneRem
         id="howManyDecimalPlacesAllowed"
         data-testid="instruction-x-height"

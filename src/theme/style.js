@@ -267,12 +267,10 @@ export const Form = styled.form`
 `;
 
 export const Label = styled.label``;
-export const NumberInputWrapper = styled.div`
-  align-items: baseline;
+export const XheightBoxWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  padding: 3rem 0 1rem 0;
-  position: relative;
+  flex-direction: column;
+  position: relative; /* To place XheightInputUnit component */
 `;
 export const Input = styled.input.attrs(props => ({
   type: 'text',
