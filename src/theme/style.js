@@ -281,8 +281,6 @@ export const Label = styled.label`
   }
 `;
 export const XheightBoxWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   height: ${inputSize.height.mobile}rem;
   position: relative; /* To place XheightInputUnit component */
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
