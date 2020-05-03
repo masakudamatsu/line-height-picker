@@ -19,7 +19,10 @@ test('renders correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       color: hsl(335,71%,64%);
-      font-size: 1rem;
+      font-family: 'Fedra Sans 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-weight: 500;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
     <div>
