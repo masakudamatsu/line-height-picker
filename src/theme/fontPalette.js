@@ -13,6 +13,7 @@ const fontMetricsFedraSans = {
   xHeight: 546, // Contact with designer himself
   capHeight: 708, // My own investigation. 707.5 to be exact
   ascender: 780, // My own investigation
+  descender: 220, // My own investigation
 };
 
 // Set x-height and modular scale
@@ -93,10 +94,6 @@ const fontPalette = {
       desktop: mapCapHeightToFontSize(xHeightPx.desktop * 2.5),
     },
     paddingSide: 1,
-    paddingTop: {
-      mobile: 4,
-      desktop: 4 * (xHeightPx.desktop / xHeightPx.mobile),
-    },
     pxBottom: {
       // Derived visually to align at the baseline
       mobile: 31,

@@ -297,6 +297,13 @@ export const Input = styled.input.attrs(props => ({
   height: ${buttonSize.height.mobile}px;
   line-height: 1;
   padding-left: ${inputSize.paddingLeftPx}px;
+  padding-top: ${inputSize.extraTopPaddingToCenterAlignRem.mobile +
+    inputSize.labelTextCapHeightRem.mobile +
+    0.5}rem; /* fallback for Opera Mini */
+  padding-top: calc(
+    ${inputSize.extraTopPaddingToCenterAlignRem.mobile}rem +
+      ${inputSize.labelTextCapHeightRem.mobile}rem + ${inputSize.labelTopPx}px
+  );
   text-align: center;
 
   &:active,
@@ -309,7 +316,14 @@ export const Input = styled.input.attrs(props => ({
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${fontPalette.inputNumber.fontSize.desktop}rem;
     height: ${buttonSize.height.desktop}px;
-    padding-top ${fontPalette.inputNumber.paddingTop.desktop}px;
+    padding-top: ${inputSize.extraTopPaddingToCenterAlignRem.desktop +
+      inputSize.labelTextCapHeightRem.desktop +
+      0.5}rem; /* fallback for Opera Mini */
+    padding-top: calc(
+      ${inputSize.extraTopPaddingToCenterAlignRem.desktop}rem +
+        ${inputSize.labelTextCapHeightRem.desktop}rem +
+        ${inputSize.labelTopPx}px
+    );
   }
 `;
 export const NumberInput = styled(Input).attrs(props => ({
@@ -317,7 +331,6 @@ export const NumberInput = styled(Input).attrs(props => ({
 }))``;
 
 export const XheightInput = styled(NumberInput)`
-  padding-top: 1rem;
   padding-right: 2.5rem;
   width: 100%;
 `;
