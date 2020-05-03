@@ -121,6 +121,10 @@ const fontPalette = {
     mobile: getLineSpacingBelowBoxInRem(xHeightPx.mobile),
     desktop: getLineSpacingBelowBoxInRem(xHeightPx.desktop),
   },
+  lineSpacingBelowInstruction: {
+    mobile: getLineSpacingBelowBoxInRem(xHeightPx.mobile * 2),
+    desktop: getLineSpacingBelowBoxInRem(xHeightPx.desktop * 2),
+  },
   marginSide: xHeightPx.mobile * (lineHeightRatio.paragraph - xHeightRatio),
   mediaQueryCutoff: '1024px', // common threshold between tablets and laptops
   rem: oneRemPx,

@@ -50,7 +50,7 @@ const XheightBox = props => {
         error={props.xHeightRangeError}
         errorText={props.xHeightRangeError}
       >
-        Enter a number between 1 and 100 inclusive
+        Please enter a number between 1 and 100 inclusive.
       </AlertMessage>
     </>
   );

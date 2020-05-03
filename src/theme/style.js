@@ -62,6 +62,7 @@ export const ParagraphOneRem = styled.p`
 
 export const AlertMessage = styled(ParagraphOneRem)`
   font-weight: ${fontPalette.alertText.fontWeight};
+  margin-top: 0;
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
 `;
 
