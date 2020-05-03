@@ -331,6 +331,14 @@ export const NumberInput = styled(Input).attrs(props => ({
   inputMode: 'decimal', // for not only Chrome but also iOS to show number key pad. See https://css-tricks.com/better-form-inputs-for-better-mobile-user-experiences/
 }))``;
 
+export const InputInstruction = styled(ParagraphOneRem)`
+  padding-top: ${fontPalette.lineSpacingBelowBox.mobile}rem;
+  text-align: right;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    padding-top: ${fontPalette.lineSpacingBelowBox.desktop}rem;
+  }
+`;
+
 export const XheightInput = styled(NumberInput)`
   padding-right: 2.5rem;
   width: 100%;

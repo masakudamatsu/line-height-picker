@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import {
   AlertMessage,
+  InputInstruction,
   XheightInput,
   XheightInputUnit,
   XheightBoxWrapper,
@@ -36,13 +37,13 @@ const XheightBox = props => {
         />
         <XheightInputUnit>px</XheightInputUnit>
       </XheightBoxWrapper>
-      <ParagraphOneRem
+      <InputInstruction
         id="howManyDecimalPlacesAllowed"
         data-testid="instruction-x-height"
         errorText={props.xHeightStepError}
       >
         up to 4 decimal places
-      </ParagraphOneRem>
+      </InputInstruction>
       <AlertMessage
         id="rangeOfNumbersAllowed"
         data-testid="error-message-x-height"

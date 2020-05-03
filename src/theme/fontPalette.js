@@ -51,6 +51,16 @@ const marginTop = xHeightPx => {
   return marginTopPx / oneRemPx;
 };
 
+// Line-spacing below boxes
+const getLineSpacingBelowBoxInRem = xHeightPx => {
+  const fontSizeInRem = fontSize(xHeightPx);
+  const targetHeightInPx = xHeightPx;
+  const textBoxTopToLowercaseTop =
+    (fontMetricsFedraSans.ascender - fontMetricsFedraSans.xHeight) /
+    fontMetricsFedraSans.unitsPerEm;
+  return targetHeightInPx / oneRemPx - fontSizeInRem * textBoxTopToLowercaseTop;
+};
+
 // Input number font size
 const mapCapHeightToFontSize = capHeight => {
   const fontSizeInPx =
@@ -106,6 +116,10 @@ const fontPalette = {
       desktop: fontSize(xHeightPx.desktop) * 4,
     },
     fontWeight: 300,
+  },
+  lineSpacingBelowBox: {
+    mobile: getLineSpacingBelowBoxInRem(xHeightPx.mobile),
+    desktop: getLineSpacingBelowBoxInRem(xHeightPx.desktop),
   },
   marginSide: xHeightPx.mobile * (lineHeightRatio.paragraph - xHeightRatio),
   mediaQueryCutoff: '1024px', // common threshold between tablets and laptops
