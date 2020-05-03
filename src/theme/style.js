@@ -281,6 +281,7 @@ export const Input = styled.input.attrs(props => ({
   border: 2px solid ${colorPalette.button};
   border-radius: 4px;
   color: ${colorPalette.bodyText};
+  font-family: ${fontPalette.code.fontFamily};
   font-size: ${fontPalette.inputNumber.fontSize.mobile}rem;
   height: ${buttonSize.height.mobile}px;
   line-height: 1;

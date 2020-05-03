@@ -294,8 +294,7 @@ body {
   /* Enable Opentype features */
   font-kerning: normal;
   font-variant-ligatures: common-ligatures contextual;
-  font-variant-numeric: lining-nums;
-  font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'lnum';
+  font-feature-settings: 'calt', 'clig', 'kern', 'liga';
 }
 
 p + p {
