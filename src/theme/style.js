@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import colorPalette from './colorPalette';
 import fontPalette from './fontPalette';
 import buttonSize from './buttonSize';
+import inputSize from './inputSize';
 import LogoImage from '../components/LogoImage';
 
 // Parameters
@@ -266,7 +267,19 @@ export const Form = styled.form`
   padding: 0 0 3rem 0;
 `;
 
-export const Label = styled.label``;
+export const Label = styled.label`
+  position: absolute;
+  left: ${inputSize.labelLeftPx}px;
+  top: ${inputSize.labelTopFallbackPx}px; /* Fallback for Opera Mini and IE */
+  top: calc(
+    ${inputSize.labelTopPx}px - ${inputSize.labelTopOffsetRem.mobile}rem
+  );
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    top: calc(
+      ${inputSize.labelTopPx}px - ${inputSize.labelTopOffsetRem.desktop}rem
+    );
+  }
+`;
 export const XheightBoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -283,7 +296,7 @@ export const Input = styled.input.attrs(props => ({
   font-size: ${fontPalette.inputNumber.fontSize.mobile}rem;
   height: ${buttonSize.height.mobile}px;
   line-height: 1;
-  padding-top ${fontPalette.inputNumber.paddingTop.mobile}px;
+  padding-left: ${inputSize.paddingLeftPx}px;
   text-align: center;
 
   &:active,
@@ -304,7 +317,8 @@ export const NumberInput = styled(Input).attrs(props => ({
 }))``;
 
 export const XheightInput = styled(NumberInput)`
-  padding: 0 2.5rem 0 ${fontPalette.inputNumber.paddingSide}rem;
+  padding-top: 1rem;
+  padding-right: 2.5rem;
   width: 100%;
 `;
 
