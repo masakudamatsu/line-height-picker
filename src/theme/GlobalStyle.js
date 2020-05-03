@@ -3,33 +3,6 @@ import colorPalette from './colorPalette';
 import fontPalette from './fontPalette';
 
 const GlobalStyle = createGlobalStyle`
-body {
-  background-color: ${colorPalette.background}; /* Set the background color here so swiping the screen won't reveal the white part. */
-  color: ${colorPalette.bodyText};
-  font-family: ${fontPalette.bodyText.fontFamily};
-  font-size: ${fontPalette.bodyText.fontSize.mobile}rem;
-  font-weight: ${fontPalette.bodyText.fontWeight};
-  line-height: ${fontPalette.bodyText.lineHeight};
-  /* Enable Opentype features */
-  font-kerning: normal;
-  font-variant-ligatures: common-ligatures contextual;
-  font-variant-numeric: lining-nums;
-  font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'tnum';
-}
-
-p + p {
-  margin-top: ${fontPalette.bodyText.marginTop.mobile}rem;
-}
-
-@media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-  body {
-    font-size: ${fontPalette.bodyText.fontSize.desktop}rem;
-  }
-  p + p {
-    margin-top: ${fontPalette.bodyText.marginTop.desktop}rem;
-  }
-}
-
 /*!
  * ress.css • v2.0.4
  * MIT License
@@ -311,6 +284,32 @@ progress {
   cursor: default;
 }
 
+body {
+  background-color: ${colorPalette.background}; /* Set the background color here so swiping the screen won't reveal the white part. */
+  color: ${colorPalette.bodyText};
+  font-family: ${fontPalette.bodyText.fontFamily};
+  font-size: ${fontPalette.bodyText.fontSize.mobile}rem;
+  font-weight: ${fontPalette.bodyText.fontWeight};
+  line-height: ${fontPalette.bodyText.lineHeight};
+  /* Enable Opentype features */
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures contextual;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'lnum';
+}
+
+p + p {
+  margin-top: ${fontPalette.bodyText.marginTop.mobile}rem;
+}
+
+@media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  body {
+    font-size: ${fontPalette.bodyText.fontSize.desktop}rem;
+  }
+  p + p {
+    margin-top: ${fontPalette.bodyText.marginTop.desktop}rem;
+  }
+}
 `;
 
 export default GlobalStyle;
