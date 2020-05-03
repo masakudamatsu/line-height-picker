@@ -33,8 +33,13 @@ const labelTextHeightInRem = {
   desktop: getCapHeightInRem(fontPalette.xHeight.desktop),
 };
 
-// Covert into rem where appropriate
+const inputHeight = {
+  mobile: (10 * fontPalette.xHeight.mobile) / fontPalette.rem,
+  desktop: (10 * fontPalette.xHeight.desktop) / fontPalette.rem,
+};
+
 const inputSize = {
+  height: inputHeight,
   labelLeftPx: paddingLeftPx,
   labelTopPx: labelPaddingTopPx,
   labelTopOffsetRem: {

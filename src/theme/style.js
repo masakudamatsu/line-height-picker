@@ -283,7 +283,11 @@ export const Label = styled.label`
 export const XheightBoxWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  height: ${inputSize.height.mobile}rem;
   position: relative; /* To place XheightInputUnit component */
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    height: ${inputSize.height.desktop}rem;
+  }
 `;
 export const Input = styled.input.attrs(props => ({
   type: 'text',
@@ -294,7 +298,7 @@ export const Input = styled.input.attrs(props => ({
   color: ${colorPalette.bodyText};
   font-family: ${fontPalette.code.fontFamily};
   font-size: ${fontPalette.inputNumber.fontSize.mobile}rem;
-  height: ${buttonSize.height.mobile}px;
+  height: 100%;
   line-height: 1;
   padding-left: ${inputSize.paddingLeftPx}px;
   padding-top: ${inputSize.extraTopPaddingToCenterAlignRem.mobile +
@@ -315,7 +319,6 @@ export const Input = styled.input.attrs(props => ({
 
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${fontPalette.inputNumber.fontSize.desktop}rem;
-    height: ${buttonSize.height.desktop}px;
     padding-top: ${inputSize.extraTopPaddingToCenterAlignRem.desktop +
       inputSize.labelTextCapHeightRem.desktop +
       0.5}rem; /* fallback for Opera Mini */
