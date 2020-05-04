@@ -299,7 +299,7 @@ export const Input = styled.input.attrs(props => ({
   font-size: ${fontPalette.inputNumber.fontSize.mobile}rem;
   height: 100%;
   line-height: 1;
-  padding-left: ${inputSize.paddingLeftPx}px;
+  padding-left: ${inputSize.paddingSidePx - 4}px; /* optical adjustmnet */
   padding-top: ${inputSize.extraTopPaddingToCenterAlignRem.mobile +
     inputSize.labelTextCapHeightRem.mobile +
     0.5}rem; /* fallback for Opera Mini */

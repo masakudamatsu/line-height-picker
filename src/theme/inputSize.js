@@ -1,8 +1,8 @@
 import fontPalette from './fontPalette';
 
 // Visible spacing
-const paddingLeftPx = 16;
-const labelPaddingTopPx = paddingLeftPx / 2;
+const paddingSidePx = 16;
+const labelPaddingTopPx = paddingSidePx / 2;
 
 // Values necessary to convert the above two spacing values into CSS property values
 const getTextBoxTopToCapTopInRem = xHeight => {
@@ -40,14 +40,14 @@ const inputHeight = {
 
 const inputSize = {
   height: inputHeight,
-  labelLeftPx: paddingLeftPx,
+  labelLeftPx: paddingSidePx,
   labelTopPx: labelPaddingTopPx,
   labelTopOffsetRem: {
     mobile: getTextBoxTopToCapTopInRem(fontPalette.xHeight.mobile),
     desktop: getTextBoxTopToCapTopInRem(fontPalette.xHeight.desktop),
   },
   labelTopFallbackPx: labelPaddingTopPx, // For IE and Opera Mini
-  paddingLeftPx: paddingLeftPx - 4, // optical adjustmnet
+  paddingSidePx: paddingSidePx,
   extraTopPaddingToCenterAlignRem: {
     mobile: getExtraTopPadding(fontPalette.inputNumber.fontSize.mobile),
     desktop: getExtraTopPadding(fontPalette.inputNumber.fontSize.desktop),
