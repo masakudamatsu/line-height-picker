@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {
   AlertMessage,
   CenterAlignWrapperHorizontal,
-  PageTitle,
+  SectionTitle,
   Label,
   ModularScaleInput,
   ParagraphOneRem,
@@ -27,7 +27,7 @@ const ModularScaleBoxes = props => {
   };
   return (
     <>
-      <PageTitle>Pick modular scale</PageTitle>
+      <SectionTitle>Pick modular scale</SectionTitle>
       <p>Set the ratio of</p>
       <CenterAlignWrapperHorizontal>
         <RatioWrapper>

@@ -13,7 +13,7 @@ import {
   ButtonWithRightArrow,
   ExternalLink,
   Form,
-  PageTitle,
+  SectionTitle,
   ParagraphOneRemRightAligned,
 } from '../theme/style';
 
@@ -57,7 +57,7 @@ const Preview = props => {
   return (
     <>
       <main>
-        <PageTitle>Preview sample paragraphs</PageTitle>
+        <SectionTitle>Preview sample paragraphs</SectionTitle>
         <SampleParagraphs
           fontFamily={props.fontFamily}
           fontSize={props.fontSize}

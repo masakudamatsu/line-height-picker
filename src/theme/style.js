@@ -46,7 +46,7 @@ export const InternalLink = styled(Link)`
 `;
 
 const h2FontSize = 3;
-export const PageTitle = styled.h2`
+export const SectionTitle = styled.h2`
   font-size: ${h2FontSize}rem;
   font-weight: ${fontWeight};
 `;
