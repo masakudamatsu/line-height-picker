@@ -292,7 +292,7 @@ export const Label = styled.label`
     );
   }
 `;
-export const XheightBoxWrapper = styled.div`
+export const InputWrapper = styled.div`
   height: ${inputSize.height.mobile}rem;
   position: relative; /* To place XheightInputUnit component */
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
