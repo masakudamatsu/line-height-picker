@@ -45,10 +45,17 @@ export const InternalLink = styled(Link)`
   color: ${colorPalette.linkText};
 `;
 
-const h2FontSize = 3;
 export const SectionTitle = styled.h2`
-  font-size: ${h2FontSize}rem;
-  font-weight: ${fontWeight};
+  font-size: ${fontPalette.sectionTitle.fontSize.mobile}rem;
+  font-weight: ${fontPalette.sectionTitle.fontWeight};
+  line-height: ${fontPalette.sectionTitle.lineHeight};
+  padding-bottom: ${fontPalette.sectionTitle.paddingBottom.mobile +
+    2 / 16}rem; /* 2px is optical adjustmnet */
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    font-size: ${fontPalette.sectionTitle.fontSize.desktop}rem;
+    padding-bottom: ${fontPalette.sectionTitle.paddingBottom.desktop +
+      2 / 16}rem; /* 2px is optical adjustmnet */
+  }
 `;
 
 export const ParagraphOneRem = styled.p`

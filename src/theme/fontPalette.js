@@ -69,6 +69,15 @@ const mapCapHeightToFontSize = capHeight => {
   return fontSizeInPx / oneRemPx;
 };
 
+// Section title bottom padding
+const getBottomPaddingInRem = (targetInPx, fontSizeInRem) => {
+  const targetInRem = targetInPx / oneRemPx;
+  const descenderToFontSizeRatio =
+    fontMetricsFedraSans.descender / fontMetricsFedraSans.unitsPerEm;
+  const descenderInRem = descenderToFontSizeRatio * fontSizeInRem;
+  return targetInRem - descenderInRem;
+};
+
 // Font CSS property value
 const fontPalette = {
   alertText: {
@@ -130,10 +139,21 @@ const fontPalette = {
   rem: oneRemPx,
   sectionTitle: {
     fontSize: {
-      mobile: fontSize(xHeightPx.mobile) * 2.5,
-      desktop: fontSize(xHeightPx.desktop) * 2.5,
+      mobile: mapCapHeightToFontSize(xHeightPx.mobile * 2),
+      desktop: mapCapHeightToFontSize(xHeightPx.desktop * 2),
     },
-    lineHeight: lineHeight.sectionTitle,
+    fontWeight: 300,
+    lineHeight: 1,
+    paddingBottom: {
+      mobile: getBottomPaddingInRem(
+        xHeightPx.mobile * 2,
+        mapCapHeightToFontSize(xHeightPx.mobile * 2),
+      ),
+      desktop: getBottomPaddingInRem(
+        xHeightPx.desktop * 2,
+        mapCapHeightToFontSize(xHeightPx.desktop * 2),
+      ),
+    },
   },
   xHeight: xHeightPx,
 };
