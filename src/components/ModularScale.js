@@ -11,6 +11,8 @@ import {
   ButtonContainer,
   Form,
   Section,
+  SectionTitle,
+  SectionTitleWrapper,
 } from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import {Link, Redirect} from 'react-router-dom';
@@ -47,24 +49,27 @@ const ModularScale = props => {
     <>
       <main>
         <Section>
-        <Form noValidate onSubmit={handleSubmit}>
-          <ModularScaleBoxes
-            handleXHeightRatioChange={props.handleXHeightRatioChange}
-            handleLineHeightRatioChange={props.handleLineHeightRatioChange}
-            lineHeightRatio={props.lineHeightRatio}
-            modularScaleRangeError={props.modularScaleRangeError}
-            modularScaleStepError={props.modularScaleStepError}
-            validateModularScale={props.validateModularScale}
-            xHeightRatio={props.xHeightRatio}
-          />{' '}
-          <ButtonWithRightArrow type="submit">Preview</ButtonWithRightArrow>
-        </Form>
+          <SectionTitleWrapper aboveBodyText>
+            <SectionTitle>Setting line spacing</SectionTitle>
+          </SectionTitleWrapper>
+          <Form noValidate onSubmit={handleSubmit}>
+            <ModularScaleBoxes
+              handleXHeightRatioChange={props.handleXHeightRatioChange}
+              handleLineHeightRatioChange={props.handleLineHeightRatioChange}
+              lineHeightRatio={props.lineHeightRatio}
+              modularScaleRangeError={props.modularScaleRangeError}
+              modularScaleStepError={props.modularScaleStepError}
+              validateModularScale={props.validateModularScale}
+              xHeightRatio={props.xHeightRatio}
+            />{' '}
+            <ButtonWithRightArrow type="submit">Preview</ButtonWithRightArrow>
+          </Form>
         </Section>
         <Section>
-        <FontNameDisplay
-          fontFamily={props.fontFamily}
-          fontSubfamily={props.fontSubfamily}
-        />
+          <FontNameDisplay
+            fontFamily={props.fontFamily}
+            fontSubfamily={props.fontSubfamily}
+          />
           <FontFileUploader
             handleFontFile={props.handleFontFile}
             validateFileType={props.validateFileType}
@@ -79,10 +84,10 @@ const ModularScale = props => {
         <Section>
           <XheightDisplay xHeightPx={props.xHeightPx} />
           <ButtonContainer>
-          <ButtonWithLeftArrow as={Link} to="/x-height">
-            Change x-height
-          </ButtonWithLeftArrow>
-        </ButtonContainer>
+            <ButtonWithLeftArrow as={Link} to="/x-height">
+              Change x-height
+            </ButtonWithLeftArrow>
+          </ButtonContainer>
         </Section>
       </main>
     </>

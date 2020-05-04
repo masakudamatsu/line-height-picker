@@ -10,6 +10,7 @@ import {
   Form,
   Section,
   SectionTitle,
+  SectionTitleWrapper,
 } from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import {Redirect} from 'react-router-dom';
@@ -42,7 +43,9 @@ const Xheight = props => {
     <>
       <main>
         <Section>
-          <SectionTitle>Setting text size</SectionTitle>
+          <SectionTitleWrapper>
+            <SectionTitle>Setting text size</SectionTitle>
+          </SectionTitleWrapper>
           <Form noValidate onSubmit={handleSubmit}>
             <XheightBox
               handleXHeightChange={props.handleXHeightChange}

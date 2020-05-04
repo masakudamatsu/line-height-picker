@@ -78,6 +78,13 @@ const getBottomPaddingInRem = (targetInPx, fontSizeInRem) => {
   return targetInRem - descenderInRem;
 };
 
+const getTextBoxTopToCapTopInRem = xHeight => {
+  const textBoxTopToCapTopInXHeight =
+    (fontMetricsFedraSans.ascender - fontMetricsFedraSans.capHeight) /
+    fontMetricsFedraSans.xHeight;
+  return (xHeight * textBoxTopToCapTopInXHeight) / oneRemPx;
+};
+
 // Font CSS property value
 const fontPalette = {
   alertText: {
@@ -163,6 +170,18 @@ const fontPalette = {
         xHeightPx.desktop * 2,
         mapCapHeightToFontSize(xHeightPx.desktop * 2),
       ),
+    },
+    paddingBottomAboveBodyText: {
+      mobile:
+        getBottomPaddingInRem(
+          xHeightPx.mobile * 2,
+          mapCapHeightToFontSize(xHeightPx.mobile * 2),
+        ) - getTextBoxTopToCapTopInRem(xHeightPx.mobile),
+      desktop:
+        getBottomPaddingInRem(
+          xHeightPx.desktop * 2,
+          mapCapHeightToFontSize(xHeightPx.desktop * 2),
+        ) - getTextBoxTopToCapTopInRem(xHeightPx.desktop),
     },
   },
   xHeight: xHeightPx,
