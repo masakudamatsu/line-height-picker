@@ -10,6 +10,7 @@ import {
   ButtonWithRightArrow,
   ButtonContainer,
   Form,
+  Section,
 } from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import {Link, Redirect} from 'react-router-dom';
@@ -45,6 +46,7 @@ const ModularScale = props => {
   return (
     <>
       <main>
+        <Section>
         <Form noValidate onSubmit={handleSubmit}>
           <ModularScaleBoxes
             handleXHeightRatioChange={props.handleXHeightRatioChange}
@@ -57,13 +59,12 @@ const ModularScale = props => {
           />{' '}
           <ButtonWithRightArrow type="submit">Preview</ButtonWithRightArrow>
         </Form>
-
+        </Section>
+        <Section>
         <FontNameDisplay
           fontFamily={props.fontFamily}
           fontSubfamily={props.fontSubfamily}
         />
-        <XheightDisplay xHeightPx={props.xHeightPx} />
-        <ButtonContainer>
           <FontFileUploader
             handleFontFile={props.handleFontFile}
             validateFileType={props.validateFileType}
@@ -74,10 +75,15 @@ const ModularScale = props => {
             data-testid="error-message-font-file"
             fontFileError={props.fontFileError}
           />
+        </Section>
+        <Section>
+          <XheightDisplay xHeightPx={props.xHeightPx} />
+          <ButtonContainer>
           <ButtonWithLeftArrow as={Link} to="/x-height">
             Change x-height
           </ButtonWithLeftArrow>
         </ButtonContainer>
+        </Section>
       </main>
     </>
   );
