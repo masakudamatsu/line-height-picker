@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import {
   AlertMessage,
-  CenterAlignWrapperHorizontal,
-  SectionTitle,
+  ModularScaleInputWrapper,
   Label,
   ModularScaleInput,
+  ModularScaleInputUnit,
   ParagraphOneRem,
   RatioWrapper,
 } from '../theme/style';
@@ -27,9 +27,8 @@ const ModularScaleBoxes = props => {
   };
   return (
     <>
-      <SectionTitle>Pick modular scale</SectionTitle>
-      <p>Set the ratio of</p>
-      <CenterAlignWrapperHorizontal>
+      <p>Enter the ratio of</p>
+      <ModularScaleInputWrapper>
         <RatioWrapper>
           <Label htmlFor="x-height-for-ratio">x-height</Label>
           <ModularScaleInput
@@ -43,7 +42,7 @@ const ModularScaleBoxes = props => {
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           />
         </RatioWrapper>
-        <span>to</span>
+        <ModularScaleInputUnit>to</ModularScaleInputUnit>
         <RatioWrapper>
           <Label htmlFor="line-height-for-ratio">line-height</Label>
           <ModularScaleInput
@@ -57,7 +56,7 @@ const ModularScaleBoxes = props => {
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           />
         </RatioWrapper>
-      </CenterAlignWrapperHorizontal>
+      </ModularScaleInputWrapper>
       <ParagraphOneRem
         id="howManyDecimalPlacesAllowed"
         data-testid="instruction-modular-scale"

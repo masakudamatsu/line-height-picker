@@ -23,20 +23,6 @@ export const BringAttention = styled.b`
   font-weight: ${props => (props.yes ? '700' : 'inherit')};
 `;
 
-export const CenterAlignWrapperHorizontal = styled.div`
-  align-items: flex-end;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 0;
-  width: 100%;
-`;
-export const RatioWrapper = styled.div`
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-`;
-
 export const ExternalLink = styled.a`
   color: ${colorPalette.bodyText};
 `;
@@ -299,6 +285,7 @@ export const InputWrapper = styled.div`
     height: ${inputSize.height.desktop}rem;
   }
 `;
+
 export const Input = styled.input.attrs(props => ({
   type: 'text',
 }))`
@@ -372,9 +359,23 @@ export const XheightInputUnit = styled.span`
   }
 `;
 
-export const ModularScaleInput = styled(NumberInput)`
+export const ModularScaleInputWrapper = styled.div`
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
 `;
+
+export const RatioWrapper = styled(InputWrapper)`
+  width: 45%;
+`;
+
+export const ModularScaleInput = styled(NumberInput)`
+  padding-right: ${inputSize.paddingSidePx - 4}px; /* Same as padding-left */
+  width: 100%;
+`;
+
+export const ModularScaleInputUnit = styled.span``;
 
 export const SampleParagraphWrapper = styled.section`
   border: 1px solid ${colorPalette.bodyText};
