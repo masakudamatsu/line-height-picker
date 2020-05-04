@@ -82,6 +82,16 @@ const getBottomPaddingInRem = (targetInPx, fontSizeInRem) => {
 const fontPalette = {
   alertText: {
     fontWeight: 500,
+    paddingBottom: {
+      mobile: getBottomPaddingInRem(
+        xHeightPx.mobile * (lineHeightRatio.paragraph - xHeightRatio),
+        fontSize(xHeightPx.mobile),
+      ),
+      desktop: getBottomPaddingInRem(
+        xHeightPx.desktop * (lineHeightRatio.paragraph - xHeightRatio),
+        fontSize(xHeightPx.desktop),
+      ),
+    },
   },
   bodyText: {
     fontFamily:

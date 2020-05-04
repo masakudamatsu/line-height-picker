@@ -70,7 +70,11 @@ export const ParagraphOneRem = styled.p`
 export const AlertMessage = styled(ParagraphOneRem)`
   font-weight: ${fontPalette.alertText.fontWeight};
   margin-top: 0;
+  padding-bottom: ${fontPalette.alertText.paddingBottom.mobile}rem;
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    padding-bottom: ${fontPalette.alertText.paddingBottom.desktop}rem;
+  }
 `;
 
 export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
