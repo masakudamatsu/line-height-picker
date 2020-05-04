@@ -7,7 +7,8 @@ import {
   Label,
   ModularScaleInput,
   ModularScaleInputUnit,
-  ParagraphOneRem,
+  ModularScaleText,
+  InputInstruction,
   RatioWrapper,
 } from '../theme/style';
 
@@ -27,7 +28,7 @@ const ModularScaleBoxes = props => {
   };
   return (
     <>
-      <p>Enter the ratio of</p>
+      <ModularScaleText>Enter the ratio of</ModularScaleText>
       <ModularScaleInputWrapper>
         <RatioWrapper>
           <Label htmlFor="x-height-for-ratio">x-height</Label>
@@ -57,13 +58,13 @@ const ModularScaleBoxes = props => {
           />
         </RatioWrapper>
       </ModularScaleInputWrapper>
-      <ParagraphOneRem
+      <InputInstruction
         id="howManyDecimalPlacesAllowed"
         data-testid="instruction-modular-scale"
         errorText={props.modularScaleStepError}
       >
         up to 4 decimal places
-      </ParagraphOneRem>
+      </InputInstruction>
       <AlertMessage
         id="rangeOfNumbersAllowed"
         data-testid="error-message-modular-scale"

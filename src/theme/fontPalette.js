@@ -113,6 +113,16 @@ const fontPalette = {
       mobile: marginTop(xHeightPx.mobile),
       desktop: marginTop(xHeightPx.desktop),
     },
+    paddingBottomAboveBox: {
+      mobile: getBottomPaddingInRem(
+        xHeightPx.mobile,
+        fontSize(xHeightPx.mobile),
+      ),
+      desktop: getBottomPaddingInRem(
+        xHeightPx.desktop,
+        fontSize(xHeightPx.desktop),
+      ),
+    },
   },
   buttonLabel: {
     fontFamily:

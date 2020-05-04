@@ -34,13 +34,13 @@ export const InternalLink = styled(Link)`
 export const SectionTitleWrapper = styled.div`
   padding-bottom: ${props =>
     props.aboveBodyText
-      ? fontPalette.sectionTitle.paddingBottomAboveBodyText.mobile
+      ? fontPalette.sectionTitle.paddingBottomAboveBodyText.mobile + 2 / 16
       : fontPalette.sectionTitle.paddingBottom.mobile +
         2 / 16}rem; /* 2px is optical adjustmnet */
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     padding-bottom: ${props =>
       props.aboveBodyText
-        ? fontPalette.sectionTitle.paddingBottomAboveBodyText.desktop
+        ? fontPalette.sectionTitle.paddingBottomAboveBodyText.desktop + 2 / 16
         : fontPalette.sectionTitle.paddingBottom.desktop +
           2 / 16}rem; /* 2px is optical adjustmnet */
   }
@@ -375,6 +375,14 @@ export const ModularScaleInputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+`;
+
+export const ModularScaleText = styled.p`
+  line-height: 1;
+  padding-bottom: ${fontPalette.bodyText.paddingBottomAboveBox.mobile}rem;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    padding-bottom: ${fontPalette.bodyText.paddingBottomAboveBox.desktop}rem;
+  }
 `;
 
 export const RatioWrapper = styled(InputWrapper)`
