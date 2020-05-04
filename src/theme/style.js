@@ -341,7 +341,11 @@ export const InputInstruction = styled(ParagraphOneRem)`
 `;
 
 export const XheightInput = styled(NumberInput)`
-  padding-right: 2.5rem;
+  padding-right: ${inputSize.paddingSidePx *
+    2.7}px; /* fallback for Opera Mini and IE */
+  padding-right: calc(
+    ${inputSize.paddingSidePx * 2}px + 0.7rem
+  ); /* 0.7rem is picked by optical alignment */
   width: 100%;
 `;
 
@@ -349,7 +353,7 @@ export const XheightInputUnit = styled.span`
   display: inline-block;
   font-weight: 500; /* to match the large font-size of input values */
   position: absolute;
-  right: ${fontPalette.inputNumber.paddingSide}rem;
+  right: ${inputSize.paddingSidePx}px;
   bottom: ${inputSize.suffixBottomRem
     .mobile}rem; /* to aligh with input values at the baseline */
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
