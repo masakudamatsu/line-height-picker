@@ -8,7 +8,6 @@ import {
   XheightInputUnit,
   XheightBoxWrapper,
   Label,
-  ParagraphOneRem,
 } from '../theme/style';
 
 const XheightBox = props => {
