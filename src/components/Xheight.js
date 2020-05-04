@@ -8,6 +8,7 @@ import {
   ButtonWithRightArrow,
   ButtonContainer,
   Form,
+  Section,
 } from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import {Redirect} from 'react-router-dom';
@@ -39,33 +40,37 @@ const Xheight = props => {
   return (
     <>
       <main>
-        <Form noValidate onSubmit={handleSubmit}>
-          <XheightBox
-            handleXHeightChange={props.handleXHeightChange}
-            validateXHeight={props.validateXHeight}
-            xHeightPx={props.xHeightPx}
-            xHeightRangeError={props.xHeightRangeError}
-            xHeightStepError={props.xHeightStepError}
-          />{' '}
-          <ButtonWithRightArrow type="submit">Next</ButtonWithRightArrow>
-        </Form>
-        <FontNameDisplay
-          fontFamily={props.fontFamily}
-          fontSubfamily={props.fontSubfamily}
-          fontWeight={props.fontWeight}
-        />
-        <ButtonContainer>
-          <FontFileUploader
-            handleFontFile={props.handleFontFile}
-            validateFileType={props.validateFileType}
-          >
-            Change font…
-          </FontFileUploader>
-          <FontFileErrorMessage
-            data-testid="error-message-font-file"
-            fontFileError={props.fontFileError}
+        <Section>
+          <Form noValidate onSubmit={handleSubmit}>
+            <XheightBox
+              handleXHeightChange={props.handleXHeightChange}
+              validateXHeight={props.validateXHeight}
+              xHeightPx={props.xHeightPx}
+              xHeightRangeError={props.xHeightRangeError}
+              xHeightStepError={props.xHeightStepError}
+            />{' '}
+            <ButtonWithRightArrow type="submit">Next</ButtonWithRightArrow>
+          </Form>
+        </Section>
+        <Section>
+          <FontNameDisplay
+            fontFamily={props.fontFamily}
+            fontSubfamily={props.fontSubfamily}
+            fontWeight={props.fontWeight}
           />
-        </ButtonContainer>
+          <ButtonContainer>
+            <FontFileUploader
+              handleFontFile={props.handleFontFile}
+              validateFileType={props.validateFileType}
+            >
+              Change font…
+            </FontFileUploader>
+            <FontFileErrorMessage
+              data-testid="error-message-font-file"
+              fontFileError={props.fontFileError}
+            />
+          </ButtonContainer>
+        </Section>
       </main>
     </>
   );
