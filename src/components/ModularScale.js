@@ -50,7 +50,7 @@ const ModularScale = props => {
       <main>
         <Section>
           <SectionTitleWrapper aboveBodyText>
-            <SectionTitle>Setting line spacing</SectionTitle>
+            <SectionTitle>Line spacing</SectionTitle>
           </SectionTitleWrapper>
           <Form noValidate onSubmit={handleSubmit}>
             <ModularScaleBoxes
