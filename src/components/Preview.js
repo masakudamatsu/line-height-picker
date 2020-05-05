@@ -15,6 +15,7 @@ import {
   Form,
   Section,
   SectionTitle,
+  SectionTitleWrapper,
   ParagraphOneRemRightAligned,
 } from '../theme/style';
 
@@ -59,21 +60,23 @@ const Preview = props => {
     <>
       <main>
         <Section>
-          <SectionTitle>Preview paragraphs</SectionTitle>
-        <SampleParagraphs
-          fontFamily={props.fontFamily}
-          fontSize={props.fontSize}
-          fontWeight={props.fontWeight}
-          lineHeight={props.lineHeight}
-          marginTop={props.marginTop}
-        />
-        <ParagraphOneRemRightAligned>
-          An excerpt from{' '}
-          <ExternalLink href="https://news.stanford.edu/2005/06/14/jobs-061505/">
+          <SectionTitleWrapper>
+            <SectionTitle>Preview paragraphs</SectionTitle>
+          </SectionTitleWrapper>
+          <SampleParagraphs
+            fontFamily={props.fontFamily}
+            fontSize={props.fontSize}
+            fontWeight={props.fontWeight}
+            lineHeight={props.lineHeight}
+            marginTop={props.marginTop}
+          />
+          <ParagraphOneRemRightAligned>
+            An excerpt from{' '}
+            <ExternalLink href="https://news.stanford.edu/2005/06/14/jobs-061505/">
               <cite>Stanford University Commencement Address in 2005</cite>
             </ExternalLink>{' '}
             by Steve Jobs
-        </ParagraphOneRemRightAligned>
+          </ParagraphOneRemRightAligned>
         </Section>
         <Form noValidate onSubmit={handleSubmit}>
           <ButtonContainer>
