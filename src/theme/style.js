@@ -399,8 +399,8 @@ export const ModularScaleInputUnit = styled.span``;
 export const SampleParagraphWrapper = styled.blockquote.attrs(props => ({
   cite: 'https://news.stanford.edu/2005/06/14/jobs-061505/',
 }))`
-  border-bottom: 1px solid ${colorPalette.bodyText};
-  border-top: 1px solid ${colorPalette.bodyText};
+  border-bottom: 1px solid ${colorPalette.button};
+  border-top: 1px solid ${colorPalette.button};
   font-family: ${props => props.fontMetrics.fontFamily};
   font-size: ${props => props.fontSize}px;
   font-weight: ${props => props.fontMetrics.fontWeight};
