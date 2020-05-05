@@ -13,6 +13,7 @@ import {
   ButtonWithRightArrow,
   ExternalLink,
   Form,
+  Section,
   SectionTitle,
   ParagraphOneRemRightAligned,
 } from '../theme/style';
@@ -57,7 +58,8 @@ const Preview = props => {
   return (
     <>
       <main>
-        <SectionTitle>Preview sample paragraphs</SectionTitle>
+        <Section>
+          <SectionTitle>Preview paragraphs</SectionTitle>
         <SampleParagraphs
           fontFamily={props.fontFamily}
           fontSize={props.fontSize}
@@ -68,9 +70,11 @@ const Preview = props => {
         <ParagraphOneRemRightAligned>
           An excerpt from{' '}
           <ExternalLink href="https://news.stanford.edu/2005/06/14/jobs-061505/">
-            Steve Jobs’s Stanford University Commencement address in 2005
-          </ExternalLink>
+              <cite>Stanford University Commencement Address in 2005</cite>
+            </ExternalLink>{' '}
+            by Steve Jobs
         </ParagraphOneRemRightAligned>
+        </Section>
         <Form noValidate onSubmit={handleSubmit}>
           <ButtonContainer>
             <ButtonWithRightArrow type="submit">

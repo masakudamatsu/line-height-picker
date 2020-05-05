@@ -396,8 +396,9 @@ export const ModularScaleInput = styled(NumberInput)`
 
 export const ModularScaleInputUnit = styled.span``;
 
-export const SampleParagraphWrapper = styled.section`
-  border: 1px solid ${colorPalette.bodyText};
+export const SampleParagraphWrapper = styled.blockquote.attrs(props => ({
+  cite: 'https://news.stanford.edu/2005/06/14/jobs-061505/',
+}))`
   font-family: ${props => props.fontFamily};
   font-size: ${props => props.fontSize}px;
   font-weight: ${props => props.fontWeight};
