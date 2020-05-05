@@ -33,8 +33,8 @@ test('renders correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c0 {
-      border-bottom: 1px solid hsl(0,0%,96%);
-      border-top: 1px solid hsl(0,0%,96%);
+      border-bottom: 1px solid hsl(0,0%,46%);
+      border-top: 1px solid hsl(0,0%,46%);
       font-family: Roboto Slab;
       font-size: 18px;
       font-weight: 300;
