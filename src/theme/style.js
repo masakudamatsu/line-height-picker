@@ -410,6 +410,9 @@ export const SampleParagraphWrapper = styled.blockquote.attrs(props => ({
   }
 `;
 
+export const Cite = styled.cite`
+  font-style: normal;
+`;
 // Footer
 
 export const FooterWrapper = styled.footer`
