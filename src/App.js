@@ -32,6 +32,8 @@ function App() {
     xHeight: initialState('xHeight'),
     unitsPerEm: initialState('unitsPerEm'),
     capHeight: initialState('capHeight'),
+    ascender: initialState('ascender'),
+    descender: initialState('descender'), // NOTE: this value is always negative
   });
   React.useEffect(() => {
     store.set('fontFamily', fontMetrics.fontFamily);
@@ -40,6 +42,8 @@ function App() {
     store.set('xHeight', fontMetrics.xHeight);
     store.set('unitsPerEm', fontMetrics.unitsPerEm);
     store.set('capHeight', fontMetrics.capHeight);
+    store.set('ascender', fontMetrics.ascender);
+    store.set('descender', fontMetrics.descender);
   }, [fontMetrics]);
 
   const [fontFileError, setFontFileError] = React.useState('');
@@ -138,6 +142,8 @@ function App() {
             xHeight: newFontMetrics.xHeight,
             unitsPerEm: newFontMetrics.unitsPerEm,
             capHeight: newFontMetrics.capHeight,
+            ascender: newFontMetrics.ascender,
+            descender: newFontMetrics.descender,
           });
           // Update CSS values
           if (xHeightPx) {

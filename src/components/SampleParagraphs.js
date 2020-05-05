@@ -7,9 +7,8 @@ const SampleParagraphs = props => {
   return (
     <SampleParagraphWrapper
       data-testid="sampleParagraphs"
-      fontFamily={props.fontFamily}
+      fontMetrics={props.fontMetrics}
       fontSize={props.fontSize}
-      fontWeight={props.fontWeight}
       lineHeight={props.lineHeight}
       marginTop={props.marginTop}
     >

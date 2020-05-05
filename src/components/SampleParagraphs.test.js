@@ -9,9 +9,15 @@ import 'jest-axe/extend-expect';
 import SampleParagraphs from './SampleParagraphs';
 
 const paragraphStyle = {
-  fontFamily: 'Roboto',
+  fontMetrics: {
+    ascender: '2146',
+    descender: '-555',
+    fontFamily: 'Roboto Slab',
+    fontWeight: '300',
+    unitsPerEm: '2048',
+    xHeight: '1082',
+  },
   fontSize: '18',
-  fontWeight: '500',
   lineHeight: '1.15',
   marginTop: '23.467',
 };
@@ -19,22 +25,22 @@ const paragraphStyle = {
 test('renders correctly', () => {
   const {container} = render(
     <SampleParagraphs
-      fontFamily={paragraphStyle.fontFamily}
+      fontMetrics={paragraphStyle.fontMetrics}
       fontSize={paragraphStyle.fontSize}
-      fontWeight={paragraphStyle.fontWeight}
       lineHeight={paragraphStyle.lineHeight}
       marginTop={paragraphStyle.marginTop}
     />,
   );
   expect(container).toMatchInlineSnapshot(`
     .c0 {
-      border: 1px solid hsl(0,0%,96%);
-      font-family: Roboto;
+      border-bottom: 1px solid hsl(0,0%,96%);
+      border-top: 1px solid hsl(0,0%,96%);
+      font-family: Roboto Slab;
       font-size: 18px;
-      font-weight: 500;
+      font-weight: 300;
       line-height: 1.15;
-      padding: 1rem;
-      margin: 2rem 0 0.5rem 0;
+      padding-bottom: 10.7015625px;
+      padding-top: 6.2279296875px;
     }
 
     .c0 p + p {
@@ -42,12 +48,11 @@ test('renders correctly', () => {
     }
 
     <div>
-      <section
+      <blockquote
+        cite="https://news.stanford.edu/2005/06/14/jobs-061505/"
         class="c0"
         data-testid="sampleParagraphs"
-        font-family="Roboto"
         font-size="18"
-        font-weight="500"
       >
         <p
           data-testid="sampleParagraph1"
@@ -59,7 +64,7 @@ test('renders correctly', () => {
         >
           None of this had even a hope of any practical application in my life. But 10 years later, when we were designing the first Macintosh computer, it all came back to me. And we designed it all into the Mac. It was the first computer with beautiful typography. If I had never dropped in on that single course in college, the Mac would have never had multiple typefaces or proportionally spaced fonts. And since Windows just copied the Mac, it’s likely that no personal computer would have them. If I had never dropped out, I would have never dropped in on this calligraphy class, and personal computers might not have the wonderful typography that they do. …
         </p>
-      </section>
+      </blockquote>
     </div>
   `);
 });
@@ -67,17 +72,16 @@ test('renders correctly', () => {
 test('renders paragraphs according to the props values', () => {
   const {getByTestId} = render(
     <SampleParagraphs
-      fontFamily={paragraphStyle.fontFamily}
+      fontMetrics={paragraphStyle.fontMetrics}
       fontSize={paragraphStyle.fontSize}
-      fontWeight={paragraphStyle.fontWeight}
       lineHeight={paragraphStyle.lineHeight}
       marginTop={paragraphStyle.marginTop}
     />,
   );
   expect(getByTestId('sampleParagraphs')).toHaveStyle(`
-    font-family: ${paragraphStyle.fontFamily};
+    font-family: ${paragraphStyle.fontMetrics.fontFamily};
     font-size: ${paragraphStyle.fontSize}px;
-    font-weight: ${paragraphStyle.fontWeight};
+    font-weight: ${paragraphStyle.fontMetrics.fontWeight};
     line-height: ${paragraphStyle.lineHeight};
     `);
   expect(getByTestId('sampleParagraph2')).toHaveStyle(`
@@ -88,9 +92,8 @@ test('renders paragraphs according to the props values', () => {
 test('is accessible', async () => {
   const {container} = render(
     <SampleParagraphs
-      fontFamily={paragraphStyle.fontFamily}
+      fontMetrics={paragraphStyle.fontMetrics}
       fontSize={paragraphStyle.fontSize}
-      fontWeight={paragraphStyle.fontWeight}
       lineHeight={paragraphStyle.lineHeight}
       marginTop={paragraphStyle.marginTop}
     />,

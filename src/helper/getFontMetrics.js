@@ -18,6 +18,10 @@ const getFontMetrics = font => {
   fontMetrics.fontWeight = os2Table['usWeightClass'].toString();
   fontMetrics.xHeight = os2Table['sxHeight'];
   fontMetrics.capHeight = os2Table['sCapHeight'];
+  fontMetrics.ascender = os2Table['sTypoAscender']; // https://docs.microsoft.com/en-us/typography/opentype/spec/os2#stypoascender
+  fontMetrics.descender = os2Table['sTypoDescender']; // https://docs.microsoft.com/en-us/typography/opentype/spec/os2#stypodescender
+  console.log(fontMetrics.ascender);
+  console.log(fontMetrics.descender);
   return fontMetrics;
 };
 

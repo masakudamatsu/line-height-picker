@@ -399,12 +399,21 @@ export const ModularScaleInputUnit = styled.span``;
 export const SampleParagraphWrapper = styled.blockquote.attrs(props => ({
   cite: 'https://news.stanford.edu/2005/06/14/jobs-061505/',
 }))`
-  font-family: ${props => props.fontFamily};
+  border-bottom: 1px solid ${colorPalette.bodyText};
+  border-top: 1px solid ${colorPalette.bodyText};
+  font-family: ${props => props.fontMetrics.fontFamily};
   font-size: ${props => props.fontSize}px;
-  font-weight: ${props => props.fontWeight};
+  font-weight: ${props => props.fontMetrics.fontWeight};
   line-height: ${props => props.lineHeight};
-  padding: 1rem;
-  margin: 2rem 0 0.5rem 0;
+  padding-bottom: ${props =>
+    props.fontSize *
+      ((props.fontMetrics.ascender - props.fontMetrics.xHeight) /
+        props.fontMetrics.unitsPerEm) +
+    (props.fontSize * (props.lineHeight - 1)) / 2}px;
+  padding-top: ${props =>
+    props.fontSize *
+      (-props.fontMetrics.descender / props.fontMetrics.unitsPerEm) +
+    (props.fontSize * (props.lineHeight - 1)) / 2}px;
   p + p {
     margin: ${props => props.marginTop || '16'}px 0 0 0;
   }

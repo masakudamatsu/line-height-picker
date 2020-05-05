@@ -65,9 +65,8 @@ const Preview = props => {
             <SectionTitle>Preview paragraphs</SectionTitle>
           </SectionTitleWrapper>
           <SampleParagraphs
-            fontFamily={props.fontMetrics.fontFamily}
+            fontMetrics={props.fontMetrics}
             fontSize={props.fontSize}
-            fontWeight={props.fontMetrics.fontWeight}
             lineHeight={props.lineHeight}
             marginTop={props.marginTop}
           />
