@@ -62,6 +62,10 @@ export const ParagraphOneRem = styled.p`
     props.errorText ? fontPalette.alertText.fontWeight : 'inherit'};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
+  padding-top: ${fontPalette.lineSpacingBelowBox.mobile}rem;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    padding-top: ${fontPalette.lineSpacingBelowBox.desktop}rem;
+  }
 `;
 
 export const AlertMessage = styled(ParagraphOneRem)`
@@ -342,11 +346,7 @@ export const NumberInput = styled(Input).attrs(props => ({
 }))``;
 
 export const InputInstruction = styled(ParagraphOneRem)`
-  padding-top: ${fontPalette.lineSpacingBelowBox.mobile}rem;
   text-align: right;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    padding-top: ${fontPalette.lineSpacingBelowBox.desktop}rem;
-  }
 `;
 
 export const XheightInput = styled(NumberInput)`
