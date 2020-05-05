@@ -373,11 +373,9 @@ function App() {
           <Route path="/preview">
             <Header stepNow={4} />
             <Preview
-              fontFamily={fontMetrics.fontFamily}
               fontFileError={fontFileError}
+              fontMetrics={fontMetrics}
               fontSize={fontSizePx}
-              fontSubfamily={fontMetrics.fontSubfamily}
-              fontWeight={fontMetrics.fontWeight}
               handleFontFile={handleFontFile}
               handleLineHeightRatioChange={handleLineHeightRatioChange}
               handleNoModularScale={handleNoModularScale}

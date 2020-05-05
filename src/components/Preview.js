@@ -65,9 +65,9 @@ const Preview = props => {
             <SectionTitle>Preview paragraphs</SectionTitle>
           </SectionTitleWrapper>
           <SampleParagraphs
-            fontFamily={props.fontFamily}
+            fontFamily={props.fontMetrics.fontFamily}
             fontSize={props.fontSize}
-            fontWeight={props.fontWeight}
+            fontWeight={props.fontMetrics.fontWeight}
             lineHeight={props.lineHeight}
             marginTop={props.marginTop}
           />
@@ -86,8 +86,8 @@ const Preview = props => {
             </ButtonWithRightArrow>
           </ButtonContainer>
           <FontNameDisplay
-            fontFamily={props.fontFamily}
-            fontSubfamily={props.fontSubfamily}
+            fontFamily={props.fontMetrics.fontFamily}
+            fontSubfamily={props.fontMetrics.fontSubfamily}
           />
           <FontFileUploader
             handleFontFile={props.handleFontFile}
