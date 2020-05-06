@@ -9,6 +9,7 @@ import {
   ButtonWithLeftArrow,
   ButtonWithRightArrow,
   ButtonContainer,
+  ButtonWrapper,
   Form,
   Section,
   SectionTitle,
@@ -62,7 +63,9 @@ const ModularScale = props => {
               validateModularScale={props.validateModularScale}
               xHeightRatio={props.xHeightRatio}
             />{' '}
-            <ButtonWithRightArrow type="submit">Preview</ButtonWithRightArrow>
+            <ButtonWrapper belowBodyText>
+              <ButtonWithRightArrow type="submit">Preview</ButtonWithRightArrow>
+            </ButtonWrapper>
           </Form>
         </Section>
         <Section>

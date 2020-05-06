@@ -9,8 +9,8 @@ import FontFileUploader from './FontFileUploader';
 import XheightBox from './XheightBox';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import {
-  ButtonContainer,
   ButtonWithRightArrow,
+  ButtonWrapper,
   Form,
   Section,
   SectionTitle,
@@ -68,43 +68,43 @@ const Preview = props => {
             marginTop={props.marginTop}
           />
         </Section>
-        <Form noValidate onSubmit={handleSubmit}>
-          <ButtonContainer>
+        <ButtonWrapper belowBodyText>
+          <Form noValidate onSubmit={handleSubmit}>
             <ButtonWithRightArrow type="submit">
               Get CSS code
             </ButtonWithRightArrow>
-          </ButtonContainer>
-          <FontNameDisplay
-            fontFamily={props.fontMetrics.fontFamily}
-            fontSubfamily={props.fontMetrics.fontSubfamily}
-          />
-          <FontFileUploader
-            handleFontFile={props.handleFontFile}
-            validateFileType={props.validateFileType}
-          >
-            Change font…
-          </FontFileUploader>
-          <FontFileErrorMessage
-            data-testid="error-message-font-file"
-            fontFileError={props.fontFileError}
-          />
-          <XheightBox
-            handleXHeightChange={props.handleXHeightChange}
-            xHeightPx={props.xHeightPx}
-            validateXHeight={props.validateXHeight}
-            xHeightRangeError={props.xHeightRangeError}
-            xHeightStepError={props.xHeightStepError}
-          />
-          <ModularScaleBoxes
-            xHeightRatio={props.xHeightRatio}
-            handleXHeightRatioChange={props.handleXHeightRatioChange}
-            lineHeightRatio={props.lineHeightRatio}
-            handleLineHeightRatioChange={props.handleLineHeightRatioChange}
-            validateModularScale={props.validateModularScale}
-            modularScaleRangeError={props.modularScaleRangeError}
-            modularScaleStepError={props.modularScaleStepError}
-          />
-        </Form>
+            <FontNameDisplay
+              fontFamily={props.fontMetrics.fontFamily}
+              fontSubfamily={props.fontMetrics.fontSubfamily}
+            />
+            <FontFileUploader
+              handleFontFile={props.handleFontFile}
+              validateFileType={props.validateFileType}
+            >
+              Change font…
+            </FontFileUploader>
+            <FontFileErrorMessage
+              data-testid="error-message-font-file"
+              fontFileError={props.fontFileError}
+            />
+            <XheightBox
+              handleXHeightChange={props.handleXHeightChange}
+              xHeightPx={props.xHeightPx}
+              validateXHeight={props.validateXHeight}
+              xHeightRangeError={props.xHeightRangeError}
+              xHeightStepError={props.xHeightStepError}
+            />
+            <ModularScaleBoxes
+              xHeightRatio={props.xHeightRatio}
+              handleXHeightRatioChange={props.handleXHeightRatioChange}
+              lineHeightRatio={props.lineHeightRatio}
+              handleLineHeightRatioChange={props.handleLineHeightRatioChange}
+              validateModularScale={props.validateModularScale}
+              modularScaleRangeError={props.modularScaleRangeError}
+              modularScaleStepError={props.modularScaleStepError}
+            />
+          </Form>
+        </ButtonWrapper>
       </main>
     </>
   );

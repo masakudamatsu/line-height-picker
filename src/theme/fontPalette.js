@@ -90,6 +90,15 @@ const getTextBoxTopToCapTopInRem = xHeight => {
   return (xHeight * textBoxTopToCapTopInXHeight) / oneRemPx;
 };
 
+// Distance from baseline to the text box bottom
+const getBaselineToTextBoxBottomInRem = xHeight => {
+  const fontSizeInRem = fontSize(xHeight);
+  const descenderToFontSizeRatio =
+    fontMetricsFedraSans.descender / fontMetricsFedraSans.unitsPerEm;
+  const extraSpaceByLineHeight = (getLineHeightInRem(xHeight) - 1) / 2;
+  return fontSizeInRem * descenderToFontSizeRatio + extraSpaceByLineHeight;
+};
+
 // Font CSS property value
 const fontPalette = {
   alertText: {
@@ -133,6 +142,20 @@ const fontPalette = {
     fontFamily:
       "'Fedra Sans Alt',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     fontWeight: 500,
+    marginTop: {
+      belowBox: {
+        mobile: (xHeightPx.mobile * 2) / oneRemPx,
+        desktop: (xHeightPx.desktop * 2) / oneRemPx,
+      },
+      belowBodyText: {
+        mobile:
+          (xHeightPx.mobile * 2) / oneRemPx -
+          getBaselineToTextBoxBottomInRem(xHeightPx.mobile),
+        desktop:
+          (xHeightPx.desktop * 2) / oneRemPx -
+          getBaselineToTextBoxBottomInRem(xHeightPx.desktop),
+      },
+    },
   },
   code: {
     fontFamily: "'Fedra Mono', monospace",

@@ -71,10 +71,8 @@ export const ParagraphOneRem = styled.p`
 export const AlertMessage = styled(ParagraphOneRem)`
   font-weight: ${fontPalette.alertText.fontWeight};
   margin-top: 0;
-  padding-bottom: ${fontPalette.alertText.paddingBottom.mobile}rem;
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    padding-bottom: ${fontPalette.alertText.paddingBottom.desktop}rem;
   }
 `;
 
@@ -232,6 +230,19 @@ export const ButtonContainer = styled.div`
   margin: ${logoMarginTopBelowCutoff * 100}% 0;
   max-width: ${maxLogoWidthPx}px;
   width: 100%;
+`;
+
+export const ButtonWrapper = styled.div`
+  margin-top: ${props =>
+    props.belowBodyText
+      ? fontPalette.button.marginTop.belowBodyText.mobile
+      : fontPalette.button.marginTop.belowBox.mobile}rem;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    margin-top: ${props =>
+      props.belowBodyText
+        ? fontPalette.button.marginTop.belowBodyText.desktop
+        : fontPalette.button.marginTop.belowBox.desktop}rem;
+  }
 `;
 
 export const Button = styled.button`

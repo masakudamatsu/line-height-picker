@@ -7,6 +7,7 @@ import FontFileErrorMessage from './FontFileErrorMessage';
 import {
   ButtonWithRightArrow,
   ButtonContainer,
+  ButtonWrapper,
   Form,
   Section,
   SectionTitle,
@@ -54,7 +55,9 @@ const Xheight = props => {
               xHeightRangeError={props.xHeightRangeError}
               xHeightStepError={props.xHeightStepError}
             />{' '}
-            <ButtonWithRightArrow type="submit">Next</ButtonWithRightArrow>
+            <ButtonWrapper belowBodyText>
+              <ButtonWithRightArrow type="submit">Next</ButtonWithRightArrow>
+            </ButtonWrapper>
           </Form>
         </Section>
         <Section>
