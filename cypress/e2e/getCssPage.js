@@ -30,7 +30,7 @@ describe('Get CSS Page', () => {
 
   it('temporarily changes the copy button text upon the click ', () => {
     // test the text before clicking
-    const buttonText = 'Copy to clipboard';
+    const buttonText = 'Copy CSS code';
     cy.findByTestId('copy-button').should('have.text', buttonText);
 
     // setup
@@ -47,7 +47,7 @@ describe('Get CSS Page', () => {
   });
 
   it('takes the user back to the preview page after clicking the button for it', () => {
-    cy.findByText(/preview/i).click();
+    cy.findByText(/back/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
   });
 
