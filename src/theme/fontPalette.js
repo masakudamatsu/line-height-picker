@@ -41,6 +41,11 @@ const lineHeight = {
   ),
 };
 
+const getLineHeightInRem = xHeight => {
+  const fontSizeInRem = fontSize(xHeight);
+  return fontSizeInRem * lineHeight.paragraph;
+};
+
 const marginTop = xHeightPx => {
   const marginTopPx = getMarginTop(
     fontMetricsFedraSans,
@@ -132,6 +137,14 @@ const fontPalette = {
   code: {
     fontFamily: "'Fedra Mono', monospace",
     fontWeight: 400,
+    paddingBottom: {
+      mobile: getLineHeightInRem(xHeightPx.mobile),
+      desktop: getLineHeightInRem(xHeightPx.desktop),
+    },
+    paddingTop: {
+      mobile: getLineHeightInRem(xHeightPx.mobile),
+      desktop: getLineHeightInRem(xHeightPx.desktop),
+    },
   },
   fontMetrics: fontMetricsFedraSans,
   inputNumber: {

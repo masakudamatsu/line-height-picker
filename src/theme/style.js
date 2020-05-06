@@ -85,9 +85,15 @@ export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
 export const Section = styled.section``;
 
 export const CodeSnippet = styled.pre`
-  border: 1px solid ${colorPalette.bodyText};
-  padding: 1rem;
+  border-bottom: 1px solid ${colorPalette.button};
+  border-top: 1px solid ${colorPalette.button};
+  padding-bottom: ${fontPalette.code.paddingBottom.mobile}rem;
+  padding-top: ${fontPalette.code.paddingTop.mobile}rem;
   white-space: pre-wrap; /* https://developer.mozilla.org/en-US/docs/Web/CSS/white-space */
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    padding-bottom: ${fontPalette.code.paddingBottom.desktop}rem;
+    padding-top: ${fontPalette.code.paddingTop.desktop}rem;
+  }
 `;
 
 export const Code = styled.code`

@@ -28,86 +28,185 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c5 {
+    .c7 {
       color: hsl(0,0%,96%);
     }
 
     .c0 {
-      font-size: 2.4529062500000003rem;
-      font-weight: 300;
-      line-height: 1.3650;
-    }
-
-    .c4 {
-      color: hsl(335,71%,64%);
-      font-family: 'Fedra Sans Book 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-variant-numeric: oldstyle-nums;
-      font-feature-settings: 'calt','clig','kern','liga','onum';
-      visibility: hidden;
+      padding-bottom: 0.8634987893462469rem;
     }
 
     .c1 {
-      border: 1px solid hsl(0,0%,96%);
-      padding: 1rem;
+      font-size: 1.513317191283293rem;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .c6 {
+      color: hsl(335,71%,64%);
+      font-weight: 500;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+      padding-top: 0.30612226071428567rem;
+      font-weight: 500;
+      margin-top: 0;
+      padding-bottom: 0.8555728214285714rem;
+      visibility: hidden;
     }
 
     .c2 {
-      font-family: 'Fedra Mono Book',monospace;
+      border-bottom: 1px solid hsl(0,0%,46%);
+      border-top: 1px solid hsl(0,0%,46%);
+      padding-bottom: 1.607144175rem;
+      padding-top: 1.607144175rem;
+      white-space: pre-wrap;
     }
 
     .c3 {
+      font-family: 'Fedra Mono',monospace;
+      font-weight: 400;
+    }
+
+    .c4 {
       -webkit-align-items: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: inherit;
-      border: 2px solid currentColor;
-      border-radius: 4px;
+      background-color: hsl(0,0%,46%);
+      border: none;
+      border-radius: 7.619047619047619px;
       color: inherit;
       cursor: pointer;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      font-size: 2.4529062500000003rem;
-      max-width: 700px;
-      padding: 0%;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 1.6814635458703255rem;
+      font-weight: 500;
+      height: 68.57142857142857px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      position: relative;
       -webkit-text-decoration: none;
       text-decoration: none;
-      width: 100%;
+      width: 285.7142857142857px;
+    }
+
+    .c5 {
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: hsl(0,0%,46%);
+      border: none;
+      border-radius: 7.619047619047619px;
+      color: inherit;
+      cursor: pointer;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 1.6814635458703255rem;
+      font-weight: 500;
+      height: 68.57142857142857px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      position: relative;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      width: 285.7142857142857px;
+    }
+
+    .c5::before {
+      content: '←';
+      position: absolute;
+      left: 15.238095238095237px;
     }
 
     @media only screen and (min-width:1024px) {
       .c0 {
-        font-size: 2.86171875rem;
+        padding-bottom: 0.9865819209039548rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c1 {
+        font-size: 1.765536723163842rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c6 {
+        padding-top: 0.35714312499999995rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c6 {
+        padding-bottom: 0.99816875rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c2 {
+        padding-bottom: 1.874998125rem;
+        padding-top: 1.874998125rem;
       }
     }
 
     @media (min-width:875px) {
-      .c3 {
-        font-size: 43.75px;
+      .c4 {
+        border-radius: 8.88888888888889;
+        font-size: 1.9617074701820465rem;
+        height: 80px;
+        width: 333.33333333333337px;
+      }
+    }
+
+    @media (min-width:875px) {
+      .c5 {
+        border-radius: 8.88888888888889;
+        font-size: 1.9617074701820465rem;
+        height: 80px;
+        width: 333.33333333333337px;
+      }
+    }
+
+    @media (min-width:1024pxpx) {
+      .c5::before {
+        left: 17.77777777777778px;
       }
     }
 
     <div>
       <main>
-        <h2
-          class="c0"
+        <section
+          class=""
         >
-          Get CSS
-        </h2>
-        <pre
-          class="c1"
-        >
-          <code
-            class="c2"
-            data-testid="cssCode"
-            id="cssCode"
+          <div
+            class="c0"
           >
-            p {
+            <h2
+              class="c1"
+            >
+              Get CSS
+            </h2>
+          </div>
+          <pre
+            class="c2"
+          >
+            <code
+              class="c3"
+              data-testid="cssCode"
+              id="cssCode"
+            >
+              p {
       font-family: 'Open Sans';
       font-size: 18.6543px;
       font-weight: 400;
@@ -117,17 +216,18 @@ test('renders correctly', () => {
     p + p {
       margin-top: 23.3394px;
     }
-          </code>
-        </pre>
-        <button
-          aria-describedby="whatHappened howToResolve extraText"
-          class="c3"
-          data-testid="copy-button"
-        >
-          Copy CSS code
-        </button>
+            </code>
+          </pre>
+          <button
+            aria-describedby="whatHappened howToResolve extraText"
+            class="c4"
+            data-testid="copy-button"
+          >
+            Copy CSS code
+          </button>
+        </section>
         <a
-          class="c3"
+          class="c5"
           href="/preview"
         >
           Back
@@ -136,27 +236,27 @@ test('renders correctly', () => {
           class=""
         >
           <p
-            class="sc-Axmtr c4"
+            class="sc-AxheI c6"
             data-testid="whatHappened"
             id="whatHappened"
           >
             The browser doesn't allow us to copy the CSS code into your clipboard.
           </p>
           <p
-            class="sc-Axmtr c4"
+            class="sc-AxheI c6"
             data-testid="howToResolve"
             id="howToResolve"
           >
             Please select the CSS code on your own to copy and paste it.
           </p>
           <p
-            class="sc-Axmtr c4"
+            class="sc-AxheI c6"
             data-testid="extraText"
             id="extraText"
           >
             Alternatively, consider using the browsers that support the "click to copy into clipboard" feature: Edge (version 79 or later), Chrome (76 or later), Opera (63 or later). See
             <a
-              class="c5"
+              class="c7"
               href="https://caniuse.com/#feat=mdn-api_fontface"
             >
               Can I Use?
