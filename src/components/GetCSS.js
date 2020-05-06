@@ -8,7 +8,6 @@ import {
   ButtonWithLeftArrow,
   Code,
   CodeSnippet,
-  NoWrap,
   SectionTitle,
   SectionTitleWrapper,
   Section,
@@ -85,21 +84,21 @@ p + p {
       <main>
         <Section>
           <SectionTitleWrapper>
-        <SectionTitle>Get CSS</SectionTitle>
+            <SectionTitle>Get CSS</SectionTitle>
           </SectionTitleWrapper>
-        <CodeSnippet>
-          <Code data-testid="cssCode" id="cssCode">
-            {cssOutput}
-          </Code>
-        </CodeSnippet>
-        <Button
-          data-testid="copy-button"
-          disabled={error}
-          onClick={copyToClipboard}
-          aria-describedby="whatHappened howToResolve extraText"
-        >
-          {buttonText}
-        </Button>
+          <CodeSnippet>
+            <Code data-testid="cssCode" id="cssCode">
+              {cssOutput}
+            </Code>
+          </CodeSnippet>
+          <Button
+            data-testid="copy-button"
+            disabled={error}
+            onClick={copyToClipboard}
+            aria-describedby="whatHappened howToResolve extraText"
+          >
+            {buttonText}
+          </Button>
         </Section>
         <ButtonWithLeftArrow as={Link} to="/preview">
           Back
