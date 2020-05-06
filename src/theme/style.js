@@ -87,6 +87,7 @@ export const Section = styled.section``;
 export const CodeSnippet = styled.pre`
   border: 1px solid ${colorPalette.bodyText};
   padding: 1rem;
+  white-space: pre-wrap; /* https://developer.mozilla.org/en-US/docs/Web/CSS/white-space */
 `;
 
 export const Code = styled.code`
