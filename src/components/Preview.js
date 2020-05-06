@@ -73,7 +73,7 @@ const Preview = props => {
           <ParagraphOneRem>
             ―Excerpt from “
             <ExternalLink href="https://news.stanford.edu/2005/06/14/jobs-061505/">
-              <Cite>Stanford University Commencement Address in 2005</Cite>
+              <Cite>2005 Stanford Commencement Address</Cite>
             </ExternalLink>
             ”, by Steve Jobs
           </ParagraphOneRem>
