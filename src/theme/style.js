@@ -250,7 +250,7 @@ export const Button = styled.button`
   position: relative;
   text-decoration: none; /* when the as={Link} attribute is added. */
   width: ${buttonSize.width.mobile}px;
-  @media (min-width: ${mediaQueryCutoff}px) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     border-radius: ${buttonSize.borderRadius.desktop};
     font-size: ${buttonSize.fontSize.desktop}rem;
     height: ${buttonSize.height.desktop}px;
@@ -263,7 +263,7 @@ export const ButtonWithRightArrow = styled(Button)`
     content: '→';
     position: absolute;
     right: ${buttonSize.paddingSide.mobile / 2}px;
-    @media (min-width: ${fontPalette.mediaQueryCutoff}px) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
       right: ${buttonSize.paddingSide.desktop / 2}px;
     }
   }
@@ -274,7 +274,7 @@ export const ButtonWithLeftArrow = styled(Button)`
     content: '←';
     position: absolute;
     left: ${buttonSize.paddingSide.mobile / 2}px;
-    @media (min-width: ${fontPalette.mediaQueryCutoff}px) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
       left: ${buttonSize.paddingSide.desktop / 2}px;
     }
   }
