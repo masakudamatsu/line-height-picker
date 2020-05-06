@@ -11,13 +11,10 @@ import ModularScaleBoxes from './ModularScaleBoxes';
 import {
   ButtonContainer,
   ButtonWithRightArrow,
-  Cite,
-  ExternalLink,
   Form,
   Section,
   SectionTitle,
   SectionTitleWrapper,
-  ParagraphOneRem,
 } from '../theme/style';
 
 import store from '../helper/store';
@@ -70,13 +67,6 @@ const Preview = props => {
             lineHeight={props.lineHeight}
             marginTop={props.marginTop}
           />
-          <ParagraphOneRem>
-            ―Excerpt from “
-            <ExternalLink href="https://news.stanford.edu/2005/06/14/jobs-061505/">
-              <Cite>2005 Stanford Commencement Address</Cite>
-            </ExternalLink>
-            ”, by Steve Jobs
-          </ParagraphOneRem>
         </Section>
         <Form noValidate onSubmit={handleSubmit}>
           <ButtonContainer>

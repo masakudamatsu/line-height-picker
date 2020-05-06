@@ -32,6 +32,18 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
+    .c3 {
+      color: hsl(0,0%,96%);
+    }
+
+    .c1 {
+      color: currentColor;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+      padding-top: 0.30612226071428567rem;
+    }
+
     .c0 {
       border-bottom: 1px solid hsl(0,0%,46%);
       border-top: 1px solid hsl(0,0%,46%);
@@ -47,23 +59,50 @@ test('renders correctly', () => {
       margin: 23.467px 0 0 0;
     }
 
+    .c2 {
+      font-style: normal;
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c1 {
+        padding-top: 0.35714312499999995rem;
+      }
+    }
+
     <div>
-      <blockquote
-        cite="https://news.stanford.edu/2005/06/14/jobs-061505/"
-        class="c0"
-        data-testid="sampleParagraphs"
-        font-size="18"
-      >
-        <p
-          data-testid="sampleParagraph1"
+      <blockquote>
+        <div
+          class="c0"
+          data-testid="sampleParagraphs"
+          font-size="18"
         >
-          … I learned about serif and sans serif typefaces, about varying the amount of space between different letter combinations, about what makes great typography great. It was beautiful, historical, artistically subtle in a way that science can’t capture, and I found it fascinating.
-        </p>
-        <p
-          data-testid="sampleParagraph2"
+          <p
+            data-testid="sampleParagraph1"
+          >
+            … I learned about serif and sans serif typefaces, about varying the amount of space between different letter combinations, about what makes great typography great. It was beautiful, historical, artistically subtle in a way that science can’t capture, and I found it fascinating.
+          </p>
+          <p
+            data-testid="sampleParagraph2"
+          >
+            None of this had even a hope of any practical application in my life. But 10 years later, when we were designing the first Macintosh computer, it all came back to me. And we designed it all into the Mac. It was the first computer with beautiful typography. If I had never dropped in on that single course in college, the Mac would have never had multiple typefaces or proportionally spaced fonts. And since Windows just copied the Mac, it’s likely that no personal computer would have them. If I had never dropped out, I would have never dropped in on this calligraphy class, and personal computers might not have the wonderful typography that they do. …
+          </p>
+        </div>
+        <footer
+          class="c1"
         >
-          None of this had even a hope of any practical application in my life. But 10 years later, when we were designing the first Macintosh computer, it all came back to me. And we designed it all into the Mac. It was the first computer with beautiful typography. If I had never dropped in on that single course in college, the Mac would have never had multiple typefaces or proportionally spaced fonts. And since Windows just copied the Mac, it’s likely that no personal computer would have them. If I had never dropped out, I would have never dropped in on this calligraphy class, and personal computers might not have the wonderful typography that they do. …
-        </p>
+          ―Excerpt from “
+          <cite
+            class="c2"
+          >
+            <a
+              class="c3"
+              href="https://news.stanford.edu/2005/06/14/jobs-061505/"
+            >
+              2005 Stanford Commencement Address
+            </a>
+          </cite>
+          ” by Steve Jobs
+        </footer>
       </blockquote>
     </div>
   `);
