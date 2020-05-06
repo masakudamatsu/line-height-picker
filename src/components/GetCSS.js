@@ -83,6 +83,7 @@ p + p {
   return (
     <>
       <main>
+        <Section>
           <SectionTitleWrapper>
         <SectionTitle>Get CSS</SectionTitle>
           </SectionTitleWrapper>
@@ -99,6 +100,7 @@ p + p {
         >
           {buttonText}
         </Button>
+        </Section>
         <ButtonWithLeftArrow as={Link} to="/preview">
           Back
         </ButtonWithLeftArrow>
