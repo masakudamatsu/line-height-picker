@@ -52,9 +52,8 @@ const SampleParagraphs = props => {
 };
 
 SampleParagraphs.propTypes = {
-  fontFamily: PropTypes.string,
+  fontMetrics: PropTypes.object,
   fontSize: PropTypes.string,
-  fontWeight: PropTypes.string,
   lineHeight: PropTypes.string,
   marginTop: PropTypes.string,
 };

@@ -111,11 +111,9 @@ const Preview = props => {
 };
 
 Preview.propTypes = {
-  fontFamily: PropTypes.string,
+  fontMetrics: PropTypes.object,
   fontFileError: PropTypes.string.isRequired,
   fontSize: PropTypes.string,
-  fontSubfamily: PropTypes.string,
-  fontWeight: PropTypes.string,
   handleFontFile: PropTypes.func.isRequired,
   handleLineHeightRatioChange: PropTypes.func.isRequired,
   handleNoModularScale: PropTypes.func.isRequired,
