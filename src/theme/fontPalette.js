@@ -129,7 +129,7 @@ const fontPalette = {
       ),
     },
   },
-  buttonLabel: {
+  button: {
     fontFamily:
       "'Fedra Sans Alt',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     fontWeight: 500,
