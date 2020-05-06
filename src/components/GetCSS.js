@@ -10,6 +10,7 @@ import {
   CodeSnippet,
   NoWrap,
   SectionTitle,
+  SectionTitleWrapper,
   Section,
 } from '../theme/style';
 import {clipboardError} from '../helper/errorMessages';
@@ -82,7 +83,9 @@ p + p {
   return (
     <>
       <main>
+          <SectionTitleWrapper>
         <SectionTitle>Get CSS</SectionTitle>
+          </SectionTitleWrapper>
         <CodeSnippet>
           <Code data-testid="cssCode" id="cssCode">
             {cssOutput}
