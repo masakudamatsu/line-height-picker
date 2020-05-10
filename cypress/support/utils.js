@@ -14,12 +14,14 @@ export const getLineHeight = (
 
 export const getMarginTop = (
   fontMetrics,
-  xHeightPx,
+  xHeight,
   xHeightRatio,
   lineHeightRatio,
 ) => {
-  const a = (lineHeightRatio - xHeightRatio) * (xHeightPx / xHeightRatio);
-  const b =
-    (fontMetrics.sCapHeight - fontMetrics.sxHeight) / fontMetrics.unitsPerEm;
-  return (a + b * getFontSize(xHeightPx, fontMetrics)).toFixed(4);
+  const lineSpacing = xHeight * (lineHeightRatio / xHeightRatio - 1);
+  const paragraphSpacing =
+    xHeight * Math.pow(lineHeightRatio / xHeightRatio - 1, 2);
+  const capHeight = xHeight * (fontMetrics.sCapHeight / fontMetrics.sxHeight);
+  const newMarginTop = paragraphSpacing + (capHeight - xHeight) - lineSpacing;
+  return newMarginTop.toFixed(4);
 };

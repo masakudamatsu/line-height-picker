@@ -28,9 +28,10 @@ export const getMarginTop = (
   xHeightRatio,
   lineHeightRatio,
 ) => {
-  const a = (lineHeightRatio - xHeightRatio) * (xHeight / xHeightRatio);
-  const b =
-    (fontMetrics.capHeight - fontMetrics.xHeight) / fontMetrics.unitsPerEm;
-  const newMarginTop = (a + b * getFontSize(fontMetrics, xHeight)).toFixed(4);
-  return newMarginTop;
+  const lineSpacing = xHeight * (lineHeightRatio / xHeightRatio - 1);
+  const paragraphSpacing =
+    xHeight * Math.pow(lineHeightRatio / xHeightRatio - 1, 2);
+  const capHeight = xHeight * (fontMetrics.capHeight / fontMetrics.xHeight);
+  const newMarginTop = paragraphSpacing + (capHeight - xHeight) - lineSpacing;
+  return newMarginTop.toFixed(4);
 };
