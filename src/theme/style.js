@@ -247,9 +247,12 @@ export const ButtonWrapper = styled.div`
 
 export const Button = styled.button`
   align-items: center; /* For when the as={Link} attribute is added.  */
-  background-color: ${colorPalette.button};
+  background-color: ${colorPalette.button.default};
   border: none;
   border-radius: ${buttonSize.borderRadius.mobile}px;
+  box-shadow: -2px 0 6px 0px hsla(0, 0%, 100%, 0.5),
+    0 -2px 6px 0px hsla(0, 0%, 100%, 0.5), 2px 0 6px 0 hsla(0, 0%, 100%, 0.5),
+    0 2px 6px 0 hsla(0, 0%, 1000%, 0.5);
   color: inherit;
   cursor: pointer;
   display: flex;
@@ -261,6 +264,30 @@ export const Button = styled.button`
   position: relative;
   text-decoration: none; /* when the as={Link} attribute is added. */
   width: ${buttonSize.width.mobile}px;
+
+  &:focus,
+  &:hover {
+    background-color: ${colorPalette.button.focus};
+    box-shadow: -4px 0 12px 0px hsla(0, 0%, 100%, 0.5),
+      0 -4px 12px 0px hsla(0, 0%, 100%, 0.5),
+      4px 0 12px 0 hsla(0, 0%, 100%, 0.5), 0 4px 12px 0 hsla(0, 0%, 1000%, 0.5);
+    outline: none;
+  }
+
+  &:active {
+    background-color: ${colorPalette.button.focus};
+    box-shadow: -1px 0 1px 0px hsla(0, 0%, 100%, 0.5),
+      0 -1px 1px 0px hsla(0, 0%, 100%, 0.5), 1px 0 1px 0 hsla(0, 0%, 100%, 0.5),
+      0 1px 1px 0 hsla(0, 0%, 1000%, 0.5);
+    outline: none;
+  }
+
+  &[disabled] {
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.35;
+  }
+
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     border-radius: ${buttonSize.borderRadius.desktop};
     font-size: ${buttonSize.fontSize.desktop}rem;
