@@ -83,8 +83,8 @@ export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
 export const Section = styled.section``;
 
 export const CodeSnippet = styled.pre`
-  border-bottom: 1px solid ${colorPalette.button};
-  border-top: 1px solid ${colorPalette.button};
+  border-bottom: 1px solid ${colorPalette.inputField};
+  border-top: 1px solid ${colorPalette.inputField};
   padding-bottom: ${fontPalette.code.paddingBottom.mobile}rem;
   padding-top: ${fontPalette.code.paddingTop.mobile}rem;
   white-space: pre-wrap; /* https://developer.mozilla.org/en-US/docs/Web/CSS/white-space */
@@ -325,7 +325,7 @@ export const Input = styled.input.attrs(props => ({
   type: 'text',
 }))`
   background-color: ${colorPalette.background};
-  border: 2px solid ${colorPalette.button};
+  border: 2px solid ${colorPalette.inputField};
   border-radius: 4px;
   color: ${colorPalette.bodyText};
   font-family: ${fontPalette.code.fontFamily};
@@ -417,8 +417,8 @@ export const ModularScaleInput = styled(NumberInput)`
 export const ModularScaleInputUnit = styled.span``;
 
 export const SampleParagraphWrapper = styled.div`
-  border-bottom: 1px solid ${colorPalette.button};
-  border-top: 1px solid ${colorPalette.button};
+  border-bottom: 1px solid ${colorPalette.inputField};
+  border-top: 1px solid ${colorPalette.inputField};
   font-family: ${props => props.fontMetrics.fontFamily};
   font-size: ${props => props.fontSize}px;
   font-weight: ${props => props.fontMetrics.fontWeight};
