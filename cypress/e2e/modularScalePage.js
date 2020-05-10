@@ -25,7 +25,7 @@ describe('Modular Scale Page in demo', () => {
 
   it('shows the non-interactive UI components correctly', () => {
     cy.checkHeaderFooterRendering(); // See support/commands.js
-    cy.findByText(/pick modular scale/i).should('exist');
+    cy.findByText(/line spacing/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
     cy.findByTestId('XheightDisplay').should('exist');
   });
