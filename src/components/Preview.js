@@ -70,7 +70,7 @@ const Preview = props => {
         </Section>
         <ButtonWrapper belowBodyText>
           <Form noValidate onSubmit={handleSubmit}>
-            <ButtonWithRightArrow type="submit">
+            <ButtonWithRightArrow type="submit" primary>
               Get CSS code
             </ButtonWithRightArrow>
             <FontNameDisplay

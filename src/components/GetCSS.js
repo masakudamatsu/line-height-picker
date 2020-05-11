@@ -97,6 +97,7 @@ p + p {
               data-testid="copy-button"
               disabled={error}
               onClick={copyToClipboard}
+              primary
               aria-describedby="whatHappened howToResolve extraText"
             >
               {buttonText}

@@ -3,7 +3,8 @@ const colorPalette = {
   bodyText: 'hsl(0, 0%, 96%)',
   button: {
     default: 'hsl(0, 0%, 25%)', // 1:4.5 contrast ratio to both pure black and pure white
-    focus: 'hsl(0, 0%, 46%)',
+    focus: 'hsl(0, 0%, 56%)',
+    primary: 'hsl(0, 0%, 46%)',
   },
   disabledText: 'hsl(0, 0%, 35%)',
   footerText: 'hsl(0, 0%, 67%)',

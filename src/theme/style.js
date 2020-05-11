@@ -247,7 +247,8 @@ export const ButtonWrapper = styled.div`
 
 export const Button = styled.button`
   align-items: center; /* For when the as={Link} attribute is added.  */
-  background-color: ${colorPalette.button.default};
+  background-color: ${props =>
+    props.primary ? colorPalette.button.primary : colorPalette.button.default};
   border: none;
   border-radius: ${buttonSize.borderRadius.mobile}px;
   box-shadow: -2px 0 6px 0px hsla(0, 0%, 100%, 0.5),
