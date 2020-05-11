@@ -56,7 +56,9 @@ const Xheight = props => {
               xHeightStepError={props.xHeightStepError}
             />{' '}
             <ButtonWrapper belowBodyText>
-              <ButtonWithRightArrow type="submit">Next</ButtonWithRightArrow>
+              <ButtonWithRightArrow type="submit" primary>
+                Next
+              </ButtonWithRightArrow>
             </ButtonWrapper>
           </Form>
         </Section>

@@ -64,7 +64,9 @@ const ModularScale = props => {
               xHeightRatio={props.xHeightRatio}
             />{' '}
             <ButtonWrapper belowBodyText>
-              <ButtonWithRightArrow type="submit">Preview</ButtonWithRightArrow>
+              <ButtonWithRightArrow type="submit" primary>
+                Preview
+              </ButtonWithRightArrow>
             </ButtonWrapper>
           </Form>
         </Section>
