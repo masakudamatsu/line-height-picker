@@ -87,22 +87,32 @@ const Preview = props => {
               data-testid="error-message-font-file"
               fontFileError={props.fontFileError}
             />
-            <XheightBox
-              handleXHeightChange={props.handleXHeightChange}
-              xHeightPx={props.xHeightPx}
-              validateXHeight={props.validateXHeight}
-              xHeightRangeError={props.xHeightRangeError}
-              xHeightStepError={props.xHeightStepError}
-            />
-            <ModularScaleBoxes
-              xHeightRatio={props.xHeightRatio}
-              handleXHeightRatioChange={props.handleXHeightRatioChange}
-              lineHeightRatio={props.lineHeightRatio}
-              handleLineHeightRatioChange={props.handleLineHeightRatioChange}
-              validateModularScale={props.validateModularScale}
-              modularScaleRangeError={props.modularScaleRangeError}
-              modularScaleStepError={props.modularScaleStepError}
-            />
+            <Section>
+              <SectionTitleWrapper>
+                <SectionTitle>Setting text size</SectionTitle>
+              </SectionTitleWrapper>
+              <XheightBox
+                handleXHeightChange={props.handleXHeightChange}
+                xHeightPx={props.xHeightPx}
+                validateXHeight={props.validateXHeight}
+                xHeightRangeError={props.xHeightRangeError}
+                xHeightStepError={props.xHeightStepError}
+              />
+            </Section>
+            <Section>
+              <SectionTitleWrapper aboveBodyText>
+                <SectionTitle>Line spacing</SectionTitle>
+              </SectionTitleWrapper>
+              <ModularScaleBoxes
+                xHeightRatio={props.xHeightRatio}
+                handleXHeightRatioChange={props.handleXHeightRatioChange}
+                lineHeightRatio={props.lineHeightRatio}
+                handleLineHeightRatioChange={props.handleLineHeightRatioChange}
+                validateModularScale={props.validateModularScale}
+                modularScaleRangeError={props.modularScaleRangeError}
+                modularScaleStepError={props.modularScaleStepError}
+              />
+            </Section>
           </Form>
         </ButtonWrapper>
       </main>

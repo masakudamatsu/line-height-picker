@@ -1,14 +1,14 @@
 import React from 'react';
 import {
   UserDataDisplay,
-  UserDataDisplayTitle,
+  SectionTitle,
   UserDataDisplayWrapper,
 } from '../theme/style';
 
 const XheightDisplay = props => {
   return (
     <UserDataDisplayWrapper data-testid="XheightDisplay">
-      <UserDataDisplayTitle>X-height chosen:</UserDataDisplayTitle>
+      <SectionTitle>X-height chosen:</SectionTitle>
       <UserDataDisplay data-testid="xHeightValue">
         {props.xHeightPx}px
       </UserDataDisplay>

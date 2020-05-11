@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 
 import {
   UserDataDisplay,
-  UserDataDisplayTitle,
+  SectionTitle,
+  SectionTitleWrapper,
   UserDataDisplayWrapper,
 } from '../theme/style';
 
 const FontNameDisplay = props => {
   return (
     <UserDataDisplayWrapper data-testid="FontNameDisplay">
-      <UserDataDisplayTitle>Font chosen:</UserDataDisplayTitle>
+      <SectionTitleWrapper displayBelow>
+      <SectionTitle>Font chosen:</SectionTitle>
+      </SectionTitleWrapper>
       <UserDataDisplay
         data-testid="font-family-name"
         fontFamily={props.fontFamily}
