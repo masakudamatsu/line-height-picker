@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ModularScaleBoxes from './ModularScaleBoxes';
-import FontNameDisplay from './FontNameDisplay';
-import FontFileErrorMessage from './FontFileErrorMessage';
+import SectionFont from './SectionFont';
 import XheightDisplay from './XheightDisplay';
 import {
   ButtonWithLeftArrow,
@@ -15,7 +14,6 @@ import {
   SectionTitle,
   SectionTitleWrapper,
 } from '../theme/style';
-import FontFileUploader from './FontFileUploader';
 import {Link, Redirect} from 'react-router-dom';
 
 import store from '../helper/store';
@@ -70,25 +68,14 @@ const ModularScale = props => {
             </ButtonWrapper>
           </Form>
         </Section>
-        <Section>
-          <SectionTitleWrapper displayBelow>
-            <SectionTitle>Font chosen:</SectionTitle>
-          </SectionTitleWrapper>
-          <FontNameDisplay
-            fontFamily={props.fontFamily}
-            fontSubfamily={props.fontSubfamily}
-          />
-          <FontFileUploader
-            handleFontFile={props.handleFontFile}
-            validateFileType={props.validateFileType}
-          >
-            Change font…
-          </FontFileUploader>
-          <FontFileErrorMessage
-            data-testid="error-message-font-file"
-            fontFileError={props.fontFileError}
-          />
-        </Section>
+        <SectionFont
+          fontFamily={props.fontFamily}
+          fontFileError={props.fontFileError}
+          fontSubfamily={props.fontSubfamily}
+          fontWeight={props.fontWeight}
+          handleFontFile={props.handleFontFile}
+          validateFileType={props.validateFileType}
+        />
         <Section>
           <XheightDisplay xHeightPx={props.xHeightPx} />
           <ButtonContainer>

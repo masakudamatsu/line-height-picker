@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import {Redirect} from 'react-router-dom';
 
 import SampleParagraphs from './SampleParagraphs';
-import FontNameDisplay from './FontNameDisplay';
-import FontFileErrorMessage from './FontFileErrorMessage';
-import FontFileUploader from './FontFileUploader';
+import SectionFont from './SectionFont';
 import XheightBox from './XheightBox';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import {
@@ -76,25 +74,15 @@ const Preview = props => {
               </ButtonWithRightArrow>
             </ButtonWrapper>
           </Section>
-          <Section>
-            <SectionTitleWrapper displayBelow>
-              <SectionTitle>Font chosen:</SectionTitle>
-            </SectionTitleWrapper>
-            <FontNameDisplay
-              fontFamily={props.fontMetrics.fontFamily}
-              fontSubfamily={props.fontMetrics.fontSubfamily}
-            />
-            <FontFileUploader
-              handleFontFile={props.handleFontFile}
-              validateFileType={props.validateFileType}
-            >
-              Change font…
-            </FontFileUploader>
-            <FontFileErrorMessage
-              data-testid="error-message-font-file"
-              fontFileError={props.fontFileError}
-            />
-          </Section>
+          <SectionFont
+            fontFamily={props.fontFamily}
+            fontFileError={props.fontFileError}
+            fontSubfamily={props.fontSubfamily}
+            fontWeight={props.fontWeight}
+            handleFontFile={props.handleFontFile}
+            validateFileType={props.validateFileType}
+          />
+
           <Section>
             <SectionTitleWrapper>
               <SectionTitle>Setting text size</SectionTitle>

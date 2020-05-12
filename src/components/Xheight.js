@@ -2,18 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import XheightBox from './XheightBox';
-import FontNameDisplay from './FontNameDisplay';
-import FontFileErrorMessage from './FontFileErrorMessage';
+import SectionFont from './SectionFont';
 import {
   ButtonWithRightArrow,
-  ButtonContainer,
   ButtonWrapper,
   Form,
   Section,
   SectionTitle,
   SectionTitleWrapper,
 } from '../theme/style';
-import FontFileUploader from './FontFileUploader';
 import {Redirect} from 'react-router-dom';
 
 import store from '../helper/store';
@@ -62,28 +59,14 @@ const Xheight = props => {
             </ButtonWrapper>
           </Form>
         </Section>
-        <Section>
-          <SectionTitleWrapper displayBelow>
-            <SectionTitle>Font chosen:</SectionTitle>
-          </SectionTitleWrapper>
-          <FontNameDisplay
-            fontFamily={props.fontFamily}
-            fontSubfamily={props.fontSubfamily}
-            fontWeight={props.fontWeight}
-          />
-          <ButtonContainer>
-            <FontFileUploader
-              handleFontFile={props.handleFontFile}
-              validateFileType={props.validateFileType}
-            >
-              Change font…
-            </FontFileUploader>
-            <FontFileErrorMessage
-              data-testid="error-message-font-file"
-              fontFileError={props.fontFileError}
-            />
-          </ButtonContainer>
-        </Section>
+        <SectionFont
+          fontFamily={props.fontFamily}
+          fontFileError={props.fontFileError}
+          fontSubfamily={props.fontSubfamily}
+          fontWeight={props.fontWeight}
+          handleFontFile={props.handleFontFile}
+          validateFileType={props.validateFileType}
+        />
       </main>
     </>
   );
