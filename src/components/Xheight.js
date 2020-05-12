@@ -63,6 +63,9 @@ const Xheight = props => {
           </Form>
         </Section>
         <Section>
+          <SectionTitleWrapper displayBelow>
+            <SectionTitle>Font chosen:</SectionTitle>
+          </SectionTitleWrapper>
           <FontNameDisplay
             fontFamily={props.fontFamily}
             fontSubfamily={props.fontSubfamily}

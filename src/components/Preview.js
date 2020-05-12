@@ -73,20 +73,25 @@ const Preview = props => {
             <ButtonWithRightArrow type="submit" primary>
               Get CSS code
             </ButtonWithRightArrow>
-            <FontNameDisplay
-              fontFamily={props.fontMetrics.fontFamily}
-              fontSubfamily={props.fontMetrics.fontSubfamily}
-            />
-            <FontFileUploader
-              handleFontFile={props.handleFontFile}
-              validateFileType={props.validateFileType}
-            >
-              Change font…
-            </FontFileUploader>
-            <FontFileErrorMessage
-              data-testid="error-message-font-file"
-              fontFileError={props.fontFileError}
-            />
+            <Section>
+              <SectionTitleWrapper displayBelow>
+                <SectionTitle>Font chosen:</SectionTitle>
+              </SectionTitleWrapper>
+              <FontNameDisplay
+                fontFamily={props.fontMetrics.fontFamily}
+                fontSubfamily={props.fontMetrics.fontSubfamily}
+              />
+              <FontFileUploader
+                handleFontFile={props.handleFontFile}
+                validateFileType={props.validateFileType}
+              >
+                Change font…
+              </FontFileUploader>
+              <FontFileErrorMessage
+                data-testid="error-message-font-file"
+                fontFileError={props.fontFileError}
+              />
+            </Section>
             <Section>
               <SectionTitleWrapper>
                 <SectionTitle>Setting text size</SectionTitle>

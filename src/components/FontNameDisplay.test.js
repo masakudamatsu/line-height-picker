@@ -16,45 +16,30 @@ test('renders correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c0 {
-      border-bottom: 1px solid white;
-      border-top: 1px solid white;
-      padding: 1rem 0;
-    }
-
-    .c1 {
-      font-size: 1.5rem;
-    }
-
-    .c2 {
       font-family: Open Sans;
       font-size: 2rem;
     }
 
     <div>
-      <section
+      <p
         class="c0"
         data-testid="FontNameDisplay"
+        font-family="Open Sans"
       >
-        <h2
-          class="c1"
-        >
-          Font chosen:
-        </h2>
-        <p
-          class="c2"
+        <span
           data-testid="font-family-name"
-          font-family="Open Sans"
         >
           Open Sans
-        </p>
-        <p
-          class="c2"
+        </span>
+        <span>
+           
+        </span>
+        <span
           data-testid="font-subfamily-name"
-          font-family="Open Sans"
         >
           Regular
-        </p>
-      </section>
+        </span>
+      </p>
     </div>
   `);
 });

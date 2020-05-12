@@ -212,13 +212,13 @@ export const UserDataDisplayWrapper = styled.section`
   border-top: 1px solid white;
   padding: 1rem 0;
 `;
-export const UserDataDisplayTitle = styled.h2`
-  font-size: 1.5rem;
-`;
 export const UserDataDisplay = styled.p`
   font-family: ${props => props.fontFamily};
   font-size: 2rem;
   font-weight: ${props => props.fontWeight};
+  background: hsl(0, 0%, 0%);
+  position: relative;
+  z-index: -2;
 `;
 
 // Buttons
