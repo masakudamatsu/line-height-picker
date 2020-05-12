@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {Link} from 'react-router-dom';
 import colorPalette from './colorPalette';
 import fontPalette from './fontPalette';
@@ -37,8 +37,14 @@ export const InternalLink = styled(Link)`
 `;
 
 export const Section = styled.section`
-  padding: 0 ${fontPalette.marginSide}px;
+  background-color: ${colorPalette.background}; /* To hide cove lighting behind */
   max-width: ${maxLogoWidthPx}px;
+  padding-left: ${props =>
+    props.includeDisplay ? 0 : `${fontPalette.marginSide}px`};
+  padding-right: ${props =>
+    props.includeDisplay ? 0 : `${fontPalette.marginSide}px`};
+  position: relative;
+  z-index: ${props => (props.includeDisplay ? '1' : '2')};
   @media (min-width: ${mediaQueryCutoff}px) {
     margin: 0 auto;
   }
@@ -57,12 +63,18 @@ export const SectionTitleWrapper = styled.div`
         : fontPalette.sectionTitle.paddingBottom.desktop +
           2 / 16}rem; /* 2px is optical adjustmnet */
   }
+  ${props => props.displayTop && coveLighting}
+}
 `;
 
 export const SectionTitle = styled.h2`
   font-size: ${fontPalette.sectionTitle.fontSize.mobile}rem;
   font-weight: ${fontPalette.sectionTitle.fontWeight};
   line-height: ${fontPalette.sectionTitle.lineHeight};
+  padding-left: ${props =>
+    props.aboveDisplay ? `${fontPalette.marginSide}px` : 0};
+  padding-right: ${props =>
+    props.aboveDisplay ? `${fontPalette.marginSide}px` : 0};
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${fontPalette.sectionTitle.fontSize.desktop}rem;
   }
@@ -120,6 +132,26 @@ export const HiddenH1 = styled.h1`
   position: absolute;
   white-space: nowrap; /* See https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe */
   width: 1px;
+`;
+
+// Cove lighting
+const coveLighting = css`
+  background-color: ${colorPalette.background};
+  position: relative;
+  &::before {
+    background: hsla(0, 0%, 100%, 0.9);
+    box-shadow: 0 0 10px 0 hsla(0, 0%, 100%, 0.9),
+      0 0 20px 0 hsla(0, 0%, 100%, 0.9), 0 0 40px 0 hsla(0, 0%, 100%, 0.9);
+    content: '';
+    height: 10px;
+    position: absolute;
+    ${props => props.displayTop && 'bottom: 1px;'}
+    ${props => props.displayBottom && 'top: 1px;'}
+    left: -${fontPalette.marginSide}px;
+    right: -${fontPalette.marginSide}px;
+    width: calc(100% + 2 * ${fontPalette.marginSide}px);
+    z-index: -1;
+  }
 `;
 
 // Logo
@@ -211,10 +243,12 @@ export const UserDataDisplayWrapper = styled.section`
   padding: 1rem 0;
 `;
 export const UserDataDisplay = styled.p`
+  background: hsl(0, 0%, 35%);
   font-family: ${props => props.fontFamily};
   font-size: 2rem;
   font-weight: ${props => props.fontWeight};
-  background: hsl(0, 0%, 0%);
+  height: 5rem;
+  padding: 0 ${fontPalette.marginSide}px;
   position: relative;
   z-index: -2;
 `;
@@ -225,9 +259,13 @@ export const ButtonContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: ${logoMarginTopBelowCutoff * 100}% 0;
   max-width: ${maxLogoWidthPx}px;
+  padding-left: ${props =>
+    props.displayBottom ? `${fontPalette.marginSide}px` : 0};
+  padding-right: ${props =>
+    props.displayBottom ? `${fontPalette.marginSide}px` : 0};
   width: 100%;
+  ${props => props.displayBottom && coveLighting}
 `;
 
 export const ButtonWrapper = styled.div`
