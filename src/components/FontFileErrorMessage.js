@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {ParagraphOneRem, Section} from '../theme/style';
+import {ParagraphOneRem} from '../theme/style';
 import {
   fileExtensionError,
   fileReaderApiError,
@@ -28,7 +28,7 @@ const FontFileErrorMessage = props => {
       break;
   }
   return (
-    <Section data-testid="error-message-font-file">
+    <div data-testid="error-message-font-file">
       <ParagraphOneRem id="whatHappened-fontFile" errorText>
         {errorMessage.whatHappened}
       </ParagraphOneRem>
@@ -38,7 +38,7 @@ const FontFileErrorMessage = props => {
       <ParagraphOneRem id="extraText-fontFile" errorText>
         {errorMessage.extraText}
       </ParagraphOneRem>
-    </Section>
+    </div>
   );
 };
 
