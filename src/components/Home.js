@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Description from './Description';
-import {ButtonContainer, ButtonWrapper, Logo} from '../theme/style';
+import {ButtonContainer, ButtonWrapper, Logo, Section} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import DemoStartButton from './DemoStartButton';
 import FontFileErrorMessage from './FontFileErrorMessage';
@@ -17,25 +17,31 @@ const Home = props => {
   return (
     <>
       <main>
-        <Logo />
-        <Description />
-        <ButtonWrapper belowBodyText>
-          <FontFileUploader
-            home
-            validateFileType={props.validateFileType}
-            handleFontFile={props.handleFontFile}
-          >
-            Open font file…
-          </FontFileUploader>
-        </ButtonWrapper>
-        <ButtonWrapper>
-          <DemoStartButton handleDemo={props.handleDemo} />
-        </ButtonWrapper>
-        <FontFileErrorMessage
-          data-testid="error-message-font-file"
-          fontFileError={props.fontFileError}
-        />
-        <FontTableBox updateFontMetrics={props.updateFontMetrics} />
+        <Section>
+          <Logo />
+          <Description />
+        </Section>
+        <Section>
+          <ButtonWrapper belowBodyText>
+            <FontFileUploader
+              home
+              validateFileType={props.validateFileType}
+              handleFontFile={props.handleFontFile}
+            >
+              Open font file…
+            </FontFileUploader>
+          </ButtonWrapper>
+          <ButtonWrapper>
+            <DemoStartButton handleDemo={props.handleDemo} />
+          </ButtonWrapper>
+          <FontFileErrorMessage
+            data-testid="error-message-font-file"
+            fontFileError={props.fontFileError}
+          />
+        </Section>
+        <Section>
+          <FontTableBox updateFontMetrics={props.updateFontMetrics} />
+        </Section>
       </main>
     </>
   );

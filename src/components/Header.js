@@ -53,7 +53,7 @@ const Header = props => {
       break;
   }
   return (
-    <HeaderWrapper>
+    <HeaderWrapper as="header">
       <Title />
       <Logo header topPage={props.topPage} />
       <StepIndicatorWrapper>

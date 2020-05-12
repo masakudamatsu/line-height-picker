@@ -57,69 +57,71 @@ const Preview = props => {
   return (
     <>
       <main>
-        <Section>
-          <SectionTitleWrapper>
-            <SectionTitle>Preview paragraphs</SectionTitle>
-          </SectionTitleWrapper>
-          <SampleParagraphs
-            fontMetrics={props.fontMetrics}
-            fontSize={props.fontSize}
-            lineHeight={props.lineHeight}
-            marginTop={props.marginTop}
-          />
-        </Section>
-        <ButtonWrapper belowBodyText>
-          <Form noValidate onSubmit={handleSubmit}>
-            <ButtonWithRightArrow type="submit" primary>
-              Get CSS code
-            </ButtonWithRightArrow>
-            <Section>
-              <SectionTitleWrapper displayBelow>
-                <SectionTitle>Font chosen:</SectionTitle>
-              </SectionTitleWrapper>
-              <FontNameDisplay
-                fontFamily={props.fontMetrics.fontFamily}
-                fontSubfamily={props.fontMetrics.fontSubfamily}
-              />
-              <FontFileUploader
-                handleFontFile={props.handleFontFile}
-                validateFileType={props.validateFileType}
-              >
-                Change font…
-              </FontFileUploader>
-              <FontFileErrorMessage
-                data-testid="error-message-font-file"
-                fontFileError={props.fontFileError}
-              />
-            </Section>
-            <Section>
-              <SectionTitleWrapper>
-                <SectionTitle>Setting text size</SectionTitle>
-              </SectionTitleWrapper>
-              <XheightBox
-                handleXHeightChange={props.handleXHeightChange}
-                xHeightPx={props.xHeightPx}
-                validateXHeight={props.validateXHeight}
-                xHeightRangeError={props.xHeightRangeError}
-                xHeightStepError={props.xHeightStepError}
-              />
-            </Section>
-            <Section>
-              <SectionTitleWrapper aboveBodyText>
-                <SectionTitle>Line spacing</SectionTitle>
-              </SectionTitleWrapper>
-              <ModularScaleBoxes
-                xHeightRatio={props.xHeightRatio}
-                handleXHeightRatioChange={props.handleXHeightRatioChange}
-                lineHeightRatio={props.lineHeightRatio}
-                handleLineHeightRatioChange={props.handleLineHeightRatioChange}
-                validateModularScale={props.validateModularScale}
-                modularScaleRangeError={props.modularScaleRangeError}
-                modularScaleStepError={props.modularScaleStepError}
-              />
-            </Section>
-          </Form>
-        </ButtonWrapper>
+        <Form noValidate onSubmit={handleSubmit}>
+          <Section>
+            <SectionTitleWrapper>
+              <SectionTitle>Preview paragraphs</SectionTitle>
+            </SectionTitleWrapper>
+            <SampleParagraphs
+              fontMetrics={props.fontMetrics}
+              fontSize={props.fontSize}
+              lineHeight={props.lineHeight}
+              marginTop={props.marginTop}
+            />
+          </Section>
+          <Section>
+            <ButtonWrapper belowBodyText>
+              <ButtonWithRightArrow type="submit" primary>
+                Get CSS code
+              </ButtonWithRightArrow>
+            </ButtonWrapper>
+          </Section>
+          <Section>
+            <SectionTitleWrapper displayBelow>
+              <SectionTitle>Font chosen:</SectionTitle>
+            </SectionTitleWrapper>
+            <FontNameDisplay
+              fontFamily={props.fontMetrics.fontFamily}
+              fontSubfamily={props.fontMetrics.fontSubfamily}
+            />
+            <FontFileUploader
+              handleFontFile={props.handleFontFile}
+              validateFileType={props.validateFileType}
+            >
+              Change font…
+            </FontFileUploader>
+            <FontFileErrorMessage
+              data-testid="error-message-font-file"
+              fontFileError={props.fontFileError}
+            />
+          </Section>
+          <Section>
+            <SectionTitleWrapper>
+              <SectionTitle>Setting text size</SectionTitle>
+            </SectionTitleWrapper>
+            <XheightBox
+              handleXHeightChange={props.handleXHeightChange}
+              xHeightPx={props.xHeightPx}
+              validateXHeight={props.validateXHeight}
+              xHeightRangeError={props.xHeightRangeError}
+              xHeightStepError={props.xHeightStepError}
+            />
+          </Section>
+          <Section>
+            <SectionTitleWrapper aboveBodyText>
+              <SectionTitle>Line spacing</SectionTitle>
+            </SectionTitleWrapper>
+            <ModularScaleBoxes
+              xHeightRatio={props.xHeightRatio}
+              handleXHeightRatioChange={props.handleXHeightRatioChange}
+              lineHeightRatio={props.lineHeightRatio}
+              handleLineHeightRatioChange={props.handleLineHeightRatioChange}
+              validateModularScale={props.validateModularScale}
+              modularScaleRangeError={props.modularScaleRangeError}
+              modularScaleStepError={props.modularScaleStepError}
+            />
+          </Section>
+        </Form>
       </main>
     </>
   );

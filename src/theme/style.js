@@ -14,6 +14,11 @@ const minFontSizePx = 16;
 // Typography
 const fontWeight = 200;
 
+// Layout parameters
+const logoWidth = 0.8;
+const maxLogoWidthPx = 700;
+const mediaQueryCutoff = maxLogoWidthPx / logoWidth;
+
 // Inline modifier
 export const NoWrap = styled.span`
   white-space: nowrap;
@@ -29,6 +34,14 @@ export const ExternalLink = styled.a`
 
 export const InternalLink = styled(Link)`
   color: ${colorPalette.linkText};
+`;
+
+export const Section = styled.section`
+  padding: 0 ${fontPalette.marginSide}px;
+  max-width: ${maxLogoWidthPx}px;
+  @media (min-width: ${mediaQueryCutoff}px) {
+    margin: 0 auto;
+  }
 `;
 
 export const SectionTitleWrapper = styled.div`
@@ -80,8 +93,6 @@ export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
   text-align: right;
 `;
 
-export const Section = styled.section``;
-
 export const CodeSnippet = styled.pre`
   border-bottom: 1px solid ${colorPalette.inputField};
   border-top: 1px solid ${colorPalette.inputField};
@@ -111,19 +122,6 @@ export const HiddenH1 = styled.h1`
   width: 1px;
 `;
 
-// Layout parameters
-const logoWidth = 0.8;
-const maxLogoWidthPx = 700;
-const mediaQueryCutoff = maxLogoWidthPx / logoWidth;
-
-export const SideMarginRegulator = styled.div`
-  margin: 0 ${fontPalette.marginSide}px;
-  max-width: ${maxLogoWidthPx}px;
-  @media (min-width: ${mediaQueryCutoff}px) {
-    margin: 0 auto;
-  }
-`;
-
 // Logo
 
 // Calculate the Logo's margin-top property vaue
@@ -146,7 +144,7 @@ export const Logo = styled(LogoImage)`
 
 // Header
 
-export const HeaderWrapper = styled.header`
+export const HeaderWrapper = styled(Section)`
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -470,9 +468,10 @@ export const Cite = styled.cite`
 `;
 // Footer
 
-export const FooterWrapper = styled.footer`
+export const FooterWrapper = styled(Section)`
   border-top: 1px solid currentColor;
   color: ${colorPalette.footerText};
   font-size: 0.75rem;
-  padding: 0.75rem 0;
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
 `;
