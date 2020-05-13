@@ -367,12 +367,14 @@ function App() {
             handleFontFile={handleFontFile}
             handleLineHeightRatioChange={handleLineHeightRatioChange}
             handleNoModularScale={handleNoModularScale}
+            handleXHeightChange={handleXHeightChange}
             handleXHeightRatioChange={handleXHeightRatioChange}
             lineHeightRatio={lineHeightRatio}
             modularScaleRangeError={modularScaleRangeError}
             modularScaleStepError={modularScaleStepError}
             validateFileType={validateFileType}
             validateModularScale={validateModularScale}
+            validateXHeight={validateXHeight}
             xHeightPx={xHeightPx}
             xHeightRatio={xHeightRatio}
           />

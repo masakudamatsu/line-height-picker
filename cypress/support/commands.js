@@ -117,7 +117,10 @@ Cypress.Commands.add(
 Cypress.Commands.add(
   'assertXheightFontSizeFromModularScalePageOn',
   (xHeight, FontMetrics) => {
-    cy.findByTestId('XheightDisplay').contains(`${xHeight}px`);
+    cy.findByTestId('x-height-in-pixel').should(
+      'have.value',
+      xHeight.toString(),
+    );
     cy.EnterValidModularScale();
     cy.findByText(/preview/i).click();
     cy.assertXheightFontSizeFromPreviewPageOn(xHeight, FontMetrics);

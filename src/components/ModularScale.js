@@ -3,18 +3,16 @@ import PropTypes from 'prop-types';
 
 import ModularScaleBoxes from './ModularScaleBoxes';
 import SectionFont from './SectionFont';
-import XheightDisplay from './XheightDisplay';
+import XheightBox from './XheightBox';
 import {
-  ButtonWithLeftArrow,
   ButtonWithRightArrow,
-  ButtonContainer,
   ButtonWrapper,
   Form,
   Section,
   SectionTitle,
   SectionTitleWrapper,
 } from '../theme/style';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 import store from '../helper/store';
 
@@ -68,6 +66,18 @@ const ModularScale = props => {
             </ButtonWrapper>
           </Form>
         </Section>
+        <Section>
+          <SectionTitleWrapper>
+            <SectionTitle>Text size</SectionTitle>
+          </SectionTitleWrapper>
+          <XheightBox
+            handleXHeightChange={props.handleXHeightChange}
+            xHeightPx={props.xHeightPx}
+            validateXHeight={props.validateXHeight}
+            xHeightRangeError={props.xHeightRangeError}
+            xHeightStepError={props.xHeightStepError}
+          />
+        </Section>
         <SectionFont
           fontFamily={props.fontFamily}
           fontFileError={props.fontFileError}
@@ -77,12 +87,6 @@ const ModularScale = props => {
           validateFileType={props.validateFileType}
         />
         <Section>
-          <XheightDisplay xHeightPx={props.xHeightPx} />
-          <ButtonContainer>
-            <ButtonWithLeftArrow as={Link} to="/x-height">
-              Change x-height
-            </ButtonWithLeftArrow>
-          </ButtonContainer>
         </Section>
       </main>
     </>

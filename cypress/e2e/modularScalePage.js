@@ -27,7 +27,6 @@ describe('Modular Scale Page in demo', () => {
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByText(/line spacing/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
-    cy.findByTestId('XheightDisplay').should('exist');
   });
 
   it('keeps input fields empty, and does not show alerts, when the user reloads the page', () => {
@@ -111,9 +110,20 @@ describe('Modular Scale Page in demo', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
   });
 
-  it('takes the user back to the x-height page after clicking the button for it', () => {
-    cy.findByText(/x-height/i, {selector: 'a'}).click();
-    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+  it('allows the user to change x-height, and it will be reflected in the subsequent pages', () => {
+    // setup
+    const newUserData = {
+      xHeight: 9,
+    };
+    // execute
+    cy.findByTestId('x-height-in-pixel')
+      .clear()
+      .type(newUserData.xHeight);
+    // verify
+    cy.assertXheightFontSizeFromModularScalePageOn(
+      newUserData.xHeight,
+      OpenSansFontMetrics,
+    );
   });
 });
 
