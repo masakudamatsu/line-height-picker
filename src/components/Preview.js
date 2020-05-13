@@ -13,6 +13,7 @@ import {
   Section,
   SectionTitle,
   SectionTitleWrapper,
+  Spacer,
 } from '../theme/style';
 
 import store from '../helper/store';
@@ -57,9 +58,11 @@ const Preview = props => {
       <main>
         <Form noValidate onSubmit={handleSubmit}>
           <Section>
+            <Spacer height="3" />
             <SectionTitleWrapper>
               <SectionTitle>Preview paragraphs</SectionTitle>
             </SectionTitleWrapper>
+            <Spacer height="2" />
             <SampleParagraphs
               fontMetrics={props.fontMetrics}
               fontSize={props.fontSize}
@@ -68,37 +71,20 @@ const Preview = props => {
             />
           </Section>
           <Section>
+            <Spacer height="2" />
             <ButtonWrapper belowBodyText>
               <ButtonWithRightArrow type="submit" primary>
                 Get CSS code
               </ButtonWithRightArrow>
             </ButtonWrapper>
-          </Section>
-          <SectionFont
-            fontFamily={props.fontFamily}
-            fontFileError={props.fontFileError}
-            fontSubfamily={props.fontSubfamily}
-            fontWeight={props.fontWeight}
-            handleFontFile={props.handleFontFile}
-            validateFileType={props.validateFileType}
-          />
-
-          <Section>
-            <SectionTitleWrapper>
-              <SectionTitle>Setting text size</SectionTitle>
-            </SectionTitleWrapper>
-            <XheightBox
-              handleXHeightChange={props.handleXHeightChange}
-              xHeightPx={props.xHeightPx}
-              validateXHeight={props.validateXHeight}
-              xHeightRangeError={props.xHeightRangeError}
-              xHeightStepError={props.xHeightStepError}
-            />
+            <Spacer height="3" />
           </Section>
           <Section>
+            <Spacer height="3" />
             <SectionTitleWrapper aboveBodyText>
               <SectionTitle>Line spacing</SectionTitle>
             </SectionTitleWrapper>
+            <Spacer height="2" />
             <ModularScaleBoxes
               xHeightRatio={props.xHeightRatio}
               handleXHeightRatioChange={props.handleXHeightRatioChange}
@@ -109,7 +95,30 @@ const Preview = props => {
               modularScaleStepError={props.modularScaleStepError}
             />
           </Section>
+          <Section>
+            <Spacer height="3" />
+            <SectionTitleWrapper>
+              <SectionTitle>Text size</SectionTitle>
+            </SectionTitleWrapper>
+            <Spacer height="2" />
+            <XheightBox
+              handleXHeightChange={props.handleXHeightChange}
+              xHeightPx={props.xHeightPx}
+              validateXHeight={props.validateXHeight}
+              xHeightRangeError={props.xHeightRangeError}
+              xHeightStepError={props.xHeightStepError}
+            />
+          </Section>
+          <SectionFont
+            fontFamily={props.fontFamily}
+            fontFileError={props.fontFileError}
+            fontSubfamily={props.fontSubfamily}
+            fontWeight={props.fontWeight}
+            handleFontFile={props.handleFontFile}
+            validateFileType={props.validateFileType}
+          />
         </Form>
+        <Spacer height="3" />
       </main>
     </>
   );

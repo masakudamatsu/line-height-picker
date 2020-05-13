@@ -8,6 +8,7 @@ import {
   XheightInputUnit,
   InputWrapper,
   Label,
+  Spacer,
 } from '../theme/style';
 
 const XheightBox = props => {
@@ -36,6 +37,7 @@ const XheightBox = props => {
         />
         <XheightInputUnit>px</XheightInputUnit>
       </InputWrapper>
+      <Spacer height="1" />
       <InputInstruction
         id="howManyDecimalPlacesAllowed"
         data-testid="instruction-x-height"
@@ -43,6 +45,7 @@ const XheightBox = props => {
       >
         up to 4 decimal places
       </InputInstruction>
+      <Spacer height="2" />
       <AlertMessage
         id="rangeOfNumbersAllowed"
         data-testid="error-message-x-height"

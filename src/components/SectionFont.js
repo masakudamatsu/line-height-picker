@@ -10,13 +10,16 @@ import {
   Section,
   SectionTitle,
   SectionTitleWrapper,
+  Spacer,
 } from '../theme/style';
 
 const SectionFont = props => {
   return (
     <Section includeDisplay>
       <SectionTitleWrapper displayBelow displayTop>
+        <Spacer height="3" />
         <SectionTitle aboveDisplay>Font chosen:</SectionTitle>
+        <Spacer height="2" />
       </SectionTitleWrapper>
       <FontNameDisplay
         fontFamily={props.fontFamily}
@@ -24,6 +27,7 @@ const SectionFont = props => {
         fontWeight={props.fontWeight}
       />
       <ButtonContainer displayBottom>
+        <Spacer height="2" />
         <FontFileUploader
           handleFontFile={props.handleFontFile}
           validateFileType={props.validateFileType}
@@ -35,6 +39,7 @@ const SectionFont = props => {
           fontFileError={props.fontFileError}
         />
       </ButtonContainer>
+      <Spacer height="3" />
     </Section>
   );
 };

@@ -36,6 +36,14 @@ export const InternalLink = styled(Link)`
   color: ${colorPalette.linkText};
 `;
 
+export const Spacer = styled.div`
+  height: ${props =>
+    (fontPalette.xHeight.mobile *
+      Math.pow(fontPalette.modularScale, props.height)) /
+    fontPalette.rem}rem;
+  width: auto;
+`;
+
 export const Section = styled.section`
   background-color: ${colorPalette.background}; /* To hide cove lighting behind */
   max-width: ${maxLogoWidthPx}px;
@@ -51,18 +59,6 @@ export const Section = styled.section`
 `;
 
 export const SectionTitleWrapper = styled.div`
-  padding-bottom: ${props =>
-    props.aboveBodyText
-      ? fontPalette.sectionTitle.paddingBottomAboveBodyText.mobile + 2 / 16
-      : fontPalette.sectionTitle.paddingBottom.mobile +
-        2 / 16}rem; /* 2px is optical adjustmnet */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    padding-bottom: ${props =>
-      props.aboveBodyText
-        ? fontPalette.sectionTitle.paddingBottomAboveBodyText.desktop + 2 / 16
-        : fontPalette.sectionTitle.paddingBottom.desktop +
-          2 / 16}rem; /* 2px is optical adjustmnet */
-  }
   ${props => props.displayTop && coveLighting}
 }
 `;
@@ -78,6 +74,26 @@ export const SectionTitle = styled.h2`
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${fontPalette.sectionTitle.fontSize.desktop}rem;
   }
+  /* Text Box Cropping parameters */
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+  }
+  &::before {
+    margin-bottom: -${fontPalette.sectionTitle.cropTopCap.mobile}rem;
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+      margin-bottom: -${fontPalette.sectionTitle.cropTopCap.desktop}rem;
+    }
+  }
+  &::after {
+    margin-top: -${fontPalette.sectionTitle.cropBottom.mobile}rem;
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+      margin-top: -${fontPalette.sectionTitle.cropBottom.desktop}rem;
+    }
+  }
 `;
 
 export const ParagraphOneRem = styled.p`
@@ -87,15 +103,31 @@ export const ParagraphOneRem = styled.p`
     props.errorText ? fontPalette.alertText.fontWeight : 'inherit'};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
-  padding-top: ${fontPalette.lineSpacingBelowBox.mobile}rem;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    padding-top: ${fontPalette.lineSpacingBelowBox.desktop}rem;
+
+  /* Text Box Cropping */
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+  }
+  &::before {
+    margin-bottom: -${fontPalette.bodyText.cropTopCap.mobile}rem;
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+      margin-bottom: -${fontPalette.bodyText.cropTopCap.desktop}rem;
+    }
+  }
+  &::after {
+    margin-top: -${fontPalette.bodyText.cropBottom.mobile}rem;
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+      margin-top: -${fontPalette.bodyText.cropBottom.desktop}rem;
+    }
   }
 `;
 
 export const AlertMessage = styled(ParagraphOneRem)`
   font-weight: ${fontPalette.alertText.fontWeight};
-  margin-top: 0;
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
   }
@@ -256,9 +288,6 @@ export const UserDataDisplay = styled.p`
 // Buttons
 
 export const ButtonContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   max-width: ${maxLogoWidthPx}px;
   padding-left: ${props =>
     props.displayBottom ? `${fontPalette.marginSide}px` : 0};
@@ -268,18 +297,7 @@ export const ButtonContainer = styled.div`
   ${props => props.displayBottom && coveLighting}
 `;
 
-export const ButtonWrapper = styled.div`
-  margin-top: ${props =>
-    props.belowBodyText
-      ? fontPalette.button.marginTop.belowBodyText.mobile
-      : fontPalette.button.marginTop.belowBox.mobile}rem;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    margin-top: ${props =>
-      props.belowBodyText
-        ? fontPalette.button.marginTop.belowBodyText.desktop
-        : fontPalette.button.marginTop.belowBox.desktop}rem;
-  }
-`;
+export const ButtonWrapper = styled.div``;
 
 export const Button = styled.button`
   align-items: center; /* For when the as={Link} attribute is added.  */
@@ -361,7 +379,6 @@ export const Form = styled.form.attrs(props => ({
 }))`
   display: flex;
   flex-direction: column;
-  padding: 0 0 3rem 0;
 `;
 
 export const Label = styled.label`
@@ -431,6 +448,13 @@ export const NumberInput = styled(Input).attrs(props => ({
 
 export const InputInstruction = styled(ParagraphOneRem)`
   text-align: right;
+  /* Crop top of text box to x-height, not cap-height */
+  &::before {
+    margin-bottom: -${fontPalette.bodyText.cropTopX.mobile}rem;
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+      margin-bottom: -${fontPalette.bodyText.cropTopX.desktop}rem;
+    }
+  }
 `;
 
 export const XheightInput = styled(NumberInput)`
@@ -459,14 +483,6 @@ export const ModularScaleInputWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-`;
-
-export const ModularScaleText = styled.p`
-  line-height: 1;
-  padding-bottom: ${fontPalette.bodyText.paddingBottomAboveBox.mobile}rem;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    padding-bottom: ${fontPalette.bodyText.paddingBottomAboveBox.desktop}rem;
-  }
 `;
 
 export const RatioWrapper = styled(InputWrapper)`

@@ -5,11 +5,11 @@ import XheightBox from './XheightBox';
 import SectionFont from './SectionFont';
 import {
   ButtonWithRightArrow,
-  ButtonWrapper,
   Form,
   Section,
   SectionTitle,
   SectionTitleWrapper,
+  Spacer,
 } from '../theme/style';
 import {Redirect} from 'react-router-dom';
 
@@ -41,9 +41,11 @@ const Xheight = props => {
     <>
       <main>
         <Section>
+          <Spacer height="3" />
           <SectionTitleWrapper>
             <SectionTitle>Setting text size</SectionTitle>
           </SectionTitleWrapper>
+          <Spacer height="2" />
           <Form noValidate onSubmit={handleSubmit}>
             <XheightBox
               handleXHeightChange={props.handleXHeightChange}
@@ -52,11 +54,11 @@ const Xheight = props => {
               xHeightRangeError={props.xHeightRangeError}
               xHeightStepError={props.xHeightStepError}
             />{' '}
-            <ButtonWrapper belowBodyText>
-              <ButtonWithRightArrow type="submit" primary>
-                Next
-              </ButtonWithRightArrow>
-            </ButtonWrapper>
+            <Spacer height="2" />
+            <ButtonWithRightArrow type="submit" primary>
+              Next
+            </ButtonWithRightArrow>
+            <Spacer height="3" />
           </Form>
         </Section>
         <SectionFont
@@ -67,6 +69,7 @@ const Xheight = props => {
           handleFontFile={props.handleFontFile}
           validateFileType={props.validateFileType}
         />
+        <Spacer height="3" />
       </main>
     </>
   );

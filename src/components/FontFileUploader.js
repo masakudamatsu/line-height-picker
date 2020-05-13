@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {Redirect} from 'react-router';
-import {Button, ButtonWrapper} from '../theme/style';
+import {Button} from '../theme/style';
 import {fontFileExtensionsArray as acceptableFileExtensions} from '../helper/fontFileExtensions';
 
 const FontFileUploader = props => {
@@ -37,11 +37,9 @@ const FontFileUploader = props => {
   }
   return (
     <>
-      <ButtonWrapper>
-        <Button data-testid="font-button" type="button" onClick={handleClick}>
-          {props.children}
-        </Button>
-      </ButtonWrapper>
+      <Button data-testid="font-button" type="button" onClick={handleClick}>
+        {props.children}
+      </Button>
       <input
         type="file"
         data-testid="hiddenFileInput"

@@ -297,16 +297,9 @@ body {
   font-feature-settings: 'calt', 'clig', 'kern', 'liga';
 }
 
-p + p {
-  margin-top: ${fontPalette.bodyText.marginTop.mobile}rem;
-}
-
 @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
   body {
     font-size: ${fontPalette.bodyText.fontSize.desktop}rem;
-  }
-  p + p {
-    margin-top: ${fontPalette.bodyText.marginTop.desktop}rem;
   }
 }
 `;

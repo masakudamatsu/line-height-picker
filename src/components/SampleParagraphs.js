@@ -6,6 +6,7 @@ import {
   ExternalLink,
   ParagraphOneRem,
   SampleParagraphWrapper,
+  Spacer,
 } from '../theme/style';
 
 const SampleParagraphs = props => {
@@ -38,6 +39,7 @@ const SampleParagraphs = props => {
           have the wonderful typography that they do. …
         </p>
       </SampleParagraphWrapper>
+      <Spacer height="1" />
       <ParagraphOneRem as="footer">
         ―Excerpt from “
         <Cite>

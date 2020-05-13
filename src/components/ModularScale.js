@@ -11,6 +11,7 @@ import {
   Section,
   SectionTitle,
   SectionTitleWrapper,
+  Spacer,
 } from '../theme/style';
 import {Redirect} from 'react-router-dom';
 
@@ -46,9 +47,11 @@ const ModularScale = props => {
     <>
       <main>
         <Section>
+          <Spacer height="3" />
           <SectionTitleWrapper aboveBodyText>
             <SectionTitle>Line spacing</SectionTitle>
           </SectionTitleWrapper>
+          <Spacer height="2" />
           <Form noValidate onSubmit={handleSubmit}>
             <ModularScaleBoxes
               handleXHeightRatioChange={props.handleXHeightRatioChange}
@@ -59,17 +62,21 @@ const ModularScale = props => {
               validateModularScale={props.validateModularScale}
               xHeightRatio={props.xHeightRatio}
             />{' '}
+            <Spacer height="2" />
             <ButtonWrapper belowBodyText>
               <ButtonWithRightArrow type="submit" primary>
                 Preview
               </ButtonWithRightArrow>
             </ButtonWrapper>
           </Form>
+          <Spacer height="3" />
         </Section>
         <Section>
+          <Spacer height="3" />
           <SectionTitleWrapper>
             <SectionTitle>Text size</SectionTitle>
           </SectionTitleWrapper>
+          <Spacer height="2" />
           <XheightBox
             handleXHeightChange={props.handleXHeightChange}
             xHeightPx={props.xHeightPx}
@@ -86,8 +93,7 @@ const ModularScale = props => {
           handleFontFile={props.handleFontFile}
           validateFileType={props.validateFileType}
         />
-        <Section>
-        </Section>
+        <Spacer height="3" />
       </main>
     </>
   );

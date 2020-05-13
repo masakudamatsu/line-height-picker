@@ -12,6 +12,7 @@ import {
   SectionTitle,
   SectionTitleWrapper,
   Section,
+  Spacer,
 } from '../theme/style';
 import {clipboardError} from '../helper/errorMessages';
 
@@ -84,14 +85,17 @@ p + p {
     <>
       <main>
         <Section>
+          <Spacer height="3" />
           <SectionTitleWrapper>
             <SectionTitle>Get CSS</SectionTitle>
           </SectionTitleWrapper>
+          <Spacer height="2" />
           <CodeSnippet>
             <Code data-testid="cssCode" id="cssCode">
               {cssOutput}
             </Code>
           </CodeSnippet>
+          <Spacer height="2" />
           <ButtonWrapper>
             <Button
               data-testid="copy-button"
@@ -103,13 +107,13 @@ p + p {
               {buttonText}
             </Button>
           </ButtonWrapper>
+          <Spacer height="2" />
           <ButtonWrapper>
             <ButtonWithLeftArrow as={Link} to="/preview">
               Back
             </ButtonWithLeftArrow>
           </ButtonWrapper>
-        </Section>
-        <Section>
+          <Spacer height="2" />
           <AlertMessage
             id="whatHappened"
             data-testid="whatHappened"
@@ -118,6 +122,7 @@ p + p {
           >
             {clipboardError.whatHappened}
           </AlertMessage>
+          <Spacer height="2" />
           <AlertMessage
             id="howToResolve"
             data-testid="howToResolve"
@@ -126,8 +131,7 @@ p + p {
           >
             {clipboardError.howToResolve}
           </AlertMessage>
-          <AlertMessage
-          </AlertMessage>
+          <Spacer height="3" />
         </Section>
       </main>
     </>
