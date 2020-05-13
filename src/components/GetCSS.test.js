@@ -412,13 +412,11 @@ test('Clicking the copy button reveals the alert message and siables the button 
   );
   expect(getByTestId('whatHappened')).not.toBeVisible();
   expect(getByTestId('howToResolve')).not.toBeVisible();
-  expect(getByTestId('extraText')).not.toBeVisible();
   expect(getByTestId('copy-button')).not.toBeDisabled();
 
   user.click(getByTestId('copy-button'));
   expect(getByTestId('whatHappened')).toBeVisible();
   expect(getByTestId('howToResolve')).toBeVisible();
-  expect(getByTestId('extraText')).toBeVisible();
   expect(getByTestId('copy-button')).toBeDisabled();
 
   navigatorSpy.mockRestore();

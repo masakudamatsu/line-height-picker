@@ -127,12 +127,6 @@ p + p {
             {clipboardError.howToResolve}
           </AlertMessage>
           <AlertMessage
-            id="extraText"
-            data-testid="extraText"
-            error={error}
-            errorText
-          >
-            {clipboardError.extraText}
           </AlertMessage>
         </Section>
       </main>
