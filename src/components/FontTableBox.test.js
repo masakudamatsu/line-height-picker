@@ -29,51 +29,115 @@ test('renders correctly', () => {
     <FontTableBox updateFontMetrics={mockUpdateFontMetrics} />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c6 {
+    .c7 {
       font-weight: inherit;
     }
 
     .c1 {
       color: currentColor;
-      font-size: 1rem;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c4 {
+    .c1::before,
+    .c1::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c1::before {
+      margin-bottom: -0.2497057983222135rem;
+    }
+
+    .c1::after {
+      margin-top: -0.39491772924843016rem;
+    }
+
+    .c5 {
       color: currentColor;
-      font-size: 1rem;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+      font-weight: 500;
       visibility: hidden;
     }
 
-    .c2 {
-      font-family: monospace;
-      font-size: 1rem;
+    .c5::before,
+    .c5::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
     }
 
-    .c7 {
+    .c5::before {
+      margin-bottom: -0.2497057983222135rem;
+    }
+
+    .c5::after {
+      margin-top: -0.39491772924843016rem;
+    }
+
+    .c3 {
+      font-family: 'Fedra Mono',monospace;
+      font-weight: 400;
+    }
+
+    .c8 {
       -webkit-align-items: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: inherit;
-      border: 2px solid currentColor;
-      border-radius: 4px;
+      background-color: hsl(0,0%,25%);
+      border: none;
+      border-radius: 7.619047619047619px;
+      box-shadow: -2px 0 6px 0px hsla(0,0%,100%,0.5), 0 -2px 6px 0px hsla(0,0%,100%,0.5),2px 0 6px 0 hsla(0,0%,100%,0.5), 0 2px 6px 0 hsla(0,0%,1000%,0.5);
       color: inherit;
       cursor: pointer;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      font-size: 5vw;
-      font-weight: bold;
-      max-width: 315px;
-      padding: 5.625% 11.25%;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 1.6814635458703255rem;
+      font-weight: 500;
+      height: 68.57142857142857px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      position: relative;
       -webkit-text-decoration: none;
       text-decoration: none;
-      text-transform: uppercase;
-      width: 45%;
+      width: 294.2857142857143px;
+    }
+
+    .c8:focus,
+    .c8:hover {
+      background-color: hsl(0,0%,56%);
+      box-shadow: -4px 0 12px 0px hsla(0,0%,100%,0.5), 0 -4px 12px 0px hsla(0,0%,100%,0.5), 4px 0 12px 0 hsla(0,0%,100%,0.5),0 4px 12px 0 hsla(0,0%,1000%,0.5);
+      outline: none;
+    }
+
+    .c8:active {
+      background-color: hsl(0,0%,56%);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,1000%,0.5);
+      outline: none;
+    }
+
+    .c8[disabled] {
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+
+    .c8::after {
+      content: '→';
+      position: absolute;
+      right: 15.238095238095237px;
     }
 
     .c0 {
@@ -84,55 +148,127 @@ test('renders correctly', () => {
       -webkit-flex-direction: column;
       -ms-flex-direction: column;
       flex-direction: column;
-      font-size: 3rem;
-      font-weight: 200;
-      padding: 0 0 3rem 0;
     }
 
-    .c3 {
+    .c2 {
+      position: absolute;
+      left: 16px;
+      top: 8px;
+      top: calc( 8px - 0.0706436420722135rem );
+    }
+
+    .c4 {
       background-color: hsl(0,0%,25%);
-      border: none;
-      border-bottom: 2px solid hsl(0,0%,96%);
-      border-radius: 4px 4px 0 0;
+      border: 2px solid hsl(0,0%,46%);
+      border-radius: 4px;
       color: hsl(0,0%,96%);
-      font-weight: 200;
-      font-size: 9rem;
+      font-family: 'Fedra Mono',monospace;
+      font-size: 1.8916464891041163rem;
+      height: 100%;
+      line-height: 1;
+      padding-left: 12px;
+      padding-top: 1.4746261607641753rem;
+      padding-top: calc( 0.2799636803874092rem + 0.6946624803767661rem + 8px );
       text-align: center;
     }
 
-    .c3:active,
-    .c3:hover,
-    .c3:focus {
-      background-color: hsl(0,0%,35%);
+    .c4:active,
+    .c4:hover,
+    .c4:focus {
+      border: 2px solid hsl(0,0%,96%);
       outline: none;
     }
 
-    .c5 {
+    .c6 {
       background-color: hsl(0,0%,25%);
-      border: none;
-      border-bottom: 2px solid hsl(0,0%,96%);
-      border-radius: 4px 4px 0 0;
+      border: 2px solid hsl(0,0%,46%);
+      border-radius: 4px;
       color: hsl(0,0%,96%);
-      font-weight: 200;
-      font-size: 9rem;
+      font-family: 'Fedra Mono',monospace;
+      font-size: 1.8916464891041163rem;
+      height: 100%;
+      line-height: 1;
+      padding-left: 12px;
+      padding-top: 1.4746261607641753rem;
+      padding-top: calc( 0.2799636803874092rem + 0.6946624803767661rem + 8px );
       text-align: center;
     }
 
-    .c5:active,
-    .c5:hover,
-    .c5:focus {
-      background-color: hsl(0,0%,35%);
+    .c6:active,
+    .c6:hover,
+    .c6:focus {
+      border: 2px solid hsl(0,0%,96%);
       outline: none;
     }
 
-    @media (min-width:875px) {
-      .c7 {
-        font-size: 43.75px;
+    @media only screen and (min-width:1024px) {
+      .c1::before {
+        margin-bottom: -0.29132305116758245rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c1::after {
+        margin-top: -0.46073697058150187rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c5::before {
+        margin-bottom: -0.29132305116758245rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c5::after {
+        margin-top: -0.46073697058150187rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c8 {
+        border-radius: 8.88888888888889;
+        font-size: 1.9617074701820465rem;
+        height: 80px;
+        width: 343.33333333333337px;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c8::after {
+        right: 17.77777777777778px;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c2 {
+        top: calc( 8px - 0.08241758241758242rem );
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c4 {
+        font-size: 2.2069209039548023rem;
+        padding-top: 1.6370638542248712rem;
+        padding-top: calc( 0.3266242937853107rem + 0.8104395604395604rem + 8px );
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c6 {
+        font-size: 2.2069209039548023rem;
+        padding-top: 1.6370638542248712rem;
+        padding-top: calc( 0.3266242937853107rem + 0.8104395604395604rem + 8px );
       }
     }
 
     <div>
       <form
+        autocomplete="off"
         class="c0"
         novalidate=""
       >
@@ -142,7 +278,7 @@ test('renders correctly', () => {
           Or enter font table values:
         </p>
         <label
-          class=""
+          class="c2"
           for="preferredFamily"
         >
           preferredFamily
@@ -153,19 +289,19 @@ test('renders correctly', () => {
         >
           Font family name to be used for the 
           <code
-            class="c2"
+            class="c3"
           >
             font-family
           </code>
            CSS property. It can be found in the 
           <code
-            class="c2"
+            class="c3"
           >
             name
           </code>
            table. If it doesn't exist, enter the 
           <code
-            class="c2"
+            class="c3"
           >
             fontFamily
           </code>
@@ -173,7 +309,7 @@ test('renders correctly', () => {
         </p>
         <input
           aria-describedby="instruction-preferredFamily error-message-preferredFamily"
-          class="c3"
+          class="c4"
           data-testid="preferredFamily"
           id="preferredFamily"
           name="preferredFamily"
@@ -182,14 +318,14 @@ test('renders correctly', () => {
           type="text"
         />
         <p
-          class="c4"
+          class="c5"
           data-testid="error-message-preferredFamily"
           id="error-message-preferredFamily"
         >
           Enter the font family name.
         </p>
         <label
-          class=""
+          class="c2"
           for="preferredSubfamily"
         >
           preferredSubfamily
@@ -200,14 +336,14 @@ test('renders correctly', () => {
         >
           Font subfamily name (e.g. Light, Regular, Bold). It can be found in the
           <code
-            class="c2"
+            class="c3"
           >
             name
           </code>
            table. If it doesn't exist, enter the
            
           <code
-            class="c2"
+            class="c3"
           >
             fontSubfamily
           </code>
@@ -215,7 +351,7 @@ test('renders correctly', () => {
         </p>
         <input
           aria-describedby="instruction-preferredSubfamily error-message-preferredSubfamily"
-          class="c3"
+          class="c4"
           data-testid="preferredSubfamily"
           id="preferredSubfamily"
           name="preferredSubfamily"
@@ -224,14 +360,14 @@ test('renders correctly', () => {
           type="text"
         />
         <p
-          class="c4"
+          class="c5"
           data-testid="error-message-preferredSubfamily"
           id="error-message-preferredSubfamily"
         >
           Enter the font subfamily name (such as Regular, Italic, Bold, Light).
         </p>
         <label
-          class=""
+          class="c2"
           for="usWeightClass"
         >
           usWeightClass
@@ -242,13 +378,13 @@ test('renders correctly', () => {
         >
           Number to be used for the 
           <code
-            class="c2"
+            class="c3"
           >
             font-weight
           </code>
            CSS property. It can be found in the 
           <code
-            class="c2"
+            class="c3"
           >
             OS/2
           </code>
@@ -256,7 +392,7 @@ test('renders correctly', () => {
         </p>
         <input
           aria-describedby="instruction--usWeightClass error-message-usWeightClass"
-          class="c5"
+          class="c6"
           data-testid="usWeightClass"
           id="usWeightClass"
           inputmode="decimal"
@@ -267,14 +403,14 @@ test('renders correctly', () => {
           type="text"
         />
         <p
-          class="c4"
+          class="c5"
           data-testid="error-message-usWeightClass"
           id="error-message-usWeightClass"
         >
           Please enter a
            
           <b
-            class="c6"
+            class="c7"
             data-testid="bring-attention-usWeightClass"
           >
             whole number
@@ -283,7 +419,7 @@ test('renders correctly', () => {
           between 1 and 1000.
         </p>
         <label
-          class=""
+          class="c2"
           for="unitsPerEm"
         >
           unitsPerEm
@@ -294,13 +430,13 @@ test('renders correctly', () => {
         >
           Number of units for the length set by the 
           <code
-            class="c2"
+            class="c3"
           >
             font-size
           </code>
            CSS property. It can be found in the 
           <code
-            class="c2"
+            class="c3"
           >
             head
           </code>
@@ -308,7 +444,7 @@ test('renders correctly', () => {
         </p>
         <input
           aria-describedby="instruction-unitsPerEm error-message-unitsPerEm"
-          class="c5"
+          class="c6"
           data-testid="unitsPerEm"
           id="unitsPerEm"
           inputmode="decimal"
@@ -319,14 +455,14 @@ test('renders correctly', () => {
           type="text"
         />
         <p
-          class="c4"
+          class="c5"
           data-testid="error-message-unitsPerEm"
           id="error-message-unitsPerEm"
         >
           Please enter a
            
           <b
-            class="c6"
+            class="c7"
             data-testid="bring-attention-unitsPerEm"
           >
             whole number
@@ -335,7 +471,7 @@ test('renders correctly', () => {
           between 16 and 16384.
         </p>
         <label
-          class=""
+          class="c2"
           for="sxHeight"
         >
           sxHeight
@@ -346,7 +482,7 @@ test('renders correctly', () => {
         >
           Number of units for x-height (the height of lowercase x). It can be found in the 
           <code
-            class="c2"
+            class="c3"
           >
             OS/2
           </code>
@@ -354,7 +490,7 @@ test('renders correctly', () => {
         </p>
         <input
           aria-describedby="instruction-sxHeight error-message-sxHeight"
-          class="c5"
+          class="c6"
           data-testid="sxHeight"
           id="sxHeight"
           inputmode="decimal"
@@ -365,14 +501,14 @@ test('renders correctly', () => {
           type="text"
         />
         <p
-          class="c4"
+          class="c5"
           data-testid="error-message-sxHeight"
           id="error-message-sxHeight"
         >
           Please enter a
            
           <b
-            class="c6"
+            class="c7"
             data-testid="bring-attention-sxHeight"
           >
             whole number
@@ -381,7 +517,7 @@ test('renders correctly', () => {
           between 16 and 16384.
         </p>
         <label
-          class=""
+          class="c2"
           for="sCapHeight"
         >
           sCapHeight
@@ -392,7 +528,7 @@ test('renders correctly', () => {
         >
           Number of units for cap-height (the height of uppercase H). It can be found in the 
           <code
-            class="c2"
+            class="c3"
           >
             OS/2
           </code>
@@ -400,7 +536,7 @@ test('renders correctly', () => {
         </p>
         <input
           aria-describedby="instruction-sCapHeight error-message-sCapHeight"
-          class="c5"
+          class="c6"
           data-testid="sCapHeight"
           id="sCapHeight"
           inputmode="decimal"
@@ -411,14 +547,14 @@ test('renders correctly', () => {
           type="text"
         />
         <p
-          class="c4"
+          class="c5"
           data-testid="error-message-sCapHeight"
           id="error-message-sCapHeight"
         >
           Please enter a
            
           <b
-            class="c6"
+            class="c7"
             data-testid="bring-attention-sCapHeight"
           >
             whole number
@@ -427,7 +563,7 @@ test('renders correctly', () => {
           between 16 and 16384.
         </p>
         <button
-          class="c7"
+          class="sc-fznWqX c8"
           type="submit"
         >
           Next

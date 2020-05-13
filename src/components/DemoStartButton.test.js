@@ -17,54 +17,81 @@ afterEach(() => {
 test('renders correctly', () => {
   const {container} = render(<DemoStartButton handleDemo={mockHandleDemo} />);
   expect(container).toMatchInlineSnapshot(`
-    .c1 {
-      white-space: nowrap;
-    }
-
     .c0 {
       -webkit-align-items: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: inherit;
-      border: 2px solid currentColor;
-      border-radius: 4px;
+      background-color: hsl(0,0%,25%);
+      border: none;
+      border-radius: 7.619047619047619px;
+      box-shadow: -2px 0 6px 0px hsla(0,0%,100%,0.5), 0 -2px 6px 0px hsla(0,0%,100%,0.5),2px 0 6px 0 hsla(0,0%,100%,0.5), 0 2px 6px 0 hsla(0,0%,1000%,0.5);
       color: inherit;
       cursor: pointer;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      font-size: 5vw;
-      font-weight: bold;
-      max-width: 315px;
-      padding: 5.625% 11.25%;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 1.6814635458703255rem;
+      font-weight: 500;
+      height: 68.57142857142857px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      position: relative;
       -webkit-text-decoration: none;
       text-decoration: none;
-      text-transform: uppercase;
-      width: 45%;
+      width: 294.2857142857143px;
     }
 
-    @media (min-width:875px) {
+    .c0:focus,
+    .c0:hover {
+      background-color: hsl(0,0%,56%);
+      box-shadow: -4px 0 12px 0px hsla(0,0%,100%,0.5), 0 -4px 12px 0px hsla(0,0%,100%,0.5), 4px 0 12px 0 hsla(0,0%,100%,0.5),0 4px 12px 0 hsla(0,0%,1000%,0.5);
+      outline: none;
+    }
+
+    .c0:active {
+      background-color: hsl(0,0%,56%);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,1000%,0.5);
+      outline: none;
+    }
+
+    .c0[disabled] {
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+
+    .c0::after {
+      content: '→';
+      position: absolute;
+      right: 15.238095238095237px;
+    }
+
+    @media only screen and (min-width:1024px) {
       .c0 {
-        font-size: 43.75px;
+        border-radius: 8.88888888888889;
+        font-size: 1.9617074701820465rem;
+        height: 80px;
+        width: 343.33333333333337px;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c0::after {
+        right: 17.77777777777778px;
       }
     }
 
     <div>
       <a
-        class="c0"
+        class="sc-fznWqX c0"
         href="/x-height"
       >
-        Demo with Open Sans
-        <span
-          class="c1"
-        >
-          →
-        </span>
+        Start demo
       </a>
     </div>
   `);

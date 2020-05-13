@@ -32,16 +32,36 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c3 {
+    .c4 {
       color: hsl(0,0%,96%);
     }
 
     .c1 {
+      height: 0.8035714285714286rem;
+      width: auto;
+    }
+
+    .c2 {
       color: currentColor;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
-      padding-top: 0.30612226071428567rem;
+    }
+
+    .c2::before,
+    .c2::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c2::before {
+      margin-bottom: -0.2497057983222135rem;
+    }
+
+    .c2::after {
+      margin-top: -0.39491772924843016rem;
     }
 
     .c0 {
@@ -59,13 +79,19 @@ test('renders correctly', () => {
       margin: 23.467px 0 0 0;
     }
 
-    .c2 {
+    .c3 {
       font-style: normal;
     }
 
     @media only screen and (min-width:1024px) {
-      .c1 {
-        padding-top: 0.35714312499999995rem;
+      .c2::before {
+        margin-bottom: -0.29132305116758245rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c2::after {
+        margin-top: -0.46073697058150187rem;
       }
     }
 
@@ -87,15 +113,19 @@ test('renders correctly', () => {
             None of this had even a hope of any practical application in my life. But 10 years later, when we were designing the first Macintosh computer, it all came back to me. And we designed it all into the Mac. It was the first computer with beautiful typography. If I had never dropped in on that single course in college, the Mac would have never had multiple typefaces or proportionally spaced fonts. And since Windows just copied the Mac, it’s likely that no personal computer would have them. If I had never dropped out, I would have never dropped in on this calligraphy class, and personal computers might not have the wonderful typography that they do. …
           </p>
         </div>
-        <footer
+        <div
           class="c1"
+          height="1"
+        />
+        <footer
+          class="c2"
         >
           ―Excerpt from “
           <cite
-            class="c2"
+            class="c3"
           >
             <a
-              class="c3"
+              class="c4"
               href="https://news.stanford.edu/2005/06/14/jobs-061505/"
             >
               2005 Stanford Commencement Address

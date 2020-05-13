@@ -15,15 +15,28 @@ test('renders correctly', () => {
     }
 
     .c0 {
+      background-color: hsl(0,0%,25%);
+      max-width: 700px;
+      padding-left: 12.857142857142858px;
+      padding-right: 12.857142857142858px;
+      position: relative;
+      z-index: 2;
       border-top: 1px solid currentColor;
       color: hsl(0,0%,67%);
       font-size: 0.75rem;
-      padding: 0.75rem 0;
+      padding-bottom: 0.75rem;
+      padding-top: 0.75rem;
+    }
+
+    @media (min-width:875px) {
+      .c0 {
+        margin: 0 auto;
+      }
     }
 
     <div>
       <footer
-        class="c0"
+        class="sc-AxgMl c0"
         data-testid="footer"
       >
         <p>

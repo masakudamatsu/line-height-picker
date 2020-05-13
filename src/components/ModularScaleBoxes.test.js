@@ -27,10 +27,103 @@ test('renders correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c1 {
-      -webkit-align-items: flex-end;
-      -webkit-box-align: flex-end;
-      -ms-flex-align: flex-end;
-      align-items: flex-end;
+      height: 0.8035714285714286rem;
+      width: auto;
+    }
+
+    .c7 {
+      height: 1.2053571428571428rem;
+      width: auto;
+    }
+
+    .c0 {
+      color: currentColor;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+    }
+
+    .c0::before,
+    .c0::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c0::before {
+      margin-bottom: -0.2497057983222135rem;
+    }
+
+    .c0::after {
+      margin-top: -0.39491772924843016rem;
+    }
+
+    .c8 {
+      color: currentColor;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+      font-weight: 500;
+      visibility: hidden;
+    }
+
+    .c8::before,
+    .c8::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c8::before {
+      margin-bottom: -0.2497057983222135rem;
+    }
+
+    .c8::after {
+      margin-top: -0.39491772924843016rem;
+    }
+
+    .c4 {
+      position: absolute;
+      left: 16px;
+      top: 8px;
+      top: calc( 8px - 0.0706436420722135rem );
+    }
+
+    .c6 {
+      color: currentColor;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+      text-align: right;
+    }
+
+    .c6::before,
+    .c6::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c6::before {
+      margin-bottom: -0.2497057983222135rem;
+    }
+
+    .c6::after {
+      margin-top: -0.39491772924843016rem;
+    }
+
+    .c6::before {
+      margin-bottom: -0.40865399298469385rem;
+    }
+
+    .c2 {
+      -webkit-align-items: baseline;
+      -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+      align-items: baseline;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -39,84 +132,130 @@ test('renders correctly', () => {
       -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
       justify-content: space-between;
-      padding: 1rem 0;
       width: 100%;
-    }
-
-    .c2 {
-      -webkit-align-items: flex-start;
-      -webkit-box-align: flex-start;
-      -ms-flex-align: flex-start;
-      align-items: flex-start;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      width: 40%;
-    }
-
-    .c0 {
-      font-size: 3rem;
-      font-weight: 200;
-    }
-
-    .c4 {
-      color: currentColor;
-      font-size: 1rem;
-    }
-
-    .c5 {
-      color: currentColor;
-      font-size: 1rem;
-      visibility: hidden;
     }
 
     .c3 {
+      height: 5.357142857142857rem;
+      position: relative;
+      width: 45%;
+    }
+
+    .c5 {
       background-color: hsl(0,0%,25%);
-      border: none;
-      border-bottom: 2px solid hsl(0,0%,96%);
-      border-radius: 4px 4px 0 0;
+      border: 2px solid hsl(0,0%,46%);
+      border-radius: 4px;
       color: hsl(0,0%,96%);
-      font-weight: 200;
-      font-size: 9rem;
+      font-family: 'Fedra Mono',monospace;
+      font-size: 1.8916464891041163rem;
+      height: 100%;
+      line-height: 1;
+      padding-left: 12px;
+      padding-top: 1.4746261607641753rem;
+      padding-top: calc( 0.2799636803874092rem + 0.6946624803767661rem + 8px );
       text-align: center;
+      padding-right: 12px;
       width: 100%;
     }
 
-    .c3:active,
-    .c3:hover,
-    .c3:focus {
-      background-color: hsl(0,0%,35%);
+    .c5:active,
+    .c5:hover,
+    .c5:focus {
+      border: 2px solid hsl(0,0%,96%);
       outline: none;
     }
 
+    @media only screen and (min-width:1024px) {
+      .c0::before {
+        margin-bottom: -0.29132305116758245rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c0::after {
+        margin-top: -0.46073697058150187rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c8::before {
+        margin-bottom: -0.29132305116758245rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c8::after {
+        margin-top: -0.46073697058150187rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c4 {
+        top: calc( 8px - 0.08241758241758242rem );
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c6::before {
+        margin-bottom: -0.29132305116758245rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c6::after {
+        margin-top: -0.46073697058150187rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c6::before {
+        margin-bottom: -0.47676261160714284rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c3 {
+        height: 6.25rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c5 {
+        font-size: 2.2069209039548023rem;
+        padding-top: 1.6370638542248712rem;
+        padding-top: calc( 0.3266242937853107rem + 0.8104395604395604rem + 8px );
+      }
+    }
+
     <div>
-      <h2
+      <p
         class="c0"
       >
-        Pick modular scale
-      </h2>
-      <p>
-        Set the ratio of
+        Enter the ratio of
       </p>
       <div
         class="c1"
+        height="1"
+      />
+      <div
+        class="c2"
       >
         <div
-          class="c2"
+          class="sc-fzoNJl c3"
         >
           <label
-            class=""
+            class="c4"
             for="x-height-for-ratio"
           >
             x-height
           </label>
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-            class="sc-fzoNJl sc-fzoXWK c3"
+            class="sc-fzoXWK sc-fzpmMD c5"
             data-testid="x-height-for-ratio"
             id="x-height-for-ratio"
             inputmode="decimal"
@@ -126,21 +265,23 @@ test('renders correctly', () => {
             value=""
           />
         </div>
-        <span>
+        <span
+          class=""
+        >
           to
         </span>
         <div
-          class="c2"
+          class="sc-fzoNJl c3"
         >
           <label
-            class=""
+            class="c4"
             for="line-height-for-ratio"
           >
             line-height
           </label>
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-            class="sc-fzoNJl sc-fzoXWK c3"
+            class="sc-fzoXWK sc-fzpmMD c5"
             data-testid="line-height-for-ratio"
             id="line-height-for-ratio"
             inputmode="decimal"
@@ -151,15 +292,23 @@ test('renders correctly', () => {
           />
         </div>
       </div>
+      <div
+        class="c1"
+        height="1"
+      />
       <p
-        class="c4"
+        class="c6"
         data-testid="instruction-modular-scale"
         id="howManyDecimalPlacesAllowed"
       >
         up to 4 decimal places
       </p>
+      <div
+        class="c7"
+        height="2"
+      />
       <p
-        class="c5"
+        class="c8"
         data-testid="error-message-modular-scale"
         id="rangeOfNumbersAllowed"
       >

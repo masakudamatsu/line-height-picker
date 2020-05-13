@@ -28,46 +28,88 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c7 {
-      color: hsl(0,0%,96%);
+    .c1 {
+      height: 1.8080357142857142rem;
+      width: auto;
+    }
+
+    .c3 {
+      height: 1.2053571428571428rem;
+      width: auto;
     }
 
     .c0 {
-      padding-bottom: 0.8634987893462469rem;
+      background-color: hsl(0,0%,25%);
+      max-width: 700px;
+      padding-left: 12.857142857142858px;
+      padding-right: 12.857142857142858px;
+      position: relative;
+      z-index: 2;
     }
 
-    .c1 {
-      font-size: 1.513317191283293rem;
+    .c2 {
+      font-size: 1.47174375rem;
       font-weight: 300;
       line-height: 1;
+      padding-left: 0;
+      padding-right: 0;
     }
 
-    .c6 {
+    .c2::before,
+    .c2::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c2::before {
+      margin-bottom: -0.10596546310832025rem;
+    }
+
+    .c2::after {
+      margin-top: -0.32378335949764525rem;
+    }
+
+    .c8 {
       color: hsl(335,71%,64%);
       font-weight: 500;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
-      padding-top: 0.30612226071428567rem;
       font-weight: 500;
-      margin-top: 0;
-      padding-bottom: 0.8555728214285714rem;
       visibility: hidden;
     }
 
-    .c2 {
+    .c8::before,
+    .c8::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c8::before {
+      margin-bottom: -0.2497057983222135rem;
+    }
+
+    .c8::after {
+      margin-top: -0.39491772924843016rem;
+    }
+
+    .c4 {
       border-bottom: 1px solid hsl(0,0%,46%);
       border-top: 1px solid hsl(0,0%,46%);
-      padding-bottom: 1.607144175rem;
-      padding-top: 1.607144175rem;
+      padding-bottom: 1.3392868125000001rem;
+      padding-top: 1.3392868125000001rem;
       white-space: pre-wrap;
     }
 
-    .c3 {
+    .c5 {
       font-family: 'Fedra Mono',monospace;
       font-weight: 400;
     }
 
-    .c4 {
+    .c6 {
       -webkit-align-items: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -75,6 +117,7 @@ test('renders correctly', () => {
       background-color: hsl(0,0%,46%);
       border: none;
       border-radius: 7.619047619047619px;
+      box-shadow: -2px 0 6px 0px hsla(0,0%,100%,0.5), 0 -2px 6px 0px hsla(0,0%,100%,0.5),2px 0 6px 0 hsla(0,0%,100%,0.5), 0 2px 6px 0 hsla(0,0%,1000%,0.5);
       color: inherit;
       cursor: pointer;
       display: -webkit-box;
@@ -92,17 +135,37 @@ test('renders correctly', () => {
       position: relative;
       -webkit-text-decoration: none;
       text-decoration: none;
-      width: 285.7142857142857px;
+      width: 294.2857142857143px;
     }
 
-    .c5 {
+    .c6:focus,
+    .c6:hover {
+      background-color: hsl(0,0%,56%);
+      box-shadow: -4px 0 12px 0px hsla(0,0%,100%,0.5), 0 -4px 12px 0px hsla(0,0%,100%,0.5), 4px 0 12px 0 hsla(0,0%,100%,0.5),0 4px 12px 0 hsla(0,0%,1000%,0.5);
+      outline: none;
+    }
+
+    .c6:active {
+      background-color: hsl(0,0%,56%);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,1000%,0.5);
+      outline: none;
+    }
+
+    .c6[disabled] {
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+
+    .c7 {
       -webkit-align-items: center;
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: hsl(0,0%,46%);
+      background-color: hsl(0,0%,25%);
       border: none;
       border-radius: 7.619047619047619px;
+      box-shadow: -2px 0 6px 0px hsla(0,0%,100%,0.5), 0 -2px 6px 0px hsla(0,0%,100%,0.5),2px 0 6px 0 hsla(0,0%,100%,0.5), 0 2px 6px 0 hsla(0,0%,1000%,0.5);
       color: inherit;
       cursor: pointer;
       display: -webkit-box;
@@ -120,66 +183,101 @@ test('renders correctly', () => {
       position: relative;
       -webkit-text-decoration: none;
       text-decoration: none;
-      width: 285.7142857142857px;
+      width: 294.2857142857143px;
     }
 
-    .c5::before {
+    .c7:focus,
+    .c7:hover {
+      background-color: hsl(0,0%,56%);
+      box-shadow: -4px 0 12px 0px hsla(0,0%,100%,0.5), 0 -4px 12px 0px hsla(0,0%,100%,0.5), 4px 0 12px 0 hsla(0,0%,100%,0.5),0 4px 12px 0 hsla(0,0%,1000%,0.5);
+      outline: none;
+    }
+
+    .c7:active {
+      background-color: hsl(0,0%,56%);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,1000%,0.5);
+      outline: none;
+    }
+
+    .c7[disabled] {
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+
+    .c7::before {
       content: '←';
       position: absolute;
       left: 15.238095238095237px;
     }
 
-    @media only screen and (min-width:1024px) {
+    @media (min-width:875px) {
       .c0 {
-        padding-bottom: 0.9865819209039548rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c1 {
-        font-size: 1.765536723163842rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c6 {
-        padding-top: 0.35714312499999995rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c6 {
-        padding-bottom: 0.99816875rem;
+        margin: 0 auto;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c2 {
-        padding-bottom: 1.874998125rem;
-        padding-top: 1.874998125rem;
+        font-size: 1.71703125rem;
       }
     }
 
-    @media (min-width:875px) {
+    @media only screen and (min-width:1024px) {
+      .c2::before {
+        margin-bottom: -0.12362637362637363rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c2::after {
+        margin-top: -0.37774725274725274rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c8::before {
+        margin-bottom: -0.29132305116758245rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c8::after {
+        margin-top: -0.46073697058150187rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+
+    }
+
+    @media only screen and (min-width:1024px) {
       .c4 {
-        border-radius: 8.88888888888889;
-        font-size: 1.9617074701820465rem;
-        height: 80px;
-        width: 333.33333333333337px;
+        padding-bottom: 1.5624984375000002rem;
+        padding-top: 1.5624984375000002rem;
       }
     }
 
-    @media (min-width:875px) {
-      .c5 {
+    @media only screen and (min-width:1024px) {
+      .c6 {
         border-radius: 8.88888888888889;
         font-size: 1.9617074701820465rem;
         height: 80px;
-        width: 333.33333333333337px;
+        width: 343.33333333333337px;
       }
     }
 
-    @media (min-width:1024pxpx) {
-      .c5::before {
+    @media only screen and (min-width:1024px) {
+      .c7 {
+        border-radius: 8.88888888888889;
+        font-size: 1.9617074701820465rem;
+        height: 80px;
+        width: 343.33333333333337px;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c7::before {
         left: 17.77777777777778px;
       }
     }
@@ -187,22 +285,30 @@ test('renders correctly', () => {
     <div>
       <main>
         <section
-          class=""
+          class="c0"
         >
           <div
-            class="c0"
+            class="c1"
+            height="3"
+          />
+          <div
+            class=""
           >
             <h2
-              class="c1"
+              class="c2"
             >
               Get CSS
             </h2>
           </div>
+          <div
+            class="c3"
+            height="2"
+          />
           <pre
-            class="c2"
+            class="c4"
           >
             <code
-              class="c3"
+              class="c5"
               data-testid="cssCode"
               id="cssCode"
             >
@@ -218,51 +324,61 @@ test('renders correctly', () => {
     }
             </code>
           </pre>
-          <button
-            aria-describedby="whatHappened howToResolve extraText"
-            class="c4"
-            data-testid="copy-button"
+          <div
+            class="c3"
+            height="2"
+          />
+          <div
+            class=""
           >
-            Copy CSS code
-          </button>
-        </section>
-        <a
-          class="c5"
-          href="/preview"
-        >
-          Back
-        </a>
-        <section
-          class=""
-        >
+            <button
+              aria-describedby="whatHappened howToResolve extraText"
+              class="c6"
+              data-testid="copy-button"
+            >
+              Copy CSS code
+            </button>
+          </div>
+          <div
+            class="c3"
+            height="2"
+          />
+          <div
+            class=""
+          >
+            <a
+              class="c7"
+              href="/preview"
+            >
+              Back
+            </a>
+          </div>
+          <div
+            class="c3"
+            height="2"
+          />
           <p
-            class="sc-AxheI c6"
+            class="sc-AxmLO c8"
             data-testid="whatHappened"
             id="whatHappened"
           >
             The browser doesn't allow us to copy the CSS code into your clipboard.
           </p>
+          <div
+            class="c3"
+            height="2"
+          />
           <p
-            class="sc-AxheI c6"
+            class="sc-AxmLO c8"
             data-testid="howToResolve"
             id="howToResolve"
           >
             Please select the CSS code on your own to copy and paste it.
           </p>
-          <p
-            class="sc-AxheI c6"
-            data-testid="extraText"
-            id="extraText"
-          >
-            Alternatively, consider using the browsers that support the "click to copy into clipboard" feature: Edge (version 79 or later), Chrome (76 or later), Opera (63 or later). See
-            <a
-              class="c7"
-              href="https://caniuse.com/#feat=mdn-api_fontface"
-            >
-              Can I Use?
-            </a>
-            for the latest list of supporting browsers.
-          </p>
+          <div
+            class="c1"
+            height="3"
+          />
         </section>
       </main>
     </div>

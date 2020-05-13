@@ -19,15 +19,41 @@ test('renders correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       color: hsl(335,71%,64%);
-      font-family: 'Fedra Sans 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-weight: 500;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
+    .c0::before,
+    .c0::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c0::before {
+      margin-bottom: -0.2497057983222135rem;
+    }
+
+    .c0::after {
+      margin-top: -0.39491772924843016rem;
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c0::before {
+        margin-bottom: -0.29132305116758245rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c0::after {
+        margin-top: -0.46073697058150187rem;
+      }
+    }
+
     <div>
-      <section
-        class=""
+      <div
         data-testid="error-message-font-file"
       >
         <p
@@ -42,7 +68,7 @@ test('renders correctly', () => {
           class="c0"
           id="extraText-fontFile"
         />
-      </section>
+      </div>
     </div>
   `);
 });
