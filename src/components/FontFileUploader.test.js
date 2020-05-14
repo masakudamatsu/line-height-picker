@@ -49,7 +49,7 @@ test('renders correctly', () => {
       align-items: center;
       background-color: hsl(0,0%,25%);
       border: none;
-      border-radius: 7.619047619047619px;
+      border-radius: 7.232142857142856px;
       box-shadow: -2px 0 6px 0px hsla(0,0%,100%,0.5), 0 -2px 6px 0px hsla(0,0%,100%,0.5),2px 0 6px 0 hsla(0,0%,100%,0.5), 0 2px 6px 0 hsla(0,0%,1000%,0.5);
       color: inherit;
       cursor: pointer;
@@ -58,9 +58,9 @@ test('renders correctly', () => {
       display: -ms-flexbox;
       display: flex;
       font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 1.6814635458703255rem;
+      font-size: 1.5960767251815982rem;
       font-weight: 500;
-      height: 68.57142857142857px;
+      height: 65.08928571428571px;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -92,9 +92,9 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c0 {
-        border-radius: 8.88888888888889;
-        font-size: 1.9617074701820465rem;
-        height: 80px;
+        border-radius: 8.4375;
+        font-size: 1.8620895127118644rem;
+        height: 75.9375px;
         width: 343.33333333333337px;
       }
     }

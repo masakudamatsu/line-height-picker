@@ -2,8 +2,8 @@ import fontPalette from './fontPalette';
 
 const minimumScreenWidth = 320;
 const buttonHeight = {
-  mobile: 8 * fontPalette.xHeight.mobile,
-  desktop: 8 * fontPalette.xHeight.desktop,
+  mobile: Math.pow(fontPalette.modularScale, 5) * fontPalette.xHeight.mobile,
+  desktop: Math.pow(fontPalette.modularScale, 5) * fontPalette.xHeight.desktop,
 };
 
 const getButtonMetrics = scale => {
