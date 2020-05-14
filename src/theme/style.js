@@ -270,7 +270,7 @@ export const DescriptionWrapper = styled.p`
 
 // Font Name display
 export const UserDataDisplay = styled.p`
-  background: hsl(0, 0%, 35%);
+  background: ${colorPalette.displayBackground};
   font-family: ${props => props.fontFamily};
   font-size: 2rem;
   font-weight: ${props => props.fontWeight};
@@ -294,13 +294,12 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
   align-items: center; /* For when the as={Link} attribute is added.  */
-  background-color: ${props =>
-    props.primary ? colorPalette.button.primary : colorPalette.button.default};
+  background-color: ${colorPalette.button.default};
   border: none;
   border-radius: ${buttonSize.borderRadius.mobile}px;
-  box-shadow: -2px 0 6px 0px hsla(0, 0%, 100%, 0.5),
-    0 -2px 6px 0px hsla(0, 0%, 100%, 0.5), 2px 0 6px 0 hsla(0, 0%, 100%, 0.5),
-    0 2px 6px 0 hsla(0, 0%, 1000%, 0.5);
+  box-shadow: -3px 0 3px 0px hsla(0, 0%, 100%, 0.5),
+    0 -3px 3px 0px hsla(0, 0%, 100%, 0.5), 3px 0 3px 0 hsla(0, 0%, 100%, 0.5),
+    0 3px 3px 0 hsla(0, 0%, 1000%, 0.5);
   color: inherit;
   cursor: pointer;
   display: flex;
@@ -316,9 +315,9 @@ export const Button = styled.button`
   &:focus,
   &:hover {
     background-color: ${colorPalette.button.focus};
-    box-shadow: -4px 0 12px 0px hsla(0, 0%, 100%, 0.5),
-      0 -4px 12px 0px hsla(0, 0%, 100%, 0.5),
-      4px 0 12px 0 hsla(0, 0%, 100%, 0.5), 0 4px 12px 0 hsla(0, 0%, 1000%, 0.5);
+    box-shadow: -6px 0 6px 0px hsla(0, 0%, 100%, 0.5),
+      0 -6px 6px 0px hsla(0, 0%, 100%, 0.5), 6px 0 6px 0 hsla(0, 0%, 100%, 0.5),
+      0 6px 6px 0 hsla(0, 0%, 1000%, 0.5);
     outline: none;
   }
 

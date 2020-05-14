@@ -16,7 +16,7 @@ test('renders correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c0 {
-      background: hsl(0,0%,35%);
+      background: hsl(0,0%,0%);
       font-family: Open Sans;
       font-size: 2rem;
       height: 5rem;
