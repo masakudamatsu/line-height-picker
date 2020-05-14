@@ -212,8 +212,8 @@ function App() {
       xHeight: 1096,
       unitsPerEm: 2048,
       capHeight: 1462,
-      ascender: 1567,
-      descender: -492,
+      ascender: 2189, // hhea.ascender
+      descender: -600, // hhea.descender
     });
   };
 
