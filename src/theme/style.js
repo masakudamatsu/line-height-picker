@@ -373,6 +373,14 @@ export const Form = styled.form.attrs(props => ({
   flex-direction: column;
 `;
 
+export const InputWrapper = styled.div`
+  height: ${inputSize.height.mobile}px;
+  position: relative; /* To place XheightInputUnit component */
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    height: ${inputSize.height.desktop}px;
+  }
+`;
+
 export const Label = styled.label`
   position: absolute;
   left: ${inputSize.labelLeftPx}px;
@@ -384,13 +392,6 @@ export const Label = styled.label`
     top: calc(
       ${inputSize.labelTopPx}px - ${inputSize.labelTopOffsetRem.desktop}rem
     );
-  }
-`;
-export const InputWrapper = styled.div`
-  height: ${inputSize.height.mobile}rem;
-  position: relative; /* To place XheightInputUnit component */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    height: ${inputSize.height.desktop}rem;
   }
 `;
 

@@ -239,8 +239,12 @@ const fontPalette = {
   fontMetrics: fontMetricsFedraSans,
   inputNumber: {
     fontSize: {
-      mobile: mapCapHeightToFontSize(xHeightPx.mobile * 2.5),
-      desktop: mapCapHeightToFontSize(xHeightPx.desktop * 2.5),
+      mobile: mapCapHeightToFontSize(
+        xHeightPx.mobile * Math.pow(modularScale, 3),
+      ),
+      desktop: mapCapHeightToFontSize(
+        xHeightPx.desktop * Math.pow(modularScale, 3),
+      ),
     },
     paddingSide: 1,
     pxBottom: {

@@ -34,8 +34,8 @@ const labelTextHeightInRem = {
 };
 
 const inputHeight = {
-  mobile: (10 * fontPalette.xHeight.mobile) / fontPalette.rem,
-  desktop: (10 * fontPalette.xHeight.desktop) / fontPalette.rem,
+  mobile: Math.pow(fontPalette.modularScale, 6) * fontPalette.xHeight.mobile,
+  desktop: Math.pow(fontPalette.modularScale, 6) * fontPalette.xHeight.desktop,
 };
 
 const inputSize = {
