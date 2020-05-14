@@ -36,11 +36,8 @@ Cypress.Commands.add('EnterValidModularScale', () => {
 Cypress.Commands.add(
   'assertFontNameFromPreviewPageOn',
   (expectedFontName, expectedFontSubfamily, expectedFontWeight) => {
-    cy.findByTestId('font-family-name').should('have.text', expectedFontName);
-    cy.findByTestId('font-subfamily-name').should(
-      'have.text',
-      expectedFontSubfamily,
-    );
+    cy.findByTestId('FontNameDisplay').contains(expectedFontName);
+    cy.findByTestId('FontNameDisplay').contains(expectedFontSubfamily);
 
     cy.findByTestId('sampleParagraphs')
       .should('have.css', 'font-family', `"${expectedFontName}"`)
@@ -56,11 +53,8 @@ Cypress.Commands.add(
 Cypress.Commands.add(
   'assertFontNameFromModularScalePageOn',
   (expectedFontName, expectedFontSubfamily, expectedFontWeight) => {
-    cy.findByTestId('font-family-name').should('have.text', expectedFontName);
-    cy.findByTestId('font-subfamily-name').should(
-      'have.text',
-      expectedFontSubfamily,
-    );
+    cy.findByTestId('FontNameDisplay').contains(expectedFontName);
+    cy.findByTestId('FontNameDisplay').contains(expectedFontSubfamily);
     cy.EnterValidModularScale();
     cy.findByText(/preview/i).click();
     cy.assertFontNameFromPreviewPageOn(
@@ -74,12 +68,9 @@ Cypress.Commands.add(
 Cypress.Commands.add(
   'assertFontNameFromXheightPageOn',
   (expectedFontName, expectedFontSubfamily, expectedFontWeight) => {
-    cy.findByTestId('font-family-name')
-      .should('have.text', expectedFontName)
-      .should('have.css', 'font-family', `"${expectedFontName}"`)
-      .should('have.css', 'font-weight', expectedFontWeight);
-    cy.findByTestId('font-subfamily-name')
-      .should('have.text', expectedFontSubfamily)
+    cy.findByTestId('FontNameDisplay').contains(expectedFontName);
+    cy.findByTestId('FontNameDisplay').contains(expectedFontSubfamily);
+    cy.findByTestId('FontNameDisplay')
       .should('have.css', 'font-family', `"${expectedFontName}"`)
       .should('have.css', 'font-weight', expectedFontWeight);
     cy.EnterValidXHeight();

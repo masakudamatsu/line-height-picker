@@ -64,12 +64,8 @@ describe('Modular Scale Page in demo', () => {
       'have.value',
       `${userData.lineHeightRatio}`,
     );
-    cy.findByTestId('font-family-name').should(
-      'have.text',
-      OpenSansFontMetrics.fontFamily,
-    );
-    cy.findByTestId('font-subfamily-name').should(
-      'have.text',
+    cy.findByTestId('FontNameDisplay').contains(OpenSansFontMetrics.fontFamily);
+    cy.findByTestId('FontNameDisplay').contains(
       OpenSansFontMetrics.fontSubfamily,
     );
     // Verify the other font metrics

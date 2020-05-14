@@ -37,7 +37,7 @@ test('renders correctly', () => {
           Open Sans
         </span>
         <span>
-           
+
         </span>
         <span
           data-testid="font-subfamily-name"
@@ -53,8 +53,9 @@ test('displays the props value as the font name', () => {
   const {getByTestId} = render(
     <FontNameDisplay fontFamily={fontName} fontSubfamily={fontSubfamily} />,
   );
-  expect(getByTestId('font-family-name')).toHaveTextContent(fontName);
-  expect(getByTestId('font-subfamily-name')).toHaveTextContent(fontSubfamily);
+  expect(getByTestId('FontNameDisplay')).toHaveTextContent(
+    `${fontName} ${fontSubfamily}`,
+  );
 });
 
 test('is accessible', async () => {

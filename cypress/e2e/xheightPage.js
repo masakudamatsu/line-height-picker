@@ -76,12 +76,8 @@ describe('X-height page in demo', () => {
     cy.reload();
     // verify
     cy.findByTestId('x-height-in-pixel').should('have.value', validInput);
-    cy.findByTestId('font-family-name').should(
-      'have.text',
-      OpenSansFontMetrics.fontFamily,
-    );
-    cy.findByTestId('font-subfamily-name').should(
-      'have.text',
+    cy.findByTestId('FontNameDisplay').contains(OpenSansFontMetrics.fontFamily);
+    cy.findByTestId('FontNameDisplay').contains(
       OpenSansFontMetrics.fontSubfamily,
     );
     // Verify the other font metrics

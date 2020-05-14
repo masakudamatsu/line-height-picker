@@ -4,15 +4,14 @@ import PropTypes from 'prop-types';
 import {UserDataDisplay} from '../theme/style';
 
 const FontNameDisplay = props => {
+  const fontNameString = `${props.fontFamily} ${props.fontSubfamily}`;
   return (
     <UserDataDisplay
       data-testid="FontNameDisplay"
       fontFamily={props.fontFamily}
       fontWeight={props.fontWeight}
     >
-      <span data-testid="font-family-name">{props.fontFamily}</span>
-      <span> </span>
-      <span data-testid="font-subfamily-name">{props.fontSubfamily}</span>
+      {fontNameString}
     </UserDataDisplay>
   );
 };
