@@ -6,7 +6,6 @@ import SectionFont from './SectionFont';
 import XheightBox from './XheightBox';
 import {
   ButtonWithRightArrow,
-  ButtonWrapper,
   Form,
   Section,
   SectionTitle,
@@ -63,11 +62,9 @@ const ModularScale = props => {
               xHeightRatio={props.xHeightRatio}
             />{' '}
             <Spacer height="2" />
-            <ButtonWrapper belowBodyText>
-              <ButtonWithRightArrow type="submit" primary>
-                Preview
-              </ButtonWithRightArrow>
-            </ButtonWrapper>
+            <ButtonWithRightArrow type="submit" primary>
+              Preview
+            </ButtonWithRightArrow>
           </Form>
           <Spacer height="3" />
         </Section>

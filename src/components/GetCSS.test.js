@@ -328,31 +328,23 @@ test('renders correctly', () => {
             class="c3"
             height="2"
           />
-          <div
-            class=""
+          <button
+            aria-describedby="whatHappened howToResolve extraText"
+            class="c6"
+            data-testid="copy-button"
           >
-            <button
-              aria-describedby="whatHappened howToResolve extraText"
-              class="c6"
-              data-testid="copy-button"
-            >
-              Copy CSS code
-            </button>
-          </div>
+            Copy CSS code
+          </button>
           <div
             class="c3"
             height="2"
           />
-          <div
-            class=""
+          <a
+            class="c7"
+            href="/preview"
           >
-            <a
-              class="c7"
-              href="/preview"
-            >
-              Back
-            </a>
-          </div>
+            Back
+          </a>
           <div
             class="c3"
             height="2"

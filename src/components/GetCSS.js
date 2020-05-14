@@ -6,7 +6,6 @@ import {
   AlertMessage,
   Button,
   ButtonWithLeftArrow,
-  ButtonWrapper,
   Code,
   CodeSnippet,
   SectionTitle,
@@ -96,23 +95,19 @@ p + p {
             </Code>
           </CodeSnippet>
           <Spacer height="2" />
-          <ButtonWrapper>
-            <Button
-              data-testid="copy-button"
-              disabled={error}
-              onClick={copyToClipboard}
-              primary
-              aria-describedby="whatHappened howToResolve extraText"
-            >
-              {buttonText}
-            </Button>
-          </ButtonWrapper>
+          <Button
+            data-testid="copy-button"
+            disabled={error}
+            onClick={copyToClipboard}
+            primary
+            aria-describedby="whatHappened howToResolve extraText"
+          >
+            {buttonText}
+          </Button>
           <Spacer height="2" />
-          <ButtonWrapper>
-            <ButtonWithLeftArrow as={Link} to="/preview">
-              Back
-            </ButtonWithLeftArrow>
-          </ButtonWrapper>
+          <ButtonWithLeftArrow as={Link} to="/preview">
+            Back
+          </ButtonWithLeftArrow>
           <Spacer height="2" />
           <AlertMessage
             id="whatHappened"

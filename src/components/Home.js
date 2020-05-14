@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Description from './Description';
-import {ButtonWrapper, Logo, Section, Spacer} from '../theme/style';
+import {Logo, Section, Spacer} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import DemoStartButton from './DemoStartButton';
 import FontFileErrorMessage from './FontFileErrorMessage';
@@ -23,19 +23,15 @@ const Home = props => {
         </Section>
         <Section>
           <Spacer height="3" />
-          <ButtonWrapper belowBodyText>
-            <FontFileUploader
-              home
-              validateFileType={props.validateFileType}
-              handleFontFile={props.handleFontFile}
-            >
-              Open font file…
-            </FontFileUploader>
-          </ButtonWrapper>
+          <FontFileUploader
+            home
+            validateFileType={props.validateFileType}
+            handleFontFile={props.handleFontFile}
+          >
+            Open font file…
+          </FontFileUploader>
           <Spacer height="2" />
-          <ButtonWrapper>
-            <DemoStartButton handleDemo={props.handleDemo} />
-          </ButtonWrapper>
+          <DemoStartButton handleDemo={props.handleDemo} />
           <FontFileErrorMessage
             data-testid="error-message-font-file"
             fontFileError={props.fontFileError}

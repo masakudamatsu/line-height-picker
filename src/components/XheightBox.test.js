@@ -204,7 +204,7 @@ test('renders correctly', () => {
         </label>
         <input
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-          class="sc-fzoXWK sc-fzpmMD c2"
+          class="sc-fzoyTs sc-fzoNJl c2"
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"
           inputmode="decimal"

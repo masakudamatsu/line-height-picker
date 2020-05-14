@@ -8,7 +8,6 @@ import XheightBox from './XheightBox';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import {
   ButtonWithRightArrow,
-  ButtonWrapper,
   Form,
   Section,
   SectionTitle,
@@ -72,11 +71,9 @@ const Preview = props => {
           </Section>
           <Section>
             <Spacer height="2" />
-            <ButtonWrapper belowBodyText>
-              <ButtonWithRightArrow type="submit" primary>
-                Get CSS code
-              </ButtonWithRightArrow>
-            </ButtonWrapper>
+            <ButtonWithRightArrow type="submit" primary>
+              Get CSS code
+            </ButtonWithRightArrow>
             <Spacer height="3" />
           </Section>
           <Section>

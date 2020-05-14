@@ -269,11 +269,6 @@ export const DescriptionWrapper = styled.p`
 `;
 
 // Font Name display
-export const UserDataDisplayWrapper = styled.section`
-  border-bottom: 1px solid white;
-  border-top: 1px solid white;
-  padding: 1rem 0;
-`;
 export const UserDataDisplay = styled.p`
   background: hsl(0, 0%, 35%);
   font-family: ${props => props.fontFamily};
@@ -296,8 +291,6 @@ export const ButtonContainer = styled.div`
   width: 100%;
   ${props => props.displayBottom && coveLighting}
 `;
-
-export const ButtonWrapper = styled.div``;
 
 export const Button = styled.button`
   align-items: center; /* For when the as={Link} attribute is added.  */
