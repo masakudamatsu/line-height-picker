@@ -269,18 +269,26 @@ export const DescriptionWrapper = styled.p`
 `;
 
 // Font Name display
-export const UserDataDisplay = styled.p`
+export const UserDataDisplayWrapper = styled.div`
+  align-items: center;
   background: ${colorPalette.displayBackground};
+  display: flex;
+  height: auto;
+  min-height: ${inputSize.height.mobile}px;
+  position: relative;
+  z-index: -2;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    min-height: ${inputSize.height.desktop}px;
+  }
+`;
+export const UserDataDisplay = styled.p`
   font-family: ${props => props.fontFamily};
   font-size: ${props =>
     (props.unitsPerEm / props.capHeight) *
     fontPalette.fontName.capHeight.mobile}rem;
   font-weight: ${props => props.fontWeight};
-  height: auto;
   line-height: ${fontPalette.fontName.lineHeight.mobile}rem;
   padding: ${fontPalette.fontName.padding.mobile}rem ${fontPalette.marginSide}px;
-  position: relative;
-  z-index: -2;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${props =>
       (props.unitsPerEm / props.capHeight) *

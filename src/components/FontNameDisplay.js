@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {UserDataDisplay} from '../theme/style';
+import {UserDataDisplay, UserDataDisplayWrapper} from '../theme/style';
 
 const FontNameDisplay = props => {
   const fontNameString = `${props.fontFamily} ${props.fontSubfamily}`;
   return (
-    <UserDataDisplay
-      data-testid="FontNameDisplay"
-      ascender={props.ascender}
-      capHeight={props.capHeight}
-      descender={props.descender}
-      fontFamily={props.fontFamily}
-      fontWeight={props.fontWeight}
-      unitsPerEm={props.unitsPerEm}
-    >
-      {fontNameString}
-    </UserDataDisplay>
+    <UserDataDisplayWrapper>
+      <UserDataDisplay
+        data-testid="FontNameDisplay"
+        ascender={props.ascender}
+        capHeight={props.capHeight}
+        descender={props.descender}
+        fontFamily={props.fontFamily}
+        fontWeight={props.fontWeight}
+        unitsPerEm={props.unitsPerEm}
+      >
+        {fontNameString}
+      </UserDataDisplay>
+    </UserDataDisplayWrapper>
   );
 };
 
