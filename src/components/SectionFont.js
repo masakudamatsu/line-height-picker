@@ -22,9 +22,13 @@ const SectionFont = props => {
         <Spacer height="2" />
       </SectionTitleWrapper>
       <FontNameDisplay
+        ascender={props.ascender}
+        capHeight={props.capHeight}
+        descender={props.descender}
         fontFamily={props.fontFamily}
         fontSubfamily={props.fontSubfamily}
         fontWeight={props.fontWeight}
+        unitsPerEm={props.unitsPerEm}
       />
       <ButtonContainer displayBottom>
         <Spacer height="2" />
@@ -45,11 +49,15 @@ const SectionFont = props => {
 };
 
 SectionFont.propTypes = {
+  ascender: PropTypes.number,
+  capHeight: PropTypes.number,
+  descender: PropTypes.number,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontSubfamily: PropTypes.string,
   fontWeight: PropTypes.string,
   handleFontFile: PropTypes.func.isRequired,
+  unitsPerEm: PropTypes.number,
   validateFileType: PropTypes.func.isRequired,
 };
 

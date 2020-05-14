@@ -107,11 +107,15 @@ const Preview = props => {
             />
           </Section>
           <SectionFont
+            ascender={props.ascender}
+            capHeight={props.capHeight}
+            descender={props.descender}
             fontFamily={props.fontFamily}
             fontFileError={props.fontFileError}
             fontSubfamily={props.fontSubfamily}
             fontWeight={props.fontWeight}
             handleFontFile={props.handleFontFile}
+            unitsPerEm={props.unitsPerEm}
             validateFileType={props.validateFileType}
           />
         </Form>
@@ -122,6 +126,9 @@ const Preview = props => {
 };
 
 Preview.propTypes = {
+  ascender: PropTypes.number,
+  capHeight: PropTypes.number,
+  descender: PropTypes.number,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontMetrics: PropTypes.object,
@@ -139,13 +146,14 @@ Preview.propTypes = {
   marginTop: PropTypes.string,
   modularScaleRangeError: PropTypes.string,
   modularScaleStepError: PropTypes.string,
+  unitsPerEm: PropTypes.number,
+  validateFileType: PropTypes.func.isRequired,
+  validateModularScale: PropTypes.func.isRequired,
+  validateXHeight: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
   xHeightRangeError: PropTypes.string,
   xHeightRatio: PropTypes.string,
   xHeightStepError: PropTypes.string,
-  validateFileType: PropTypes.func.isRequired,
-  validateModularScale: PropTypes.func.isRequired,
-  validateXHeight: PropTypes.func.isRequired,
 };
 
 export default Preview;

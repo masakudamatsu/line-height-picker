@@ -62,11 +62,15 @@ const Xheight = props => {
           </Form>
         </Section>
         <SectionFont
+          ascender={props.ascender}
+          capHeight={props.capHeight}
+          descender={props.descender}
           fontFamily={props.fontFamily}
           fontFileError={props.fontFileError}
           fontSubfamily={props.fontSubfamily}
           fontWeight={props.fontWeight}
           handleFontFile={props.handleFontFile}
+          unitsPerEm={props.unitsPerEm}
           validateFileType={props.validateFileType}
         />
         <Spacer height="3" />
@@ -76,6 +80,9 @@ const Xheight = props => {
 };
 
 Xheight.propTypes = {
+  ascender: PropTypes.number,
+  capHeight: PropTypes.number,
+  descender: PropTypes.number,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontSubfamily: PropTypes.string,
@@ -85,6 +92,7 @@ Xheight.propTypes = {
   handleXHeightChange: PropTypes.func.isRequired,
   validateFileType: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
+  unitsPerEm: PropTypes.number,
   xHeightPx: PropTypes.string,
   xHeightRangeError: PropTypes.string.isRequired,
   xHeightStepError: PropTypes.string.isRequired,

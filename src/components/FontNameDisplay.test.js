@@ -18,11 +18,48 @@ test('renders correctly', () => {
     .c0 {
       background: hsl(0,0%,0%);
       font-family: Open Sans;
-      font-size: 2rem;
-      height: 5rem;
-      padding: 0 12.857142857142858px;
+      font-size: NaNrem;
+      height: auto;
+      line-height: 2.6785736250000003rem;
+      padding: 1.3058068660714293rem 12.857142857142858px;
       position: relative;
       z-index: -2;
+    }
+
+    .c0::before,
+    .c0::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c0::before {
+      margin-bottom: -NaNrem;
+    }
+
+    .c0::after {
+      margin-top: -NaNrem;
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c0 {
+        font-size: NaNrem;
+        line-height: 3.1249968750000003rem;
+        padding: 1.5234328125000005rem 12.857142857142858px;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c0::before {
+        margin-bottom: -NaNrem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c0::after {
+        margin-top: -0.37774725274725274rem;
+      }
     }
 
     <div>
@@ -31,19 +68,7 @@ test('renders correctly', () => {
         data-testid="FontNameDisplay"
         font-family="Open Sans"
       >
-        <span
-          data-testid="font-family-name"
-        >
-          Open Sans
-        </span>
-        <span>
-
-        </span>
-        <span
-          data-testid="font-subfamily-name"
-        >
-          Regular
-        </span>
+        Open Sans Regular
       </p>
     </div>
   `);

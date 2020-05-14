@@ -272,12 +272,43 @@ export const DescriptionWrapper = styled.p`
 export const UserDataDisplay = styled.p`
   background: ${colorPalette.displayBackground};
   font-family: ${props => props.fontFamily};
-  font-size: 2rem;
+  font-size: ${props =>
+    (props.unitsPerEm / props.capHeight) *
+    fontPalette.fontName.capHeight.mobile}rem;
   font-weight: ${props => props.fontWeight};
-  height: 5rem;
-  padding: 0 ${fontPalette.marginSide}px;
+  height: auto;
+  line-height: ${fontPalette.fontName.lineHeight.mobile}rem;
+  padding: ${fontPalette.fontName.padding.mobile}rem ${fontPalette.marginSide}px;
   position: relative;
   z-index: -2;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    font-size: ${props =>
+      (props.unitsPerEm / props.capHeight) *
+      fontPalette.fontName.capHeight.desktop}rem;
+    line-height: ${fontPalette.fontName.lineHeight.desktop}rem;
+    padding: ${fontPalette.fontName.padding.desktop}rem
+      ${fontPalette.marginSide}px;
+  }
+  /* Text Box Cropping parameters */
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+  }
+  &::before {
+    margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+      margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
+    }
+  }
+  &::after {
+    margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+      margin-top: -${fontPalette.sectionTitle.cropBottom.desktop}rem;
+    }
+  }
 `;
 
 // Buttons

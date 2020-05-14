@@ -343,6 +343,9 @@ function App() {
         <Route path="/x-height">
           <Header stepNow={2} />
           <Xheight
+            ascender={fontMetrics.ascender}
+            capHeight={fontMetrics.capHeight}
+            descender={fontMetrics.descender}
             fontFamily={fontMetrics.fontFamily}
             fontFileError={fontFileError}
             fontSubfamily={fontMetrics.fontSubfamily}
@@ -350,6 +353,7 @@ function App() {
             handleFontFile={handleFontFile}
             handleNoXHeight={handleNoXHeight}
             handleXHeightChange={handleXHeightChange}
+            unitsPerEm={fontMetrics.unitsPerEm}
             validateFileType={validateFileType}
             validateXHeight={validateXHeight}
             xHeightPx={xHeightPx}
@@ -360,6 +364,9 @@ function App() {
         <Route path="/modular-scale">
           <Header stepNow={3} />
           <ModularScale
+            ascender={fontMetrics.ascender}
+            capHeight={fontMetrics.capHeight}
+            descender={fontMetrics.descender}
             fontFamily={fontMetrics.fontFamily}
             fontFileError={fontFileError}
             fontSubfamily={fontMetrics.fontSubfamily}
@@ -372,6 +379,7 @@ function App() {
             lineHeightRatio={lineHeightRatio}
             modularScaleRangeError={modularScaleRangeError}
             modularScaleStepError={modularScaleStepError}
+            unitsPerEm={fontMetrics.unitsPerEm}
             validateFileType={validateFileType}
             validateModularScale={validateModularScale}
             validateXHeight={validateXHeight}
@@ -382,6 +390,9 @@ function App() {
         <Route path="/preview">
           <Header stepNow={4} />
           <Preview
+            ascender={fontMetrics.ascender}
+            capHeight={fontMetrics.capHeight}
+            descender={fontMetrics.descender}
             fontFamily={fontMetrics.fontFamily}
             fontFileError={fontFileError}
             fontMetrics={fontMetrics}
@@ -399,13 +410,14 @@ function App() {
             marginTop={marginTop}
             modularScaleRangeError={modularScaleRangeError}
             modularScaleStepError={modularScaleStepError}
+            unitsPerEm={fontMetrics.unitsPerEm}
+            validateFileType={validateFileType}
+            validateModularScale={validateModularScale}
+            validateXHeight={validateXHeight}
             xHeightPx={xHeightPx}
             xHeightRangeError={xHeightRangeError}
             xHeightRatio={xHeightRatio}
             xHeightStepError={xHeightStepError}
-            validateFileType={validateFileType}
-            validateModularScale={validateModularScale}
-            validateXHeight={validateXHeight}
           />
         </Route>
         <Route path="/css">

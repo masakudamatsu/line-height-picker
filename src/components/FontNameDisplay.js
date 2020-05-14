@@ -8,8 +8,12 @@ const FontNameDisplay = props => {
   return (
     <UserDataDisplay
       data-testid="FontNameDisplay"
+      ascender={props.ascender}
+      capHeight={props.capHeight}
+      descender={props.descender}
       fontFamily={props.fontFamily}
       fontWeight={props.fontWeight}
+      unitsPerEm={props.unitsPerEm}
     >
       {fontNameString}
     </UserDataDisplay>
@@ -17,9 +21,13 @@ const FontNameDisplay = props => {
 };
 
 FontNameDisplay.propTypes = {
+  ascender: PropTypes.number,
+  capHeight: PropTypes.number,
+  descender: PropTypes.number,
   fontFamily: PropTypes.string,
   fontSubfamily: PropTypes.string,
   fontWeight: PropTypes.string,
+  unitsPerEm: PropTypes.number,
 };
 
 export default FontNameDisplay;

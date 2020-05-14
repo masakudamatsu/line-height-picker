@@ -133,6 +133,23 @@ const getBottomPaddingInRem = (targetInPx, fontSizeInRem) => {
   return targetInRem - descenderInRem;
 };
 
+// Font name
+const fontNameCapHeight = xHeightInPx => {
+  return (xHeightInPx * Math.pow(modularScale, 3)) / oneRemPx;
+};
+const fontNameLineHeightInRem = {
+  mobile: 2 * getLineHeightInRem(xHeightPx.mobile, lineHeight.paragraph),
+  desktop: 2 * getLineHeightInRem(xHeightPx.desktop, lineHeight.paragraph),
+};
+const fontNamePaddingInRem = {
+  mobile:
+    (fontNameLineHeightInRem.mobile - fontNameCapHeight(xHeightPx.mobile)) *
+    modularScale,
+  desktop:
+    (fontNameLineHeightInRem.desktop - fontNameCapHeight(xHeightPx.desktop)) *
+    modularScale,
+};
+
 // Font CSS property value
 const fontPalette = {
   alertText: {
@@ -237,6 +254,14 @@ const fontPalette = {
     },
   },
   fontMetrics: fontMetricsFedraSans,
+  fontName: {
+    capHeight: {
+      mobile: fontNameCapHeight(xHeightPx.mobile),
+      desktop: fontNameCapHeight(xHeightPx.desktop),
+    },
+    lineHeight: fontNameLineHeightInRem,
+    padding: fontNamePaddingInRem,
+  },
   inputNumber: {
     fontSize: {
       mobile: mapCapHeightToFontSize(
