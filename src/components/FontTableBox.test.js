@@ -163,12 +163,12 @@ test('renders correctly', () => {
       border-radius: 4px;
       color: hsl(0,0%,96%);
       font-family: 'Fedra Mono',monospace;
-      font-size: 1.8916464891041163rem;
+      font-size: 2.553722760290557rem;
       height: 100%;
       line-height: 1;
       padding-left: 12px;
-      padding-top: 1.4746261607641753rem;
-      padding-top: calc( 0.2799636803874092rem + 0.6946624803767661rem + 8px );
+      padding-top: 1.5726134488997685rem;
+      padding-top: calc( 0.37795096852300236rem + 0.6946624803767661rem + 8px );
       text-align: center;
     }
 
@@ -185,12 +185,12 @@ test('renders correctly', () => {
       border-radius: 4px;
       color: hsl(0,0%,96%);
       font-family: 'Fedra Mono',monospace;
-      font-size: 1.8916464891041163rem;
+      font-size: 2.553722760290557rem;
       height: 100%;
       line-height: 1;
       padding-left: 12px;
-      padding-top: 1.4746261607641753rem;
-      padding-top: calc( 0.2799636803874092rem + 0.6946624803767661rem + 8px );
+      padding-top: 1.5726134488997685rem;
+      padding-top: calc( 0.37795096852300236rem + 0.6946624803767661rem + 8px );
       text-align: center;
     }
 
@@ -252,17 +252,17 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c4 {
-        font-size: 2.2069209039548023rem;
-        padding-top: 1.6370638542248712rem;
-        padding-top: calc( 0.3266242937853107rem + 0.8104395604395604rem + 8px );
+        font-size: 2.979343220338983rem;
+        padding-top: 1.75138235704973rem;
+        padding-top: calc( 0.4409427966101695rem + 0.8104395604395604rem + 8px );
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c6 {
-        font-size: 2.2069209039548023rem;
-        padding-top: 1.6370638542248712rem;
-        padding-top: calc( 0.3266242937853107rem + 0.8104395604395604rem + 8px );
+        font-size: 2.979343220338983rem;
+        padding-top: 1.75138235704973rem;
+        padding-top: calc( 0.4409427966101695rem + 0.8104395604395604rem + 8px );
       }
     }
 

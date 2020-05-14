@@ -59,16 +59,16 @@ test('renders correctly', () => {
       margin-top: -0.39491772924843016rem;
     }
 
+    .c0 {
+      height: 97.63392857142857px;
+      position: relative;
+    }
+
     .c1 {
       position: absolute;
       left: 16px;
       top: 8px;
       top: calc( 8px - 0.0706436420722135rem );
-    }
-
-    .c0 {
-      height: 5.357142857142857rem;
-      position: relative;
     }
 
     .c5 {
@@ -105,12 +105,12 @@ test('renders correctly', () => {
       border-radius: 4px;
       color: hsl(0,0%,96%);
       font-family: 'Fedra Mono',monospace;
-      font-size: 1.8916464891041163rem;
+      font-size: 2.553722760290557rem;
       height: 100%;
       line-height: 1;
       padding-left: 12px;
-      padding-top: 1.4746261607641753rem;
-      padding-top: calc( 0.2799636803874092rem + 0.6946624803767661rem + 8px );
+      padding-top: 1.5726134488997685rem;
+      padding-top: calc( 0.37795096852300236rem + 0.6946624803767661rem + 8px );
       text-align: center;
       padding-right: 43.2px;
       padding-right: calc( 32px + 0.7rem );
@@ -129,7 +129,7 @@ test('renders correctly', () => {
       font-weight: 500;
       position: absolute;
       right: 16px;
-      bottom: 0.8125rem;
+      bottom: 18px;
     }
 
     @media only screen and (min-width:1024px) {
@@ -149,14 +149,14 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
-      .c1 {
-        top: calc( 8px - 0.08241758241758242rem );
+      .c0 {
+        height: 113.90625px;
       }
     }
 
     @media only screen and (min-width:1024px) {
-      .c0 {
-        height: 6.25rem;
+      .c1 {
+        top: calc( 8px - 0.08241758241758242rem );
       }
     }
 
@@ -180,15 +180,15 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c2 {
-        font-size: 2.2069209039548023rem;
-        padding-top: 1.6370638542248712rem;
-        padding-top: calc( 0.3266242937853107rem + 0.8104395604395604rem + 8px );
+        font-size: 2.979343220338983rem;
+        padding-top: 1.75138235704973rem;
+        padding-top: calc( 0.4409427966101695rem + 0.8104395604395604rem + 8px );
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c3 {
-        bottom: 0.9375rem;
+        bottom: 22px;
       }
     }
 
