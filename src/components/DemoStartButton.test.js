@@ -88,7 +88,7 @@ test('renders correctly', () => {
 
     <div>
       <a
-        class="sc-fznxsB c0"
+        class="sc-fznJRM c0"
         href="/x-height"
       >
         Start demo

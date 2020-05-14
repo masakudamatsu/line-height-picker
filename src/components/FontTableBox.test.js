@@ -563,7 +563,7 @@ test('renders correctly', () => {
           between 16 and 16384.
         </p>
         <button
-          class="sc-fznxsB c8"
+          class="sc-fznJRM c8"
           type="submit"
         >
           Next

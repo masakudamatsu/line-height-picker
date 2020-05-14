@@ -16,34 +16,52 @@ test('renders correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c0 {
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
       background: hsl(0,0%,0%);
-      font-family: Open Sans;
-      font-size: NaNrem;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
       height: auto;
-      line-height: 2.6785736250000003rem;
-      padding: 1.3058068660714293rem 12.857142857142858px;
+      min-height: 97.63392857142857px;
       position: relative;
       z-index: -2;
     }
 
-    .c0::before,
-    .c0::after {
+    .c1 {
+      font-family: Open Sans;
+      font-size: NaNrem;
+      line-height: 2.6785736250000003rem;
+      padding: 1.3058068660714293rem 12.857142857142858px;
+    }
+
+    .c1::before,
+    .c1::after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c0::before {
+    .c1::before {
       margin-bottom: -NaNrem;
     }
 
-    .c0::after {
+    .c1::after {
       margin-top: -NaNrem;
     }
 
     @media only screen and (min-width:1024px) {
       .c0 {
+        min-height: 113.90625px;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c1 {
         font-size: NaNrem;
         line-height: 3.1249968750000003rem;
         padding: 1.5234328125000005rem 12.857142857142858px;
@@ -51,25 +69,29 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
-      .c0::before {
+      .c1::before {
         margin-bottom: -NaNrem;
       }
     }
 
     @media only screen and (min-width:1024px) {
-      .c0::after {
+      .c1::after {
         margin-top: -0.37774725274725274rem;
       }
     }
 
     <div>
-      <p
+      <div
         class="c0"
-        data-testid="FontNameDisplay"
-        font-family="Open Sans"
       >
-        Open Sans Regular
-      </p>
+        <p
+          class="c1"
+          data-testid="FontNameDisplay"
+          font-family="Open Sans"
+        >
+          Open Sans Regular
+        </p>
+      </div>
     </div>
   `);
 });
