@@ -353,8 +353,12 @@ function App() {
       </Switch>
       <Route
         render={({location}) => (
-          <TransitionGroup>
-            <CSSTransition key={location.key} classNames="fade" timeout={200}>
+          <TransitionGroup
+            childFactory={child =>
+              React.cloneElement(child, {classNames: 'fade', timeout: 1200})
+            }
+          >
+            <CSSTransition key={location.key}>
               <div>
                 <Switch location={location}>
                   <Route path="/" exact>
