@@ -332,6 +332,25 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Header stepNow={1} topPage />
+        </Route>
+        <Route path="/x-height">
+          <Header stepNow={2} />
+        </Route>
+        <Route path="/modular-scale">
+          <Header stepNow={3} />
+        </Route>
+        <Route path="/preview">
+          <Header stepNow={4} />
+        </Route>
+        <Route path="/css">
+          <Header stepNow={5} />
+        </Route>
+        <Route>
+          <Header stepNow={0} />
+        </Route>
+      </Switch>
+      <Switch>
+        <Route path="/" exact>
           <Home
             validateFileType={validateFileType}
             handleDemo={handleDemo}
@@ -341,7 +360,6 @@ function App() {
           />
         </Route>
         <Route path="/x-height">
-          <Header stepNow={2} />
           <Xheight
             ascender={fontMetrics.ascender}
             capHeight={fontMetrics.capHeight}
@@ -362,7 +380,6 @@ function App() {
           />
         </Route>
         <Route path="/modular-scale">
-          <Header stepNow={3} />
           <ModularScale
             ascender={fontMetrics.ascender}
             capHeight={fontMetrics.capHeight}
@@ -388,7 +405,6 @@ function App() {
           />
         </Route>
         <Route path="/preview">
-          <Header stepNow={4} />
           <Preview
             ascender={fontMetrics.ascender}
             capHeight={fontMetrics.capHeight}
@@ -421,7 +437,6 @@ function App() {
           />
         </Route>
         <Route path="/css">
-          <Header stepNow={5} />
           <GetCSS
             fontFamily={fontMetrics.fontFamily}
             fontSize={fontSizePx}
@@ -431,7 +446,6 @@ function App() {
           />
         </Route>
         <Route>
-          <Header stepNow={0} />
           <Error />
         </Route>
       </Switch>
