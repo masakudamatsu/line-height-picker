@@ -1,5 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import './animation.css';
 import GlobalStyle from './theme/GlobalStyle';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -351,108 +353,112 @@ function App() {
       </Switch>
       <Route
         render={({location}) => (
-          <div>
-            <Switch location={location}>
-              <Route path="/" exact>
-                <Home
-                  validateFileType={validateFileType}
-                  handleDemo={handleDemo}
-                  handleFontFile={handleFontFile}
-                  fontFileError={fontFileError}
-                  updateFontMetrics={updateFontMetrics}
-                />
-              </Route>
-              <Route path="/x-height">
-                <Xheight
-                  ascender={fontMetrics.ascender}
-                  capHeight={fontMetrics.capHeight}
-                  descender={fontMetrics.descender}
-                  fontFamily={fontMetrics.fontFamily}
-                  fontFileError={fontFileError}
-                  fontSubfamily={fontMetrics.fontSubfamily}
-                  fontWeight={fontMetrics.fontWeight}
-                  handleFontFile={handleFontFile}
-                  handleNoXHeight={handleNoXHeight}
-                  handleXHeightChange={handleXHeightChange}
-                  unitsPerEm={fontMetrics.unitsPerEm}
-                  validateFileType={validateFileType}
-                  validateXHeight={validateXHeight}
-                  xHeightPx={xHeightPx}
-                  xHeightRangeError={xHeightRangeError}
-                  xHeightStepError={xHeightStepError}
-                />
-              </Route>
-              <Route path="/modular-scale">
-                <ModularScale
-                  ascender={fontMetrics.ascender}
-                  capHeight={fontMetrics.capHeight}
-                  descender={fontMetrics.descender}
-                  fontFamily={fontMetrics.fontFamily}
-                  fontFileError={fontFileError}
-                  fontSubfamily={fontMetrics.fontSubfamily}
-                  fontWeight={fontMetrics.fontWeight}
-                  handleFontFile={handleFontFile}
-                  handleLineHeightRatioChange={handleLineHeightRatioChange}
-                  handleNoModularScale={handleNoModularScale}
-                  handleXHeightChange={handleXHeightChange}
-                  handleXHeightRatioChange={handleXHeightRatioChange}
-                  lineHeightRatio={lineHeightRatio}
-                  modularScaleRangeError={modularScaleRangeError}
-                  modularScaleStepError={modularScaleStepError}
-                  unitsPerEm={fontMetrics.unitsPerEm}
-                  validateFileType={validateFileType}
-                  validateModularScale={validateModularScale}
-                  validateXHeight={validateXHeight}
-                  xHeightPx={xHeightPx}
-                  xHeightRatio={xHeightRatio}
-                />
-              </Route>
-              <Route path="/preview">
-                <Preview
-                  ascender={fontMetrics.ascender}
-                  capHeight={fontMetrics.capHeight}
-                  descender={fontMetrics.descender}
-                  fontFamily={fontMetrics.fontFamily}
-                  fontFileError={fontFileError}
-                  fontMetrics={fontMetrics}
-                  fontSize={fontSizePx}
-                  fontSubfamily={fontMetrics.fontSubfamily}
-                  fontWeight={fontMetrics.fontWeight}
-                  handleFontFile={handleFontFile}
-                  handleLineHeightRatioChange={handleLineHeightRatioChange}
-                  handleNoModularScale={handleNoModularScale}
-                  handleNoXHeight={handleNoXHeight}
-                  handleXHeightChange={handleXHeightChange}
-                  handleXHeightRatioChange={handleXHeightRatioChange}
-                  lineHeight={lineHeight}
-                  lineHeightRatio={lineHeightRatio}
-                  marginTop={marginTop}
-                  modularScaleRangeError={modularScaleRangeError}
-                  modularScaleStepError={modularScaleStepError}
-                  unitsPerEm={fontMetrics.unitsPerEm}
-                  validateFileType={validateFileType}
-                  validateModularScale={validateModularScale}
-                  validateXHeight={validateXHeight}
-                  xHeightPx={xHeightPx}
-                  xHeightRangeError={xHeightRangeError}
-                  xHeightRatio={xHeightRatio}
-                  xHeightStepError={xHeightStepError}
-                />
-              </Route>
-              <Route path="/css">
-                <GetCSS
-                  fontFamily={fontMetrics.fontFamily}
-                  fontSize={fontSizePx}
-                  fontWeight={fontMetrics.fontWeight}
-                  lineHeight={lineHeight}
-                  marginTop={marginTop}
-                />
-              </Route>
-              <Route>
-                <Error />
-              </Route>
-            </Switch>
-          </div>
+          <TransitionGroup>
+            <CSSTransition key={location.key} classNames="fade" timeout={200}>
+              <div>
+                <Switch location={location}>
+                  <Route path="/" exact>
+                    <Home
+                      validateFileType={validateFileType}
+                      handleDemo={handleDemo}
+                      handleFontFile={handleFontFile}
+                      fontFileError={fontFileError}
+                      updateFontMetrics={updateFontMetrics}
+                    />
+                  </Route>
+                  <Route path="/x-height">
+                    <Xheight
+                      ascender={fontMetrics.ascender}
+                      capHeight={fontMetrics.capHeight}
+                      descender={fontMetrics.descender}
+                      fontFamily={fontMetrics.fontFamily}
+                      fontFileError={fontFileError}
+                      fontSubfamily={fontMetrics.fontSubfamily}
+                      fontWeight={fontMetrics.fontWeight}
+                      handleFontFile={handleFontFile}
+                      handleNoXHeight={handleNoXHeight}
+                      handleXHeightChange={handleXHeightChange}
+                      unitsPerEm={fontMetrics.unitsPerEm}
+                      validateFileType={validateFileType}
+                      validateXHeight={validateXHeight}
+                      xHeightPx={xHeightPx}
+                      xHeightRangeError={xHeightRangeError}
+                      xHeightStepError={xHeightStepError}
+                    />
+                  </Route>
+                  <Route path="/modular-scale">
+                    <ModularScale
+                      ascender={fontMetrics.ascender}
+                      capHeight={fontMetrics.capHeight}
+                      descender={fontMetrics.descender}
+                      fontFamily={fontMetrics.fontFamily}
+                      fontFileError={fontFileError}
+                      fontSubfamily={fontMetrics.fontSubfamily}
+                      fontWeight={fontMetrics.fontWeight}
+                      handleFontFile={handleFontFile}
+                      handleLineHeightRatioChange={handleLineHeightRatioChange}
+                      handleNoModularScale={handleNoModularScale}
+                      handleXHeightChange={handleXHeightChange}
+                      handleXHeightRatioChange={handleXHeightRatioChange}
+                      lineHeightRatio={lineHeightRatio}
+                      modularScaleRangeError={modularScaleRangeError}
+                      modularScaleStepError={modularScaleStepError}
+                      unitsPerEm={fontMetrics.unitsPerEm}
+                      validateFileType={validateFileType}
+                      validateModularScale={validateModularScale}
+                      validateXHeight={validateXHeight}
+                      xHeightPx={xHeightPx}
+                      xHeightRatio={xHeightRatio}
+                    />
+                  </Route>
+                  <Route path="/preview">
+                    <Preview
+                      ascender={fontMetrics.ascender}
+                      capHeight={fontMetrics.capHeight}
+                      descender={fontMetrics.descender}
+                      fontFamily={fontMetrics.fontFamily}
+                      fontFileError={fontFileError}
+                      fontMetrics={fontMetrics}
+                      fontSize={fontSizePx}
+                      fontSubfamily={fontMetrics.fontSubfamily}
+                      fontWeight={fontMetrics.fontWeight}
+                      handleFontFile={handleFontFile}
+                      handleLineHeightRatioChange={handleLineHeightRatioChange}
+                      handleNoModularScale={handleNoModularScale}
+                      handleNoXHeight={handleNoXHeight}
+                      handleXHeightChange={handleXHeightChange}
+                      handleXHeightRatioChange={handleXHeightRatioChange}
+                      lineHeight={lineHeight}
+                      lineHeightRatio={lineHeightRatio}
+                      marginTop={marginTop}
+                      modularScaleRangeError={modularScaleRangeError}
+                      modularScaleStepError={modularScaleStepError}
+                      unitsPerEm={fontMetrics.unitsPerEm}
+                      validateFileType={validateFileType}
+                      validateModularScale={validateModularScale}
+                      validateXHeight={validateXHeight}
+                      xHeightPx={xHeightPx}
+                      xHeightRangeError={xHeightRangeError}
+                      xHeightRatio={xHeightRatio}
+                      xHeightStepError={xHeightStepError}
+                    />
+                  </Route>
+                  <Route path="/css">
+                    <GetCSS
+                      fontFamily={fontMetrics.fontFamily}
+                      fontSize={fontSizePx}
+                      fontWeight={fontMetrics.fontWeight}
+                      lineHeight={lineHeight}
+                      marginTop={marginTop}
+                    />
+                  </Route>
+                  <Route>
+                    <Error />
+                  </Route>
+                </Switch>
+              </div>
+            </CSSTransition>
+          </TransitionGroup>
         )}
       />
       <Footer />
