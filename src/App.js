@@ -1,7 +1,10 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
+
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import './animation.css';
+
 import GlobalStyle from './theme/GlobalStyle';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -331,6 +334,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <ScrollToTop>
       <Switch>
         <Route path="/" exact>
           <Header stepNow={1} topPage />
@@ -478,6 +482,7 @@ function App() {
         }}
       />
       <Footer />
+      </ScrollToTop>
     </>
   );
 }
