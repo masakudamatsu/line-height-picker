@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {useHistory} from 'react-router';
+
 import {StepNumber, StepNumberBox} from '../theme/style';
 
 import store from '../helper/store';
@@ -41,9 +43,60 @@ const Step = props => {
     internalURL = '/css';
   }
 
+  let locationState;
+  if (internalURL) {
+    switch (props.stepNow) {
+      case 1:
+        if (props.number > 1) {
+          locationState = {transition: 'slideleft', duration: 250};
+        }
+        break;
+      case 2:
+        if (props.number < 2) {
+          locationState = {transition: 'slideright', duration: 250};
+        }
+        if (props.number > 2) {
+          locationState = {transition: 'slideleft', duration: 250};
+        }
+        break;
+      case 3:
+        if (props.number < 3) {
+          locationState = {transition: 'slideright', duration: 250};
+        }
+        if (props.number > 3) {
+          locationState = {transition: 'slideleft', duration: 250};
+        }
+        break;
+      case 4:
+        if (props.number < 4) {
+          locationState = {transition: 'slideright', duration: 250};
+        }
+        if (props.number > 4) {
+          locationState = {transition: 'slideleft', duration: 250};
+        }
+        break;
+      case 5:
+        if (props.number < 5) {
+          locationState = {transition: 'slideright', duration: 250};
+        }
+        break;
+      default:
+        break;
+    }
+  }
+
+  const history = useHistory();
+  const handleClick = event => {
+    event.preventDefault();
+    history.push({
+      pathname: internalURL,
+      state: locationState,
+    });
+  };
+
   return (
     <StepNumberBox data-testid="StepNumberBox" now={props.now}>
-      <StepNumber to={internalURL} done={props.done}>
+      <StepNumber onClick={handleClick} done={props.done}>
         {props.number}
       </StepNumber>
     </StepNumberBox>
