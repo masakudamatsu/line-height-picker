@@ -352,13 +352,24 @@ function App() {
         </Route>
       </Switch>
       <Route
-        render={({location}) => (
+        render={({location}) => {
+          if (!location.state) {
+            location.state = {
+              transition: '',
+              duration: 0,
+            };
+          }
+          return (
           <TransitionGroup
             childFactory={child =>
-              React.cloneElement(child, {classNames: 'fade', timeout: 1200})
+                React.cloneElement(child, {
+                  classNames: location.state.transition,
+                  timeout: location.state.duration,
+                })
             }
+              style={{position: 'relative'}}
           >
-            <CSSTransition key={location.key}>
+              <CSSTransition key={location.key} mountOnEnter unmountOnExit>
               <div>
                 <Switch location={location}>
                   <Route path="/" exact>
@@ -463,7 +474,8 @@ function App() {
               </div>
             </CSSTransition>
           </TransitionGroup>
-        )}
+          );
+        }}
       />
       <Footer />
     </>

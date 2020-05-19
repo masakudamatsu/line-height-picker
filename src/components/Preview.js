@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Redirect} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 import SampleParagraphs from './SampleParagraphs';
 import SectionFont from './SectionFont';
@@ -22,7 +22,8 @@ const Preview = props => {
     store.set('preview', 'visited');
   }, []);
 
-  const [redirect, setRedirect] = React.useState(false);
+  const history = useHistory();
+
   const handleSubmit = event => {
     event.preventDefault();
     const xHeightErrors = document.getElementById('x-height-in-pixel').validity;
@@ -36,7 +37,10 @@ const Preview = props => {
       xHeightRatioErrors.valid &&
       lineHeightRatioErrors.valid
     ) {
-      setRedirect(true);
+      history.push({
+        pathname: '/css',
+        state: {transition: 'slideleft', duration: 250},
+      });
     } else if (!xHeightErrors.valid) {
       props.handleNoXHeight(xHeightErrors);
       document.getElementById('x-height-in-pixel').focus();
@@ -48,10 +52,6 @@ const Preview = props => {
       document.getElementById('line-height-for-ratio').focus();
     }
   };
-  if (redirect) {
-    return <Redirect push to="/css" />;
-    // The push attribute keeps the browser history, instead of overriding, so the user can click the Back button in the browser to be back to the landing page. See https://reacttraining.com/react-router/web/api/Redirect/push-bool
-  }
   return (
     <>
       <main>

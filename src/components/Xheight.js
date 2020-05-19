@@ -11,7 +11,7 @@ import {
   SectionTitleWrapper,
   Spacer,
 } from '../theme/style';
-import {Redirect} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 import store from '../helper/store';
 
@@ -20,23 +20,23 @@ const Xheight = props => {
     store.set('x-height', 'visited');
   }, []);
 
-  const [redirect, setRedirect] = React.useState(false);
+  const history = useHistory();
+
   const handleSubmit = event => {
     event.preventDefault();
     const xHeightInputField = document.getElementById('x-height-in-pixel');
     const errors = xHeightInputField.validity;
     if (errors.valid) {
-      setRedirect(true);
+      history.push({
+        pathname: '/modular-scale',
+        state: {transition: 'slideleft', duration: 250},
+      });
     } else {
       props.handleNoXHeight(errors);
       // Focus on the first invalid input element
       xHeightInputField.focus();
     }
   };
-  if (redirect) {
-    return <Redirect push to="/modular-scale" />;
-    // The push attribute keeps the browser history, instead of overriding, so the user can click the Back button in the browser to be back to the landing page. See https://reacttraining.com/react-router/web/api/Redirect/push-bool
-  }
   return (
     <>
       <main>

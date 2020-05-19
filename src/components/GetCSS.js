@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 import {
   AlertMessage,
@@ -80,6 +80,15 @@ p + p {
     }, 1500);
   };
 
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push({
+      pathname: '/preview',
+      state: {transition: 'slideright', duration: 250},
+    });
+  };
+
   return (
     <>
       <main>
@@ -105,9 +114,7 @@ p + p {
             {buttonText}
           </Button>
           <Spacer height="2" />
-          <ButtonWithLeftArrow as={Link} to="/preview">
-            Back
-          </ButtonWithLeftArrow>
+          <ButtonWithLeftArrow onClick={handleClick}>Back</ButtonWithLeftArrow>
           <Spacer height="2" />
           <AlertMessage
             id="whatHappened"
