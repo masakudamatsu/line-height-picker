@@ -32,7 +32,7 @@ const ModularScale = props => {
     if (xHeightErrors.valid && lineHeightErrors.valid) {
       history.push({
         pathname: '/preview',
-        state: {transition: 'slideleft', duration: 250},
+        state: {transition: 'slideleft', duration: 300},
       });
     } else if (!xHeightErrors.valid) {
       props.handleNoModularScale(xHeightErrors);

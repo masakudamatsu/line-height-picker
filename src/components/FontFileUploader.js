@@ -22,7 +22,7 @@ const FontFileUploader = props => {
         if (props.home) {
           history.push({
             pathname: '/x-height',
-            state: {transition: 'slideleft', duration: 250},
+            state: {transition: 'slideleft', duration: 300},
           });
         }
       } catch (err) {

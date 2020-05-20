@@ -11,7 +11,7 @@ const DemoStartButton = props => {
     props.handleDemo();
     history.push({
       pathname: '/x-height',
-      state: {transition: 'slideleft', duration: 250},
+      state: {transition: 'slideleft', duration: 300},
     });
   };
   return (

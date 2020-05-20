@@ -29,7 +29,7 @@ const Xheight = props => {
     if (errors.valid) {
       history.push({
         pathname: '/modular-scale',
-        state: {transition: 'slideleft', duration: 250},
+        state: {transition: 'slideleft', duration: 300},
       });
     } else {
       props.handleNoXHeight(errors);

@@ -48,36 +48,36 @@ const Step = props => {
     switch (props.stepNow) {
       case 1:
         if (props.number > 1) {
-          locationState = {transition: 'slideleft', duration: 250};
+          locationState = {transition: 'slideleft', duration: 300};
         }
         break;
       case 2:
         if (props.number < 2) {
-          locationState = {transition: 'slideright', duration: 250};
+          locationState = {transition: 'slideright', duration: 300};
         }
         if (props.number > 2) {
-          locationState = {transition: 'slideleft', duration: 250};
+          locationState = {transition: 'slideleft', duration: 300};
         }
         break;
       case 3:
         if (props.number < 3) {
-          locationState = {transition: 'slideright', duration: 250};
+          locationState = {transition: 'slideright', duration: 300};
         }
         if (props.number > 3) {
-          locationState = {transition: 'slideleft', duration: 250};
+          locationState = {transition: 'slideleft', duration: 300};
         }
         break;
       case 4:
         if (props.number < 4) {
-          locationState = {transition: 'slideright', duration: 250};
+          locationState = {transition: 'slideright', duration: 300};
         }
         if (props.number > 4) {
-          locationState = {transition: 'slideleft', duration: 250};
+          locationState = {transition: 'slideleft', duration: 300};
         }
         break;
       case 5:
         if (props.number < 5) {
-          locationState = {transition: 'slideright', duration: 250};
+          locationState = {transition: 'slideright', duration: 300};
         }
         break;
       default:

@@ -39,7 +39,7 @@ const Preview = props => {
     ) {
       history.push({
         pathname: '/css',
-        state: {transition: 'slideleft', duration: 250},
+        state: {transition: 'slideleft', duration: 300},
       });
     } else if (!xHeightErrors.valid) {
       props.handleNoXHeight(xHeightErrors);

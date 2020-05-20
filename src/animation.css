@@ -5,7 +5,8 @@
 .slideleft-enter-active {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+  transition: opacity 210ms cubic-bezier(0, 0, 0.2, 1) 90ms,
+    transform 210ms cubic-bezier(0, 0, 0.2, 1) 90ms;
 }
 .slideleft-exit {
   position: absolute;
@@ -17,7 +18,8 @@
 .slideleft-exit-active {
   opacity: 0;
   transform: translateX(-100%) translateZ(-500px);
-  transition: opacity 250ms ease-out, transform 250ms ease-out;
+  transition: opacity 90ms cubic-bezier(0.4, 0, 1, 1),
+    transform 90ms cubic-bezier(0.4, 0, 1, 1);
 }
 
 .slideright-enter {
@@ -27,7 +29,8 @@
 .slideright-enter-active {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+  transition: opacity 210ms cubic-bezier(0, 0, 0.2, 1) 90ms,
+    transform 210ms cubic-bezier(0, 0, 0.2, 1) 90ms;
 }
 .slideright-exit {
   position: absolute;
@@ -39,5 +42,6 @@
 .slideright-exit-active {
   opacity: 0;
   transform: translateX(100%);
-  transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+  transition: opacity 90ms cubic-bezier(0.4, 0, 1, 1),
+    transform 90ms cubic-bezier(0.4, 0, 1, 1);
 }

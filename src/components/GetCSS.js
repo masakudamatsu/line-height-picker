@@ -85,7 +85,7 @@ p + p {
   const handleClick = () => {
     history.push({
       pathname: '/preview',
-      state: {transition: 'slideright', duration: 250},
+      state: {transition: 'slideright', duration: 300},
     });
   };
 
