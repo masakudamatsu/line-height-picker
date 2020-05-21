@@ -87,12 +87,11 @@ test('renders correctly', () => {
     }
 
     <div>
-      <a
+      <button
         class="sc-fznJRM c0"
-        href="/x-height"
       >
         Start demo
-      </a>
+      </button>
     </div>
   `);
 });
