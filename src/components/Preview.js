@@ -68,9 +68,9 @@ const Preview = props => {
               lineHeight={props.lineHeight}
               marginTop={props.marginTop}
             />
+            <Spacer height="2" />
           </Section>
           <Section>
-            <Spacer height="2" />
             <ButtonWithRightArrow type="submit" primary>
               Get CSS code
             </ButtonWithRightArrow>
