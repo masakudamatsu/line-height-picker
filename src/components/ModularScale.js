@@ -12,7 +12,7 @@ import {
   SectionTitleWrapper,
   Spacer,
 } from '../theme/style';
-import {Redirect} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 import store from '../helper/store';
 
@@ -21,7 +21,8 @@ const ModularScale = props => {
     store.set('modular-scale', 'visited');
   }, []);
 
-  const [redirect, setRedirect] = React.useState(false);
+  const history = useHistory();
+
   const handleSubmit = event => {
     event.preventDefault();
     const xHeightErrors = document.getElementById('x-height-for-ratio')
@@ -29,7 +30,10 @@ const ModularScale = props => {
     const lineHeightErrors = document.getElementById('line-height-for-ratio')
       .validity;
     if (xHeightErrors.valid && lineHeightErrors.valid) {
-      setRedirect(true);
+      history.push({
+        pathname: '/preview',
+        state: {transition: 'slideleft', duration: 300},
+      });
     } else if (!xHeightErrors.valid) {
       props.handleNoModularScale(xHeightErrors);
       document.getElementById('x-height-for-ratio').focus();
@@ -38,10 +42,6 @@ const ModularScale = props => {
       document.getElementById('line-height-for-ratio').focus();
     }
   };
-  if (redirect) {
-    return <Redirect push to="/preview" />;
-    // The push attribute keeps the browser history, instead of overriding, so the user can click the Back button in the browser to be back to the landing page. See https://reacttraining.com/react-router/web/api/Redirect/push-bool
-  }
   return (
     <>
       <main>

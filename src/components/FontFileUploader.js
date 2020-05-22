@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Redirect} from 'react-router';
+import {useHistory} from 'react-router';
 import {Button} from '../theme/style';
 import {fontFileExtensionsArray as acceptableFileExtensions} from '../helper/fontFileExtensions';
 
 const FontFileUploader = props => {
-  const [redirect, setRedirect] = React.useState(false);
+  const history = useHistory();
 
   const handleClick = event => {
     document.getElementById('hiddenFileInput').click();
@@ -20,7 +20,10 @@ const FontFileUploader = props => {
         await props.handleFontFile(fileUploaded);
         // Only if the user is on landing page, redirect to the x-height page
         if (props.home) {
-          setRedirect(true);
+          history.push({
+            pathname: '/x-height',
+            state: {transition: 'slideleft', duration: 300},
+          });
         }
       } catch (err) {
         console.log(err);
@@ -31,10 +34,6 @@ const FontFileUploader = props => {
       );
     }
   };
-  if (redirect) {
-    return <Redirect push to="/x-height" />;
-    // The push attribute keeps the browser history, instead of overriding, so the user can click the Back button in the browser to be back to the landing page. See https://reacttraining.com/react-router/web/api/Redirect/push-bool
-  }
   return (
     <>
       <Button data-testid="font-button" type="button" onClick={handleClick}>

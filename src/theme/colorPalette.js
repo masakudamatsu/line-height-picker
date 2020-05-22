@@ -1,16 +1,41 @@
+const darkest = 'hsl(0, 0%, 25%)';
+const disabled = 'hsl(0, 0%, 35%)'; // For disabled links on header navigation
+const middleDark = 'hsl(0, 0%, 36%)';
+const middle = 'hsl(0, 0%, 46%)'; // 1:4.5 contrast ratio to both pure black and pure white
+const footerText = 'hsl(0, 0%, 67%)';
+const visitedLink = 'hsl(0, 0%, 76%)';
+const brightest = 'hsl(0, 0%, 96%)';
+const pureBlack = 'hsl(0, 0%, 0%)';
+const alert = 'hsl(335, 71%, 64%)';
+
 const colorPalette = {
-  background: 'hsl(0, 0%, 25%)',
-  bodyText: 'hsl(0, 0%, 96%)',
+  background: darkest,
+  bodyText: brightest,
   button: {
-    default: 'hsl(0, 0%, 25%)',
-    focus: 'hsl(0, 0%, 46%)', // 1:4.5 contrast ratio to both pure black and pure white
+    default: darkest,
+    focus: middle,
   },
-  disabledText: 'hsl(0, 0%, 35%)',
-  displayBackground: 'hsl(0, 0%, 0%)',
-  footerText: 'hsl(0, 0%, 67%)',
-  errorText: 'hsl(335, 71%, 64%)',
-  inputField: 'hsl(0, 0%, 46%)', // 1:4.5 contrast ratio to both pure black and pure white
-  linkText: 'hsl(192, 90%, 50%)',
+  disabledText: disabled,
+  displayBackground: pureBlack,
+  footerText: footerText,
+  errorText: alert,
+  inputField: middle,
+  link: {
+    text: {
+      default: brightest,
+      visited: visitedLink,
+    },
+    underline: {
+      default: brightest,
+      visited: visitedLink,
+    },
+    background: {
+      fallback: middle,
+      fallbackVisited: middleDark,
+      hover: middle,
+      hoverVisited: middleDark,
+    },
+  },
 };
 
 export default colorPalette;

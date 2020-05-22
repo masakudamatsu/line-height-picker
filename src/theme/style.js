@@ -28,12 +28,70 @@ export const BringAttention = styled.b`
   font-weight: ${props => (props.yes ? '700' : 'inherit')};
 `;
 
-export const ExternalLink = styled.a`
-  color: ${colorPalette.bodyText};
+const linkTextStyle = css`
+  background: ${colorPalette.link.background.fallback}; /* Fallback */
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    ${colorPalette.link.underline.default} 50%,
+    ${colorPalette.link.underline.default}
+  );
+  background-position: 0
+    calc(
+      0.125em +
+        ${fontPalette.fontMetrics.capHeight /
+          fontPalette.fontMetrics.unitsPerEm}em
+    );
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  color: ${colorPalette.link.text.default};
+  cursor: pointer;
+  text-decoration: none;
+  text-shadow: 0.03em 0 ${colorPalette.background},
+    -0.03em 0 ${colorPalette.background}, 0 0.03em ${colorPalette.background},
+    0 -0.03em ${colorPalette.background}; /* following https://eager.io/blog/smarter-link-underlines/ */
+
+  &:focus,
+  &:hover {
+    background: ${colorPalette.link.background.hover};
+    display: inline-block; /* Disable text box cropping */
+    outline: none;
+    text-shadow: none;
+  }
+
+  &:active {
+    background: none; /* To make it blink */
+  }
+
+  &:visited {
+    background: ${colorPalette.link.background.fallbackVisited}; /* fallback */
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      ${colorPalette.link.underline.visited} 50%,
+      ${colorPalette.link.underline.visited}
+    );
+    color: ${colorPalette.link.text.visited};
+  }
+
+  &:visited:focus,
+  &:visited:hover {
+    background: ${colorPalette.link.background.hoverVisited};
+    display: inline-block; /* Disable text box cropping */
+    outline: none;
+    text-shadow: none;
+  }
+
+  &:visited:active {
+    background: none;
+  }
 `;
 
+export const ExternalLink = styled.a`
+  ${linkTextStyle}
+`;
 export const InternalLink = styled(Link)`
-  color: ${colorPalette.linkText};
+  ${linkTextStyle}
 `;
 
 export const Spacer = styled.div`
@@ -239,14 +297,23 @@ export const StepNumberBox = styled.li`
   }
 `;
 
-// https://github.com/styled-components/styled-components/issues/1198#issuecomment-425650423
-export const StepNumber = styled(({done, ...props}) => <Link {...props} />)`
+export const StepNumber = styled.a`
   color: ${props => (props.done ? 'currentColor' : colorPalette.disabledText)};
   cursor: ${props => (props.done ? 'pointer' : 'default')};
   font-size: ${(minFontSizePx / minScreenWidthPx) * 100}vw;
   text-decoration: none;
   @media (min-width: ${mediaQueryCutoff}px) {
     font-size: ${mediaQueryCutoff * (minFontSizePx / minScreenWidthPx)}px;
+  }
+
+  &:focus,
+  &:hover {
+    background: ${props => props.done && colorPalette.link.background.hover};
+    outline: none;
+  }
+
+  &:active {
+    background: none; /* To make it blink */
   }
 `;
 

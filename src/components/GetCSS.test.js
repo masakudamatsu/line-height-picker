@@ -339,12 +339,11 @@ test('renders correctly', () => {
             class="c3"
             height="2"
           />
-          <a
+          <button
             class="c7"
-            href="/preview"
           >
             Back
-          </a>
+          </button>
           <div
             class="c3"
             height="2"
