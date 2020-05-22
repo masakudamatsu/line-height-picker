@@ -38,7 +38,7 @@ export const ExternalLink = styled.a`
   );
   background-position: 0
     calc(
-      2px +
+      0.125em +
         ${fontPalette.fontMetrics.capHeight /
           fontPalette.fontMetrics.unitsPerEm}em
     );

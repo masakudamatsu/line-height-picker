@@ -35,7 +35,7 @@ test('renders correctly', () => {
     .c4 {
       background: hsl(0,0%,46%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,96%) 50%, hsl(0,0%,96%) );
-      background-position: 0 calc( 2px + 0.708em );
+      background-position: 0 calc( 0.125em + 0.708em );
       background-repeat: no-repeat;
       background-size: 100% 1px;
       color: inherit;
