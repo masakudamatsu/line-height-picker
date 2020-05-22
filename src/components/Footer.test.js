@@ -20,7 +20,7 @@ test('renders correctly', () => {
       cursor: pointer;
       -webkit-text-decoration: none;
       text-decoration: none;
-      text-shadow: 1px 1px hsl(0,0%,25%), 1px -1px hsl(0,0%,25%),-1px 1px hsl(0,0%,25%), -1px -1px hsl(0,0%,25%);
+      text-shadow: 0.03em 0 hsl(0,0%,25%), -0.03em 0 hsl(0,0%,25%),0 0.03em hsl(0,0%,25%), 0 -0.03em hsl(0,0%,25%);
     }
 
     .c1:focus,

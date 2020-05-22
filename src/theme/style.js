@@ -47,9 +47,9 @@ export const ExternalLink = styled.a`
   color: inherit;
   cursor: pointer;
   text-decoration: none;
-  text-shadow: 1px 1px ${colorPalette.background},
-    1px -1px ${colorPalette.background}, -1px 1px ${colorPalette.background},
-    -1px -1px ${colorPalette.background};
+  text-shadow: 0.03em 0 ${colorPalette.background},
+    -0.03em 0 ${colorPalette.background}, 0 0.03em ${colorPalette.background},
+    0 -0.03em ${colorPalette.background}; /* following https://eager.io/blog/smarter-link-underlines/ */
 
   &:focus,
   &:hover {
