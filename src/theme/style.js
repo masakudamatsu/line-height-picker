@@ -294,8 +294,7 @@ export const StepNumberBox = styled.li`
   }
 `;
 
-// https://github.com/styled-components/styled-components/issues/1198#issuecomment-425650423
-export const StepNumber = styled(({done, ...props}) => <Link {...props} />)`
+export const StepNumber = styled.a`
   color: ${props => (props.done ? 'currentColor' : colorPalette.disabledText)};
   cursor: ${props => (props.done ? 'pointer' : 'default')};
   font-size: ${(minFontSizePx / minScreenWidthPx) * 100}vw;
