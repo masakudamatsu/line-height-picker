@@ -28,7 +28,7 @@ export const BringAttention = styled.b`
   font-weight: ${props => (props.yes ? '700' : 'inherit')};
 `;
 
-export const ExternalLink = styled.a`
+const linkTextStyle = css`
   background: ${colorPalette.linkBackground}; /* Fallback */
   background: linear-gradient(
     to bottom,
@@ -87,8 +87,11 @@ export const ExternalLink = styled.a`
   }
 `;
 
+export const ExternalLink = styled.a`
+  ${linkTextStyle}
+`;
 export const InternalLink = styled(Link)`
-  color: ${colorPalette.linkText};
+  ${linkTextStyle}
 `;
 
 export const Spacer = styled.div`

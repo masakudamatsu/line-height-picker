@@ -12,7 +12,46 @@ test('renders correctly', () => {
   const {container} = render(<Error />);
   expect(container).toMatchInlineSnapshot(`
     .c0 {
-      color: hsl(192,90%,50%);
+      background: hsl(0,0%,46%);
+      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,96%) 50%, hsl(0,0%,96%) );
+      background-position: 0 calc( 0.125em + 0.708em );
+      background-repeat: no-repeat;
+      background-size: 100% 1px;
+      color: inherit;
+      cursor: pointer;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      text-shadow: 0.03em 0 hsl(0,0%,25%), -0.03em 0 hsl(0,0%,25%),0 0.03em hsl(0,0%,25%), 0 -0.03em hsl(0,0%,25%);
+    }
+
+    .c0:focus,
+    .c0:hover {
+      background: hsl(0,0%,46%);
+      display: inline-block;
+      outline: none;
+      text-shadow: none;
+    }
+
+    .c0:active {
+      background: none;
+    }
+
+    .c0:visited {
+      background: hsl(0,0%,46%);
+      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,76%) 50%, hsl(0,0%,76%) );
+      color: hsl(0,0%,76%);
+    }
+
+    .c0:visited:focus,
+    .c0:visited:hover {
+      background: hsl(0,0%,36%);
+      display: inline-block;
+      outline: none;
+      text-shadow: none;
+    }
+
+    .c0:visited:active {
+      background: none;
     }
 
     <div>
