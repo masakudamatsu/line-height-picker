@@ -302,6 +302,17 @@ export const StepNumber = styled.a`
   @media (min-width: ${mediaQueryCutoff}px) {
     font-size: ${mediaQueryCutoff * (minFontSizePx / minScreenWidthPx)}px;
   }
+
+  &:focus,
+  &:hover {
+    background: ${props =>
+      props.done && colorPalette.linkFocusBackground.default};
+    outline: none;
+  }
+
+  &:active {
+    background: none; /* To make it blink */
+  }
 `;
 
 // Landing Page

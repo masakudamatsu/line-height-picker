@@ -42,6 +42,15 @@ test('renders correctly', () => {
       text-decoration: none;
     }
 
+    .c1:focus,
+    .c1:hover {
+      outline: none;
+    }
+
+    .c1:active {
+      background: none;
+    }
+
     @media (min-width:875px) {
       .c0 {
         width: 87.5px;
