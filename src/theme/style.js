@@ -29,12 +29,12 @@ export const BringAttention = styled.b`
 `;
 
 const linkTextStyle = css`
-  background: ${colorPalette.linkBackground}; /* Fallback */
+  background: ${colorPalette.link.background.fallback}; /* Fallback */
   background: linear-gradient(
     to bottom,
     transparent 50%,
-    ${colorPalette.linkUnderline} 50%,
-    ${colorPalette.linkUnderline}
+    ${colorPalette.link.underline.default} 50%,
+    ${colorPalette.link.underline.default}
   );
   background-position: 0
     calc(
@@ -44,7 +44,7 @@ const linkTextStyle = css`
     );
   background-repeat: no-repeat;
   background-size: 100% 1px;
-  color: inherit;
+  color: ${colorPalette.link.text.default};
   cursor: pointer;
   text-decoration: none;
   text-shadow: 0.03em 0 ${colorPalette.background},
@@ -53,7 +53,7 @@ const linkTextStyle = css`
 
   &:focus,
   &:hover {
-    background: ${colorPalette.linkFocusBackground.default};
+    background: ${colorPalette.link.background.hover};
     display: inline-block; /* Disable text box cropping */
     outline: none;
     text-shadow: none;
@@ -64,19 +64,19 @@ const linkTextStyle = css`
   }
 
   &:visited {
-    background: ${colorPalette.linkBackground}; /* fallback */
+    background: ${colorPalette.link.background.fallbackVisited}; /* fallback */
     background: linear-gradient(
       to bottom,
       transparent 50%,
-      ${colorPalette.linkVisitedUnderline} 50%,
-      ${colorPalette.linkVisitedUnderline}
+      ${colorPalette.link.underline.visited} 50%,
+      ${colorPalette.link.underline.visited}
     );
-    color: ${colorPalette.linkVisitedText};
+    color: ${colorPalette.link.text.visited};
   }
 
   &:visited:focus,
   &:visited:hover {
-    background: ${colorPalette.linkFocusBackground.visited};
+    background: ${colorPalette.link.background.hoverVisited};
     display: inline-block; /* Disable text box cropping */
     outline: none;
     text-shadow: none;
@@ -308,8 +308,7 @@ export const StepNumber = styled.a`
 
   &:focus,
   &:hover {
-    background: ${props =>
-      props.done && colorPalette.linkFocusBackground.default};
+    background: ${props => props.done && colorPalette.link.background.hover};
     outline: none;
   }
 

@@ -16,7 +16,7 @@ test('renders correctly', () => {
       background-position: 0 calc( 0.125em + 0.708em );
       background-repeat: no-repeat;
       background-size: 100% 1px;
-      color: inherit;
+      color: hsl(0,0%,96%);
       cursor: pointer;
       -webkit-text-decoration: none;
       text-decoration: none;
@@ -36,7 +36,7 @@ test('renders correctly', () => {
     }
 
     .c1:visited {
-      background: hsl(0,0%,46%);
+      background: hsl(0,0%,36%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,76%) 50%, hsl(0,0%,76%) );
       color: hsl(0,0%,76%);
     }
