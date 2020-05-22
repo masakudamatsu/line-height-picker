@@ -12,7 +12,7 @@ test('renders correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c1 {
       background: hsl(0,0%,46%);
-      background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
+      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,96%) 50%, hsl(0,0%,96%) );
       background-position: 0 calc( 2px + 0.708em );
       background-repeat: no-repeat;
       background-size: 100% 1px;
@@ -37,7 +37,7 @@ test('renders correctly', () => {
 
     .c1:visited {
       background: hsl(0,0%,46%);
-      background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
+      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,76%) 50%, hsl(0,0%,76%) );
       color: hsl(0,0%,76%);
     }
 

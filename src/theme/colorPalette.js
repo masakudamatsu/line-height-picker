@@ -12,13 +12,13 @@ const colorPalette = {
   inputField: 'hsl(0, 0%, 46%)', // 1:4.5 contrast ratio to both pure black and pure white
   linkText: 'hsl(192, 90%, 50%)',
   linkBackground: 'hsl(0, 0%, 46%)',
-  linkUnderline: 'currentColor',
+  linkUnderline: 'hsl(0, 0%, 96%)',
   linkFocusBackground: {
     default: 'hsl(0, 0%, 46%)',
     visited: 'hsl(0, 0%, 36%)',
   },
   linkVisitedBackground: 'hsl(0, 0%, 36%)',
-  linkVisitedUnderline: 'currentColor',
+  linkVisitedUnderline: 'hsl(0, 0%, 76%)',
   linkVisitedText: 'hsl(0, 0%, 76%)',
 };
 
