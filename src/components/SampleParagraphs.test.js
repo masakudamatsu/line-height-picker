@@ -33,7 +33,46 @@ test('renders correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c4 {
-      color: hsl(0,0%,96%);
+      background: hsl(0,0%,46%);
+      background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
+      background-position: 0 calc( 2px + 0.708em );
+      background-repeat: no-repeat;
+      background-size: 100% 1px;
+      color: inherit;
+      cursor: pointer;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      text-shadow: 1px 1px hsl(0,0%,25%), 1px -1px hsl(0,0%,25%),-1px 1px hsl(0,0%,25%), -1px -1px hsl(0,0%,25%);
+    }
+
+    .c4:focus,
+    .c4:hover {
+      background: hsl(0,0%,46%);
+      display: inline-block;
+      outline: none;
+      text-shadow: none;
+    }
+
+    .c4:active {
+      background: none;
+    }
+
+    .c4:visited {
+      background: hsl(0,0%,46%);
+      background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
+      color: hsl(0,0%,76%);
+    }
+
+    .c4:visited:focus,
+    .c4:visited:hover {
+      background: hsl(0,0%,36%);
+      display: inline-block;
+      outline: none;
+      text-shadow: none;
+    }
+
+    .c4:visited:active {
+      background: none;
     }
 
     .c1 {

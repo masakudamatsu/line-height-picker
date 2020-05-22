@@ -29,7 +29,62 @@ export const BringAttention = styled.b`
 `;
 
 export const ExternalLink = styled.a`
-  color: ${colorPalette.bodyText};
+  background: ${colorPalette.linkBackground}; /* Fallback */
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    ${colorPalette.linkUnderline} 50%,
+    ${colorPalette.linkUnderline}
+  );
+  background-position: 0
+    calc(
+      2px +
+        ${fontPalette.fontMetrics.capHeight /
+          fontPalette.fontMetrics.unitsPerEm}em
+    );
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  text-shadow: 1px 1px ${colorPalette.background},
+    1px -1px ${colorPalette.background}, -1px 1px ${colorPalette.background},
+    -1px -1px ${colorPalette.background};
+
+  &:focus,
+  &:hover {
+    background: ${colorPalette.linkFocusBackground.default};
+    display: inline-block; /* Disable text box cropping */
+    outline: none;
+    text-shadow: none;
+  }
+
+  &:active {
+    background: none; /* To make it blink */
+  }
+
+  &:visited {
+    background: ${colorPalette.linkBackground}; /* fallback */
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      ${colorPalette.linkVisitedUnderline} 50%,
+      ${colorPalette.linkVisitedUnderline}
+    );
+    color: ${colorPalette.linkVisitedText};
+  }
+
+  &:visited:focus,
+  &:visited:hover {
+    background: ${colorPalette.linkFocusBackground.visited};
+    display: inline-block; /* Disable text box cropping */
+    outline: none;
+    text-shadow: none;
+  }
+
+  &:visited:active {
+    background: none;
+  }
 `;
 
 export const InternalLink = styled(Link)`
