@@ -96,7 +96,12 @@ const Step = props => {
 
   return (
     <StepNumberBox data-testid="StepNumberBox" now={props.now}>
-      <StepNumber onClick={handleClick} done={props.done}>
+      <StepNumber
+        href={internalURL ? `.${internalURL}` : ''}
+        onClick={handleClick}
+        done={props.done}
+        tabIndex={props.done ? '0' : '-1'}
+      >
         {props.number}
       </StepNumber>
     </StepNumberBox>

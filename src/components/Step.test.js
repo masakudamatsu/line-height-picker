@@ -62,6 +62,7 @@ test('renders correctly', () => {
         <a
           class="c1"
           href=""
+          tabindex="-1"
         >
           1
         </a>
@@ -90,6 +91,16 @@ test('sets the color to be currentColor if props.done is true', () => {
   expect(getByText(`${mockNumber}`)).toHaveStyle(`
     color: currentColor;
   `);
+});
+
+test('sets the tabindex attribute to be 0 if props.done is true', () => {
+  const {getByText} = render(<Step done number={mockNumber} />);
+  expect(getByText(`${mockNumber}`)).toHaveAttribute('tabindex', '0');
+});
+
+test('sets the tabindex attribute to be -1 if props.done is false', () => {
+  const {getByText} = render(<Step number={mockNumber} />);
+  expect(getByText(`${mockNumber}`)).toHaveAttribute('tabindex', '-1');
 });
 
 test('sets the color to be the one for disabled text if props.done is false', () => {
