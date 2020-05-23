@@ -54,12 +54,9 @@ test('renders correctly', () => {
     }
 
     .c0 {
-      background-color: hsl(0,0%,25%);
       max-width: 700px;
       padding-left: 12.857142857142858px;
       padding-right: 12.857142857142858px;
-      position: relative;
-      z-index: 2;
       border-top: 1px solid currentColor;
       color: hsl(0,0%,67%);
       font-size: 0.75rem;

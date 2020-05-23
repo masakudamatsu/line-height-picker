@@ -103,21 +103,15 @@ export const Spacer = styled.div`
 `;
 
 export const Section = styled.section`
-  background-color: ${colorPalette.background}; /* To hide cove lighting behind */
   max-width: ${maxLogoWidthPx}px;
-  padding-left: ${props =>
-    props.includeDisplay ? 0 : `${fontPalette.marginSide}px`};
-  padding-right: ${props =>
-    props.includeDisplay ? 0 : `${fontPalette.marginSide}px`};
-  position: relative;
-  z-index: ${props => (props.includeDisplay ? '1' : '2')};
+  padding-left: ${fontPalette.marginSide}px;
+  padding-right: ${fontPalette.marginSide}px;
   @media (min-width: ${mediaQueryCutoff}px) {
     margin: 0 auto;
   }
 `;
 
 export const SectionTitleWrapper = styled.div`
-  ${props => props.displayTop && coveLighting}
 }
 `;
 
@@ -125,10 +119,6 @@ export const SectionTitle = styled.h2`
   font-size: ${fontPalette.sectionTitle.fontSize.mobile}rem;
   font-weight: ${fontPalette.sectionTitle.fontWeight};
   line-height: ${fontPalette.sectionTitle.lineHeight};
-  padding-left: ${props =>
-    props.aboveDisplay ? `${fontPalette.marginSide}px` : 0};
-  padding-right: ${props =>
-    props.aboveDisplay ? `${fontPalette.marginSide}px` : 0};
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${fontPalette.sectionTitle.fontSize.desktop}rem;
   }
@@ -230,26 +220,6 @@ export const LinearLight = styled.div`
   width: 100%;
 `;
 
-// Cove lighting
-const coveLighting = css`
-  background-color: ${colorPalette.background};
-  position: relative;
-  &::before {
-    background: hsla(0, 0%, 100%, 0.9);
-    box-shadow: 0 0 10px 0 hsla(0, 0%, 100%, 0.9),
-      0 0 20px 0 hsla(0, 0%, 100%, 0.9), 0 0 40px 0 hsla(0, 0%, 100%, 0.9);
-    content: '';
-    height: 10px;
-    position: absolute;
-    ${props => props.displayTop && 'bottom: 1px;'}
-    ${props => props.displayBottom && 'top: 1px;'}
-    left: -${fontPalette.marginSide}px;
-    right: -${fontPalette.marginSide}px;
-    width: calc(100% + 2 * ${fontPalette.marginSide}px);
-    z-index: -1;
-  }
-`;
-
 // Logo
 
 // Calculate the Logo's margin-top property vaue
@@ -344,12 +314,11 @@ export const DescriptionWrapper = styled.p`
 // Font Name display
 export const UserDataDisplayWrapper = styled.div`
   align-items: center;
-  background: ${colorPalette.displayBackground};
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
   display: flex;
   height: auto;
   min-height: ${inputSize.height.mobile}px;
-  position: relative;
-  z-index: -2;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     min-height: ${inputSize.height.desktop}px;
   }
@@ -361,14 +330,13 @@ export const UserDataDisplay = styled.p`
     fontPalette.fontName.capHeight.mobile}rem;
   font-weight: ${props => props.fontWeight};
   line-height: ${fontPalette.fontName.lineHeight.mobile}rem;
-  padding: ${fontPalette.fontName.padding.mobile}rem ${fontPalette.marginSide}px;
+  padding: ${fontPalette.fontName.padding.mobile}rem 0;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${props =>
       (props.unitsPerEm / props.capHeight) *
       fontPalette.fontName.capHeight.desktop}rem;
     line-height: ${fontPalette.fontName.lineHeight.desktop}rem;
-    padding: ${fontPalette.fontName.padding.desktop}rem
-      ${fontPalette.marginSide}px;
+    padding: ${fontPalette.fontName.padding.desktop}rem 0;
   }
   /* Text Box Cropping parameters */
   &::before,
@@ -396,12 +364,7 @@ export const UserDataDisplay = styled.p`
 
 export const ButtonContainer = styled.div`
   max-width: ${maxLogoWidthPx}px;
-  padding-left: ${props =>
-    props.displayBottom ? `${fontPalette.marginSide}px` : 0};
-  padding-right: ${props =>
-    props.displayBottom ? `${fontPalette.marginSide}px` : 0};
   width: 100%;
-  ${props => props.displayBottom && coveLighting}
 `;
 
 export const Button = styled.button`

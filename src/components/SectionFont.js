@@ -15,10 +15,10 @@ import {
 
 const SectionFont = props => {
   return (
-    <Section includeDisplay>
-      <SectionTitleWrapper displayBelow displayTop>
+    <Section>
+      <SectionTitleWrapper>
         <Spacer height="3" />
-        <SectionTitle aboveDisplay>Font chosen:</SectionTitle>
+        <SectionTitle>Font chosen:</SectionTitle>
         <Spacer height="2" />
       </SectionTitleWrapper>
       <FontNameDisplay
@@ -30,7 +30,7 @@ const SectionFont = props => {
         fontWeight={props.fontWeight}
         unitsPerEm={props.unitsPerEm}
       />
-      <ButtonContainer displayBottom>
+      <ButtonContainer>
         <Spacer height="2" />
         <FontFileUploader
           handleFontFile={props.handleFontFile}

@@ -20,22 +20,19 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background: hsl(0,0%,0%);
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
       height: auto;
       min-height: 97.63392857142857px;
-      position: relative;
-      z-index: -2;
     }
 
     .c1 {
       font-family: Open Sans;
       font-size: NaNrem;
       line-height: 2.6785736250000003rem;
-      padding: 1.3058068660714293rem 12.857142857142858px;
+      padding: 1.3058068660714293rem 0;
     }
 
     .c1::before,
@@ -64,7 +61,7 @@ test('renders correctly', () => {
       .c1 {
         font-size: NaNrem;
         line-height: 3.1249968750000003rem;
-        padding: 1.5234328125000005rem 12.857142857142858px;
+        padding: 1.5234328125000005rem 0;
       }
     }
 

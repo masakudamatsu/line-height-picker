@@ -39,20 +39,15 @@ test('renders correctly', () => {
     }
 
     .c0 {
-      background-color: hsl(0,0%,25%);
       max-width: 700px;
       padding-left: 12.857142857142858px;
       padding-right: 12.857142857142858px;
-      position: relative;
-      z-index: 2;
     }
 
     .c2 {
       font-size: 1.47174375rem;
       font-weight: 300;
       line-height: 1;
-      padding-left: 0;
-      padding-right: 0;
     }
 
     .c2::before,
