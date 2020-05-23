@@ -1,9 +1,9 @@
 import React from 'react';
 import {ExternalLink, FooterWrapper} from '../theme/style';
 
-const Footer = () => {
+const Footer = props => {
   return (
-    <FooterWrapper as="footer" data-testid="footer">
+    <FooterWrapper as="footer" data-testid="footer" page404={props.page404}>
       <p>
         Designed and Coded by Masa Kudamatsu in 2020 (
         <ExternalLink href="https://github.com/masakudamatsu/line-height-picker">

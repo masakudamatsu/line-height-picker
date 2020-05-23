@@ -588,4 +588,11 @@ export const FooterWrapper = styled(Section)`
   font-size: 0.75rem;
   padding-bottom: 0.75rem;
   padding-top: 0.75rem;
+  position: ${props => (props.page404 ? 'absolute' : 'inherit')};
+  bottom: 0;
+  left: 0;
+`;
+
+export const FullScreenSpreader = styled.div`
+  height: 100vh;
 `;
