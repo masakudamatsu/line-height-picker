@@ -18,7 +18,7 @@ const Header = props => {
   let step3 = <Step number={3} stepNow={props.stepNow} />;
   let step4 = <Step number={4} stepNow={props.stepNow} />;
   let step5 = <Step number={5} stepNow={props.stepNow} />;
-  if (props.stepNow > 1) {
+  if (props.stepNow > 1 || store.get('home') === 'visited') {
     step1 = <Step number={1} done stepNow={props.stepNow} />;
   }
   if (props.stepNow > 2 || store.get('x-height') === 'visited') {

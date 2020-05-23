@@ -30,6 +30,9 @@ const Step = props => {
         break;
     }
   }
+  if (props.number === 1 && store.get('home') === 'visited') {
+    internalURL = '/';
+  }
   if (props.number === 2 && store.get('x-height') === 'visited') {
     internalURL = '/x-height';
   }
