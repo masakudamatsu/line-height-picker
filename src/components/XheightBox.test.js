@@ -204,7 +204,7 @@ test('renders correctly', () => {
         </label>
         <input
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-          class="sc-fzoXWK sc-fzpmMD c2"
+          class="sc-fzoNJl sc-fzoXWK c2"
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"
           inputmode="decimal"
@@ -224,7 +224,7 @@ test('renders correctly', () => {
         height="1"
       />
       <p
-        class="sc-AxmLO c5"
+        class="sc-Axmtr c5"
         data-testid="instruction-x-height"
         id="howManyDecimalPlacesAllowed"
       >
@@ -235,7 +235,7 @@ test('renders correctly', () => {
         height="2"
       />
       <p
-        class="sc-AxmLO c7"
+        class="sc-Axmtr c7"
         data-testid="error-message-x-height"
         id="rangeOfNumbersAllowed"
       >
