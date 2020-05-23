@@ -11,7 +11,6 @@ import {
   Form,
   Section,
   SectionTitle,
-  SectionTitleWrapper,
   Spacer,
 } from '../theme/style';
 
@@ -58,9 +57,7 @@ const Preview = props => {
         <Form noValidate onSubmit={handleSubmit}>
           <Section>
             <Spacer height="3" />
-            <SectionTitleWrapper>
-              <SectionTitle>Preview paragraphs</SectionTitle>
-            </SectionTitleWrapper>
+            <SectionTitle>Preview paragraphs</SectionTitle>
             <Spacer height="2" />
             <SampleParagraphs
               fontMetrics={props.fontMetrics}
@@ -78,9 +75,7 @@ const Preview = props => {
           </Section>
           <Section>
             <Spacer height="3" />
-            <SectionTitleWrapper aboveBodyText>
-              <SectionTitle>Line spacing</SectionTitle>
-            </SectionTitleWrapper>
+            <SectionTitle>Line spacing</SectionTitle>
             <Spacer height="2" />
             <ModularScaleBoxes
               xHeightRatio={props.xHeightRatio}
@@ -94,9 +89,7 @@ const Preview = props => {
           </Section>
           <Section>
             <Spacer height="3" />
-            <SectionTitleWrapper>
-              <SectionTitle>Text size</SectionTitle>
-            </SectionTitleWrapper>
+            <SectionTitle>Text size</SectionTitle>
             <Spacer height="2" />
             <XheightBox
               handleXHeightChange={props.handleXHeightChange}

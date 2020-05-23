@@ -111,10 +111,6 @@ export const Section = styled.section`
   }
 `;
 
-export const SectionTitleWrapper = styled.div`
-}
-`;
-
 export const SectionTitle = styled.h2`
   font-size: ${fontPalette.sectionTitle.fontSize.mobile}rem;
   font-weight: ${fontPalette.sectionTitle.fontWeight};

@@ -10,7 +10,6 @@ import {
   CodeSnippet,
   LinearLight,
   SectionTitle,
-  SectionTitleWrapper,
   Section,
   Spacer,
 } from '../theme/style';
@@ -95,9 +94,7 @@ p + p {
       <main>
         <Section>
           <Spacer height="3" />
-          <SectionTitleWrapper>
-            <SectionTitle>Get CSS</SectionTitle>
-          </SectionTitleWrapper>
+          <SectionTitle>Get CSS</SectionTitle>
           <Spacer height="2" />
           <LinearLight />
           <CodeSnippet>

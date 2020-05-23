@@ -8,7 +8,6 @@ import {
   Form,
   Section,
   SectionTitle,
-  SectionTitleWrapper,
   Spacer,
 } from '../theme/style';
 import {useHistory} from 'react-router-dom';
@@ -42,9 +41,7 @@ const Xheight = props => {
       <main>
         <Section>
           <Spacer height="3" />
-          <SectionTitleWrapper>
-            <SectionTitle>Setting text size</SectionTitle>
-          </SectionTitleWrapper>
+          <SectionTitle>Setting text size</SectionTitle>
           <Spacer height="2" />
           <Form noValidate onSubmit={handleSubmit}>
             <XheightBox

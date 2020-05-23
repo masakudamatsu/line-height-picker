@@ -10,18 +10,15 @@ import {
   LinearLight,
   Section,
   SectionTitle,
-  SectionTitleWrapper,
   Spacer,
 } from '../theme/style';
 
 const SectionFont = props => {
   return (
     <Section>
-      <SectionTitleWrapper>
-        <Spacer height="3" />
-        <SectionTitle>Font chosen:</SectionTitle>
-        <Spacer height="2" />
-      </SectionTitleWrapper>
+      <Spacer height="3" />
+      <SectionTitle>Font chosen:</SectionTitle>
+      <Spacer height="2" />
       <LinearLight />
       <FontNameDisplay
         ascender={props.ascender}

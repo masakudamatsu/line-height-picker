@@ -9,7 +9,6 @@ import {
   Form,
   Section,
   SectionTitle,
-  SectionTitleWrapper,
   Spacer,
 } from '../theme/style';
 import {useHistory} from 'react-router-dom';
@@ -47,9 +46,7 @@ const ModularScale = props => {
       <main>
         <Section>
           <Spacer height="3" />
-          <SectionTitleWrapper aboveBodyText>
-            <SectionTitle>Line spacing</SectionTitle>
-          </SectionTitleWrapper>
+          <SectionTitle>Line spacing</SectionTitle>
           <Spacer height="2" />
           <Form noValidate onSubmit={handleSubmit}>
             <ModularScaleBoxes
@@ -70,9 +67,7 @@ const ModularScale = props => {
         </Section>
         <Section>
           <Spacer height="3" />
-          <SectionTitleWrapper>
-            <SectionTitle>Text size</SectionTitle>
-          </SectionTitleWrapper>
+          <SectionTitle>Text size</SectionTitle>
           <Spacer height="2" />
           <XheightBox
             handleXHeightChange={props.handleXHeightChange}
