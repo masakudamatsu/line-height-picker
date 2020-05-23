@@ -51,6 +51,17 @@ const linkTextStyle = css`
     -0.03em 0 ${colorPalette.background}, 0 0.03em ${colorPalette.background},
     0 -0.03em ${colorPalette.background}; /* following https://eager.io/blog/smarter-link-underlines/ */
 
+  &:visited {
+    background: ${colorPalette.link.background.fallbackVisited}; /* fallback */
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      ${colorPalette.link.underline.visited} 50%,
+      ${colorPalette.link.underline.visited}
+    );
+    color: ${colorPalette.link.text.visited};
+  }
+
   &:focus,
   &:hover {
     background: ${colorPalette.link.background.hover};
@@ -61,17 +72,6 @@ const linkTextStyle = css`
 
   &:active {
     background: none; /* To make it blink */
-  }
-
-  &:visited {
-    background: ${colorPalette.link.background.fallbackVisited}; /* fallback */
-    background: linear-gradient(
-      to bottom,
-      transparent 50%,
-      ${colorPalette.link.underline.visited} 50%,
-      ${colorPalette.link.underline.visited}
-    );
-    color: ${colorPalette.link.text.visited};
   }
 
   &:visited:focus,

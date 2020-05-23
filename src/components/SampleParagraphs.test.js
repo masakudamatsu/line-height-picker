@@ -45,6 +45,12 @@ test('renders correctly', () => {
       text-shadow: 0.03em 0 hsl(0,0%,25%), -0.03em 0 hsl(0,0%,25%),0 0.03em hsl(0,0%,25%), 0 -0.03em hsl(0,0%,25%);
     }
 
+    .c4:visited {
+      background: hsl(0,0%,36%);
+      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,76%) 50%, hsl(0,0%,76%) );
+      color: hsl(0,0%,76%);
+    }
+
     .c4:focus,
     .c4:hover {
       background: hsl(0,0%,46%);
@@ -55,12 +61,6 @@ test('renders correctly', () => {
 
     .c4:active {
       background: none;
-    }
-
-    .c4:visited {
-      background: hsl(0,0%,36%);
-      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,76%) 50%, hsl(0,0%,76%) );
-      color: hsl(0,0%,76%);
     }
 
     .c4:visited:focus,
