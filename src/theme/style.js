@@ -314,8 +314,6 @@ export const DescriptionWrapper = styled.p`
 // Font Name display
 export const UserDataDisplayWrapper = styled.div`
   align-items: center;
-  border-bottom: 1px solid white;
-  border-top: 1px solid white;
   display: flex;
   height: auto;
   min-height: ${inputSize.height.mobile}px;

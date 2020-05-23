@@ -7,6 +7,7 @@ import FontNameDisplay from './FontNameDisplay';
 
 import {
   ButtonContainer,
+  LinearLight,
   Section,
   SectionTitle,
   SectionTitleWrapper,
@@ -21,6 +22,7 @@ const SectionFont = props => {
         <SectionTitle>Font chosen:</SectionTitle>
         <Spacer height="2" />
       </SectionTitleWrapper>
+      <LinearLight />
       <FontNameDisplay
         ascender={props.ascender}
         capHeight={props.capHeight}
@@ -30,6 +32,7 @@ const SectionFont = props => {
         fontWeight={props.fontWeight}
         unitsPerEm={props.unitsPerEm}
       />
+      <LinearLight />
       <ButtonContainer>
         <Spacer height="2" />
         <FontFileUploader
