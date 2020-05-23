@@ -196,8 +196,6 @@ export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
 `;
 
 export const CodeSnippet = styled.pre`
-  border-bottom: 1px solid ${colorPalette.inputField};
-  border-top: 1px solid ${colorPalette.inputField};
   padding-bottom: ${fontPalette.code.paddingBottom.mobile}rem;
   padding-top: ${fontPalette.code.paddingTop.mobile}rem;
   white-space: pre-wrap; /* https://developer.mozilla.org/en-US/docs/Web/CSS/white-space */
@@ -222,6 +220,14 @@ export const HiddenH1 = styled.h1`
   position: absolute;
   white-space: nowrap; /* See https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe */
   width: 1px;
+`;
+
+export const LinearLight = styled.div`
+  background: hsla(0, 0%, 100%, 0.9);
+  box-shadow: 0 0 10px 0 hsla(0, 0%, 100%, 0.9),
+    0 0 20px 0 hsla(0, 0%, 100%, 0.9), 0 0 40px 0 hsla(0, 0%, 100%, 0.9);
+  height: 1px;
+  width: 100%;
 `;
 
 // Cove lighting
@@ -596,8 +602,6 @@ export const ModularScaleInput = styled(NumberInput)`
 export const ModularScaleInputUnit = styled.span``;
 
 export const SampleParagraphWrapper = styled.div`
-  border-bottom: 1px solid ${colorPalette.inputField};
-  border-top: 1px solid ${colorPalette.inputField};
   font-family: ${props => props.fontMetrics.fontFamily};
   font-size: ${props => props.fontSize}px;
   font-weight: ${props => props.fontMetrics.fontWeight};

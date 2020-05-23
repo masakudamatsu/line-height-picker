@@ -71,7 +71,7 @@ test('renders correctly', () => {
       margin-top: -0.32378335949764525rem;
     }
 
-    .c8 {
+    .c9 {
       color: hsl(335,71%,64%);
       font-weight: 500;
       font-variant-numeric: oldstyle-nums;
@@ -80,81 +80,38 @@ test('renders correctly', () => {
       visibility: hidden;
     }
 
-    .c8::before,
-    .c8::after {
+    .c9::before,
+    .c9::after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c8::before {
+    .c9::before {
       margin-bottom: -0.2497057983222135rem;
     }
 
-    .c8::after {
+    .c9::after {
       margin-top: -0.39491772924843016rem;
     }
 
-    .c4 {
-      border-bottom: 1px solid hsl(0,0%,46%);
-      border-top: 1px solid hsl(0,0%,46%);
+    .c5 {
       padding-bottom: 1.3392868125000001rem;
       padding-top: 1.3392868125000001rem;
       white-space: pre-wrap;
     }
 
-    .c5 {
+    .c6 {
       font-family: 'Fedra Mono',monospace;
       font-weight: 400;
     }
 
-    .c6 {
-      -webkit-align-items: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      background-color: hsl(0,0%,25%);
-      border: none;
-      border-radius: 7.232142857142856px;
-      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
-      color: inherit;
-      cursor: pointer;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 1.5960767251815982rem;
-      font-weight: 500;
-      height: 65.08928571428571px;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      position: relative;
-      -webkit-text-decoration: none;
-      text-decoration: none;
-      width: 294.2857142857143px;
-    }
-
-    .c6:focus,
-    .c6:hover {
-      background-color: hsl(0,0%,46%);
-      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.5), 0 -6px 6px 0px hsla(0,0%,100%,0.5),6px 0 6px 0 hsla(0,0%,100%,0.5), 0 6px 6px 0 hsla(0,0%,1000%,0.5);
-      outline: none;
-    }
-
-    .c6:active {
-      background-color: hsl(0,0%,46%);
-      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,1000%,0.5);
-      outline: none;
-    }
-
-    .c6[disabled] {
-      box-shadow: none;
-      cursor: not-allowed;
-      opacity: 0.35;
+    .c4 {
+      background: hsla(0,0%,100%,0.9);
+      box-shadow: 0 0 10px 0 hsla(0,0%,100%,0.9), 0 0 20px 0 hsla(0,0%,100%,0.9),0 0 40px 0 hsla(0,0%,100%,0.9);
+      height: 1px;
+      width: 100%;
     }
 
     .c7 {
@@ -205,7 +162,55 @@ test('renders correctly', () => {
       opacity: 0.35;
     }
 
-    .c7::before {
+    .c8 {
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: hsl(0,0%,25%);
+      border: none;
+      border-radius: 7.232142857142856px;
+      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
+      color: inherit;
+      cursor: pointer;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 1.5960767251815982rem;
+      font-weight: 500;
+      height: 65.08928571428571px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      position: relative;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      width: 294.2857142857143px;
+    }
+
+    .c8:focus,
+    .c8:hover {
+      background-color: hsl(0,0%,46%);
+      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.5), 0 -6px 6px 0px hsla(0,0%,100%,0.5),6px 0 6px 0 hsla(0,0%,100%,0.5), 0 6px 6px 0 hsla(0,0%,1000%,0.5);
+      outline: none;
+    }
+
+    .c8:active {
+      background-color: hsl(0,0%,46%);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,1000%,0.5);
+      outline: none;
+    }
+
+    .c8[disabled] {
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+
+    .c8::before {
       content: '←';
       position: absolute;
       left: 14.464285714285712px;
@@ -236,13 +241,13 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
-      .c8::before {
+      .c9::before {
         margin-bottom: -0.29132305116758245rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
-      .c8::after {
+      .c9::after {
         margin-top: -0.46073697058150187rem;
       }
     }
@@ -252,18 +257,9 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
-      .c4 {
+      .c5 {
         padding-bottom: 1.5624984375000002rem;
         padding-top: 1.5624984375000002rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c6 {
-        border-radius: 8.4375;
-        font-size: 1.8620895127118644rem;
-        height: 75.9375px;
-        width: 343.33333333333337px;
       }
     }
 
@@ -277,7 +273,16 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
-      .c7::before {
+      .c8 {
+        border-radius: 8.4375;
+        font-size: 1.8620895127118644rem;
+        height: 75.9375px;
+        width: 343.33333333333337px;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c8::before {
         left: 16.875px;
       }
     }
@@ -304,11 +309,14 @@ test('renders correctly', () => {
             class="c3"
             height="2"
           />
-          <pre
+          <div
             class="c4"
+          />
+          <pre
+            class="c5"
           >
             <code
-              class="c5"
+              class="c6"
               data-testid="cssCode"
               id="cssCode"
             >
@@ -325,12 +333,15 @@ test('renders correctly', () => {
             </code>
           </pre>
           <div
+            class="c4"
+          />
+          <div
             class="c3"
             height="2"
           />
           <button
             aria-describedby="whatHappened howToResolve extraText"
-            class="c6"
+            class="c7"
             data-testid="copy-button"
           >
             Copy CSS code
@@ -340,7 +351,7 @@ test('renders correctly', () => {
             height="2"
           />
           <button
-            class="c7"
+            class="c8"
           >
             Back
           </button>
@@ -349,7 +360,7 @@ test('renders correctly', () => {
             height="2"
           />
           <p
-            class="sc-AxmLO c8"
+            class="sc-AxmLO c9"
             data-testid="whatHappened"
             id="whatHappened"
           >
@@ -360,7 +371,7 @@ test('renders correctly', () => {
             height="2"
           />
           <p
-            class="sc-AxmLO c8"
+            class="sc-AxmLO c9"
             data-testid="howToResolve"
             id="howToResolve"
           >

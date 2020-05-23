@@ -32,7 +32,7 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c4 {
+    .c5 {
       background: hsl(0,0%,46%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,96%) 50%, hsl(0,0%,96%) );
       background-position: 0 calc( 0.125em + 0.708em );
@@ -45,67 +45,72 @@ test('renders correctly', () => {
       text-shadow: 0.03em 0 hsl(0,0%,25%), -0.03em 0 hsl(0,0%,25%),0 0.03em hsl(0,0%,25%), 0 -0.03em hsl(0,0%,25%);
     }
 
-    .c4:visited {
+    .c5:visited {
       background: hsl(0,0%,36%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,76%) 50%, hsl(0,0%,76%) );
       color: hsl(0,0%,76%);
     }
 
-    .c4:focus,
-    .c4:hover {
+    .c5:focus,
+    .c5:hover {
       background: hsl(0,0%,46%);
       display: inline-block;
       outline: none;
       text-shadow: none;
     }
 
-    .c4:active {
+    .c5:active {
       background: none;
     }
 
-    .c4:visited:focus,
-    .c4:visited:hover {
+    .c5:visited:focus,
+    .c5:visited:hover {
       background: hsl(0,0%,36%);
       display: inline-block;
       outline: none;
       text-shadow: none;
     }
 
-    .c4:visited:active {
+    .c5:visited:active {
       background: none;
     }
 
-    .c1 {
+    .c2 {
       height: 0.8035714285714286rem;
       width: auto;
     }
 
-    .c2 {
+    .c3 {
       color: currentColor;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c2::before,
-    .c2::after {
+    .c3::before,
+    .c3::after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c2::before {
+    .c3::before {
       margin-bottom: -0.2497057983222135rem;
     }
 
-    .c2::after {
+    .c3::after {
       margin-top: -0.39491772924843016rem;
     }
 
     .c0 {
-      border-bottom: 1px solid hsl(0,0%,46%);
-      border-top: 1px solid hsl(0,0%,46%);
+      background: hsla(0,0%,100%,0.9);
+      box-shadow: 0 0 10px 0 hsla(0,0%,100%,0.9), 0 0 20px 0 hsla(0,0%,100%,0.9),0 0 40px 0 hsla(0,0%,100%,0.9);
+      height: 1px;
+      width: 100%;
+    }
+
+    .c1 {
       font-family: Roboto Slab;
       font-size: 18px;
       font-weight: 300;
@@ -114,22 +119,22 @@ test('renders correctly', () => {
       padding-top: 6.2279296875px;
     }
 
-    .c0 p + p {
+    .c1 p + p {
       margin: 23.467px 0 0 0;
     }
 
-    .c3 {
+    .c4 {
       font-style: normal;
     }
 
     @media only screen and (min-width:1024px) {
-      .c2::before {
+      .c3::before {
         margin-bottom: -0.29132305116758245rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
-      .c2::after {
+      .c3::after {
         margin-top: -0.46073697058150187rem;
       }
     }
@@ -138,6 +143,9 @@ test('renders correctly', () => {
       <blockquote>
         <div
           class="c0"
+        />
+        <div
+          class="c1"
           data-testid="sampleParagraphs"
           font-size="18"
         >
@@ -153,18 +161,21 @@ test('renders correctly', () => {
           </p>
         </div>
         <div
-          class="c1"
+          class="c0"
+        />
+        <div
+          class="c2"
           height="1"
         />
         <footer
-          class="c2"
+          class="c3"
         >
           ―Excerpt from “
           <cite
-            class="c3"
+            class="c4"
           >
             <a
-              class="c4"
+              class="c5"
               href="https://news.stanford.edu/2005/06/14/jobs-061505/"
             >
               2005 Stanford Commencement Address

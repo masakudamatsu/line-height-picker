@@ -8,6 +8,7 @@ import {
   ButtonWithLeftArrow,
   Code,
   CodeSnippet,
+  LinearLight,
   SectionTitle,
   SectionTitleWrapper,
   Section,
@@ -98,11 +99,13 @@ p + p {
             <SectionTitle>Get CSS</SectionTitle>
           </SectionTitleWrapper>
           <Spacer height="2" />
+          <LinearLight />
           <CodeSnippet>
             <Code data-testid="cssCode" id="cssCode">
               {cssOutput}
             </Code>
           </CodeSnippet>
+          <LinearLight />
           <Spacer height="2" />
           <Button
             data-testid="copy-button"

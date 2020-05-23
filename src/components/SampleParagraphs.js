@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   Cite,
   ExternalLink,
+  LinearLight,
   ParagraphOneRem,
   SampleParagraphWrapper,
   Spacer,
@@ -12,6 +13,7 @@ import {
 const SampleParagraphs = props => {
   return (
     <blockquote>
+      <LinearLight />
       <SampleParagraphWrapper
         data-testid="sampleParagraphs"
         fontMetrics={props.fontMetrics}
@@ -39,6 +41,7 @@ const SampleParagraphs = props => {
           have the wonderful typography that they do. …
         </p>
       </SampleParagraphWrapper>
+      <LinearLight />
       <Spacer height="1" />
       <ParagraphOneRem as="footer">
         ―Excerpt from “
