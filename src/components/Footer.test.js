@@ -62,6 +62,9 @@ test('renders correctly', () => {
       font-size: 0.75rem;
       padding-bottom: 0.75rem;
       padding-top: 0.75rem;
+      position: inherit;
+      bottom: 0;
+      left: 0;
     }
 
     @media (min-width:875px) {
