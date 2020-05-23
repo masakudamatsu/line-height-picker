@@ -415,7 +415,9 @@ function App() {
                       fontSubfamily={fontMetrics.fontSubfamily}
                       fontWeight={fontMetrics.fontWeight}
                       handleFontFile={handleFontFile}
-                      handleLineHeightRatioChange={handleLineHeightRatioChange}
+                          handleLineHeightRatioChange={
+                            handleLineHeightRatioChange
+                          }
                       handleNoModularScale={handleNoModularScale}
                       handleXHeightChange={handleXHeightChange}
                       handleXHeightRatioChange={handleXHeightRatioChange}
@@ -442,7 +444,9 @@ function App() {
                       fontSubfamily={fontMetrics.fontSubfamily}
                       fontWeight={fontMetrics.fontWeight}
                       handleFontFile={handleFontFile}
-                      handleLineHeightRatioChange={handleLineHeightRatioChange}
+                          handleLineHeightRatioChange={
+                            handleLineHeightRatioChange
+                          }
                       handleNoModularScale={handleNoModularScale}
                       handleNoXHeight={handleNoXHeight}
                       handleXHeightChange={handleXHeightChange}
