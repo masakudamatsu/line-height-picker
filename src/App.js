@@ -224,17 +224,6 @@ function App() {
     });
   };
 
-  const updateFontMetrics = newFontMetrics => {
-    setFontMetrics({
-      fontFamily: newFontMetrics.preferredFamily,
-      fontSubfamily: newFontMetrics.preferredSubfamily,
-      fontWeight: newFontMetrics.usWeightClass,
-      xHeight: newFontMetrics.sxHeight,
-      unitsPerEm: newFontMetrics.unitsPerEm,
-      capHeight: newFontMetrics.sCapHeight,
-    });
-  };
-
   const handleNoXHeight = errors => {
     if (errors.valueMissing) {
       setXHeightRangeError('true');
@@ -388,7 +377,6 @@ function App() {
                           handleDemo={handleDemo}
                           handleFontFile={handleFontFile}
                           fontFileError={fontFileError}
-                          updateFontMetrics={updateFontMetrics}
                         />
                         <Footer />
                       </Route>

@@ -24,10 +24,6 @@ export const NoWrap = styled.span`
   white-space: nowrap;
 `;
 
-export const BringAttention = styled.b`
-  font-weight: ${props => (props.yes ? '700' : 'inherit')};
-`;
-
 const linkTextStyle = css`
   background: ${colorPalette.link.background.fallback}; /* Fallback */
   background: linear-gradient(

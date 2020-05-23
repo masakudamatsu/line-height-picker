@@ -6,7 +6,6 @@ import {Logo, Section, Spacer} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import DemoStartButton from './DemoStartButton';
 import FontFileErrorMessage from './FontFileErrorMessage';
-import FontTableBox from './FontTableBox';
 
 import store from '../helper/store';
 
@@ -38,9 +37,6 @@ const Home = props => {
           />
           <Spacer height="3" />
         </Section>
-        <Section>
-          <FontTableBox updateFontMetrics={props.updateFontMetrics} />
-        </Section>
       </main>
     </>
   );
@@ -51,7 +47,6 @@ Home.propTypes = {
   handleDemo: PropTypes.func.isRequired,
   handleFontFile: PropTypes.func.isRequired,
   fontFileError: PropTypes.string.isRequired,
-  updateFontMetrics: PropTypes.func.isRequired,
 };
 
 export default Home;
