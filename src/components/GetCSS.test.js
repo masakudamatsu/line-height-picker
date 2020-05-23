@@ -291,15 +291,11 @@ test('renders correctly', () => {
             class="c1"
             height="3"
           />
-          <div
-            class=""
+          <h2
+            class="c2"
           >
-            <h2
-              class="c2"
-            >
-              Get CSS
-            </h2>
-          </div>
+            Get CSS
+          </h2>
           <div
             class="c3"
             height="2"
@@ -355,7 +351,7 @@ test('renders correctly', () => {
             height="2"
           />
           <p
-            class="sc-AxmLO c9"
+            class="sc-Axmtr c9"
             data-testid="whatHappened"
             id="whatHappened"
           >
@@ -366,7 +362,7 @@ test('renders correctly', () => {
             height="2"
           />
           <p
-            class="sc-AxmLO c9"
+            class="sc-Axmtr c9"
             data-testid="howToResolve"
             id="howToResolve"
           >
