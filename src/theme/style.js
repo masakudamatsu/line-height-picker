@@ -269,8 +269,11 @@ export const StepNumberBox = styled.li`
 export const StepNumber = styled.a`
   color: ${props => (props.done ? 'currentColor' : colorPalette.disabledText)};
   cursor: ${props => (props.done ? 'pointer' : 'default')};
-  font-size: ${(minFontSizePx / minScreenWidthPx) * 100}vw;
+  display: inline-block;
+  padding: ${fontPalette.xHeight.mobile / fontPalette.rem}rem 0;
+  text-align: center;
   text-decoration: none;
+  width: 100%;
   @media (min-width: ${mediaQueryCutoff}px) {
     font-size: ${mediaQueryCutoff * (minFontSizePx / minScreenWidthPx)}px;
   }
@@ -283,6 +286,27 @@ export const StepNumber = styled.a`
 
   &:active {
     background: none; /* To make it blink */
+  }
+
+  /* Text Box Cropping parameters */
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+  }
+  &::before {
+    margin-bottom: -${fontPalette.stepNumber.cropTopCap.mobile}rem;
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+      margin-bottom: -${fontPalette.stepNumber.cropTopCap.desktop}rem;
+    }
+  }
+  &::after {
+    margin-top: -${fontPalette.stepNumber.cropBottom.mobile}rem;
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+      margin-top: -${fontPalette.stepNumber.cropBottom.desktop}rem;
+    }
   }
 `;
 
