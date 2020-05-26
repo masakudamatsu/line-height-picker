@@ -11,9 +11,6 @@ import LogoImage from '../components/LogoImage';
 const minScreenWidthPx = 320;
 const minFontSizePx = 16;
 
-// Typography
-const fontWeight = 200;
-
 // Layout parameters
 const logoWidth = 0.8;
 const maxLogoWidthPx = 700;
@@ -96,6 +93,12 @@ export const Spacer = styled.div`
       Math.pow(fontPalette.modularScale, props.height)) /
     fontPalette.rem}rem;
   width: auto;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    height: ${props =>
+      (fontPalette.xHeight.desktop *
+        Math.pow(fontPalette.modularScale, props.height)) /
+      fontPalette.rem}rem;
+  }
 `;
 
 export const Section = styled.section`
@@ -108,11 +111,12 @@ export const Section = styled.section`
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: ${fontPalette.sectionTitle.fontSize.mobile}rem;
-  font-weight: ${fontPalette.sectionTitle.fontWeight};
-  line-height: ${fontPalette.sectionTitle.lineHeight};
+  font-family: ${fontPalette.fontFamily.sectionTitle};
+  font-size: ${fontPalette.fontSize.mobile.sectionTitle}rem;
+  font-weight: ${fontPalette.fontWeight.sectionTitle};
+  line-height: ${fontPalette.lineHeight.sectionTitle};
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    font-size: ${fontPalette.sectionTitle.fontSize.desktop}rem;
+    font-size: ${fontPalette.fontSize.desktop.sectionTitle}rem;
   }
   /* Text Box Cropping parameters */
   &::before,
@@ -140,7 +144,7 @@ export const ParagraphOneRem = styled.p`
   color: ${props =>
     props.errorText ? colorPalette.errorText : 'currentColor'};
   font-weight: ${props =>
-    props.errorText ? fontPalette.alertText.fontWeight : 'inherit'};
+    props.errorText ? fontPalette.fontWeight.alertText : 'inherit'};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
 
@@ -167,8 +171,8 @@ export const ParagraphOneRem = styled.p`
 `;
 
 export const AlertMessage = styled(ParagraphOneRem)`
-  font-family: ${fontPalette.alertText.fontFamily};
-  font-weight: ${fontPalette.alertText.fontWeight};
+  font-family: ${fontPalette.fontFamily.alertText};
+  font-weight: ${fontPalette.fontWeight.alertText};
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
   }
@@ -189,8 +193,8 @@ export const CodeSnippet = styled.pre`
 `;
 
 export const Code = styled.code`
-  font-family: ${fontPalette.code.fontFamily};
-  font-weight: ${fontPalette.code.fontWeight};
+  font-family: ${fontPalette.fontFamily.code};
+  font-weight: ${fontPalette.fontWeight.code};
 `;
 
 export const HiddenH1 = styled.h1`
@@ -270,12 +274,15 @@ export const StepNumber = styled.a`
   color: ${props => (props.done ? 'currentColor' : colorPalette.disabledText)};
   cursor: ${props => (props.done ? 'pointer' : 'default')};
   display: inline-block;
+  font-family: ${fontPalette.fontFamily.stepNumber};
+  font-size: ${fontPalette.fontSize.mobile.stepNumber}rem;
+  font-weight: ${fontPalette.fontWeight.stepNumber};
   padding: ${fontPalette.xHeight.mobile / fontPalette.rem}rem 0;
   text-align: center;
   text-decoration: none;
   width: 100%;
   @media (min-width: ${mediaQueryCutoff}px) {
-    font-size: ${mediaQueryCutoff * (minFontSizePx / minScreenWidthPx)}px;
+    font-size: ${fontPalette.fontSize.desktop.stepNumber}rem;
   }
 
   &:focus,
@@ -312,19 +319,15 @@ export const StepNumber = styled.a`
 
 // Landing Page
 
-// Font-size for description
-const descriptionFontSize = 2.5;
-const descriptionFontSizeBelowCutoff =
-  (16 * descriptionFontSize) / mediaQueryCutoff;
-
 export const DescriptionWrapper = styled.p`
-  font-size: ${descriptionFontSizeBelowCutoff * 100}vw;
-  font-weight: ${fontWeight};
+  font-family: ${fontPalette.fontFamily.landingPage};
+  font-size: ${fontPalette.fontSize.mobile.landingPage}rem;
+  font-weight: ${fontPalette.fontWeight.landingPage};
   margin: 0;
   text-indent: -1px;
   width: 100%;
-  @media (min-width: ${mediaQueryCutoff}px) {
-    font-size: ${descriptionFontSize}rem;
+  @media (min-width: ${fontPalette.mediaQueryCutoff}px) {
+    font-size: ${fontPalette.fontSize.desktop.landingPage}rem;
   }
 `;
 
@@ -393,9 +396,9 @@ export const Button = styled.button`
   color: inherit;
   cursor: pointer;
   display: flex;
-  font-family: ${fontPalette.button.fontFamily};
+  font-family: ${fontPalette.fontFamily.button};
   font-size: ${buttonSize.fontSize.mobile}rem;
-  font-weight: ${fontPalette.button.fontWeight};
+  font-weight: ${fontPalette.fontWeight.button};
   height: ${buttonSize.height.mobile}px;
   justify-content: center;
   position: relative;
@@ -492,8 +495,9 @@ export const Input = styled.input.attrs(props => ({
   border: 2px solid ${colorPalette.inputField};
   border-radius: 4px;
   color: ${colorPalette.bodyText};
-  font-family: ${fontPalette.code.fontFamily};
-  font-size: ${fontPalette.inputNumber.fontSize.mobile}rem;
+  font-family: ${fontPalette.fontFamily.inputNumber};
+  font-size: ${fontPalette.fontSize.mobile.inputNumber}rem;
+  font-weight: ${fontPalette.fontWeight.inputNumber};
   height: 100%;
   line-height: 1;
   padding-left: ${inputSize.paddingSidePx - 4}px; /* optical adjustmnet */
@@ -514,7 +518,7 @@ export const Input = styled.input.attrs(props => ({
   }
 
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    font-size: ${fontPalette.inputNumber.fontSize.desktop}rem;
+    font-size: ${fontPalette.fontSize.desktop.inputNumber}rem;
     padding-top: ${inputSize.extraTopPaddingToCenterAlignRem.desktop +
       inputSize.labelTextCapHeightRem.desktop +
       0.5}rem; /* fallback for Opera Mini */
@@ -606,12 +610,17 @@ export const Cite = styled.cite`
 export const FooterWrapper = styled(Section)`
   border-top: 1px solid currentColor;
   color: ${colorPalette.footerText};
-  font-size: 0.75rem;
+  font-family: ${fontPalette.fontFamily.footer};
+  font-size: ${fontPalette.fontSize.mobile.footer}rem;
+  font-weight: ${fontPalette.fontWeight.footer};
   padding-bottom: 0.75rem;
   padding-top: 0.75rem;
   position: ${props => (props.page404 ? 'absolute' : 'inherit')};
   bottom: 0;
   left: 0;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    font-size: ${fontPalette.fontSize.desktop.footer}rem;
+  }
 `;
 
 export const FullScreenSpreader = styled.div`

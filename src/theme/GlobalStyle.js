@@ -287,10 +287,10 @@ progress {
 body {
   background-color: ${colorPalette.background}; /* Set the background color here so swiping the screen won't reveal the white part. */
   color: ${colorPalette.bodyText};
-  font-family: ${fontPalette.bodyText.fontFamily};
-  font-size: ${fontPalette.bodyText.fontSize.mobile}rem;
-  font-weight: ${fontPalette.bodyText.fontWeight};
-  line-height: ${fontPalette.bodyText.lineHeight};
+  font-family: ${fontPalette.fontFamily.bodyText};
+  font-size: ${fontPalette.fontSize.mobile.bodyText}rem;
+  font-weight: ${fontPalette.fontWeight.bodyText};
+  line-height: ${fontPalette.lineHeight.bodyText};
   /* Enable Opentype features */
   font-kerning: normal;
   font-variant-ligatures: common-ligatures contextual;
@@ -299,7 +299,7 @@ body {
 
 @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
   body {
-    font-size: ${fontPalette.bodyText.fontSize.desktop}rem;
+    font-size: ${fontPalette.fontSize.desktop.bodyText}rem;
   }
 }
 `;

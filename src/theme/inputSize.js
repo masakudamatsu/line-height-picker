@@ -49,8 +49,8 @@ const inputSize = {
   labelTopFallbackPx: labelPaddingTopPx, // For IE and Opera Mini
   paddingSidePx: paddingSidePx,
   extraTopPaddingToCenterAlignRem: {
-    mobile: getExtraTopPadding(fontPalette.inputNumber.fontSize.mobile),
-    desktop: getExtraTopPadding(fontPalette.inputNumber.fontSize.desktop),
+    mobile: getExtraTopPadding(fontPalette.fontSize.mobile.inputNumber),
+    desktop: getExtraTopPadding(fontPalette.fontSize.desktop.inputNumber),
   },
   labelTextCapHeightRem: labelTextHeightInRem,
   suffixBottomPx: {
