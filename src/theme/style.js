@@ -167,6 +167,7 @@ export const ParagraphOneRem = styled.p`
 `;
 
 export const AlertMessage = styled(ParagraphOneRem)`
+  font-family: ${fontPalette.alertText.fontFamily};
   font-weight: ${fontPalette.alertText.fontWeight};
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {

@@ -153,7 +153,9 @@ const fontNamePaddingInRem = {
 // Font CSS property value
 const fontPalette = {
   alertText: {
-    fontWeight: 500,
+    fontFamily:
+      "'Fedra Sans 3',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    fontWeight: 300,
     paddingBottom: {
       mobile: getBottomPaddingInRem(
         xHeightPx.mobile * (lineHeightRatio.paragraph - xHeightRatio),
