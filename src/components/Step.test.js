@@ -37,9 +37,15 @@ test('renders correctly', () => {
     .c1 {
       color: hsl(0,0%,35%);
       cursor: default;
-      font-size: 5vw;
+      display: inline-block;
+      font-family: 'Fedra Mono 2',monospace;
+      font-size: 1.1349878934624698rem;
+      font-weight: 300;
+      padding: 0.5357142857142857rem 0;
+      text-align: center;
       -webkit-text-decoration: none;
       text-decoration: none;
+      width: 100%;
     }
 
     .c1:focus,
@@ -51,6 +57,22 @@ test('renders correctly', () => {
       background: none;
     }
 
+    .c1::before,
+    .c1::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c1::before {
+      margin-bottom: -0.2497064679662893rem;
+    }
+
+    .c1::after {
+      margin-top: -0.39491839889250596rem;
+    }
+
     @media (min-width:875px) {
       .c0 {
         width: 87.5px;
@@ -59,7 +81,19 @@ test('renders correctly', () => {
 
     @media (min-width:875px) {
       .c1 {
-        font-size: 43.75px;
+        font-size: 1.3241525423728815rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c1::before {
+        margin-bottom: -0.2913238324175823rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c1::after {
+        margin-top: -0.46073775183150173rem;
       }
     }
 
