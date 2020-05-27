@@ -71,9 +71,10 @@ test('renders correctly', () => {
     }
 
     .c2 {
+      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.47174375rem;
       font-weight: 300;
-      line-height: 1;
+      line-height: 1.092001092001092;
     }
 
     .c2::before,
@@ -85,11 +86,11 @@ test('renders correctly', () => {
     }
 
     .c2::before {
-      margin-bottom: -0.10596546310832025rem;
+      margin-bottom: -0.17366647918121136rem;
     }
 
     .c2::after {
-      margin-top: -0.32378335949764525rem;
+      margin-top: -0.3914843755705364rem;
     }
 
     .c4 {
@@ -108,11 +109,23 @@ test('renders correctly', () => {
     }
 
     .c4::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497064679662893rem;
     }
 
     .c4::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.39491839889250596rem;
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c1 {
+        height: 2.109375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c3 {
+        height: 1.40625rem;
+      }
     }
 
     @media (min-width:875px) {
@@ -129,25 +142,25 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c2::before {
-        margin-bottom: -0.12362637362637363rem;
+        margin-bottom: -0.20261074862637368rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c2::after {
-        margin-top: -0.37774725274725274rem;
+        margin-top: -0.4567316277472528rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c4::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913238324175823rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c4::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.46073775183150173rem;
       }
     }
 

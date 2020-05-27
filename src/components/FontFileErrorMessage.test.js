@@ -19,7 +19,7 @@ test('renders correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       color: hsl(335,71%,64%);
-      font-weight: 500;
+      font-weight: 300;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
@@ -33,22 +33,22 @@ test('renders correctly', () => {
     }
 
     .c0::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497064679662893rem;
     }
 
     .c0::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.39491839889250596rem;
     }
 
     @media only screen and (min-width:1024px) {
       .c0::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913238324175823rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c0::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.46073775183150173rem;
       }
     }
 

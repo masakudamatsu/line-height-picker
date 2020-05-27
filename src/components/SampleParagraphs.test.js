@@ -96,11 +96,11 @@ test('renders correctly', () => {
     }
 
     .c3::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497064679662893rem;
     }
 
     .c3::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.39491839889250596rem;
     }
 
     .c0 {
@@ -128,14 +128,20 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
+      .c2 {
+        height: 0.9375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
       .c3::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913238324175823rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c3::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.46073775183150173rem;
       }
     }
 

@@ -15,16 +15,17 @@ test('renders correctly', () => {
     }
 
     .c0 {
-      font-size: 4.571428571428571vw;
-      font-weight: 200;
+      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 1.47174375rem;
+      font-weight: 300;
       margin: 0;
       text-indent: -1px;
       width: 100%;
     }
 
-    @media (min-width:875px) {
+    @media (min-width:1024pxpx) {
       .c0 {
-        font-size: 2.5rem;
+        font-size: 1.71703125rem;
       }
     }
 

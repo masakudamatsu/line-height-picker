@@ -45,9 +45,10 @@ test('renders correctly', () => {
     }
 
     .c2 {
+      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.47174375rem;
       font-weight: 300;
-      line-height: 1;
+      line-height: 1.092001092001092;
     }
 
     .c2::before,
@@ -59,19 +60,20 @@ test('renders correctly', () => {
     }
 
     .c2::before {
-      margin-bottom: -0.10596546310832025rem;
+      margin-bottom: -0.17366647918121136rem;
     }
 
     .c2::after {
-      margin-top: -0.32378335949764525rem;
+      margin-top: -0.3914843755705364rem;
     }
 
     .c9 {
       color: hsl(335,71%,64%);
-      font-weight: 500;
+      font-weight: 300;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
-      font-weight: 500;
+      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-weight: 300;
       visibility: hidden;
     }
 
@@ -84,22 +86,22 @@ test('renders correctly', () => {
     }
 
     .c9::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497064679662893rem;
     }
 
     .c9::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.39491839889250596rem;
     }
 
     .c5 {
-      padding-bottom: 1.3392868125000001rem;
-      padding-top: 1.3392868125000001rem;
+      padding-bottom: 1.3392881517881516rem;
+      padding-top: 1.3392881517881516rem;
       white-space: pre-wrap;
     }
 
     .c6 {
-      font-family: 'Fedra Mono',monospace;
-      font-weight: 400;
+      font-family: 'Fedra Mono 2',monospace;
+      font-weight: 300;
     }
 
     .c4 {
@@ -124,7 +126,7 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.5960767251815982rem;
       font-weight: 500;
       height: 65.08928571428571px;
@@ -172,7 +174,7 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.5960767251815982rem;
       font-weight: 500;
       height: 65.08928571428571px;
@@ -211,6 +213,18 @@ test('renders correctly', () => {
       left: 14.464285714285712px;
     }
 
+    @media only screen and (min-width:1024px) {
+      .c1 {
+        height: 2.109375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c3 {
+        height: 1.40625rem;
+      }
+    }
+
     @media (min-width:875px) {
       .c0 {
         margin: 0 auto;
@@ -225,25 +239,25 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c2::before {
-        margin-bottom: -0.12362637362637363rem;
+        margin-bottom: -0.20261074862637368rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c2::after {
-        margin-top: -0.37774725274725274rem;
+        margin-top: -0.4567316277472528rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c9::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913238324175823rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c9::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.46073775183150173rem;
       }
     }
 
@@ -253,8 +267,8 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c5 {
-        padding-bottom: 1.5624984375000002rem;
-        padding-top: 1.5624984375000002rem;
+        padding-bottom: 1.5625rem;
+        padding-top: 1.5625rem;
       }
     }
 
@@ -351,7 +365,7 @@ test('renders correctly', () => {
             height="2"
           />
           <p
-            class="sc-Axmtr c9"
+            class="sc-AxheI c9"
             data-testid="whatHappened"
             id="whatHappened"
           >
@@ -362,7 +376,7 @@ test('renders correctly', () => {
             height="2"
           />
           <p
-            class="sc-Axmtr c9"
+            class="sc-AxheI c9"
             data-testid="howToResolve"
             id="howToResolve"
           >

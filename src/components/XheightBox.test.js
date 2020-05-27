@@ -39,7 +39,8 @@ test('renders correctly', () => {
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
-      font-weight: 500;
+      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-weight: 300;
       visibility: hidden;
     }
 
@@ -52,11 +53,11 @@ test('renders correctly', () => {
     }
 
     .c7::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497064679662893rem;
     }
 
     .c7::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.39491839889250596rem;
     }
 
     .c0 {
@@ -88,15 +89,15 @@ test('renders correctly', () => {
     }
 
     .c5::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497064679662893rem;
     }
 
     .c5::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.39491839889250596rem;
     }
 
     .c5::before {
-      margin-bottom: -0.40865399298469385rem;
+      margin-bottom: -0.4086546626287697rem;
     }
 
     .c2 {
@@ -104,8 +105,9 @@ test('renders correctly', () => {
       border: 2px solid hsl(0,0%,46%);
       border-radius: 4px;
       color: hsl(0,0%,96%);
-      font-family: 'Fedra Mono',monospace;
+      font-family: 'Fedra Mono 2',monospace;
       font-size: 2.553722760290557rem;
+      font-weight: 300;
       height: 100%;
       line-height: 1;
       padding-left: 12px;
@@ -133,14 +135,26 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
+      .c4 {
+        height: 0.9375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c6 {
+        height: 1.40625rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
       .c7::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913238324175823rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c7::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.46073775183150173rem;
       }
     }
 
@@ -162,19 +176,19 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c5::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913238324175823rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c5::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.46073775183150173rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c5::before {
-        margin-bottom: -0.47676261160714284rem;
+        margin-bottom: -0.47676339285714275rem;
       }
     }
 
@@ -204,7 +218,7 @@ test('renders correctly', () => {
         </label>
         <input
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-          class="sc-fzoNJl sc-fzoXWK c2"
+          class="sc-fzoyTs sc-fzoNJl c2"
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"
           inputmode="decimal"
@@ -224,7 +238,7 @@ test('renders correctly', () => {
         height="1"
       />
       <p
-        class="sc-Axmtr c5"
+        class="sc-AxheI c5"
         data-testid="instruction-x-height"
         id="howManyDecimalPlacesAllowed"
       >
@@ -235,7 +249,7 @@ test('renders correctly', () => {
         height="2"
       />
       <p
-        class="sc-Axmtr c7"
+        class="sc-AxheI c7"
         data-testid="error-message-x-height"
         id="rangeOfNumbersAllowed"
       >

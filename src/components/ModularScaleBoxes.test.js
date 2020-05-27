@@ -52,11 +52,11 @@ test('renders correctly', () => {
     }
 
     .c0::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497064679662893rem;
     }
 
     .c0::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.39491839889250596rem;
     }
 
     .c8 {
@@ -64,7 +64,8 @@ test('renders correctly', () => {
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
-      font-weight: 500;
+      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-weight: 300;
       visibility: hidden;
     }
 
@@ -77,11 +78,11 @@ test('renders correctly', () => {
     }
 
     .c8::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497064679662893rem;
     }
 
     .c8::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.39491839889250596rem;
     }
 
     .c4 {
@@ -108,15 +109,15 @@ test('renders correctly', () => {
     }
 
     .c6::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497064679662893rem;
     }
 
     .c6::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.39491839889250596rem;
     }
 
     .c6::before {
-      margin-bottom: -0.40865399298469385rem;
+      margin-bottom: -0.4086546626287697rem;
     }
 
     .c2 {
@@ -146,8 +147,9 @@ test('renders correctly', () => {
       border: 2px solid hsl(0,0%,46%);
       border-radius: 4px;
       color: hsl(0,0%,96%);
-      font-family: 'Fedra Mono',monospace;
+      font-family: 'Fedra Mono 2',monospace;
       font-size: 2.553722760290557rem;
+      font-weight: 300;
       height: 100%;
       line-height: 1;
       padding-left: 12px;
@@ -166,26 +168,38 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
+      .c1 {
+        height: 0.9375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c7 {
+        height: 1.40625rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
       .c0::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913238324175823rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c0::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.46073775183150173rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c8::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913238324175823rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c8::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.46073775183150173rem;
       }
     }
 
@@ -201,19 +215,19 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c6::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913238324175823rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c6::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.46073775183150173rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c6::before {
-        margin-bottom: -0.47676261160714284rem;
+        margin-bottom: -0.47676339285714275rem;
       }
     }
 
@@ -245,7 +259,7 @@ test('renders correctly', () => {
         class="c2"
       >
         <div
-          class="sc-fzqNqU c3"
+          class="sc-fzqARJ c3"
         >
           <label
             class="c4"
@@ -255,7 +269,7 @@ test('renders correctly', () => {
           </label>
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-            class="sc-fzoNJl sc-fzoXWK c5"
+            class="sc-fzoyTs sc-fzoNJl c5"
             data-testid="x-height-for-ratio"
             id="x-height-for-ratio"
             inputmode="decimal"
@@ -271,7 +285,7 @@ test('renders correctly', () => {
           to
         </span>
         <div
-          class="sc-fzqNqU c3"
+          class="sc-fzqARJ c3"
         >
           <label
             class="c4"
@@ -281,7 +295,7 @@ test('renders correctly', () => {
           </label>
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-            class="sc-fzoNJl sc-fzoXWK c5"
+            class="sc-fzoyTs sc-fzoNJl c5"
             data-testid="line-height-for-ratio"
             id="line-height-for-ratio"
             inputmode="decimal"
