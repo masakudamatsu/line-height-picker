@@ -373,7 +373,7 @@ export const UserDataDisplay = styled.p`
   &::after {
     margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-top: -${fontPalette.sectionTitle.cropBottom.desktop}rem;
+      margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
     }
   }
 `;

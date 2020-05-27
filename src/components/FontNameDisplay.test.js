@@ -73,7 +73,7 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c1::after {
-        margin-top: -0.4567316277472528rem;
+        margin-top: -NaNrem;
       }
     }
 
