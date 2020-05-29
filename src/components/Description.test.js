@@ -16,16 +16,16 @@ test('renders correctly', () => {
 
     .c0 {
       font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 1.47174375rem;
+      font-size: 1.4717rem;
       font-weight: 300;
       margin: 0;
       text-indent: -1px;
       width: 100%;
     }
 
-    @media (min-width:1024pxpx) {
+    @media only screen and (min-width:1024px) {
       .c0 {
-        font-size: 1.71703125rem;
+        font-size: 1.7170rem;
       }
     }
 

@@ -2,8 +2,9 @@ import fontPalette from './fontPalette';
 
 const minimumScreenWidth = 320;
 const buttonHeight = {
-  mobile: Math.pow(fontPalette.modularScale, 5) * fontPalette.xHeight.mobile,
-  desktop: Math.pow(fontPalette.modularScale, 5) * fontPalette.xHeight.desktop,
+  mobile: Math.pow(fontPalette.modularScale, 5) * fontPalette.xHeight.mobile.px,
+  desktop:
+    Math.pow(fontPalette.modularScale, 5) * fontPalette.xHeight.desktop.px,
 };
 
 const getButtonMetrics = scale => {
@@ -33,7 +34,7 @@ const buttonPaddingSide = getButtonMetrics(8 / 18);
 const buttonWidthMobile = minimumScreenWidth - fontPalette.marginSide * 2;
 const buttonWidthDesktop =
   buttonWidthMobile *
-  (fontPalette.xHeight.desktop / fontPalette.xHeight.mobile);
+  (fontPalette.xHeight.desktop.rem / fontPalette.xHeight.mobile.rem);
 const buttonWidth = {
   mobile: buttonWidthMobile,
   desktop: buttonWidthDesktop,

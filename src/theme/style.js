@@ -89,15 +89,13 @@ export const InternalLink = styled(Link)`
 
 export const Spacer = styled.div`
   height: ${props =>
-    (fontPalette.xHeight.mobile *
-      Math.pow(fontPalette.modularScale, props.height)) /
-    fontPalette.rem}rem;
+    fontPalette.xHeight.mobile.rem *
+    Math.pow(fontPalette.modularScale, props.height)}rem;
   width: auto;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     height: ${props =>
-      (fontPalette.xHeight.desktop *
-        Math.pow(fontPalette.modularScale, props.height)) /
-      fontPalette.rem}rem;
+      fontPalette.xHeight.desktop.rem *
+      Math.pow(fontPalette.modularScale, props.height)}rem;
   }
 `;
 
@@ -127,15 +125,15 @@ export const SectionTitle = styled.h2`
     width: 0;
   }
   &::before {
-    margin-bottom: -${fontPalette.sectionTitle.cropTopCap.mobile}rem;
+    margin-bottom: -${fontPalette.textCrop.topCap.mobile.sectionTitle}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-bottom: -${fontPalette.sectionTitle.cropTopCap.desktop}rem;
+      margin-bottom: -${fontPalette.textCrop.topCap.desktop.sectionTitle}rem;
     }
   }
   &::after {
-    margin-top: -${fontPalette.sectionTitle.cropBottom.mobile}rem;
+    margin-top: -${fontPalette.textCrop.bottom.mobile.sectionTitle}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-top: -${fontPalette.sectionTitle.cropBottom.desktop}rem;
+      margin-top: -${fontPalette.textCrop.bottom.desktop.sectionTitle}rem;
     }
   }
 `;
@@ -143,10 +141,20 @@ export const SectionTitle = styled.h2`
 export const ParagraphOneRem = styled.p`
   color: ${props =>
     props.errorText ? colorPalette.errorText : 'currentColor'};
+  font-size: ${props =>
+    props.errorText
+      ? `${fontPalette.fontSize.mobile.alertText}rem`
+      : 'inherit'};
   font-weight: ${props =>
     props.errorText ? fontPalette.fontWeight.alertText : 'inherit'};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    font-size: ${props =>
+      props.errorText
+        ? `${fontPalette.fontSize.desktop.alertText}rem`
+        : 'inherit'};
+  }
 
   /* Text Box Cropping */
   &::before,
@@ -157,24 +165,26 @@ export const ParagraphOneRem = styled.p`
     width: 0;
   }
   &::before {
-    margin-bottom: -${fontPalette.bodyText.cropTopCap.mobile}rem;
+    margin-bottom: -${fontPalette.textCrop.topCap.mobile.bodyText}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-bottom: -${fontPalette.bodyText.cropTopCap.desktop}rem;
+      margin-bottom: -${fontPalette.textCrop.topCap.desktop.bodyText}rem;
     }
   }
   &::after {
-    margin-top: -${fontPalette.bodyText.cropBottom.mobile}rem;
+    margin-top: -${fontPalette.textCrop.bottom.mobile.bodyText}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-top: -${fontPalette.bodyText.cropBottom.desktop}rem;
+      margin-top: -${fontPalette.textCrop.bottom.desktop.bodyText}rem;
     }
   }
 `;
 
 export const AlertMessage = styled(ParagraphOneRem)`
   font-family: ${fontPalette.fontFamily.alertText};
+  font-size: ${fontPalette.fontSize.mobile.alertText}rem;
   font-weight: ${fontPalette.fontWeight.alertText};
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    font-size: ${fontPalette.fontSize.desktop.alertText}rem;
   }
 `;
 
@@ -265,7 +275,7 @@ export const StepNumberBox = styled.li`
   flex-direction: column;
   justify-content: flex-start;
   width: ${numberBoxWidth * 100}vw;
-  @media (min-width: ${mediaQueryCutoff}px) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     width: ${mediaQueryCutoff * numberBoxWidth}px;
   }
 `;
@@ -277,12 +287,14 @@ export const StepNumber = styled.a`
   font-family: ${fontPalette.fontFamily.stepNumber};
   font-size: ${fontPalette.fontSize.mobile.stepNumber}rem;
   font-weight: ${fontPalette.fontWeight.stepNumber};
-  padding: ${fontPalette.xHeight.mobile / fontPalette.rem}rem 0;
+  line-height: ${fontPalette.lineHeight.stepNumber};
+  padding: ${fontPalette.xHeight.mobile.rem}rem 0;
   text-align: center;
   text-decoration: none;
   width: 100%;
-  @media (min-width: ${mediaQueryCutoff}px) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${fontPalette.fontSize.desktop.stepNumber}rem;
+    padding: ${fontPalette.xHeight.desktop.rem}rem 0;
   }
 
   &:focus,
@@ -304,15 +316,15 @@ export const StepNumber = styled.a`
     width: 0;
   }
   &::before {
-    margin-bottom: -${fontPalette.stepNumber.cropTopCap.mobile}rem;
+    margin-bottom: -${fontPalette.textCrop.topCap.mobile.stepNumber}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-bottom: -${fontPalette.stepNumber.cropTopCap.desktop}rem;
+      margin-bottom: -${fontPalette.textCrop.topCap.desktop.stepNumber}rem;
     }
   }
   &::after {
-    margin-top: -${fontPalette.stepNumber.cropBottom.mobile}rem;
+    margin-top: -${fontPalette.textCrop.bottom.mobile.stepNumber}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-top: -${fontPalette.stepNumber.cropBottom.desktop}rem;
+      margin-top: -${fontPalette.textCrop.bottom.desktop.stepNumber}rem;
     }
   }
 `;
@@ -326,7 +338,7 @@ export const DescriptionWrapper = styled.p`
   margin: 0;
   text-indent: -1px;
   width: 100%;
-  @media (min-width: ${fontPalette.mediaQueryCutoff}px) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${fontPalette.fontSize.desktop.landingPage}rem;
   }
 `;
@@ -344,17 +356,23 @@ export const UserDataDisplayWrapper = styled.div`
 export const UserDataDisplay = styled.p`
   font-family: ${props => props.fontFamily};
   font-size: ${props =>
-    (props.unitsPerEm / props.capHeight) *
-    fontPalette.fontName.capHeight.mobile}rem;
+    (
+      (props.unitsPerEm / props.capHeight) *
+      fontPalette.fontName.capHeight.mobile
+    ).toFixed(4)}rem;
   font-weight: ${props => props.fontWeight};
-  line-height: ${fontPalette.fontName.lineHeight.mobile}rem;
-  padding: ${fontPalette.fontName.padding.mobile}rem 0;
+  line-height: ${fontPalette.fontName.lineHeightRem.mobile.toFixed(4)}rem;
+  padding-bottom: ${fontPalette.fontName.paddingBottom.mobile.toFixed(4)}rem;
+  padding-top: ${fontPalette.fontName.paddingTop.mobile.toFixed(4)}rem;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
     font-size: ${props =>
-      (props.unitsPerEm / props.capHeight) *
-      fontPalette.fontName.capHeight.desktop}rem;
-    line-height: ${fontPalette.fontName.lineHeight.desktop}rem;
-    padding: ${fontPalette.fontName.padding.desktop}rem 0;
+      (
+        (props.unitsPerEm / props.capHeight) *
+        fontPalette.fontName.capHeight.desktop
+      ).toFixed(4)}rem;
+    line-height: ${fontPalette.fontName.lineHeightRem.desktop.toFixed(4)}rem;
+    padding-bottom: ${fontPalette.fontName.paddingBottom.desktop.toFixed(4)}rem;
+    padding-top: ${fontPalette.fontName.paddingTop.desktop.toFixed(4)}rem;
   }
   /* Text Box Cropping parameters */
   &::before,
@@ -537,9 +555,9 @@ export const InputInstruction = styled(ParagraphOneRem)`
   text-align: right;
   /* Crop top of text box to x-height, not cap-height */
   &::before {
-    margin-bottom: -${fontPalette.bodyText.cropTopX.mobile}rem;
+    margin-bottom: -${fontPalette.textCrop.topX.mobile.bodyText}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-bottom: -${fontPalette.bodyText.cropTopX.desktop}rem;
+      margin-bottom: -${fontPalette.textCrop.topX.desktop.bodyText}rem;
     }
   }
 `;

@@ -46,9 +46,9 @@ test('renders correctly', () => {
 
     .c2 {
       font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 1.47174375rem;
+      font-size: 1.4717rem;
       font-weight: 300;
-      line-height: 1.092001092001092;
+      line-height: 1.0920;
     }
 
     .c2::before,
@@ -60,19 +60,21 @@ test('renders correctly', () => {
     }
 
     .c2::before {
-      margin-bottom: -0.17366647918121136rem;
+      margin-bottom: -0.1737rem;
     }
 
     .c2::after {
-      margin-top: -0.3914843755705364rem;
+      margin-top: -0.3915rem;
     }
 
     .c9 {
       color: hsl(335,71%,64%);
+      font-size: 0.9812rem;
       font-weight: 300;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 0.9812rem;
       font-weight: 300;
       visibility: hidden;
     }
@@ -86,16 +88,16 @@ test('renders correctly', () => {
     }
 
     .c9::before {
-      margin-bottom: -0.2497064679662893rem;
+      margin-bottom: -0.2497rem;
     }
 
     .c9::after {
-      margin-top: -0.39491839889250596rem;
+      margin-top: -0.3949rem;
     }
 
     .c5 {
-      padding-bottom: 1.3392881517881516rem;
-      padding-top: 1.3392881517881516rem;
+      padding-bottom: 1.3392857142857142rem;
+      padding-top: 1.3392857142857142rem;
       white-space: pre-wrap;
     }
 
@@ -233,36 +235,44 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c2 {
-        font-size: 1.71703125rem;
+        font-size: 1.7170rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c2::before {
-        margin-bottom: -0.20261074862637368rem;
+        margin-bottom: -0.2026rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c2::after {
-        margin-top: -0.4567316277472528rem;
+        margin-top: -0.4567rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c9 {
+        font-size: 1.1447rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c9::before {
-        margin-bottom: -0.2913238324175823rem;
+        margin-bottom: -0.2913rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c9::after {
-        margin-top: -0.46073775183150173rem;
+        margin-top: -0.4607rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
-
+      .c9 {
+        font-size: 1.1447rem;
+      }
     }
 
     @media only screen and (min-width:1024px) {

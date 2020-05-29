@@ -60,7 +60,7 @@ test('renders correctly', () => {
       border-top: 1px solid currentColor;
       color: hsl(0,0%,67%);
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 0.65410625rem;
+      font-size: 0.6541rem;
       font-weight: 300;
       padding-bottom: 0.75rem;
       padding-top: 0.75rem;
@@ -77,7 +77,7 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c0 {
-        font-size: rem;
+        font-size: 0.7631rem;
       }
     }
 

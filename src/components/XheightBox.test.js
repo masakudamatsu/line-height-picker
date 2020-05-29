@@ -36,10 +36,12 @@ test('renders correctly', () => {
 
     .c7 {
       color: currentColor;
+      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 0.9812rem;
       font-weight: 300;
       visibility: hidden;
     }
@@ -53,11 +55,11 @@ test('renders correctly', () => {
     }
 
     .c7::before {
-      margin-bottom: -0.2497064679662893rem;
+      margin-bottom: -0.2497rem;
     }
 
     .c7::after {
-      margin-top: -0.39491839889250596rem;
+      margin-top: -0.3949rem;
     }
 
     .c0 {
@@ -74,6 +76,7 @@ test('renders correctly', () => {
 
     .c5 {
       color: currentColor;
+      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -89,15 +92,15 @@ test('renders correctly', () => {
     }
 
     .c5::before {
-      margin-bottom: -0.2497064679662893rem;
+      margin-bottom: -0.2497rem;
     }
 
     .c5::after {
-      margin-top: -0.39491839889250596rem;
+      margin-top: -0.3949rem;
     }
 
     .c5::before {
-      margin-bottom: -0.4086546626287697rem;
+      margin-bottom: -0.4087rem;
     }
 
     .c2 {
@@ -106,13 +109,13 @@ test('renders correctly', () => {
       border-radius: 4px;
       color: hsl(0,0%,96%);
       font-family: 'Fedra Mono 2',monospace;
-      font-size: 2.553722760290557rem;
+      font-size: 2.5537rem;
       font-weight: 300;
       height: 100%;
       line-height: 1;
       padding-left: 12px;
-      padding-top: 1.5726134488997685rem;
-      padding-top: calc( 0.37795096852300236rem + 0.6946624803767661rem + 8px );
+      padding-top: 1.5726100803767662rem;
+      padding-top: calc( 0.3779476rem + 0.6946624803767661rem + 8px );
       text-align: center;
       padding-right: 43.2px;
       padding-right: calc( 32px + 0.7rem );
@@ -147,19 +150,27 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
+      .c7 {
+        font-size: inherit;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
       .c7::before {
-        margin-bottom: -0.2913238324175823rem;
+        margin-bottom: -0.2913rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c7::after {
-        margin-top: -0.46073775183150173rem;
+        margin-top: -0.4607rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
-
+      .c7 {
+        font-size: 1.1447rem;
+      }
     }
 
     @media only screen and (min-width:1024px) {
@@ -175,28 +186,34 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
+      .c5 {
+        font-size: inherit;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
       .c5::before {
-        margin-bottom: -0.2913238324175823rem;
+        margin-bottom: -0.2913rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c5::after {
-        margin-top: -0.46073775183150173rem;
+        margin-top: -0.4607rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c5::before {
-        margin-bottom: -0.47676339285714275rem;
+        margin-bottom: -0.4768rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c2 {
-        font-size: 2.979343220338983rem;
-        padding-top: 1.75138235704973rem;
-        padding-top: calc( 0.4409427966101695rem + 0.8104395604395604rem + 8px );
+        font-size: 2.9793rem;
+        padding-top: 1.7513759604395605rem;
+        padding-top: calc( 0.44093639999999995rem + 0.8104395604395604rem + 8px );
       }
     }
 
