@@ -1,9 +1,3 @@
-import {
-  getFontSize,
-  getLineHeight,
-  getMarginTop,
-} from '../helper/cssGenerators';
-
 // # of pixels for 1rem
 const oneRemPx = 16;
 
@@ -23,333 +17,314 @@ const xHeightPx = {
 };
 const modularScale = 1.5;
 
-// Calculate CSS font property values for paragraph text
-const fontSize = xHeightPx => {
-  const fontSizeInPx = getFontSize(fontMetricsFedraSans, xHeightPx);
-  return fontSizeInPx / oneRemPx;
+// font-size scale, all in rem
+
+const xHeightRem = {
+  mobile: {bodyText: xHeightPx.mobile / oneRemPx},
+  desktop: {bodyText: xHeightPx.desktop / oneRemPx},
 };
 
-// Font size for section titles
-const sectionTitleXHeightPx = {
-  mobile: xHeightPx.mobile * modularScale,
-  desktop: xHeightPx.desktop * modularScale,
-};
+xHeightRem.mobile.alertText = xHeightRem.mobile.bodyText;
+xHeightRem.desktop.alertText = xHeightRem.desktop.bodyText;
 
-// Line-height
-const xHeightRatio = 1;
-const lineHeightRatio = {
-  paragraph: xHeightRatio * (1 + modularScale),
-};
-const lineHeight = {
-  paragraph: getLineHeight(
-    fontMetricsFedraSans,
-    xHeightPx.desktop,
-    xHeightRatio,
-    lineHeightRatio.paragraph,
-  ),
-  sectionTitle: 1, // Temporarily
-};
-const getLineHeightInRem = (xHeightInPx, lineHeight) => {
-  const fontSizeInRem = fontSize(xHeightInPx);
-  return fontSizeInRem * lineHeight;
-};
+xHeightRem.mobile.footer =
+  xHeightRem.mobile.bodyText * Math.pow(modularScale, -1);
+xHeightRem.desktop.footer =
+  xHeightRem.desktop.bodyText * Math.pow(modularScale, -1);
 
-// Text box cropping parameters
-const getTextBoxTopToCapTopInRem = (xHeightInPx, lineHeight) => {
-  const textBoxTopToCapTopInXHeight =
-    (fontMetricsFedraSans.ascender - fontMetricsFedraSans.capHeight) /
-    fontMetricsFedraSans.xHeight;
-  const extraSpaceByLineHeight = getLineHeightInRem(
-    xHeightInPx,
-    (lineHeight - 1) / 2,
-  );
+xHeightRem.mobile.sectionTitle =
+  xHeightRem.mobile.bodyText * Math.pow(modularScale, 1);
+xHeightRem.desktop.sectionTitle =
+  xHeightRem.desktop.bodyText * Math.pow(modularScale, 1);
+
+xHeightRem.mobile.landingPage =
+  xHeightRem.mobile.bodyText * Math.pow(modularScale, 1);
+xHeightRem.desktop.landingPage =
+  xHeightRem.desktop.bodyText * Math.pow(modularScale, 1);
+
+const getFontSizeFromXHeight = xHeightRem => {
   return (
-    (xHeightInPx * textBoxTopToCapTopInXHeight) / oneRemPx +
-    extraSpaceByLineHeight
+    xHeightRem *
+    (fontMetricsFedraSans.unitsPerEm / fontMetricsFedraSans.xHeight)
   );
 };
 
-const getTextBoxTopToXTopInRem = (xHeightInPx, lineHeight) => {
-  const textBoxTopToXTopInXHeight =
-    (fontMetricsFedraSans.ascender - fontMetricsFedraSans.xHeight) /
-    fontMetricsFedraSans.xHeight;
-  const extraSpaceByLineHeight = getLineHeightInRem(
-    xHeightInPx,
-    (lineHeight - 1) / 2,
-  );
+const capHeightRem = {
+  mobile: {
+    fontName: xHeightRem.mobile.bodyText * Math.pow(modularScale, 3),
+    inputNumber: xHeightRem.mobile.bodyText * Math.pow(modularScale, 3),
+    stepNumber: xHeightRem.mobile.bodyText * Math.pow(modularScale, 1),
+  },
+  desktop: {
+    fontName: xHeightRem.desktop.bodyText * Math.pow(modularScale, 3),
+    inputNumber: xHeightRem.desktop.bodyText * Math.pow(modularScale, 3),
+    stepNumber: xHeightRem.desktop.bodyText * Math.pow(modularScale, 1),
+  },
+};
+
+const getFontSizeFromCapHeight = capHeightRem => {
   return (
-    (xHeightInPx * textBoxTopToXTopInXHeight) / oneRemPx +
-    extraSpaceByLineHeight
+    capHeightRem *
+    (fontMetricsFedraSans.unitsPerEm / fontMetricsFedraSans.capHeight)
   );
 };
 
-const marginTop = xHeightInPx => {
-  const marginTopPx = getMarginTop(
-    fontMetricsFedraSans,
-    xHeightInPx,
-    xHeightRatio,
-    lineHeightRatio.paragraph,
-  );
-  return marginTopPx / oneRemPx;
+// line-height
+
+const lineHeightRem = {
+  bodyText: {
+    mobile: xHeightRem.mobile.bodyText * (1 + modularScale),
+    desktop: xHeightRem.desktop.bodyText * (1 + modularScale),
+  },
+  sectionTitle: {
+    mobile: xHeightRem.mobile.bodyText * (modularScale * 2),
+    desktop: xHeightRem.desktop.bodyText * (modularScale * 2),
+  },
+  stepNumber: {
+    mobile: getFontSizeFromCapHeight(capHeightRem.mobile.stepNumber),
+    desktop: getFontSizeFromCapHeight(capHeightRem.desktop.stepNumber),
+  },
 };
 
-// Distance from baseline to the text box bottom
-const getBaselineToTextBoxBottomInRem = (xHeightInPx, lineHeight) => {
-  const descenderToXHeightRatio =
-    fontMetricsFedraSans.descender / fontMetricsFedraSans.xHeight;
-  const extraSpaceByLineHeight = getLineHeightInRem(
-    xHeightInPx,
-    (lineHeight - 1) / 2,
-  );
-  return (
-    (xHeightInPx * descenderToXHeightRatio) / oneRemPx + extraSpaceByLineHeight
-  );
+lineHeightRem.code = lineHeightRem.bodyText;
+lineHeightRem.fontName = {
+  mobile: lineHeightRem.bodyText.mobile * 2,
+  desktop: lineHeightRem.bodyText.desktop * 2,
 };
 
-// Line-spacing below boxes
-const getLineSpacingBelowBoxInRem = xHeightPx => {
-  const fontSizeInRem = fontSize(xHeightPx);
-  const targetHeightInPx = xHeightPx;
-  const textBoxTopToLowercaseTop =
-    (fontMetricsFedraSans.ascender - fontMetricsFedraSans.xHeight) /
-    fontMetricsFedraSans.unitsPerEm;
-  return targetHeightInPx / oneRemPx - fontSizeInRem * textBoxTopToLowercaseTop;
+const lineHeightCss = {
+  bodyText:
+    lineHeightRem.bodyText.desktop /
+    getFontSizeFromXHeight(xHeightRem.desktop.bodyText),
+  sectionTitle:
+    lineHeightRem.sectionTitle.desktop /
+    getFontSizeFromXHeight(xHeightRem.desktop.sectionTitle),
+  stepNumber:
+    lineHeightRem.stepNumber.desktop /
+    getFontSizeFromCapHeight(capHeightRem.desktop.stepNumber),
 };
-
-// Input number font size
-const mapCapHeightToFontSize = capHeight => {
-  const fontSizeInPx =
-    capHeight *
-    (fontMetricsFedraSans.unitsPerEm / fontMetricsFedraSans.capHeight);
-  return fontSizeInPx / oneRemPx;
-};
-
-// Section title bottom padding
-const getBottomPaddingInRem = (targetInPx, fontSizeInRem) => {
-  const targetInRem = targetInPx / oneRemPx;
+const getTextCropBottom = (fontSizeRem, lineHeightRem) => {
   const descenderToFontSizeRatio =
     fontMetricsFedraSans.descender / fontMetricsFedraSans.unitsPerEm;
-  const descenderInRem = descenderToFontSizeRatio * fontSizeInRem;
-  return targetInRem - descenderInRem;
+  const extraSpaceByLineHeight = (lineHeightRem - fontSizeRem) / 2;
+  return fontSizeRem * descenderToFontSizeRatio + extraSpaceByLineHeight;
 };
-
-// Font name
-const fontNameCapHeight = xHeightInPx => {
-  return (xHeightInPx * Math.pow(modularScale, 3)) / oneRemPx;
+const getTextCropTopCap = (fontSizeRem, lineHeightRem) => {
+  const textCropTopCapToFontSizeRatio =
+    (fontMetricsFedraSans.ascender - fontMetricsFedraSans.capHeight) /
+    fontMetricsFedraSans.unitsPerEm;
+  const extraSpaceByLineHeight = (lineHeightRem - fontSizeRem) / 2;
+  return fontSizeRem * textCropTopCapToFontSizeRatio + extraSpaceByLineHeight;
 };
-const fontNameLineHeightInRem = {
-  mobile: 2 * getLineHeightInRem(xHeightPx.mobile, lineHeight.paragraph),
-  desktop: 2 * getLineHeightInRem(xHeightPx.desktop, lineHeight.paragraph),
-};
-const fontNamePaddingInRem = {
-  mobile:
-    (fontNameLineHeightInRem.mobile - fontNameCapHeight(xHeightPx.mobile)) *
-    modularScale,
-  desktop:
-    (fontNameLineHeightInRem.desktop - fontNameCapHeight(xHeightPx.desktop)) *
-    modularScale,
+const getTextCropTopX = (xHeightRem, lineHeightRem) => {
+  const textCropTopXToXHeightRatio =
+    (fontMetricsFedraSans.ascender - fontMetricsFedraSans.xHeight) /
+    fontMetricsFedraSans.xHeight;
+  const extraSpaceByLineHeight =
+    (lineHeightRem - getFontSizeFromXHeight(xHeightRem)) / 2;
+  return xHeightRem * textCropTopXToXHeightRatio + extraSpaceByLineHeight;
 };
 
 // Font CSS property value
 const fontPalette = {
-  alertText: {
-    fontWeight: 500,
-    paddingBottom: {
-      mobile: getBottomPaddingInRem(
-        xHeightPx.mobile * (lineHeightRatio.paragraph - xHeightRatio),
-        fontSize(xHeightPx.mobile),
+  fontFamily: {
+    alertText:
+      "'Fedra Sans 3',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    bodyText:
+      "'Fedra Sans 3',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    button:
+      "'Fedra Sans Alt 2',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    code: "'Fedra Mono 2', monospace",
+    footer:
+      "'Fedra Sans 3',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    inputNumber: "'Fedra Mono 2', monospace",
+    landingPage:
+      "'Fedra Sans Alt 2',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    sectionTitle:
+      "'Fedra Sans Alt 2',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    stepNumber: "'Fedra Mono 2', monospace",
+  },
+  fontSize: {
+    mobile: {
+      alertText: getFontSizeFromXHeight(xHeightRem.mobile.alertText).toFixed(4),
+      bodyText: getFontSizeFromXHeight(xHeightRem.mobile.bodyText).toFixed(4),
+      footer: getFontSizeFromXHeight(xHeightRem.mobile.footer).toFixed(4),
+      inputNumber: getFontSizeFromCapHeight(
+        capHeightRem.mobile.inputNumber,
+      ).toFixed(4),
+      landingPage: getFontSizeFromXHeight(
+        xHeightRem.mobile.landingPage,
+      ).toFixed(4),
+      sectionTitle: getFontSizeFromXHeight(
+        xHeightRem.mobile.sectionTitle,
+      ).toFixed(4),
+      stepNumber: getFontSizeFromCapHeight(
+        capHeightRem.mobile.stepNumber,
+      ).toFixed(4),
+    },
+    desktop: {
+      alertText: getFontSizeFromXHeight(xHeightRem.desktop.alertText).toFixed(
+        4,
       ),
-      desktop: getBottomPaddingInRem(
-        xHeightPx.desktop * (lineHeightRatio.paragraph - xHeightRatio),
-        fontSize(xHeightPx.desktop),
-      ),
+      bodyText: getFontSizeFromXHeight(xHeightRem.desktop.bodyText).toFixed(4),
+      footer: getFontSizeFromXHeight(xHeightRem.desktop.footer).toFixed(4),
+      inputNumber: getFontSizeFromCapHeight(
+        capHeightRem.desktop.inputNumber,
+      ).toFixed(4),
+      landingPage: getFontSizeFromXHeight(
+        xHeightRem.desktop.landingPage,
+      ).toFixed(4),
+      sectionTitle: getFontSizeFromXHeight(
+        xHeightRem.desktop.sectionTitle,
+      ).toFixed(4),
+      stepNumber: getFontSizeFromCapHeight(
+        capHeightRem.desktop.stepNumber,
+      ).toFixed(4),
     },
   },
-  bodyText: {
-    cropBottom: {
-      mobile: getBaselineToTextBoxBottomInRem(
-        xHeightPx.mobile,
-        lineHeight.paragraph,
-      ),
-      desktop: getBaselineToTextBoxBottomInRem(
-        xHeightPx.desktop,
-        lineHeight.paragraph,
-      ),
-    },
-    cropTopCap: {
-      mobile: getTextBoxTopToCapTopInRem(
-        xHeightPx.mobile,
-        lineHeight.paragraph,
-      ),
-      desktop: getTextBoxTopToCapTopInRem(
-        xHeightPx.desktop,
-        lineHeight.paragraph,
-      ),
-    },
-    cropTopX: {
-      mobile: getTextBoxTopToXTopInRem(xHeightPx.mobile, lineHeight.paragraph),
-      desktop: getTextBoxTopToXTopInRem(
-        xHeightPx.desktop,
-        lineHeight.paragraph,
-      ),
-    },
-    fontFamily:
-      "'Fedra Sans Alt',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
-    fontSize: {
-      mobile: fontSize(xHeightPx.mobile),
-      desktop: fontSize(xHeightPx.desktop),
-    },
-    fontWeight: 300,
-    lineHeight: lineHeight.paragraph,
-    marginTop: {
-      mobile: marginTop(xHeightPx.mobile),
-      desktop: marginTop(xHeightPx.desktop),
-    },
-    paddingBottomAboveBox: {
-      mobile: getBottomPaddingInRem(
-        xHeightPx.mobile,
-        fontSize(xHeightPx.mobile),
-      ),
-      desktop: getBottomPaddingInRem(
-        xHeightPx.desktop,
-        fontSize(xHeightPx.desktop),
-      ),
-    },
+  fontWeight: {
+    alertText: 300,
+    bodyText: 300,
+    button: 500,
+    code: 300,
+    footer: 300,
+    inputNumber: 300,
+    landingPage: 300,
+    sectionTitle: 300,
+    stepNumber: 300,
   },
-  button: {
-    fontFamily:
-      "'Fedra Sans Alt',  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
-    fontWeight: 500,
-    marginTop: {
-      belowBox: {
-        mobile: (xHeightPx.mobile * 2) / oneRemPx,
-        desktop: (xHeightPx.desktop * 2) / oneRemPx,
+  lineHeight: {
+    bodyText: lineHeightCss.bodyText.toFixed(4),
+    sectionTitle: lineHeightCss.sectionTitle.toFixed(4),
+    stepNumber: lineHeightCss.stepNumber.toFixed(4),
+  },
+  textCrop: {
+    bottom: {
+      mobile: {
+        bodyText: getTextCropBottom(
+          getFontSizeFromXHeight(xHeightRem.mobile.bodyText),
+          lineHeightRem.bodyText.mobile,
+        ).toFixed(4),
+        sectionTitle: getTextCropBottom(
+          getFontSizeFromXHeight(xHeightRem.mobile.sectionTitle),
+          lineHeightRem.sectionTitle.mobile,
+        ).toFixed(4),
+        stepNumber: getTextCropBottom(
+          getFontSizeFromCapHeight(capHeightRem.mobile.stepNumber),
+          lineHeightRem.stepNumber.mobile,
+        ).toFixed(4),
       },
-      belowBodyText: {
-        mobile:
-          (xHeightPx.mobile * 2) / oneRemPx -
-          getBaselineToTextBoxBottomInRem(
-            xHeightPx.mobile,
-            lineHeight.paragraph,
-          ),
-        desktop:
-          (xHeightPx.desktop * 2) / oneRemPx -
-          getBaselineToTextBoxBottomInRem(
-            xHeightPx.desktop,
-            lineHeight.paragraph,
-          ),
+      desktop: {
+        bodyText: getTextCropBottom(
+          getFontSizeFromXHeight(xHeightRem.desktop.bodyText),
+          lineHeightRem.bodyText.desktop,
+        ).toFixed(4),
+        sectionTitle: getTextCropBottom(
+          getFontSizeFromXHeight(xHeightRem.desktop.sectionTitle),
+          lineHeightRem.sectionTitle.desktop,
+        ).toFixed(4),
+        stepNumber: getTextCropBottom(
+          getFontSizeFromCapHeight(capHeightRem.desktop.stepNumber),
+          lineHeightRem.stepNumber.desktop,
+        ).toFixed(4),
+      },
+    },
+    topCap: {
+      mobile: {
+        bodyText: getTextCropTopCap(
+          getFontSizeFromXHeight(xHeightRem.mobile.bodyText),
+          lineHeightRem.bodyText.mobile,
+        ).toFixed(4),
+        sectionTitle: getTextCropTopCap(
+          getFontSizeFromXHeight(xHeightRem.mobile.sectionTitle),
+          lineHeightRem.sectionTitle.mobile,
+        ).toFixed(4),
+        stepNumber: getTextCropTopCap(
+          getFontSizeFromCapHeight(capHeightRem.mobile.stepNumber),
+          lineHeightRem.stepNumber.mobile,
+        ).toFixed(4),
+      },
+      desktop: {
+        bodyText: getTextCropTopCap(
+          getFontSizeFromXHeight(xHeightRem.desktop.bodyText),
+          lineHeightRem.bodyText.desktop,
+        ).toFixed(4),
+        sectionTitle: getTextCropTopCap(
+          getFontSizeFromXHeight(xHeightRem.desktop.sectionTitle),
+          lineHeightRem.sectionTitle.desktop,
+        ).toFixed(4),
+        stepNumber: getTextCropTopCap(
+          getFontSizeFromCapHeight(capHeightRem.desktop.stepNumber),
+          lineHeightRem.stepNumber.desktop,
+        ).toFixed(4),
+      },
+    },
+    topX: {
+      mobile: {
+        bodyText: getTextCropTopX(
+          xHeightRem.mobile.bodyText,
+          lineHeightRem.bodyText.mobile,
+        ).toFixed(4),
+      },
+      desktop: {
+        bodyText: getTextCropTopX(
+          xHeightRem.desktop.bodyText,
+          lineHeightRem.bodyText.desktop,
+        ).toFixed(4),
       },
     },
   },
   code: {
-    fontFamily: "'Fedra Mono', monospace",
-    fontWeight: 400,
     paddingBottom: {
-      mobile: getLineHeightInRem(xHeightPx.mobile, lineHeight.paragraph),
-      desktop: getLineHeightInRem(xHeightPx.desktop, lineHeight.paragraph),
+      mobile: lineHeightRem.code.mobile,
+      desktop: lineHeightRem.code.desktop,
     },
     paddingTop: {
-      mobile: getLineHeightInRem(xHeightPx.mobile, lineHeight.paragraph),
-      desktop: getLineHeightInRem(xHeightPx.desktop, lineHeight.paragraph),
+      mobile: lineHeightRem.code.mobile,
+      desktop: lineHeightRem.code.desktop,
     },
   },
   fontMetrics: fontMetricsFedraSans,
   fontName: {
     capHeight: {
-      mobile: fontNameCapHeight(xHeightPx.mobile),
-      desktop: fontNameCapHeight(xHeightPx.desktop),
+      mobile: capHeightRem.mobile.fontName,
+      desktop: capHeightRem.desktop.fontName,
     },
-    lineHeight: fontNameLineHeightInRem,
-    padding: fontNamePaddingInRem,
-  },
-  inputNumber: {
-    fontSize: {
-      mobile: mapCapHeightToFontSize(
-        xHeightPx.mobile * Math.pow(modularScale, 3),
-      ),
-      desktop: mapCapHeightToFontSize(
-        xHeightPx.desktop * Math.pow(modularScale, 3),
-      ),
+    lineHeightRem: {
+      mobile: lineHeightRem.fontName.mobile,
+      desktop: lineHeightRem.fontName.desktop,
     },
-    paddingSide: 1,
-    pxBottom: {
-      // Derived visually to align at the baseline
-      mobile: 31,
-      desktop: 31 * (xHeightPx.desktop / xHeightPx.mobile) - 2,
+    paddingBottom: {
+      mobile:
+        (lineHeightRem.fontName.mobile - capHeightRem.mobile.fontName) *
+        modularScale,
+      desktop:
+        (lineHeightRem.fontName.desktop - capHeightRem.desktop.fontName) *
+        modularScale,
+    },
+    paddingTop: {
+      mobile:
+        (lineHeightRem.fontName.mobile - capHeightRem.mobile.fontName) *
+        modularScale,
+      desktop:
+        (lineHeightRem.fontName.desktop - capHeightRem.desktop.fontName) *
+        modularScale,
     },
   },
-  largeText: {
-    fontSize: {
-      mobile: fontSize(xHeightPx.mobile) * 4,
-      desktop: fontSize(xHeightPx.desktop) * 4,
-    },
-    fontWeight: 300,
-  },
-  lineSpacingBelowBox: {
-    mobile: getLineSpacingBelowBoxInRem(xHeightPx.mobile),
-    desktop: getLineSpacingBelowBoxInRem(xHeightPx.desktop),
-  },
-  lineSpacingBelowInstruction: {
-    mobile: getLineSpacingBelowBoxInRem(xHeightPx.mobile * 2),
-    desktop: getLineSpacingBelowBoxInRem(xHeightPx.desktop * 2),
-  },
-  marginSide: xHeightPx.mobile * (lineHeightRatio.paragraph - xHeightRatio),
+  marginSide: xHeightPx.mobile * Math.pow(modularScale, 1), // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
   mediaQueryCutoff: '1024px', // common threshold between tablets and laptops
   modularScale: modularScale,
   rem: oneRemPx,
-  sectionTitle: {
-    cropBottom: {
-      mobile: getBaselineToTextBoxBottomInRem(
-        sectionTitleXHeightPx.mobile,
-        lineHeight.sectionTitle,
-      ),
-      desktop: getBaselineToTextBoxBottomInRem(
-        sectionTitleXHeightPx.desktop,
-        lineHeight.sectionTitle,
-      ),
+  xHeight: {
+    mobile: {
+      px: xHeightPx.mobile,
+      rem: xHeightRem.mobile.bodyText,
     },
-    cropTopCap: {
-      mobile: getTextBoxTopToCapTopInRem(
-        sectionTitleXHeightPx.mobile,
-        lineHeight.sectionTitle,
-      ),
-      desktop: getTextBoxTopToCapTopInRem(
-        sectionTitleXHeightPx.desktop,
-        lineHeight.sectionTitle,
-      ),
-    },
-    fontSize: {
-      mobile: fontSize(sectionTitleXHeightPx.mobile),
-      desktop: fontSize(sectionTitleXHeightPx.desktop),
-    },
-    fontWeight: 300,
-    lineHeight: 1,
-    paddingBottom: {
-      mobile: getBottomPaddingInRem(
-        xHeightPx.mobile * 2,
-        mapCapHeightToFontSize(xHeightPx.mobile * 2),
-      ),
-      desktop: getBottomPaddingInRem(
-        xHeightPx.desktop * 2,
-        mapCapHeightToFontSize(xHeightPx.desktop * 2),
-      ),
-    },
-    paddingBottomAboveBodyText: {
-      mobile:
-        getBottomPaddingInRem(
-          xHeightPx.mobile * 2,
-          mapCapHeightToFontSize(xHeightPx.mobile * 2),
-        ) -
-        getTextBoxTopToCapTopInRem(xHeightPx.mobile, lineHeight.sectionTitle),
-      desktop:
-        getBottomPaddingInRem(
-          xHeightPx.desktop * 2,
-          mapCapHeightToFontSize(xHeightPx.desktop * 2),
-        ) -
-        getTextBoxTopToCapTopInRem(xHeightPx.desktop, lineHeight.sectionTitle),
+    desktop: {
+      px: xHeightPx.desktop,
+      rem: xHeightRem.desktop.bodyText,
     },
   },
-  xHeight: xHeightPx,
 };
 
 export default fontPalette;

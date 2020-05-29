@@ -32,7 +32,7 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.5960767251815982rem;
       font-weight: 500;
       height: 65.08928571428571px;
@@ -88,7 +88,7 @@ test('renders correctly', () => {
 
     <div>
       <button
-        class="sc-fznJRM c0"
+        class="sc-fznxsB c0"
       >
         Start demo
       </button>

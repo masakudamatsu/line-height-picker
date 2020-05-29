@@ -31,8 +31,9 @@ test('renders correctly', () => {
     .c1 {
       font-family: Open Sans;
       font-size: NaNrem;
-      line-height: 2.6785736250000003rem;
-      padding: 1.3058068660714293rem 0;
+      line-height: 2.6786rem;
+      padding-bottom: 1.3058rem;
+      padding-top: 1.3058rem;
     }
 
     .c1::before,
@@ -60,8 +61,9 @@ test('renders correctly', () => {
     @media only screen and (min-width:1024px) {
       .c1 {
         font-size: NaNrem;
-        line-height: 3.1249968750000003rem;
-        padding: 1.5234328125000005rem 0;
+        line-height: 3.1250rem;
+        padding-bottom: 1.5234rem;
+        padding-top: 1.5234rem;
       }
     }
 
@@ -73,7 +75,7 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c1::after {
-        margin-top: -0.37774725274725274rem;
+        margin-top: -NaNrem;
       }
     }
 

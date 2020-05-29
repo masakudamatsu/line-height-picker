@@ -71,9 +71,10 @@ test('renders correctly', () => {
     }
 
     .c2 {
-      font-size: 1.47174375rem;
+      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 1.4717rem;
       font-weight: 300;
-      line-height: 1;
+      line-height: 1.0920;
     }
 
     .c2::before,
@@ -85,15 +86,16 @@ test('renders correctly', () => {
     }
 
     .c2::before {
-      margin-bottom: -0.10596546310832025rem;
+      margin-bottom: -0.1737rem;
     }
 
     .c2::after {
-      margin-top: -0.32378335949764525rem;
+      margin-top: -0.3915rem;
     }
 
     .c4 {
       color: currentColor;
+      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -108,11 +110,23 @@ test('renders correctly', () => {
     }
 
     .c4::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497rem;
     }
 
     .c4::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.3949rem;
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c1 {
+        height: 2.109375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c3 {
+        height: 1.40625rem;
+      }
     }
 
     @media (min-width:875px) {
@@ -123,31 +137,37 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:1024px) {
       .c2 {
-        font-size: 1.71703125rem;
+        font-size: 1.7170rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c2::before {
-        margin-bottom: -0.12362637362637363rem;
+        margin-bottom: -0.2026rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c2::after {
-        margin-top: -0.37774725274725274rem;
+        margin-top: -0.4567rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c4 {
+        font-size: inherit;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c4::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c4::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.4607rem;
       }
     }
 

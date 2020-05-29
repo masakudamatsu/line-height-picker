@@ -59,7 +59,9 @@ test('renders correctly', () => {
       padding-right: 12.857142857142858px;
       border-top: 1px solid currentColor;
       color: hsl(0,0%,67%);
-      font-size: 0.75rem;
+      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 0.6541rem;
+      font-weight: 300;
       padding-bottom: 0.75rem;
       padding-top: 0.75rem;
       position: inherit;
@@ -73,20 +75,19 @@ test('renders correctly', () => {
       }
     }
 
+    @media only screen and (min-width:1024px) {
+      .c0 {
+        font-size: 0.7631rem;
+      }
+    }
+
     <div>
       <footer
-        class="sc-AxgMl c0"
+        class="sc-AxhUy c0"
         data-testid="footer"
       >
         <p>
-          Designed and Coded by Masa Kudamatsu in 2020 (
-          <a
-            class="c1"
-            href="https://github.com/masakudamatsu/line-height-picker"
-          >
-            SOURCE CODE
-          </a>
-          ).
+          Designed and Coded by Masa Kudamatsu in 2020.
         </p>
         <p>
           Powered by
@@ -97,6 +98,15 @@ test('renders correctly', () => {
           >
             Opentype.js.
           </a>
+        </p>
+        <p>
+          <a
+            class="c1"
+            href="https://github.com/masakudamatsu/line-height-picker"
+          >
+            The source code is available at GitHub
+          </a>
+          .
         </p>
       </footer>
     </div>

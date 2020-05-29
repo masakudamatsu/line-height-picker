@@ -82,6 +82,7 @@ test('renders correctly', () => {
 
     .c3 {
       color: currentColor;
+      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -96,11 +97,11 @@ test('renders correctly', () => {
     }
 
     .c3::before {
-      margin-bottom: -0.2497057983222135rem;
+      margin-bottom: -0.2497rem;
     }
 
     .c3::after {
-      margin-top: -0.39491772924843016rem;
+      margin-top: -0.3949rem;
     }
 
     .c0 {
@@ -128,14 +129,26 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
+      .c2 {
+        height: 0.9375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c3 {
+        font-size: inherit;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
       .c3::before {
-        margin-bottom: -0.29132305116758245rem;
+        margin-bottom: -0.2913rem;
       }
     }
 
     @media only screen and (min-width:1024px) {
       .c3::after {
-        margin-top: -0.46073697058150187rem;
+        margin-top: -0.4607rem;
       }
     }
 
