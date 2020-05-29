@@ -134,43 +134,239 @@ describe('X-height page after uploading a font file', () => {
   });
 });
 
-describe('X-height page: Error-handling', () => {
+describe('X-height page: Handle error for missing input', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
     cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').clear();
   });
 
-  it('does not allow the user to move on to the modular-scale page if the user has not entered an x-height value, and shows an error message with the input field focused', () => {
-    // execute
+  it('does not show alert before blurring or clicking the next button without any input value', () => {
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+  });
+
+  it('does not show alert when the user blurs without any input value', () => {
+    cy.findByTestId('x-height-in-pixel').blur();
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+  });
+
+  it.only('shows relevant alert, disables the next button, and focuses the input field, when the user clicks the next button without an input value; and reloading the page will not change any of these', () => {
     cy.findByText(/next/i).click();
-    // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
     cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled'); // ERROR
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
+    cy.reload();
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled');
     cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
   });
 
-  it('does not show alert when the user deletes an input', () => {
-    cy.findByTestId('x-height-in-pixel')
-      .type('1')
-      .clear();
+  it.only('hides relevant alert and enables the next button as soon as the user turns an invalid input value into a valid one', () => {
+    cy.findByText(/next/i).click();
+    cy.findByTestId('x-height-in-pixel').type(validInputs[0].xHeight);
+    cy.assertIfErrorMessageDisappears('error-message-x-height'); // Error
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.enabled');
+  });
+});
+
+describe('X-height page: Handle error for values over 100', () => {
+  beforeEach(() => {
+    sessionStorage.clear();
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').type('123');
+  });
+
+  it('does not show alert before blurring or clicking the next button', () => {
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+  });
+
+  it.only('shows relevant alert and disables the next button when the user blurs with an input value outside the range; and reloading the page will not change any of these', () => {
+    cy.findByTestId('x-height-in-pixel').blur();
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled'); // Error
+    cy.reload();
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled');
+  });
+
+  it.only('shows relevant alert, disables the next button, and focuses the input field, when the user clicks the next button with an input value outside the range; and reloading the page will not change any of these', () => {
+    cy.findByText(/next/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled'); // Error
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
+    cy.reload();
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled');
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
+  });
+
+  it.only('hides relevant alert and enables the next button as soon as the user turns an invalid input value into a valid one', () => {
+    cy.findByText(/next/i).click();
+    cy.findByTestId('x-height-in-pixel').type('{backspace}'); // turn 123 into 12
+    cy.assertIfErrorMessageDisappears('error-message-x-height'); // Error
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.enabled');
+  });
+});
+
+describe('X-height page: Handle error for values below 1', () => {
+  beforeEach(() => {
+    sessionStorage.clear();
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').type('0');
+  });
+
+  it('does not show alert before blurring or clicking the next button', () => {
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+  });
+
+  it.only('shows relevant alert and disables the next button when the user blurs with an input value outside the range; and reloading the page will not change any of these', () => {
+    cy.findByTestId('x-height-in-pixel').blur();
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled'); // ERROR
+    cy.reload();
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled');
+  });
+
+  it.only('shows relevant alert, disables the next button, and focuses the input field, when the user clicks the next button with an input value outside the range; and reloading the page will not change any of these', () => {
+    cy.findByText(/next/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled'); // ERROR
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
+    cy.reload();
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled');
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
+  });
+
+  it.only('hides relevant alert and enables the next button as soon as the user turns an invalid input value into a valid one', () => {
+    cy.findByText(/next/i).click();
+    cy.findByTestId('x-height-in-pixel').type(`{home}1`); // turn 0 into 10 ({home} moves the cursor to the start of the line; see https://docs.cypress.io/api/commands/type.html#Arguments)
+    cy.assertIfErrorMessageDisappears('error-message-x-height'); // Error
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.enabled');
+  });
+});
+
+describe('X-height page: Handle error for too many decimal places', () => {
+  beforeEach(() => {
+    sessionStorage.clear();
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').type('1.12345');
+  });
+
+  it('does not show alert before blurring or clicking the next button', () => {
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+  });
+
+  it.only('shows relevant alert and disables the next button when the user blurs with an input value with too many decimal places; and reloading the page will not change any of these', () => {
+    cy.findByTestId('x-height-in-pixel').blur();
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled'); // Error
+    cy.reload();
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled');
+  });
+
+  it.only('shows relevant alert, disables the next button, and focuses the input field, when the user clicks the next button with an input value with too many decimal places; and reloading the page will not change any of these', () => {
+    cy.findByText(/next/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled'); // Error
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
+    cy.reload();
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled');
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
+  });
+
+  it.only('hides relevant alert and enables the next button as soon as the user turns an invalid input value into a valid one', () => {
+    cy.findByText(/next/i).click();
+    cy.findByTestId('x-height-in-pixel').type('{backspace}'); // turn 1.12345 into 1.1234
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height'); // Error
+    cy.findByText(/next/i).should('be.enabled');
+  });
+});
+
+describe('X-height page: Handle error for string input values', () => {
+  beforeEach(() => {
+    sessionStorage.clear();
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').type('string');
+  });
+
+  it('does not show alert before blurring or clicking the next button', () => {
     cy.assertIfErrorMessageDisappears('error-message-x-height');
   });
 
-  it('alerts the user if they enter a string AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
-    cy.testAlertForString('x-height-in-pixel', 'x-height');
+  it.only('shows relevant alert and disables the next button when the user blurs with a string input value; and reloading the page will not change any of these', () => {
+    cy.findByTestId('x-height-in-pixel').blur();
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled'); // error
+    cy.reload();
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled');
   });
 
-  it('alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
-    cy.testAlertForDecimalPlaces('x-height-in-pixel', 'x-height');
+  it.only('shows relevant alert, disables the next button, and focuses the input field, when the user clicks the next button with a string input value; and reloading the page will not change any of these', () => {
+    cy.findByText(/next/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled'); // error
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
+    cy.reload();
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.disabled');
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
   });
 
-  it('alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
-    cy.testAlertForValuesLessThanOne('x-height-in-pixel', 'x-height');
+  it.only('hides relevant alert and enables the next button as soon as the user deletes the invalid input value', () => {
+    cy.findByText(/next/i).click();
+    cy.findByTestId('x-height-in-pixel').clear();
+    cy.assertIfErrorMessageDisappears('error-message-x-height'); // error
+    cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-x-height');
+    cy.findByText(/next/i).should('be.enabled');
   });
+});
 
-  it('alerts the user if they enter a value more than 100 AND blur the input field, but the alert disappears when they correct the input value AND blur the input field', () => {
-    cy.testAlertForValuesMoreThanHundred('x-height-in-pixel', 'x-height');
+describe('X-height page: Handle error for font files', () => {
+  beforeEach(() => {
+    sessionStorage.clear();
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
   });
 
   it('Uploading a file with an invalid extension alerts the user', () => {
