@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import XheightBox from './XheightBox';
 import SectionFont from './SectionFont';
+import XheightGuide from './XheightGuide';
 import {
   ButtonWithRightArrow,
   Form,
@@ -70,6 +71,8 @@ const Xheight = props => {
           unitsPerEm={props.unitsPerEm}
           validateFileType={props.validateFileType}
         />
+        <Spacer height="3" />
+        <XheightGuide />
         <Spacer height="3" />
       </main>
     </>
