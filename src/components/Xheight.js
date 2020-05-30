@@ -53,7 +53,11 @@ const Xheight = props => {
               xHeightStepError={props.xHeightStepError}
             />{' '}
             <Spacer height="2" />
-            <ButtonWithRightArrow type="submit" primary>
+            <ButtonWithRightArrow
+              type="submit"
+              primary
+              disabled={props.xHeightRangeError || props.xHeightStepError}
+            >
               Next
             </ButtonWithRightArrow>
             <Spacer height="3" />

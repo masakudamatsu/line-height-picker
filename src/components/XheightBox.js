@@ -14,7 +14,8 @@ import {
 const XheightBox = props => {
   const handleChange = event => {
     const xHeightValue = event.target.value;
-    props.handleXHeightChange(xHeightValue);
+    const errors = event.target.validity;
+    props.handleXHeightChange(xHeightValue, errors);
   };
   const handleBlur = event => {
     const inputValue = event.target.value;

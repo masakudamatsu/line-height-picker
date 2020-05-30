@@ -274,7 +274,8 @@ function App() {
     }
   };
 
-  const handleXHeightChange = xHeight => {
+  const handleXHeightChange = (xHeight, errors) => {
+    // NOTE: Line-height won't change with x-height
     setXHeightPx(xHeight);
     const newFontSize = getFontSize(fontMetrics, xHeight);
     setFontSizePx(newFontSize);
@@ -285,7 +286,16 @@ function App() {
       lineHeightRatio,
     );
     setMarginTop(newMarginTop);
-    // NOTE: Line-height won't change with x-height
+    // Error handling
+    if (xHeightRangeError) {
+      if (!errors.patternMismatch) {
+        setXHeightRangeError('');
+      }
+    } else if (xHeightStepError) {
+      if (!errors.patternMismatch) {
+        setXHeightStepError('');
+      }
+    }
   };
 
   const handleXHeightRatioChange = newXHeightRatio => {
