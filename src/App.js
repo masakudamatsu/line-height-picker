@@ -306,12 +306,22 @@ function App() {
     if (xHeightRangeError) {
       if (!errors.patternMismatch) {
         setXHeightRangeError('');
-        setNextButtonDisabled('');
+        if (nextButtonDisabled) {
+          setNextButtonDisabled('');
+        }
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
       }
     } else if (xHeightStepError) {
       if (!errors.patternMismatch) {
         setXHeightStepError('');
-        setNextButtonDisabled('');
+        if (nextButtonDisabled) {
+          setNextButtonDisabled('');
+        }
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
       }
     }
   };
@@ -473,6 +483,7 @@ function App() {
                             handleLineHeightRatioChange
                           }
                           handleNoModularScale={handleNoModularScale}
+                          handleNoXHeight={handleNoXHeight}
                           handleXHeightChange={handleXHeightChange}
                           handleXHeightRatioChange={handleXHeightRatioChange}
                           lineHeightRatio={lineHeightRatio}
@@ -484,7 +495,9 @@ function App() {
                           validateModularScale={validateModularScale}
                           validateXHeight={validateXHeight}
                           xHeightPx={xHeightPx}
+                          xHeightRangeError={xHeightRangeError}
                           xHeightRatio={xHeightRatio}
+                          xHeightStepError={xHeightStepError}
                         />
                         <Footer />
                       </Route>

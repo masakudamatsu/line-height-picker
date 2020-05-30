@@ -403,6 +403,34 @@ describe('Modular Scale Page after uploading a font file', () => {
   });
 });
 
+describe('Modular-scale page: Handle error for x-height value', () => {
+  beforeEach(() => {
+    sessionStorage.clear();
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/next/i).click();
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
+    cy.findByTestId('x-height-in-pixel').type('9'); // Make the x-height value exceed 100
+  });
+
+  it('prevents the move to the preview page, shows alert, disables the preview button, and focus the x-height input field when the user enters an invalid x-height value and clicks the preview button', () => {
+    cy.findByText(/preview/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+    cy.findByText(/preview/i).should('be.disabled');
+    cy.focused().should('have.attr', 'id', 'x-height-in-pixel');
+  });
+
+  it('hides alert and enables the preview button as soon as the user corrects the x-height value', () => {
+    cy.findByText(/preview/i).click();
+    cy.findByTestId('x-height-in-pixel').type('{backspace}');
+    cy.assertIfErrorMessageDisappears('error-message-x-height');
+    cy.findByText(/preview/i).should('be.enabled');
+  });
+});
+
 describe('Modular-scale page: Handle error for font files', () => {
   beforeEach(() => {
     sessionStorage.clear();

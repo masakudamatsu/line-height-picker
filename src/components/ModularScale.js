@@ -28,7 +28,14 @@ const ModularScale = props => {
       .validity;
     const lineHeightErrors = document.getElementById('line-height-for-ratio')
       .validity;
-    if (xHeightErrors.valid && lineHeightErrors.valid) {
+    const xHeightValueErrors = document.getElementById('x-height-in-pixel')
+      .validity;
+
+    if (
+      xHeightErrors.valid &&
+      lineHeightErrors.valid &&
+      xHeightValueErrors.valid
+    ) {
       history.push({
         pathname: '/preview',
         state: {transition: 'slideleft', duration: 300},
@@ -37,9 +44,13 @@ const ModularScale = props => {
       props.handleNoModularScale(xHeightErrors);
       document.getElementById('x-height-for-ratio').focus();
       props.disablePreviewButton();
-    } else {
+    } else if (!lineHeightErrors.valid) {
       props.handleNoModularScale(lineHeightErrors);
       document.getElementById('line-height-for-ratio').focus();
+      props.disablePreviewButton();
+    } else if (!xHeightValueErrors.valid) {
+      props.handleNoXHeight(xHeightValueErrors);
+      document.getElementById('x-height-in-pixel').focus();
       props.disablePreviewButton();
     }
   };
@@ -113,6 +124,7 @@ ModularScale.propTypes = {
   handleFontFile: PropTypes.func.isRequired,
   handleLineHeightRatioChange: PropTypes.func.isRequired,
   handleNoModularScale: PropTypes.func.isRequired,
+  handleNoXHeight: PropTypes.func.isRequired,
   handleXHeightRatioChange: PropTypes.func.isRequired,
   lineHeightRatio: PropTypes.string,
   modularScaleRangeError: PropTypes.string,
@@ -122,7 +134,9 @@ ModularScale.propTypes = {
   validateFileType: PropTypes.func.isRequired,
   validateModularScale: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
+  xHeightRangeError: PropTypes.string,
   xHeightRatio: PropTypes.string,
+  xHeightStepError: PropTypes.string,
 };
 
 export default ModularScale;
