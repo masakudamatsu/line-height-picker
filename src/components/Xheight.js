@@ -34,7 +34,7 @@ const Xheight = props => {
     } else {
       props.handleNoXHeight(errors);
       xHeightInputField.focus();
-      props.disableButton();
+      props.disableNextButton();
     }
   };
 
@@ -57,7 +57,7 @@ const Xheight = props => {
             <ButtonWithRightArrow
               type="submit"
               primary
-              disabled={props.buttonDisabled}
+              disabled={props.nextButtonDisabled}
             >
               Next
             </ButtonWithRightArrow>
@@ -86,10 +86,10 @@ const Xheight = props => {
 
 Xheight.propTypes = {
   ascender: PropTypes.number,
-  buttonDisabled: PropTypes.bool,
+  nextButtonDisabled: PropTypes.bool,
   capHeight: PropTypes.number,
   descender: PropTypes.number,
-  disableButton: PropTypes.func.isRequired,
+  disableNextButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontSubfamily: PropTypes.string,

@@ -123,15 +123,15 @@ function App() {
     store.set('marginTop', marginTop);
   }, [marginTop]);
 
-  const [buttonDisabled, setButtonDisabled] = React.useState(
-    initialState('buttonDisabled'),
+  const [nextButtonDisabled, setNextButtonDisabled] = React.useState(
+    initialState('nextButtonDisabled'),
   );
   React.useEffect(() => {
-    store.set('buttonDisabled', buttonDisabled);
-  }, [buttonDisabled]);
+    store.set('nextButtonDisabled', nextButtonDisabled);
+  }, [nextButtonDisabled]);
 
-  const disableButton = () => {
-    setButtonDisabled('true');
+  const disableNextButton = () => {
+    setNextButtonDisabled('true');
   };
 
   const validateFileType = file => {
@@ -295,12 +295,12 @@ function App() {
     if (xHeightRangeError) {
       if (!errors.patternMismatch) {
         setXHeightRangeError('');
-        setButtonDisabled('');
+        setNextButtonDisabled('');
       }
     } else if (xHeightStepError) {
       if (!errors.patternMismatch) {
         setXHeightStepError('');
-        setButtonDisabled('');
+        setNextButtonDisabled('');
       }
     }
   };
@@ -400,10 +400,9 @@ function App() {
                       <Route path="/x-height">
                         <Xheight
                           ascender={fontMetrics.ascender}
-                          buttonDisabled={buttonDisabled}
                           capHeight={fontMetrics.capHeight}
                           descender={fontMetrics.descender}
-                          disableButton={disableButton}
+                          disableNextButton={disableNextButton}
                           fontFamily={fontMetrics.fontFamily}
                           fontFileError={fontFileError}
                           fontSubfamily={fontMetrics.fontSubfamily}
@@ -411,6 +410,7 @@ function App() {
                           handleFontFile={handleFontFile}
                           handleNoXHeight={handleNoXHeight}
                           handleXHeightChange={handleXHeightChange}
+                          nextButtonDisabled={nextButtonDisabled}
                           unitsPerEm={fontMetrics.unitsPerEm}
                           validateFileType={validateFileType}
                           validateXHeight={validateXHeight}
