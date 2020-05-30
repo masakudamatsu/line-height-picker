@@ -145,6 +145,17 @@ function App() {
     setPreviewButtonDisabled('true');
   };
 
+  const [cssButtonDisabled, setCssButtonDisabled] = React.useState(
+    initialState('cssButtonDisabled'),
+  );
+  React.useEffect(() => {
+    store.set('cssButtonDisabled', cssButtonDisabled);
+  }, [cssButtonDisabled]);
+
+  const disableCssButton = () => {
+    setCssButtonDisabled('true');
+  };
+
   const validateFileType = file => {
     if (validFontFileTypes.test(file.name)) {
       return true;
@@ -312,6 +323,9 @@ function App() {
         if (previewButtonDisabled) {
           setPreviewButtonDisabled('');
         }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
       }
     } else if (xHeightStepError) {
       if (!errors.patternMismatch) {
@@ -321,6 +335,9 @@ function App() {
         }
         if (previewButtonDisabled) {
           setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
         }
       }
     }
@@ -347,12 +364,22 @@ function App() {
     if (modularScaleRangeError) {
       if (!errors.patternMismatch) {
         setModularScaleRangeError('');
-        setPreviewButtonDisabled('');
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
       }
     } else if (modularScaleStepError) {
       if (!errors.patternMismatch) {
         setModularScaleStepError('');
-        setPreviewButtonDisabled('');
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
       }
     }
   };
@@ -377,12 +404,22 @@ function App() {
     if (modularScaleRangeError) {
       if (!errors.patternMismatch) {
         setModularScaleRangeError('');
-        setPreviewButtonDisabled('');
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
       }
     } else if (modularScaleStepError) {
       if (!errors.patternMismatch) {
         setModularScaleStepError('');
-        setPreviewButtonDisabled('');
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
       }
     }
   };
@@ -505,7 +542,9 @@ function App() {
                         <Preview
                           ascender={fontMetrics.ascender}
                           capHeight={fontMetrics.capHeight}
+                          cssButtonDisabled={cssButtonDisabled}
                           descender={fontMetrics.descender}
+                          disableCssButton={disableCssButton}
                           fontFamily={fontMetrics.fontFamily}
                           fontFileError={fontFileError}
                           fontMetrics={fontMetrics}
