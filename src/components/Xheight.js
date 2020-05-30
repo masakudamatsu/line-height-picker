@@ -24,7 +24,7 @@ const Xheight = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const xHeightInputField = document.getElementById('x-height-in-pixel');
+    const xHeightInputField = document.getElementById('x-height-in-pixel'); // useRef(null) or createRef() doesn't work for some reason
     const errors = xHeightInputField.validity;
     if (errors.valid) {
       history.push({
@@ -33,10 +33,11 @@ const Xheight = props => {
       });
     } else {
       props.handleNoXHeight(errors);
-      // Focus on the first invalid input element
       xHeightInputField.focus();
+      props.disableButton();
     }
   };
+
   return (
     <>
       <main>
@@ -56,7 +57,7 @@ const Xheight = props => {
             <ButtonWithRightArrow
               type="submit"
               primary
-              disabled={props.xHeightRangeError || props.xHeightStepError}
+              disabled={props.buttonDisabled}
             >
               Next
             </ButtonWithRightArrow>
@@ -85,8 +86,10 @@ const Xheight = props => {
 
 Xheight.propTypes = {
   ascender: PropTypes.number,
+  buttonDisabled: PropTypes.bool,
   capHeight: PropTypes.number,
   descender: PropTypes.number,
+  disableButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontSubfamily: PropTypes.string,

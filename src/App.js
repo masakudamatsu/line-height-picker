@@ -123,6 +123,17 @@ function App() {
     store.set('marginTop', marginTop);
   }, [marginTop]);
 
+  const [buttonDisabled, setButtonDisabled] = React.useState(
+    initialState('buttonDisabled'),
+  );
+  React.useEffect(() => {
+    store.set('buttonDisabled', buttonDisabled);
+  }, [buttonDisabled]);
+
+  const disableButton = () => {
+    setButtonDisabled('true');
+  };
+
   const validateFileType = file => {
     if (validFontFileTypes.test(file.name)) {
       return true;
@@ -227,12 +238,6 @@ function App() {
   const handleNoXHeight = errors => {
     if (errors.valueMissing) {
       setXHeightRangeError('true');
-    } else {
-      if (errors.patternMismatch) {
-        return; // Keep the error status intact
-      } else {
-        setXHeightRangeError('');
-      }
     }
   };
 
@@ -290,10 +295,12 @@ function App() {
     if (xHeightRangeError) {
       if (!errors.patternMismatch) {
         setXHeightRangeError('');
+        setButtonDisabled('');
       }
     } else if (xHeightStepError) {
       if (!errors.patternMismatch) {
         setXHeightStepError('');
+        setButtonDisabled('');
       }
     }
   };
@@ -393,8 +400,10 @@ function App() {
                       <Route path="/x-height">
                         <Xheight
                           ascender={fontMetrics.ascender}
+                          buttonDisabled={buttonDisabled}
                           capHeight={fontMetrics.capHeight}
                           descender={fontMetrics.descender}
+                          disableButton={disableButton}
                           fontFamily={fontMetrics.fontFamily}
                           fontFileError={fontFileError}
                           fontSubfamily={fontMetrics.fontSubfamily}
