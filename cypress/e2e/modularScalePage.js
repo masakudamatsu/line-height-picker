@@ -216,7 +216,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     });
   });
 
-  describe('X-height page: Handle error for values over 100', () => {
+  describe('Modular-scale page: Handle error for values over 100', () => {
     beforeEach(() => {
       sessionStorage.clear();
       cy.visit('/');
@@ -263,7 +263,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     });
   });
 
-  describe('X-height page: Handle error for values below 1', () => {
+  describe('Modular-scale page: Handle error for values below 1', () => {
     beforeEach(() => {
       sessionStorage.clear();
       cy.visit('/');
@@ -310,7 +310,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     });
   });
 
-  describe('X-height page: Handle error for too many decimal places', () => {
+  describe('Modular-scale page: Handle error for too many decimal places', () => {
     beforeEach(() => {
       sessionStorage.clear();
       cy.visit('/');
@@ -356,7 +356,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     });
   });
 
-  describe('X-height page: Handle error for string input values', () => {
+  describe('Modular-scale page: Handle error for string input values', () => {
     beforeEach(() => {
       sessionStorage.clear();
       cy.visit('/');
