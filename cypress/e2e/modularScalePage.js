@@ -220,30 +220,6 @@ describe('Modular Scale Page: Error-handling', () => {
     cy.testAlertForString('line-height-for-ratio', 'modular-scale');
   });
 
-  it('Uploading a file with an invalid extension alerts the user', () => {
-    // set up
-    const invalidFile = 'invalidFile.txt';
-    // execute
-    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
-    // Verify
-    cy.findByTestId('error-message-font-file')
-      .should('contain', '.ttf')
-      .should('contain', '.otf')
-      .should('contain', '.woff');
-  });
-
-  it('Uploading a wrong file with the valid extension alerts the user without moving to x-height page', () => {
-    // set up
-    const invalidFile = 'invalidFile.ttf';
-    // execute
-    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
-    // Verify
-    cy.findByTestId('error-message-font-file')
-      .should('contain', '.ttf')
-      .should('contain', '.otf')
-      .should('contain', '.woff');
-  });
-
   it('does not allow the user to move on to the preview page if the user has not entered an x-height ratio value, and shows an error message with the invalid field focused', () => {
     // execute
     cy.findByTestId('x-height-for-ratio').clear();
@@ -264,6 +240,40 @@ describe('Modular Scale Page: Error-handling', () => {
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
     cy.assertIfErrorMessageAppears('error-message-modular-scale');
     cy.focused().should('have.attr', 'id', 'line-height-for-ratio');
+  });
+});
+
+describe('Modular-scale page: Handle error for font files', () => {
+  beforeEach(() => {
+    sessionStorage.clear();
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/next/i).click();
+  });
+
+  it('Uploading a file with an invalid extension alerts the user', () => {
+    // set up
+    const invalidFile = 'invalidFile.txt';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
+  });
+
+  it('Uploading a wrong file with the valid extension alerts the user', () => {
+    // set up
+    const invalidFile = 'invalidFile.ttf';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    // Verify
+    cy.findByTestId('error-message-font-file')
+      .should('contain', '.ttf')
+      .should('contain', '.otf')
+      .should('contain', '.woff');
   });
 });
 
