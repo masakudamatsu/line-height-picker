@@ -397,7 +397,10 @@ test('Entering x-height ratio value calls the handleXHeightRatioChange(), but no
     user.type(xHeightRatioInput, userdata);
     // verify
     expect(mockHandleXHeightRatioChange).toHaveBeenCalledTimes(userdata.length);
-    expect(mockHandleXHeightRatioChange).toHaveBeenCalledWith(userdata);
+    expect(mockHandleXHeightRatioChange).toHaveBeenCalledWith(
+      userdata,
+      xHeightRatioInput.validity,
+    );
     expect(mockValidateModularScale).not.toHaveBeenCalled();
     // isolate
     jest.clearAllMocks();
@@ -439,7 +442,10 @@ test('Entering line-height ratio value calls the handleLineHeightRatioChange(), 
     expect(mockHandleLineHeightRatioChange).toHaveBeenCalledTimes(
       userdata.length,
     );
-    expect(mockHandleLineHeightRatioChange).toHaveBeenCalledWith(userdata);
+    expect(mockHandleLineHeightRatioChange).toHaveBeenCalledWith(
+      userdata,
+      lineHeightRatioInput.validity,
+    );
     expect(mockValidateModularScale).not.toHaveBeenCalled();
     // isolate
     jest.clearAllMocks();
