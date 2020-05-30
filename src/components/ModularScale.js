@@ -36,9 +36,11 @@ const ModularScale = props => {
     } else if (!xHeightErrors.valid) {
       props.handleNoModularScale(xHeightErrors);
       document.getElementById('x-height-for-ratio').focus();
+      props.disablePreviewButton();
     } else {
       props.handleNoModularScale(lineHeightErrors);
       document.getElementById('line-height-for-ratio').focus();
+      props.disablePreviewButton();
     }
   };
   return (
@@ -59,7 +61,11 @@ const ModularScale = props => {
               xHeightRatio={props.xHeightRatio}
             />{' '}
             <Spacer height="2" />
-            <ButtonWithRightArrow type="submit" primary>
+            <ButtonWithRightArrow
+              type="submit"
+              primary
+              disabled={props.previewButtonDisabled}
+            >
               Preview
             </ButtonWithRightArrow>
           </Form>
@@ -99,6 +105,7 @@ ModularScale.propTypes = {
   ascender: PropTypes.number,
   capHeight: PropTypes.number,
   descender: PropTypes.number,
+  disablePreviewButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontSubfamily: PropTypes.string,
@@ -110,6 +117,7 @@ ModularScale.propTypes = {
   lineHeightRatio: PropTypes.string,
   modularScaleRangeError: PropTypes.string,
   modularScaleStepError: PropTypes.string,
+  previewButtonDisabled: PropTypes.bool,
   unitsPerEm: PropTypes.number,
   validateFileType: PropTypes.func.isRequired,
   validateModularScale: PropTypes.func.isRequired,

@@ -166,80 +166,240 @@ describe('Modular Scale Page after uploading a font file', () => {
   });
 });
 
-describe('Modular Scale Page: Error-handling', () => {
-  beforeEach(() => {
-    sessionStorage.clear();
-    cy.visit('/');
-    cy.findByText(/demo/i).click();
-    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
-    cy.findByText(/next/i).click();
+['x-height-for-ratio', 'line-height-for-ratio'].forEach(inputField => {
+  const otherInputField =
+    inputField === 'x-height-for-ratio'
+      ? 'line-height-for-ratio'
+      : 'x-height-for-ratio';
+
+  describe(`Modular-scale page: Handle error for missing input to ${inputField}`, () => {
+    beforeEach(() => {
+      sessionStorage.clear();
+      cy.visit('/');
+      cy.findByText(/demo/i).click();
+      cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+      cy.findByText(/next/i).click();
+      cy.findByTestId(otherInputField).type('3');
+      cy.findByTestId(inputField).clear();
+    });
+
+    it('does not show alert before blurring or clicking the next button without any input value', () => {
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+    });
+
+    it('does not show alert when the user blurs without any input value', () => {
+      cy.findByTestId(inputField).blur();
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+    });
+
+    it('shows relevant alert, disables the next button, and focuses the input field, when the user clicks the next button without an input value; and reloading the page will not change any of these', () => {
+      cy.findByText(/preview/i).click();
+      cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.disabled');
+      cy.focused().should('have.attr', 'id', inputField);
+      cy.reload();
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.disabled');
+    });
+
+    it('hides relevant alert and enables the next button as soon as the user turns an invalid input value into a valid one', () => {
+      cy.findByText(/preview/i).click();
+      cy.findByTestId(inputField).type('2');
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.enabled');
+    });
   });
 
-  it('does not show alert when the user deletes an input', () => {
-    cy.findByTestId('x-height-for-ratio')
-      .type('1')
-      .clear();
-    cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+  describe('X-height page: Handle error for values over 100', () => {
+    beforeEach(() => {
+      sessionStorage.clear();
+      cy.visit('/');
+      cy.findByText(/demo/i).click();
+      cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+      cy.findByText(/next/i).click();
+      cy.findByTestId(otherInputField).type('3');
+      cy.findByTestId(inputField).type('101');
+    });
+
+    it('does not show alert before blurring or clicking the next button', () => {
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+    });
+
+    it('shows relevant alert when the user blurs with an input value outside the range; and reloading the page will not change any of these', () => {
+      cy.findByTestId(inputField).blur();
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.reload();
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+    });
+
+    it('shows relevant alert, disables the next button, and focuses the input field, when the user clicks the next button with an input value outside the range; and reloading the page will not change any of these', () => {
+      cy.findByText(/preview/i).click();
+      cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.disabled');
+      cy.focused().should('have.attr', 'id', inputField);
+      cy.reload();
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.disabled');
+    });
+
+    it('hides relevant alert and enables the next button as soon as the user turns an invalid input value into a valid one', () => {
+      cy.findByText(/preview/i).click();
+      cy.findByTestId(inputField).type('{backspace}'); // turn 101 into 10
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.enabled');
+    });
   });
 
-  it('alerts the user if they enter more than 4 decimal places AND blur the X-HEIGHT ratio input field, but the alert disappears when they correct it AND blur the input field', () => {
-    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
-    cy.testAlertForDecimalPlaces('x-height-for-ratio', 'modular-scale');
+  describe('X-height page: Handle error for values below 1', () => {
+    beforeEach(() => {
+      sessionStorage.clear();
+      cy.visit('/');
+      cy.findByText(/demo/i).click();
+      cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+      cy.findByText(/next/i).click();
+      cy.findByTestId(otherInputField).type('3');
+      cy.findByTestId(inputField).type('0');
+    });
+
+    it('does not show alert before blurring or clicking the next button', () => {
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+    });
+
+    it('shows relevant alert when the user blurs with an input value outside the range; and reloading the page will not change any of these', () => {
+      cy.findByTestId(inputField).blur();
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.reload();
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+    });
+
+    it('shows relevant alert, disables the next button, and focuses the input field, when the user clicks the next button with an input value outside the range; and reloading the page will not change any of these', () => {
+      cy.findByText(/preview/i).click();
+      cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.disabled');
+      cy.focused().should('have.attr', 'id', inputField);
+      cy.reload();
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.disabled');
+    });
+
+    it('hides relevant alert and enables the next button as soon as the user turns an invalid input value into a valid one', () => {
+      cy.findByText(/preview/i).click();
+      cy.findByTestId(inputField).type(`{home}1`); // turn 0 into 10 ({home} moves the cursor to the start of the line; see https://docs.cypress.io/api/commands/type.html#Arguments)
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.enabled');
+    });
   });
 
-  it('alerts the user if they enter more than 4 decimal places AND blur the LINE-HEIGHT ratio input field, but the alert disappears when they correct it AND blur the input field', () => {
-    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
-    cy.testAlertForDecimalPlaces('line-height-for-ratio', 'modular-scale');
+  describe('X-height page: Handle error for too many decimal places', () => {
+    beforeEach(() => {
+      sessionStorage.clear();
+      cy.visit('/');
+      cy.findByText(/demo/i).click();
+      cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+      cy.findByText(/next/i).click();
+      cy.findByTestId(otherInputField).type('3');
+      cy.findByTestId(inputField).type('1.12345');
+    });
+
+    it('does not show alert before blurring or clicking the next button', () => {
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+    });
+
+    it('shows relevant alert when the user blurs with an input value with too many decimal places; and reloading the page will not change any of these', () => {
+      cy.findByTestId(inputField).blur();
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
+      cy.reload();
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
+    });
+
+    it('shows relevant alert, disables the next button, and focuses the input field, when the user clicks the next button with an input value with too many decimal places; and reloading the page will not change any of these', () => {
+      cy.findByText(/preview/i).click();
+      cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.disabled');
+      cy.focused().should('have.attr', 'id', inputField);
+      cy.reload();
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.disabled');
+    });
+
+    it('hides relevant alert and enables the next button as soon as the user turns an invalid input value into a valid one', () => {
+      cy.findByText(/preview/i).click();
+      cy.findByTestId(inputField).type('{backspace}'); // turn 1.12345 into 1.1234
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.enabled');
+    });
   });
 
-  it('alerts the user if they enter a value less than 1 AND blur the X-HEIGHT ratio input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
-    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
-    cy.testAlertForValuesLessThanOne('x-height-for-ratio', 'modular-scale');
-  });
+  describe('X-height page: Handle error for string input values', () => {
+    beforeEach(() => {
+      sessionStorage.clear();
+      cy.visit('/');
+      cy.findByText(/demo/i).click();
+      cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+      cy.findByText(/next/i).click();
+      cy.findByTestId(otherInputField).type('3');
+      cy.findByTestId(inputField).type('string');
+    });
 
-  it('alerts the user if they enter a value less than 1 AND blur the LINE-HEIGHT ratio input field, but the alert disappears when they delete the invalid value AND blur the input field', () => {
-    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
-    cy.testAlertForValuesLessThanOne('line-height-for-ratio', 'modular-scale');
-  });
+    it('does not show alert before blurring or clicking the next button', () => {
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+    });
 
-  it('alerts the user if they enter a value more than 100 AND blur the X-HEIGHT ratio input field, but the alert disappears when they correct the input value AND blur the input field', () => {
-    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
-    cy.testAlertForValuesMoreThanHundred('x-height-for-ratio', 'modular-scale');
-  });
+    it('shows relevant alert when the user blurs with a string input value; and reloading the page will not change any of these', () => {
+      cy.findByTestId(inputField).blur();
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.reload();
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+    });
 
-  it('alerts the user if they enter a value more than 100 AND blur the LINE-HEIGHT ratio input field, but the alert disappears when they correct the input value AND blur the input field', () => {
-    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
-    cy.testAlertForValuesMoreThanHundred(
-      'line-height-for-ratio',
-      'modular-scale',
-    );
-  });
+    it('shows relevant alert, disables the next button, and focuses the input field, when the user clicks the next button with a string input value; and reloading the page will not change any of these', () => {
+      cy.findByText(/preview/i).click();
+      cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.disabled');
+      cy.focused().should('have.attr', 'id', inputField);
+      cy.reload();
+      cy.assertIfErrorMessageAppears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.disabled');
+    });
 
-  it('alerts the user if they enter a string AND blur the input field, but the alert disappears when they correct it AND blur the input field', () => {
-    cy.testAlertForString('x-height-for-ratio', 'modular-scale');
-    cy.testAlertForString('line-height-for-ratio', 'modular-scale');
-  });
-
-  it('does not allow the user to move on to the preview page if the user has not entered an x-height ratio value, and shows an error message with the invalid field focused', () => {
-    // execute
-    cy.findByTestId('x-height-for-ratio').clear();
-    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
-    cy.findByText(/preview/i).click();
-    // verify
-    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
-    cy.assertIfErrorMessageAppears('error-message-modular-scale');
-    cy.focused().should('have.attr', 'id', 'x-height-for-ratio');
-  });
-
-  it('does not allow the user to move on to the preview page if the user has not entered a line-height ratio value, and shows an error message with the invalid field focused', () => {
-    // execute
-    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
-    cy.findByTestId('line-height-for-ratio').clear();
-    cy.findByText(/preview/i).click();
-    // verify
-    cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
-    cy.assertIfErrorMessageAppears('error-message-modular-scale');
-    cy.focused().should('have.attr', 'id', 'line-height-for-ratio');
+    it('hides relevant alert and enables the next button as soon as the user deletes the invalid input value', () => {
+      cy.findByText(/preview/i).click();
+      cy.findByTestId(inputField).clear();
+      cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+      cy.assertIfDecimalPlaceMessageTurnsNormal('instruction-modular-scale');
+      cy.findByText(/preview/i).should('be.enabled');
+    });
   });
 });
 

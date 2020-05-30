@@ -134,6 +134,17 @@ function App() {
     setNextButtonDisabled('true');
   };
 
+  const [previewButtonDisabled, setPreviewButtonDisabled] = React.useState(
+    initialState('previewButtonDisabled'),
+  );
+  React.useEffect(() => {
+    store.set('previewButtonDisabled', previewButtonDisabled);
+  }, [previewButtonDisabled]);
+
+  const disablePreviewButton = () => {
+    setPreviewButtonDisabled('true');
+  };
+
   const validateFileType = file => {
     if (validFontFileTypes.test(file.name)) {
       return true;
@@ -305,7 +316,7 @@ function App() {
     }
   };
 
-  const handleXHeightRatioChange = newXHeightRatio => {
+  const handleXHeightRatioChange = (newXHeightRatio, errors) => {
     setXHeightRatio(newXHeightRatio);
     const newLineHeight = getLineHeight(
       fontMetrics,
@@ -321,8 +332,21 @@ function App() {
       lineHeightRatio,
     );
     setMarginTop(newMarginTop);
+
+    // Error handling
+    if (modularScaleRangeError) {
+      if (!errors.patternMismatch) {
+        setModularScaleRangeError('');
+        setPreviewButtonDisabled('');
+      }
+    } else if (modularScaleStepError) {
+      if (!errors.patternMismatch) {
+        setModularScaleStepError('');
+        setPreviewButtonDisabled('');
+      }
+    }
   };
-  const handleLineHeightRatioChange = newLineHeightRatio => {
+  const handleLineHeightRatioChange = (newLineHeightRatio, errors) => {
     setLineHeightRatio(newLineHeightRatio);
     const newLineHeight = getLineHeight(
       fontMetrics,
@@ -338,7 +362,21 @@ function App() {
       newLineHeightRatio,
     );
     setMarginTop(newMarginTop);
+
+    // Error handling
+    if (modularScaleRangeError) {
+      if (!errors.patternMismatch) {
+        setModularScaleRangeError('');
+        setPreviewButtonDisabled('');
+      }
+    } else if (modularScaleStepError) {
+      if (!errors.patternMismatch) {
+        setModularScaleStepError('');
+        setPreviewButtonDisabled('');
+      }
+    }
   };
+
   return (
     <>
       <GlobalStyle />
@@ -425,6 +463,7 @@ function App() {
                           ascender={fontMetrics.ascender}
                           capHeight={fontMetrics.capHeight}
                           descender={fontMetrics.descender}
+                          disablePreviewButton={disablePreviewButton}
                           fontFamily={fontMetrics.fontFamily}
                           fontFileError={fontFileError}
                           fontSubfamily={fontMetrics.fontSubfamily}
@@ -439,6 +478,7 @@ function App() {
                           lineHeightRatio={lineHeightRatio}
                           modularScaleRangeError={modularScaleRangeError}
                           modularScaleStepError={modularScaleStepError}
+                          previewButtonDisabled={previewButtonDisabled}
                           unitsPerEm={fontMetrics.unitsPerEm}
                           validateFileType={validateFileType}
                           validateModularScale={validateModularScale}
