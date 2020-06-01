@@ -55,8 +55,6 @@ test('renders correctly', () => {
 
     .c0 {
       max-width: 700px;
-      padding-left: 12.857142857142858px;
-      padding-right: 12.857142857142858px;
       border-top: 1px solid currentColor;
       color: hsl(0,0%,67%);
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;

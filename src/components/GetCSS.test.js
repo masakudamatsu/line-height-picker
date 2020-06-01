@@ -40,8 +40,6 @@ test('renders correctly', () => {
 
     .c0 {
       max-width: 700px;
-      padding-left: 12.857142857142858px;
-      padding-right: 12.857142857142858px;
     }
 
     .c2 {

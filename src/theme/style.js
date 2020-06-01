@@ -101,8 +101,6 @@ export const Spacer = styled.div`
 
 export const Section = styled.section`
   max-width: ${maxLogoWidthPx}px;
-  padding-left: ${fontPalette.marginSide}px;
-  padding-right: ${fontPalette.marginSide}px;
   @media (min-width: ${mediaQueryCutoff}px) {
     margin: 0 auto;
   }
@@ -644,4 +642,14 @@ export const FooterWrapper = styled(Section)`
 
 export const FullScreenSpreader = styled.div`
   height: 100vh;
+`;
+
+// Layout
+
+export const SideMarginRegulator = styled.div`
+  margin: 0 ${fontPalette.marginSide}px;
+  max-width: ${maxLogoWidthPx}px;
+  @media (min-width: ${mediaQueryCutoff}px) {
+    margin: 0 auto;
+  }
 `;

@@ -6,7 +6,7 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import './animation.css';
 
 import GlobalStyle from './theme/GlobalStyle';
-import {FullScreenSpreader} from './theme/style';
+import {FullScreenSpreader, SideMarginRegulator} from './theme/style';
 
 import Header from './components/Header';
 import Home from './components/Home';
@@ -427,172 +427,174 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <ScrollToTop>
-        <Switch>
-          <Route path="/" exact>
-            <Header stepNow={1} topPage />
-          </Route>
-          <Route path="/x-height">
-            <Header stepNow={2} />
-          </Route>
-          <Route path="/modular-scale">
-            <Header stepNow={3} />
-          </Route>
-          <Route path="/preview">
-            <Header stepNow={4} />
-          </Route>
-          <Route path="/css">
-            <Header stepNow={5} />
-          </Route>
-          <Route>
-            <FullScreenSpreader>
-              <Header stepNow={0} />
-              <Error />
-              <Footer page404 />
-            </FullScreenSpreader>
-          </Route>
-        </Switch>
-        <Route
-          render={({location}) => {
-            if (!location.state) {
-              location.state = {
-                transition: '',
-                duration: 0,
-              };
-            }
-            return (
-              <TransitionGroup
-                childFactory={child =>
-                  React.cloneElement(child, {
-                    classNames: location.state.transition,
-                    timeout: location.state.duration,
-                  })
-                }
-                style={{position: 'relative'}}
-              >
-                <CSSTransition key={location.key} mountOnEnter unmountOnExit>
-                  <div>
-                    <Switch location={location}>
-                      <Route path="/" exact>
-                        <Home
-                          validateFileType={validateFileType}
-                          handleDemo={handleDemo}
-                          handleFontFile={handleFontFile}
-                          fontFileError={fontFileError}
-                        />
-                        <Footer />
-                      </Route>
-                      <Route path="/x-height">
-                        <Xheight
-                          ascender={fontMetrics.ascender}
-                          capHeight={fontMetrics.capHeight}
-                          descender={fontMetrics.descender}
-                          disableNextButton={disableNextButton}
-                          fontFamily={fontMetrics.fontFamily}
-                          fontFileError={fontFileError}
-                          fontSubfamily={fontMetrics.fontSubfamily}
-                          fontWeight={fontMetrics.fontWeight}
-                          handleFontFile={handleFontFile}
-                          handleNoXHeight={handleNoXHeight}
-                          handleXHeightChange={handleXHeightChange}
-                          nextButtonDisabled={nextButtonDisabled}
-                          unitsPerEm={fontMetrics.unitsPerEm}
-                          validateFileType={validateFileType}
-                          validateXHeight={validateXHeight}
-                          xHeightPx={xHeightPx}
-                          xHeightRangeError={xHeightRangeError}
-                          xHeightStepError={xHeightStepError}
-                        />
-                        <Footer />
-                      </Route>
-                      <Route path="/modular-scale">
-                        <ModularScale
-                          ascender={fontMetrics.ascender}
-                          capHeight={fontMetrics.capHeight}
-                          descender={fontMetrics.descender}
-                          disablePreviewButton={disablePreviewButton}
-                          fontFamily={fontMetrics.fontFamily}
-                          fontFileError={fontFileError}
-                          fontSubfamily={fontMetrics.fontSubfamily}
-                          fontWeight={fontMetrics.fontWeight}
-                          handleFontFile={handleFontFile}
-                          handleLineHeightRatioChange={
-                            handleLineHeightRatioChange
-                          }
-                          handleNoModularScale={handleNoModularScale}
-                          handleNoXHeight={handleNoXHeight}
-                          handleXHeightChange={handleXHeightChange}
-                          handleXHeightRatioChange={handleXHeightRatioChange}
-                          lineHeightRatio={lineHeightRatio}
-                          modularScaleRangeError={modularScaleRangeError}
-                          modularScaleStepError={modularScaleStepError}
-                          previewButtonDisabled={previewButtonDisabled}
-                          unitsPerEm={fontMetrics.unitsPerEm}
-                          validateFileType={validateFileType}
-                          validateModularScale={validateModularScale}
-                          validateXHeight={validateXHeight}
-                          xHeightPx={xHeightPx}
-                          xHeightRangeError={xHeightRangeError}
-                          xHeightRatio={xHeightRatio}
-                          xHeightStepError={xHeightStepError}
-                        />
-                        <Footer />
-                      </Route>
-                      <Route path="/preview">
-                        <Preview
-                          ascender={fontMetrics.ascender}
-                          capHeight={fontMetrics.capHeight}
-                          cssButtonDisabled={cssButtonDisabled}
-                          descender={fontMetrics.descender}
-                          disableCssButton={disableCssButton}
-                          fontFamily={fontMetrics.fontFamily}
-                          fontFileError={fontFileError}
-                          fontMetrics={fontMetrics}
-                          fontSize={fontSizePx}
-                          fontSubfamily={fontMetrics.fontSubfamily}
-                          fontWeight={fontMetrics.fontWeight}
-                          handleFontFile={handleFontFile}
-                          handleLineHeightRatioChange={
-                            handleLineHeightRatioChange
-                          }
-                          handleNoModularScale={handleNoModularScale}
-                          handleNoXHeight={handleNoXHeight}
-                          handleXHeightChange={handleXHeightChange}
-                          handleXHeightRatioChange={handleXHeightRatioChange}
-                          lineHeight={lineHeight}
-                          lineHeightRatio={lineHeightRatio}
-                          marginTop={marginTop}
-                          modularScaleRangeError={modularScaleRangeError}
-                          modularScaleStepError={modularScaleStepError}
-                          unitsPerEm={fontMetrics.unitsPerEm}
-                          validateFileType={validateFileType}
-                          validateModularScale={validateModularScale}
-                          validateXHeight={validateXHeight}
-                          xHeightPx={xHeightPx}
-                          xHeightRangeError={xHeightRangeError}
-                          xHeightRatio={xHeightRatio}
-                          xHeightStepError={xHeightStepError}
-                        />
-                        <Footer />
-                      </Route>
-                      <Route path="/css">
-                        <GetCSS
-                          fontFamily={fontMetrics.fontFamily}
-                          fontSize={fontSizePx}
-                          fontWeight={fontMetrics.fontWeight}
-                          lineHeight={lineHeight}
-                          marginTop={marginTop}
-                        />
-                        <Footer />
-                      </Route>
-                    </Switch>
-                  </div>
-                </CSSTransition>
-              </TransitionGroup>
-            );
-          }}
-        />
-      </ScrollToTop>
+      <SideMarginRegulator>
+        <ScrollToTop>
+          <Switch>
+            <Route path="/" exact>
+              <Header stepNow={1} topPage />
+            </Route>
+            <Route path="/x-height">
+              <Header stepNow={2} />
+            </Route>
+            <Route path="/modular-scale">
+              <Header stepNow={3} />
+            </Route>
+            <Route path="/preview">
+              <Header stepNow={4} />
+            </Route>
+            <Route path="/css">
+              <Header stepNow={5} />
+            </Route>
+            <Route>
+              <FullScreenSpreader>
+                <Header stepNow={0} />
+                <Error />
+                <Footer page404 />
+              </FullScreenSpreader>
+            </Route>
+          </Switch>
+          <Route
+            render={({location}) => {
+              if (!location.state) {
+                location.state = {
+                  transition: '',
+                  duration: 0,
+                };
+              }
+              return (
+                <TransitionGroup
+                  childFactory={child =>
+                    React.cloneElement(child, {
+                      classNames: location.state.transition,
+                      timeout: location.state.duration,
+                    })
+                  }
+                  style={{position: 'relative'}}
+                >
+                  <CSSTransition key={location.key} mountOnEnter unmountOnExit>
+                    <div>
+                      <Switch location={location}>
+                        <Route path="/" exact>
+                          <Home
+                            validateFileType={validateFileType}
+                            handleDemo={handleDemo}
+                            handleFontFile={handleFontFile}
+                            fontFileError={fontFileError}
+                          />
+                          <Footer />
+                        </Route>
+                        <Route path="/x-height">
+                          <Xheight
+                            ascender={fontMetrics.ascender}
+                            capHeight={fontMetrics.capHeight}
+                            descender={fontMetrics.descender}
+                            disableNextButton={disableNextButton}
+                            fontFamily={fontMetrics.fontFamily}
+                            fontFileError={fontFileError}
+                            fontSubfamily={fontMetrics.fontSubfamily}
+                            fontWeight={fontMetrics.fontWeight}
+                            handleFontFile={handleFontFile}
+                            handleNoXHeight={handleNoXHeight}
+                            handleXHeightChange={handleXHeightChange}
+                            nextButtonDisabled={nextButtonDisabled}
+                            unitsPerEm={fontMetrics.unitsPerEm}
+                            validateFileType={validateFileType}
+                            validateXHeight={validateXHeight}
+                            xHeightPx={xHeightPx}
+                            xHeightRangeError={xHeightRangeError}
+                            xHeightStepError={xHeightStepError}
+                          />
+                          <Footer />
+                        </Route>
+                        <Route path="/modular-scale">
+                          <ModularScale
+                            ascender={fontMetrics.ascender}
+                            capHeight={fontMetrics.capHeight}
+                            descender={fontMetrics.descender}
+                            disablePreviewButton={disablePreviewButton}
+                            fontFamily={fontMetrics.fontFamily}
+                            fontFileError={fontFileError}
+                            fontSubfamily={fontMetrics.fontSubfamily}
+                            fontWeight={fontMetrics.fontWeight}
+                            handleFontFile={handleFontFile}
+                            handleLineHeightRatioChange={
+                              handleLineHeightRatioChange
+                            }
+                            handleNoModularScale={handleNoModularScale}
+                            handleNoXHeight={handleNoXHeight}
+                            handleXHeightChange={handleXHeightChange}
+                            handleXHeightRatioChange={handleXHeightRatioChange}
+                            lineHeightRatio={lineHeightRatio}
+                            modularScaleRangeError={modularScaleRangeError}
+                            modularScaleStepError={modularScaleStepError}
+                            previewButtonDisabled={previewButtonDisabled}
+                            unitsPerEm={fontMetrics.unitsPerEm}
+                            validateFileType={validateFileType}
+                            validateModularScale={validateModularScale}
+                            validateXHeight={validateXHeight}
+                            xHeightPx={xHeightPx}
+                            xHeightRangeError={xHeightRangeError}
+                            xHeightRatio={xHeightRatio}
+                            xHeightStepError={xHeightStepError}
+                          />
+                          <Footer />
+                        </Route>
+                        <Route path="/preview">
+                          <Preview
+                            ascender={fontMetrics.ascender}
+                            capHeight={fontMetrics.capHeight}
+                            cssButtonDisabled={cssButtonDisabled}
+                            descender={fontMetrics.descender}
+                            disableCssButton={disableCssButton}
+                            fontFamily={fontMetrics.fontFamily}
+                            fontFileError={fontFileError}
+                            fontMetrics={fontMetrics}
+                            fontSize={fontSizePx}
+                            fontSubfamily={fontMetrics.fontSubfamily}
+                            fontWeight={fontMetrics.fontWeight}
+                            handleFontFile={handleFontFile}
+                            handleLineHeightRatioChange={
+                              handleLineHeightRatioChange
+                            }
+                            handleNoModularScale={handleNoModularScale}
+                            handleNoXHeight={handleNoXHeight}
+                            handleXHeightChange={handleXHeightChange}
+                            handleXHeightRatioChange={handleXHeightRatioChange}
+                            lineHeight={lineHeight}
+                            lineHeightRatio={lineHeightRatio}
+                            marginTop={marginTop}
+                            modularScaleRangeError={modularScaleRangeError}
+                            modularScaleStepError={modularScaleStepError}
+                            unitsPerEm={fontMetrics.unitsPerEm}
+                            validateFileType={validateFileType}
+                            validateModularScale={validateModularScale}
+                            validateXHeight={validateXHeight}
+                            xHeightPx={xHeightPx}
+                            xHeightRangeError={xHeightRangeError}
+                            xHeightRatio={xHeightRatio}
+                            xHeightStepError={xHeightStepError}
+                          />
+                          <Footer />
+                        </Route>
+                        <Route path="/css">
+                          <GetCSS
+                            fontFamily={fontMetrics.fontFamily}
+                            fontSize={fontSizePx}
+                            fontWeight={fontMetrics.fontWeight}
+                            lineHeight={lineHeight}
+                            marginTop={marginTop}
+                          />
+                          <Footer />
+                        </Route>
+                      </Switch>
+                    </div>
+                  </CSSTransition>
+                </TransitionGroup>
+              );
+            }}
+          />
+        </ScrollToTop>
+      </SideMarginRegulator>
     </>
   );
 }
