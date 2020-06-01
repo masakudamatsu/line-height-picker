@@ -28,20 +28,6 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c1 {
-      height: 1.8080357142857142rem;
-      width: auto;
-    }
-
-    .c3 {
-      height: 1.2053571428571428rem;
-      width: auto;
-    }
-
-    .c0 {
-      max-width: 700px;
-    }
-
     .c2 {
       font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.4717rem;
@@ -116,7 +102,7 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: hsl(0,0%,25%);
+      background-color: hsl(0,0%,15%);
       border: none;
       border-radius: 7.232142857142856px;
       box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
@@ -165,7 +151,7 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: hsl(0,0%,25%);
+      background-color: hsl(0,0%,15%);
       border: none;
       border-radius: 7.232142857142856px;
       box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
@@ -215,16 +201,14 @@ test('renders correctly', () => {
       left: 14.464285714285712px;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c1 {
-        height: 2.109375rem;
-      }
+    .c1 {
+      height: 1.8080357142857142rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c3 {
-        height: 1.40625rem;
-      }
+    .c3 {
+      height: 1.2053571428571428rem;
+      width: auto;
     }
 
     @media (min-width:875px) {
@@ -306,6 +290,18 @@ test('renders correctly', () => {
       }
     }
 
+    @media only screen and (min-width:1024px) {
+      .c1 {
+        height: 2.109375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c3 {
+        height: 1.40625rem;
+      }
+    }
+
     <div>
       <main>
         <section
@@ -375,7 +371,7 @@ test('renders correctly', () => {
             height="2"
           />
           <p
-            class="sc-AxheI c9"
+            class="sc-AxgMl c9"
             data-testid="whatHappened"
             id="whatHappened"
           >
@@ -386,7 +382,7 @@ test('renders correctly', () => {
             height="2"
           />
           <p
-            class="sc-AxheI c9"
+            class="sc-AxgMl c9"
             data-testid="howToResolve"
             id="howToResolve"
           >

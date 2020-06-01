@@ -21,7 +21,7 @@ test('renders correctly', () => {
       cursor: pointer;
       -webkit-text-decoration: none;
       text-decoration: none;
-      text-shadow: 0.03em 0 hsl(0,0%,25%), -0.03em 0 hsl(0,0%,25%),0 0.03em hsl(0,0%,25%), 0 -0.03em hsl(0,0%,25%);
+      text-shadow: 0.03em 0 hsl(0,0%,15%), -0.03em 0 hsl(0,0%,15%),0 0.03em hsl(0,0%,15%), 0 -0.03em hsl(0,0%,15%);
     }
 
     .c5:visited {
@@ -52,20 +52,6 @@ test('renders correctly', () => {
 
     .c5:visited:active {
       background: none;
-    }
-
-    .c1 {
-      height: 1.8080357142857142rem;
-      width: auto;
-    }
-
-    .c3 {
-      height: 1.2053571428571428rem;
-      width: auto;
-    }
-
-    .c0 {
-      max-width: 700px;
     }
 
     .c2 {
@@ -115,16 +101,14 @@ test('renders correctly', () => {
       margin-top: -0.3949rem;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c1 {
-        height: 2.109375rem;
-      }
+    .c1 {
+      height: 1.8080357142857142rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c3 {
-        height: 1.40625rem;
-      }
+    .c3 {
+      height: 1.2053571428571428rem;
+      width: auto;
     }
 
     @media (min-width:875px) {
@@ -166,6 +150,18 @@ test('renders correctly', () => {
     @media only screen and (min-width:1024px) {
       .c4::after {
         margin-top: -0.4607rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c1 {
+        height: 2.109375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c3 {
+        height: 1.40625rem;
       }
     }
 

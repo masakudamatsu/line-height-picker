@@ -42,7 +42,7 @@ test('renders correctly', () => {
       cursor: pointer;
       -webkit-text-decoration: none;
       text-decoration: none;
-      text-shadow: 0.03em 0 hsl(0,0%,25%), -0.03em 0 hsl(0,0%,25%),0 0.03em hsl(0,0%,25%), 0 -0.03em hsl(0,0%,25%);
+      text-shadow: 0.03em 0 hsl(0,0%,15%), -0.03em 0 hsl(0,0%,15%),0 0.03em hsl(0,0%,15%), 0 -0.03em hsl(0,0%,15%);
     }
 
     .c5:visited {
@@ -73,11 +73,6 @@ test('renders correctly', () => {
 
     .c5:visited:active {
       background: none;
-    }
-
-    .c2 {
-      height: 0.8035714285714286rem;
-      width: auto;
     }
 
     .c3 {
@@ -128,10 +123,9 @@ test('renders correctly', () => {
       font-style: normal;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c2 {
-        height: 0.9375rem;
-      }
+    .c2 {
+      height: 0.8035714285714286rem;
+      width: auto;
     }
 
     @media only screen and (min-width:1024px) {
@@ -149,6 +143,12 @@ test('renders correctly', () => {
     @media only screen and (min-width:1024px) {
       .c3::after {
         margin-top: -0.4607rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c2 {
+        height: 0.9375rem;
       }
     }
 

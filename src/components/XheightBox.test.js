@@ -24,16 +24,6 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c4 {
-      height: 0.8035714285714286rem;
-      width: auto;
-    }
-
-    .c6 {
-      height: 1.2053571428571428rem;
-      width: auto;
-    }
-
     .c7 {
       color: currentColor;
       font-size: inherit;
@@ -104,7 +94,7 @@ test('renders correctly', () => {
     }
 
     .c2 {
-      background-color: hsl(0,0%,25%);
+      background-color: hsl(0,0%,15%);
       border: 2px solid hsl(0,0%,46%);
       border-radius: 4px;
       color: hsl(0,0%,96%);
@@ -137,16 +127,14 @@ test('renders correctly', () => {
       bottom: 18px;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c4 {
-        height: 0.9375rem;
-      }
+    .c4 {
+      height: 0.8035714285714286rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c6 {
-        height: 1.40625rem;
-      }
+    .c6 {
+      height: 1.2053571428571428rem;
+      width: auto;
     }
 
     @media only screen and (min-width:1024px) {
@@ -223,6 +211,18 @@ test('renders correctly', () => {
       }
     }
 
+    @media only screen and (min-width:1024px) {
+      .c4 {
+        height: 0.9375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c6 {
+        height: 1.40625rem;
+      }
+    }
+
     <div>
       <div
         class="c0"
@@ -235,7 +235,7 @@ test('renders correctly', () => {
         </label>
         <input
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-          class="sc-fzoyTs sc-fzoNJl c2"
+          class="sc-fzqNqU sc-fzoyTs c2"
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"
           inputmode="decimal"
@@ -255,7 +255,7 @@ test('renders correctly', () => {
         height="1"
       />
       <p
-        class="sc-AxheI c5"
+        class="sc-AxgMl c5"
         data-testid="instruction-x-height"
         id="howManyDecimalPlacesAllowed"
       >
@@ -266,7 +266,7 @@ test('renders correctly', () => {
         height="2"
       />
       <p
-        class="sc-AxheI c7"
+        class="sc-AxgMl c7"
         data-testid="error-message-x-height"
         id="rangeOfNumbersAllowed"
       >

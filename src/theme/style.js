@@ -659,3 +659,37 @@ export const SpacerVertical = styled.div`
       Math.pow(fontPalette.modularScale, props.height)}rem;
   }
 `;
+
+export const SpacerHorizontal = styled.div`
+  @media only screen and (min-width: 680px) {
+    flex: 0 0
+      ${props =>
+        fontPalette.xHeight.mobile.px *
+        Math.pow(fontPalette.modularScale, props.width)}px;
+    height: inherit;
+    width: ${props =>
+      fontPalette.xHeight.mobile.px *
+      Math.pow(fontPalette.modularScale, props.width)}px;
+  }
+`;
+
+export const Flexbox = styled.div`
+  @media only screen and (min-width: 680px) {
+    display: flex;
+    flex-direction: row;
+  }
+`;
+
+export const MainPanel = styled.div`
+  @media only screen and (min-width: 680px) {
+  }
+`;
+export const ControlPanel = styled.div`
+  @media only screen and (min-width: 680px) {
+    background-color: ${colorPalette.controlPanel};
+    border-radius: 16px;
+    flex: 0 0 320px;
+    padding: 0 ${fontPalette.marginSide}px;
+    width: 320px;
+  }
+`;

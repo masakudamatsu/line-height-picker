@@ -26,16 +26,6 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c1 {
-      height: 0.8035714285714286rem;
-      width: auto;
-    }
-
-    .c7 {
-      height: 1.2053571428571428rem;
-      width: auto;
-    }
-
     .c0 {
       color: currentColor;
       font-size: inherit;
@@ -147,7 +137,7 @@ test('renders correctly', () => {
     }
 
     .c5 {
-      background-color: hsl(0,0%,25%);
+      background-color: hsl(0,0%,15%);
       border: 2px solid hsl(0,0%,46%);
       border-radius: 4px;
       color: hsl(0,0%,96%);
@@ -171,16 +161,14 @@ test('renders correctly', () => {
       outline: none;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c1 {
-        height: 0.9375rem;
-      }
+    .c1 {
+      height: 0.8035714285714286rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c7 {
-        height: 1.40625rem;
-      }
+    .c7 {
+      height: 1.2053571428571428rem;
+      width: auto;
     }
 
     @media only screen and (min-width:1024px) {
@@ -269,6 +257,18 @@ test('renders correctly', () => {
       }
     }
 
+    @media only screen and (min-width:1024px) {
+      .c1 {
+        height: 0.9375rem;
+      }
+    }
+
+    @media only screen and (min-width:1024px) {
+      .c7 {
+        height: 1.40625rem;
+      }
+    }
+
     <div>
       <p
         class="c0"
@@ -283,7 +283,7 @@ test('renders correctly', () => {
         class="c2"
       >
         <div
-          class="sc-fzqARJ c3"
+          class="sc-fzoiQi c3"
         >
           <label
             class="c4"
@@ -293,7 +293,7 @@ test('renders correctly', () => {
           </label>
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-            class="sc-fzoyTs sc-fzoNJl c5"
+            class="sc-fzqNqU sc-fzoyTs c5"
             data-testid="x-height-for-ratio"
             id="x-height-for-ratio"
             inputmode="decimal"
@@ -309,7 +309,7 @@ test('renders correctly', () => {
           to
         </span>
         <div
-          class="sc-fzqARJ c3"
+          class="sc-fzoiQi c3"
         >
           <label
             class="c4"
@@ -319,7 +319,7 @@ test('renders correctly', () => {
           </label>
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-            class="sc-fzoyTs sc-fzoNJl c5"
+            class="sc-fzqNqU sc-fzoyTs c5"
             data-testid="line-height-for-ratio"
             id="line-height-for-ratio"
             inputmode="decimal"

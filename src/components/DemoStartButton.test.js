@@ -22,7 +22,7 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: hsl(0,0%,25%);
+      background-color: hsl(0,0%,15%);
       border: none;
       border-radius: 7.232142857142856px;
       box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
@@ -89,7 +89,7 @@ test('renders correctly', () => {
 
     <div>
       <button
-        class="sc-fznxsB c0"
+        class="sc-fzpjYC c0"
       >
         Start demo
       </button>
