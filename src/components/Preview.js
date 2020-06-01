@@ -11,7 +11,7 @@ import {
   Form,
   Section,
   SectionTitle,
-  Spacer,
+  SpacerVertical,
 } from '../theme/style';
 
 import store from '../helper/store';
@@ -59,16 +59,16 @@ const Preview = props => {
       <main>
         <Form noValidate onSubmit={handleSubmit}>
           <Section>
-            <Spacer height="3" />
+            <SpacerVertical height="3" />
             <SectionTitle>Preview paragraphs</SectionTitle>
-            <Spacer height="2" />
+            <SpacerVertical height="2" />
             <SampleParagraphs
               fontMetrics={props.fontMetrics}
               fontSize={props.fontSize}
               lineHeight={props.lineHeight}
               marginTop={props.marginTop}
             />
-            <Spacer height="2" />
+            <SpacerVertical height="2" />
           </Section>
           <Section>
             <ButtonWithRightArrow
@@ -78,12 +78,12 @@ const Preview = props => {
             >
               Get CSS code
             </ButtonWithRightArrow>
-            <Spacer height="3" />
+            <SpacerVertical height="3" />
           </Section>
           <Section>
-            <Spacer height="3" />
+            <SpacerVertical height="3" />
             <SectionTitle>Line spacing</SectionTitle>
-            <Spacer height="2" />
+            <SpacerVertical height="2" />
             <ModularScaleBoxes
               xHeightRatio={props.xHeightRatio}
               handleXHeightRatioChange={props.handleXHeightRatioChange}
@@ -95,9 +95,9 @@ const Preview = props => {
             />
           </Section>
           <Section>
-            <Spacer height="3" />
+            <SpacerVertical height="3" />
             <SectionTitle>Text size</SectionTitle>
-            <Spacer height="2" />
+            <SpacerVertical height="2" />
             <XheightBox
               handleXHeightChange={props.handleXHeightChange}
               xHeightPx={props.xHeightPx}
@@ -119,7 +119,7 @@ const Preview = props => {
             validateFileType={props.validateFileType}
           />
         </Form>
-        <Spacer height="3" />
+        <SpacerVertical height="3" />
       </main>
     </>
   );

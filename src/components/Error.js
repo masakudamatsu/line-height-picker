@@ -4,7 +4,7 @@ import {
   ParagraphOneRem,
   Section,
   SectionTitle,
-  Spacer,
+  SpacerVertical,
 } from '../theme/style';
 
 const Error = () => {
@@ -12,15 +12,15 @@ const Error = () => {
     <>
       <main>
         <Section>
-          <Spacer height="3" />
+          <SpacerVertical height="3" />
           <SectionTitle>404</SectionTitle>
-          <Spacer height="2" />
+          <SpacerVertical height="2" />
           <ParagraphOneRem>
             We can't find the page you're looking for.{' '}
             <InternalLink to="/">Click here</InternalLink> to visit our web
             app's landing page.
           </ParagraphOneRem>
-          <Spacer height="3" />{' '}
+          <SpacerVertical height="3" />{' '}
         </Section>
       </main>
     </>

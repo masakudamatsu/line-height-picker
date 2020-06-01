@@ -87,18 +87,6 @@ export const InternalLink = styled(Link)`
   ${linkTextStyle}
 `;
 
-export const Spacer = styled.div`
-  height: ${props =>
-    fontPalette.xHeight.mobile.rem *
-    Math.pow(fontPalette.modularScale, props.height)}rem;
-  width: auto;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    height: ${props =>
-      fontPalette.xHeight.desktop.rem *
-      Math.pow(fontPalette.modularScale, props.height)}rem;
-  }
-`;
-
 export const Section = styled.section`
   max-width: ${maxLogoWidthPx}px;
   @media (min-width: ${mediaQueryCutoff}px) {
@@ -650,6 +638,15 @@ export const SideMarginRegulator = styled.div`
   margin: 0 ${fontPalette.marginSide}px;
   max-width: ${maxLogoWidthPx}px;
   @media (min-width: ${mediaQueryCutoff}px) {
-    margin: 0 auto;
+
+export const SpacerVertical = styled.div`
+  height: ${props =>
+    fontPalette.xHeight.mobile.rem *
+    Math.pow(fontPalette.modularScale, props.height)}rem;
+  width: auto;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    height: ${props =>
+      fontPalette.xHeight.desktop.rem *
+      Math.pow(fontPalette.modularScale, props.height)}rem;
   }
 `;

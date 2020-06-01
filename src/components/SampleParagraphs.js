@@ -7,7 +7,7 @@ import {
   LinearLight,
   ParagraphOneRem,
   SampleParagraphWrapper,
-  Spacer,
+  SpacerVertical,
 } from '../theme/style';
 
 const SampleParagraphs = props => {
@@ -42,7 +42,7 @@ const SampleParagraphs = props => {
         </p>
       </SampleParagraphWrapper>
       <LinearLight />
-      <Spacer height="1" />
+      <SpacerVertical height="1" />
       <ParagraphOneRem as="footer">
         ―Excerpt from “
         <Cite>

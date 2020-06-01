@@ -10,15 +10,15 @@ import {
   LinearLight,
   Section,
   SectionTitle,
-  Spacer,
+  SpacerVertical,
 } from '../theme/style';
 
 const SectionFont = props => {
   return (
     <Section>
-      <Spacer height="3" />
+      <SpacerVertical height="3" />
       <SectionTitle>Font chosen:</SectionTitle>
-      <Spacer height="2" />
+      <SpacerVertical height="2" />
       <LinearLight />
       <FontNameDisplay
         ascender={props.ascender}
@@ -31,7 +31,7 @@ const SectionFont = props => {
       />
       <LinearLight />
       <ButtonContainer>
-        <Spacer height="2" />
+        <SpacerVertical height="2" />
         <FontFileUploader
           handleFontFile={props.handleFontFile}
           validateFileType={props.validateFileType}
@@ -43,7 +43,7 @@ const SectionFont = props => {
           fontFileError={props.fontFileError}
         />
       </ButtonContainer>
-      <Spacer height="3" />
+      <SpacerVertical height="3" />
     </Section>
   );
 };

@@ -9,7 +9,7 @@ import {
   Form,
   Section,
   SectionTitle,
-  Spacer,
+  SpacerVertical,
 } from '../theme/style';
 import {useHistory} from 'react-router-dom';
 
@@ -58,9 +58,9 @@ const ModularScale = props => {
     <>
       <main>
         <Section>
-          <Spacer height="3" />
+          <SpacerVertical height="3" />
           <SectionTitle>Line spacing</SectionTitle>
-          <Spacer height="2" />
+          <SpacerVertical height="2" />
           <Form noValidate onSubmit={handleSubmit}>
             <ModularScaleBoxes
               handleXHeightRatioChange={props.handleXHeightRatioChange}
@@ -71,7 +71,7 @@ const ModularScale = props => {
               validateModularScale={props.validateModularScale}
               xHeightRatio={props.xHeightRatio}
             />{' '}
-            <Spacer height="2" />
+            <SpacerVertical height="2" />
             <ButtonWithRightArrow
               type="submit"
               primary
@@ -80,12 +80,12 @@ const ModularScale = props => {
               Preview
             </ButtonWithRightArrow>
           </Form>
-          <Spacer height="3" />
+          <SpacerVertical height="3" />
         </Section>
         <Section>
-          <Spacer height="3" />
+          <SpacerVertical height="3" />
           <SectionTitle>Text size</SectionTitle>
-          <Spacer height="2" />
+          <SpacerVertical height="2" />
           <XheightBox
             handleXHeightChange={props.handleXHeightChange}
             xHeightPx={props.xHeightPx}
@@ -106,7 +106,7 @@ const ModularScale = props => {
           unitsPerEm={props.unitsPerEm}
           validateFileType={props.validateFileType}
         />
-        <Spacer height="3" />
+        <SpacerVertical height="3" />
       </main>
     </>
   );

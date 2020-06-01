@@ -11,7 +11,7 @@ import {
   LinearLight,
   SectionTitle,
   Section,
-  Spacer,
+  SpacerVertical,
 } from '../theme/style';
 import {clipboardError} from '../helper/errorMessages';
 
@@ -93,9 +93,9 @@ p + p {
     <>
       <main>
         <Section>
-          <Spacer height="3" />
+          <SpacerVertical height="3" />
           <SectionTitle>Get CSS</SectionTitle>
-          <Spacer height="2" />
+          <SpacerVertical height="2" />
           <LinearLight />
           <CodeSnippet>
             <Code data-testid="cssCode" id="cssCode">
@@ -103,7 +103,7 @@ p + p {
             </Code>
           </CodeSnippet>
           <LinearLight />
-          <Spacer height="2" />
+          <SpacerVertical height="2" />
           <Button
             data-testid="copy-button"
             disabled={error}
@@ -113,9 +113,9 @@ p + p {
           >
             {buttonText}
           </Button>
-          <Spacer height="2" />
+          <SpacerVertical height="2" />
           <ButtonWithLeftArrow onClick={handleClick}>Back</ButtonWithLeftArrow>
-          <Spacer height="2" />
+          <SpacerVertical height="2" />
           <AlertMessage
             id="whatHappened"
             data-testid="whatHappened"
@@ -124,7 +124,7 @@ p + p {
           >
             {clipboardError.whatHappened}
           </AlertMessage>
-          <Spacer height="2" />
+          <SpacerVertical height="2" />
           <AlertMessage
             id="howToResolve"
             data-testid="howToResolve"
@@ -133,7 +133,7 @@ p + p {
           >
             {clipboardError.howToResolve}
           </AlertMessage>
-          <Spacer height="3" />
+          <SpacerVertical height="3" />
         </Section>
       </main>
     </>

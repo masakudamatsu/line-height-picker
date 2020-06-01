@@ -10,7 +10,7 @@ import {
   ModularScaleInputWrapper,
   ParagraphOneRem,
   RatioWrapper,
-  Spacer,
+  SpacerVertical,
 } from '../theme/style';
 
 const ModularScaleBoxes = props => {
@@ -32,7 +32,7 @@ const ModularScaleBoxes = props => {
   return (
     <>
       <ParagraphOneRem>Enter the ratio of</ParagraphOneRem>
-      <Spacer height="1" />
+      <SpacerVertical height="1" />
       <ModularScaleInputWrapper>
         <RatioWrapper>
           <Label htmlFor="x-height-for-ratio">x-height</Label>
@@ -62,7 +62,7 @@ const ModularScaleBoxes = props => {
           />
         </RatioWrapper>
       </ModularScaleInputWrapper>
-      <Spacer height="1" />
+      <SpacerVertical height="1" />
       <InputInstruction
         id="howManyDecimalPlacesAllowed"
         data-testid="instruction-modular-scale"
@@ -70,7 +70,7 @@ const ModularScaleBoxes = props => {
       >
         up to 4 decimal places
       </InputInstruction>
-      <Spacer height="2" />
+      <SpacerVertical height="2" />
       <AlertMessage
         id="rangeOfNumbersAllowed"
         data-testid="error-message-modular-scale"

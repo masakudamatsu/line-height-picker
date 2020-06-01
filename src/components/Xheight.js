@@ -9,7 +9,7 @@ import {
   Form,
   Section,
   SectionTitle,
-  Spacer,
+  SpacerVertical,
 } from '../theme/style';
 import {useHistory} from 'react-router-dom';
 
@@ -42,9 +42,9 @@ const Xheight = props => {
     <>
       <main>
         <Section>
-          <Spacer height="3" />
+          <SpacerVertical height="3" />
           <SectionTitle>Setting text size</SectionTitle>
-          <Spacer height="2" />
+          <SpacerVertical height="2" />
           <Form noValidate onSubmit={handleSubmit}>
             <XheightBox
               handleXHeightChange={props.handleXHeightChange}
@@ -53,7 +53,7 @@ const Xheight = props => {
               xHeightRangeError={props.xHeightRangeError}
               xHeightStepError={props.xHeightStepError}
             />{' '}
-            <Spacer height="2" />
+            <SpacerVertical height="2" />
             <ButtonWithRightArrow
               type="submit"
               primary
@@ -61,7 +61,7 @@ const Xheight = props => {
             >
               Next
             </ButtonWithRightArrow>
-            <Spacer height="3" />
+            <SpacerVertical height="3" />
           </Form>
         </Section>
         <SectionFont
@@ -76,9 +76,9 @@ const Xheight = props => {
           unitsPerEm={props.unitsPerEm}
           validateFileType={props.validateFileType}
         />
-        <Spacer height="3" />
+        <SpacerVertical height="3" />
         <XheightGuide />
-        <Spacer height="3" />
+        <SpacerVertical height="3" />
       </main>
     </>
   );
