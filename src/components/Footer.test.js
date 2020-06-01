@@ -54,7 +54,6 @@ test('renders correctly', () => {
     }
 
     .c0 {
-      max-width: 700px;
       border-top: 1px solid currentColor;
       color: hsl(0,0%,67%);
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
@@ -81,7 +80,7 @@ test('renders correctly', () => {
 
     <div>
       <footer
-        class="sc-AxhUy c0"
+        class="sc-AxhCb c0"
         data-testid="footer"
       >
         <p>

@@ -88,7 +88,6 @@ export const InternalLink = styled(Link)`
 `;
 
 export const Section = styled.section`
-  max-width: ${maxLogoWidthPx}px;
   @media (min-width: ${mediaQueryCutoff}px) {
     margin: 0 auto;
   }
@@ -385,7 +384,6 @@ export const UserDataDisplay = styled.p`
 // Buttons
 
 export const ButtonContainer = styled.div`
-  max-width: ${maxLogoWidthPx}px;
   width: 100%;
 `;
 
@@ -636,8 +634,19 @@ export const FullScreenSpreader = styled.div`
 
 export const SideMarginRegulator = styled.div`
   margin: 0 ${fontPalette.marginSide}px;
+`;
+
+export const MainLandingPage = styled.main`
+  @media only screen and (min-width: ${maxLogoWidthPx}px) {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const RightAligner = styled.div`
   max-width: ${maxLogoWidthPx}px;
-  @media (min-width: ${mediaQueryCutoff}px) {
+`; // Necessary to left-align the buttons with the logo and the description
 
 export const SpacerVertical = styled.div`
   height: ${props =>
