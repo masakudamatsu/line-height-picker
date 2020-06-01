@@ -634,6 +634,21 @@ export const FullScreenSpreader = styled.div`
 
 export const SideMarginRegulator = styled.div`
   margin: 0 ${fontPalette.marginSide}px;
+  @media only screen and (min-width: ${320 *
+      Math.pow(fontPalette.modularScale, 1)}px) {
+    margin: 0
+      ${fontPalette.marginSide * Math.pow(fontPalette.modularScale, 1)}px;
+  }
+  @media only screen and (min-width: ${320 *
+      Math.pow(fontPalette.modularScale, 2)}px) {
+    margin: 0
+      ${fontPalette.marginSide * Math.pow(fontPalette.modularScale, 2)}px;
+  }
+  @media only screen and (min-width: ${320 *
+      Math.pow(fontPalette.modularScale, 3)}px) {
+    margin: 0
+      ${fontPalette.marginSide * Math.pow(fontPalette.modularScale, 3)}px;
+  }
 `;
 
 export const MainLandingPage = styled.main`
