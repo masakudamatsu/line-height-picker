@@ -156,6 +156,7 @@ test('renders correctly', () => {
     }
 
     .c7[disabled] {
+      border: 1px solid hsla(0,0%,100%,0.5);
       box-shadow: none;
       cursor: not-allowed;
       opacity: 0.35;
@@ -204,6 +205,7 @@ test('renders correctly', () => {
     }
 
     .c8[disabled] {
+      border: 1px solid hsla(0,0%,100%,0.5);
       box-shadow: none;
       cursor: not-allowed;
       opacity: 0.35;

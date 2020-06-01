@@ -43,12 +43,15 @@ const Preview = props => {
     } else if (!xHeightErrors.valid) {
       props.handleNoXHeight(xHeightErrors);
       document.getElementById('x-height-in-pixel').focus();
+      props.disableCssButton();
     } else if (!xHeightRatioErrors.valid) {
       props.handleNoModularScale(xHeightRatioErrors);
       document.getElementById('x-height-for-ratio').focus();
+      props.disableCssButton();
     } else {
       props.handleNoModularScale(lineHeightRatioErrors);
       document.getElementById('line-height-for-ratio').focus();
+      props.disableCssButton();
     }
   };
   return (
@@ -68,7 +71,11 @@ const Preview = props => {
             <Spacer height="2" />
           </Section>
           <Section>
-            <ButtonWithRightArrow type="submit" primary>
+            <ButtonWithRightArrow
+              type="submit"
+              primary
+              disabled={props.cssButtonDisabled}
+            >
               Get CSS code
             </ButtonWithRightArrow>
             <Spacer height="3" />
@@ -121,7 +128,9 @@ const Preview = props => {
 Preview.propTypes = {
   ascender: PropTypes.number,
   capHeight: PropTypes.number,
+  cssButtonDisabled: PropTypes.bool,
   descender: PropTypes.number,
+  disableCssButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontMetrics: PropTypes.object,

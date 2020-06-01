@@ -306,6 +306,18 @@ describe('Preview Page: Error-handling', () => {
         } else {
           cy.assertIfErrorMessageAppears('error-message-modular-scale');
         }
+        cy.findByText(/css/i).should('be.disabled');
+      });
+      it(`enables the button to get the CSS code and hides the error message, if the user reenters a valid ${testId} value`, () => {
+        cy.findByTestId(testId).clear();
+        cy.findByText(/css/i).click();
+        cy.findByTestId(testId).type(10);
+        if (testId === 'x-height-in-pixel') {
+          cy.assertIfErrorMessageDisappears('error-message-x-height');
+        } else {
+          cy.assertIfErrorMessageDisappears('error-message-modular-scale');
+        }
+        cy.findByText(/css/i).should('be.enabled');
       });
     },
   );
@@ -333,27 +345,6 @@ describe('Preview Page: Error-handling', () => {
       .should('contain', '.otf')
       .should('contain', '.woff');
   });
-
-  ['x-height-in-pixel', 'x-height-for-ratio', 'line-height-for-ratio'].forEach(
-    testId => {
-      it(`alerts the user if they enter more than 4 decimal places AND blur the input field, but the alert disappears when they correct it AND blur the input field, for ${testId}`, () => {
-        cy.findByTestId(testId).clear();
-        cy.testAlertForDecimalPlaces(testId, 'preview');
-      });
-      it(`alerts the user if they enter a value less than 1 AND blur the input field, but the alert disappears when they delete the invalid value AND blur the input field, for ${testId}`, () => {
-        cy.findByTestId(testId).clear();
-        cy.testAlertForValuesLessThanOne(testId, 'preview');
-      });
-      it(`alerts the user if they enter a value more than 100 AND blur the input field, but the alert disappears when they delete the last digit AND blur the input field, for ${testId}`, () => {
-        cy.findByTestId(testId).clear();
-        cy.testAlertForValuesMoreThanHundred(testId, 'preview');
-      });
-      it(`alerts the user if they enter a string AND blur the input field, but the alert disappears when they correct it AND blur the input field, for ${testId}`, () => {
-        cy.findByTestId(testId).clear();
-        cy.testAlertForString(testId, 'preview');
-      });
-    },
-  );
 });
 
 describe('Preview page: Navigation bar', () => {

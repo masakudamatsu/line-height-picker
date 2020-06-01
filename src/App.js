@@ -123,6 +123,39 @@ function App() {
     store.set('marginTop', marginTop);
   }, [marginTop]);
 
+  const [nextButtonDisabled, setNextButtonDisabled] = React.useState(
+    initialState('nextButtonDisabled'),
+  );
+  React.useEffect(() => {
+    store.set('nextButtonDisabled', nextButtonDisabled);
+  }, [nextButtonDisabled]);
+
+  const disableNextButton = () => {
+    setNextButtonDisabled('true');
+  };
+
+  const [previewButtonDisabled, setPreviewButtonDisabled] = React.useState(
+    initialState('previewButtonDisabled'),
+  );
+  React.useEffect(() => {
+    store.set('previewButtonDisabled', previewButtonDisabled);
+  }, [previewButtonDisabled]);
+
+  const disablePreviewButton = () => {
+    setPreviewButtonDisabled('true');
+  };
+
+  const [cssButtonDisabled, setCssButtonDisabled] = React.useState(
+    initialState('cssButtonDisabled'),
+  );
+  React.useEffect(() => {
+    store.set('cssButtonDisabled', cssButtonDisabled);
+  }, [cssButtonDisabled]);
+
+  const disableCssButton = () => {
+    setCssButtonDisabled('true');
+  };
+
   const validateFileType = file => {
     if (validFontFileTypes.test(file.name)) {
       return true;
@@ -227,12 +260,6 @@ function App() {
   const handleNoXHeight = errors => {
     if (errors.valueMissing) {
       setXHeightRangeError('true');
-    } else {
-      if (errors.patternMismatch) {
-        return; // Keep the error status intact
-      } else {
-        setXHeightRangeError('');
-      }
     }
   };
 
@@ -274,7 +301,8 @@ function App() {
     }
   };
 
-  const handleXHeightChange = xHeight => {
+  const handleXHeightChange = (xHeight, errors) => {
+    // NOTE: Line-height won't change with x-height
     setXHeightPx(xHeight);
     const newFontSize = getFontSize(fontMetrics, xHeight);
     setFontSizePx(newFontSize);
@@ -285,10 +313,37 @@ function App() {
       lineHeightRatio,
     );
     setMarginTop(newMarginTop);
-    // NOTE: Line-height won't change with x-height
+    // Error handling
+    if (xHeightRangeError) {
+      if (!errors.patternMismatch) {
+        setXHeightRangeError('');
+        if (nextButtonDisabled) {
+          setNextButtonDisabled('');
+        }
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
+      }
+    } else if (xHeightStepError) {
+      if (!errors.patternMismatch) {
+        setXHeightStepError('');
+        if (nextButtonDisabled) {
+          setNextButtonDisabled('');
+        }
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
+      }
+    }
   };
 
-  const handleXHeightRatioChange = newXHeightRatio => {
+  const handleXHeightRatioChange = (newXHeightRatio, errors) => {
     setXHeightRatio(newXHeightRatio);
     const newLineHeight = getLineHeight(
       fontMetrics,
@@ -304,8 +359,31 @@ function App() {
       lineHeightRatio,
     );
     setMarginTop(newMarginTop);
+
+    // Error handling
+    if (modularScaleRangeError) {
+      if (!errors.patternMismatch) {
+        setModularScaleRangeError('');
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
+      }
+    } else if (modularScaleStepError) {
+      if (!errors.patternMismatch) {
+        setModularScaleStepError('');
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
+      }
+    }
   };
-  const handleLineHeightRatioChange = newLineHeightRatio => {
+  const handleLineHeightRatioChange = (newLineHeightRatio, errors) => {
     setLineHeightRatio(newLineHeightRatio);
     const newLineHeight = getLineHeight(
       fontMetrics,
@@ -321,7 +399,31 @@ function App() {
       newLineHeightRatio,
     );
     setMarginTop(newMarginTop);
+
+    // Error handling
+    if (modularScaleRangeError) {
+      if (!errors.patternMismatch) {
+        setModularScaleRangeError('');
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
+      }
+    } else if (modularScaleStepError) {
+      if (!errors.patternMismatch) {
+        setModularScaleStepError('');
+        if (previewButtonDisabled) {
+          setPreviewButtonDisabled('');
+        }
+        if (cssButtonDisabled) {
+          setCssButtonDisabled('');
+        }
+      }
+    }
   };
+
   return (
     <>
       <GlobalStyle />
@@ -385,6 +487,7 @@ function App() {
                           ascender={fontMetrics.ascender}
                           capHeight={fontMetrics.capHeight}
                           descender={fontMetrics.descender}
+                          disableNextButton={disableNextButton}
                           fontFamily={fontMetrics.fontFamily}
                           fontFileError={fontFileError}
                           fontSubfamily={fontMetrics.fontSubfamily}
@@ -392,6 +495,7 @@ function App() {
                           handleFontFile={handleFontFile}
                           handleNoXHeight={handleNoXHeight}
                           handleXHeightChange={handleXHeightChange}
+                          nextButtonDisabled={nextButtonDisabled}
                           unitsPerEm={fontMetrics.unitsPerEm}
                           validateFileType={validateFileType}
                           validateXHeight={validateXHeight}
@@ -406,6 +510,7 @@ function App() {
                           ascender={fontMetrics.ascender}
                           capHeight={fontMetrics.capHeight}
                           descender={fontMetrics.descender}
+                          disablePreviewButton={disablePreviewButton}
                           fontFamily={fontMetrics.fontFamily}
                           fontFileError={fontFileError}
                           fontSubfamily={fontMetrics.fontSubfamily}
@@ -415,17 +520,21 @@ function App() {
                             handleLineHeightRatioChange
                           }
                           handleNoModularScale={handleNoModularScale}
+                          handleNoXHeight={handleNoXHeight}
                           handleXHeightChange={handleXHeightChange}
                           handleXHeightRatioChange={handleXHeightRatioChange}
                           lineHeightRatio={lineHeightRatio}
                           modularScaleRangeError={modularScaleRangeError}
                           modularScaleStepError={modularScaleStepError}
+                          previewButtonDisabled={previewButtonDisabled}
                           unitsPerEm={fontMetrics.unitsPerEm}
                           validateFileType={validateFileType}
                           validateModularScale={validateModularScale}
                           validateXHeight={validateXHeight}
                           xHeightPx={xHeightPx}
+                          xHeightRangeError={xHeightRangeError}
                           xHeightRatio={xHeightRatio}
+                          xHeightStepError={xHeightStepError}
                         />
                         <Footer />
                       </Route>
@@ -433,7 +542,9 @@ function App() {
                         <Preview
                           ascender={fontMetrics.ascender}
                           capHeight={fontMetrics.capHeight}
+                          cssButtonDisabled={cssButtonDisabled}
                           descender={fontMetrics.descender}
+                          disableCssButton={disableCssButton}
                           fontFamily={fontMetrics.fontFamily}
                           fontFileError={fontFileError}
                           fontMetrics={fontMetrics}

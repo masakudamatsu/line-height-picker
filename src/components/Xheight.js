@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import XheightBox from './XheightBox';
 import SectionFont from './SectionFont';
+import XheightGuide from './XheightGuide';
 import {
   ButtonWithRightArrow,
   Form,
@@ -23,7 +24,7 @@ const Xheight = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const xHeightInputField = document.getElementById('x-height-in-pixel');
+    const xHeightInputField = document.getElementById('x-height-in-pixel'); // useRef(null) or createRef() doesn't work for some reason
     const errors = xHeightInputField.validity;
     if (errors.valid) {
       history.push({
@@ -32,10 +33,11 @@ const Xheight = props => {
       });
     } else {
       props.handleNoXHeight(errors);
-      // Focus on the first invalid input element
       xHeightInputField.focus();
+      props.disableNextButton();
     }
   };
+
   return (
     <>
       <main>
@@ -52,7 +54,11 @@ const Xheight = props => {
               xHeightStepError={props.xHeightStepError}
             />{' '}
             <Spacer height="2" />
-            <ButtonWithRightArrow type="submit" primary>
+            <ButtonWithRightArrow
+              type="submit"
+              primary
+              disabled={props.nextButtonDisabled}
+            >
               Next
             </ButtonWithRightArrow>
             <Spacer height="3" />
@@ -71,6 +77,8 @@ const Xheight = props => {
           validateFileType={props.validateFileType}
         />
         <Spacer height="3" />
+        <XheightGuide />
+        <Spacer height="3" />
       </main>
     </>
   );
@@ -78,8 +86,10 @@ const Xheight = props => {
 
 Xheight.propTypes = {
   ascender: PropTypes.number,
+  nextButtonDisabled: PropTypes.bool,
   capHeight: PropTypes.number,
   descender: PropTypes.number,
+  disableNextButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontSubfamily: PropTypes.string,

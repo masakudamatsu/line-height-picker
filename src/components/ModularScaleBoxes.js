@@ -21,11 +21,13 @@ const ModularScaleBoxes = props => {
   };
   const handleXHeightChange = event => {
     const newXHeightRatio = event.target.value;
-    props.handleXHeightRatioChange(newXHeightRatio);
+    const errors = event.target.validity;
+    props.handleXHeightRatioChange(newXHeightRatio, errors);
   };
   const handleLineHeightChange = event => {
     const newLineHeightRatio = event.target.value;
-    props.handleLineHeightRatioChange(newLineHeightRatio);
+    const errors = event.target.validity;
+    props.handleLineHeightRatioChange(newLineHeightRatio, errors);
   };
   return (
     <>

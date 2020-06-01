@@ -60,6 +60,7 @@ test('renders correctly', () => {
     }
 
     .c0[disabled] {
+      border: 1px solid hsla(0,0%,100%,0.5);
       box-shadow: none;
       cursor: not-allowed;
       opacity: 0.35;

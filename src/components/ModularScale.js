@@ -28,7 +28,14 @@ const ModularScale = props => {
       .validity;
     const lineHeightErrors = document.getElementById('line-height-for-ratio')
       .validity;
-    if (xHeightErrors.valid && lineHeightErrors.valid) {
+    const xHeightValueErrors = document.getElementById('x-height-in-pixel')
+      .validity;
+
+    if (
+      xHeightErrors.valid &&
+      lineHeightErrors.valid &&
+      xHeightValueErrors.valid
+    ) {
       history.push({
         pathname: '/preview',
         state: {transition: 'slideleft', duration: 300},
@@ -36,9 +43,15 @@ const ModularScale = props => {
     } else if (!xHeightErrors.valid) {
       props.handleNoModularScale(xHeightErrors);
       document.getElementById('x-height-for-ratio').focus();
-    } else {
+      props.disablePreviewButton();
+    } else if (!lineHeightErrors.valid) {
       props.handleNoModularScale(lineHeightErrors);
       document.getElementById('line-height-for-ratio').focus();
+      props.disablePreviewButton();
+    } else if (!xHeightValueErrors.valid) {
+      props.handleNoXHeight(xHeightValueErrors);
+      document.getElementById('x-height-in-pixel').focus();
+      props.disablePreviewButton();
     }
   };
   return (
@@ -59,7 +72,11 @@ const ModularScale = props => {
               xHeightRatio={props.xHeightRatio}
             />{' '}
             <Spacer height="2" />
-            <ButtonWithRightArrow type="submit" primary>
+            <ButtonWithRightArrow
+              type="submit"
+              primary
+              disabled={props.previewButtonDisabled}
+            >
               Preview
             </ButtonWithRightArrow>
           </Form>
@@ -99,6 +116,7 @@ ModularScale.propTypes = {
   ascender: PropTypes.number,
   capHeight: PropTypes.number,
   descender: PropTypes.number,
+  disablePreviewButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontSubfamily: PropTypes.string,
@@ -106,15 +124,19 @@ ModularScale.propTypes = {
   handleFontFile: PropTypes.func.isRequired,
   handleLineHeightRatioChange: PropTypes.func.isRequired,
   handleNoModularScale: PropTypes.func.isRequired,
+  handleNoXHeight: PropTypes.func.isRequired,
   handleXHeightRatioChange: PropTypes.func.isRequired,
   lineHeightRatio: PropTypes.string,
   modularScaleRangeError: PropTypes.string,
   modularScaleStepError: PropTypes.string,
+  previewButtonDisabled: PropTypes.bool,
   unitsPerEm: PropTypes.number,
   validateFileType: PropTypes.func.isRequired,
   validateModularScale: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
+  xHeightRangeError: PropTypes.string,
   xHeightRatio: PropTypes.string,
+  xHeightStepError: PropTypes.string,
 };
 
 export default ModularScale;

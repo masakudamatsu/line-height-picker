@@ -307,7 +307,10 @@ test('Entering x-height value calls the handleXHeightChange function, but not th
     user.type(xHeightInput, userXheight);
     // verify
     expect(mockXHeightToFontSize).toHaveBeenCalledTimes(userXheight.length);
-    expect(mockXHeightToFontSize).toHaveBeenCalledWith(userXheight);
+    expect(mockXHeightToFontSize).toHaveBeenCalledWith(
+      userXheight,
+      xHeightInput.validity,
+    );
     mockXHeightToFontSize.mockClear();
 
     expect(mockValidateXHeight).not.toHaveBeenCalled();
