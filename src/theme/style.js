@@ -8,7 +8,6 @@ import inputSize from './inputSize';
 import LogoImage from '../components/LogoImage';
 
 // Parameters
-const minScreenWidthPx = 320;
 const minFontSizePx = 16;
 
 // Layout parameters
@@ -635,17 +634,17 @@ export const FullScreenSpreader = styled.div`
 
 export const SideMarginRegulator = styled.div`
   margin: 0 ${fontPalette.marginSide.mobile}px;
-  @media only screen and (min-width: ${320 *
+  @media only screen and (min-width: ${fontPalette.minScreenWidth.px *
       Math.pow(fontPalette.modularScale, 1)}px) {
     margin: 0
       ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 1)}px;
   }
-  @media only screen and (min-width: ${320 *
+  @media only screen and (min-width: ${fontPalette.minScreenWidth.px *
       Math.pow(fontPalette.modularScale, 2)}px) {
     margin: 0
       ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 2)}px;
   }
-  @media only screen and (min-width: ${320 *
+  @media only screen and (min-width: ${fontPalette.minScreenWidth.px *
       Math.pow(fontPalette.modularScale, 3)}px) {
     margin: 0
       ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 3)}px;

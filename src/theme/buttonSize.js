@@ -1,6 +1,5 @@
 import fontPalette from './fontPalette';
 
-const minimumScreenWidth = 320;
 const buttonHeight = {
   mobile: Math.pow(fontPalette.modularScale, 5) * fontPalette.xHeight.mobile.px,
   desktop:
@@ -32,7 +31,7 @@ const buttonFontSize = {
 const buttonPaddingSide = getButtonMetrics(8 / 18);
 
 const buttonWidthMobile =
-  minimumScreenWidth - fontPalette.marginSide.mobile * 2;
+  fontPalette.minScreenWidth.px - fontPalette.marginSide.mobile * 2;
 const buttonWidthDesktop =
   buttonWidthMobile *
   (fontPalette.xHeight.desktop.rem / fontPalette.xHeight.mobile.rem);

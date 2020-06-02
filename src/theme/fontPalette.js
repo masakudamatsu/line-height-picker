@@ -1,6 +1,9 @@
 // # of pixels for 1rem
 const oneRemPx = 16;
 
+// Minimum screen width
+const minScreenWidthPx = 320;
+
 // Font metrics
 const fontMetricsFedraSans = {
   unitsPerEm: 1000, // Contact with designer himself
@@ -125,6 +128,8 @@ const getTextCropTopX = (xHeightRem, lineHeightRem) => {
   return xHeightRem * textCropTopXToXHeightRatio + extraSpaceByLineHeight;
 };
 
+// Side margins
+const sideMarginMobile = xHeightPx.mobile * Math.pow(modularScale, 1);
 // Font CSS property value
 const fontPalette = {
   fontFamily: {
@@ -312,9 +317,10 @@ const fontPalette = {
     },
   },
   marginSide: {
-    mobile: xHeightPx.mobile * Math.pow(modularScale, 1),
+    mobile: sideMarginMobile,
   }, // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
   mediaQueryCutoff: '1024px', // common threshold between tablets and laptops
+  minScreenWidth: {px: minScreenWidthPx},
   modularScale: modularScale,
   rem: oneRemPx,
   xHeight: {
