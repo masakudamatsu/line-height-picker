@@ -645,17 +645,17 @@ export const FullScreenSpreader = styled.div`
 
 export const SideMarginRegulator = styled.div`
   margin: 0 ${fontPalette.marginSide.mobile}px;
-  @media only screen and (min-width: ${fontPalette.minScreenWidth.px *
+  @media only screen and (min-width: ${fontPalette.minScreenWidth.px.mobile *
       Math.pow(fontPalette.modularScale, 1)}px) {
     margin: 0
       ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 1)}px;
   }
-  @media only screen and (min-width: ${fontPalette.minScreenWidth.px *
+  @media only screen and (min-width: ${fontPalette.minScreenWidth.px.mobile *
       Math.pow(fontPalette.modularScale, 2)}px) {
     margin: 0
       ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 2)}px;
   }
-  @media only screen and (min-width: ${fontPalette.minScreenWidth.px *
+  @media only screen and (min-width: ${fontPalette.minScreenWidth.px.mobile *
       Math.pow(fontPalette.modularScale, 3)}px) {
     margin: 0
       ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 3)}px;

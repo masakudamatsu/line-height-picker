@@ -1,9 +1,6 @@
 // # of pixels for 1rem
 const oneRemPx = 16;
 
-// Minimum screen width
-const minScreenWidthPx = 320;
-
 // Font metrics
 const fontMetricsFedraSans = {
   unitsPerEm: 1000, // Contact with designer himself
@@ -19,6 +16,12 @@ const xHeightPx = {
   desktop: 10, // Medium.com and Dev.to
 };
 const modularScale = 1.5;
+
+// Minimum screen width
+const minScreenWidthPx = {
+  mobile: 320,
+  desktop: 320 * (xHeightPx.desktop / xHeightPx.mobile),
+};
 
 // font-size scale, all in rem
 
@@ -132,7 +135,7 @@ const getTextCropTopX = (xHeightRem, lineHeightRem) => {
 const sideMarginMobile = xHeightPx.mobile * Math.pow(modularScale, 1);
 // Breakpoint for font-size
 const breakpointFontSize = (
-  minScreenWidthPx * (xHeightPx.desktop / xHeightPx.mobile) * 2 +
+  minScreenWidthPx.desktop * 2 +
   sideMarginDesktop
 ).toFixed(4);
 
@@ -329,7 +332,12 @@ const fontPalette = {
     default: '1024px', // common threshold between tablets and laptops
     fontSize: breakpointFontSize,
   },
-  minScreenWidth: {px: minScreenWidthPx},
+  minScreenWidth: {
+    px: {
+      mobile: minScreenWidthPx.mobile,
+      desktop: minScreenWidthPx.desktop,
+    },
+  },
   modularScale: modularScale,
   rem: oneRemPx,
   xHeight: {
