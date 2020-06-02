@@ -88,6 +88,7 @@ export const InternalLink = styled(Link)`
 `;
 
 export const Section = styled.section`
+  max-width: 33em;
   @media (min-width: ${mediaQueryCutoff}px) {
     margin: 0 auto;
   }
