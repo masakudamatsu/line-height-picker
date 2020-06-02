@@ -634,21 +634,21 @@ export const FullScreenSpreader = styled.div`
 // Layout
 
 export const SideMarginRegulator = styled.div`
-  margin: 0 ${fontPalette.marginSide}px;
+  margin: 0 ${fontPalette.marginSide.mobile}px;
   @media only screen and (min-width: ${320 *
       Math.pow(fontPalette.modularScale, 1)}px) {
     margin: 0
-      ${fontPalette.marginSide * Math.pow(fontPalette.modularScale, 1)}px;
+      ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 1)}px;
   }
   @media only screen and (min-width: ${320 *
       Math.pow(fontPalette.modularScale, 2)}px) {
     margin: 0
-      ${fontPalette.marginSide * Math.pow(fontPalette.modularScale, 2)}px;
+      ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 2)}px;
   }
   @media only screen and (min-width: ${320 *
       Math.pow(fontPalette.modularScale, 3)}px) {
     margin: 0
-      ${fontPalette.marginSide * Math.pow(fontPalette.modularScale, 3)}px;
+      ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 3)}px;
   }
 `;
 
@@ -705,7 +705,7 @@ export const ControlPanel = styled.div`
     background-color: ${colorPalette.controlPanel};
     border-radius: 16px;
     flex: 0 0 320px;
-    padding: 0 ${fontPalette.marginSide}px;
+    padding: 0 ${fontPalette.marginSide.mobile}px;
     width: 320px;
   }
 `;

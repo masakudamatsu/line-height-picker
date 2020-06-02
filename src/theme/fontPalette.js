@@ -311,7 +311,9 @@ const fontPalette = {
         modularScale,
     },
   },
-  marginSide: xHeightPx.mobile * Math.pow(modularScale, 1), // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
+  marginSide: {
+    mobile: xHeightPx.mobile * Math.pow(modularScale, 1),
+  }, // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
   mediaQueryCutoff: '1024px', // common threshold between tablets and laptops
   modularScale: modularScale,
   rem: oneRemPx,
