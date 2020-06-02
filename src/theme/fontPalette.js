@@ -134,10 +134,7 @@ const getTextCropTopX = (xHeightRem, lineHeightRem) => {
 // Side margins
 const sideMarginMobile = xHeightPx.mobile * Math.pow(modularScale, 1);
 // Breakpoint for font-size
-const breakpointFontSize = (
-  minScreenWidthPx.desktop * 2 +
-  sideMarginDesktop
-).toFixed(4);
+const breakpointFontSize = 728;
 
 // Font CSS property value
 const fontPalette = {
