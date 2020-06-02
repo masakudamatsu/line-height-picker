@@ -98,7 +98,7 @@ export const SectionTitle = styled.h2`
   font-size: ${fontPalette.fontSize.mobile.sectionTitle}rem;
   font-weight: ${fontPalette.fontWeight.sectionTitle};
   line-height: ${fontPalette.lineHeight.sectionTitle};
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     font-size: ${fontPalette.fontSize.desktop.sectionTitle}rem;
   }
   /* Text Box Cropping parameters */
@@ -111,13 +111,15 @@ export const SectionTitle = styled.h2`
   }
   &::before {
     margin-bottom: -${fontPalette.textCrop.topCap.mobile.sectionTitle}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       margin-bottom: -${fontPalette.textCrop.topCap.desktop.sectionTitle}rem;
     }
   }
   &::after {
     margin-top: -${fontPalette.textCrop.bottom.mobile.sectionTitle}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       margin-top: -${fontPalette.textCrop.bottom.desktop.sectionTitle}rem;
     }
   }
@@ -134,7 +136,7 @@ export const ParagraphOneRem = styled.p`
     props.errorText ? fontPalette.fontWeight.alertText : 'inherit'};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     font-size: ${props =>
       props.errorText
         ? `${fontPalette.fontSize.desktop.alertText}rem`
@@ -151,13 +153,15 @@ export const ParagraphOneRem = styled.p`
   }
   &::before {
     margin-bottom: -${fontPalette.textCrop.topCap.mobile.bodyText}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       margin-bottom: -${fontPalette.textCrop.topCap.desktop.bodyText}rem;
     }
   }
   &::after {
     margin-top: -${fontPalette.textCrop.bottom.mobile.bodyText}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       margin-top: -${fontPalette.textCrop.bottom.desktop.bodyText}rem;
     }
   }
@@ -168,7 +172,7 @@ export const AlertMessage = styled(ParagraphOneRem)`
   font-size: ${fontPalette.fontSize.mobile.alertText}rem;
   font-weight: ${fontPalette.fontWeight.alertText};
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     font-size: ${fontPalette.fontSize.desktop.alertText}rem;
   }
 `;
@@ -181,7 +185,7 @@ export const CodeSnippet = styled.pre`
   padding-bottom: ${fontPalette.code.paddingBottom.mobile}rem;
   padding-top: ${fontPalette.code.paddingTop.mobile}rem;
   white-space: pre-wrap; /* https://developer.mozilla.org/en-US/docs/Web/CSS/white-space */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     padding-bottom: ${fontPalette.code.paddingBottom.desktop}rem;
     padding-top: ${fontPalette.code.paddingTop.desktop}rem;
   }
@@ -260,7 +264,7 @@ export const StepNumberBox = styled.li`
   flex-direction: column;
   justify-content: flex-start;
   width: ${numberBoxWidth * 100}vw;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     width: ${mediaQueryCutoff * numberBoxWidth}px;
   }
 `;
@@ -277,7 +281,7 @@ export const StepNumber = styled.a`
   text-align: center;
   text-decoration: none;
   width: 100%;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     font-size: ${fontPalette.fontSize.desktop.stepNumber}rem;
     padding: ${fontPalette.xHeight.desktop.rem}rem 0;
   }
@@ -302,13 +306,15 @@ export const StepNumber = styled.a`
   }
   &::before {
     margin-bottom: -${fontPalette.textCrop.topCap.mobile.stepNumber}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       margin-bottom: -${fontPalette.textCrop.topCap.desktop.stepNumber}rem;
     }
   }
   &::after {
     margin-top: -${fontPalette.textCrop.bottom.mobile.stepNumber}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       margin-top: -${fontPalette.textCrop.bottom.desktop.stepNumber}rem;
     }
   }
@@ -323,7 +329,7 @@ export const DescriptionWrapper = styled.p`
   margin: 0;
   text-indent: -1px;
   width: 100%;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     font-size: ${fontPalette.fontSize.desktop.landingPage}rem;
   }
 `;
@@ -334,7 +340,7 @@ export const UserDataDisplayWrapper = styled.div`
   display: flex;
   height: auto;
   min-height: ${inputSize.height.mobile}px;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     min-height: ${inputSize.height.desktop}px;
   }
 `;
@@ -349,7 +355,7 @@ export const UserDataDisplay = styled.p`
   line-height: ${fontPalette.fontName.lineHeightRem.mobile.toFixed(4)}rem;
   padding-bottom: ${fontPalette.fontName.paddingBottom.mobile.toFixed(4)}rem;
   padding-top: ${fontPalette.fontName.paddingTop.mobile.toFixed(4)}rem;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     font-size: ${props =>
       (
         (props.unitsPerEm / props.capHeight) *
@@ -369,13 +375,15 @@ export const UserDataDisplay = styled.p`
   }
   &::before {
     margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
     }
   }
   &::after {
     margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
     }
   }
@@ -431,7 +439,7 @@ export const Button = styled.button`
     opacity: 0.35;
   }
 
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     border-radius: ${buttonSize.borderRadius.desktop};
     font-size: ${buttonSize.fontSize.desktop}rem;
     height: ${buttonSize.height.desktop}px;
@@ -444,7 +452,8 @@ export const ButtonWithRightArrow = styled(Button)`
     content: '→';
     position: absolute;
     right: ${buttonSize.paddingSide.mobile / 2}px;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       right: ${buttonSize.paddingSide.desktop / 2}px;
     }
   }
@@ -455,7 +464,8 @@ export const ButtonWithLeftArrow = styled(Button)`
     content: '←';
     position: absolute;
     left: ${buttonSize.paddingSide.mobile / 2}px;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       left: ${buttonSize.paddingSide.desktop / 2}px;
     }
   }
@@ -472,7 +482,7 @@ export const Form = styled.form.attrs(props => ({
 export const InputWrapper = styled.div`
   height: ${inputSize.height.mobile}px;
   position: relative; /* To place XheightInputUnit component */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     height: ${inputSize.height.desktop}px;
   }
 `;
@@ -484,7 +494,7 @@ export const Label = styled.label`
   top: calc(
     ${inputSize.labelTopPx}px - ${inputSize.labelTopOffsetRem.mobile}rem
   );
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     top: calc(
       ${inputSize.labelTopPx}px - ${inputSize.labelTopOffsetRem.desktop}rem
     );
@@ -520,7 +530,7 @@ export const Input = styled.input.attrs(props => ({
     outline: none;
   }
 
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     font-size: ${fontPalette.fontSize.desktop.inputNumber}rem;
     padding-top: ${inputSize.extraTopPaddingToCenterAlignRem.desktop +
       inputSize.labelTextCapHeightRem.desktop +
@@ -541,7 +551,8 @@ export const InputInstruction = styled(ParagraphOneRem)`
   /* Crop top of text box to x-height, not cap-height */
   &::before {
     margin-bottom: -${fontPalette.textCrop.topX.mobile.bodyText}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .default}) {
       margin-bottom: -${fontPalette.textCrop.topX.desktop.bodyText}rem;
     }
   }
@@ -563,7 +574,7 @@ export const XheightInputUnit = styled.span`
   right: ${inputSize.paddingSidePx}px;
   bottom: ${inputSize.suffixBottomPx
     .mobile}px; /* to aligh with input values at the baseline */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     bottom: ${inputSize.suffixBottomPx.desktop}px;
   }
 `;
@@ -621,7 +632,7 @@ export const FooterWrapper = styled(Section)`
   position: ${props => (props.page404 ? 'absolute' : 'inherit')};
   bottom: 0;
   left: 0;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     font-size: ${fontPalette.fontSize.desktop.footer}rem;
   }
 `;
@@ -668,7 +679,7 @@ export const SpacerVertical = styled.div`
     fontPalette.xHeight.mobile.rem *
     Math.pow(fontPalette.modularScale, props.height)}rem;
   width: auto;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
     height: ${props =>
       fontPalette.xHeight.desktop.rem *
       Math.pow(fontPalette.modularScale, props.height)}rem;

@@ -297,7 +297,7 @@ body {
   font-feature-settings: 'calt', 'clig', 'kern', 'liga';
 }
 
-@media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+@media only screen and (min-width: ${fontPalette.mediaQueryCutoff.fontSize}px) {
   body {
     font-size: ${fontPalette.fontSize.desktop.bodyText}rem;
   }

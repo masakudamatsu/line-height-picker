@@ -130,6 +130,12 @@ const getTextCropTopX = (xHeightRem, lineHeightRem) => {
 
 // Side margins
 const sideMarginMobile = xHeightPx.mobile * Math.pow(modularScale, 1);
+// Breakpoint for font-size
+const breakpointFontSize = (
+  minScreenWidthPx * (xHeightPx.desktop / xHeightPx.mobile) * 2 +
+  sideMarginDesktop
+).toFixed(4);
+
 // Font CSS property value
 const fontPalette = {
   fontFamily: {
@@ -319,7 +325,10 @@ const fontPalette = {
   marginSide: {
     mobile: sideMarginMobile,
   }, // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
-  mediaQueryCutoff: '1024px', // common threshold between tablets and laptops
+  mediaQueryCutoff: {
+    default: '1024px', // common threshold between tablets and laptops
+    fontSize: breakpointFontSize,
+  },
   minScreenWidth: {px: minScreenWidthPx},
   modularScale: modularScale,
   rem: oneRemPx,
