@@ -23,7 +23,7 @@ test('renders correctly', () => {
       width: 100%;
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c0 {
         font-size: 1.7170rem;
       }

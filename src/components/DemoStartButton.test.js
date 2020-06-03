@@ -72,7 +72,7 @@ test('renders correctly', () => {
       right: 14.464285714285712px;
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c0 {
         border-radius: 8.4375;
         font-size: 1.8620895127118644rem;

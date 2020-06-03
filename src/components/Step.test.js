@@ -80,7 +80,7 @@ test('renders correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c1 {
         font-size: 1.3242rem;
         padding: 0.625rem 0;

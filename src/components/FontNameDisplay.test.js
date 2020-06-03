@@ -58,7 +58,7 @@ test('renders correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c1 {
         font-size: NaNrem;
         line-height: 3.1250rem;
