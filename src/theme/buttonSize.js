@@ -31,7 +31,8 @@ const buttonFontSize = {
 const buttonPaddingSide = getButtonMetrics(8 / 18);
 
 const buttonWidthMobile =
-  fontPalette.minScreenWidth.px.mobile - fontPalette.marginSide.mobile * 2;
+  fontPalette.minScreenWidth.px.mobile -
+  fontPalette.marginSide.mobile.first * 2;
 const buttonWidthDesktop =
   buttonWidthMobile *
   (fontPalette.xHeight.desktop.rem / fontPalette.xHeight.mobile.rem);

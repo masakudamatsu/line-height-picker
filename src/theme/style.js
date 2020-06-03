@@ -87,10 +87,7 @@ export const InternalLink = styled(Link)`
 `;
 
 export const Section = styled.section`
-  max-width: 33em;
-  @media (min-width: ${mediaQueryCutoff}px) {
-    margin: 0 auto;
-  }
+  max-width: ${fontPalette.maxWidthInEm}em;
 `;
 
 export const SectionTitle = styled.h2`
@@ -637,16 +634,15 @@ export const FullScreenSpreader = styled.div`
 // Layout
 
 export const SideMarginRegulator = styled.div`
-  margin: 0 ${fontPalette.marginSide.mobile}px;
-  @media only screen and (min-width: ${fontPalette.minScreenWidth.px.mobile *
-      Math.pow(fontPalette.modularScale, 1)}px) {
-    margin: 0
-      ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 1)}px;
+  margin: 0 ${fontPalette.marginSide.mobile.first}px;
+  max-width: ${fontPalette.maxWidthInEm}em;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.sideMargin
+      .first}px) {
+    margin: 0 ${fontPalette.marginSide.mobile.second}px;
   }
-  @media only screen and (min-width: ${fontPalette.minScreenWidth.px.mobile *
-      Math.pow(fontPalette.modularScale, 2)}px) {
-    margin: 0
-      ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 2)}px;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.sideMargin
+      .second}px) {
+    margin: 0 auto;
   }
   @media only screen and (min-width: ${fontPalette.minScreenWidth.px.mobile *
       Math.pow(fontPalette.modularScale, 3)}px) {

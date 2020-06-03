@@ -213,12 +213,6 @@ test('renders correctly', () => {
       width: auto;
     }
 
-    @media (min-width:875px) {
-      .c0 {
-        margin: 0 auto;
-      }
-    }
-
     @media only screen and (min-width:728px) {
       .c2 {
         font-size: 1.7170rem;
