@@ -57,12 +57,10 @@ test('renders correctly', () => {
 
     .c9 {
       color: hsl(335,71%,64%);
-      font-size: 0.9812rem;
       font-weight: 300;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 0.9812rem;
       font-weight: 300;
       visibility: hidden;
     }
@@ -240,12 +238,6 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
-      .c9 {
-        font-size: 1.1447rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
       .c9::before {
         margin-bottom: -0.2913rem;
       }
@@ -254,12 +246,6 @@ test('renders correctly', () => {
     @media only screen and (min-width:1024px) {
       .c9::after {
         margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c9 {
-        font-size: 1.1447rem;
       }
     }
 

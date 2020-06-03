@@ -19,7 +19,6 @@ test('renders correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       color: hsl(335,71%,64%);
-      font-size: 0.9812rem;
       font-weight: 300;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -39,12 +38,6 @@ test('renders correctly', () => {
 
     .c0::after {
       margin-top: -0.3949rem;
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c0 {
-        font-size: 1.1447rem;
-      }
     }
 
     @media only screen and (min-width:1024px) {

@@ -83,7 +83,6 @@ test('renders correctly', () => {
 
     .c4 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -136,12 +135,6 @@ test('renders correctly', () => {
     @media only screen and (min-width:1024px) {
       .c2::after {
         margin-top: -0.4567rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c4 {
-        font-size: inherit;
       }
     }
 

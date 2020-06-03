@@ -128,20 +128,10 @@ export const SectionTitle = styled.h2`
 export const ParagraphOneRem = styled.p`
   color: ${props =>
     props.errorText ? colorPalette.errorText : 'currentColor'};
-  font-size: ${props =>
-    props.errorText
-      ? `${fontPalette.fontSize.mobile.alertText}rem`
-      : 'inherit'};
   font-weight: ${props =>
     props.errorText ? fontPalette.fontWeight.alertText : 'inherit'};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
-    font-size: ${props =>
-      props.errorText
-        ? `${fontPalette.fontSize.desktop.alertText}rem`
-        : 'inherit'};
-  }
 
   /* Text Box Cropping */
   &::before,
@@ -169,12 +159,8 @@ export const ParagraphOneRem = styled.p`
 
 export const AlertMessage = styled(ParagraphOneRem)`
   font-family: ${fontPalette.fontFamily.alertText};
-  font-size: ${fontPalette.fontSize.mobile.alertText}rem;
   font-weight: ${fontPalette.fontWeight.alertText};
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
-    font-size: ${fontPalette.fontSize.desktop.alertText}rem;
-  }
 `;
 
 export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`

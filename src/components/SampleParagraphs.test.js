@@ -77,7 +77,6 @@ test('renders correctly', () => {
 
     .c3 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -126,12 +125,6 @@ test('renders correctly', () => {
     .c2 {
       height: 0.8035714285714286rem;
       width: auto;
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c3 {
-        font-size: inherit;
-      }
     }
 
     @media only screen and (min-width:1024px) {

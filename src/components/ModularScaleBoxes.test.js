@@ -28,7 +28,6 @@ test('renders correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -52,12 +51,10 @@ test('renders correctly', () => {
 
     .c8 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 0.9812rem;
       font-weight: 300;
       visibility: hidden;
     }
@@ -87,7 +84,6 @@ test('renders correctly', () => {
 
     .c6 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -172,12 +168,6 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
-      .c0 {
-        font-size: inherit;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
       .c0::before {
         margin-bottom: -0.2913rem;
       }
@@ -186,12 +176,6 @@ test('renders correctly', () => {
     @media only screen and (min-width:1024px) {
       .c0::after {
         margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c8 {
-        font-size: inherit;
       }
     }
 
@@ -208,20 +192,8 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
-      .c8 {
-        font-size: 1.1447rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
       .c4 {
         top: calc( 8px - 0.08241758241758242rem );
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c6 {
-        font-size: inherit;
       }
     }
 

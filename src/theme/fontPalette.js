@@ -30,9 +30,6 @@ const xHeightRem = {
   desktop: {bodyText: xHeightPx.desktop / oneRemPx},
 };
 
-xHeightRem.mobile.alertText = xHeightRem.mobile.bodyText;
-xHeightRem.desktop.alertText = xHeightRem.desktop.bodyText;
-
 xHeightRem.mobile.footer =
   xHeightRem.mobile.bodyText * Math.pow(modularScale, -1);
 xHeightRem.desktop.footer =
@@ -157,7 +154,6 @@ const fontPalette = {
   },
   fontSize: {
     mobile: {
-      alertText: getFontSizeFromXHeight(xHeightRem.mobile.alertText).toFixed(4),
       bodyText: getFontSizeFromXHeight(xHeightRem.mobile.bodyText).toFixed(4),
       footer: getFontSizeFromXHeight(xHeightRem.mobile.footer).toFixed(4),
       inputNumber: getFontSizeFromCapHeight(
@@ -174,9 +170,6 @@ const fontPalette = {
       ).toFixed(4),
     },
     desktop: {
-      alertText: getFontSizeFromXHeight(xHeightRem.desktop.alertText).toFixed(
-        4,
-      ),
       bodyText: getFontSizeFromXHeight(xHeightRem.desktop.bodyText).toFixed(4),
       footer: getFontSizeFromXHeight(xHeightRem.desktop.footer).toFixed(4),
       inputNumber: getFontSizeFromCapHeight(
