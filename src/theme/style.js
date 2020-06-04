@@ -625,6 +625,10 @@ export const SideMarginRegulator = styled.div`
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
     margin: 0 ${fontPalette.marginSide.desktop.first}px;
   }
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.sideMargin
+      .third}px) {
+    margin: 0 ${fontPalette.marginSide.desktop.second}px;
+  }
 `;
 
 export const CenterAligner = styled.div`

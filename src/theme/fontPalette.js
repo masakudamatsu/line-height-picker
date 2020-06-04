@@ -137,6 +137,7 @@ const sideMarginMobile = {
 };
 const sideMarginDesktop = {
   first: xHeightPx.desktop * Math.pow(modularScale, 2), // space between lines
+  second: xHeightPx.desktop * Math.pow(modularScale, 3), // space between paragraphs
 };
 
 // max width
@@ -149,6 +150,7 @@ const breakpointFontSize = 728;
 const breakpointSideMargin = {
   first: minScreenWidthPx.mobile * Math.pow(modularScale, 1), // 480
   second: minScreenWidthPx.mobile * Math.pow(modularScale, 2), // 720
+  third: minScreenWidthPx.mobile * Math.pow(modularScale, 3), // 1080
 };
 
 // Breakpoint for center-alignment (em)
