@@ -225,17 +225,13 @@ export const StepIndicator = styled.ol`
   list-style: none;
   width: 100%;
 `;
-const numberBoxWidth = 0.1;
 export const StepNumberBox = styled.li`
   align-items: center;
   background-color: ${props => props.now && 'currentColor'};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: ${numberBoxWidth * 100}vw;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
-    width: ${mediaQueryCutoff * numberBoxWidth}px;
-  }
+  width: 20%;
 `;
 
 export const StepNumber = styled.a`

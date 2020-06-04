@@ -31,7 +31,7 @@ test('renders correctly', () => {
       -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
       justify-content: flex-start;
-      width: 10vw;
+      width: 20%;
     }
 
     .c1 {
@@ -72,12 +72,6 @@ test('renders correctly', () => {
 
     .c1::after {
       margin-top: -0.2200em;
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c0 {
-        width: 87.5px;
-      }
     }
 
     @media only screen and (min-width:728px) {
