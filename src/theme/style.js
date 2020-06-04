@@ -340,14 +340,14 @@ export const UserDataDisplay = styled.p`
   &::before {
     margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
+        .fontSize}px) {
       margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
     }
   }
   &::after {
     margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
+        .fontSize}px) {
       margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
     }
   }
@@ -418,7 +418,7 @@ export const ButtonWithRightArrow = styled(Button)`
     position: absolute;
     right: ${buttonSize.paddingSide.mobile / 2}px;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
+        .fontSize}px) {
       right: ${buttonSize.paddingSide.desktop / 2}px;
     }
   }
@@ -430,7 +430,7 @@ export const ButtonWithLeftArrow = styled(Button)`
     position: absolute;
     left: ${buttonSize.paddingSide.mobile / 2}px;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
+        .fontSize}px) {
       left: ${buttonSize.paddingSide.desktop / 2}px;
     }
   }
