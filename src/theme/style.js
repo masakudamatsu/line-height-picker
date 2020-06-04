@@ -212,6 +212,9 @@ export const HeaderWrapper = styled(Section)`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    max-width: none; /* Reset max-width set in Section component */
+  }
 `;
 export const StepIndicatorWrapper = styled.nav`
   width: 70%;
@@ -598,6 +601,9 @@ export const FooterWrapper = styled(Section)`
       .fontSize}px) {
     font-size: ${fontPalette.fontSize.desktop.footer}rem;
   }
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    max-width: none; /* Reset max-width set in Section component */
+  }
 `;
 
 export const FullScreenSpreader = styled.div`
@@ -616,6 +622,9 @@ export const SideMarginRegulator = styled.div`
       .second}px) {
     margin: 0 ${fontPalette.marginSide.mobile.third}px;
   }
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    margin: 0 ${fontPalette.marginSide.desktop.first}px;
+  }
 `;
 
 export const CenterAligner = styled.div`
@@ -623,6 +632,10 @@ export const CenterAligner = styled.div`
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
       .centerAlign}em) {
     margin: 0 auto;
+  }
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    margin: 0;
+    max-width: none;
   }
 `;
 
@@ -652,20 +665,20 @@ export const SpacerVertical = styled.div`
 `;
 
 export const SpacerHorizontal = styled.div`
-  @media only screen and (min-width: 680px) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
     flex: 0 0
       ${props =>
-        fontPalette.xHeight.mobile.px *
+        fontPalette.xHeight.desktop.px *
         Math.pow(fontPalette.modularScale, props.width)}px;
     height: inherit;
     width: ${props =>
-      fontPalette.xHeight.mobile.px *
+      fontPalette.xHeight.desktop.px *
       Math.pow(fontPalette.modularScale, props.width)}px;
   }
 `;
 
 export const Flexbox = styled.div`
-  @media only screen and (min-width: 680px) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
     display: flex;
     flex-direction: row;
   }
@@ -676,11 +689,11 @@ export const MainPanel = styled.div`
   }
 `;
 export const ControlPanel = styled.div`
-  @media only screen and (min-width: 680px) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
     background-color: ${colorPalette.controlPanel};
     border-radius: 16px;
-    flex: 0 0 320px;
-    padding: 0 ${fontPalette.marginSide.mobile}px;
-    width: 320px;
+    flex: 0 0 ${fontPalette.minScreenWidth.px.desktop}px;
+    padding: 0 ${fontPalette.marginSide.desktop.first}px;
+    width: ${fontPalette.minScreenWidth.px.desktop}px;
   }
 `;

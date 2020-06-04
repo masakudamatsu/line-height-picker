@@ -244,7 +244,7 @@ test('renders correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c8::before {
         left: 16.875px;
       }

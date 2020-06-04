@@ -86,7 +86,7 @@ const ModularScale = props => {
             </Form>
             <SpacerVertical height="3" />
           </Section>
-          <SpacerHorizontal width="1" />
+          <SpacerHorizontal width="2" />
           <ControlPanel>
             <Section>
               <SpacerVertical height="3" />

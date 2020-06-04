@@ -135,6 +135,10 @@ const sideMarginMobile = {
   second: xHeightPx.mobile * Math.pow(modularScale, 2), // space between paragraphs
   third: xHeightPx.mobile * Math.pow(modularScale, 3),
 };
+const sideMarginDesktop = {
+  first: xHeightPx.desktop * Math.pow(modularScale, 2), // space between lines
+};
+
 // max width
 const maxWidthInEm = 33;
 
@@ -150,8 +154,15 @@ const breakpointSideMargin = {
 // Breakpoint for center-alignment (em)
 const breakpointCenterAlignInEm =
   maxWidthInEm +
-  (sideMarginMobile.second * 2) / getFontSizeFromXHeight(xHeightPx.mobile);
-console.log(breakpointCenterAlignInEm); // 35.457
+  (sideMarginMobile.second * 2) / getFontSizeFromXHeight(xHeightPx.mobile); // 35.457
+
+// Breakpoint for layout
+const breakpointLayout = (
+  (minScreenWidthPx.mobile - sideMarginMobile.first * 2) *
+    2 *
+    (xHeightPx.desktop / xHeightPx.mobile) +
+  sideMarginDesktop.first * 5
+).toFixed(0);
 
 // Font CSS property value
 const fontPalette = {
@@ -276,12 +287,13 @@ const fontPalette = {
   },
   marginSide: {
     mobile: sideMarginMobile,
+    desktop: sideMarginDesktop,
   }, // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
   maxWidthInEm: maxWidthInEm,
   mediaQueryCutoff: {
     centerAlign: breakpointCenterAlignInEm,
-    default: '1024px', // common threshold between tablets and laptops
     fontSize: breakpointFontSize,
+    layout: breakpointLayout,
     sideMargin: breakpointSideMargin,
   },
   minScreenWidth: {

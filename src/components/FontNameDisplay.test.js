@@ -67,13 +67,13 @@ test('renders correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c1::before {
         margin-bottom: -NaNrem;
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c1::after {
         margin-top: -NaNrem;
       }

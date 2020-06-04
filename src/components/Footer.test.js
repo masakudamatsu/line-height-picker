@@ -73,6 +73,12 @@ test('renders correctly', () => {
       }
     }
 
+    @media only screen and (min-width:799px) {
+      .c0 {
+        max-width: none;
+      }
+    }
+
     <div>
       <footer
         class="sc-AxhCb c0"

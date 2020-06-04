@@ -68,7 +68,7 @@ const Xheight = props => {
               <SpacerVertical height="3" />
             </Form>
           </Section>
-          <SpacerHorizontal width="1" />
+          <SpacerHorizontal width="2" />
           <ControlPanel>
             <SectionFont
               ascender={props.ascender}

@@ -87,7 +87,7 @@ const Preview = props => {
                 <SpacerVertical height="3" />
               </Section>
             </MainPanel>
-            <SpacerHorizontal width="1" />
+            <SpacerHorizontal width="2" />
             <ControlPanel>
               <Section>
                 <SpacerVertical height="3" />
