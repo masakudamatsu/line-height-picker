@@ -588,15 +588,16 @@ export const Cite = styled.cite`
 
 export const FooterWrapper = styled(Section)`
   border-top: 1px solid currentColor;
-  color: ${colorPalette.footerText};
-  font-family: ${fontPalette.fontFamily.footer};
-  font-size: ${fontPalette.fontSize.mobile.footer}rem;
-  font-weight: ${fontPalette.fontWeight.footer};
   padding-bottom: 0.75rem;
   padding-top: 0.75rem;
   position: ${props => (props.page404 ? 'absolute' : 'inherit')};
   bottom: 0;
   left: 0;
+export const ParagraphFooter = styled(ParagraphOneRem)`
+  color: ${colorPalette.footerText};
+  font-family: ${fontPalette.fontFamily.footer};
+  font-size: ${fontPalette.fontSize.mobile.footer}rem;
+  font-weight: ${fontPalette.fontWeight.footer};
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
       .fontSize}px) {
     font-size: ${fontPalette.fontSize.desktop.footer}rem;
