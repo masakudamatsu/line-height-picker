@@ -632,15 +632,9 @@ export const SideMarginRegulator = styled.div`
 `;
 
 export const CenterAligner = styled.div`
-  max-width: ${fontPalette.maxWidthInEm}em;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-      .centerAlign}em) {
-    margin: 0 auto;
-  }
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
-    margin: 0;
-    max-width: none;
-  }
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const MainLandingPage = styled.main`

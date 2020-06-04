@@ -159,11 +159,6 @@ const breakpointSideMargin = {
   third: minScreenWidthPx.mobile * Math.pow(modularScale, 3), // 1080
 };
 
-// Breakpoint for center-alignment (em)
-const breakpointCenterAlignInEm =
-  maxWidthInEm +
-  (sideMarginMobile.second * 2) / getFontSizeFromXHeight(xHeightPx.mobile); // 35.457
-
 // Breakpoint for layout
 const breakpointLayout = (
   controlPanelWidth * 2 +
@@ -251,9 +246,9 @@ const fontPalette = {
       stepNumber: getTextCropTopCap(lineHeightCss.stepNumber),
     },
     topX: {
-        bodyText: getTextCropTopX(lineHeightCss.bodyText),
-      },
+      bodyText: getTextCropTopX(lineHeightCss.bodyText),
     },
+  },
   code: {
     paddingBottom: {
       mobile: lineHeightRem.code.mobile,
@@ -297,7 +292,6 @@ const fontPalette = {
   }, // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
   maxWidthInEm: maxWidthInEm,
   mediaQueryCutoff: {
-    centerAlign: breakpointCenterAlignInEm,
     fontSize: breakpointFontSize,
     layout: breakpointLayout,
     sideMargin: breakpointSideMargin,
