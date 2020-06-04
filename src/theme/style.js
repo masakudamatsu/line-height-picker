@@ -213,7 +213,10 @@ export const HeaderWrapper = styled(Section)`
   justify-content: space-between;
   width: 100%;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
-    max-width: none; /* Reset max-width set in Section component */
+    max-width: calc(
+      ${fontPalette.width.controlPanel}px + ${fontPalette.maxWidthInEm}em +
+        ${fontPalette.marginSide.desktop.first}px
+    );
   }
 `;
 export const StepIndicatorWrapper = styled.nav`
@@ -593,6 +596,14 @@ export const FooterWrapper = styled(Section)`
   position: ${props => (props.page404 ? 'absolute' : 'inherit')};
   bottom: 0;
   left: 0;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    max-width: calc(
+      ${fontPalette.width.controlPanel}px + ${fontPalette.maxWidthInEm}em +
+        ${fontPalette.marginSide.desktop.first}px
+    );
+  }
+`;
+
 export const ParagraphFooter = styled(ParagraphOneRem)`
   color: ${colorPalette.footerText};
   font-family: ${fontPalette.fontFamily.footer};
@@ -601,9 +612,6 @@ export const ParagraphFooter = styled(ParagraphOneRem)`
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
       .fontSize}px) {
     font-size: ${fontPalette.fontSize.desktop.footer}rem;
-  }
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
-    max-width: none; /* Reset max-width set in Section component */
   }
 `;
 

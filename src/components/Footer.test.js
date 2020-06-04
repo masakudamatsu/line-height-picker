@@ -10,7 +10,7 @@ import Footer from './Footer';
 test('renders correctly', () => {
   const {container} = render(<Footer />);
   expect(container).toMatchInlineSnapshot(`
-    .c1 {
+    .c2 {
       background: hsl(0,0%,46%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,96%) 50%, hsl(0,0%,96%) );
       background-position: 0 calc( 0.125em + 0.708em );
@@ -23,43 +23,39 @@ test('renders correctly', () => {
       text-shadow: 0.03em 0 hsl(0,0%,15%), -0.03em 0 hsl(0,0%,15%),0 0.03em hsl(0,0%,15%), 0 -0.03em hsl(0,0%,15%);
     }
 
-    .c1:visited {
+    .c2:visited {
       background: hsl(0,0%,36%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,76%) 50%, hsl(0,0%,76%) );
       color: hsl(0,0%,76%);
     }
 
-    .c1:focus,
-    .c1:hover {
+    .c2:focus,
+    .c2:hover {
       background: hsl(0,0%,46%);
       display: inline-block;
       outline: none;
       text-shadow: none;
     }
 
-    .c1:active {
+    .c2:active {
       background: none;
     }
 
-    .c1:visited:focus,
-    .c1:visited:hover {
+    .c2:visited:focus,
+    .c2:visited:hover {
       background: hsl(0,0%,36%);
       display: inline-block;
       outline: none;
       text-shadow: none;
     }
 
-    .c1:visited:active {
+    .c2:visited:active {
       background: none;
     }
 
     .c0 {
       max-width: 33em;
       border-top: 1px solid currentColor;
-      color: hsl(0,0%,67%);
-      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 0.6541rem;
-      font-weight: 300;
       padding-bottom: 0.75rem;
       padding-top: 0.75rem;
       position: inherit;
@@ -67,15 +63,42 @@ test('renders correctly', () => {
       left: 0;
     }
 
-    @media only screen and (min-width:728px) {
-      .c0 {
-        font-size: 0.7631rem;
-      }
+    .c1 {
+      color: currentColor;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+      color: hsl(0,0%,67%);
+      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 0.6541rem;
+      font-weight: 300;
+    }
+
+    .c1::before,
+    .c1::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c1::before {
+      margin-bottom: -0.2545em;
+    }
+
+    .c1::after {
+      margin-top: -0.4025em;
     }
 
     @media only screen and (min-width:799px) {
       .c0 {
-        max-width: none;
+        max-width: calc( 388px + 33em + 22.5px );
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c1 {
+        font-size: 0.7631rem;
       }
     }
 
@@ -84,22 +107,28 @@ test('renders correctly', () => {
         class="sc-AxhCb c0"
         data-testid="footer"
       >
-        <p>
+        <p
+          class="sc-AxgMl c1"
+        >
           Designed and Coded by Masa Kudamatsu in 2020.
         </p>
-        <p>
+        <p
+          class="sc-AxgMl c1"
+        >
           Powered by
            
           <a
-            class="c1"
+            class="c2"
             href="https://opentype.js.org/"
           >
             Opentype.js.
           </a>
         </p>
-        <p>
+        <p
+          class="sc-AxgMl c1"
+        >
           <a
-            class="c1"
+            class="c2"
             href="https://github.com/masakudamatsu/line-height-picker"
           >
             The source code is available at GitHub
