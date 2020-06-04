@@ -52,7 +52,7 @@ test('renders correctly', () => {
       margin-top: -NaNrem;
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c0 {
         min-height: 113.90625px;
       }

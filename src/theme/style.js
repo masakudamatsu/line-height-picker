@@ -153,7 +153,8 @@ export const CodeSnippet = styled.pre`
   padding-bottom: ${fontPalette.code.paddingBottom.mobile}rem;
   padding-top: ${fontPalette.code.paddingTop.mobile}rem;
   white-space: pre-wrap; /* https://developer.mozilla.org/en-US/docs/Web/CSS/white-space */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     padding-bottom: ${fontPalette.code.paddingBottom.desktop}rem;
     padding-top: ${fontPalette.code.paddingTop.desktop}rem;
   }
@@ -302,7 +303,8 @@ export const UserDataDisplayWrapper = styled.div`
   display: flex;
   height: auto;
   min-height: ${inputSize.height.mobile}px;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     min-height: ${inputSize.height.desktop}px;
   }
 `;
@@ -446,7 +448,8 @@ export const Form = styled.form.attrs(props => ({
 export const InputWrapper = styled.div`
   height: ${inputSize.height.mobile}px;
   position: relative; /* To place XheightInputUnit component */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     height: ${inputSize.height.desktop}px;
   }
 `;
@@ -458,7 +461,8 @@ export const Label = styled.label`
   top: calc(
     ${inputSize.labelTopPx}px - ${inputSize.labelTopOffsetRem.mobile}rem
   );
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     top: calc(
       ${inputSize.labelTopPx}px - ${inputSize.labelTopOffsetRem.desktop}rem
     );
@@ -535,7 +539,8 @@ export const XheightInputUnit = styled.span`
   right: ${inputSize.paddingSidePx}px;
   bottom: ${inputSize.suffixBottomPx
     .mobile}px; /* to aligh with input values at the baseline */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     bottom: ${inputSize.suffixBottomPx.desktop}px;
   }
 `;
@@ -642,7 +647,8 @@ export const SpacerVertical = styled.div`
     fontPalette.xHeight.mobile.rem *
     Math.pow(fontPalette.modularScale, props.height)}rem;
   width: auto;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.default}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     height: ${props =>
       fontPalette.xHeight.desktop.rem *
       Math.pow(fontPalette.modularScale, props.height)}rem;

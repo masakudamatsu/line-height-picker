@@ -134,13 +134,13 @@ test('renders correctly', () => {
       width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c0 {
         height: 113.90625px;
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c1 {
         top: calc( 8px - 0.08241758241758242rem );
       }
@@ -154,19 +154,19 @@ test('renders correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c3 {
         bottom: 22px;
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c4 {
         height: 0.9375rem;
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c6 {
         height: 1.40625rem;
       }

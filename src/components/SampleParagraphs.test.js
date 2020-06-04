@@ -127,7 +127,7 @@ test('renders correctly', () => {
       width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c2 {
         height: 0.9375rem;
       }
