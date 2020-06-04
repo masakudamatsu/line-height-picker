@@ -696,8 +696,8 @@ export const ControlPanel = styled.div`
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
     background-color: ${colorPalette.controlPanel};
     border-radius: 16px;
-    flex: 0 0 ${fontPalette.minScreenWidth.px.desktop}px;
+    flex: 0 0 ${fontPalette.width.controlPanel}px;
     padding: 0 ${fontPalette.marginSide.desktop.first}px;
-    width: ${fontPalette.minScreenWidth.px.desktop}px;
+    width: ${fontPalette.width.controlPanel}px;
   }
 `;

@@ -143,6 +143,12 @@ const sideMarginDesktop = {
 // max width
 const maxWidthInEm = 33;
 
+// Control panel width for wide screens
+const controlPanelWidth =
+  (minScreenWidthPx.mobile - sideMarginMobile.first * 2) *
+    (xHeightPx.desktop / xHeightPx.mobile) +
+  sideMarginDesktop.first * 2;
+
 // Breakpoint for font-size
 const breakpointFontSize = 728;
 
@@ -160,10 +166,8 @@ const breakpointCenterAlignInEm =
 
 // Breakpoint for layout
 const breakpointLayout = (
-  (minScreenWidthPx.mobile - sideMarginMobile.first * 2) *
-    2 *
-    (xHeightPx.desktop / xHeightPx.mobile) +
-  sideMarginDesktop.first * 5
+  controlPanelWidth * 2 +
+  sideMarginDesktop.first
 ).toFixed(0);
 
 // Font CSS property value
@@ -306,6 +310,9 @@ const fontPalette = {
   },
   modularScale: modularScale,
   rem: oneRemPx,
+  width: {
+    controlPanel: controlPanelWidth.toFixed(0),
+  },
   xHeight: {
     mobile: {
       px: xHeightPx.mobile,
