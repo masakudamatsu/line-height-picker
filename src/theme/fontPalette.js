@@ -133,20 +133,25 @@ const getTextCropTopX = lineHeightCss => {
 const sideMarginMobile = {
   first: xHeightPx.mobile * Math.pow(modularScale, 1), // space between lines
   second: xHeightPx.mobile * Math.pow(modularScale, 2), // space between paragraphs
+  third: xHeightPx.mobile * Math.pow(modularScale, 3),
 };
 // max width
 const maxWidthInEm = 33;
 
 // Breakpoint for font-size
 const breakpointFontSize = 728;
+
 // Breakpoints for side margin
 const breakpointSideMargin = {
   first: minScreenWidthPx.mobile * Math.pow(modularScale, 1), // 480
-  second: (
-    maxWidthInEm * getFontSizeFromXHeight(xHeightPx.mobile) +
-    sideMarginMobile.second * 2
-  ).toFixed(0), //
+  second: minScreenWidthPx.mobile * Math.pow(modularScale, 2), // 720
 };
+
+// Breakpoint for center-alignment (em)
+const breakpointCenterAlignInEm =
+  maxWidthInEm +
+  (sideMarginMobile.second * 2) / getFontSizeFromXHeight(xHeightPx.mobile);
+console.log(breakpointCenterAlignInEm); // 35.457
 
 // Font CSS property value
 const fontPalette = {
@@ -274,6 +279,7 @@ const fontPalette = {
   }, // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
   maxWidthInEm: maxWidthInEm,
   mediaQueryCutoff: {
+    centerAlign: breakpointCenterAlignInEm,
     default: '1024px', // common threshold between tablets and laptops
     fontSize: breakpointFontSize,
     sideMargin: breakpointSideMargin,

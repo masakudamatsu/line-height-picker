@@ -6,7 +6,11 @@ import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import './animation.css';
 
 import GlobalStyle from './theme/GlobalStyle';
-import {FullScreenSpreader, SideMarginRegulator} from './theme/style';
+import {
+  CenterAligner,
+  FullScreenSpreader,
+  SideMarginRegulator,
+} from './theme/style';
 
 import Header from './components/Header';
 import Home from './components/Home';
@@ -428,6 +432,7 @@ function App() {
     <>
       <GlobalStyle />
       <SideMarginRegulator>
+        <CenterAligner>
           <ScrollToTop>
             <Switch>
               <Route path="/" exact>
@@ -602,6 +607,7 @@ function App() {
               }}
             />
           </ScrollToTop>
+        </CenterAligner>
       </SideMarginRegulator>
     </>
   );

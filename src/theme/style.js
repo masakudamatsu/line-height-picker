@@ -607,19 +607,21 @@ export const FullScreenSpreader = styled.div`
 
 export const SideMarginRegulator = styled.div`
   margin: 0 ${fontPalette.marginSide.mobile.first}px;
-  max-width: ${fontPalette.maxWidthInEm}em;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.sideMargin
       .first}px) {
     margin: 0 ${fontPalette.marginSide.mobile.second}px;
   }
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.sideMargin
       .second}px) {
-    margin: 0 auto;
+    margin: 0 ${fontPalette.marginSide.mobile.third}px;
   }
-  @media only screen and (min-width: ${fontPalette.minScreenWidth.px.mobile *
-      Math.pow(fontPalette.modularScale, 3)}px) {
-    margin: 0
-      ${fontPalette.marginSide.mobile * Math.pow(fontPalette.modularScale, 3)}px;
+`;
+
+export const CenterAligner = styled.div`
+  max-width: ${fontPalette.maxWidthInEm}em;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .centerAlign}em) {
+    margin: 0 auto;
   }
 `;
 
