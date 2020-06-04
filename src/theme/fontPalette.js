@@ -106,26 +106,27 @@ const lineHeightCss = {
     lineHeightRem.stepNumber.desktop /
     getFontSizeFromCapHeight(capHeightRem.desktop.stepNumber),
 };
-const getTextCropBottom = (fontSizeRem, lineHeightRem) => {
-  const descenderToFontSizeRatio =
-    fontMetricsFedraSans.descender / fontMetricsFedraSans.unitsPerEm;
-  const extraSpaceByLineHeight = (lineHeightRem - fontSizeRem) / 2;
-  return fontSizeRem * descenderToFontSizeRatio + extraSpaceByLineHeight;
+const getTextCropBottom = lineHeightCss => {
+  return (
+    fontMetricsFedraSans.descender / fontMetricsFedraSans.unitsPerEm +
+    (lineHeightCss - 1) / 2
+  ).toFixed(4);
 };
-const getTextCropTopCap = (fontSizeRem, lineHeightRem) => {
-  const textCropTopCapToFontSizeRatio =
+
+const getTextCropTopCap = lineHeightCss => {
+  return (
     (fontMetricsFedraSans.ascender - fontMetricsFedraSans.capHeight) /
-    fontMetricsFedraSans.unitsPerEm;
-  const extraSpaceByLineHeight = (lineHeightRem - fontSizeRem) / 2;
-  return fontSizeRem * textCropTopCapToFontSizeRatio + extraSpaceByLineHeight;
+      fontMetricsFedraSans.unitsPerEm +
+    (lineHeightCss - 1) / 2
+  ).toFixed(4);
 };
-const getTextCropTopX = (xHeightRem, lineHeightRem) => {
-  const textCropTopXToXHeightRatio =
+
+const getTextCropTopX = lineHeightCss => {
+  return (
     (fontMetricsFedraSans.ascender - fontMetricsFedraSans.xHeight) /
-    fontMetricsFedraSans.xHeight;
-  const extraSpaceByLineHeight =
-    (lineHeightRem - getFontSizeFromXHeight(xHeightRem)) / 2;
-  return xHeightRem * textCropTopXToXHeightRatio + extraSpaceByLineHeight;
+      fontMetricsFedraSans.unitsPerEm +
+    (lineHeightCss - 1) / 2
+  ).toFixed(4);
 };
 
 // Side margins
@@ -218,80 +219,19 @@ const fontPalette = {
   },
   textCrop: {
     bottom: {
-      mobile: {
-        bodyText: getTextCropBottom(
-          getFontSizeFromXHeight(xHeightRem.mobile.bodyText),
-          lineHeightRem.bodyText.mobile,
-        ).toFixed(4),
-        sectionTitle: getTextCropBottom(
-          getFontSizeFromXHeight(xHeightRem.mobile.sectionTitle),
-          lineHeightRem.sectionTitle.mobile,
-        ).toFixed(4),
-        stepNumber: getTextCropBottom(
-          getFontSizeFromCapHeight(capHeightRem.mobile.stepNumber),
-          lineHeightRem.stepNumber.mobile,
-        ).toFixed(4),
-      },
-      desktop: {
-        bodyText: getTextCropBottom(
-          getFontSizeFromXHeight(xHeightRem.desktop.bodyText),
-          lineHeightRem.bodyText.desktop,
-        ).toFixed(4),
-        sectionTitle: getTextCropBottom(
-          getFontSizeFromXHeight(xHeightRem.desktop.sectionTitle),
-          lineHeightRem.sectionTitle.desktop,
-        ).toFixed(4),
-        stepNumber: getTextCropBottom(
-          getFontSizeFromCapHeight(capHeightRem.desktop.stepNumber),
-          lineHeightRem.stepNumber.desktop,
-        ).toFixed(4),
-      },
+      bodyText: getTextCropBottom(lineHeightCss.bodyText),
+      sectionTitle: getTextCropBottom(lineHeightCss.sectionTitle),
+      stepNumber: getTextCropBottom(lineHeightCss.stepNumber),
     },
     topCap: {
-      mobile: {
-        bodyText: getTextCropTopCap(
-          getFontSizeFromXHeight(xHeightRem.mobile.bodyText),
-          lineHeightRem.bodyText.mobile,
-        ).toFixed(4),
-        sectionTitle: getTextCropTopCap(
-          getFontSizeFromXHeight(xHeightRem.mobile.sectionTitle),
-          lineHeightRem.sectionTitle.mobile,
-        ).toFixed(4),
-        stepNumber: getTextCropTopCap(
-          getFontSizeFromCapHeight(capHeightRem.mobile.stepNumber),
-          lineHeightRem.stepNumber.mobile,
-        ).toFixed(4),
-      },
-      desktop: {
-        bodyText: getTextCropTopCap(
-          getFontSizeFromXHeight(xHeightRem.desktop.bodyText),
-          lineHeightRem.bodyText.desktop,
-        ).toFixed(4),
-        sectionTitle: getTextCropTopCap(
-          getFontSizeFromXHeight(xHeightRem.desktop.sectionTitle),
-          lineHeightRem.sectionTitle.desktop,
-        ).toFixed(4),
-        stepNumber: getTextCropTopCap(
-          getFontSizeFromCapHeight(capHeightRem.desktop.stepNumber),
-          lineHeightRem.stepNumber.desktop,
-        ).toFixed(4),
-      },
+      bodyText: getTextCropTopCap(lineHeightCss.bodyText),
+      sectionTitle: getTextCropTopCap(lineHeightCss.sectionTitle),
+      stepNumber: getTextCropTopCap(lineHeightCss.stepNumber),
     },
     topX: {
-      mobile: {
-        bodyText: getTextCropTopX(
-          xHeightRem.mobile.bodyText,
-          lineHeightRem.bodyText.mobile,
-        ).toFixed(4),
-      },
-      desktop: {
-        bodyText: getTextCropTopX(
-          xHeightRem.desktop.bodyText,
-          lineHeightRem.bodyText.desktop,
-        ).toFixed(4),
+        bodyText: getTextCropTopX(lineHeightCss.bodyText),
       },
     },
-  },
   code: {
     paddingBottom: {
       mobile: lineHeightRem.code.mobile,

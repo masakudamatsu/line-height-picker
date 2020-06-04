@@ -91,11 +91,11 @@ test('renders correctly', () => {
     }
 
     .c3::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c3::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c0 {
@@ -125,18 +125,6 @@ test('renders correctly', () => {
     .c2 {
       height: 0.8035714285714286rem;
       width: auto;
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c3::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c3::after {
-        margin-top: -0.4607rem;
-      }
     }
 
     @media only screen and (min-width:1024px) {

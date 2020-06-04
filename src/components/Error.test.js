@@ -74,11 +74,11 @@ test('renders correctly', () => {
     }
 
     .c2::before {
-      margin-bottom: -0.1737rem;
+      margin-bottom: -0.1180em;
     }
 
     .c2::after {
-      margin-top: -0.3915rem;
+      margin-top: -0.2660em;
     }
 
     .c4 {
@@ -97,11 +97,11 @@ test('renders correctly', () => {
     }
 
     .c4::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c4::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c1 {
@@ -117,30 +117,6 @@ test('renders correctly', () => {
     @media only screen and (min-width:728px) {
       .c2 {
         font-size: 1.7170rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c2::before {
-        margin-bottom: -0.2026rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c2::after {
-        margin-top: -0.4567rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c4::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c4::after {
-        margin-top: -0.4607rem;
       }
     }
 

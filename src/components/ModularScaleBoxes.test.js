@@ -42,11 +42,11 @@ test('renders correctly', () => {
     }
 
     .c0::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c0::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c8 {
@@ -68,11 +68,11 @@ test('renders correctly', () => {
     }
 
     .c8::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c8::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c4 {
@@ -99,15 +99,15 @@ test('renders correctly', () => {
     }
 
     .c6::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c6::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c6::before {
-      margin-bottom: -0.4087rem;
+      margin-bottom: -0.4165em;
     }
 
     .c2 {
@@ -168,50 +168,8 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:1024px) {
-      .c0::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c0::after {
-        margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c8::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c8::after {
-        margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
       .c4 {
         top: calc( 8px - 0.08241758241758242rem );
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c6::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c6::after {
-        margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c6::before {
-        margin-bottom: -0.4768rem;
       }
     }
 

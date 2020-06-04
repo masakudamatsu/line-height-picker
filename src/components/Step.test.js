@@ -67,11 +67,11 @@ test('renders correctly', () => {
     }
 
     .c1::before {
-      margin-bottom: -0.0817rem;
+      margin-bottom: -0.0720em;
     }
 
     .c1::after {
-      margin-top: -0.2497rem;
+      margin-top: -0.2200em;
     }
 
     @media only screen and (min-width:1024px) {
@@ -84,18 +84,6 @@ test('renders correctly', () => {
       .c1 {
         font-size: 1.3242rem;
         padding: 0.625rem 0;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c1::before {
-        margin-bottom: -0.0953rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c1::after {
-        margin-top: -0.2913rem;
       }
     }
 

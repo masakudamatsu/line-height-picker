@@ -108,18 +108,10 @@ export const SectionTitle = styled.h2`
     width: 0;
   }
   &::before {
-    margin-bottom: -${fontPalette.textCrop.topCap.mobile.sectionTitle}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
-      margin-bottom: -${fontPalette.textCrop.topCap.desktop.sectionTitle}rem;
-    }
+    margin-bottom: -${fontPalette.textCrop.topCap.sectionTitle}em;
   }
   &::after {
-    margin-top: -${fontPalette.textCrop.bottom.mobile.sectionTitle}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
-      margin-top: -${fontPalette.textCrop.bottom.desktop.sectionTitle}rem;
-    }
+    margin-top: -${fontPalette.textCrop.bottom.sectionTitle}em;
   }
 `;
 
@@ -140,18 +132,10 @@ export const ParagraphOneRem = styled.p`
     width: 0;
   }
   &::before {
-    margin-bottom: -${fontPalette.textCrop.topCap.mobile.bodyText}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
-      margin-bottom: -${fontPalette.textCrop.topCap.desktop.bodyText}rem;
-    }
+    margin-bottom: -${fontPalette.textCrop.topCap.bodyText}em;
   }
   &::after {
-    margin-top: -${fontPalette.textCrop.bottom.mobile.bodyText}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
-      margin-top: -${fontPalette.textCrop.bottom.desktop.bodyText}rem;
-    }
+    margin-top: -${fontPalette.textCrop.bottom.bodyText}em;
   }
 `;
 
@@ -290,18 +274,10 @@ export const StepNumber = styled.a`
     width: 0;
   }
   &::before {
-    margin-bottom: -${fontPalette.textCrop.topCap.mobile.stepNumber}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
-      margin-bottom: -${fontPalette.textCrop.topCap.desktop.stepNumber}rem;
-    }
+    margin-bottom: -${fontPalette.textCrop.topCap.stepNumber}em;
   }
   &::after {
-    margin-top: -${fontPalette.textCrop.bottom.mobile.stepNumber}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
-      margin-top: -${fontPalette.textCrop.bottom.desktop.stepNumber}rem;
-    }
+    margin-top: -${fontPalette.textCrop.bottom.stepNumber}em;
   }
 `;
 
@@ -539,11 +515,7 @@ export const InputInstruction = styled(ParagraphOneRem)`
   text-align: right;
   /* Crop top of text box to x-height, not cap-height */
   &::before {
-    margin-bottom: -${fontPalette.textCrop.topX.mobile.bodyText}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
-        .default}) {
-      margin-bottom: -${fontPalette.textCrop.topX.desktop.bodyText}rem;
-    }
+    margin-bottom: -${fontPalette.textCrop.topX.bodyText}em;
   }
 `;
 
