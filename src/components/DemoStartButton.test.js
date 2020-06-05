@@ -89,7 +89,7 @@ test('renders correctly', () => {
 
     <div>
       <button
-        class="sc-fzpjYC c0"
+        class="sc-fznxsB c0"
       >
         Start demo
       </button>
