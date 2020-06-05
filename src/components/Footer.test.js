@@ -10,7 +10,7 @@ import Footer from './Footer';
 test('renders correctly', () => {
   const {container} = render(<Footer />);
   expect(container).toMatchInlineSnapshot(`
-    .c2 {
+    .c4 {
       background: hsl(0,0%,46%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,96%) 50%, hsl(0,0%,96%) );
       background-position: 0 calc( 0.125em + 0.708em );
@@ -23,47 +23,45 @@ test('renders correctly', () => {
       text-shadow: 0.03em 0 hsl(0,0%,15%), -0.03em 0 hsl(0,0%,15%),0 0.03em hsl(0,0%,15%), 0 -0.03em hsl(0,0%,15%);
     }
 
-    .c2:visited {
+    .c4:visited {
       background: hsl(0,0%,36%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,76%) 50%, hsl(0,0%,76%) );
       color: hsl(0,0%,76%);
     }
 
-    .c2:focus,
-    .c2:hover {
+    .c4:focus,
+    .c4:hover {
       background: hsl(0,0%,46%);
       display: inline-block;
       outline: none;
       text-shadow: none;
     }
 
-    .c2:active {
+    .c4:active {
       background: none;
     }
 
-    .c2:visited:focus,
-    .c2:visited:hover {
+    .c4:visited:focus,
+    .c4:visited:hover {
       background: hsl(0,0%,36%);
       display: inline-block;
       outline: none;
       text-shadow: none;
     }
 
-    .c2:visited:active {
+    .c4:visited:active {
       background: none;
     }
 
     .c0 {
       max-width: 33em;
       border-top: 1px solid currentColor;
-      padding-bottom: 0.75rem;
-      padding-top: 0.75rem;
       position: inherit;
       bottom: 0;
       left: 0;
     }
 
-    .c1 {
+    .c2 {
       color: currentColor;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
@@ -74,20 +72,30 @@ test('renders correctly', () => {
       font-weight: 300;
     }
 
-    .c1::before,
-    .c1::after {
+    .c2::before,
+    .c2::after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c1::before {
+    .c2::before {
       margin-bottom: -0.2545em;
     }
 
-    .c1::after {
+    .c2::after {
       margin-top: -0.4025em;
+    }
+
+    .c1 {
+      height: 1.2053571428571428rem;
+      width: auto;
+    }
+
+    .c3 {
+      height: 0.8035714285714286rem;
+      width: auto;
     }
 
     @media only screen and (min-width:799px) {
@@ -97,8 +105,20 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c1 {
+      .c2 {
         font-size: 0.7631rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c1 {
+        height: 1.40625rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c3 {
+        height: 0.9375rem;
       }
     }
 
@@ -107,34 +127,50 @@ test('renders correctly', () => {
         class="sc-AxhCb c0"
         data-testid="footer"
       >
+        <div
+          class="c1"
+          height="2"
+        />
         <p
-          class="sc-AxgMl c1"
+          class="sc-AxgMl c2"
         >
           Designed and Coded by Masa Kudamatsu in 2020.
         </p>
+        <div
+          class="c3"
+          height="1"
+        />
         <p
-          class="sc-AxgMl c1"
+          class="sc-AxgMl c2"
         >
           Powered by
            
           <a
-            class="c2"
+            class="c4"
             href="https://opentype.js.org/"
           >
             Opentype.js.
           </a>
         </p>
+        <div
+          class="c3"
+          height="1"
+        />
         <p
-          class="sc-AxgMl c1"
+          class="sc-AxgMl c2"
         >
           <a
-            class="c2"
+            class="c4"
             href="https://github.com/masakudamatsu/line-height-picker"
           >
             The source code is available at GitHub
           </a>
           .
         </p>
+        <div
+          class="c1"
+          height="2"
+        />
       </footer>
     </div>
   `);

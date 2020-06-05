@@ -591,8 +591,6 @@ export const Cite = styled.cite`
 
 export const FooterWrapper = styled(Section)`
   border-top: 1px solid currentColor;
-  padding-bottom: 0.75rem;
-  padding-top: 0.75rem;
   position: ${props => (props.page404 ? 'absolute' : 'inherit')};
   bottom: 0;
   left: 0;
