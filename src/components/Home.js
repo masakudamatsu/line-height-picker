@@ -23,12 +23,14 @@ const Home = props => {
     <>
       <MainLandingPage>
         <RightAligner>
+          <SpacerVertical height="3" />
           <Section>
             <Logo />
+            <SpacerVertical height="3" />
             <Description />
           </Section>
+          <SpacerVertical height="3" />
           <Section>
-            <SpacerVertical height="3" />
             <FontFileUploader
               home
               validateFileType={props.validateFileType}
@@ -38,7 +40,6 @@ const Home = props => {
             </FontFileUploader>
             <SpacerVertical height="2" />
             <DemoStartButton handleDemo={props.handleDemo} />
-            <SpacerVertical height="2" />
             <FontFileErrorMessage
               data-testid="error-message-font-file"
               fontFileError={props.fontFileError}
