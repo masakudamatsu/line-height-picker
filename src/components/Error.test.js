@@ -21,7 +21,7 @@ test('renders correctly', () => {
       cursor: pointer;
       -webkit-text-decoration: none;
       text-decoration: none;
-      text-shadow: 0.03em 0 hsl(0,0%,25%), -0.03em 0 hsl(0,0%,25%),0 0.03em hsl(0,0%,25%), 0 -0.03em hsl(0,0%,25%);
+      text-shadow: 0.03em 0 hsl(0,0%,15%), -0.03em 0 hsl(0,0%,15%),0 0.03em hsl(0,0%,15%), 0 -0.03em hsl(0,0%,15%);
     }
 
     .c5:visited {
@@ -54,20 +54,8 @@ test('renders correctly', () => {
       background: none;
     }
 
-    .c1 {
-      height: 1.8080357142857142rem;
-      width: auto;
-    }
-
-    .c3 {
-      height: 1.2053571428571428rem;
-      width: auto;
-    }
-
     .c0 {
-      max-width: 700px;
-      padding-left: 12.857142857142858px;
-      padding-right: 12.857142857142858px;
+      max-width: 33em;
     }
 
     .c2 {
@@ -86,16 +74,15 @@ test('renders correctly', () => {
     }
 
     .c2::before {
-      margin-bottom: -0.1737rem;
+      margin-bottom: -0.1180em;
     }
 
     .c2::after {
-      margin-top: -0.3915rem;
+      margin-top: -0.2660em;
     }
 
     .c4 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -110,64 +97,38 @@ test('renders correctly', () => {
     }
 
     .c4::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c4::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c1 {
-        height: 2.109375rem;
-      }
+    .c1 {
+      height: 1.8080357142857142rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c3 {
-        height: 1.40625rem;
-      }
+    .c3 {
+      height: 1.2053571428571428rem;
+      width: auto;
     }
 
-    @media (min-width:875px) {
-      .c0 {
-        margin: 0 auto;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c2 {
         font-size: 1.7170rem;
       }
     }
 
-    @media only screen and (min-width:1024px) {
-      .c2::before {
-        margin-bottom: -0.2026rem;
+    @media only screen and (min-width:728px) {
+      .c1 {
+        height: 2.109375rem;
       }
     }
 
-    @media only screen and (min-width:1024px) {
-      .c2::after {
-        margin-top: -0.4567rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c4 {
-        font-size: inherit;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c4::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c4::after {
-        margin-top: -0.4607rem;
+    @media only screen and (min-width:728px) {
+      .c3 {
+        height: 1.40625rem;
       }
     }
 

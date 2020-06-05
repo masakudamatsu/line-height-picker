@@ -10,7 +10,7 @@ import Footer from './Footer';
 test('renders correctly', () => {
   const {container} = render(<Footer />);
   expect(container).toMatchInlineSnapshot(`
-    .c1 {
+    .c4 {
       background: hsl(0,0%,46%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,96%) 50%, hsl(0,0%,96%) );
       background-position: 0 calc( 0.125em + 0.708em );
@@ -20,94 +20,157 @@ test('renders correctly', () => {
       cursor: pointer;
       -webkit-text-decoration: none;
       text-decoration: none;
-      text-shadow: 0.03em 0 hsl(0,0%,25%), -0.03em 0 hsl(0,0%,25%),0 0.03em hsl(0,0%,25%), 0 -0.03em hsl(0,0%,25%);
+      text-shadow: 0.03em 0 hsl(0,0%,15%), -0.03em 0 hsl(0,0%,15%),0 0.03em hsl(0,0%,15%), 0 -0.03em hsl(0,0%,15%);
     }
 
-    .c1:visited {
+    .c4:visited {
       background: hsl(0,0%,36%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,76%) 50%, hsl(0,0%,76%) );
       color: hsl(0,0%,76%);
     }
 
-    .c1:focus,
-    .c1:hover {
+    .c4:focus,
+    .c4:hover {
       background: hsl(0,0%,46%);
       display: inline-block;
       outline: none;
       text-shadow: none;
     }
 
-    .c1:active {
+    .c4:active {
       background: none;
     }
 
-    .c1:visited:focus,
-    .c1:visited:hover {
+    .c4:visited:focus,
+    .c4:visited:hover {
       background: hsl(0,0%,36%);
       display: inline-block;
       outline: none;
       text-shadow: none;
     }
 
-    .c1:visited:active {
+    .c4:visited:active {
       background: none;
     }
 
     .c0 {
-      max-width: 700px;
-      padding-left: 12.857142857142858px;
-      padding-right: 12.857142857142858px;
-      border-top: 1px solid currentColor;
-      color: hsl(0,0%,67%);
-      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 0.6541rem;
-      font-weight: 300;
-      padding-bottom: 0.75rem;
-      padding-top: 0.75rem;
+      max-width: 33em;
+      border-top: 1px solid hsl(0,0%,67%);
       position: inherit;
       bottom: 0;
       left: 0;
     }
 
-    @media (min-width:875px) {
+    .c2 {
+      color: currentColor;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+      color: hsl(0,0%,67%);
+      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 0.6541rem;
+      font-weight: 300;
+    }
+
+    .c2::before,
+    .c2::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c2::before {
+      margin-bottom: -0.2545em;
+    }
+
+    .c2::after {
+      margin-top: -0.4025em;
+    }
+
+    .c1 {
+      height: 1.2053571428571428rem;
+      width: auto;
+    }
+
+    .c3 {
+      height: 0.8035714285714286rem;
+      width: auto;
+    }
+
+    @media only screen and (min-width:799px) {
       .c0 {
-        margin: 0 auto;
+        max-width: calc( 388px + 33em + 22.5px );
       }
     }
 
-    @media only screen and (min-width:1024px) {
-      .c0 {
+    @media only screen and (min-width:728px) {
+      .c2 {
         font-size: 0.7631rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c1 {
+        height: 1.40625rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c3 {
+        height: 0.9375rem;
       }
     }
 
     <div>
       <footer
-        class="sc-AxhUy c0"
+        class="sc-AxhCb c0"
         data-testid="footer"
       >
-        <p>
+        <div
+          class="c1"
+          height="2"
+        />
+        <p
+          class="sc-AxgMl c2"
+        >
           Designed and Coded by Masa Kudamatsu in 2020.
         </p>
-        <p>
+        <div
+          class="c3"
+          height="1"
+        />
+        <p
+          class="sc-AxgMl c2"
+        >
           Powered by
            
           <a
-            class="c1"
+            class="c4"
             href="https://opentype.js.org/"
           >
             Opentype.js.
           </a>
         </p>
-        <p>
+        <div
+          class="c3"
+          height="1"
+        />
+        <p
+          class="sc-AxgMl c2"
+        >
           <a
-            class="c1"
+            class="c4"
             href="https://github.com/masakudamatsu/line-height-picker"
           >
             The source code is available at GitHub
           </a>
           .
         </p>
+        <div
+          class="c1"
+          height="2"
+        />
       </footer>
     </div>
   `);

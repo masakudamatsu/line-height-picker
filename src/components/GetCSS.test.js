@@ -28,20 +28,8 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c1 {
-      height: 1.8080357142857142rem;
-      width: auto;
-    }
-
-    .c3 {
-      height: 1.2053571428571428rem;
-      width: auto;
-    }
-
     .c0 {
-      max-width: 700px;
-      padding-left: 12.857142857142858px;
-      padding-right: 12.857142857142858px;
+      max-width: 33em;
     }
 
     .c2 {
@@ -60,21 +48,19 @@ test('renders correctly', () => {
     }
 
     .c2::before {
-      margin-bottom: -0.1737rem;
+      margin-bottom: -0.1180em;
     }
 
     .c2::after {
-      margin-top: -0.3915rem;
+      margin-top: -0.2660em;
     }
 
     .c9 {
       color: hsl(335,71%,64%);
-      font-size: 0.9812rem;
       font-weight: 300;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 0.9812rem;
       font-weight: 300;
       visibility: hidden;
     }
@@ -88,11 +74,11 @@ test('renders correctly', () => {
     }
 
     .c9::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c9::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c5 {
@@ -118,7 +104,7 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: hsl(0,0%,25%);
+      background-color: hsl(0,0%,15%);
       border: none;
       border-radius: 7.232142857142856px;
       box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
@@ -167,7 +153,7 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: hsl(0,0%,25%);
+      background-color: hsl(0,0%,15%);
       border: none;
       border-radius: 7.232142857142856px;
       box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
@@ -217,74 +203,30 @@ test('renders correctly', () => {
       left: 14.464285714285712px;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c1 {
-        height: 2.109375rem;
-      }
+    .c1 {
+      height: 1.8080357142857142rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c3 {
-        height: 1.40625rem;
-      }
+    .c3 {
+      height: 1.2053571428571428rem;
+      width: auto;
     }
 
-    @media (min-width:875px) {
-      .c0 {
-        margin: 0 auto;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c2 {
         font-size: 1.7170rem;
       }
     }
 
-    @media only screen and (min-width:1024px) {
-      .c2::before {
-        margin-bottom: -0.2026rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c2::after {
-        margin-top: -0.4567rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c9 {
-        font-size: 1.1447rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c9::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c9::after {
-        margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c9 {
-        font-size: 1.1447rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c5 {
         padding-bottom: 1.5625rem;
         padding-top: 1.5625rem;
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c7 {
         border-radius: 8.4375;
         font-size: 1.8620895127118644rem;
@@ -293,7 +235,7 @@ test('renders correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c8 {
         border-radius: 8.4375;
         font-size: 1.8620895127118644rem;
@@ -302,9 +244,21 @@ test('renders correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c8::before {
         left: 16.875px;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c1 {
+        height: 2.109375rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c3 {
+        height: 1.40625rem;
       }
     }
 
@@ -377,7 +331,7 @@ test('renders correctly', () => {
             height="2"
           />
           <p
-            class="sc-AxheI c9"
+            class="sc-AxgMl c9"
             data-testid="whatHappened"
             id="whatHappened"
           >
@@ -388,7 +342,7 @@ test('renders correctly', () => {
             height="2"
           />
           <p
-            class="sc-AxheI c9"
+            class="sc-AxgMl c9"
             data-testid="howToResolve"
             id="howToResolve"
           >

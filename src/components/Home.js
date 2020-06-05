@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Description from './Description';
-import {Logo, Section, Spacer} from '../theme/style';
+import {
+  Logo,
+  MainLandingPage,
+  RightAligner,
+  Section,
+  SpacerVertical,
+} from '../theme/style';
 import FontFileUploader from './FontFileUploader';
 import DemoStartButton from './DemoStartButton';
 import FontFileErrorMessage from './FontFileErrorMessage';
@@ -15,29 +21,33 @@ const Home = props => {
   }, []);
   return (
     <>
-      <main>
-        <Section>
-          <Logo />
-          <Description />
-        </Section>
-        <Section>
-          <Spacer height="3" />
-          <FontFileUploader
-            home
-            validateFileType={props.validateFileType}
-            handleFontFile={props.handleFontFile}
-          >
-            Open font file…
-          </FontFileUploader>
-          <Spacer height="2" />
-          <DemoStartButton handleDemo={props.handleDemo} />
-          <FontFileErrorMessage
-            data-testid="error-message-font-file"
-            fontFileError={props.fontFileError}
-          />
-          <Spacer height="3" />
-        </Section>
-      </main>
+      <MainLandingPage>
+        <RightAligner>
+          <SpacerVertical height="3" />
+          <Section>
+            <Logo />
+            <SpacerVertical height="3" />
+            <Description />
+          </Section>
+          <SpacerVertical height="3" />
+          <Section>
+            <FontFileUploader
+              home
+              validateFileType={props.validateFileType}
+              handleFontFile={props.handleFontFile}
+            >
+              Open font file…
+            </FontFileUploader>
+            <SpacerVertical height="2" />
+            <DemoStartButton handleDemo={props.handleDemo} />
+            <FontFileErrorMessage
+              data-testid="error-message-font-file"
+              fontFileError={props.fontFileError}
+            />
+            <SpacerVertical height="3" />
+          </Section>
+        </RightAligner>
+      </MainLandingPage>
     </>
   );
 };

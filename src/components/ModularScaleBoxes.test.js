@@ -26,19 +26,8 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c1 {
-      height: 0.8035714285714286rem;
-      width: auto;
-    }
-
-    .c7 {
-      height: 1.2053571428571428rem;
-      width: auto;
-    }
-
     .c0 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -53,21 +42,19 @@ test('renders correctly', () => {
     }
 
     .c0::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c0::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c8 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 0.9812rem;
       font-weight: 300;
       visibility: hidden;
     }
@@ -81,11 +68,11 @@ test('renders correctly', () => {
     }
 
     .c8::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c8::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c4 {
@@ -97,7 +84,6 @@ test('renders correctly', () => {
 
     .c6 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -113,15 +99,15 @@ test('renders correctly', () => {
     }
 
     .c6::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c6::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c6::before {
-      margin-bottom: -0.4087rem;
+      margin-bottom: -0.4165em;
     }
 
     .c2 {
@@ -147,7 +133,7 @@ test('renders correctly', () => {
     }
 
     .c5 {
-      background-color: hsl(0,0%,25%);
+      background-color: hsl(0,0%,15%);
       border: 2px solid hsl(0,0%,46%);
       border-radius: 4px;
       color: hsl(0,0%,96%);
@@ -171,101 +157,45 @@ test('renders correctly', () => {
       outline: none;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c1 {
-        height: 0.9375rem;
-      }
+    .c1 {
+      height: 0.8035714285714286rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c7 {
-        height: 1.40625rem;
-      }
+    .c7 {
+      height: 1.2053571428571428rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c0 {
-        font-size: inherit;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c0::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c0::after {
-        margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c8 {
-        font-size: inherit;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c8::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c8::after {
-        margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c8 {
-        font-size: 1.1447rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c4 {
         top: calc( 8px - 0.08241758241758242rem );
       }
     }
 
-    @media only screen and (min-width:1024px) {
-      .c6 {
-        font-size: inherit;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c6::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c6::after {
-        margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c6::before {
-        margin-bottom: -0.4768rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c3 {
         height: 113.90625px;
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c5 {
         font-size: 2.9793rem;
         padding-top: 1.7513759604395605rem;
         padding-top: calc( 0.44093639999999995rem + 0.8104395604395604rem + 8px );
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c1 {
+        height: 0.9375rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c7 {
+        height: 1.40625rem;
       }
     }
 

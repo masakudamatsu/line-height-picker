@@ -1,4 +1,5 @@
-const darkest = 'hsl(0, 0%, 25%)';
+const darkest = 'hsl(0, 0%, 15%)';
+const darkerThanDarkest = 'hsl(0, 0%, 25%)';
 const disabled = 'hsl(0, 0%, 35%)'; // For disabled links on header navigation
 const middleDark = 'hsl(0, 0%, 36%)';
 const middle = 'hsl(0, 0%, 46%)'; // 1:4.5 contrast ratio to both pure black and pure white
@@ -15,6 +16,7 @@ const colorPalette = {
     default: darkest,
     focus: middle,
   },
+  controlPanel: darkerThanDarkest,
   disabledText: disabled,
   displayBackground: pureBlack,
   footerText: footerText,

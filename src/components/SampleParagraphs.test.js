@@ -42,7 +42,7 @@ test('renders correctly', () => {
       cursor: pointer;
       -webkit-text-decoration: none;
       text-decoration: none;
-      text-shadow: 0.03em 0 hsl(0,0%,25%), -0.03em 0 hsl(0,0%,25%),0 0.03em hsl(0,0%,25%), 0 -0.03em hsl(0,0%,25%);
+      text-shadow: 0.03em 0 hsl(0,0%,15%), -0.03em 0 hsl(0,0%,15%),0 0.03em hsl(0,0%,15%), 0 -0.03em hsl(0,0%,15%);
     }
 
     .c5:visited {
@@ -75,14 +75,8 @@ test('renders correctly', () => {
       background: none;
     }
 
-    .c2 {
-      height: 0.8035714285714286rem;
-      width: auto;
-    }
-
     .c3 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -97,11 +91,11 @@ test('renders correctly', () => {
     }
 
     .c3::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c3::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c0 {
@@ -128,27 +122,14 @@ test('renders correctly', () => {
       font-style: normal;
     }
 
-    @media only screen and (min-width:1024px) {
+    .c2 {
+      height: 0.8035714285714286rem;
+      width: auto;
+    }
+
+    @media only screen and (min-width:728px) {
       .c2 {
         height: 0.9375rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c3 {
-        font-size: inherit;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c3::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c3::after {
-        margin-top: -0.4607rem;
       }
     }
 

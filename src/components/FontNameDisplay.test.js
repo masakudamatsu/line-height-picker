@@ -52,13 +52,13 @@ test('renders correctly', () => {
       margin-top: -NaNrem;
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c0 {
         min-height: 113.90625px;
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c1 {
         font-size: NaNrem;
         line-height: 3.1250rem;
@@ -67,13 +67,13 @@ test('renders correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c1::before {
         margin-bottom: -NaNrem;
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c1::after {
         margin-top: -NaNrem;
       }

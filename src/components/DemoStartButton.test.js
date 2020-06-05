@@ -22,7 +22,7 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: hsl(0,0%,25%);
+      background-color: hsl(0,0%,15%);
       border: none;
       border-radius: 7.232142857142856px;
       box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
@@ -72,7 +72,7 @@ test('renders correctly', () => {
       right: 14.464285714285712px;
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c0 {
         border-radius: 8.4375;
         font-size: 1.8620895127118644rem;
@@ -81,7 +81,7 @@ test('renders correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c0::after {
         right: 16.875px;
       }

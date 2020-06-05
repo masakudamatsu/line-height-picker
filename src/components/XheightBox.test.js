@@ -24,24 +24,12 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c4 {
-      height: 0.8035714285714286rem;
-      width: auto;
-    }
-
-    .c6 {
-      height: 1.2053571428571428rem;
-      width: auto;
-    }
-
     .c7 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 0.9812rem;
       font-weight: 300;
       visibility: hidden;
     }
@@ -55,11 +43,11 @@ test('renders correctly', () => {
     }
 
     .c7::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c7::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c0 {
@@ -76,7 +64,6 @@ test('renders correctly', () => {
 
     .c5 {
       color: currentColor;
-      font-size: inherit;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -92,19 +79,19 @@ test('renders correctly', () => {
     }
 
     .c5::before {
-      margin-bottom: -0.2497rem;
+      margin-bottom: -0.2545em;
     }
 
     .c5::after {
-      margin-top: -0.3949rem;
+      margin-top: -0.4025em;
     }
 
     .c5::before {
-      margin-bottom: -0.4087rem;
+      margin-bottom: -0.4165em;
     }
 
     .c2 {
-      background-color: hsl(0,0%,25%);
+      background-color: hsl(0,0%,15%);
       border: 2px solid hsl(0,0%,46%);
       border-radius: 4px;
       color: hsl(0,0%,96%);
@@ -137,79 +124,29 @@ test('renders correctly', () => {
       bottom: 18px;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c4 {
-        height: 0.9375rem;
-      }
+    .c4 {
+      height: 0.8035714285714286rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c6 {
-        height: 1.40625rem;
-      }
+    .c6 {
+      height: 1.2053571428571428rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c7 {
-        font-size: inherit;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c7::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c7::after {
-        margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c7 {
-        font-size: 1.1447rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c0 {
         height: 113.90625px;
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c1 {
         top: calc( 8px - 0.08241758241758242rem );
       }
     }
 
-    @media only screen and (min-width:1024px) {
-      .c5 {
-        font-size: inherit;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c5::before {
-        margin-bottom: -0.2913rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c5::after {
-        margin-top: -0.4607rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
-      .c5::before {
-        margin-bottom: -0.4768rem;
-      }
-    }
-
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c2 {
         font-size: 2.9793rem;
         padding-top: 1.7513759604395605rem;
@@ -217,9 +154,21 @@ test('renders correctly', () => {
       }
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c3 {
         bottom: 22px;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c4 {
+        height: 0.9375rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c6 {
+        height: 1.40625rem;
       }
     }
 
@@ -255,7 +204,7 @@ test('renders correctly', () => {
         height="1"
       />
       <p
-        class="sc-AxheI c5"
+        class="sc-AxgMl c5"
         data-testid="instruction-x-height"
         id="howManyDecimalPlacesAllowed"
       >
@@ -266,7 +215,7 @@ test('renders correctly', () => {
         height="2"
       />
       <p
-        class="sc-AxheI c7"
+        class="sc-AxgMl c7"
         data-testid="error-message-x-height"
         id="rangeOfNumbersAllowed"
       >

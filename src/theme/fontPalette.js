@@ -17,15 +17,18 @@ const xHeightPx = {
 };
 const modularScale = 1.5;
 
+// Minimum screen width
+const minScreenWidthPx = {
+  mobile: 320,
+  desktop: 320 * (xHeightPx.desktop / xHeightPx.mobile),
+};
+
 // font-size scale, all in rem
 
 const xHeightRem = {
   mobile: {bodyText: xHeightPx.mobile / oneRemPx},
   desktop: {bodyText: xHeightPx.desktop / oneRemPx},
 };
-
-xHeightRem.mobile.alertText = xHeightRem.mobile.bodyText;
-xHeightRem.desktop.alertText = xHeightRem.desktop.bodyText;
 
 xHeightRem.mobile.footer =
   xHeightRem.mobile.bodyText * Math.pow(modularScale, -1);
@@ -103,27 +106,64 @@ const lineHeightCss = {
     lineHeightRem.stepNumber.desktop /
     getFontSizeFromCapHeight(capHeightRem.desktop.stepNumber),
 };
-const getTextCropBottom = (fontSizeRem, lineHeightRem) => {
-  const descenderToFontSizeRatio =
-    fontMetricsFedraSans.descender / fontMetricsFedraSans.unitsPerEm;
-  const extraSpaceByLineHeight = (lineHeightRem - fontSizeRem) / 2;
-  return fontSizeRem * descenderToFontSizeRatio + extraSpaceByLineHeight;
+const getTextCropBottom = lineHeightCss => {
+  return (
+    fontMetricsFedraSans.descender / fontMetricsFedraSans.unitsPerEm +
+    (lineHeightCss - 1) / 2
+  ).toFixed(4);
 };
-const getTextCropTopCap = (fontSizeRem, lineHeightRem) => {
-  const textCropTopCapToFontSizeRatio =
+
+const getTextCropTopCap = lineHeightCss => {
+  return (
     (fontMetricsFedraSans.ascender - fontMetricsFedraSans.capHeight) /
-    fontMetricsFedraSans.unitsPerEm;
-  const extraSpaceByLineHeight = (lineHeightRem - fontSizeRem) / 2;
-  return fontSizeRem * textCropTopCapToFontSizeRatio + extraSpaceByLineHeight;
+      fontMetricsFedraSans.unitsPerEm +
+    (lineHeightCss - 1) / 2
+  ).toFixed(4);
 };
-const getTextCropTopX = (xHeightRem, lineHeightRem) => {
-  const textCropTopXToXHeightRatio =
+
+const getTextCropTopX = lineHeightCss => {
+  return (
     (fontMetricsFedraSans.ascender - fontMetricsFedraSans.xHeight) /
-    fontMetricsFedraSans.xHeight;
-  const extraSpaceByLineHeight =
-    (lineHeightRem - getFontSizeFromXHeight(xHeightRem)) / 2;
-  return xHeightRem * textCropTopXToXHeightRatio + extraSpaceByLineHeight;
+      fontMetricsFedraSans.unitsPerEm +
+    (lineHeightCss - 1) / 2
+  ).toFixed(4);
 };
+
+// Side margins
+const sideMarginMobile = {
+  first: xHeightPx.mobile * Math.pow(modularScale, 1), // space between lines
+  second: xHeightPx.mobile * Math.pow(modularScale, 2), // space between paragraphs
+  third: xHeightPx.mobile * Math.pow(modularScale, 3),
+};
+const sideMarginDesktop = {
+  first: xHeightPx.desktop * Math.pow(modularScale, 2), // space between lines
+  second: xHeightPx.desktop * Math.pow(modularScale, 3), // space between paragraphs
+};
+
+// max width
+const maxWidthInEm = 33;
+
+// Control panel width for wide screens
+const controlPanelWidth =
+  (minScreenWidthPx.mobile - sideMarginMobile.first * 2) *
+    (xHeightPx.desktop / xHeightPx.mobile) +
+  sideMarginDesktop.first * 2;
+
+// Breakpoint for font-size
+const breakpointFontSize = 728;
+
+// Breakpoints for side margin
+const breakpointSideMargin = {
+  first: minScreenWidthPx.mobile * Math.pow(modularScale, 1), // 480
+  second: minScreenWidthPx.mobile * Math.pow(modularScale, 2), // 720
+  third: minScreenWidthPx.mobile * Math.pow(modularScale, 3), // 1080
+};
+
+// Breakpoint for layout
+const breakpointLayout = (
+  controlPanelWidth * 2 +
+  sideMarginDesktop.first
+).toFixed(0);
 
 // Font CSS property value
 const fontPalette = {
@@ -146,7 +186,6 @@ const fontPalette = {
   },
   fontSize: {
     mobile: {
-      alertText: getFontSizeFromXHeight(xHeightRem.mobile.alertText).toFixed(4),
       bodyText: getFontSizeFromXHeight(xHeightRem.mobile.bodyText).toFixed(4),
       footer: getFontSizeFromXHeight(xHeightRem.mobile.footer).toFixed(4),
       inputNumber: getFontSizeFromCapHeight(
@@ -163,9 +202,6 @@ const fontPalette = {
       ).toFixed(4),
     },
     desktop: {
-      alertText: getFontSizeFromXHeight(xHeightRem.desktop.alertText).toFixed(
-        4,
-      ),
       bodyText: getFontSizeFromXHeight(xHeightRem.desktop.bodyText).toFixed(4),
       footer: getFontSizeFromXHeight(xHeightRem.desktop.footer).toFixed(4),
       inputNumber: getFontSizeFromCapHeight(
@@ -200,78 +236,17 @@ const fontPalette = {
   },
   textCrop: {
     bottom: {
-      mobile: {
-        bodyText: getTextCropBottom(
-          getFontSizeFromXHeight(xHeightRem.mobile.bodyText),
-          lineHeightRem.bodyText.mobile,
-        ).toFixed(4),
-        sectionTitle: getTextCropBottom(
-          getFontSizeFromXHeight(xHeightRem.mobile.sectionTitle),
-          lineHeightRem.sectionTitle.mobile,
-        ).toFixed(4),
-        stepNumber: getTextCropBottom(
-          getFontSizeFromCapHeight(capHeightRem.mobile.stepNumber),
-          lineHeightRem.stepNumber.mobile,
-        ).toFixed(4),
-      },
-      desktop: {
-        bodyText: getTextCropBottom(
-          getFontSizeFromXHeight(xHeightRem.desktop.bodyText),
-          lineHeightRem.bodyText.desktop,
-        ).toFixed(4),
-        sectionTitle: getTextCropBottom(
-          getFontSizeFromXHeight(xHeightRem.desktop.sectionTitle),
-          lineHeightRem.sectionTitle.desktop,
-        ).toFixed(4),
-        stepNumber: getTextCropBottom(
-          getFontSizeFromCapHeight(capHeightRem.desktop.stepNumber),
-          lineHeightRem.stepNumber.desktop,
-        ).toFixed(4),
-      },
+      bodyText: getTextCropBottom(lineHeightCss.bodyText),
+      sectionTitle: getTextCropBottom(lineHeightCss.sectionTitle),
+      stepNumber: getTextCropBottom(lineHeightCss.stepNumber),
     },
     topCap: {
-      mobile: {
-        bodyText: getTextCropTopCap(
-          getFontSizeFromXHeight(xHeightRem.mobile.bodyText),
-          lineHeightRem.bodyText.mobile,
-        ).toFixed(4),
-        sectionTitle: getTextCropTopCap(
-          getFontSizeFromXHeight(xHeightRem.mobile.sectionTitle),
-          lineHeightRem.sectionTitle.mobile,
-        ).toFixed(4),
-        stepNumber: getTextCropTopCap(
-          getFontSizeFromCapHeight(capHeightRem.mobile.stepNumber),
-          lineHeightRem.stepNumber.mobile,
-        ).toFixed(4),
-      },
-      desktop: {
-        bodyText: getTextCropTopCap(
-          getFontSizeFromXHeight(xHeightRem.desktop.bodyText),
-          lineHeightRem.bodyText.desktop,
-        ).toFixed(4),
-        sectionTitle: getTextCropTopCap(
-          getFontSizeFromXHeight(xHeightRem.desktop.sectionTitle),
-          lineHeightRem.sectionTitle.desktop,
-        ).toFixed(4),
-        stepNumber: getTextCropTopCap(
-          getFontSizeFromCapHeight(capHeightRem.desktop.stepNumber),
-          lineHeightRem.stepNumber.desktop,
-        ).toFixed(4),
-      },
+      bodyText: getTextCropTopCap(lineHeightCss.bodyText),
+      sectionTitle: getTextCropTopCap(lineHeightCss.sectionTitle),
+      stepNumber: getTextCropTopCap(lineHeightCss.stepNumber),
     },
     topX: {
-      mobile: {
-        bodyText: getTextCropTopX(
-          xHeightRem.mobile.bodyText,
-          lineHeightRem.bodyText.mobile,
-        ).toFixed(4),
-      },
-      desktop: {
-        bodyText: getTextCropTopX(
-          xHeightRem.desktop.bodyText,
-          lineHeightRem.bodyText.desktop,
-        ).toFixed(4),
-      },
+      bodyText: getTextCropTopX(lineHeightCss.bodyText),
     },
   },
   code: {
@@ -311,10 +286,27 @@ const fontPalette = {
         modularScale,
     },
   },
-  marginSide: xHeightPx.mobile * Math.pow(modularScale, 1), // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
-  mediaQueryCutoff: '1024px', // common threshold between tablets and laptops
+  marginSide: {
+    mobile: sideMarginMobile,
+    desktop: sideMarginDesktop,
+  }, // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
+  maxWidthInEm: maxWidthInEm,
+  mediaQueryCutoff: {
+    fontSize: breakpointFontSize,
+    layout: breakpointLayout,
+    sideMargin: breakpointSideMargin,
+  },
+  minScreenWidth: {
+    px: {
+      mobile: minScreenWidthPx.mobile,
+      desktop: minScreenWidthPx.desktop,
+    },
+  },
   modularScale: modularScale,
   rem: oneRemPx,
+  width: {
+    controlPanel: controlPanelWidth.toFixed(0),
+  },
   xHeight: {
     mobile: {
       px: xHeightPx.mobile,

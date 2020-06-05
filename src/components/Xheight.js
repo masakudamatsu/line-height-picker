@@ -6,10 +6,13 @@ import SectionFont from './SectionFont';
 import XheightGuide from './XheightGuide';
 import {
   ButtonWithRightArrow,
+  ControlPanel,
+  Flexbox,
   Form,
   Section,
   SectionTitle,
-  Spacer,
+  SpacerHorizontal,
+  SpacerVertical,
 } from '../theme/style';
 import {useHistory} from 'react-router-dom';
 
@@ -41,44 +44,49 @@ const Xheight = props => {
   return (
     <>
       <main>
-        <Section>
-          <Spacer height="3" />
-          <SectionTitle>Setting text size</SectionTitle>
-          <Spacer height="2" />
-          <Form noValidate onSubmit={handleSubmit}>
-            <XheightBox
-              handleXHeightChange={props.handleXHeightChange}
-              validateXHeight={props.validateXHeight}
-              xHeightPx={props.xHeightPx}
-              xHeightRangeError={props.xHeightRangeError}
-              xHeightStepError={props.xHeightStepError}
-            />{' '}
-            <Spacer height="2" />
-            <ButtonWithRightArrow
-              type="submit"
-              primary
-              disabled={props.nextButtonDisabled}
-            >
-              Next
-            </ButtonWithRightArrow>
-            <Spacer height="3" />
-          </Form>
-        </Section>
-        <SectionFont
-          ascender={props.ascender}
-          capHeight={props.capHeight}
-          descender={props.descender}
-          fontFamily={props.fontFamily}
-          fontFileError={props.fontFileError}
-          fontSubfamily={props.fontSubfamily}
-          fontWeight={props.fontWeight}
-          handleFontFile={props.handleFontFile}
-          unitsPerEm={props.unitsPerEm}
-          validateFileType={props.validateFileType}
-        />
-        <Spacer height="3" />
+        <Flexbox>
+          <Section>
+            <SpacerVertical height="3" />
+            <SectionTitle>Setting text size</SectionTitle>
+            <SpacerVertical height="2" />
+            <Form noValidate onSubmit={handleSubmit}>
+              <XheightBox
+                handleXHeightChange={props.handleXHeightChange}
+                validateXHeight={props.validateXHeight}
+                xHeightPx={props.xHeightPx}
+                xHeightRangeError={props.xHeightRangeError}
+                xHeightStepError={props.xHeightStepError}
+              />{' '}
+              <SpacerVertical height="2" />
+              <ButtonWithRightArrow
+                type="submit"
+                primary
+                disabled={props.nextButtonDisabled}
+              >
+                Next
+              </ButtonWithRightArrow>
+              <SpacerVertical height="3" />
+            </Form>
+          </Section>
+          <SpacerHorizontal width="2" />
+          <ControlPanel>
+            <SectionFont
+              ascender={props.ascender}
+              capHeight={props.capHeight}
+              descender={props.descender}
+              fontFamily={props.fontFamily}
+              fontFileError={props.fontFileError}
+              fontSubfamily={props.fontSubfamily}
+              fontWeight={props.fontWeight}
+              handleFontFile={props.handleFontFile}
+              unitsPerEm={props.unitsPerEm}
+              validateFileType={props.validateFileType}
+            />
+          </ControlPanel>
+        </Flexbox>
+        <SpacerVertical height="3" />
         <XheightGuide />
-        <Spacer height="3" />
+        <SpacerVertical height="3" />
       </main>
     </>
   );

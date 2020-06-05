@@ -8,7 +8,6 @@ import inputSize from './inputSize';
 import LogoImage from '../components/LogoImage';
 
 // Parameters
-const minScreenWidthPx = 320;
 const minFontSizePx = 16;
 
 // Layout parameters
@@ -87,25 +86,8 @@ export const InternalLink = styled(Link)`
   ${linkTextStyle}
 `;
 
-export const Spacer = styled.div`
-  height: ${props =>
-    fontPalette.xHeight.mobile.rem *
-    Math.pow(fontPalette.modularScale, props.height)}rem;
-  width: auto;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    height: ${props =>
-      fontPalette.xHeight.desktop.rem *
-      Math.pow(fontPalette.modularScale, props.height)}rem;
-  }
-`;
-
 export const Section = styled.section`
-  max-width: ${maxLogoWidthPx}px;
-  padding-left: ${fontPalette.marginSide}px;
-  padding-right: ${fontPalette.marginSide}px;
-  @media (min-width: ${mediaQueryCutoff}px) {
-    margin: 0 auto;
-  }
+  max-width: ${fontPalette.maxWidthInEm}em;
 `;
 
 export const SectionTitle = styled.h2`
@@ -113,7 +95,8 @@ export const SectionTitle = styled.h2`
   font-size: ${fontPalette.fontSize.mobile.sectionTitle}rem;
   font-weight: ${fontPalette.fontWeight.sectionTitle};
   line-height: ${fontPalette.lineHeight.sectionTitle};
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     font-size: ${fontPalette.fontSize.desktop.sectionTitle}rem;
   }
   /* Text Box Cropping parameters */
@@ -125,36 +108,20 @@ export const SectionTitle = styled.h2`
     width: 0;
   }
   &::before {
-    margin-bottom: -${fontPalette.textCrop.topCap.mobile.sectionTitle}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-bottom: -${fontPalette.textCrop.topCap.desktop.sectionTitle}rem;
-    }
+    margin-bottom: -${fontPalette.textCrop.topCap.sectionTitle}em;
   }
   &::after {
-    margin-top: -${fontPalette.textCrop.bottom.mobile.sectionTitle}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-top: -${fontPalette.textCrop.bottom.desktop.sectionTitle}rem;
-    }
+    margin-top: -${fontPalette.textCrop.bottom.sectionTitle}em;
   }
 `;
 
 export const ParagraphOneRem = styled.p`
   color: ${props =>
     props.errorText ? colorPalette.errorText : 'currentColor'};
-  font-size: ${props =>
-    props.errorText
-      ? `${fontPalette.fontSize.mobile.alertText}rem`
-      : 'inherit'};
   font-weight: ${props =>
     props.errorText ? fontPalette.fontWeight.alertText : 'inherit'};
   font-variant-numeric: oldstyle-nums;
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    font-size: ${props =>
-      props.errorText
-        ? `${fontPalette.fontSize.desktop.alertText}rem`
-        : 'inherit'};
-  }
 
   /* Text Box Cropping */
   &::before,
@@ -165,38 +132,33 @@ export const ParagraphOneRem = styled.p`
     width: 0;
   }
   &::before {
-    margin-bottom: -${fontPalette.textCrop.topCap.mobile.bodyText}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-bottom: -${fontPalette.textCrop.topCap.desktop.bodyText}rem;
-    }
+    margin-bottom: -${fontPalette.textCrop.topCap.bodyText}em;
   }
   &::after {
-    margin-top: -${fontPalette.textCrop.bottom.mobile.bodyText}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-top: -${fontPalette.textCrop.bottom.desktop.bodyText}rem;
-    }
+    margin-top: -${fontPalette.textCrop.bottom.bodyText}em;
   }
 `;
 
 export const AlertMessage = styled(ParagraphOneRem)`
   font-family: ${fontPalette.fontFamily.alertText};
-  font-size: ${fontPalette.fontSize.mobile.alertText}rem;
   font-weight: ${fontPalette.fontWeight.alertText};
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    font-size: ${fontPalette.fontSize.desktop.alertText}rem;
-  }
 `;
 
 export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
   text-align: right;
 `;
 
+export const FontFileErrorWrapper = styled.div`
+  display: ${props => (props.fontFileError ? 'block' : 'none')};
+`;
+
 export const CodeSnippet = styled.pre`
   padding-bottom: ${fontPalette.code.paddingBottom.mobile}rem;
   padding-top: ${fontPalette.code.paddingTop.mobile}rem;
   white-space: pre-wrap; /* https://developer.mozilla.org/en-US/docs/Web/CSS/white-space */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     padding-bottom: ${fontPalette.code.paddingBottom.desktop}rem;
     padding-top: ${fontPalette.code.paddingTop.desktop}rem;
   }
@@ -239,12 +201,8 @@ export const Logo = styled(LogoImage)`
   display: block;
   fill: currentColor;
   height: auto;
-  margin: ${logoMarginTopBelowCutoff * 100}% 0;
   visibility: ${props => (props.topPage ? 'hidden' : 'visible')};
   width: ${props => (props.header ? '20%' : '100%')};
-  @media (min-width: ${mediaQueryCutoff}px) {
-    margin: ${logoMarginTopAboveCutoffPx}px 0;
-  }
 `;
 
 // Header
@@ -253,7 +211,19 @@ export const HeaderWrapper = styled(Section)`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding: ${fontPalette.xHeight.mobile.rem *
+      Math.pow(fontPalette.modularScale, 1)}rem
+    0;
   width: 100%;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    max-width: calc(
+      ${fontPalette.width.controlPanel}px + ${fontPalette.maxWidthInEm}em +
+        ${fontPalette.marginSide.desktop.first}px
+    );
+    padding: ${fontPalette.xHeight.desktop.rem *
+        Math.pow(fontPalette.modularScale, 2)}rem
+      0;
+  }
 `;
 export const StepIndicatorWrapper = styled.nav`
   width: 70%;
@@ -267,17 +237,13 @@ export const StepIndicator = styled.ol`
   list-style: none;
   width: 100%;
 `;
-const numberBoxWidth = 0.1;
 export const StepNumberBox = styled.li`
   align-items: center;
   background-color: ${props => props.now && 'currentColor'};
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: ${numberBoxWidth * 100}vw;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-    width: ${mediaQueryCutoff * numberBoxWidth}px;
-  }
+  width: 20%;
 `;
 
 export const StepNumber = styled.a`
@@ -292,7 +258,8 @@ export const StepNumber = styled.a`
   text-align: center;
   text-decoration: none;
   width: 100%;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     font-size: ${fontPalette.fontSize.desktop.stepNumber}rem;
     padding: ${fontPalette.xHeight.desktop.rem}rem 0;
   }
@@ -316,16 +283,10 @@ export const StepNumber = styled.a`
     width: 0;
   }
   &::before {
-    margin-bottom: -${fontPalette.textCrop.topCap.mobile.stepNumber}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-bottom: -${fontPalette.textCrop.topCap.desktop.stepNumber}rem;
-    }
+    margin-bottom: -${fontPalette.textCrop.topCap.stepNumber}em;
   }
   &::after {
-    margin-top: -${fontPalette.textCrop.bottom.mobile.stepNumber}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-top: -${fontPalette.textCrop.bottom.desktop.stepNumber}rem;
-    }
+    margin-top: -${fontPalette.textCrop.bottom.stepNumber}em;
   }
 `;
 
@@ -338,7 +299,8 @@ export const DescriptionWrapper = styled.p`
   margin: 0;
   text-indent: -1px;
   width: 100%;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     font-size: ${fontPalette.fontSize.desktop.landingPage}rem;
   }
 `;
@@ -349,7 +311,8 @@ export const UserDataDisplayWrapper = styled.div`
   display: flex;
   height: auto;
   min-height: ${inputSize.height.mobile}px;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     min-height: ${inputSize.height.desktop}px;
   }
 `;
@@ -364,7 +327,8 @@ export const UserDataDisplay = styled.p`
   line-height: ${fontPalette.fontName.lineHeightRem.mobile.toFixed(4)}rem;
   padding-bottom: ${fontPalette.fontName.paddingBottom.mobile.toFixed(4)}rem;
   padding-top: ${fontPalette.fontName.paddingTop.mobile.toFixed(4)}rem;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     font-size: ${props =>
       (
         (props.unitsPerEm / props.capHeight) *
@@ -384,13 +348,15 @@ export const UserDataDisplay = styled.p`
   }
   &::before {
     margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .fontSize}px) {
       margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
     }
   }
   &::after {
     margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .fontSize}px) {
       margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
     }
   }
@@ -399,7 +365,6 @@ export const UserDataDisplay = styled.p`
 // Buttons
 
 export const ButtonContainer = styled.div`
-  max-width: ${maxLogoWidthPx}px;
   width: 100%;
 `;
 
@@ -447,7 +412,8 @@ export const Button = styled.button`
     opacity: 0.35;
   }
 
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     border-radius: ${buttonSize.borderRadius.desktop};
     font-size: ${buttonSize.fontSize.desktop}rem;
     height: ${buttonSize.height.desktop}px;
@@ -460,7 +426,8 @@ export const ButtonWithRightArrow = styled(Button)`
     content: '→';
     position: absolute;
     right: ${buttonSize.paddingSide.mobile / 2}px;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .fontSize}px) {
       right: ${buttonSize.paddingSide.desktop / 2}px;
     }
   }
@@ -471,7 +438,8 @@ export const ButtonWithLeftArrow = styled(Button)`
     content: '←';
     position: absolute;
     left: ${buttonSize.paddingSide.mobile / 2}px;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+        .fontSize}px) {
       left: ${buttonSize.paddingSide.desktop / 2}px;
     }
   }
@@ -488,7 +456,8 @@ export const Form = styled.form.attrs(props => ({
 export const InputWrapper = styled.div`
   height: ${inputSize.height.mobile}px;
   position: relative; /* To place XheightInputUnit component */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     height: ${inputSize.height.desktop}px;
   }
 `;
@@ -500,7 +469,8 @@ export const Label = styled.label`
   top: calc(
     ${inputSize.labelTopPx}px - ${inputSize.labelTopOffsetRem.mobile}rem
   );
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     top: calc(
       ${inputSize.labelTopPx}px - ${inputSize.labelTopOffsetRem.desktop}rem
     );
@@ -536,7 +506,8 @@ export const Input = styled.input.attrs(props => ({
     outline: none;
   }
 
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     font-size: ${fontPalette.fontSize.desktop.inputNumber}rem;
     padding-top: ${inputSize.extraTopPaddingToCenterAlignRem.desktop +
       inputSize.labelTextCapHeightRem.desktop +
@@ -556,10 +527,7 @@ export const InputInstruction = styled(ParagraphOneRem)`
   text-align: right;
   /* Crop top of text box to x-height, not cap-height */
   &::before {
-    margin-bottom: -${fontPalette.textCrop.topX.mobile.bodyText}rem;
-    @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
-      margin-bottom: -${fontPalette.textCrop.topX.desktop.bodyText}rem;
-    }
+    margin-bottom: -${fontPalette.textCrop.topX.bodyText}em;
   }
 `;
 
@@ -579,7 +547,8 @@ export const XheightInputUnit = styled.span`
   right: ${inputSize.paddingSidePx}px;
   bottom: ${inputSize.suffixBottomPx
     .mobile}px; /* to aligh with input values at the baseline */
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     bottom: ${inputSize.suffixBottomPx.desktop}px;
   }
 `;
@@ -627,21 +596,118 @@ export const Cite = styled.cite`
 // Footer
 
 export const FooterWrapper = styled(Section)`
-  border-top: 1px solid currentColor;
+  border-top: 1px solid ${colorPalette.footerText};
+  position: ${props => (props.page404 ? 'absolute' : 'inherit')};
+  bottom: 0;
+  left: 0;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    max-width: calc(
+      ${fontPalette.width.controlPanel}px + ${fontPalette.maxWidthInEm}em +
+        ${fontPalette.marginSide.desktop.first}px
+    );
+  }
+`;
+
+export const ParagraphFooter = styled(ParagraphOneRem)`
   color: ${colorPalette.footerText};
   font-family: ${fontPalette.fontFamily.footer};
   font-size: ${fontPalette.fontSize.mobile.footer}rem;
   font-weight: ${fontPalette.fontWeight.footer};
-  padding-bottom: 0.75rem;
-  padding-top: 0.75rem;
-  position: ${props => (props.page404 ? 'absolute' : 'inherit')};
-  bottom: 0;
-  left: 0;
-  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff}) {
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
     font-size: ${fontPalette.fontSize.desktop.footer}rem;
   }
 `;
 
 export const FullScreenSpreader = styled.div`
   height: 100vh;
+`;
+
+// Layout
+
+export const SideMarginRegulator = styled.div`
+  margin: 0 ${fontPalette.marginSide.mobile.first}px;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.sideMargin
+      .first}px) {
+    margin: 0 ${fontPalette.marginSide.mobile.second}px;
+  }
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.sideMargin
+      .second}px) {
+    margin: 0 ${fontPalette.marginSide.mobile.third}px;
+  }
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    margin: 0 ${fontPalette.marginSide.desktop.first}px;
+  }
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.sideMargin
+      .third}px) {
+    margin: 0 ${fontPalette.marginSide.desktop.second}px;
+  }
+`;
+
+export const CenterAligner = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const MainLandingPage = styled.main`
+  @media only screen and (min-width: ${maxLogoWidthPx}px) {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+export const RightAligner = styled.div`
+  max-width: ${maxLogoWidthPx}px;
+`; // Necessary to left-align the buttons with the logo and the description
+
+export const SpacerVertical = styled.div`
+  height: ${props =>
+    fontPalette.xHeight.mobile.rem *
+    Math.pow(fontPalette.modularScale, props.height)}rem;
+  width: auto;
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
+    height: ${props =>
+      fontPalette.xHeight.desktop.rem *
+      Math.pow(fontPalette.modularScale, props.height)}rem;
+  }
+`;
+
+export const SpacerHorizontal = styled.div`
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    flex: 0 0
+      ${props =>
+        fontPalette.xHeight.desktop.px *
+        Math.pow(fontPalette.modularScale, props.width)}px;
+    height: inherit;
+    width: ${props =>
+      fontPalette.xHeight.desktop.px *
+      Math.pow(fontPalette.modularScale, props.width)}px;
+  }
+`;
+
+export const Flexbox = styled.div`
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    align-items: flex-start; /* To prevent flex-items from stretching (by default) */
+    display: flex;
+    flex-direction: row;
+    padding-top: ${fontPalette.xHeight.desktop.rem *
+      Math.pow(fontPalette.modularScale, 3)}rem;
+  }
+`;
+
+export const MainPanel = styled.div`
+  @media only screen and (min-width: 680px) {
+  }
+`;
+export const ControlPanel = styled.div`
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    background-color: ${colorPalette.controlPanel};
+    border-radius: 16px;
+    flex: 0 0 ${fontPalette.width.controlPanel}px;
+    padding: 0 ${fontPalette.marginSide.desktop.first}px;
+    width: ${fontPalette.width.controlPanel}px;
+  }
 `;

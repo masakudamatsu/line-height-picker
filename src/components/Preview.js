@@ -8,10 +8,14 @@ import XheightBox from './XheightBox';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import {
   ButtonWithRightArrow,
+  ControlPanel,
+  Flexbox,
   Form,
+  MainPanel,
   Section,
   SectionTitle,
-  Spacer,
+  SpacerHorizontal,
+  SpacerVertical,
 } from '../theme/style';
 
 import store from '../helper/store';
@@ -58,68 +62,77 @@ const Preview = props => {
     <>
       <main>
         <Form noValidate onSubmit={handleSubmit}>
-          <Section>
-            <Spacer height="3" />
-            <SectionTitle>Preview paragraphs</SectionTitle>
-            <Spacer height="2" />
-            <SampleParagraphs
-              fontMetrics={props.fontMetrics}
-              fontSize={props.fontSize}
-              lineHeight={props.lineHeight}
-              marginTop={props.marginTop}
-            />
-            <Spacer height="2" />
-          </Section>
-          <Section>
-            <ButtonWithRightArrow
-              type="submit"
-              primary
-              disabled={props.cssButtonDisabled}
-            >
-              Get CSS code
-            </ButtonWithRightArrow>
-            <Spacer height="3" />
-          </Section>
-          <Section>
-            <Spacer height="3" />
-            <SectionTitle>Line spacing</SectionTitle>
-            <Spacer height="2" />
-            <ModularScaleBoxes
-              xHeightRatio={props.xHeightRatio}
-              handleXHeightRatioChange={props.handleXHeightRatioChange}
-              lineHeightRatio={props.lineHeightRatio}
-              handleLineHeightRatioChange={props.handleLineHeightRatioChange}
-              validateModularScale={props.validateModularScale}
-              modularScaleRangeError={props.modularScaleRangeError}
-              modularScaleStepError={props.modularScaleStepError}
-            />
-          </Section>
-          <Section>
-            <Spacer height="3" />
-            <SectionTitle>Text size</SectionTitle>
-            <Spacer height="2" />
-            <XheightBox
-              handleXHeightChange={props.handleXHeightChange}
-              xHeightPx={props.xHeightPx}
-              validateXHeight={props.validateXHeight}
-              xHeightRangeError={props.xHeightRangeError}
-              xHeightStepError={props.xHeightStepError}
-            />
-          </Section>
-          <SectionFont
-            ascender={props.ascender}
-            capHeight={props.capHeight}
-            descender={props.descender}
-            fontFamily={props.fontFamily}
-            fontFileError={props.fontFileError}
-            fontSubfamily={props.fontSubfamily}
-            fontWeight={props.fontWeight}
-            handleFontFile={props.handleFontFile}
-            unitsPerEm={props.unitsPerEm}
-            validateFileType={props.validateFileType}
-          />
+          <Flexbox>
+            <MainPanel>
+              <Section>
+                <SpacerVertical height="3" />
+                <SectionTitle>Preview paragraphs</SectionTitle>
+                <SpacerVertical height="2" />
+                <SampleParagraphs
+                  fontMetrics={props.fontMetrics}
+                  fontSize={props.fontSize}
+                  lineHeight={props.lineHeight}
+                  marginTop={props.marginTop}
+                />
+                <SpacerVertical height="2" />
+              </Section>
+              <Section>
+                <ButtonWithRightArrow
+                  type="submit"
+                  primary
+                  disabled={props.cssButtonDisabled}
+                >
+                  Get CSS code
+                </ButtonWithRightArrow>
+                <SpacerVertical height="3" />
+              </Section>
+            </MainPanel>
+            <SpacerHorizontal width="2" />
+            <ControlPanel>
+              <Section>
+                <SpacerVertical height="3" />
+                <SectionTitle>Line spacing</SectionTitle>
+                <SpacerVertical height="2" />
+                <ModularScaleBoxes
+                  xHeightRatio={props.xHeightRatio}
+                  handleXHeightRatioChange={props.handleXHeightRatioChange}
+                  lineHeightRatio={props.lineHeightRatio}
+                  handleLineHeightRatioChange={
+                    props.handleLineHeightRatioChange
+                  }
+                  validateModularScale={props.validateModularScale}
+                  modularScaleRangeError={props.modularScaleRangeError}
+                  modularScaleStepError={props.modularScaleStepError}
+                />
+              </Section>
+              <Section>
+                <SpacerVertical height="3" />
+                <SectionTitle>Text size</SectionTitle>
+                <SpacerVertical height="2" />
+                <XheightBox
+                  handleXHeightChange={props.handleXHeightChange}
+                  xHeightPx={props.xHeightPx}
+                  validateXHeight={props.validateXHeight}
+                  xHeightRangeError={props.xHeightRangeError}
+                  xHeightStepError={props.xHeightStepError}
+                />
+              </Section>
+              <SectionFont
+                ascender={props.ascender}
+                capHeight={props.capHeight}
+                descender={props.descender}
+                fontFamily={props.fontFamily}
+                fontFileError={props.fontFileError}
+                fontSubfamily={props.fontSubfamily}
+                fontWeight={props.fontWeight}
+                handleFontFile={props.handleFontFile}
+                unitsPerEm={props.unitsPerEm}
+                validateFileType={props.validateFileType}
+              />
+            </ControlPanel>
+          </Flexbox>
         </Form>
-        <Spacer height="3" />
+        <SpacerVertical height="3" />
       </main>
     </>
   );

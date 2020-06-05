@@ -17,62 +17,71 @@ import {
 test('renders correctly', () => {
   const {container} = render(<FontFileErrorMessage fontFileError="" />);
   expect(container).toMatchInlineSnapshot(`
-    .c0 {
+    .c2 {
       color: hsl(335,71%,64%);
-      font-size: 0.9812rem;
       font-weight: 300;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c0::before,
-    .c0::after {
+    .c2::before,
+    .c2::after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c0::before {
-      margin-bottom: -0.2497rem;
+    .c2::before {
+      margin-bottom: -0.2545em;
     }
 
-    .c0::after {
-      margin-top: -0.3949rem;
+    .c2::after {
+      margin-top: -0.4025em;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c0 {
-        font-size: 1.1447rem;
-      }
+    .c0 {
+      display: none;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c0::before {
-        margin-bottom: -0.2913rem;
-      }
+    .c1 {
+      height: 1.2053571428571428rem;
+      width: auto;
     }
 
-    @media only screen and (min-width:1024px) {
-      .c0::after {
-        margin-top: -0.4607rem;
+    @media only screen and (min-width:728px) {
+      .c1 {
+        height: 1.40625rem;
       }
     }
 
     <div>
       <div
+        class="c0"
         data-testid="error-message-font-file"
       >
+        <div
+          class="c1"
+          height="2"
+        />
         <p
-          class="c0"
+          class="c2"
           id="whatHappened-fontFile"
         />
-        <p
-          class="c0"
-          id="howToResolve-fontFile"
+        <div
+          class="c1"
+          height="2"
         />
         <p
-          class="c0"
+          class="c2"
+          id="howToResolve-fontFile"
+        />
+        <div
+          class="c1"
+          height="2"
+        />
+        <p
+          class="c2"
           id="extraText-fontFile"
         />
       </div>
