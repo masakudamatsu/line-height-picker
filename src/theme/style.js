@@ -691,6 +691,8 @@ export const Flexbox = styled.div`
     align-items: flex-start; /* To prevent flex-items from stretching (by default) */
     display: flex;
     flex-direction: row;
+    padding-top: ${fontPalette.xHeight.desktop.rem *
+      Math.pow(fontPalette.modularScale, 3)}rem;
   }
 `;
 
