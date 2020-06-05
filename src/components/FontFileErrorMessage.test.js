@@ -17,27 +17,31 @@ import {
 test('renders correctly', () => {
   const {container} = render(<FontFileErrorMessage fontFileError="" />);
   expect(container).toMatchInlineSnapshot(`
-    .c0 {
+    .c2 {
       color: hsl(335,71%,64%);
       font-weight: 300;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c0::before,
-    .c0::after {
+    .c2::before,
+    .c2::after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c0::before {
+    .c2::before {
       margin-bottom: -0.2545em;
     }
 
-    .c0::after {
+    .c2::after {
       margin-top: -0.4025em;
+    }
+
+    .c0 {
+      display: none;
     }
 
     .c1 {
@@ -53,10 +57,15 @@ test('renders correctly', () => {
 
     <div>
       <div
+        class="c0"
         data-testid="error-message-font-file"
       >
+        <div
+          class="c1"
+          height="2"
+        />
         <p
-          class="c0"
+          class="c2"
           id="whatHappened-fontFile"
         />
         <div
@@ -64,7 +73,7 @@ test('renders correctly', () => {
           height="2"
         />
         <p
-          class="c0"
+          class="c2"
           id="howToResolve-fontFile"
         />
         <div
@@ -72,7 +81,7 @@ test('renders correctly', () => {
           height="2"
         />
         <p
-          class="c0"
+          class="c2"
           id="extraText-fontFile"
         />
       </div>

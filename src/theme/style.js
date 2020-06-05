@@ -149,6 +149,10 @@ export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
   text-align: right;
 `;
 
+export const FontFileErrorWrapper = styled.div`
+  display: ${props => (props.fontFileError ? 'block' : 'none')};
+`;
+
 export const CodeSnippet = styled.pre`
   padding-bottom: ${fontPalette.code.paddingBottom.mobile}rem;
   padding-top: ${fontPalette.code.paddingTop.mobile}rem;
