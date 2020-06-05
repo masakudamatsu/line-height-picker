@@ -55,7 +55,7 @@ test('renders correctly', () => {
 
     .c0 {
       max-width: 33em;
-      border-top: 1px solid currentColor;
+      border-top: 1px solid hsl(0,0%,67%);
       position: inherit;
       bottom: 0;
       left: 0;
