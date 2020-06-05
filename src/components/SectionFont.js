@@ -38,6 +38,7 @@ const SectionFont = props => {
         >
           Change font…
         </FontFileUploader>
+        <SpacerVertical height="2" />
         <FontFileErrorMessage
           data-testid="error-message-font-file"
           fontFileError={props.fontFileError}

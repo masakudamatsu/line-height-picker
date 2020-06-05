@@ -38,6 +38,7 @@ const Home = props => {
             </FontFileUploader>
             <SpacerVertical height="2" />
             <DemoStartButton handleDemo={props.handleDemo} />
+            <SpacerVertical height="2" />
             <FontFileErrorMessage
               data-testid="error-message-font-file"
               fontFileError={props.fontFileError}

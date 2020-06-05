@@ -40,6 +40,17 @@ test('renders correctly', () => {
       margin-top: -0.4025em;
     }
 
+    .c1 {
+      height: 1.2053571428571428rem;
+      width: auto;
+    }
+
+    @media only screen and (min-width:728px) {
+      .c1 {
+        height: 1.40625rem;
+      }
+    }
+
     <div>
       <div
         data-testid="error-message-font-file"
@@ -48,9 +59,17 @@ test('renders correctly', () => {
           class="c0"
           id="whatHappened-fontFile"
         />
+        <div
+          class="c1"
+          height="2"
+        />
         <p
           class="c0"
           id="howToResolve-fontFile"
+        />
+        <div
+          class="c1"
+          height="2"
         />
         <p
           class="c0"

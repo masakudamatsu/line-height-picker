@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {ParagraphOneRem} from '../theme/style';
+import {ParagraphOneRem, SpacerVertical} from '../theme/style';
 import {
   fileExtensionError,
   fileReaderApiError,
@@ -32,9 +32,11 @@ const FontFileErrorMessage = props => {
       <ParagraphOneRem id="whatHappened-fontFile" errorText>
         {errorMessage.whatHappened}
       </ParagraphOneRem>
+      <SpacerVertical height="2" />
       <ParagraphOneRem id="howToResolve-fontFile" errorText>
         {errorMessage.howToResolve}
       </ParagraphOneRem>
+      <SpacerVertical height="2" />
       <ParagraphOneRem id="extraText-fontFile" errorText>
         {errorMessage.extraText}
       </ParagraphOneRem>
