@@ -201,12 +201,8 @@ export const Logo = styled(LogoImage)`
   display: block;
   fill: currentColor;
   height: auto;
-  margin: ${logoMarginTopBelowCutoff * 100}% 0;
   visibility: ${props => (props.topPage ? 'hidden' : 'visible')};
   width: ${props => (props.header ? '20%' : '100%')};
-  @media (min-width: ${mediaQueryCutoff}px) {
-    margin: ${logoMarginTopAboveCutoffPx}px 0;
-  }
 `;
 
 // Header
@@ -215,12 +211,18 @@ export const HeaderWrapper = styled(Section)`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding: ${fontPalette.xHeight.mobile.rem *
+      Math.pow(fontPalette.modularScale, 1)}rem
+    0;
   width: 100%;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
     max-width: calc(
       ${fontPalette.width.controlPanel}px + ${fontPalette.maxWidthInEm}em +
         ${fontPalette.marginSide.desktop.first}px
     );
+    padding: ${fontPalette.xHeight.desktop.rem *
+        Math.pow(fontPalette.modularScale, 2)}rem
+      0;
   }
 `;
 export const StepIndicatorWrapper = styled.nav`
