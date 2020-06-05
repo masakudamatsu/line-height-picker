@@ -82,9 +82,9 @@ const Xheight = props => {
               unitsPerEm={props.unitsPerEm}
               validateFileType={props.validateFileType}
             />
-            <SpacerVertical height="3" />
           </ControlPanel>
         </Flexbox>
+        <SpacerVertical height="3" />
         <XheightGuide />
         <SpacerVertical height="3" />
       </main>

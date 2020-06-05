@@ -688,6 +688,7 @@ export const SpacerHorizontal = styled.div`
 
 export const Flexbox = styled.div`
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
+    align-items: flex-start; /* To prevent flex-items from stretching (by default) */
     display: flex;
     flex-direction: row;
   }

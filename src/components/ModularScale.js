@@ -112,9 +112,9 @@ const ModularScale = props => {
               unitsPerEm={props.unitsPerEm}
               validateFileType={props.validateFileType}
             />
-            <SpacerVertical height="3" />
           </ControlPanel>
         </Flexbox>
+        <SpacerVertical height="3" />
       </main>
     </>
   );
