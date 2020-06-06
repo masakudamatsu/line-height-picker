@@ -18,7 +18,7 @@ test('renders correctly', () => {
   const {container} = render(<FontFileErrorMessage fontFileError="" />);
   expect(container).toMatchInlineSnapshot(`
     .c2 {
-      color: hsl(335,71%,64%);
+      color: hsl(60,80%,60%);
       font-weight: 300;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';

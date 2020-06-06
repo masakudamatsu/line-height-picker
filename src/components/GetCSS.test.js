@@ -56,7 +56,7 @@ test('renders correctly', () => {
     }
 
     .c9 {
-      color: hsl(335,71%,64%);
+      color: hsl(60,80%,60%);
       font-weight: 300;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -94,8 +94,8 @@ test('renders correctly', () => {
 
     .c4 {
       background: hsla(0,0%,100%,0.9);
-      box-shadow: 0 0 10px 0 hsla(0,0%,100%,0.5), 0 0 20px 0 hsla(0,0%,100%,0.5), 0 0 40px 0 hsla(0,0%,100%,0.5);
-      height: 1px;
+      box-shadow: 0 0 10px 0 hsla(0,0%,100%,0.56), 0 0 20px 0 hsla(0,0%,100%,0.56), 0 0 40px 0 hsla(0,0%,100%,0.56);
+      height: 2px;
       width: 100%;
     }
 
@@ -104,10 +104,10 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: hsl(0,0%,15%);
+      background-color: hsl(0,0%,10%);
       border: none;
       border-radius: 7.232142857142856px;
-      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5), 3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,100%,0.5);
+      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.56), 0 -3px 3px 0px hsla(0,0%,100%,0.56), 3px 0 3px 0 hsla(0,0%,100%,0.56), 0 3px 3px 0 hsla(0,0%,100%,0.56);
       color: inherit;
       cursor: pointer;
       display: -webkit-box;
@@ -130,19 +130,19 @@ test('renders correctly', () => {
 
     .c7:focus,
     .c7:hover {
-      background-color: hsl(0,0%,46%);
-      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.5), 0 -6px 6px 0px hsla(0,0%,100%,0.5), 6px 0 6px 0 hsla(0,0%,100%,0.5), 0 6px 6px 0 hsla(0,0%,100%,0.5);
+      background-color: hsl(0,0%,51%);
+      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.56), 0 -6px 6px 0px hsla(0,0%,100%,0.56), 6px 0 6px 0 hsla(0,0%,100%,0.56), 0 6px 6px 0 hsla(0,0%,100%,0.56);
       outline: none;
     }
 
     .c7:active {
-      background-color: hsl(0,0%,46%);
-      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5), 1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,100%,0.5);
+      background-color: hsl(0,0%,51%);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.56), 0 -1px 1px 0px hsla(0,0%,100%,0.56), 1px 0 1px 0 hsla(0,0%,100%,0.56), 0 1px 1px 0 hsla(0,0%,100%,0.56);
       outline: none;
     }
 
     .c7[disabled] {
-      border: 1px solid hsla(0,0%,100%,0.5);
+      border: 1px solid hsla(0,0%,100%,0.56);
       box-shadow: none;
       cursor: not-allowed;
       opacity: 0.35;
@@ -153,10 +153,10 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: hsl(0,0%,15%);
+      background-color: hsl(0,0%,10%);
       border: none;
       border-radius: 7.232142857142856px;
-      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5), 3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,100%,0.5);
+      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.56), 0 -3px 3px 0px hsla(0,0%,100%,0.56), 3px 0 3px 0 hsla(0,0%,100%,0.56), 0 3px 3px 0 hsla(0,0%,100%,0.56);
       color: inherit;
       cursor: pointer;
       display: -webkit-box;
@@ -179,19 +179,19 @@ test('renders correctly', () => {
 
     .c8:focus,
     .c8:hover {
-      background-color: hsl(0,0%,46%);
-      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.5), 0 -6px 6px 0px hsla(0,0%,100%,0.5), 6px 0 6px 0 hsla(0,0%,100%,0.5), 0 6px 6px 0 hsla(0,0%,100%,0.5);
+      background-color: hsl(0,0%,51%);
+      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.56), 0 -6px 6px 0px hsla(0,0%,100%,0.56), 6px 0 6px 0 hsla(0,0%,100%,0.56), 0 6px 6px 0 hsla(0,0%,100%,0.56);
       outline: none;
     }
 
     .c8:active {
-      background-color: hsl(0,0%,46%);
-      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5), 1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,100%,0.5);
+      background-color: hsl(0,0%,51%);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.56), 0 -1px 1px 0px hsla(0,0%,100%,0.56), 1px 0 1px 0 hsla(0,0%,100%,0.56), 0 1px 1px 0 hsla(0,0%,100%,0.56);
       outline: none;
     }
 
     .c8[disabled] {
-      border: 1px solid hsla(0,0%,100%,0.5);
+      border: 1px solid hsla(0,0%,100%,0.56);
       box-shadow: none;
       cursor: not-allowed;
       opacity: 0.35;

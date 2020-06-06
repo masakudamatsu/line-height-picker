@@ -91,10 +91,10 @@ test('renders correctly', () => {
     }
 
     .c2 {
-      background-color: hsl(0,0%,15%);
-      border: 2px solid hsl(0,0%,46%);
+      background-color: hsl(0,0%,10%);
+      border: 2px solid hsl(0,0%,40%);
       border-radius: 4px;
-      color: hsl(0,0%,96%);
+      color: hsl(0,0%,90%);
       font-family: 'Fedra Mono 2',monospace;
       font-size: 2.5537rem;
       font-weight: 300;
@@ -112,7 +112,7 @@ test('renders correctly', () => {
     .c2:active,
     .c2:hover,
     .c2:focus {
-      border: 2px solid hsl(0,0%,96%);
+      border: 2px solid hsl(0,0%,90%);
       outline: none;
     }
 
@@ -184,6 +184,7 @@ test('renders correctly', () => {
         </label>
         <input
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
+          autocomplete="off"
           class="sc-fzoyTs sc-fzoNJl c2"
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"

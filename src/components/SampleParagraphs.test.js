@@ -33,27 +33,27 @@ test('renders correctly', () => {
   );
   expect(container).toMatchInlineSnapshot(`
     .c5 {
-      background: hsl(0,0%,46%);
-      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,96%) 50%, hsl(0,0%,96%) );
+      background: hsl(0,0%,74%);
+      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,90%) 50%, hsl(0,0%,90%) );
       background-position: 0 calc( 0.125em + 0.708em );
       background-repeat: no-repeat;
       background-size: 100% 1px;
-      color: hsl(0,0%,96%);
+      color: hsl(0,0%,90%);
       cursor: pointer;
       -webkit-text-decoration: none;
       text-decoration: none;
-      text-shadow: 0.03em 0 hsl(0,0%,15%), -0.03em 0 hsl(0,0%,15%),0 0.03em hsl(0,0%,15%), 0 -0.03em hsl(0,0%,15%);
+      text-shadow: 0.03em 0 hsl(0,0%,10%), -0.03em 0 hsl(0,0%,10%),0 0.03em hsl(0,0%,10%), 0 -0.03em hsl(0,0%,10%);
     }
 
     .c5:visited {
       background: hsl(0,0%,36%);
-      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,76%) 50%, hsl(0,0%,76%) );
-      color: hsl(0,0%,76%);
+      background: linear-gradient( to bottom, transparent 50%, hsl(180,70%,89%) 50%, hsl(180,70%,89%) );
+      color: hsl(180,70%,89%);
     }
 
     .c5:focus,
     .c5:hover {
-      background: hsl(0,0%,46%);
+      background: hsl(0,0%,74%);
       display: inline-block;
       outline: none;
       text-shadow: none;
@@ -100,8 +100,8 @@ test('renders correctly', () => {
 
     .c0 {
       background: hsla(0,0%,100%,0.9);
-      box-shadow: 0 0 10px 0 hsla(0,0%,100%,0.5), 0 0 20px 0 hsla(0,0%,100%,0.5), 0 0 40px 0 hsla(0,0%,100%,0.5);
-      height: 1px;
+      box-shadow: 0 0 10px 0 hsla(0,0%,100%,0.56), 0 0 20px 0 hsla(0,0%,100%,0.56), 0 0 40px 0 hsla(0,0%,100%,0.56);
+      height: 2px;
       width: 100%;
     }
 
