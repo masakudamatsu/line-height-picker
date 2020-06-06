@@ -114,6 +114,13 @@ test(`sets the background color to be currentColor if props.now is true`, () => 
   `);
 });
 
+test(`sets the color to be ${colorPalette.background} if props.now is true`, () => {
+  const {getByText} = render(<Step now number={mockNumber} />);
+  expect(getByText(`${mockNumber}`)).toHaveStyle(`
+    color: ${colorPalette.background};
+  `);
+});
+
 test(`sets the color to be ${colorPalette.bodyText} if props.done is true`, () => {
   const {getByText} = render(<Step done number={mockNumber} />);
   expect(getByText(`${mockNumber}`)).toHaveStyle(`
