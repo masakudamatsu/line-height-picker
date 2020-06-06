@@ -183,8 +183,8 @@ export const HiddenH1 = styled.h1`
 
 export const LinearLight = styled.div`
   background: hsla(0, 0%, 100%, 0.9);
-  box-shadow: 0 0 10px 0 hsla(0, 0%, 100%, 0.9),
-    0 0 20px 0 hsla(0, 0%, 100%, 0.9), 0 0 40px 0 hsla(0, 0%, 100%, 0.9);
+  box-shadow: 0 0 10px 0 hsla(0, 0%, 100%, 0.5),
+    0 0 20px 0 hsla(0, 0%, 100%, 0.5), 0 0 40px 0 hsla(0, 0%, 100%, 0.5);
   height: 1px;
   width: 100%;
 `;
