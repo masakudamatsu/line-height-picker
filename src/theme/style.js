@@ -186,7 +186,7 @@ export const LinearLight = styled.div`
   box-shadow: 0 0 10px 0 ${colorPalette.linearLight.shadow},
     0 0 20px 0 ${colorPalette.linearLight.shadow},
     0 0 40px 0 ${colorPalette.linearLight.shadow};
-  height: 1px;
+  height: 2px;
   width: 100%;
 `;
 
