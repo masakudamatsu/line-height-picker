@@ -35,13 +35,14 @@ test('renders correctly', () => {
     }
 
     .c1 {
-      color: hsl(0,0%,35%);
+      color: hsl(0,0%,90%);
       cursor: default;
       display: inline-block;
       font-family: 'Fedra Mono 2',monospace;
       font-size: 1.1350rem;
       font-weight: 300;
       line-height: 1.0000;
+      opacity: 0.35;
       padding: 0.5357142857142857rem 0;
       text-align: center;
       -webkit-text-decoration: none;
@@ -106,17 +107,17 @@ test('renders props.number as its text content', () => {
   });
 });
 
-test('sets the background color to be currentColor if props.now is true', () => {
+test(`sets the background color to be currentColor if props.now is true`, () => {
   const {getByTestId} = render(<Step now number={mockNumber} />);
   expect(getByTestId('StepNumberBox')).toHaveStyle(`
     background-color: currentColor;
   `);
 });
 
-test('sets the color to be currentColor if props.done is true', () => {
+test(`sets the color to be ${colorPalette.bodyText} if props.done is true`, () => {
   const {getByText} = render(<Step done number={mockNumber} />);
   expect(getByText(`${mockNumber}`)).toHaveStyle(`
-    color: currentColor;
+    color: ${colorPalette.bodyText};
   `);
 });
 
@@ -130,10 +131,10 @@ test('sets the tabindex attribute to be -1 if props.done is false', () => {
   expect(getByText(`${mockNumber}`)).toHaveAttribute('tabindex', '-1');
 });
 
-test('sets the color to be the one for disabled text if props.done is false', () => {
+test(`sets the opacity for disabled text if props.done is false`, () => {
   const {getByText} = render(<Step number={mockNumber} />);
   expect(getByText(`${mockNumber}`)).toHaveStyle(`
-    color: ${colorPalette.disabledText};
+    opacity: ${colorPalette.disabledText};
   `);
 });
 
