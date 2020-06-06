@@ -94,7 +94,7 @@ test('renders correctly', () => {
 
     .c4 {
       background: hsla(0,0%,100%,0.9);
-      box-shadow: 0 0 10px 0 hsla(0,0%,100%,0.5), 0 0 20px 0 hsla(0,0%,100%,0.5),0 0 40px 0 hsla(0,0%,100%,0.5);
+      box-shadow: 0 0 10px 0 hsla(0,0%,100%,0.5), 0 0 20px 0 hsla(0,0%,100%,0.5), 0 0 40px 0 hsla(0,0%,100%,0.5);
       height: 1px;
       width: 100%;
     }
@@ -107,7 +107,7 @@ test('renders correctly', () => {
       background-color: hsl(0,0%,15%);
       border: none;
       border-radius: 7.232142857142856px;
-      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,100%,0.5);
+      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5), 3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,100%,0.5);
       color: inherit;
       cursor: pointer;
       display: -webkit-box;

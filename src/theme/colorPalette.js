@@ -8,6 +8,10 @@ const visitedLink = 'hsl(0, 0%, 76%)';
 const brightest = 'hsl(0, 0%, 96%)';
 const pureBlack = 'hsl(0, 0%, 0%)';
 const alert = 'hsl(335, 71%, 64%)';
+const light = {
+  source: 'hsla(0, 0%, 100%, 0.9)',
+  reflection: 'hsla(0, 0%, 100%, 0.5)',
+};
 
 const colorPalette = {
   background: darkest,
@@ -15,6 +19,7 @@ const colorPalette = {
   button: {
     default: darkest,
     focus: middle,
+    shadow: light.reflection,
   },
   controlPanel: darkerThanDarkest,
   disabledText: disabled,
@@ -22,6 +27,10 @@ const colorPalette = {
   footerText: footerText,
   errorText: alert,
   inputField: middle,
+  linearLight: {
+    backgroundColor: light.source,
+    shadow: light.reflection,
+  },
   link: {
     text: {
       default: brightest,

@@ -182,9 +182,10 @@ export const HiddenH1 = styled.h1`
 `;
 
 export const LinearLight = styled.div`
-  background: hsla(0, 0%, 100%, 0.9);
-  box-shadow: 0 0 10px 0 hsla(0, 0%, 100%, 0.5),
-    0 0 20px 0 hsla(0, 0%, 100%, 0.5), 0 0 40px 0 hsla(0, 0%, 100%, 0.5);
+  background: ${colorPalette.linearLight.backgroundColor};
+  box-shadow: 0 0 10px 0 ${colorPalette.linearLight.shadow},
+    0 0 20px 0 ${colorPalette.linearLight.shadow},
+    0 0 40px 0 ${colorPalette.linearLight.shadow};
   height: 1px;
   width: 100%;
 `;
@@ -373,9 +374,10 @@ export const Button = styled.button`
   background-color: ${colorPalette.button.default};
   border: none;
   border-radius: ${buttonSize.borderRadius.mobile}px;
-  box-shadow: -3px 0 3px 0px hsla(0, 0%, 100%, 0.5),
-    0 -3px 3px 0px hsla(0, 0%, 100%, 0.5), 3px 0 3px 0 hsla(0, 0%, 100%, 0.5),
-    0 3px 3px 0 hsla(0, 0%, 100%, 0.5);
+  box-shadow: -3px 0 3px 0px ${colorPalette.button.shadow},
+    0 -3px 3px 0px ${colorPalette.button.shadow},
+    3px 0 3px 0 ${colorPalette.button.shadow},
+    0 3px 3px 0 ${colorPalette.button.shadow};
   color: inherit;
   cursor: pointer;
   display: flex;
@@ -391,22 +393,24 @@ export const Button = styled.button`
   &:focus,
   &:hover {
     background-color: ${colorPalette.button.focus};
-    box-shadow: -6px 0 6px 0px hsla(0, 0%, 100%, 0.5),
-      0 -6px 6px 0px hsla(0, 0%, 100%, 0.5), 6px 0 6px 0 hsla(0, 0%, 100%, 0.5),
-      0 6px 6px 0 hsla(0, 0%, 100%, 0.5);
+    box-shadow: -6px 0 6px 0px ${colorPalette.button.shadow},
+      0 -6px 6px 0px ${colorPalette.button.shadow},
+      6px 0 6px 0 ${colorPalette.button.shadow},
+      0 6px 6px 0 ${colorPalette.button.shadow};
     outline: none;
   }
 
   &:active {
     background-color: ${colorPalette.button.focus};
-    box-shadow: -1px 0 1px 0px hsla(0, 0%, 100%, 0.5),
-      0 -1px 1px 0px hsla(0, 0%, 100%, 0.5), 1px 0 1px 0 hsla(0, 0%, 100%, 0.5),
-      0 1px 1px 0 hsla(0, 0%, 100%, 0.5);
+    box-shadow: -1px 0 1px 0px ${colorPalette.button.shadow},
+      0 -1px 1px 0px ${colorPalette.button.shadow},
+      1px 0 1px 0 ${colorPalette.button.shadow},
+      0 1px 1px 0 ${colorPalette.button.shadow};
     outline: none;
   }
 
   &[disabled] {
-    border: 1px solid hsla(0, 0%, 100%, 0.5);
+    border: 1px solid ${colorPalette.button.shadow};
     box-shadow: none;
     cursor: not-allowed;
     opacity: 0.35;
