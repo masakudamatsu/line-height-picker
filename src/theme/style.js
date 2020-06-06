@@ -249,7 +249,7 @@ export const StepNumberBox = styled.li`
 
 export const StepNumber = styled.a`
   color: ${props =>
-    props.now ? colorPalette.backgrond : colorPalette.bodyText};
+    props.now ? colorPalette.background : colorPalette.bodyText};
   cursor: ${props => (props.done ? 'pointer' : 'default')};
   display: inline-block;
   font-family: ${fontPalette.fontFamily.stepNumber};
