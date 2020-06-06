@@ -450,9 +450,7 @@ export const ButtonWithLeftArrow = styled(Button)`
 `;
 
 // Forms
-export const Form = styled.form.attrs(props => ({
-  autoComplete: 'off',
-}))`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
 `;
@@ -482,6 +480,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input.attrs(props => ({
+  autoComplete: 'off',
   type: 'text',
 }))`
   background-color: ${colorPalette.background};
