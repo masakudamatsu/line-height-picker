@@ -5,7 +5,7 @@ const middleDark = 'hsl(0, 0%, 36%)';
 const middle = 'hsl(0, 0%, 46%)'; // 1:4.5 contrast ratio to both pure black and pure white
 const footerText = 'hsl(0, 0%, 67%)';
 const visitedLink = 'hsl(0, 0%, 76%)';
-const brightest = 'hsl(0, 0%, 96%)';
+const opacityForDisabledText = '0.35'; // For disabled text for navigation and buttons
 const pureBlack = 'hsl(0, 0%, 0%)';
 const alert = 'hsl(335, 71%, 64%)';
 const light = {
@@ -22,7 +22,7 @@ const colorPalette = {
     shadow: light.reflection,
   },
   controlPanel: darkerThanDarkest,
-  disabledText: disabled,
+  disabledText: opacityForDisabledText,
   displayBackground: pureBlack,
   footerText: footerText,
   errorText: alert,

@@ -248,13 +248,16 @@ export const StepNumberBox = styled.li`
 `;
 
 export const StepNumber = styled.a`
-  color: ${props => (props.done ? 'currentColor' : colorPalette.disabledText)};
+  color: ${props =>
+    props.now ? colorPalette.backgrond : colorPalette.bodyText};
   cursor: ${props => (props.done ? 'pointer' : 'default')};
   display: inline-block;
   font-family: ${fontPalette.fontFamily.stepNumber};
   font-size: ${fontPalette.fontSize.mobile.stepNumber}rem;
   font-weight: ${fontPalette.fontWeight.stepNumber};
   line-height: ${fontPalette.lineHeight.stepNumber};
+  opacity: ${props =>
+    !props.done && !props.now ? colorPalette.disabledText : '1'};
   padding: ${fontPalette.xHeight.mobile.rem}rem 0;
   text-align: center;
   text-decoration: none;

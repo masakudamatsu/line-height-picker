@@ -103,6 +103,7 @@ const Step = props => {
         href={internalURL ? `.${internalURL}` : ''}
         onClick={handleClick}
         done={props.done}
+        now={props.now}
         tabIndex={props.done ? '0' : '-1'}
       >
         {props.number}
