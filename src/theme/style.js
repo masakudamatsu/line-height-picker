@@ -416,7 +416,7 @@ export const Button = styled.button`
     border: 1px solid ${colorPalette.button.shadow};
     box-shadow: none;
     cursor: not-allowed;
-    opacity: 0.35;
+    opacity: ${colorPalette.disabledText};
   }
 
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
