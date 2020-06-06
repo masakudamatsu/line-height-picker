@@ -107,7 +107,7 @@ test('renders correctly', () => {
       background-color: hsl(0,0%,15%);
       border: none;
       border-radius: 7.232142857142856px;
-      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
+      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,100%,0.5);
       color: inherit;
       cursor: pointer;
       display: -webkit-box;
@@ -131,13 +131,13 @@ test('renders correctly', () => {
     .c7:focus,
     .c7:hover {
       background-color: hsl(0,0%,46%);
-      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.5), 0 -6px 6px 0px hsla(0,0%,100%,0.5),6px 0 6px 0 hsla(0,0%,100%,0.5), 0 6px 6px 0 hsla(0,0%,1000%,0.5);
+      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.5), 0 -6px 6px 0px hsla(0,0%,100%,0.5),6px 0 6px 0 hsla(0,0%,100%,0.5), 0 6px 6px 0 hsla(0,0%,100%,0.5);
       outline: none;
     }
 
     .c7:active {
       background-color: hsl(0,0%,46%);
-      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,1000%,0.5);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,100%,0.5);
       outline: none;
     }
 
@@ -156,7 +156,7 @@ test('renders correctly', () => {
       background-color: hsl(0,0%,15%);
       border: none;
       border-radius: 7.232142857142856px;
-      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
+      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,100%,0.5);
       color: inherit;
       cursor: pointer;
       display: -webkit-box;
@@ -180,13 +180,13 @@ test('renders correctly', () => {
     .c8:focus,
     .c8:hover {
       background-color: hsl(0,0%,46%);
-      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.5), 0 -6px 6px 0px hsla(0,0%,100%,0.5),6px 0 6px 0 hsla(0,0%,100%,0.5), 0 6px 6px 0 hsla(0,0%,1000%,0.5);
+      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.5), 0 -6px 6px 0px hsla(0,0%,100%,0.5),6px 0 6px 0 hsla(0,0%,100%,0.5), 0 6px 6px 0 hsla(0,0%,100%,0.5);
       outline: none;
     }
 
     .c8:active {
       background-color: hsl(0,0%,46%);
-      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,1000%,0.5);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,100%,0.5);
       outline: none;
     }
 

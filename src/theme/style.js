@@ -375,7 +375,7 @@ export const Button = styled.button`
   border-radius: ${buttonSize.borderRadius.mobile}px;
   box-shadow: -3px 0 3px 0px hsla(0, 0%, 100%, 0.5),
     0 -3px 3px 0px hsla(0, 0%, 100%, 0.5), 3px 0 3px 0 hsla(0, 0%, 100%, 0.5),
-    0 3px 3px 0 hsla(0, 0%, 1000%, 0.5);
+    0 3px 3px 0 hsla(0, 0%, 100%, 0.5);
   color: inherit;
   cursor: pointer;
   display: flex;
@@ -393,7 +393,7 @@ export const Button = styled.button`
     background-color: ${colorPalette.button.focus};
     box-shadow: -6px 0 6px 0px hsla(0, 0%, 100%, 0.5),
       0 -6px 6px 0px hsla(0, 0%, 100%, 0.5), 6px 0 6px 0 hsla(0, 0%, 100%, 0.5),
-      0 6px 6px 0 hsla(0, 0%, 1000%, 0.5);
+      0 6px 6px 0 hsla(0, 0%, 100%, 0.5);
     outline: none;
   }
 
@@ -401,7 +401,7 @@ export const Button = styled.button`
     background-color: ${colorPalette.button.focus};
     box-shadow: -1px 0 1px 0px hsla(0, 0%, 100%, 0.5),
       0 -1px 1px 0px hsla(0, 0%, 100%, 0.5), 1px 0 1px 0 hsla(0, 0%, 100%, 0.5),
-      0 1px 1px 0 hsla(0, 0%, 1000%, 0.5);
+      0 1px 1px 0 hsla(0, 0%, 100%, 0.5);
     outline: none;
   }
 
