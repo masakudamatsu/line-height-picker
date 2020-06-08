@@ -219,7 +219,7 @@ const fontPalette = {
     },
   },
   fontWeight: {
-    alertText: 300,
+    alertText: 500,
     bodyText: 300,
     button: 500,
     code: 300,

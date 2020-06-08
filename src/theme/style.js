@@ -21,12 +21,12 @@ export const NoWrap = styled.span`
 `;
 
 const linkTextStyle = css`
-  background: ${colorPalette.link.background.fallback}; /* Fallback */
+  background: ${colorPalette.link.background.hover}; /* Fallback */
   background: linear-gradient(
     to bottom,
     transparent 50%,
-    ${colorPalette.link.underline.default} 50%,
-    ${colorPalette.link.underline.default}
+    ${colorPalette.link.underline} 50%,
+    ${colorPalette.link.underline}
   );
   background-position: 0
     calc(
@@ -44,12 +44,12 @@ const linkTextStyle = css`
     0 -0.03em ${colorPalette.background}; /* following https://eager.io/blog/smarter-link-underlines/ */
 
   &:visited {
-    background: ${colorPalette.link.background.fallbackVisited}; /* fallback */
+    background: ${colorPalette.link.background.hoverVisited}; /* fallback */
     background: linear-gradient(
       to bottom,
       transparent 50%,
-      ${colorPalette.link.underline.visited} 50%,
-      ${colorPalette.link.underline.visited}
+      ${colorPalette.link.underline} 50%,
+      ${colorPalette.link.underline}
     );
     color: ${colorPalette.link.text.visited};
   }
@@ -57,9 +57,12 @@ const linkTextStyle = css`
   &:focus,
   &:hover {
     background: ${colorPalette.link.background.hover};
-    display: inline-block; /* Disable text box cropping */
     outline: none;
     text-shadow: none;
+    &::before,
+    &::after {
+      display: none; /* Disable Text Crop */
+    }
   }
 
   &:active {
@@ -69,9 +72,12 @@ const linkTextStyle = css`
   &:visited:focus,
   &:visited:hover {
     background: ${colorPalette.link.background.hoverVisited};
-    display: inline-block; /* Disable text box cropping */
     outline: none;
     text-shadow: none;
+    &::before,
+    &::after {
+      display: none; /* Disable Text Crop */
+    }
   }
 
   &:visited:active {

@@ -12,7 +12,7 @@ test('renders correctly', () => {
   const {container} = render(<Error />);
   expect(container).toMatchInlineSnapshot(`
     .c5 {
-      background: hsl(0,0%,74%);
+      background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,90%) 50%, hsl(0,0%,90%) );
       background-position: 0 calc( 0.125em + 0.708em );
       background-repeat: no-repeat;
@@ -25,17 +25,23 @@ test('renders correctly', () => {
     }
 
     .c5:visited {
-      background: hsl(0,0%,36%);
-      background: linear-gradient( to bottom, transparent 50%, hsl(180,70%,89%) 50%, hsl(180,70%,89%) );
-      color: hsl(180,70%,89%);
+      background: hsl(0,0%,40%);
+      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,90%) 50%, hsl(0,0%,90%) );
+      color: hsl(0,0%,90%);
     }
 
     .c5:focus,
     .c5:hover {
-      background: hsl(0,0%,74%);
-      display: inline-block;
+      background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
+    }
+
+    .c5:focus::before,
+    .c5:hover::before,
+    .c5:focus::after,
+    .c5:hover::after {
+      display: none;
     }
 
     .c5:active {
@@ -44,10 +50,16 @@ test('renders correctly', () => {
 
     .c5:visited:focus,
     .c5:visited:hover {
-      background: hsl(0,0%,36%);
-      display: inline-block;
+      background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
+    }
+
+    .c5:visited:focus::before,
+    .c5:visited:hover::before,
+    .c5:visited:focus::after,
+    .c5:visited:hover::after {
+      display: none;
     }
 
     .c5:visited:active {

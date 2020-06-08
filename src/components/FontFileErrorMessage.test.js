@@ -19,7 +19,7 @@ test('renders correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c2 {
       color: hsl(60,80%,60%);
-      font-weight: 300;
+      font-weight: 500;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }

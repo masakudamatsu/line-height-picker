@@ -11,7 +11,7 @@ test('renders correctly', () => {
   const {container} = render(<Footer />);
   expect(container).toMatchInlineSnapshot(`
     .c4 {
-      background: hsl(0,0%,74%);
+      background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,90%) 50%, hsl(0,0%,90%) );
       background-position: 0 calc( 0.125em + 0.708em );
       background-repeat: no-repeat;
@@ -24,17 +24,23 @@ test('renders correctly', () => {
     }
 
     .c4:visited {
-      background: hsl(0,0%,36%);
-      background: linear-gradient( to bottom, transparent 50%, hsl(180,70%,89%) 50%, hsl(180,70%,89%) );
-      color: hsl(180,70%,89%);
+      background: hsl(0,0%,40%);
+      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,90%) 50%, hsl(0,0%,90%) );
+      color: hsl(0,0%,90%);
     }
 
     .c4:focus,
     .c4:hover {
-      background: hsl(0,0%,74%);
-      display: inline-block;
+      background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
+    }
+
+    .c4:focus::before,
+    .c4:hover::before,
+    .c4:focus::after,
+    .c4:hover::after {
+      display: none;
     }
 
     .c4:active {
@@ -43,10 +49,16 @@ test('renders correctly', () => {
 
     .c4:visited:focus,
     .c4:visited:hover {
-      background: hsl(0,0%,36%);
-      display: inline-block;
+      background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
+    }
+
+    .c4:visited:focus::before,
+    .c4:visited:hover::before,
+    .c4:visited:focus::after,
+    .c4:visited:hover::after {
+      display: none;
     }
 
     .c4:visited:active {
