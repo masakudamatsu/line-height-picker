@@ -5,7 +5,7 @@ import colorPalette from './colorPalette';
 import fontPalette from './fontPalette';
 import buttonSize from './buttonSize';
 import inputSize from './inputSize';
-import LogoImage from '../components/LogoImage';
+import LogoImage from '../img/LogoImage';
 
 // Parameters
 const minFontSizePx = 16;
