@@ -33,7 +33,7 @@ test('renders correctly', () => {
     }
 
     .c2::before {
-      margin-bottom: -0.2545em;
+      margin-bottom: -0.2555em;
     }
 
     .c2::after {

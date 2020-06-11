@@ -39,7 +39,7 @@ test('renders correctly', () => {
       cursor: default;
       display: inline-block;
       font-family: 'Fedra Mono 2',monospace;
-      font-size: 1.1350rem;
+      font-size: 1.1366rem;
       font-weight: 300;
       line-height: 1.0000;
       opacity: 0.35;
@@ -68,7 +68,7 @@ test('renders correctly', () => {
     }
 
     .c1::before {
-      margin-bottom: -0.0720em;
+      margin-bottom: -0.0730em;
     }
 
     .c1::after {
@@ -77,7 +77,7 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:728px) {
       .c1 {
-        font-size: 1.3242rem;
+        font-size: 1.3260rem;
         padding: 0.625rem 0;
       }
     }

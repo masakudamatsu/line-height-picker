@@ -33,7 +33,7 @@ test('renders correctly', () => {
       display: -ms-flexbox;
       display: flex;
       font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 1.5960767251815982rem;
+      font-size: 1.5983342594463528rem;
       font-weight: 500;
       height: 65.08928571428571px;
       -webkit-box-pack: center;
@@ -75,7 +75,7 @@ test('renders correctly', () => {
     @media only screen and (min-width:728px) {
       .c0 {
         border-radius: 8.4375;
-        font-size: 1.8620895127118644rem;
+        font-size: 1.8647233026874117rem;
         height: 75.9375px;
         width: 343.33333333333337px;
       }

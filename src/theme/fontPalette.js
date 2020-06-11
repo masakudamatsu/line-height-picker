@@ -5,9 +5,9 @@ const oneRemPx = 16;
 const fontMetricsFedraSans = {
   unitsPerEm: 1000, // Contact with designer himself
   xHeight: 546, // Contact with designer himself
-  capHeight: 708, // My own investigation. 707.5 to be exact
-  ascender: 780, // My own investigation
-  descender: 220, // My own investigation
+  capHeight: 707, // Contact with designer himself
+  ascender: 780, // My own investigation, confirmed by the designer as sTypoAscender
+  descender: 220, // My own investigation, confirmed by the designer as sTypoDescender
 };
 
 // Set x-height and modular scale

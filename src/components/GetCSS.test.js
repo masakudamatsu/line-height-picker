@@ -48,7 +48,7 @@ test('renders correctly', () => {
     }
 
     .c2::before {
-      margin-bottom: -0.1180em;
+      margin-bottom: -0.1190em;
     }
 
     .c2::after {
@@ -74,7 +74,7 @@ test('renders correctly', () => {
     }
 
     .c9::before {
-      margin-bottom: -0.2545em;
+      margin-bottom: -0.2555em;
     }
 
     .c9::after {
@@ -115,7 +115,7 @@ test('renders correctly', () => {
       display: -ms-flexbox;
       display: flex;
       font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 1.5960767251815982rem;
+      font-size: 1.5983342594463528rem;
       font-weight: 500;
       height: 65.08928571428571px;
       -webkit-box-pack: center;
@@ -164,7 +164,7 @@ test('renders correctly', () => {
       display: -ms-flexbox;
       display: flex;
       font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 1.5960767251815982rem;
+      font-size: 1.5983342594463528rem;
       font-weight: 500;
       height: 65.08928571428571px;
       -webkit-box-pack: center;
@@ -229,7 +229,7 @@ test('renders correctly', () => {
     @media only screen and (min-width:728px) {
       .c7 {
         border-radius: 8.4375;
-        font-size: 1.8620895127118644rem;
+        font-size: 1.8647233026874117rem;
         height: 75.9375px;
         width: 343.33333333333337px;
       }
@@ -238,7 +238,7 @@ test('renders correctly', () => {
     @media only screen and (min-width:728px) {
       .c8 {
         border-radius: 8.4375;
-        font-size: 1.8620895127118644rem;
+        font-size: 1.8647233026874117rem;
         height: 75.9375px;
         width: 343.33333333333337px;
       }

@@ -35,7 +35,7 @@ test('renders correctly', () => {
     .c5 {
       background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,90%) 50%, hsl(0,0%,90%) );
-      background-position: 0 calc( 0.125em + 0.708em );
+      background-position: 0 calc( 0.125em + 0.707em );
       background-repeat: no-repeat;
       background-size: 100% 1px;
       color: hsl(0,0%,90%);
@@ -103,7 +103,7 @@ test('renders correctly', () => {
     }
 
     .c3::before {
-      margin-bottom: -0.2545em;
+      margin-bottom: -0.2555em;
     }
 
     .c3::after {
