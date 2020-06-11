@@ -5,6 +5,7 @@ import {
   AlertIcon,
   AlertMessage,
   InputInstruction,
+  InputInstructionWrapper,
   XheightInput,
   XheightInputUnit,
   InputWrapper,
@@ -41,13 +42,16 @@ const XheightBox = props => {
         <XheightInputUnit>px</XheightInputUnit>
       </InputWrapper>
       <SpacerVertical height="1" />
-      <InputInstruction
-        id="howManyDecimalPlacesAllowed"
-        data-testid="instruction-x-height"
-        errorText={props.xHeightStepError}
-      >
-        up to 4 decimal places
-      </InputInstruction>
+      <InputInstructionWrapper>
+        <AlertIcon inputInstruction error={props.xHeightStepError} />
+        <InputInstruction
+          id="howManyDecimalPlacesAllowed"
+          data-testid="instruction-x-height"
+          errorText={props.xHeightStepError}
+        >
+          up to 4 decimal places
+        </InputInstruction>
+      </InputInstructionWrapper>
       <SpacerVertical height="2" />
       <AlertMessage error={props.xHeightRangeError}>
         <AlertIcon error={props.xHeightRangeError} />

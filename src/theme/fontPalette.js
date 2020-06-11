@@ -184,8 +184,14 @@ const alertIconEm = {
 alertIconEm.marginLeft =
   (alertIconEm.boxSize / alertIconPx.boxSize) * alertIconPx.marginSide * -1;
 
-alertIconEm.marginTop =
-  (alertIconEm.boxSize / alertIconPx.boxSize) * alertIconPx.marginTop * -1;
+alertIconEm.marginTop = {
+  default:
+    (alertIconEm.boxSize / alertIconPx.boxSize) * alertIconPx.marginTop * -1,
+};
+alertIconEm.marginTop.inputInstruction =
+  alertIconEm.marginTop.default -
+  (fontMetricsFedraSans.capHeight - fontMetricsFedraSans.xHeight) /
+    fontMetricsFedraSans.unitsPerEm;
 
 const wordSpaceInEm = 0.4;
 alertIconEm.marginRight = alertIconEm.marginLeft + wordSpaceInEm;
@@ -315,7 +321,10 @@ const fontPalette = {
     height: alertIconEm.boxSize.toFixed(4),
     marginLeft: alertIconEm.marginLeft.toFixed(4),
     marginRight: alertIconEm.marginRight.toFixed(4),
-    marginTop: alertIconEm.marginTop.toFixed(4),
+    marginTop: {
+      default: alertIconEm.marginTop.default.toFixed(4),
+      inputInstruction: alertIconEm.marginTop.inputInstruction.toFixed(4),
+    },
     width: alertIconEm.boxSize.toFixed(4),
   },
   marginSide: {

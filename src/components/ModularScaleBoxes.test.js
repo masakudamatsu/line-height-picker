@@ -49,7 +49,7 @@ test('renders correctly', () => {
       margin-top: -0.4025em;
     }
 
-    .c8 {
+    .c10 {
       -webkit-align-items: flex-start;
       -webkit-box-align: flex-start;
       -ms-flex-align: flex-start;
@@ -63,7 +63,20 @@ test('renders correctly', () => {
       visibility: hidden;
     }
 
-    .c9 {
+    .c7 {
+      -webkit-flex: 0 0 0.9427em;
+      -ms-flex: 0 0 0.9427em;
+      flex: 0 0 0.9427em;
+      height: 0.9427em;
+      width: 0.9427em;
+      margin-left: -0.0786em;
+      margin-right: 0.3214em;
+      margin-top: -0.2396em;
+      stroke: hsl(0,0%,74%);
+      visibility: hidden;
+    }
+
+    .c11 {
       -webkit-flex: 0 0 0.9427em;
       -ms-flex: 0 0 0.9427em;
       flex: 0 0 0.9427em;
@@ -83,7 +96,7 @@ test('renders correctly', () => {
       top: calc( 8px - 0.07162480376766091rem );
     }
 
-    .c6 {
+    .c8 {
       color: currentColor;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
@@ -91,24 +104,39 @@ test('renders correctly', () => {
       text-align: right;
     }
 
-    .c6::before,
-    .c6::after {
+    .c8::before,
+    .c8::after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c6::before {
+    .c8::before {
       margin-bottom: -0.2555em;
     }
 
-    .c6::after {
+    .c8::after {
       margin-top: -0.4025em;
     }
 
-    .c6::before {
+    .c8::before {
       margin-bottom: -0.4165em;
+    }
+
+    .c6 {
+      -webkit-align-items: flex-start;
+      -webkit-box-align: flex-start;
+      -ms-flex-align: flex-start;
+      align-items: flex-start;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
     }
 
     .c2 {
@@ -163,7 +191,7 @@ test('renders correctly', () => {
       width: auto;
     }
 
-    .c7 {
+    .c9 {
       height: 1.2053571428571428rem;
       width: auto;
     }
@@ -195,7 +223,7 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c7 {
+      .c9 {
         height: 1.40625rem;
       }
     }
@@ -267,22 +295,53 @@ test('renders correctly', () => {
         class="c1"
         height="1"
       />
-      <p
-        class="c6"
-        data-testid="instruction-modular-scale"
-        id="howManyDecimalPlacesAllowed"
-      >
-        up to 4 decimal places
-      </p>
       <div
-        class="c7"
+        class="c6"
+      >
+        <svg
+          class="c7"
+          fill="none"
+          height="24"
+          role="img"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Alert icon
+          </title>
+          <path
+            d="M0 0h24v24H0z"
+            stroke="none"
+          />
+          <path
+            d="M12 9v2m0 4v.01"
+          />
+          <path
+            d="M5.07 19H19a2 2 0 0 0 1.75 -2.75L13.75 4a2 2 0 0 0 -3.5 0L3.25 16.25a2 2 0 0 0 1.75 2.75"
+          />
+        </svg>
+        <p
+          class="c8"
+          data-testid="instruction-modular-scale"
+          id="howManyDecimalPlacesAllowed"
+        >
+          up to 4 decimal places
+        </p>
+      </div>
+      <div
+        class="c9"
         height="2"
       />
       <div
-        class="c8"
+        class="c10"
       >
         <svg
-          class="c9"
+          class="c11"
           fill="none"
           height="24"
           role="img"

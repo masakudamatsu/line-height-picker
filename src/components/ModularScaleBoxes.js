@@ -5,6 +5,7 @@ import {
   AlertIcon,
   AlertMessage,
   InputInstruction,
+  InputInstructionWrapper,
   Label,
   ModularScaleInput,
   ModularScaleInputUnit,
@@ -64,13 +65,17 @@ const ModularScaleBoxes = props => {
         </RatioWrapper>
       </ModularScaleInputWrapper>
       <SpacerVertical height="1" />
-      <InputInstruction
-        id="howManyDecimalPlacesAllowed"
-        data-testid="instruction-modular-scale"
-        errorText={props.modularScaleStepError}
-      >
-        up to 4 decimal places
-      </InputInstruction>
+      <InputInstructionWrapper>
+        <AlertIcon inputInstruction error={props.modularScaleStepError} />
+        <InputInstruction
+          id="howManyDecimalPlacesAllowed"
+          data-testid="instruction-modular-scale"
+          errorText={props.modularScaleStepError}
+        >
+          up to 4 decimal places
+        </InputInstruction>
+      </InputInstructionWrapper>
+
       <SpacerVertical height="2" />
 
       <AlertMessage error={props.modularScaleRangeError}>

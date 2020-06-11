@@ -160,7 +160,10 @@ export const AlertIcon = styled(AlertIconImage)`
   width: ${fontPalette.icon.width}em;
   margin-left: ${fontPalette.icon.marginLeft}em;
   margin-right: ${fontPalette.icon.marginRight}em;
-  margin-top: ${fontPalette.icon.marginTop}em;
+  margin-top: ${props =>
+    props.inputInstruction
+      ? fontPalette.icon.marginTop.inputInstruction
+      : fontPalette.icon.marginTop.default}em;
   stroke: ${colorPalette.errorText};
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
 `;
@@ -555,6 +558,12 @@ export const InputInstruction = styled(ParagraphOneRem)`
   &::before {
     margin-bottom: -${fontPalette.textCrop.topX.bodyText}em;
   }
+`;
+
+export const InputInstructionWrapper = styled.div`
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export const XheightInput = styled(NumberInput)`
