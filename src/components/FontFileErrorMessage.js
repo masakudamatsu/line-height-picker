@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
+  AlertIcon,
+  AlertMessage,
   FontFileErrorWrapper,
   ParagraphOneRem,
   SpacerVertical,
@@ -44,17 +46,22 @@ const FontFileErrorMessage = props => {
       data-testid="error-message-font-file"
     >
       <SpacerVertical height="2" />
-      <ParagraphOneRem id="whatHappened-fontFile" errorText>
-        {errorMessage.whatHappened}
-      </ParagraphOneRem>
-      <SpacerVertical height="2" />
-      <ParagraphOneRem id="howToResolve-fontFile" errorText>
-        {errorMessage.howToResolve}
-      </ParagraphOneRem>
-      <SpacerVertical height="2" />
-      <ParagraphOneRem id="extraText-fontFile" errorText>
-        {errorMessage.extraText}
-      </ParagraphOneRem>
+      <AlertMessage error={true}>
+        <AlertIcon />
+        <div>
+          <ParagraphOneRem id="whatHappened-fontFile" errorText>
+            {errorMessage.whatHappened}
+          </ParagraphOneRem>
+          <SpacerVertical height="2" />
+          <ParagraphOneRem id="howToResolve-fontFile" errorText>
+            {errorMessage.howToResolve}
+          </ParagraphOneRem>
+          <SpacerVertical height="2" />
+          <ParagraphOneRem id="extraText-fontFile" errorText>
+            {errorMessage.extraText}
+          </ParagraphOneRem>
+        </div>
+      </AlertMessage>
     </FontFileErrorWrapper>
   );
 };
