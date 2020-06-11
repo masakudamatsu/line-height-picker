@@ -55,30 +55,53 @@ test('renders correctly', () => {
       margin-top: -0.2660em;
     }
 
-    .c9 {
+    .c11 {
       color: hsl(0,0%,74%);
       font-weight: 500;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
-      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-weight: 500;
-      visibility: hidden;
     }
 
-    .c9::before,
-    .c9::after {
+    .c11::before,
+    .c11::after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c9::before {
+    .c11::before {
       margin-bottom: -0.2555em;
     }
 
-    .c9::after {
+    .c11::after {
       margin-top: -0.4025em;
+    }
+
+    .c9 {
+      -webkit-align-items: flex-start;
+      -webkit-box-align: flex-start;
+      -ms-flex-align: flex-start;
+      align-items: flex-start;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-weight: 500;
+      visibility: hidden;
+    }
+
+    .c10 {
+      -webkit-flex: 0 0 0.9427em;
+      -ms-flex: 0 0 0.9427em;
+      flex: 0 0 0.9427em;
+      height: 0.9427em;
+      width: 0.9427em;
+      margin-left: -0.0786em;
+      margin-right: 0.3214em;
+      margin-top: -0.0786em;
+      stroke: hsl(0,0%,74%);
     }
 
     .c5 {
@@ -330,24 +353,56 @@ test('renders correctly', () => {
             class="c3"
             height="2"
           />
-          <p
-            class="sc-AxgMl c9"
-            data-testid="whatHappened"
-            id="whatHappened"
-          >
-            The browser doesn't allow us to copy the CSS code into your clipboard.
-          </p>
           <div
-            class="c3"
-            height="2"
-          />
-          <p
-            class="sc-AxgMl c9"
-            data-testid="howToResolve"
-            id="howToResolve"
+            class="c9"
           >
-            Please select the CSS code on your own to copy and paste it.
-          </p>
+            <svg
+              class="c10"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title
+                id="alertIcon"
+              >
+                Alert icon
+              </title>
+              <path
+                d="M0 0h24v24H0z"
+                stroke="none"
+              />
+              <path
+                d="M12 9v2m0 4v.01"
+              />
+              <path
+                d="M5.07 19H19a2 2 0 0 0 1.75 -2.75L13.75 4a2 2 0 0 0 -3.5 0L3.25 16.25a2 2 0 0 0 1.75 2.75"
+              />
+            </svg>
+            <p
+              class="c11"
+            >
+              <span
+                data-testid="whatHappened"
+                id="whatHappened"
+              >
+                The browser doesn't allow us to copy the CSS code into your clipboard.
+              </span>
+               
+              <span
+                data-testid="howToResolve"
+                id="howToResolve"
+              >
+                 
+                Please select the CSS code on your own to copy and paste it.
+              </span>
+            </p>
+          </div>
           <div
             class="c1"
             height="3"

@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import {useHistory} from 'react-router-dom';
 
 import {
+  AlertIcon,
   AlertMessage,
   Button,
   ButtonWithLeftArrow,
   Code,
   CodeSnippet,
   LinearLight,
+  ParagraphOneRem,
   SectionTitle,
   Section,
   SpacerVertical,
@@ -116,22 +118,17 @@ p + p {
           <SpacerVertical height="2" />
           <ButtonWithLeftArrow onClick={handleClick}>Back</ButtonWithLeftArrow>
           <SpacerVertical height="2" />
-          <AlertMessage
-            id="whatHappened"
-            data-testid="whatHappened"
-            error={error}
-            errorText
-          >
-            {clipboardError.whatHappened}
-          </AlertMessage>
-          <SpacerVertical height="2" />
-          <AlertMessage
-            id="howToResolve"
-            data-testid="howToResolve"
-            error={error}
-            errorText
-          >
-            {clipboardError.howToResolve}
+          <AlertMessage error={error}>
+            <AlertIcon />
+            <ParagraphOneRem errorText>
+              <span id="whatHappened" data-testid="whatHappened">
+                {clipboardError.whatHappened}
+              </span>{' '}
+              <span id="howToResolve" data-testid="howToResolve">
+                {' '}
+                {clipboardError.howToResolve}
+              </span>
+            </ParagraphOneRem>
           </AlertMessage>
           <SpacerVertical height="3" />
         </Section>
