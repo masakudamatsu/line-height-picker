@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
+  AlertIcon,
   AlertMessage,
   InputInstruction,
   XheightInput,
   XheightInputUnit,
   InputWrapper,
   Label,
+  ParagraphOneRem,
   SpacerVertical,
 } from '../theme/style';
 
@@ -47,13 +49,15 @@ const XheightBox = props => {
         up to 4 decimal places
       </InputInstruction>
       <SpacerVertical height="2" />
-      <AlertMessage
-        id="rangeOfNumbersAllowed"
-        data-testid="error-message-x-height"
-        error={props.xHeightRangeError}
-        errorText={props.xHeightRangeError}
-      >
-        Please enter a number between 1 and 100 inclusive.
+      <AlertMessage error={props.xHeightRangeError}>
+        <AlertIcon />
+        <ParagraphOneRem
+          id="rangeOfNumbersAllowed"
+          data-testid="error-message-x-height"
+          errorText={props.xHeightRangeError}
+        >
+          Please enter a number between 1 and 100 inclusive.
+        </ParagraphOneRem>
       </AlertMessage>
     </>
   );

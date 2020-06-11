@@ -165,6 +165,31 @@ const breakpointLayout = (
   sideMarginDesktop.first
 ).toFixed(0);
 
+// Alert Icon
+const alertIconPx = {
+  boxSize: 24,
+  height: 18,
+  width: 20,
+  marginTop: 2,
+  marginBottom: 4,
+  marginSide: 2,
+};
+const capHeightEm =
+  fontMetricsFedraSans.capHeight / fontMetricsFedraSans.unitsPerEm;
+
+const alertIconEm = {
+  boxSize: (capHeightEm / alertIconPx.height) * alertIconPx.boxSize,
+};
+
+alertIconEm.marginLeft =
+  (alertIconEm.boxSize / alertIconPx.boxSize) * alertIconPx.marginSide * -1;
+
+alertIconEm.marginTop =
+  (alertIconEm.boxSize / alertIconPx.boxSize) * alertIconPx.marginTop * -1;
+
+const wordSpaceInEm = 0.4;
+alertIconEm.marginRight = alertIconEm.marginLeft + wordSpaceInEm;
+
 // Font CSS property value
 const fontPalette = {
   fontFamily: {
@@ -285,6 +310,13 @@ const fontPalette = {
         (lineHeightRem.fontName.desktop - capHeightRem.desktop.fontName) *
         modularScale,
     },
+  },
+  icon: {
+    height: alertIconEm.boxSize.toFixed(4),
+    marginLeft: alertIconEm.marginLeft.toFixed(4),
+    marginRight: alertIconEm.marginRight.toFixed(4),
+    marginTop: alertIconEm.marginTop.toFixed(4),
+    width: alertIconEm.boxSize.toFixed(4),
   },
   marginSide: {
     mobile: sideMarginMobile,

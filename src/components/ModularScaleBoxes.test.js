@@ -50,29 +50,29 @@ test('renders correctly', () => {
     }
 
     .c8 {
-      color: currentColor;
-      font-weight: inherit;
-      font-variant-numeric: oldstyle-nums;
-      font-feature-settings: 'calt','clig','kern','liga','onum';
+      -webkit-align-items: flex-start;
+      -webkit-box-align: flex-start;
+      -ms-flex-align: flex-start;
+      align-items: flex-start;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-weight: 500;
       visibility: hidden;
     }
 
-    .c8::before,
-    .c8::after {
-      content: '';
-      display: block;
-      height: 0;
-      width: 0;
-    }
-
-    .c8::before {
-      margin-bottom: -0.2555em;
-    }
-
-    .c8::after {
-      margin-top: -0.4025em;
+    .c9 {
+      -webkit-flex: 0 0 0.9427em;
+      -ms-flex: 0 0 0.9427em;
+      flex: 0 0 0.9427em;
+      height: 0.9427em;
+      width: 0.9427em;
+      margin-left: -0.0786em;
+      margin-right: 0.3214em;
+      margin-top: -0.0786em;
+      stroke: hsl(0,0%,74%);
     }
 
     .c4 {
@@ -213,7 +213,7 @@ test('renders correctly', () => {
         class="c2"
       >
         <div
-          class="sc-fzqARJ c3"
+          class="sc-fzqNqU c3"
         >
           <label
             class="c4"
@@ -224,7 +224,7 @@ test('renders correctly', () => {
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
             autocomplete="off"
-            class="sc-fzoyTs sc-fzoNJl c5"
+            class="sc-fzoNJl sc-fzoXWK c5"
             data-testid="x-height-for-ratio"
             id="x-height-for-ratio"
             inputmode="decimal"
@@ -240,7 +240,7 @@ test('renders correctly', () => {
           to
         </span>
         <div
-          class="sc-fzqARJ c3"
+          class="sc-fzqNqU c3"
         >
           <label
             class="c4"
@@ -251,7 +251,7 @@ test('renders correctly', () => {
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
             autocomplete="off"
-            class="sc-fzoyTs sc-fzoNJl c5"
+            class="sc-fzoNJl sc-fzoXWK c5"
             data-testid="line-height-for-ratio"
             id="line-height-for-ratio"
             inputmode="decimal"
@@ -277,13 +277,45 @@ test('renders correctly', () => {
         class="c7"
         height="2"
       />
-      <p
+      <div
         class="c8"
-        data-testid="error-message-modular-scale"
-        id="rangeOfNumbersAllowed"
       >
-        Enter a number between 1 and 100 inclusive
-      </p>
+        <svg
+          class="c9"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title
+            id="alertIcon"
+          >
+            Alert icon
+          </title>
+          <path
+            d="M0 0h24v24H0z"
+            stroke="none"
+          />
+          <path
+            d="M12 9v2m0 4v.01"
+          />
+          <path
+            d="M5.07 19H19a2 2 0 0 0 1.75 -2.75L13.75 4a2 2 0 0 0 -3.5 0L3.25 16.25a2 2 0 0 0 1.75 2.75"
+          />
+        </svg>
+        <p
+          class="c0"
+          data-testid="error-message-modular-scale"
+          id="rangeOfNumbersAllowed"
+        >
+          Please enter a number between 1 and 100 inclusive.
+        </p>
+      </div>
     </div>
   `);
 });

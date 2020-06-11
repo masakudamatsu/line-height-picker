@@ -24,30 +24,53 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c7 {
+    .c9 {
       color: currentColor;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
-      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-weight: 500;
-      visibility: hidden;
     }
 
-    .c7::before,
-    .c7::after {
+    .c9::before,
+    .c9::after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c7::before {
+    .c9::before {
       margin-bottom: -0.2555em;
     }
 
-    .c7::after {
+    .c9::after {
       margin-top: -0.4025em;
+    }
+
+    .c7 {
+      -webkit-align-items: flex-start;
+      -webkit-box-align: flex-start;
+      -ms-flex-align: flex-start;
+      align-items: flex-start;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-weight: 500;
+      visibility: hidden;
+    }
+
+    .c8 {
+      -webkit-flex: 0 0 0.9427em;
+      -ms-flex: 0 0 0.9427em;
+      flex: 0 0 0.9427em;
+      height: 0.9427em;
+      width: 0.9427em;
+      margin-left: -0.0786em;
+      margin-right: 0.3214em;
+      margin-top: -0.0786em;
+      stroke: hsl(0,0%,74%);
     }
 
     .c0 {
@@ -185,7 +208,7 @@ test('renders correctly', () => {
         <input
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           autocomplete="off"
-          class="sc-fzoyTs sc-fzoNJl c2"
+          class="sc-fzoNJl sc-fzoXWK c2"
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"
           inputmode="decimal"
@@ -205,7 +228,7 @@ test('renders correctly', () => {
         height="1"
       />
       <p
-        class="sc-AxgMl c5"
+        class="c5"
         data-testid="instruction-x-height"
         id="howManyDecimalPlacesAllowed"
       >
@@ -215,13 +238,45 @@ test('renders correctly', () => {
         class="c6"
         height="2"
       />
-      <p
-        class="sc-AxgMl c7"
-        data-testid="error-message-x-height"
-        id="rangeOfNumbersAllowed"
+      <div
+        class="c7"
       >
-        Please enter a number between 1 and 100 inclusive.
-      </p>
+        <svg
+          class="c8"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title
+            id="alertIcon"
+          >
+            Alert icon
+          </title>
+          <path
+            d="M0 0h24v24H0z"
+            stroke="none"
+          />
+          <path
+            d="M12 9v2m0 4v.01"
+          />
+          <path
+            d="M5.07 19H19a2 2 0 0 0 1.75 -2.75L13.75 4a2 2 0 0 0 -3.5 0L3.25 16.25a2 2 0 0 0 1.75 2.75"
+          />
+        </svg>
+        <p
+          class="c9"
+          data-testid="error-message-x-height"
+          id="rangeOfNumbersAllowed"
+        >
+          Please enter a number between 1 and 100 inclusive.
+        </p>
+      </div>
     </div>
   `);
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
+  AlertIcon,
   AlertMessage,
   InputInstruction,
   Label,
@@ -71,13 +72,16 @@ const ModularScaleBoxes = props => {
         up to 4 decimal places
       </InputInstruction>
       <SpacerVertical height="2" />
-      <AlertMessage
-        id="rangeOfNumbersAllowed"
-        data-testid="error-message-modular-scale"
-        error={props.modularScaleRangeError}
-        errorText={props.modularScaleRangeError}
-      >
-        Enter a number between 1 and 100 inclusive
+
+      <AlertMessage error={props.modularScaleRangeError}>
+        <AlertIcon />
+        <ParagraphOneRem
+          id="rangeOfNumbersAllowed"
+          data-testid="error-message-modular-scale"
+          errorText={props.modularScaleRangeError}
+        >
+          Please enter a number between 1 and 100 inclusive.
+        </ParagraphOneRem>
       </AlertMessage>
     </>
   );

@@ -6,6 +6,7 @@ import fontPalette from './fontPalette';
 import buttonSize from './buttonSize';
 import inputSize from './inputSize';
 import LogoImage from '../img/LogoImage';
+import AlertIconImage from '../img/AlertIconImage';
 
 // Parameters
 const minFontSizePx = 16;
@@ -145,10 +146,22 @@ export const ParagraphOneRem = styled.p`
   }
 `;
 
-export const AlertMessage = styled(ParagraphOneRem)`
+export const AlertMessage = styled.div`
+  align-items: flex-start;
+  display: flex;
   font-family: ${fontPalette.fontFamily.alertText};
   font-weight: ${fontPalette.fontWeight.alertText};
   visibility: ${props => (props.error ? 'visible' : 'hidden')};
+`;
+
+export const AlertIcon = styled(AlertIconImage)`
+  flex: 0 0 ${fontPalette.icon.width}em;
+  height: ${fontPalette.icon.height}em;
+  width: ${fontPalette.icon.width}em;
+  margin-left: ${fontPalette.icon.marginLeft}em;
+  margin-right: ${fontPalette.icon.marginRight}em;
+  margin-top: ${fontPalette.icon.marginTop}em;
+  stroke: ${colorPalette.errorText};
 `;
 
 export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`
