@@ -98,6 +98,7 @@ test('renders correctly', () => {
             class="c3"
             fill="none"
             height="24"
+            role="img"
             stroke="currentColor"
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -106,9 +107,7 @@ test('renders correctly', () => {
             width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title
-              id="alertIcon"
-            >
+            <title>
               Alert icon
             </title>
             <path
