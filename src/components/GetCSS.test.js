@@ -102,6 +102,7 @@ test('renders correctly', () => {
       margin-right: 0.3214em;
       margin-top: -0.0786em;
       stroke: hsl(0,0%,74%);
+      visibility: hidden;
     }
 
     .c5 {

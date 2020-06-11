@@ -162,6 +162,7 @@ export const AlertIcon = styled(AlertIconImage)`
   margin-right: ${fontPalette.icon.marginRight}em;
   margin-top: ${fontPalette.icon.marginTop}em;
   stroke: ${colorPalette.errorText};
+  visibility: ${props => (props.error ? 'visible' : 'hidden')};
 `;
 
 export const ParagraphOneRemRightAligned = styled(ParagraphOneRem)`

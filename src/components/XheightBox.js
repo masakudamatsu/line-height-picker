@@ -50,7 +50,7 @@ const XheightBox = props => {
       </InputInstruction>
       <SpacerVertical height="2" />
       <AlertMessage error={props.xHeightRangeError}>
-        <AlertIcon />
+        <AlertIcon error={props.xHeightRangeError} />
         <ParagraphOneRem
           id="rangeOfNumbersAllowed"
           data-testid="error-message-x-height"

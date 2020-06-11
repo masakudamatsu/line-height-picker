@@ -119,7 +119,7 @@ p + p {
           <ButtonWithLeftArrow onClick={handleClick}>Back</ButtonWithLeftArrow>
           <SpacerVertical height="2" />
           <AlertMessage error={error}>
-            <AlertIcon />
+            <AlertIcon error={error} />
             <ParagraphOneRem errorText>
               <span id="whatHappened" data-testid="whatHappened">
                 {clipboardError.whatHappened}

@@ -74,7 +74,7 @@ const ModularScaleBoxes = props => {
       <SpacerVertical height="2" />
 
       <AlertMessage error={props.modularScaleRangeError}>
-        <AlertIcon />
+        <AlertIcon error={props.modularScaleRangeError} />
         <ParagraphOneRem
           id="rangeOfNumbersAllowed"
           data-testid="error-message-modular-scale"

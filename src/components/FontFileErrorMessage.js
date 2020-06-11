@@ -47,7 +47,7 @@ const FontFileErrorMessage = props => {
     >
       <SpacerVertical height="2" />
       <AlertMessage error={true}>
-        <AlertIcon />
+        <AlertIcon error />
         <div>
           <ParagraphOneRem id="whatHappened-fontFile" errorText>
             {errorMessage.whatHappened}
