@@ -25,7 +25,7 @@ const colorPalette = {
     borderRadius: '0',
   },
   disabledText: opacityForDisabledText,
-  footerText: figureDark,
+  footerText: figureLight,
   errorText: alert,
   inputField: backgroundLight,
   linearLight: {

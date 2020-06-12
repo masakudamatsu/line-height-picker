@@ -67,7 +67,7 @@ test('renders correctly', () => {
 
     .c0 {
       max-width: 33em;
-      border-top: 1px solid hsl(0,0%,51%);
+      border-top: 1px solid hsl(0,0%,90%);
       position: inherit;
       bottom: 0;
       left: 0;
@@ -78,7 +78,7 @@ test('renders correctly', () => {
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
-      color: hsl(0,0%,51%);
+      color: hsl(0,0%,90%);
       font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 0.6541rem;
       font-weight: 300;
