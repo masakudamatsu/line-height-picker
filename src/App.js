@@ -249,6 +249,7 @@ function App() {
   };
 
   const handleDemo = () => {
+    setFontFileError(false);
     setFontMetrics({
       fontFamily: 'Open Sans',
       fontSubfamily: 'Regular',

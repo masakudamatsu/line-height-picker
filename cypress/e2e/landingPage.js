@@ -79,6 +79,17 @@ describe('Landing Page: Error-handling', () => {
       .should('contain', '.otf')
       .should('contain', '.woff');
   });
+
+  it('Clicking the demo button removes the font file error message on the x-height page', () => {
+    // set up
+    const invalidFile = 'invalidFile.ttf';
+    // execute
+    cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
+    cy.findByText(/demo/i).click();
+    // verify
+    cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
+    cy.findByTestId('error-message-font-file').should('be.hidden');
+  });
 });
 
 describe('Landing page: Navigation bar', () => {
