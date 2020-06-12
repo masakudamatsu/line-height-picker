@@ -34,10 +34,10 @@ const colorPalette = {
   },
   link: {
     text: {
-      default: figureLight,
-      visited: figureLight,
+      default: 'currentColor',
+      visited: 'currentColor',
     },
-    underline: figureLight, // should be the same as text.visited
+    underline: 'currentColor', // should be the same as text.visited
     background: {
       hover: backgroundLight,
       hoverVisited: backgroundLight,
