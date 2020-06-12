@@ -12,11 +12,11 @@ test('renders correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c4 {
       background: hsl(0,0%,40%);
-      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,90%) 50%, hsl(0,0%,90%) );
+      background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
       background-position: 0 calc( 0.125em + 0.707em );
       background-repeat: no-repeat;
       background-size: 100% 1px;
-      color: hsl(0,0%,90%);
+      color: currentColor;
       cursor: pointer;
       -webkit-text-decoration: none;
       text-decoration: none;
@@ -25,8 +25,8 @@ test('renders correctly', () => {
 
     .c4:visited {
       background: hsl(0,0%,40%);
-      background: linear-gradient( to bottom, transparent 50%, hsl(0,0%,90%) 50%, hsl(0,0%,90%) );
-      color: hsl(0,0%,90%);
+      background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
+      color: currentColor;
     }
 
     .c4:focus,
