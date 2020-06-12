@@ -204,17 +204,17 @@ Cypress.Commands.add(
 
 // Assertions on error messages
 Cypress.Commands.add('assertIfDecimalPlaceMessageTurnsRed', testId => {
-  cy.findByTestId(testId).should('have.css', 'color', 'rgb(228, 98, 152)');
+  cy.findByTestId(testId).should('have.css', 'color', 'rgb(189, 189, 189)');
 });
 
 Cypress.Commands.add('assertIfDecimalPlaceMessageTurnsNormal', testId => {
-  cy.findByTestId(testId).should('have.css', 'color', 'rgb(245, 245, 245)');
+  cy.findByTestId(testId).should('have.css', 'color', 'rgb(230, 230, 230)');
 });
 
 Cypress.Commands.add('assertIfErrorMessageAppears', testId => {
   cy.findByTestId(testId)
     .should('be.visible')
-    .should('have.css', 'color', 'rgb(228, 98, 152)');
+    .should('have.css', 'color', 'rgb(189, 189, 189)');
 });
 
 Cypress.Commands.add('assertIfErrorMessageDisappears', testId => {
