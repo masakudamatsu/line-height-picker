@@ -91,19 +91,35 @@ function App() {
     store.set('lineHeightRatio', lineHeightRatio);
   }, [lineHeightRatio]);
 
-  const [modularScaleRangeError, setModularScaleRangeError] = React.useState(
-    initialState('modularScaleRangeError'),
+  const [xHeightRatioRangeError, setXHeightRatioRangeError] = React.useState(
+    initialState('xHeightRatioRangeError'),
   );
   React.useEffect(() => {
-    store.set('modularScaleRangeError', modularScaleRangeError);
-  }, [modularScaleRangeError]);
+    store.set('xHeightRatioRangeError', xHeightRatioRangeError);
+  }, [xHeightRatioRangeError]);
 
-  const [modularScaleStepError, setModularScaleStepError] = React.useState(
-    initialState('modularScaleStepError'),
+  const [xHeightRatioStepError, setXHeightRatioStepError] = React.useState(
+    initialState('xHeightRatioStepError'),
   );
   React.useEffect(() => {
-    store.set('modularScaleStepError', modularScaleStepError);
-  }, [modularScaleStepError]);
+    store.set('xHeightRatioStepError', xHeightRatioStepError);
+  }, [xHeightRatioStepError]);
+
+  const [
+    lineHeightRatioRangeError,
+    setLineHeightRatioRangeError,
+  ] = React.useState(initialState('lineHeightRatioRangeError'));
+  React.useEffect(() => {
+    store.set('lineHeightRatioRangeError', lineHeightRatioRangeError);
+  }, [lineHeightRatioRangeError]);
+
+  const [
+    lineHeightRatioStepError,
+    setLineHeightRatioStepError,
+  ] = React.useState(initialState('lineHeightRatioStepError'));
+  React.useEffect(() => {
+    store.set('lineHeightRatioStepError', lineHeightRatioStepError);
+  }, [lineHeightRatioStepError]);
 
   const [fontSizePx, setFontSizePx] = React.useState(
     initialState('fontSizePx'),
@@ -283,26 +299,51 @@ function App() {
 
   const handleNoModularScale = errors => {
     if (errors.valueMissing) {
-      setModularScaleRangeError('true');
+      setXHeightRatioRangeError('true');
     } else {
       if (errors.patternMismatch) {
         return; // Keep the error status intact
       } else {
-        setModularScaleRangeError('');
+        setXHeightRatioRangeError('');
       }
     }
   };
 
-  const validateModularScale = (inputValue, errors) => {
+  const handleNoLineHeightRatio = errors => {
+    if (errors.valueMissing) {
+      setLineHeightRatioRangeError('true');
+    } else {
+      if (errors.patternMismatch) {
+        return; // Keep the error status intact
+      } else {
+        setLineHeightRatioRangeError('');
+      }
+    }
+  };
+
+  const validateXHeightRatio = (inputValue, errors) => {
     if (errors.patternMismatch) {
       if (/\.\d{5}/.test(inputValue)) {
-        setModularScaleStepError('true');
+        setXHeightRatioStepError('true');
       } else {
-        setModularScaleRangeError('true');
+        setXHeightRatioRangeError('true');
       }
     } else {
-      setModularScaleRangeError('');
-      setModularScaleStepError('');
+      setXHeightRatioRangeError('');
+      setXHeightRatioStepError('');
+    }
+  };
+
+  const validateLineHeightRatio = (inputValue, errors) => {
+    if (errors.patternMismatch) {
+      if (/\.\d{5}/.test(inputValue)) {
+        setLineHeightRatioStepError('true');
+      } else {
+        setLineHeightRatioRangeError('true');
+      }
+    } else {
+      setLineHeightRatioRangeError('');
+      setLineHeightRatioStepError('');
     }
   };
 
@@ -366,24 +407,28 @@ function App() {
     setMarginTop(newMarginTop);
 
     // Error handling
-    if (modularScaleRangeError) {
+    if (xHeightRatioRangeError) {
       if (!errors.patternMismatch) {
-        setModularScaleRangeError('');
-        if (previewButtonDisabled) {
-          setPreviewButtonDisabled('');
-        }
-        if (cssButtonDisabled) {
-          setCssButtonDisabled('');
+        setXHeightRatioRangeError('');
+        if (!lineHeightRatioRangeError && !lineHeightRatioStepError) {
+          if (previewButtonDisabled) {
+            setPreviewButtonDisabled('');
+          }
+          if (cssButtonDisabled) {
+            setCssButtonDisabled('');
+          }
         }
       }
-    } else if (modularScaleStepError) {
+    } else if (xHeightRatioStepError) {
       if (!errors.patternMismatch) {
-        setModularScaleStepError('');
-        if (previewButtonDisabled) {
-          setPreviewButtonDisabled('');
-        }
-        if (cssButtonDisabled) {
-          setCssButtonDisabled('');
+        setXHeightRatioStepError('');
+        if (!lineHeightRatioRangeError && !lineHeightRatioStepError) {
+          if (previewButtonDisabled) {
+            setPreviewButtonDisabled('');
+          }
+          if (cssButtonDisabled) {
+            setCssButtonDisabled('');
+          }
         }
       }
     }
@@ -406,24 +451,28 @@ function App() {
     setMarginTop(newMarginTop);
 
     // Error handling
-    if (modularScaleRangeError) {
+    if (lineHeightRatioRangeError) {
       if (!errors.patternMismatch) {
-        setModularScaleRangeError('');
-        if (previewButtonDisabled) {
-          setPreviewButtonDisabled('');
-        }
-        if (cssButtonDisabled) {
-          setCssButtonDisabled('');
+        setLineHeightRatioRangeError('');
+        if (!xHeightRatioRangeError && !xHeightRatioStepError) {
+          if (previewButtonDisabled) {
+            setPreviewButtonDisabled('');
+          }
+          if (cssButtonDisabled) {
+            setCssButtonDisabled('');
+          }
         }
       }
-    } else if (modularScaleStepError) {
+    } else if (lineHeightRatioStepError) {
       if (!errors.patternMismatch) {
-        setModularScaleStepError('');
-        if (previewButtonDisabled) {
-          setPreviewButtonDisabled('');
-        }
-        if (cssButtonDisabled) {
-          setCssButtonDisabled('');
+        setLineHeightRatioStepError('');
+        if (!xHeightRatioRangeError && !xHeightRatioStepError) {
+          if (previewButtonDisabled) {
+            setPreviewButtonDisabled('');
+          }
+          if (cssButtonDisabled) {
+            setCssButtonDisabled('');
+          }
         }
       }
     }
@@ -530,6 +579,7 @@ function App() {
                               handleLineHeightRatioChange={
                                 handleLineHeightRatioChange
                               }
+                              handleNoLineHeightRatio={handleNoLineHeightRatio}
                               handleNoModularScale={handleNoModularScale}
                               handleNoXHeight={handleNoXHeight}
                               handleXHeightChange={handleXHeightChange}
@@ -537,12 +587,19 @@ function App() {
                                 handleXHeightRatioChange
                               }
                               lineHeightRatio={lineHeightRatio}
-                              modularScaleRangeError={modularScaleRangeError}
-                              modularScaleStepError={modularScaleStepError}
+                              lineHeightRatioRangeError={
+                                lineHeightRatioRangeError
+                              }
+                              lineHeightRatioStepError={
+                                lineHeightRatioStepError
+                              }
+                              xHeightRatioRangeError={xHeightRatioRangeError}
+                              xHeightRatioStepError={xHeightRatioStepError}
                               previewButtonDisabled={previewButtonDisabled}
                               unitsPerEm={fontMetrics.unitsPerEm}
                               validateFileType={validateFileType}
-                              validateModularScale={validateModularScale}
+                              validateLineHeightRatio={validateLineHeightRatio}
+                              validateXHeightRatio={validateXHeightRatio}
                               validateXHeight={validateXHeight}
                               xHeightPx={xHeightPx}
                               xHeightRangeError={xHeightRangeError}
@@ -568,6 +625,7 @@ function App() {
                               handleLineHeightRatioChange={
                                 handleLineHeightRatioChange
                               }
+                              handleNoLineHeightRatio={handleNoLineHeightRatio}
                               handleNoModularScale={handleNoModularScale}
                               handleNoXHeight={handleNoXHeight}
                               handleXHeightChange={handleXHeightChange}
@@ -576,12 +634,19 @@ function App() {
                               }
                               lineHeight={lineHeight}
                               lineHeightRatio={lineHeightRatio}
+                              lineHeightRatioRangeError={
+                                lineHeightRatioRangeError
+                              }
+                              lineHeightRatioStepError={
+                                lineHeightRatioStepError
+                              }
                               marginTop={marginTop}
-                              modularScaleRangeError={modularScaleRangeError}
-                              modularScaleStepError={modularScaleStepError}
+                              xHeightRatioRangeError={xHeightRatioRangeError}
+                              xHeightRatioStepError={xHeightRatioStepError}
                               unitsPerEm={fontMetrics.unitsPerEm}
                               validateFileType={validateFileType}
-                              validateModularScale={validateModularScale}
+                              validateLineHeightRatio={validateLineHeightRatio}
+                              validateXHeightRatio={validateXHeightRatio}
                               validateXHeight={validateXHeight}
                               xHeightPx={xHeightPx}
                               xHeightRangeError={xHeightRangeError}

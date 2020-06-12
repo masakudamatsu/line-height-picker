@@ -19,7 +19,12 @@ const ModularScaleBoxes = props => {
   const handleBlur = event => {
     const inputValue = event.target.value;
     const errors = event.target.validity;
-    props.validateModularScale(inputValue, errors);
+    props.validateXHeightRatio(inputValue, errors);
+  };
+  const handleLineHeightRatioBlur = event => {
+    const inputValue = event.target.value;
+    const errors = event.target.validity;
+    props.validateLineHeightRatio(inputValue, errors);
   };
   const handleXHeightChange = event => {
     const newXHeightRatio = event.target.value;
@@ -47,7 +52,7 @@ const ModularScaleBoxes = props => {
             required
             value={props.xHeightRatio}
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-            error={props.modularScaleRangeError || props.modularScaleStepError}
+            error={props.xHeightRatioRangeError || props.xHeightRatioStepError}
           />
         </RatioWrapper>
         <ModularScaleInputUnit>to</ModularScaleInputUnit>
@@ -56,23 +61,30 @@ const ModularScaleBoxes = props => {
           <ModularScaleInput
             id="line-height-for-ratio"
             data-testid="line-height-for-ratio"
-            onBlur={handleBlur}
+            onBlur={handleLineHeightRatioBlur}
             onChange={handleLineHeightChange}
             pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
             required
             value={props.lineHeightRatio}
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-            error={props.modularScaleRangeError || props.modularScaleStepError}
+            error={
+              props.lineHeightRatioRangeError || props.lineHeightRatioStepError
+            }
           />
         </RatioWrapper>
       </ModularScaleInputWrapper>
       <SpacerVertical height="1" />
       <InputInstructionWrapper>
-        <AlertIcon inputInstruction error={props.modularScaleStepError} />
+        <AlertIcon
+          inputInstruction
+          error={props.xHeightRatioStepError || props.lineHeightRatioStepError}
+        />
         <InputInstruction
           id="howManyDecimalPlacesAllowed"
           data-testid="instruction-modular-scale"
-          errorText={props.modularScaleStepError}
+          errorText={
+            props.xHeightRatioStepError || props.lineHeightRatioStepError
+          }
         >
           up to 4 decimal places
         </InputInstruction>
@@ -80,12 +92,20 @@ const ModularScaleBoxes = props => {
 
       <SpacerVertical height="2" />
 
-      <AlertMessage error={props.modularScaleRangeError}>
-        <AlertIcon error={props.modularScaleRangeError} />
+      <AlertMessage
+        error={props.xHeightRatioRangeError || props.lineHeightRatioRangeError}
+      >
+        <AlertIcon
+          error={
+            props.xHeightRatioRangeError || props.lineHeightRatioRangeError
+          }
+        />
         <ParagraphOneRem
           id="rangeOfNumbersAllowed"
           data-testid="error-message-modular-scale"
-          errorText={props.modularScaleRangeError}
+          errorText={
+            props.xHeightRatioRangeError || props.lineHeightRatioRangeError
+          }
         >
           Please enter a number between 1 and 100 inclusive.
         </ParagraphOneRem>
@@ -98,9 +118,10 @@ ModularScaleBoxes.propTypes = {
   handleLineHeightRatioChange: PropTypes.func.isRequired,
   handleXHeightRatioChange: PropTypes.func.isRequired,
   lineHeightRatio: PropTypes.string,
-  modularScaleRangeError: PropTypes.string,
-  modularScaleStepError: PropTypes.string,
-  validateModularScale: PropTypes.func.isRequired,
+  xHeightRatioRangeError: PropTypes.string,
+  xHeightRatioStepError: PropTypes.string,
+  validateLineHeightRatio: PropTypes.func.isRequired,
+  validateXHeightRatio: PropTypes.func.isRequired,
   xHeightRatio: PropTypes.string,
 };
 

@@ -48,7 +48,7 @@ const ModularScale = props => {
       document.getElementById('x-height-for-ratio').focus();
       props.disablePreviewButton();
     } else if (!lineHeightErrors.valid) {
-      props.handleNoModularScale(lineHeightErrors);
+      props.handleNoLineHeightRatio(lineHeightErrors);
       document.getElementById('line-height-for-ratio').focus();
       props.disablePreviewButton();
     } else if (!xHeightValueErrors.valid) {
@@ -70,9 +70,12 @@ const ModularScale = props => {
                 handleXHeightRatioChange={props.handleXHeightRatioChange}
                 handleLineHeightRatioChange={props.handleLineHeightRatioChange}
                 lineHeightRatio={props.lineHeightRatio}
-                modularScaleRangeError={props.modularScaleRangeError}
-                modularScaleStepError={props.modularScaleStepError}
-                validateModularScale={props.validateModularScale}
+                lineHeightRatioRangeError={props.lineHeightRatioRangeError}
+                lineHeightRatioStepError={props.lineHeightRatioStepError}
+                xHeightRatioRangeError={props.xHeightRatioRangeError}
+                xHeightRatioStepError={props.xHeightRatioStepError}
+                validateLineHeightRatio={props.validateLineHeightRatio}
+                validateXHeightRatio={props.validateXHeightRatio}
                 xHeightRatio={props.xHeightRatio}
               />{' '}
               <SpacerVertical height="2" />
@@ -135,12 +138,15 @@ ModularScale.propTypes = {
   handleNoXHeight: PropTypes.func.isRequired,
   handleXHeightRatioChange: PropTypes.func.isRequired,
   lineHeightRatio: PropTypes.string,
-  modularScaleRangeError: PropTypes.string,
-  modularScaleStepError: PropTypes.string,
+  lineHeightRatioRangeError: PropTypes.string,
+  lineHeightRatioStepError: PropTypes.string,
+  xHeightRatioRangeError: PropTypes.string,
+  xHeightRatioStepError: PropTypes.string,
   previewButtonDisabled: PropTypes.bool,
   unitsPerEm: PropTypes.number,
   validateFileType: PropTypes.func.isRequired,
-  validateModularScale: PropTypes.func.isRequired,
+  validateLineHeightRatio: PropTypes.func.isRequired,
+  validateXHeightRatio: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
   xHeightRangeError: PropTypes.string,
   xHeightRatio: PropTypes.string,

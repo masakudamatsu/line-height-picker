@@ -53,7 +53,7 @@ const Preview = props => {
       document.getElementById('x-height-for-ratio').focus();
       props.disableCssButton();
     } else {
-      props.handleNoModularScale(lineHeightRatioErrors);
+      props.handleNoLineHeightRatio(lineHeightRatioErrors);
       document.getElementById('line-height-for-ratio').focus();
       props.disableCssButton();
     }
@@ -96,13 +96,16 @@ const Preview = props => {
                 <ModularScaleBoxes
                   xHeightRatio={props.xHeightRatio}
                   handleXHeightRatioChange={props.handleXHeightRatioChange}
-                  lineHeightRatio={props.lineHeightRatio}
                   handleLineHeightRatioChange={
                     props.handleLineHeightRatioChange
                   }
-                  validateModularScale={props.validateModularScale}
-                  modularScaleRangeError={props.modularScaleRangeError}
-                  modularScaleStepError={props.modularScaleStepError}
+                  lineHeightRatio={props.lineHeightRatio}
+                  lineHeightRatioRangeError={props.lineHeightRatioRangeError}
+                  lineHeightRatioStepError={props.lineHeightRatioStepError}
+                  validateLineHeightRatio={props.validateLineHeightRatio}
+                  validateXHeightRatio={props.validateXHeightRatio}
+                  xHeightRatioRangeError={props.xHeightRatioRangeError}
+                  xHeightRatioStepError={props.xHeightRatioStepError}
                 />
               </Section>
               <Section>
@@ -158,12 +161,15 @@ Preview.propTypes = {
   handleXHeightRatioChange: PropTypes.func.isRequired,
   lineHeight: PropTypes.string,
   lineHeightRatio: PropTypes.string,
+  lineHeightRatioRangeError: PropTypes.string,
+  lineHeightRatioStepError: PropTypes.string,
   marginTop: PropTypes.string,
-  modularScaleRangeError: PropTypes.string,
-  modularScaleStepError: PropTypes.string,
+  xHeightRatioRangeError: PropTypes.string,
+  xHeightRatioStepError: PropTypes.string,
   unitsPerEm: PropTypes.number,
   validateFileType: PropTypes.func.isRequired,
-  validateModularScale: PropTypes.func.isRequired,
+  validateLineHeightRatio: PropTypes.func.isRequired,
+  validateXHeightRatio: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
   xHeightRangeError: PropTypes.string,

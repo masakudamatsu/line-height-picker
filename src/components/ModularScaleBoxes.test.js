@@ -11,7 +11,8 @@ import ModularScaleBoxes from './ModularScaleBoxes';
 
 const mockHandleXHeightRatioChange = jest.fn();
 const mockHandleLineHeightRatioChange = jest.fn();
-const mockValidateModularScale = jest.fn();
+const mockValidateXHeightRatio = jest.fn();
+const mockValidateLineHeightRatio = jest.fn();
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -22,7 +23,8 @@ test('renders correctly', () => {
     <ModularScaleBoxes
       handleXHeightRatioChange={mockHandleXHeightRatioChange}
       handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
-      validateModularScale={mockValidateModularScale}
+      validateXHeightRatio={mockValidateXHeightRatio}
+      validateLineHeightRatio={mockValidateLineHeightRatio}
     />,
   );
   expect(container).toMatchInlineSnapshot(`
@@ -390,7 +392,8 @@ test('The value attribute reflects props value', () => {
       lineHeightRatio={lineHeightRatio}
       handleXHeightRatioChange={mockHandleXHeightRatioChange}
       handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
-      validateModularScale={mockValidateModularScale}
+      validateXHeightRatio={mockValidateXHeightRatio}
+      validateLineHeightRatio={mockValidateLineHeightRatio}
     />,
   );
   // verify
@@ -404,13 +407,14 @@ test('The value attribute reflects props value', () => {
   );
 });
 
-test('Entering x-height ratio value calls the handleXHeightRatioChange(), but not validateModularScale(), functions (for each keystroke)', () => {
+test('Entering x-height ratio value calls the handleXHeightRatioChange(), but not validateXHeightRatio(), functions (for each keystroke)', () => {
   // setup
   const {getByTestId} = render(
     <ModularScaleBoxes
       handleXHeightRatioChange={mockHandleXHeightRatioChange}
       handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
-      validateModularScale={mockValidateModularScale}
+      validateXHeightRatio={mockValidateXHeightRatio}
+      validateLineHeightRatio={mockValidateLineHeightRatio}
     />,
   );
   const xHeightRatioInput = getByTestId('x-height-for-ratio');
@@ -424,36 +428,38 @@ test('Entering x-height ratio value calls the handleXHeightRatioChange(), but no
       userdata,
       xHeightRatioInput.validity,
     );
-    expect(mockValidateModularScale).not.toHaveBeenCalled();
+    expect(mockValidateXHeightRatio).not.toHaveBeenCalled();
     // isolate
     jest.clearAllMocks();
   });
 });
 
-test('Blurring the x-height input field calls the validateModularScale function after entering a value', () => {
+test('Blurring the x-height input field calls the validateXHeightRatio function after entering a value', () => {
   // The blur event cannot be simulated with testing-library. See https://github.com/testing-library/react-testing-library/issues/543
   // setup
   const {getByTestId} = render(
     <ModularScaleBoxes
       handleXHeightRatioChange={mockHandleXHeightRatioChange}
       handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
-      validateModularScale={mockValidateModularScale}
+      validateXHeightRatio={mockValidateXHeightRatio}
+      validateLineHeightRatio={mockValidateLineHeightRatio}
     />,
   );
   // execute
   getByTestId('x-height-for-ratio').focus();
   getByTestId('x-height-for-ratio').blur();
   // verify
-  expect(mockValidateModularScale).toHaveBeenCalledTimes(1);
+  expect(mockValidateXHeightRatio).toHaveBeenCalledTimes(1);
 });
 
-test('Entering line-height ratio value calls the handleLineHeightRatioChange(), but not validateModularScale(), functions (for each keystroke)', () => {
+test('Entering line-height ratio value calls the handleLineHeightRatioChange(), but not validateXHeightRatio(), functions (for each keystroke)', () => {
   // setup
   const {getByTestId} = render(
     <ModularScaleBoxes
       handleXHeightRatioChange={mockHandleXHeightRatioChange}
       handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
-      validateModularScale={mockValidateModularScale}
+      validateXHeightRatio={mockValidateXHeightRatio}
+      validateLineHeightRatio={mockValidateLineHeightRatio}
     />,
   );
   const lineHeightRatioInput = getByTestId('line-height-for-ratio');
@@ -469,26 +475,27 @@ test('Entering line-height ratio value calls the handleLineHeightRatioChange(), 
       userdata,
       lineHeightRatioInput.validity,
     );
-    expect(mockValidateModularScale).not.toHaveBeenCalled();
+    expect(mockValidateXHeightRatio).not.toHaveBeenCalled();
     // isolate
     jest.clearAllMocks();
   });
 });
 
-test('Blurring the line-height input field calls the validateModularScale function after entering a value', () => {
+test('Blurring the line-height input field calls the validateLineHeightRatio function after entering a value', () => {
   // setup
   const {getByTestId} = render(
     <ModularScaleBoxes
       handleXHeightRatioChange={mockHandleXHeightRatioChange}
       handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
-      validateModularScale={mockValidateModularScale}
+      validateXHeightRatio={mockValidateXHeightRatio}
+      validateLineHeightRatio={mockValidateLineHeightRatio}
     />,
   );
   // execute
   getByTestId('line-height-for-ratio').focus();
   getByTestId('line-height-for-ratio').blur();
   // verify
-  expect(mockValidateModularScale).toHaveBeenCalledTimes(1);
+  expect(mockValidateLineHeightRatio).toHaveBeenCalledTimes(1);
 });
 
 test('is accessible', async () => {
@@ -496,7 +503,8 @@ test('is accessible', async () => {
     <ModularScaleBoxes
       handleXHeightRatioChange={mockHandleXHeightRatioChange}
       handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
-      validateModularScale={mockValidateModularScale}
+      validateXHeightRatio={mockValidateXHeightRatio}
+      validateLineHeightRatio={mockValidateLineHeightRatio}
     />,
   );
   const results = await axe(container);
