@@ -510,7 +510,8 @@ export const Input = styled.input.attrs(props => ({
   type: 'text',
 }))`
   background-color: ${colorPalette.background};
-  border: 2px solid ${colorPalette.inputField};
+  border: 2px solid
+    ${props => (props.error ? colorPalette.errorText : colorPalette.inputField)};
   border-radius: 4px;
   color: ${colorPalette.bodyText};
   font-family: ${fontPalette.fontFamily.inputNumber};
@@ -531,7 +532,8 @@ export const Input = styled.input.attrs(props => ({
   &:active,
   &:hover,
   &:focus {
-    border: 2px solid ${colorPalette.bodyText};
+    border: 3px solid
+      ${props => (props.error ? colorPalette.errorText : colorPalette.bodyText)};
     outline: none;
   }
 

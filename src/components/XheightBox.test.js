@@ -164,7 +164,7 @@ test('renders correctly', () => {
     .c2:active,
     .c2:hover,
     .c2:focus {
-      border: 2px solid hsl(0,0%,90%);
+      border: 3px solid hsl(0,0%,90%);
       outline: none;
     }
 

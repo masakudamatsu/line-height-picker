@@ -47,6 +47,7 @@ const ModularScaleBoxes = props => {
             required
             value={props.xHeightRatio}
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
+            error={props.modularScaleRangeError || props.modularScaleStepError}
           />
         </RatioWrapper>
         <ModularScaleInputUnit>to</ModularScaleInputUnit>
@@ -61,6 +62,7 @@ const ModularScaleBoxes = props => {
             required
             value={props.lineHeightRatio}
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
+            error={props.modularScaleRangeError || props.modularScaleStepError}
           />
         </RatioWrapper>
       </ModularScaleInputWrapper>

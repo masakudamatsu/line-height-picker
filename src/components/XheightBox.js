@@ -38,6 +38,7 @@ const XheightBox = props => {
           required
           value={props.xHeightPx}
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
+          error={props.xHeightRangeError || props.xHeightStepError}
         />
         <XheightInputUnit>px</XheightInputUnit>
       </InputWrapper>
