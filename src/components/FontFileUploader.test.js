@@ -7,11 +7,19 @@ import 'jest-axe/extend-expect';
 
 import FontFileUploader from './FontFileUploader';
 
-import {Redirect as MockRedirect} from 'react-router';
+const mockHistoryPush = jest.fn();
 
-jest.mock('react-router', () => {
-  return {Redirect: jest.fn(() => null)};
-});
+const argumentForHistoryPush = {
+  pathname: '/x-height',
+  state: {transition: 'slideleft', duration: 300},
+};
+
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router'),
+  useHistory: () => ({
+    push: mockHistoryPush,
+  }),
+}));
 
 const mockHandleFontFile = jest.fn(() => {
   return true;
@@ -47,18 +55,18 @@ test('renders correctly', () => {
       -webkit-box-align: center;
       -ms-flex-align: center;
       align-items: center;
-      background-color: hsl(0,0%,25%);
+      background-color: inherit;
       border: none;
       border-radius: 7.232142857142856px;
-      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.5), 0 -3px 3px 0px hsla(0,0%,100%,0.5),3px 0 3px 0 hsla(0,0%,100%,0.5), 0 3px 3px 0 hsla(0,0%,1000%,0.5);
+      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.56), 0 -3px 3px 0px hsla(0,0%,100%,0.56), 3px 0 3px 0 hsla(0,0%,100%,0.56), 0 3px 3px 0 hsla(0,0%,100%,0.56);
       color: inherit;
       cursor: pointer;
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 1.5960767251815982rem;
+      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 1.5983342594463528rem;
       font-weight: 500;
       height: 65.08928571428571px;
       -webkit-box-pack: center;
@@ -73,27 +81,28 @@ test('renders correctly', () => {
 
     .c0:focus,
     .c0:hover {
-      background-color: hsl(0,0%,46%);
-      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.5), 0 -6px 6px 0px hsla(0,0%,100%,0.5),6px 0 6px 0 hsla(0,0%,100%,0.5), 0 6px 6px 0 hsla(0,0%,1000%,0.5);
+      background-color: hsl(0,0%,51%);
+      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.56), 0 -6px 6px 0px hsla(0,0%,100%,0.56), 6px 0 6px 0 hsla(0,0%,100%,0.56), 0 6px 6px 0 hsla(0,0%,100%,0.56);
       outline: none;
     }
 
     .c0:active {
-      background-color: hsl(0,0%,46%);
-      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.5), 0 -1px 1px 0px hsla(0,0%,100%,0.5),1px 0 1px 0 hsla(0,0%,100%,0.5), 0 1px 1px 0 hsla(0,0%,1000%,0.5);
+      background-color: hsl(0,0%,51%);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.56), 0 -1px 1px 0px hsla(0,0%,100%,0.56), 1px 0 1px 0 hsla(0,0%,100%,0.56), 0 1px 1px 0 hsla(0,0%,100%,0.56);
       outline: none;
     }
 
     .c0[disabled] {
+      border: 1px solid hsla(0,0%,100%,0.56);
       box-shadow: none;
       cursor: not-allowed;
       opacity: 0.35;
     }
 
-    @media only screen and (min-width:1024px) {
+    @media only screen and (min-width:728px) {
       .c0 {
         border-radius: 8.4375;
-        font-size: 1.8620895127118644rem;
+        font-size: 1.8647233026874117rem;
         height: 75.9375px;
         width: 343.33333333333337px;
       }
@@ -179,7 +188,7 @@ test('calls the handleFontFile function if the validateFileType function returns
   });
 });
 
-test('calls React-Router Redirect component if everything works and the props.home is true', async () => {
+test('calls history.push if everything works and the props.home is true', async () => {
   // setup
   mockHandleFontFile.mockResolvedValueOnce();
   // execute
@@ -196,14 +205,11 @@ test('calls React-Router Redirect component if everything works and the props.ho
     target: {files: [ttfFile]},
   });
   await wait(() =>
-    expect(MockRedirect).toHaveBeenCalledWith(
-      {to: '/x-height', push: true},
-      {},
-    ),
-  ); // See https://testingjavascript.com/lessons/react-test-drive-mocking-react-router-s-redirect-component-on-a-form-submission
+    expect(mockHistoryPush).toHaveBeenCalledWith(argumentForHistoryPush),
+  );
 });
 
-test('DOES NOT call React-Router Redirect component after handleFontFile function gets rejected, even if the props.home is true', async () => {
+test('DOES NOT call history.push after handleFontFile function gets rejected, even if the props.home is true', async () => {
   // setup
   mockHandleFontFile.mockRejectedValueOnce();
   // execute
@@ -220,14 +226,11 @@ test('DOES NOT call React-Router Redirect component after handleFontFile functio
     target: {files: [ttfFile]},
   });
   await wait(() =>
-    expect(MockRedirect).not.toHaveBeenCalledWith(
-      {to: '/x-height', push: true},
-      {},
-    ),
-  ); // See https://testingjavascript.com/lessons/react-test-drive-mocking-react-router-s-redirect-component-on-a-form-submission
+    expect(mockHistoryPush).not.toHaveBeenCalledWith(argumentForHistoryPush),
+  );
 });
 
-test('DOES NOT call React-Router Redirect component if everything works and the props.home is FALSE', async () => {
+test('DOES NOT call history.push if everything works and the props.home is FALSE', async () => {
   // setup
   mockHandleFontFile.mockResolvedValueOnce();
   // execute
@@ -243,11 +246,8 @@ test('DOES NOT call React-Router Redirect component if everything works and the 
     target: {files: [ttfFile]},
   });
   await wait(() =>
-    expect(MockRedirect).not.toHaveBeenCalledWith(
-      {to: '/x-height', push: true},
-      {},
-    ),
-  ); // See https://testingjavascript.com/lessons/react-test-drive-mocking-react-router-s-redirect-component-on-a-form-submission
+    expect(mockHistoryPush).not.toHaveBeenCalledWith(argumentForHistoryPush),
+  );
 });
 
 test('is accessible', async () => {
