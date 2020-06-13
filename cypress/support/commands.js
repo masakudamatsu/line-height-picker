@@ -1,6 +1,9 @@
 import 'cypress-file-upload'; // to use .attachFile()
 import {getFontSize, getLineHeight, getMarginTop} from './utils';
 
+const textColorDefault = 'rgb(230, 230, 230)';
+const textColorAlert = 'rgb(189, 189, 189)';
+
 Cypress.Commands.add('checkHeaderFooterRendering', () => {
   cy.get('h1').should('have.text', 'Line-height Picker');
   cy.findByTitle(/logo/i).should('exist');
@@ -204,17 +207,17 @@ Cypress.Commands.add(
 
 // Assertions on error messages
 Cypress.Commands.add('assertIfDecimalPlaceMessageTurnsRed', testId => {
-  cy.findByTestId(testId).should('have.css', 'color', 'rgb(189, 189, 189)');
+  cy.findByTestId(testId).should('have.css', 'color', textColorAlert);
 });
 
 Cypress.Commands.add('assertIfDecimalPlaceMessageTurnsNormal', testId => {
-  cy.findByTestId(testId).should('have.css', 'color', 'rgb(230, 230, 230)');
+  cy.findByTestId(testId).should('have.css', 'color', textColorDefault);
 });
 
 Cypress.Commands.add('assertIfErrorMessageAppears', testId => {
   cy.findByTestId(testId)
     .should('be.visible')
-    .should('have.css', 'color', 'rgb(189, 189, 189)');
+    .should('have.css', 'color', textColorAlert);
 });
 
 Cypress.Commands.add('assertIfErrorMessageDisappears', testId => {
