@@ -2,7 +2,7 @@ import 'cypress-file-upload'; // to use .attachFile()
 import {getFontSize, getLineHeight, getMarginTop} from './utils';
 
 const textColorDefault = 'rgb(230, 230, 230)';
-const textColorAlert = 'rgb(189, 189, 189)';
+const textColorAlert = 'rgb(224, 191, 0)';
 
 Cypress.Commands.add('checkHeaderFooterRendering', () => {
   cy.get('h1').should('have.text', 'Line-height Picker');

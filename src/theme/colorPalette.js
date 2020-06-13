@@ -2,7 +2,7 @@ const backgroundDark = 'hsl(0, 0%, 10%)';
 const backgroundLight = 'hsl(0, 0%, 40%)'; // 3:1 to backgroundDark
 const figureLight = 'hsl(0, 0%, 90%)'; // 4.5:1 to backgroundLight
 const figureDark = 'hsl(0, 0%, 51%)'; // 1:3 to figureLight & 4.5:1 to backgroundDark
-const alert = 'hsl(0,0%,74%)'; // 1:1.5 to figureLight (can be darker up to hsl(0, 0%, 51%))
+const alert = 'hsl(51,100%,44%)'; // 1:1.5 to figureLight (can be darker up to hsl(0, 0%, 51%)) => Luminance 76.6 in HSLuv =>
 
 const opacityForDisabledText = '0.35'; // For disabled text for navigation and buttons
 
