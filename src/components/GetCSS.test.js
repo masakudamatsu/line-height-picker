@@ -56,7 +56,7 @@ test('renders correctly', () => {
     }
 
     .c11 {
-      color: hsl(0,0%,74%);
+      color: hsl(51,100%,44%);
       font-weight: 500;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
@@ -101,7 +101,7 @@ test('renders correctly', () => {
       margin-left: -0.0786em;
       margin-right: 0.3214em;
       margin-top: -0.0786em;
-      stroke: hsl(0,0%,74%);
+      stroke: hsl(51,100%,44%);
       visibility: hidden;
     }
 

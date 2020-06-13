@@ -74,7 +74,7 @@ test('renders correctly', () => {
       margin-left: -0.0786em;
       margin-right: 0.3214em;
       margin-top: -0.2396em;
-      stroke: hsl(0,0%,74%);
+      stroke: hsl(51,100%,44%);
       visibility: hidden;
     }
 
@@ -87,7 +87,7 @@ test('renders correctly', () => {
       margin-left: -0.0786em;
       margin-right: 0.3214em;
       margin-top: -0.0786em;
-      stroke: hsl(0,0%,74%);
+      stroke: hsl(51,100%,44%);
       visibility: hidden;
     }
 
