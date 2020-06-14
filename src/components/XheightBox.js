@@ -48,6 +48,11 @@ const XheightBox = props => {
         newInputValueTimesTenTruncated =
           inputValueTimesTenTruncated + stepValueTimesTen; // say, 102
       }
+      // Decrease the value by 0.1
+      if (event.key === 'ArrowDown') {
+        newInputValueTimesTenTruncated =
+          inputValueTimesTenTruncated - stepValueTimesTen; // say, 100
+      }
 
       // Avoid floating point math quirks
       const newInputValueTimesTenThousand =

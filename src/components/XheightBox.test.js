@@ -426,6 +426,35 @@ test('Pressing arrow-up key calls the handleXHeightChange function with the valu
   );
 });
 
+test('Pressing arrow-down key calls the handleXHeightChange function with the value decreased by 0.1', () => {
+  // setup
+  const initialValue = '10';
+  const expectedFinalValue = '9.9';
+
+  const {getByTestId} = render(
+    <XheightBox
+      handleXHeightChange={mockXHeightToFontSize}
+      validateXHeight={mockValidateXHeight}
+    />,
+  );
+  const xHeightInput = getByTestId('x-height-in-pixel');
+  user.type(xHeightInput, initialValue);
+  mockXHeightToFontSize.mockClear();
+
+  // execute
+  xHeightInput.focus();
+  fireEvent.keyDown(document.activeElement || document.body, {
+    key: 'ArrowDown',
+    code: 'ArrowDown',
+  });
+  // verify
+  expect(mockXHeightToFontSize).toHaveBeenCalledTimes(1);
+  expect(mockXHeightToFontSize).toHaveBeenCalledWith(
+    expectedFinalValue,
+    xHeightInput.validity,
+  );
+});
+
 test('is accessible', async () => {
   const {container} = render(
     <XheightBox

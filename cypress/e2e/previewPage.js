@@ -237,6 +237,24 @@ describe('Preview Page: using arrow keys to change input values', () => {
       .type(`{uparrow}`)
       .should('have.value', expectedXheightValue);
   });
+
+  it.only('Pressing arrow-down key decreases the x-height value from 10 to 9.9', () => {
+    const expectedXheightValue = userData.xHeight - 0.1;
+    cy.findByTestId('x-height-in-pixel')
+      .type(`{downarrow}`)
+      .should('have.value', expectedXheightValue);
+  });
+
+  it.only('Pressing arrow-down key increases the x-height value from 10.0234 to 9.9234', () => {
+    const initialValue = 10.0234;
+    const expectedXheightValue = initialValue - 0.1;
+    cy.findByTestId('x-height-in-pixel')
+      .clear()
+      .type(initialValue);
+    cy.findByTestId('x-height-in-pixel')
+      .type(`{downarrow}`)
+      .should('have.value', expectedXheightValue);
+  });
 });
 
 describe('Preview Page after uploading a font file', () => {
