@@ -398,6 +398,34 @@ test('Blurring the input field calls the validateXHeight function', () => {
   expect(mockValidateXHeight).toHaveBeenCalled();
 });
 
+['ArrowUp', 'ArrowDown'].forEach(arrowKey => {
+  ['10.12345', '101', '-1'].forEach(invalidValue => {
+    test(`Pressing ${arrowKey} key calls the validateXHeight function if the input value is ${invalidValue}`, () => {
+      // setup
+      mockValidateXHeight.mockClear();
+
+      const {getByTestId} = render(
+        <XheightBox
+          handleXHeightChange={mockXHeightToFontSize}
+          validateXHeight={mockValidateXHeight}
+        />,
+      );
+      const xHeightInput = getByTestId('x-height-in-pixel');
+      userEvent.clear(xHeightInput);
+      userEvent.type(xHeightInput, invalidValue);
+
+      // execute
+      xHeightInput.focus();
+      fireEvent.keyDown(document.activeElement || document.body, {
+        key: arrowKey,
+        code: arrowKey,
+      });
+      // verify
+      expect(mockValidateXHeight).toHaveBeenCalledTimes(1);
+    });
+  });
+});
+
 test('Pressing arrow-up key calls the handleXHeightChange function with the value increased by 0.1', () => {
   // setup
   const initialValue = '10';

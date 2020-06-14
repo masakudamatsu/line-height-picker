@@ -255,6 +255,39 @@ describe('Preview Page: using arrow keys to change input values', () => {
       .type(`{downarrow}`)
       .should('have.value', expectedXheightValue);
   });
+
+  it.only('Pressing arrow-down or arrow-up key will alert the user if the x-height value has more than 4 decimal places, instead of changing the value', () => {
+    const initialValue = 10.12345;
+    cy.findByTestId('x-height-in-pixel')
+      .clear()
+      .type(initialValue);
+    cy.findByTestId('x-height-in-pixel')
+      .type(`{downarrow}`)
+      .should('have.value', initialValue);
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-x-height');
+  });
+
+  it.only('Pressing arrow-down or arrow-up key will alert the user if the x-height value is more than 100', () => {
+    const initialValue = 102;
+    cy.findByTestId('x-height-in-pixel')
+      .clear()
+      .type(initialValue);
+    cy.findByTestId('x-height-in-pixel')
+      .type(`{downarrow}`)
+      .should('have.value', initialValue);
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+  });
+
+  it.only('Pressing arrow-down or arrow-up key will alert the user if the x-height value is less than 1', () => {
+    const initialValue = -32;
+    cy.findByTestId('x-height-in-pixel')
+      .clear()
+      .type(initialValue);
+    cy.findByTestId('x-height-in-pixel')
+      .type(`{downarrow}`)
+      .should('have.value', initialValue);
+    cy.assertIfErrorMessageAppears('error-message-x-height');
+  });
 });
 
 describe('Preview Page after uploading a font file', () => {
