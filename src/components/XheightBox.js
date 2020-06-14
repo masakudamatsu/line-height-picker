@@ -26,25 +26,28 @@ const XheightBox = props => {
     props.validateXHeight(inputValue, errors);
   };
   const handleKeyDown = event => {
-    const stepValueTimesTen = 1;
-    const errors = event.target.validity;
-    let inputValue = Number(event.target.value); // say, 10.12345
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      const stepValueTimesTen = 1;
+      const errors = event.target.validity;
+      let inputValue = Number(event.target.value); // say, 10.12345
 
-    // Extract the number up to 1st decimal digit
-    const inputValueTimesTen = inputValue * 10; // say, 101.2345
-    let inputValueTimesTenTruncated = Math.trunc(inputValueTimesTen); // say, 101
+      // Extract the number up to 1st decimal digit
+      const inputValueTimesTen = inputValue * 10; // say, 101.2345
+      let inputValueTimesTenTruncated = Math.trunc(inputValueTimesTen); // say, 101
 
-    // Extract the last 3 decimal digits
-    const inputValueTimesTenDecimalDigits =
-      inputValueTimesTen - inputValueTimesTenTruncated; // say, 0.2345
-    const inputValueLastThreeDecimalDigits = Math.round(
-      inputValueTimesTenDecimalDigits * 1000,
-    ); // say, 235
+      // Extract the last 3 decimal digits
+      const inputValueTimesTenDecimalDigits =
+        inputValueTimesTen - inputValueTimesTenTruncated; // say, 0.2345
+      const inputValueLastThreeDecimalDigits = Math.round(
+        inputValueTimesTenDecimalDigits * 1000,
+      ); // say, 235
 
-    // Increase the value by 0.1
-    if (event.key === 'ArrowUp') {
-      const newInputValueTimesTenTruncated =
-        inputValueTimesTenTruncated + stepValueTimesTen; // say, 102
+      let newInputValueTimesTenTruncated;
+      // Increase the value by 0.1
+      if (event.key === 'ArrowUp') {
+        newInputValueTimesTenTruncated =
+          inputValueTimesTenTruncated + stepValueTimesTen; // say, 102
+      }
 
       // Avoid floating point math quirks
       const newInputValueTimesTenThousand =
