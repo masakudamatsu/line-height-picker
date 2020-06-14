@@ -208,6 +208,26 @@ describe('Preview Page in demo', () => {
   });
 });
 
+describe('Preview Page: using arrow keys to change input values', () => {
+  beforeEach(() => {
+    sessionStorage.clear();
+    cy.visit('/');
+    cy.findByText(/demo/i).click();
+    cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
+    cy.findByText(/next/i).click();
+    cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
+    cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
+    cy.findByText(/preview/i).click();
+  });
+
+  it.only('Pressing arrow-up key increases the x-height value by 0.1', () => {
+    const expectedXheightValue = userData.xHeight + 0.1;
+    cy.findByTestId('x-height-in-pixel')
+      .type(`{uparrow}`)
+      .should('have.value', expectedXheightValue);
+  });
+});
+
 describe('Preview Page after uploading a font file', () => {
   // setup
   const fontFamily = `Roboto Slab`;

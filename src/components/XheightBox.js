@@ -25,6 +25,15 @@ const XheightBox = props => {
     const errors = event.target.validity;
     props.validateXHeight(inputValue, errors);
   };
+  const handleKeyDown = event => {
+    const stepValue = 0.1;
+    const errors = event.target.validity;
+    let inputValue = Number(event.target.value);
+    if (event.key === 'ArrowUp') {
+      inputValue = (inputValue + stepValue).toFixed(1);
+      props.handleXHeightChange(inputValue, errors);
+    }
+  };
   return (
     <>
       <InputWrapper>
@@ -34,6 +43,7 @@ const XheightBox = props => {
           id="x-height-in-pixel"
           onBlur={handleBlur}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
           required
           value={props.xHeightPx}

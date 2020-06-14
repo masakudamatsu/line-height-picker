@@ -1,6 +1,6 @@
 import React from 'react';
 import render from './test-utils/render';
-import {cleanup} from '@testing-library/react';
+import {cleanup, fireEvent} from '@testing-library/react';
 import user from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
@@ -395,6 +395,35 @@ test('Blurring the input field calls the validateXHeight function', () => {
   getByTestId('x-height-in-pixel').blur();
   // verify
   expect(mockValidateXHeight).toHaveBeenCalled();
+});
+
+test('Pressing arrow-up key calls the handleXHeightChange function with the value increased by 0.1', () => {
+  // setup
+  const initialValue = '10';
+  const expectedFinalValue = '10.1';
+
+  const {getByTestId} = render(
+    <XheightBox
+      handleXHeightChange={mockXHeightToFontSize}
+      validateXHeight={mockValidateXHeight}
+    />,
+  );
+  const xHeightInput = getByTestId('x-height-in-pixel');
+  user.type(xHeightInput, initialValue);
+  mockXHeightToFontSize.mockClear();
+
+  // execute
+  xHeightInput.focus();
+  fireEvent.keyDown(document.activeElement || document.body, {
+    key: 'ArrowUp',
+    code: 'ArrowUp',
+  });
+  // verify
+  expect(mockXHeightToFontSize).toHaveBeenCalledTimes(1);
+  expect(mockXHeightToFontSize).toHaveBeenCalledWith(
+    expectedFinalValue,
+    xHeightInput.validity,
+  );
 });
 
 test('is accessible', async () => {
