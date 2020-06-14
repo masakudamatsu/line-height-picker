@@ -220,8 +220,19 @@ describe('Preview Page: using arrow keys to change input values', () => {
     cy.findByText(/preview/i).click();
   });
 
-  it.only('Pressing arrow-up key increases the x-height value by 0.1', () => {
+  it.only('Pressing arrow-up key increases the x-height value from 10 to 10.1', () => {
     const expectedXheightValue = userData.xHeight + 0.1;
+    cy.findByTestId('x-height-in-pixel')
+      .type(`{uparrow}`)
+      .should('have.value', expectedXheightValue);
+  });
+
+  it.only('Pressing arrow-up key increases the x-height value from 10.1234 to 10.2234', () => {
+    const initialValue = 10.1234;
+    const expectedXheightValue = initialValue + 0.1;
+    cy.findByTestId('x-height-in-pixel')
+      .clear()
+      .type(initialValue);
     cy.findByTestId('x-height-in-pixel')
       .type(`{uparrow}`)
       .should('have.value', expectedXheightValue);

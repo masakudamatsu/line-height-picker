@@ -26,12 +26,37 @@ const XheightBox = props => {
     props.validateXHeight(inputValue, errors);
   };
   const handleKeyDown = event => {
-    const stepValue = 0.1;
+    const stepValueTimesTen = 1;
     const errors = event.target.validity;
-    let inputValue = Number(event.target.value);
+    let inputValue = Number(event.target.value); // say, 10.12345
+
+    // Extract the number up to 1st decimal digit
+    const inputValueTimesTen = inputValue * 10; // say, 101.2345
+    let inputValueTimesTenTruncated = Math.trunc(inputValueTimesTen); // say, 101
+
+    // Extract the last 3 decimal digits
+    const inputValueTimesTenDecimalDigits =
+      inputValueTimesTen - inputValueTimesTenTruncated; // say, 0.2345
+    const inputValueLastThreeDecimalDigits = Math.round(
+      inputValueTimesTenDecimalDigits * 1000,
+    ); // say, 235
+
+    // Increase the value by 0.1
     if (event.key === 'ArrowUp') {
-      inputValue = (inputValue + stepValue).toFixed(1);
-      props.handleXHeightChange(inputValue, errors);
+      const newInputValueTimesTenTruncated =
+        inputValueTimesTenTruncated + stepValueTimesTen; // say, 102
+
+      // Avoid floating point math quirks
+      const newInputValueTimesTenThousand =
+        newInputValueTimesTenTruncated * 1000 +
+        inputValueLastThreeDecimalDigits; // 102235
+      const newInputValue = Number(
+        (newInputValueTimesTenThousand / 10000).toFixed(4),
+      ).toString(); // '10.2235'
+      // toFixed(4) to avoid floating-point math fractional values (e.g. 10.299999... => 10.3000)
+      // Number() to remove trailing zeros (e.g. '10.1000' => 10.1) (see https://stackoverflow.com/a/19623253/11847654)
+      // toString() to convert into string
+      props.handleXHeightChange(newInputValue, errors);
     }
   };
   return (
