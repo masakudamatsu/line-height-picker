@@ -220,40 +220,111 @@ describe('Preview Page: using arrow keys to change input values', () => {
     cy.findByText(/preview/i).click();
   });
 
+  it.only('Pressing arrow-up key increases the line-height ratio value from 1 to 1.1', () => {
+    const expectedValue = userData.lineHeightRatio + 0.1;
+    cy.findByTestId('line-height-for-ratio')
+      .type(`{uparrow}`)
+      .should('have.value', expectedValue);
+  });
+
+  it.only('Pressing arrow-up key increases the line-height ratio value from 1.1234 to 1.2234', () => {
+    const initialValue = 1.1234;
+    const expectedValue = initialValue + 0.1;
+    cy.findByTestId('line-height-for-ratio')
+      .clear()
+      .type(initialValue);
+    cy.findByTestId('line-height-for-ratio')
+      .type(`{uparrow}`)
+      .should('have.value', expectedValue);
+  });
+
+  it.only('Pressing arrow-down key decreases the line-height ratio value from 10 to 9.9', () => {
+    const expectedValue = userData.lineHeightRatio - 0.1;
+    cy.findByTestId('line-height-for-ratio')
+      .type(`{downarrow}`)
+      .should('have.value', expectedValue);
+  });
+
+  it.only('Pressing arrow-down key increases the line-height ratio value from 10.0234 to 9.9234', () => {
+    const initialValue = 10.0234;
+    const expectedValue = initialValue - 0.1;
+    cy.findByTestId('line-height-for-ratio')
+      .clear()
+      .type(initialValue);
+    cy.findByTestId('line-height-for-ratio')
+      .type(`{downarrow}`)
+      .should('have.value', expectedValue);
+  });
+
+  it.only('Pressing arrow-down or arrow-up key will alert the user if the line-height ratio value has more than 4 decimal places, instead of changing the value', () => {
+    const initialValue = 10.12345;
+    cy.findByTestId('line-height-for-ratio')
+      .clear()
+      .type(initialValue);
+    cy.findByTestId('line-height-for-ratio')
+      .type(`{downarrow}`)
+      .should('have.value', initialValue);
+    cy.assertIfDecimalPlaceMessageTurnsRed('instruction-modular-scale');
+  });
+
+  it.only('Pressing arrow-down or arrow-up key will alert the user if the line-height ratio value is more than 100', () => {
+    const initialValue = 102;
+    cy.findByTestId('line-height-for-ratio')
+      .clear()
+      .type(initialValue);
+    cy.findByTestId('line-height-for-ratio')
+      .type(`{downarrow}`)
+      .should('have.value', initialValue);
+    cy.assertIfErrorMessageAppears('error-message-modular-scale');
+  });
+
+  it.only('Pressing arrow-down or arrow-up key will alert the user if the line-height ratio value is less than 1', () => {
+    const initialValue = -32;
+    cy.findByTestId('line-height-for-ratio')
+      .clear()
+      .type(initialValue);
+    cy.findByTestId('line-height-for-ratio')
+      .type(`{downarrow}`)
+      .should('have.value', initialValue);
+    cy.assertIfErrorMessageAppears('error-message-modular-scale');
+  });
+
+  // x-height ratio
+
   it.only('Pressing arrow-up key increases the x-height ratio value from 1 to 1.1', () => {
-    const expectedXheightValue = userData.xHeightRatio + 0.1;
+    const expectedValue = userData.xHeightRatio + 0.1;
     cy.findByTestId('x-height-for-ratio')
       .type(`{uparrow}`)
-      .should('have.value', expectedXheightValue);
+      .should('have.value', expectedValue);
   });
 
   it.only('Pressing arrow-up key increases the x-height ratio value from 1.1234 to 1.2234', () => {
     const initialValue = 1.1234;
-    const expectedXheightValue = initialValue + 0.1;
+    const expectedValue = initialValue + 0.1;
     cy.findByTestId('x-height-for-ratio')
       .clear()
       .type(initialValue);
     cy.findByTestId('x-height-for-ratio')
       .type(`{uparrow}`)
-      .should('have.value', expectedXheightValue);
+      .should('have.value', expectedValue);
   });
 
   it.only('Pressing arrow-down key decreases the x-height ratio value from 10 to 9.9', () => {
-    const expectedXheightValue = userData.xHeightRatio - 0.1;
+    const expectedValue = userData.xHeightRatio - 0.1;
     cy.findByTestId('x-height-for-ratio')
       .type(`{downarrow}`)
-      .should('have.value', expectedXheightValue);
+      .should('have.value', expectedValue);
   });
 
   it.only('Pressing arrow-down key increases the x-height ratio value from 10.0234 to 9.9234', () => {
     const initialValue = 10.0234;
-    const expectedXheightValue = initialValue - 0.1;
+    const expectedValue = initialValue - 0.1;
     cy.findByTestId('x-height-for-ratio')
       .clear()
       .type(initialValue);
     cy.findByTestId('x-height-for-ratio')
       .type(`{downarrow}`)
-      .should('have.value', expectedXheightValue);
+      .should('have.value', expectedValue);
   });
 
   it.only('Pressing arrow-down or arrow-up key will alert the user if the x-height ratio value has more than 4 decimal places, instead of changing the value', () => {
@@ -289,40 +360,42 @@ describe('Preview Page: using arrow keys to change input values', () => {
     cy.assertIfErrorMessageAppears('error-message-modular-scale');
   });
 
+  // x-height value
+
   it.only('Pressing arrow-up key increases the x-height value from 10 to 10.1', () => {
-    const expectedXheightValue = userData.xHeight + 0.1;
+    const expectedValue = userData.xHeight + 0.1;
     cy.findByTestId('x-height-in-pixel')
       .type(`{uparrow}`)
-      .should('have.value', expectedXheightValue);
+      .should('have.value', expectedValue);
   });
 
   it.only('Pressing arrow-up key increases the x-height value from 10.1234 to 10.2234', () => {
     const initialValue = 10.1234;
-    const expectedXheightValue = initialValue + 0.1;
+    const expectedValue = initialValue + 0.1;
     cy.findByTestId('x-height-in-pixel')
       .clear()
       .type(initialValue);
     cy.findByTestId('x-height-in-pixel')
       .type(`{uparrow}`)
-      .should('have.value', expectedXheightValue);
+      .should('have.value', expectedValue);
   });
 
   it.only('Pressing arrow-down key decreases the x-height value from 10 to 9.9', () => {
-    const expectedXheightValue = userData.xHeight - 0.1;
+    const expectedValue = userData.xHeight - 0.1;
     cy.findByTestId('x-height-in-pixel')
       .type(`{downarrow}`)
-      .should('have.value', expectedXheightValue);
+      .should('have.value', expectedValue);
   });
 
   it.only('Pressing arrow-down key increases the x-height value from 10.0234 to 9.9234', () => {
     const initialValue = 10.0234;
-    const expectedXheightValue = initialValue - 0.1;
+    const expectedValue = initialValue - 0.1;
     cy.findByTestId('x-height-in-pixel')
       .clear()
       .type(initialValue);
     cy.findByTestId('x-height-in-pixel')
       .type(`{downarrow}`)
-      .should('have.value', expectedXheightValue);
+      .should('have.value', expectedValue);
   });
 
   it.only('Pressing arrow-down or arrow-up key will alert the user if the x-height value has more than 4 decimal places, instead of changing the value', () => {

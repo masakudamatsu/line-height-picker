@@ -37,14 +37,15 @@ const ModularScaleBoxes = props => {
     const errors = event.target.validity;
     props.handleLineHeightRatioChange(newLineHeightRatio, errors);
   };
-  let ignoreKey = false; // For preventing the cursor from moving to the leftmost position after pressing ArrowUp key. See https://stackoverflow.com/a/1081114/11847654
+
+  let ignoreKeyForXHeight = false; // For preventing the cursor from moving to the leftmost position after pressing ArrowUp key. See https://stackoverflow.com/a/1081114/11847654
   const handleXHeightKeyPress = event => {
     if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
       handleArrowKey(
         event,
         props.handleXHeightRatioChange,
         props.validateXHeightRatio,
-        ignoreKey,
+        ignoreKeyForXHeight,
       );
     }
   };
@@ -54,10 +55,32 @@ const ModularScaleBoxes = props => {
         event,
         props.handleXHeightRatioChange,
         props.validateXHeightRatio,
-        ignoreKey,
+        ignoreKeyForXHeight,
       );
     }
   };
+  let ignoreKeyForLineHeight = false; // For preventing the cursor from moving to the leftmost position after pressing ArrowUp key. See https://stackoverflow.com/a/1081114/11847654
+  const handleLineHeightKeyPress = event => {
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      handleArrowKey(
+        event,
+        props.handleLineHeightRatioChange,
+        props.validateLineHeightRatio,
+        ignoreKeyForLineHeight,
+      );
+    }
+  };
+  const handleLineHeightKeyDown = event => {
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      handleArrowKey(
+        event,
+        props.handleLineHeightRatioChange,
+        props.validateLineHeightRatio,
+        ignoreKeyForLineHeight,
+      );
+    }
+  };
+
   return (
     <>
       <ParagraphOneRem>Enter the ratio of</ParagraphOneRem>
@@ -87,6 +110,8 @@ const ModularScaleBoxes = props => {
             data-testid="line-height-for-ratio"
             onBlur={handleLineHeightRatioBlur}
             onChange={handleLineHeightChange}
+            onKeyDown={handleLineHeightKeyDown}
+            onKeyPress={handleLineHeightKeyPress}
             pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
             required
             value={props.lineHeightRatio}

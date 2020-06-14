@@ -591,6 +591,99 @@ test('Pressing arrow-down key for x-height ratio value calls the handleXHeightCh
   );
 });
 
+// Line-height ratio
+
+['ArrowUp', 'ArrowDown'].forEach(arrowKey => {
+  ['10.12345', '101', '-1'].forEach(invalidValue => {
+    test(`Pressing ${arrowKey} key for line-height ratio value calls the validateLineHeightRatio function if the input value is ${invalidValue}`, () => {
+      // setup
+      const {getByTestId} = render(
+        <ModularScaleBoxes
+          handleXHeightRatioChange={mockHandleXHeightRatioChange}
+          handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
+          validateXHeightRatio={mockValidateXHeightRatio}
+          validateLineHeightRatio={mockValidateLineHeightRatio}
+        />,
+      );
+      const lineHeightRatioInput = getByTestId('line-height-for-ratio');
+      userEvent.clear(lineHeightRatioInput);
+      userEvent.type(lineHeightRatioInput, invalidValue);
+      mockValidateLineHeightRatio.mockClear();
+
+      // execute
+      lineHeightRatioInput.focus();
+      fireEvent.keyDown(document.activeElement || document.body, {
+        key: arrowKey,
+        code: arrowKey,
+      });
+      // verify
+      expect(mockValidateLineHeightRatio).toHaveBeenCalledTimes(1);
+    });
+  });
+});
+
+test('Pressing arrow-up key for line-height ratio value calls the handleXHeightRatioChange function with the value increased by 0.1', () => {
+  // setup
+  const initialValue = '10';
+  const expectedFinalValue = '10.1';
+
+  const {getByTestId} = render(
+    <ModularScaleBoxes
+      handleXHeightRatioChange={mockHandleXHeightRatioChange}
+      handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
+      validateXHeightRatio={mockValidateXHeightRatio}
+      validateLineHeightRatio={mockValidateLineHeightRatio}
+    />,
+  );
+  const lineHeightRatioInput = getByTestId('line-height-for-ratio');
+  userEvent.type(lineHeightRatioInput, initialValue);
+  mockHandleLineHeightRatioChange.mockClear();
+
+  // execute
+  lineHeightRatioInput.focus();
+  fireEvent.keyDown(document.activeElement || document.body, {
+    key: 'ArrowUp',
+    code: 'ArrowUp',
+  });
+  // verify
+  expect(mockHandleLineHeightRatioChange).toHaveBeenCalledTimes(1);
+  expect(mockHandleLineHeightRatioChange).toHaveBeenCalledWith(
+    expectedFinalValue,
+    lineHeightRatioInput.validity,
+  );
+});
+
+test('Pressing arrow-down key for line-height ratio value calls the handleXHeightChange function with the value decreased by 0.1', () => {
+  // setup
+  const initialValue = '10';
+  const expectedFinalValue = '9.9';
+
+  const {getByTestId} = render(
+    <ModularScaleBoxes
+      handleXHeightRatioChange={mockHandleXHeightRatioChange}
+      handleLineHeightRatioChange={mockHandleLineHeightRatioChange}
+      validateXHeightRatio={mockValidateXHeightRatio}
+      validateLineHeightRatio={mockValidateLineHeightRatio}
+    />,
+  );
+  const lineHeightRatioInput = getByTestId('line-height-for-ratio');
+  userEvent.type(lineHeightRatioInput, initialValue);
+  mockHandleLineHeightRatioChange.mockClear();
+
+  // execute
+  lineHeightRatioInput.focus();
+  fireEvent.keyDown(document.activeElement || document.body, {
+    key: 'ArrowDown',
+    code: 'ArrowDown',
+  });
+  // verify
+  expect(mockHandleLineHeightRatioChange).toHaveBeenCalledTimes(1);
+  expect(mockHandleLineHeightRatioChange).toHaveBeenCalledWith(
+    expectedFinalValue,
+    lineHeightRatioInput.validity,
+  );
+});
+
 test('is accessible', async () => {
   const {container} = render(
     <ModularScaleBoxes
