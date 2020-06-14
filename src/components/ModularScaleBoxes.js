@@ -16,7 +16,7 @@ import {
 } from '../theme/style';
 
 const ModularScaleBoxes = props => {
-  const handleBlur = event => {
+  const handleXHeightBlur = event => {
     const inputValue = event.target.value;
     const errors = event.target.validity;
     props.validateXHeightRatio(inputValue, errors);
@@ -46,7 +46,7 @@ const ModularScaleBoxes = props => {
           <ModularScaleInput
             data-testid="x-height-for-ratio"
             id="x-height-for-ratio"
-            onBlur={handleBlur}
+            onBlur={handleXHeightBlur}
             onChange={handleXHeightChange}
             pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
             required
