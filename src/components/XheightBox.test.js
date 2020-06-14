@@ -1,7 +1,7 @@
 import React from 'react';
 import render from './test-utils/render';
 import {cleanup, fireEvent} from '@testing-library/react';
-import user from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
@@ -367,8 +367,9 @@ test('Entering x-height value calls the handleXHeightChange function, but not th
   const xHeightInput = getByTestId('x-height-in-pixel');
   const userXheightList = ['9', '10']; // check if a two-digit number calls the function twice
   userXheightList.forEach(userXheight => {
+    userEvent.clear(xHeightInput);
     // execute
-    user.type(xHeightInput, userXheight);
+    userEvent.type(xHeightInput, userXheight);
     // verify
     expect(mockXHeightToFontSize).toHaveBeenCalledTimes(userXheight.length);
     expect(mockXHeightToFontSize).toHaveBeenCalledWith(
@@ -409,7 +410,7 @@ test('Pressing arrow-up key calls the handleXHeightChange function with the valu
     />,
   );
   const xHeightInput = getByTestId('x-height-in-pixel');
-  user.type(xHeightInput, initialValue);
+  userEvent.type(xHeightInput, initialValue);
   mockXHeightToFontSize.mockClear();
 
   // execute
@@ -438,7 +439,7 @@ test('Pressing arrow-down key calls the handleXHeightChange function with the va
     />,
   );
   const xHeightInput = getByTestId('x-height-in-pixel');
-  user.type(xHeightInput, initialValue);
+  userEvent.type(xHeightInput, initialValue);
   mockXHeightToFontSize.mockClear();
 
   // execute

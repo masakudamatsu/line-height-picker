@@ -1,7 +1,7 @@
 import React from 'react';
 import render from './test-utils/render';
 import {cleanup} from '@testing-library/react';
-import user from '@testing-library/user-event';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
@@ -420,8 +420,9 @@ test('Entering x-height ratio value calls the handleXHeightRatioChange(), but no
   const xHeightRatioInput = getByTestId('x-height-for-ratio');
   const userInputList = ['2', '11']; // check two-digits call the function twice
   userInputList.forEach(userdata => {
+    userEvent.clear(xHeightRatioInput);
     // execute
-    user.type(xHeightRatioInput, userdata);
+    userEvent.type(xHeightRatioInput, userdata);
     // verify
     expect(mockHandleXHeightRatioChange).toHaveBeenCalledTimes(userdata.length);
     expect(mockHandleXHeightRatioChange).toHaveBeenCalledWith(
@@ -465,8 +466,9 @@ test('Entering line-height ratio value calls the handleLineHeightRatioChange(), 
   const lineHeightRatioInput = getByTestId('line-height-for-ratio');
   const userInputList = ['3', '12']; // check two-digits call the function twice
   userInputList.forEach(userdata => {
+    userEvent.clear(lineHeightRatioInput);
     // execute
-    user.type(lineHeightRatioInput, userdata);
+    userEvent.type(lineHeightRatioInput, userdata);
     // verify
     expect(mockHandleLineHeightRatioChange).toHaveBeenCalledTimes(
       userdata.length,
