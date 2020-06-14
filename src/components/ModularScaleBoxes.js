@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import handleArrowKey from '../helper/handleArrowKey';
 
 import {
   AlertIcon,
@@ -36,6 +37,27 @@ const ModularScaleBoxes = props => {
     const errors = event.target.validity;
     props.handleLineHeightRatioChange(newLineHeightRatio, errors);
   };
+  let ignoreKey = false; // For preventing the cursor from moving to the leftmost position after pressing ArrowUp key. See https://stackoverflow.com/a/1081114/11847654
+  const handleXHeightKeyPress = event => {
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      handleArrowKey(
+        event,
+        props.handleXHeightRatioChange,
+        props.validateXHeightRatio,
+        ignoreKey,
+      );
+    }
+  };
+  const handleXHeightKeyDown = event => {
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+      handleArrowKey(
+        event,
+        props.handleXHeightRatioChange,
+        props.validateXHeightRatio,
+        ignoreKey,
+      );
+    }
+  };
   return (
     <>
       <ParagraphOneRem>Enter the ratio of</ParagraphOneRem>
@@ -48,6 +70,8 @@ const ModularScaleBoxes = props => {
             id="x-height-for-ratio"
             onBlur={handleXHeightBlur}
             onChange={handleXHeightChange}
+            onKeyDown={handleXHeightKeyDown}
+            onKeyPress={handleXHeightKeyPress}
             pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
             required
             value={props.xHeightRatio}
