@@ -1,6 +1,25 @@
 import 'cypress-file-upload'; // to use .attachFile()
 import {getFontSize, getLineHeight, getMarginTop} from './utils';
 
+// Cypress Image Snapshot: Start ////////////////////
+import {addMatchImageSnapshotCommand} from 'cypress-image-snapshot/command';
+
+addMatchImageSnapshotCommand({
+  failureThreshold: 0.0,
+  failureThresholdType: 'percent',
+  customDiffConfig: {threshold: 0.0},
+  capture: 'viewport',
+});
+
+Cypress.Commands.add('setResolution', size => {
+  if (Cypress._.isArray(size)) {
+    cy.viewport(size[0], size[1]);
+  } else {
+    cy.viewport(size);
+  }
+});
+// Cypress Image Snapshot: End /////////////////////////
+
 const textColorDefault = 'rgb(230, 230, 230)';
 const textColorAlert = 'rgb(224, 191, 0)';
 
