@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {useHistory} from 'react-router-dom';
 
+import CssGuide from './CssGuide';
 import {
   AlertIcon,
   AlertMessage,
@@ -132,6 +133,9 @@ p + p {
           </AlertMessage>
           <SpacerVertical height="3" />
         </Section>
+        <SpacerVertical height="3" />
+        <CssGuide />
+        <SpacerVertical height="3" />
       </main>
     </>
   );

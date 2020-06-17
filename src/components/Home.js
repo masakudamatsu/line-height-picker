@@ -12,7 +12,7 @@ import {
 import FontFileUploader from './FontFileUploader';
 import DemoStartButton from './DemoStartButton';
 import FontFileErrorMessage from './FontFileErrorMessage';
-
+import About from './About';
 import store from '../helper/store';
 
 const Home = props => {
@@ -46,6 +46,8 @@ const Home = props => {
             />
             <SpacerVertical height="3" />
           </Section>
+          <About />
+          <SpacerVertical height="3" />
         </RightAligner>
       </MainLandingPage>
     </>

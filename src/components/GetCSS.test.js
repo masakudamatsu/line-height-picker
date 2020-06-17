@@ -28,6 +28,61 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
+    .c13 {
+      background: hsl(0,0%,40%);
+      background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
+      background-position: 0 calc( 0.125em + 0.707em );
+      background-repeat: no-repeat;
+      background-size: 100% 1px;
+      color: currentColor;
+      cursor: pointer;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      text-shadow: 0.03em 0 hsl(0,0%,10%), -0.03em 0 hsl(0,0%,10%),0 0.03em hsl(0,0%,10%), 0 -0.03em hsl(0,0%,10%);
+    }
+
+    .c13:visited {
+      background: hsl(0,0%,40%);
+      background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
+      color: currentColor;
+    }
+
+    .c13:focus,
+    .c13:hover {
+      background: hsl(0,0%,40%);
+      outline: none;
+      text-shadow: none;
+    }
+
+    .c13:focus::before,
+    .c13:hover::before,
+    .c13:focus::after,
+    .c13:hover::after {
+      display: none;
+    }
+
+    .c13:active {
+      background: none;
+    }
+
+    .c13:visited:focus,
+    .c13:visited:hover {
+      background: hsl(0,0%,40%);
+      outline: none;
+      text-shadow: none;
+    }
+
+    .c13:visited:focus::before,
+    .c13:visited:hover::before,
+    .c13:visited:focus::after,
+    .c13:visited:hover::after {
+      display: none;
+    }
+
+    .c13:visited:active {
+      background: none;
+    }
+
     .c0 {
       max-width: 33em;
     }
@@ -75,6 +130,29 @@ test('renders correctly', () => {
     }
 
     .c11::after {
+      margin-top: -0.4025em;
+    }
+
+    .c12 {
+      color: currentColor;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+    }
+
+    .c12::before,
+    .c12::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c12::before {
+      margin-bottom: -0.2555em;
+    }
+
+    .c12::after {
       margin-top: -0.4025em;
     }
 
@@ -408,6 +486,184 @@ test('renders correctly', () => {
             height="3"
           />
         </section>
+        <div
+          class="c1"
+          height="3"
+        />
+        <section
+          class="c0"
+        >
+          <h2
+            class="c2"
+          >
+            How we obtain the above CSS values
+          </h2>
+          <div
+            class="c3"
+            height="2"
+          />
+          <p
+            class="c12"
+          >
+            We use font metrics, extracted from the font file you have selected to convert the x-height value and its ratio to line-height into font-size and line-height values (and the margin-top value for a paragraph element directly after another paragraph element).
+          </p>
+          <div
+            class="c1"
+            height="3"
+          />
+          <h3
+            class="c2"
+          >
+            Font-size
+          </h3>
+          <div
+            class="c3"
+            height="2"
+          />
+          <p
+            class="c12"
+          >
+            To convert the x-height value you have entered into the font-size value shown above, we use the ratio of two font metric values: sxHeight and unitsPerEm.
+          </p>
+          <div
+            class="c3"
+            height="2"
+          />
+          <p
+            class="c12"
+          >
+            The unitsPerEm is the number of units that correspond to the font-size value. It is usually either 1000 or 2048. The sxHeight value refers to the size of x-height in the number of units defined by unitsPerEm.
+          </p>
+          <div
+            class="c3"
+            height="2"
+          />
+           
+          <p
+            class="c12"
+          >
+            For example, Open Sans has the values of 2048 for unitsPerEm and of 1096 for sxHeight. For the ease of calculation, imagine you set font-size to be 20.48px. Then one unit in these font metric values equals to 0.01px. Consequently, the x-height will be 10.96px. Conversely, if you select Open Sans and the x-height value of 10.96px, then the font-size will be 20.48px. That is exactly how we convert x-height into font-size.
+          </p>
+          <div
+            class="c1"
+            height="3"
+          />
+          <h3
+            class="c2"
+          >
+            Line-height
+          </h3>
+          <div
+            class="c3"
+            height="2"
+          />
+          <p
+            class="c12"
+          >
+            The line-height value is then calculated as follows. We use the ratio of x-height to line-height to obtain the line-height value in px from the x-height value. For example, if you set x-height to be 10.96px and the ratio to be 1:3, then the line-height value is 32.88px. We then divide this value with the font-size value calculated in the way the previous paragraph describes.
+          </p>
+          <div
+            class="c1"
+            height="3"
+          />
+          <h3
+            class="c2"
+          >
+            Margin-top
+          </h3>
+          <div
+            class="c3"
+            height="2"
+          />
+           
+          <p
+            class="c12"
+          >
+            The margin-top value for vertical space between paragraphs is calculated in three steps.
+          </p>
+          <div
+            class="c3"
+            height="2"
+          />
+           
+          <p
+            class="c12"
+          >
+            We first use the ratio of x-height to line-height to obtain the vertical space in px from x-height. If x-height is 10.96px and the ratio is 1:3, then we multiply 10.96px with two twice to obtain 43.84px.
+          </p>
+          <div
+            class="c3"
+            height="2"
+          />
+           
+          <p
+            class="c12"
+          >
+            The next step subtracts the height of whitespace included in the text boxes in the last line of the first paragraph and the first line of the second paragraph.
+          </p>
+          <div
+            class="c3"
+            height="2"
+          />
+           
+          <p
+            class="c12"
+          >
+            For the last line of the first paragraph, the font metric called descender gives the negative number of units, defined by unitsPerEm, for the distance between the bottom of the x-height stripe and the bottom of the text box. For Open Sans, it is -600. In our example, the font-size is 20.48px. So we will subtract 6px from the 43.84px of between-paragraph vertical space.
+          </p>
+          <div
+            class="c3"
+            height="2"
+          />
+           
+          <p
+            class="c12"
+          >
+            For the first line of the second paragraph, we use two font metrics, ascender and sCapHeight. The ascender value refers to the distance between the top of the text box to the bottom of the x-height stripe. The sCapHeight indicates the distance between the top of the uppercase H (and other uppercase characters) and the bottom of the x-height stripe. What we need is the difference between the two, that is the distance from the top of the text box to the top of an uppercase chracter. For Open Sans, it is 727 (the ascender of 2189 subtracted by the sCapHeight of 1462). If the font-size is 20.48px, we will then subtract 7.27px from the 43.84px of between-paragraph vertical space.
+          </p>
+          <div
+            class="c3"
+            height="2"
+          />
+           
+          <p
+            class="c12"
+          >
+            In the final step, we further subtract the value of line-height in px minus font-size.
+          </p>
+          <div
+            class="c3"
+            height="2"
+          />
+           
+          <p
+            class="c12"
+          >
+            So the margin-top value will be 26.73px.
+          </p>
+          <div
+            class="c3"
+            height="2"
+          />
+           
+          <p
+            class="c12"
+          >
+            To learn about font metrics, I recommend reading
+             
+            <a
+              class="c13"
+              href="http://westonthayer.com/writing/intro-to-font-metrics/"
+            >
+              Weston Thayer's article entitled "Intro to Font Metrics"
+            </a>
+            .
+          </p>
+        </section>
+        <div
+          class="c1"
+          height="3"
+        />
       </main>
     </div>
   `);

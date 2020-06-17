@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import SectionFont from './SectionFont';
 import XheightBox from './XheightBox';
+import LineHeightGuide from './LineHeightGuide';
 import {
   ButtonWithRightArrow,
   ControlPanel,
@@ -117,6 +118,8 @@ const ModularScale = props => {
             />
           </ControlPanel>
         </Flexbox>
+        <SpacerVertical height="3" />
+        <LineHeightGuide />
         <SpacerVertical height="3" />
       </main>
     </>
