@@ -14,7 +14,7 @@ describe('X-height page in demo', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
   });
 
   it('shows the non-interactive UI components correctly', () => {
@@ -138,7 +138,7 @@ describe('X-height page: Handle error for missing input', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').clear();
   });
 
@@ -179,7 +179,7 @@ describe('X-height page: Handle error for values over 100', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type('123');
   });
 
@@ -223,7 +223,7 @@ describe('X-height page: Handle error for values below 1', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type('0');
   });
 
@@ -267,7 +267,7 @@ describe('X-height page: Handle error for too many decimal places', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type('1.12345');
   });
 
@@ -310,7 +310,7 @@ describe('X-height page: Handle error for string input values', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type('string');
   });
 
@@ -353,7 +353,7 @@ describe('X-height page: Handle error for font files', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
   });
 
   it('Uploading a file with an invalid extension alerts the user', () => {
@@ -385,7 +385,7 @@ describe('X-height page: Navigation bar', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
   });
 
   it('takes the user to the landing page after clicking number 1 in the header', () => {
@@ -443,7 +443,7 @@ describe('X-height page: Navigation bar', () => {
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
-    cy.findByText(/css/i).click();
+    cy.findByTestId('get-css-code-button').click();
     cy.findByText('2').click();
     // execute
     cy.findByText('5').click();

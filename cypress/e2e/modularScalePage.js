@@ -18,7 +18,7 @@ describe('Modular Scale Page in demo', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
   });
@@ -176,7 +176,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     beforeEach(() => {
       sessionStorage.clear();
       cy.visit('/');
-      cy.findByText(/demo/i).click();
+      cy.findByTestId('demo-start-button').click();
       cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
       cy.findByText(/next/i).click();
       cy.findByTestId(otherInputField).type('3');
@@ -220,7 +220,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     beforeEach(() => {
       sessionStorage.clear();
       cy.visit('/');
-      cy.findByText(/demo/i).click();
+      cy.findByTestId('demo-start-button').click();
       cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
       cy.findByText(/next/i).click();
       cy.findByTestId(otherInputField).type('3');
@@ -267,7 +267,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     beforeEach(() => {
       sessionStorage.clear();
       cy.visit('/');
-      cy.findByText(/demo/i).click();
+      cy.findByTestId('demo-start-button').click();
       cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
       cy.findByText(/next/i).click();
       cy.findByTestId(otherInputField).type('3');
@@ -314,7 +314,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     beforeEach(() => {
       sessionStorage.clear();
       cy.visit('/');
-      cy.findByText(/demo/i).click();
+      cy.findByTestId('demo-start-button').click();
       cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
       cy.findByText(/next/i).click();
       cy.findByTestId(otherInputField).type('3');
@@ -360,7 +360,7 @@ describe('Modular Scale Page after uploading a font file', () => {
     beforeEach(() => {
       sessionStorage.clear();
       cy.visit('/');
-      cy.findByText(/demo/i).click();
+      cy.findByTestId('demo-start-button').click();
       cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
       cy.findByText(/next/i).click();
       cy.findByTestId(otherInputField).type('3');
@@ -407,7 +407,7 @@ describe('Modular-scale page: Handle error for x-height value', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
@@ -435,7 +435,7 @@ describe('Modular-scale page: Handle error for font files', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
   });
@@ -469,7 +469,7 @@ describe('Modular-scale page: Navigation bar', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
   });
@@ -508,7 +508,7 @@ describe('Modular-scale page: Navigation bar', () => {
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
-    cy.findByText(/css/i).click();
+    cy.findByTestId('get-css-code-button').click();
     cy.findByText('3').click();
     // execute
     cy.findByText('5').click();

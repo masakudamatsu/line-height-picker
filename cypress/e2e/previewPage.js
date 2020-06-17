@@ -30,7 +30,7 @@ describe('Preview Page in demo', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
@@ -40,7 +40,6 @@ describe('Preview Page in demo', () => {
 
   it('shows the non-interactive UI components correctly', () => {
     cy.checkHeaderFooterRendering(); // See support/commands.js
-    cy.findByText(/preview/i).should('exist');
     cy.findByTestId('sampleParagraph1').should('exist');
     cy.findByTestId('sampleParagraph2').should('exist');
     cy.findByText(/excerpt/i).should('exist');
@@ -73,7 +72,7 @@ describe('Preview Page in demo', () => {
   });
 
   it('takes the user to the CSS page after clicking the button for it', () => {
-    cy.findByText(/css/i).click();
+    cy.findByTestId('get-css-code-button').click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/css`);
   });
 
@@ -212,7 +211,7 @@ describe('Preview Page: using arrow keys to change input values', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
@@ -510,7 +509,7 @@ describe('Preview Page: Error-handling', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
@@ -522,7 +521,7 @@ describe('Preview Page: Error-handling', () => {
     testId => {
       it(`disables the button to get the CSS code, focuses the invalid field, and shows the error message, if the user deletes the ${testId} value`, () => {
         cy.findByTestId(testId).clear();
-        cy.findByText(/css/i).click();
+        cy.findByTestId('get-css-code-button').click();
         cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
         cy.focused().should('have.attr', 'id', testId);
         if (testId === 'x-height-in-pixel') {
@@ -530,18 +529,18 @@ describe('Preview Page: Error-handling', () => {
         } else {
           cy.assertIfErrorMessageAppears('error-message-modular-scale');
         }
-        cy.findByText(/css/i).should('be.disabled');
+        cy.findByTestId('get-css-code-button').should('be.disabled');
       });
       it(`enables the button to get the CSS code and hides the error message, if the user reenters a valid ${testId} value`, () => {
         cy.findByTestId(testId).clear();
-        cy.findByText(/css/i).click();
+        cy.findByTestId('get-css-code-button').click();
         cy.findByTestId(testId).type(10);
         if (testId === 'x-height-in-pixel') {
           cy.assertIfErrorMessageDisappears('error-message-x-height');
         } else {
           cy.assertIfErrorMessageDisappears('error-message-modular-scale');
         }
-        cy.findByText(/css/i).should('be.enabled');
+        cy.findByTestId('get-css-code-button').should('be.enabled');
       });
     },
   );
@@ -575,7 +574,7 @@ describe('Preview page: Navigation bar', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
@@ -601,7 +600,7 @@ describe('Preview page: Navigation bar', () => {
   });
   it('DOES take the user to the get CSS page after clicking number 5 in the header, if the user has already visited', () => {
     // set up
-    cy.findByText(/css/i).click();
+    cy.findByTestId('get-css-code-button').click();
     cy.findByText('4').click();
     // execute
     cy.findByText('5').click();

@@ -46,7 +46,7 @@ Cypress.Commands.add(
       .should('have.css', 'font-family', `"${expectedFontName}"`)
       .should('have.css', 'font-weight', expectedFontWeight);
 
-    cy.findByText(/css/i).click();
+    cy.findByTestId('get-css-code-button').click();
     cy.findByTestId('cssCode')
       .contains(`font-family: '${expectedFontName}'`)
       .contains(`font-weight: ${expectedFontWeight}`);
@@ -94,7 +94,7 @@ Cypress.Commands.add('assertFontSize', (xHeight, FontMetrics) => {
     'font-size',
     `${fontSize}px`,
   );
-  cy.findByText(/css/i).click();
+  cy.findByTestId('get-css-code-button').click();
   cy.findByTestId('cssCode').contains(`font-size: ${fontSize}px`);
 });
 Cypress.Commands.add(
@@ -142,7 +142,7 @@ Cypress.Commands.add(
       'line-height',
       `${expectedLineHeightInPx}px`,
     );
-    cy.findByText(/css/i).click();
+    cy.findByTestId('get-css-code-button').click();
     cy.findByTestId('cssCode').contains(`line-height: ${expectedLineHeight}`);
   },
 );
@@ -200,7 +200,7 @@ Cypress.Commands.add(
       'margin-top',
       `${marginTop}px`,
     );
-    cy.findByText(/css/i).click();
+    cy.findByTestId('get-css-code-button').click();
     cy.findByTestId('cssCode').contains(`margin-top: ${marginTop}px`);
   },
 );

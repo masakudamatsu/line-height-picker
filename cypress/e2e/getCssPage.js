@@ -8,18 +8,17 @@ describe('Get CSS Page', () => {
   beforeEach(() => {
     sessionStorage.clear();
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
-    cy.findByText(/css/i).click();
+    cy.findByTestId('get-css-code-button').click();
   });
 
   it('shows the non-interactive UI components correctly', () => {
     cy.checkHeaderFooterRendering(); // See support/commands.js
-    cy.findByText(/css/i, {selector: 'h2'}).should('exist');
     cy.findByTestId('cssCode').should('exist');
     cy.findByTestId('copy-button').should('exist');
   });

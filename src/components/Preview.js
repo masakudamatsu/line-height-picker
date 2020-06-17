@@ -80,6 +80,7 @@ const Preview = props => {
               <Section>
                 <ButtonWithRightArrow
                   type="submit"
+                  data-testid="get-css-code-button"
                   primary
                   disabled={props.cssButtonDisabled}
                 >
