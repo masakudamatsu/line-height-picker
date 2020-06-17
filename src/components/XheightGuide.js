@@ -49,7 +49,7 @@ const XheightGuide = () => {
       <SpacerVertical height="3" />
       <Section>
         <SectionTitle>
-          How to choose <NoWrap>x-height</NoWrap> for your website
+          Choosing <NoWrap>x-height</NoWrap> for your website
         </SectionTitle>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
