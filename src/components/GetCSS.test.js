@@ -508,6 +508,24 @@ test('renders correctly', () => {
             We use font metrics, extracted from the font file you have selected to convert the x-height value and its ratio to line-height into font-size and line-height values (and the margin-top value for a paragraph element directly after another paragraph element).
           </p>
           <div
+            class="c3"
+            height="2"
+          />
+           
+          <p
+            class="c12"
+          >
+            To learn about font metrics, I recommend reading
+             
+            <a
+              class="c13"
+              href="http://westonthayer.com/writing/intro-to-font-metrics/"
+            >
+              Weston Thayer's article entitled "Intro to Font Metrics"
+            </a>
+            .
+          </p>
+          <div
             class="c1"
             height="3"
           />
@@ -640,24 +658,6 @@ test('renders correctly', () => {
             class="c12"
           >
             So the margin-top value will be 26.73px.
-          </p>
-          <div
-            class="c3"
-            height="2"
-          />
-           
-          <p
-            class="c12"
-          >
-            To learn about font metrics, I recommend reading
-             
-            <a
-              class="c13"
-              href="http://westonthayer.com/writing/intro-to-font-metrics/"
-            >
-              Weston Thayer's article entitled "Intro to Font Metrics"
-            </a>
-            .
           </p>
         </section>
         <div
