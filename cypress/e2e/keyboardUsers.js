@@ -11,7 +11,7 @@ describe('Keyboard users', () => {
 
   it('can get the CSS code with the Enter Key only', () => {
     cy.visit('/');
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(`${userData.xHeight}{enter}`);
     cy.url().should('eq', `${Cypress.config().baseUrl}/modular-scale`);
 
@@ -21,7 +21,7 @@ describe('Keyboard users', () => {
     );
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
 
-    cy.findByText(/css/i).type('{enter}', {force: true});
+    cy.findByTestId('get-css-code-button').type('{enter}', {force: true});
     cy.url().should('eq', `${Cypress.config().baseUrl}/css`);
   });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import render from './test-utils/render';
-import {cleanup} from '@testing-library/react';
-import user from '@testing-library/user-event';
+import {cleanup, fireEvent} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 import {axe} from 'jest-axe';
@@ -367,8 +367,9 @@ test('Entering x-height value calls the handleXHeightChange function, but not th
   const xHeightInput = getByTestId('x-height-in-pixel');
   const userXheightList = ['9', '10']; // check if a two-digit number calls the function twice
   userXheightList.forEach(userXheight => {
+    userEvent.clear(xHeightInput);
     // execute
-    user.type(xHeightInput, userXheight);
+    userEvent.type(xHeightInput, userXheight);
     // verify
     expect(mockXHeightToFontSize).toHaveBeenCalledTimes(userXheight.length);
     expect(mockXHeightToFontSize).toHaveBeenCalledWith(
@@ -395,6 +396,92 @@ test('Blurring the input field calls the validateXHeight function', () => {
   getByTestId('x-height-in-pixel').blur();
   // verify
   expect(mockValidateXHeight).toHaveBeenCalled();
+});
+
+['ArrowUp', 'ArrowDown'].forEach(arrowKey => {
+  ['10.12345', '101', '-1'].forEach(invalidValue => {
+    test(`Pressing ${arrowKey} key calls the validateXHeight function if the input value is ${invalidValue}`, () => {
+      // setup
+      mockValidateXHeight.mockClear();
+
+      const {getByTestId} = render(
+        <XheightBox
+          handleXHeightChange={mockXHeightToFontSize}
+          validateXHeight={mockValidateXHeight}
+        />,
+      );
+      const xHeightInput = getByTestId('x-height-in-pixel');
+      userEvent.clear(xHeightInput);
+      userEvent.type(xHeightInput, invalidValue);
+
+      // execute
+      xHeightInput.focus();
+      fireEvent.keyDown(document.activeElement || document.body, {
+        key: arrowKey,
+        code: arrowKey,
+      });
+      // verify
+      expect(mockValidateXHeight).toHaveBeenCalledTimes(1);
+    });
+  });
+});
+
+test('Pressing arrow-up key calls the handleXHeightChange function with the value increased by 0.1', () => {
+  // setup
+  const initialValue = '10';
+  const expectedFinalValue = '10.1';
+
+  const {getByTestId} = render(
+    <XheightBox
+      handleXHeightChange={mockXHeightToFontSize}
+      validateXHeight={mockValidateXHeight}
+    />,
+  );
+  const xHeightInput = getByTestId('x-height-in-pixel');
+  userEvent.type(xHeightInput, initialValue);
+  mockXHeightToFontSize.mockClear();
+
+  // execute
+  xHeightInput.focus();
+  fireEvent.keyDown(document.activeElement || document.body, {
+    key: 'ArrowUp',
+    code: 'ArrowUp',
+  });
+  // verify
+  expect(mockXHeightToFontSize).toHaveBeenCalledTimes(1);
+  expect(mockXHeightToFontSize).toHaveBeenCalledWith(
+    expectedFinalValue,
+    xHeightInput.validity,
+  );
+});
+
+test('Pressing arrow-down key calls the handleXHeightChange function with the value decreased by 0.1', () => {
+  // setup
+  const initialValue = '10';
+  const expectedFinalValue = '9.9';
+
+  const {getByTestId} = render(
+    <XheightBox
+      handleXHeightChange={mockXHeightToFontSize}
+      validateXHeight={mockValidateXHeight}
+    />,
+  );
+  const xHeightInput = getByTestId('x-height-in-pixel');
+  userEvent.type(xHeightInput, initialValue);
+  mockXHeightToFontSize.mockClear();
+
+  // execute
+  xHeightInput.focus();
+  fireEvent.keyDown(document.activeElement || document.body, {
+    key: 'ArrowDown',
+    code: 'ArrowDown',
+  });
+  // verify
+  expect(mockXHeightToFontSize).toHaveBeenCalledTimes(1);
+  expect(mockXHeightToFontSize).toHaveBeenCalledWith(
+    expectedFinalValue,
+    xHeightInput.validity,
+  );
 });
 
 test('is accessible', async () => {

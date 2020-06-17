@@ -15,7 +15,7 @@ const DemoStartButton = props => {
     });
   };
   return (
-    <ButtonWithRightArrow onClick={handleClick}>
+    <ButtonWithRightArrow data-testid="demo-start-button" onClick={handleClick}>
       Start demo
     </ButtonWithRightArrow>
   );

@@ -6,6 +6,7 @@ import SampleParagraphs from './SampleParagraphs';
 import SectionFont from './SectionFont';
 import XheightBox from './XheightBox';
 import ModularScaleBoxes from './ModularScaleBoxes';
+import PreviewGuide from './PreviewGuide';
 import {
   ButtonWithRightArrow,
   ControlPanel,
@@ -79,6 +80,7 @@ const Preview = props => {
               <Section>
                 <ButtonWithRightArrow
                   type="submit"
+                  data-testid="get-css-code-button"
                   primary
                   disabled={props.cssButtonDisabled}
                 >
@@ -135,6 +137,8 @@ const Preview = props => {
             </ControlPanel>
           </Flexbox>
         </Form>
+        <SpacerVertical height="3" />
+        <PreviewGuide />
         <SpacerVertical height="3" />
       </main>
     </>

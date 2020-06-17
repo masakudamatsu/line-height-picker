@@ -18,7 +18,7 @@ describe('Landing Page', () => {
     const expectedFontSubfamily = 'Regular';
     const expectedFontWeight = '400';
     // execute
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
     cy.assertFontNameFromXheightPageOn(
@@ -85,7 +85,7 @@ describe('Landing Page: Error-handling', () => {
     const invalidFile = 'invalidFile.ttf';
     // execute
     cy.upload('hiddenFileInput', invalidFile); // see support/commands.js
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     // verify
     cy.url().should('eq', `${Cypress.config().baseUrl}/x-height`);
     cy.findByTestId('error-message-font-file').should('be.hidden');
@@ -123,7 +123,7 @@ describe('Landing page: Navigation bar', () => {
 
   it('DOES take the user to the x-height page after clicking number 2 in the header, if the user has already visited', () => {
     // set up
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByText('1').click();
     // execute
     cy.findByText('2').click();
@@ -133,7 +133,7 @@ describe('Landing page: Navigation bar', () => {
 
   it('DOES take the user to the modular-scale page after clicking number 3 in the header, if the user has already visited', () => {
     // set up
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
     cy.findByText('1').click();
@@ -145,7 +145,7 @@ describe('Landing page: Navigation bar', () => {
 
   it('DOES take the user to the preview page after clicking number 4 in the header, if the user has already visited', () => {
     // set up
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
@@ -160,13 +160,13 @@ describe('Landing page: Navigation bar', () => {
 
   it('DOES take the user to the get CSS page after clicking number 5 in the header, if the user has already visited', () => {
     // set up
-    cy.findByText(/demo/i).click();
+    cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
-    cy.findByText(/css/i).click();
+    cy.findByTestId('get-css-code-button').click();
     cy.findByText('1').click();
     // execute
     cy.findByText('5').click();
