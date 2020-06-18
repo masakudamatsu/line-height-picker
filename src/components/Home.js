@@ -24,13 +24,13 @@ const Home = props => {
       <MainLandingPage>
         <RightAligner>
           <SpacerVertical height="3" />
-          <Section>
+          <Section data-testid="logo">
             <Logo />
             <SpacerVertical height="3" />
             <Description />
           </Section>
           <SpacerVertical height="3" />
-          <Section>
+          <Section data-testid="buttons">
             <FontFileUploader
               home
               validateFileType={props.validateFileType}
