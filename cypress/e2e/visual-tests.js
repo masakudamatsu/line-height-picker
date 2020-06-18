@@ -28,13 +28,13 @@ describe('Visual regression tests', () => {
       it('Landing page: logo', () => {
         cy.findByTestId('logo').matchImageSnapshot(
           `landing-page-logo-${screenSize[0]}px`,
-        );
+        ); // return RangeError: The value of "offset" is out of range. It must be >= 0 and <= 13113564. Received -8592
       });
 
       it('Landing page: buttons', () => {
         cy.findByTestId('buttons').matchImageSnapshot(
           `landing-page-buttons-${screenSize[0]}px`,
-        );
+        ); // return RangeError: The value of "offset" is out of range. It must be >= 0 and <= 13113564. Received -8592
       });
 
       it('Landing page: about', () => {
@@ -45,7 +45,7 @@ describe('Visual regression tests', () => {
 
       it('Landing page: footer', () => {
         cy.findByTestId('footer').matchImageSnapshot(
-          `landing-page-about-${screenSize[0]}px`,
+          `landing-page-footer-${screenSize[0]}px`,
         );
       });
     });
