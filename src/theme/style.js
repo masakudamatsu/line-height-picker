@@ -391,10 +391,6 @@ export const UserDataDisplay = styled.p`
 
 // Buttons
 
-export const ButtonContainer = styled.div`
-  width: 100%;
-`;
-
 export const Button = styled.button`
   align-items: center; /* For when the as={Link} attribute is added.  */
   background-color: ${colorPalette.button.default};

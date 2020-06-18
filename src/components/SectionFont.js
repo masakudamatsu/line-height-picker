@@ -6,7 +6,6 @@ import FontFileUploader from './FontFileUploader';
 import FontNameDisplay from './FontNameDisplay';
 
 import {
-  ButtonContainer,
   LinearLight,
   Section,
   SectionTitle,
@@ -30,19 +29,17 @@ const SectionFont = props => {
         unitsPerEm={props.unitsPerEm}
       />
       <LinearLight />
-      <ButtonContainer>
-        <SpacerVertical height="2" />
-        <FontFileUploader
-          handleFontFile={props.handleFontFile}
-          validateFileType={props.validateFileType}
-        >
-          Change font…
-        </FontFileUploader>
-        <FontFileErrorMessage
-          data-testid="error-message-font-file"
-          fontFileError={props.fontFileError}
-        />
-      </ButtonContainer>
+      <SpacerVertical height="2" />
+      <FontFileUploader
+        handleFontFile={props.handleFontFile}
+        validateFileType={props.validateFileType}
+      >
+        Change font…
+      </FontFileUploader>
+      <FontFileErrorMessage
+        data-testid="error-message-font-file"
+        fontFileError={props.fontFileError}
+      />
       <SpacerVertical height="3" />
     </Section>
   );
