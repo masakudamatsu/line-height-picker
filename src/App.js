@@ -529,6 +529,7 @@ function App() {
                     <CSSTransition
                       key={location.key}
                       mountOnEnter
+                      timeout={300}
                       unmountOnExit
                     >
                       <div>
