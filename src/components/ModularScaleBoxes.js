@@ -102,7 +102,7 @@ const ModularScaleBoxes = props => {
             error={props.xHeightRatioRangeError || props.xHeightRatioStepError}
           />
         </RatioWrapper>
-        <ModularScaleInputUnit>to</ModularScaleInputUnit>
+        <ModularScaleInputUnit>:</ModularScaleInputUnit>
         <RatioWrapper>
           <Label htmlFor="line-height-for-ratio">line-height</Label>
           <ModularScaleInput

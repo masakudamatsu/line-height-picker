@@ -594,7 +594,7 @@ export const ModularScaleInputWrapper = styled.div`
 `;
 
 export const RatioWrapper = styled(InputWrapper)`
-  width: 45%;
+  width: 48%;
 `;
 
 export const ModularScaleInput = styled(NumberInput)`
@@ -602,7 +602,12 @@ export const ModularScaleInput = styled(NumberInput)`
   width: 100%;
 `;
 
-export const ModularScaleInputUnit = styled.span``;
+export const ModularScaleInputUnit = styled.span`
+  color: ${colorPalette.bodyText};
+  font-family: ${fontPalette.fontFamily.inputNumber};
+  font-size: ${fontPalette.fontSize.mobile.inputNumber / 2}rem;
+  font-weight: ${fontPalette.fontWeight.inputNumber};
+`;
 
 export const SampleParagraphWrapper = styled.div`
   font-family: ${props => props.fontMetrics.fontFamily};
