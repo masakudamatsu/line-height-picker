@@ -84,7 +84,7 @@ const Preview = props => {
                   primary
                   disabled={props.cssButtonDisabled}
                 >
-                  Get CSS code
+                  CSS code
                 </ButtonWithRightArrow>
                 <SpacerVertical height="3" />
               </Section>
