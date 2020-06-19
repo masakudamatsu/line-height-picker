@@ -4,7 +4,7 @@ describe('The 404 Page', () => {
     cy.visit('/random-text');
   });
 
-  it.only('shows up when the URL contains random text', () => {
+  it('shows up when the URL contains random text', () => {
     cy.findByText(/We cannot find the page you are looking for/i).should(
       'exist',
     );
@@ -12,7 +12,7 @@ describe('The 404 Page', () => {
     cy.findByTitle(/logo/i).should('exist');
   });
 
-  it.only('guides the user to the landing page', () => {
+  it('guides the user to the landing page', () => {
     cy.findByText(/landing page/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
