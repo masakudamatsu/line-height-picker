@@ -41,7 +41,7 @@ const XheightGuide = () => {
           same x-height—and the overall size of text—across fonts. For more
           detail on this point, I recommend reading{' '}
           <ExternalLink href="https://www.fonts.com/content/learning/fontology/level-1/type-anatomy/x-height">
-            Allan Haley's article entitled "X-height"
+            Allan Haley’s article entitled “X-height”
           </ExternalLink>
           .
         </ParagraphOneRem>

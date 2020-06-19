@@ -49,8 +49,8 @@ const About = () => {
       </ParagraphOneRem>
       <SpacerVertical height="2" />
       <ParagraphOneRem>
-        We will take you through this process step by step. Click the "Open font
-        file..." button above to select a font file. Or click the "Start demo"
+        We will take you through this process step by step. Click the “Open font
+        file...” button above to select a font file. Or click the “Start demo”
         button to see how the Line-height Picker works, with{' '}
         <ExternalLink href="https://fonts.google.com/specimen/Open+Sans">
           Open Sans

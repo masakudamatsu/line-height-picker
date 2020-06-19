@@ -70,7 +70,7 @@ const LineHeightGuide = () => {
         <SpacerVertical height="2" />
         <ParagraphOneRem>
           The 2:5 ratio of x-height to line-height is actually used in Twitter
-          (at least on iOS devices). The font is SF Pro Display, iOS's system
+          (at least on iOS devices). The font is SF Pro Display, iOS’s system
           font. The font-size is 25px, yielding the x-height of 14px. The
           line-height is 35px, 2.5 times as large as x-height. Personally,
           reading tweets on Twitter never disrupts the flow of reading text,
@@ -88,16 +88,16 @@ const LineHeightGuide = () => {
           The simplest ratio would be 1:2, which means the x-height stripe has
           the same height as the whitespace stripe. But such a tight
           line-spacing is likely to make the lowerpart of lowercase letters such
-          as g and y (known as "
+          as g and y (known as “
           <ExternalLink href="https://en.wikipedia.org/wiki/Descender">
             descender
           </ExternalLink>
-          ") overlap the upper part of lowercase letters such as d and h (known
-          as "
+          ”) overlap the upper part of lowercase letters such as d and h (known
+          as “
           <ExternalLink href="https://en.wikipedia.org/wiki/Ascender_(typography)">
             ascender
           </ExternalLink>
-          ").
+          ”).
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>

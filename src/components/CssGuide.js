@@ -27,7 +27,7 @@ const CssGuide = () => {
         <ParagraphOneRem>
           To learn about font metrics, I recommend reading{' '}
           <ExternalLink href="http://westonthayer.com/writing/intro-to-font-metrics/">
-            Weston Thayer's article entitled "Intro to Font Metrics"
+            Weston Thayer’s article entitled “Intro to Font Metrics”
           </ExternalLink>
           .
         </ParagraphOneRem>

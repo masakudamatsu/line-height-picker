@@ -521,7 +521,7 @@ test('renders correctly', () => {
               class="c13"
               href="http://westonthayer.com/writing/intro-to-font-metrics/"
             >
-              Weston Thayer's article entitled "Intro to Font Metrics"
+              Weston Thayer’s article entitled “Intro to Font Metrics”
             </a>
             .
           </p>
