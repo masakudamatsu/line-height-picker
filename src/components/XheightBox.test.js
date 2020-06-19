@@ -237,7 +237,7 @@ test('renders correctly', () => {
         <input
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           autocomplete="off"
-          class="sc-fzoNJl sc-fzoXWK c2"
+          class="sc-fzoyTs sc-fzoNJl c2"
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"
           inputmode="decimal"

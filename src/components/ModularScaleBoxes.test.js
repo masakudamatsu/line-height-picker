@@ -51,7 +51,7 @@ test('renders correctly', () => {
       margin-top: -0.4025em;
     }
 
-    .c10 {
+    .c11 {
       -webkit-align-items: flex-start;
       -webkit-box-align: flex-start;
       -ms-flex-align: flex-start;
@@ -65,7 +65,7 @@ test('renders correctly', () => {
       visibility: hidden;
     }
 
-    .c7 {
+    .c8 {
       -webkit-flex: 0 0 0.9427em;
       -ms-flex: 0 0 0.9427em;
       flex: 0 0 0.9427em;
@@ -78,7 +78,7 @@ test('renders correctly', () => {
       visibility: hidden;
     }
 
-    .c11 {
+    .c12 {
       -webkit-flex: 0 0 0.9427em;
       -ms-flex: 0 0 0.9427em;
       flex: 0 0 0.9427em;
@@ -98,7 +98,7 @@ test('renders correctly', () => {
       top: calc( 8px - 0.07162480376766091rem );
     }
 
-    .c8 {
+    .c9 {
       color: currentColor;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
@@ -106,27 +106,27 @@ test('renders correctly', () => {
       text-align: right;
     }
 
-    .c8::before,
-    .c8::after {
+    .c9::before,
+    .c9::after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c8::before {
+    .c9::before {
       margin-bottom: -0.2555em;
     }
 
-    .c8::after {
+    .c9::after {
       margin-top: -0.4025em;
     }
 
-    .c8::before {
+    .c9::before {
       margin-bottom: -0.4165em;
     }
 
-    .c6 {
+    .c7 {
       -webkit-align-items: flex-start;
       -webkit-box-align: flex-start;
       -ms-flex-align: flex-start;
@@ -160,7 +160,7 @@ test('renders correctly', () => {
     .c3 {
       height: 97.63392857142857px;
       position: relative;
-      width: 45%;
+      width: 48%;
     }
 
     .c5 {
@@ -188,12 +188,19 @@ test('renders correctly', () => {
       outline: none;
     }
 
+    .c6 {
+      color: hsl(0,0%,90%);
+      font-family: 'Fedra Mono 2',monospace;
+      font-size: 1.7049rem;
+      font-weight: 300;
+    }
+
     .c1 {
       height: 0.8035714285714286rem;
       width: auto;
     }
 
-    .c9 {
+    .c10 {
       height: 1.2053571428571428rem;
       width: auto;
     }
@@ -219,13 +226,19 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
+      .c6 {
+        font-size: 1.9890rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
       .c1 {
         height: 0.9375rem;
       }
     }
 
     @media only screen and (min-width:728px) {
-      .c9 {
+      .c10 {
         height: 1.40625rem;
       }
     }
@@ -244,7 +257,7 @@ test('renders correctly', () => {
         class="c2"
       >
         <div
-          class="sc-fzqNqU c3"
+          class="sc-fzqARJ c3"
         >
           <label
             class="c4"
@@ -255,7 +268,7 @@ test('renders correctly', () => {
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
             autocomplete="off"
-            class="sc-fzoNJl sc-fzoXWK c5"
+            class="sc-fzoyTs sc-fzoNJl c5"
             data-testid="x-height-for-ratio"
             id="x-height-for-ratio"
             inputmode="decimal"
@@ -266,12 +279,12 @@ test('renders correctly', () => {
           />
         </div>
         <span
-          class=""
+          class="c6"
         >
-          to
+          :
         </span>
         <div
-          class="sc-fzqNqU c3"
+          class="sc-fzqARJ c3"
         >
           <label
             class="c4"
@@ -282,7 +295,7 @@ test('renders correctly', () => {
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
             autocomplete="off"
-            class="sc-fzoNJl sc-fzoXWK c5"
+            class="sc-fzoyTs sc-fzoNJl c5"
             data-testid="line-height-for-ratio"
             id="line-height-for-ratio"
             inputmode="decimal"
@@ -298,10 +311,10 @@ test('renders correctly', () => {
         height="1"
       />
       <div
-        class="c6"
+        class="c7"
       >
         <svg
-          class="c7"
+          class="c8"
           fill="none"
           height="24"
           role="img"
@@ -328,7 +341,7 @@ test('renders correctly', () => {
           />
         </svg>
         <p
-          class="c8"
+          class="c9"
           data-testid="instruction-modular-scale"
           id="howManyDecimalPlacesAllowed"
         >
@@ -336,14 +349,14 @@ test('renders correctly', () => {
         </p>
       </div>
       <div
-        class="c9"
+        class="c10"
         height="2"
       />
       <div
-        class="c10"
+        class="c11"
       >
         <svg
-          class="c11"
+          class="c12"
           fill="none"
           height="24"
           role="img"
