@@ -71,6 +71,7 @@ test('renders correctly', () => {
       position: inherit;
       bottom: 0;
       left: 0;
+      width: 100%;
     }
 
     .c2 {

@@ -34,6 +34,13 @@ const Header = props => {
     step5 = <Step number={5} done stepNow={props.stepNow} />;
   }
   switch (props.stepNow) {
+    case 0: // Gray out all the steps, even if already visited
+      step1 = <Step number={1} stepNow={props.stepNow} />;
+      step2 = <Step number={2} stepNow={props.stepNow} />;
+      step3 = <Step number={3} stepNow={props.stepNow} />;
+      step4 = <Step number={4} stepNow={props.stepNow} />;
+      step5 = <Step number={5} stepNow={props.stepNow} />;
+      break;
     case 1:
       step1 = <Step number={1} now stepNow={props.stepNow} />;
       break;

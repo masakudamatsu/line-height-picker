@@ -4,15 +4,19 @@ describe('The 404 Page', () => {
     cy.visit('/random-text');
   });
 
-  it('shows up when the URL contains random text', () => {
-    cy.findByText(/404/).should('exist');
+  it.only('shows up when the URL contains random text', () => {
+    cy.findByText(/We cannot find the page you are looking for/i).should(
+      'exist',
+    );
     cy.get('h1').should('have.text', 'Line-height Picker');
     cy.findByTitle(/logo/i).should('exist');
   });
-  it('guides the user to the landing page', () => {
-    cy.findByText(/click/i).click();
+
+  it.only('guides the user to the landing page', () => {
+    cy.findByText(/landing page/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
+
   it('shows other UI components', () => {
     cy.findByTestId('footer').should('exist');
   });

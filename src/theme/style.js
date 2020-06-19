@@ -642,6 +642,7 @@ export const FooterWrapper = styled(Section)`
   position: ${props => (props.page404 ? 'absolute' : 'inherit')};
   bottom: 0;
   left: 0;
+  width: 100%;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
     max-width: calc(
       ${fontPalette.width.controlPanel}px + ${fontPalette.maxWidthInEm}em +
@@ -663,6 +664,7 @@ export const ParagraphFooter = styled(ParagraphOneRem)`
 
 export const FullScreenSpreader = styled.div`
   height: 100vh;
+  position: relative; /* For the absolutely positioned FooterWrapper to respect the side margin set by SideMarginRegulator */
 `;
 
 // Layout
@@ -753,4 +755,14 @@ export const ControlPanel = styled.div`
     padding: 0 ${fontPalette.marginSide.desktop.first}px;
     width: ${fontPalette.width.controlPanel}px;
   }
+`;
+
+export const ErrorPageTitleWord = styled.div`
+  display: inline-block;
+  padding-right: 0.5em;
+`;
+export const Rotate = styled.span`
+  display: inline-block;
+  text-transform: uppercase;
+  transform: rotate(${props => props.degree}deg);
 `;
