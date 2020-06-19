@@ -605,8 +605,12 @@ export const ModularScaleInput = styled(NumberInput)`
 export const ModularScaleInputUnit = styled.span`
   color: ${colorPalette.bodyText};
   font-family: ${fontPalette.fontFamily.inputNumber};
-  font-size: ${fontPalette.fontSize.mobile.inputNumber / 2}rem;
+  font-size: ${fontPalette.fontSize.mobile.modularScaleColon}rem;
   font-weight: ${fontPalette.fontWeight.inputNumber};
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
+    font-size: ${fontPalette.fontSize.desktop.modularScaleColon}rem;
+  }
 `;
 
 export const SampleParagraphWrapper = styled.div`

@@ -56,11 +56,13 @@ const capHeightRem = {
   mobile: {
     fontName: xHeightRem.mobile.bodyText * Math.pow(modularScale, 3),
     inputNumber: xHeightRem.mobile.bodyText * Math.pow(modularScale, 3),
+    modularScaleColon: xHeightRem.mobile.bodyText * Math.pow(modularScale, 2),
     stepNumber: xHeightRem.mobile.bodyText * Math.pow(modularScale, 1),
   },
   desktop: {
     fontName: xHeightRem.desktop.bodyText * Math.pow(modularScale, 3),
     inputNumber: xHeightRem.desktop.bodyText * Math.pow(modularScale, 3),
+    modularScaleColon: xHeightRem.desktop.bodyText * Math.pow(modularScale, 2),
     stepNumber: xHeightRem.desktop.bodyText * Math.pow(modularScale, 1),
   },
 };
@@ -225,6 +227,9 @@ const fontPalette = {
       landingPage: getFontSizeFromXHeight(
         xHeightRem.mobile.landingPage,
       ).toFixed(4),
+      modularScaleColon: getFontSizeFromCapHeight(
+        capHeightRem.mobile.modularScaleColon,
+      ).toFixed(4),
       sectionTitle: getFontSizeFromXHeight(
         xHeightRem.mobile.sectionTitle,
       ).toFixed(4),
@@ -240,6 +245,9 @@ const fontPalette = {
       ).toFixed(4),
       landingPage: getFontSizeFromXHeight(
         xHeightRem.desktop.landingPage,
+      ).toFixed(4),
+      modularScaleColon: getFontSizeFromCapHeight(
+        capHeightRem.desktop.modularScaleColon,
       ).toFixed(4),
       sectionTitle: getFontSizeFromXHeight(
         xHeightRem.desktop.sectionTitle,
