@@ -36,10 +36,10 @@ test('renders correctly', () => {
       text-shadow: none;
     }
 
-    .c4:focus::before,
-    .c4:hover::before,
-    .c4:focus::after,
-    .c4:hover::after {
+    .c4:focus:before,
+    .c4:hover:before,
+    .c4:focus:after,
+    .c4:hover:after {
       display: none;
     }
 
@@ -54,10 +54,10 @@ test('renders correctly', () => {
       text-shadow: none;
     }
 
-    .c4:visited:focus::before,
-    .c4:visited:hover::before,
-    .c4:visited:focus::after,
-    .c4:visited:hover::after {
+    .c4:visited:focus:before,
+    .c4:visited:hover:before,
+    .c4:visited:focus:after,
+    .c4:visited:hover:after {
       display: none;
     }
 
@@ -85,19 +85,19 @@ test('renders correctly', () => {
       font-weight: 300;
     }
 
-    .c2::before,
-    .c2::after {
+    .c2:before,
+    .c2:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c2::before {
+    .c2:before {
       margin-bottom: -0.2555em;
     }
 
-    .c2::after {
+    .c2:after {
       margin-top: -0.4025em;
     }
 

@@ -11,7 +11,7 @@ import Error from './Error';
 test('renders correctly', () => {
   const {container} = render(<Error />);
   expect(container).toMatchInlineSnapshot(`
-    .c21 {
+    .c20 {
       background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
       background-position: 0 calc( 0.125em + 0.707em );
@@ -24,45 +24,45 @@ test('renders correctly', () => {
       text-shadow: 0.03em 0 hsl(0,0%,10%), -0.03em 0 hsl(0,0%,10%),0 0.03em hsl(0,0%,10%), 0 -0.03em hsl(0,0%,10%);
     }
 
-    .c21:visited {
+    .c20:visited {
       background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
       color: currentColor;
     }
 
-    .c21:focus,
-    .c21:hover {
+    .c20:focus,
+    .c20:hover {
       background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
     }
 
-    .c21:focus::before,
-    .c21:hover::before,
-    .c21:focus::after,
-    .c21:hover::after {
+    .c20:focus:before,
+    .c20:hover:before,
+    .c20:focus:after,
+    .c20:hover:after {
       display: none;
     }
 
-    .c21:active {
+    .c20:active {
       background: none;
     }
 
-    .c21:visited:focus,
-    .c21:visited:hover {
+    .c20:visited:focus,
+    .c20:visited:hover {
       background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
     }
 
-    .c21:visited:focus::before,
-    .c21:visited:hover::before,
-    .c21:visited:focus::after,
-    .c21:visited:hover::after {
+    .c20:visited:focus:before,
+    .c20:visited:hover:before,
+    .c20:visited:focus:after,
+    .c20:visited:hover:after {
       display: none;
     }
 
-    .c21:visited:active {
+    .c20:visited:active {
       background: none;
     }
 
@@ -77,42 +77,42 @@ test('renders correctly', () => {
       line-height: 1.0920;
     }
 
-    .c2::before,
-    .c2::after {
+    .c2:before,
+    .c2:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c2::before {
+    .c2:before {
       margin-bottom: -0.1190em;
     }
 
-    .c2::after {
+    .c2:after {
       margin-top: -0.2660em;
     }
 
-    .c20 {
+    .c19 {
       color: currentColor;
       font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c20::before,
-    .c20::after {
+    .c19:before,
+    .c19:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c20::before {
+    .c19:before {
       margin-bottom: -0.2555em;
     }
 
-    .c20::after {
+    .c19:after {
       margin-top: -0.4025em;
     }
 
@@ -121,7 +121,7 @@ test('renders correctly', () => {
       width: auto;
     }
 
-    .c19 {
+    .c18 {
       height: 1.2053571428571428rem;
       width: auto;
     }
@@ -134,100 +134,92 @@ test('renders correctly', () => {
     .c4 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(167deg);
-      -ms-transform: rotate(167deg);
-      transform: rotate(167deg);
+      -webkit-transform: rotate(220deg);
+      -ms-transform: rotate(220deg);
+      transform: rotate(220deg);
     }
 
     .c5 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(174deg);
-      -ms-transform: rotate(174deg);
-      transform: rotate(174deg);
+      -webkit-transform: rotate(196deg);
+      -ms-transform: rotate(196deg);
+      transform: rotate(196deg);
     }
 
     .c6 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(59deg);
-      -ms-transform: rotate(59deg);
-      transform: rotate(59deg);
+      -webkit-transform: rotate(283deg);
+      -ms-transform: rotate(283deg);
+      transform: rotate(283deg);
     }
 
     .c7 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(177deg);
-      -ms-transform: rotate(177deg);
-      transform: rotate(177deg);
+      -webkit-transform: rotate(312deg);
+      -ms-transform: rotate(312deg);
+      transform: rotate(312deg);
     }
 
     .c8 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(39deg);
-      -ms-transform: rotate(39deg);
-      transform: rotate(39deg);
+      -webkit-transform: rotate(85deg);
+      -ms-transform: rotate(85deg);
+      transform: rotate(85deg);
     }
 
     .c9 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(79deg);
-      -ms-transform: rotate(79deg);
-      transform: rotate(79deg);
+      -webkit-transform: rotate(103deg);
+      -ms-transform: rotate(103deg);
+      transform: rotate(103deg);
     }
 
     .c10 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(209deg);
-      -ms-transform: rotate(209deg);
-      transform: rotate(209deg);
+      -webkit-transform: rotate(325deg);
+      -ms-transform: rotate(325deg);
+      transform: rotate(325deg);
     }
 
     .c11 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(160deg);
-      -ms-transform: rotate(160deg);
-      transform: rotate(160deg);
+      -webkit-transform: rotate(61deg);
+      -ms-transform: rotate(61deg);
+      transform: rotate(61deg);
     }
 
     .c12 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(189deg);
-      -ms-transform: rotate(189deg);
-      transform: rotate(189deg);
+      -webkit-transform: rotate(182deg);
+      -ms-transform: rotate(182deg);
+      transform: rotate(182deg);
     }
 
     .c13 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(299deg);
-      -ms-transform: rotate(299deg);
-      transform: rotate(299deg);
+      -webkit-transform: rotate(257deg);
+      -ms-transform: rotate(257deg);
+      transform: rotate(257deg);
     }
 
     .c14 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(250deg);
-      -ms-transform: rotate(250deg);
-      transform: rotate(250deg);
+      -webkit-transform: rotate(146deg);
+      -ms-transform: rotate(146deg);
+      transform: rotate(146deg);
     }
 
     .c15 {
-      display: inline-block;
-      text-transform: uppercase;
-      -webkit-transform: rotate(8deg);
-      -ms-transform: rotate(8deg);
-      transform: rotate(8deg);
-    }
-
-    .c16 {
       display: inline-block;
       text-transform: uppercase;
       -webkit-transform: rotate(178deg);
@@ -235,20 +227,20 @@ test('renders correctly', () => {
       transform: rotate(178deg);
     }
 
+    .c16 {
+      display: inline-block;
+      text-transform: uppercase;
+      -webkit-transform: rotate(65deg);
+      -ms-transform: rotate(65deg);
+      transform: rotate(65deg);
+    }
+
     .c17 {
       display: inline-block;
       text-transform: uppercase;
-      -webkit-transform: rotate(225deg);
-      -ms-transform: rotate(225deg);
-      transform: rotate(225deg);
-    }
-
-    .c18 {
-      display: inline-block;
-      text-transform: uppercase;
-      -webkit-transform: rotate(289deg);
-      -ms-transform: rotate(289deg);
-      transform: rotate(289deg);
+      -webkit-transform: rotate(157deg);
+      -ms-transform: rotate(157deg);
+      transform: rotate(157deg);
     }
 
     @media only screen and (min-width:728px) {
@@ -264,7 +256,7 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c19 {
+      .c18 {
         height: 1.40625rem;
       }
     }
@@ -319,7 +311,7 @@ test('renders correctly', () => {
                 g
               </span>
               <span
-                class="c10"
+                class="c7"
               >
                 e
               </span>
@@ -328,17 +320,17 @@ test('renders correctly', () => {
               class="c3"
             >
               <span
-                class="c11"
+                class="c10"
               >
                 n
               </span>
               <span
-                class="c12"
+                class="c11"
               >
                 o
               </span>
               <span
-                class="c13"
+                class="c12"
               >
                 t
               </span>
@@ -347,43 +339,43 @@ test('renders correctly', () => {
               class="c3"
             >
               <span
-                class="c14"
+                class="c13"
               >
                 f
               </span>
               <span
-                class="c15"
+                class="c14"
               >
                 o
               </span>
               <span
-                class="c16"
+                class="c15"
               >
                 u
               </span>
               <span
-                class="c17"
+                class="c16"
               >
                 n
               </span>
               <span
-                class="c18"
+                class="c17"
               >
                 d
               </span>
             </div>
           </h2>
           <div
-            class="c19"
+            class="c18"
             height="2"
           />
           <p
-            class="c20"
+            class="c19"
           >
             We cannot find the page you are looking for. Please visit the
              
             <a
-              class="c21"
+              class="c20"
               href="/"
             >
               landing page of the Line-height Picker

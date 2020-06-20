@@ -58,10 +58,10 @@ test('renders correctly', () => {
       text-shadow: none;
     }
 
-    .c5:focus::before,
-    .c5:hover::before,
-    .c5:focus::after,
-    .c5:hover::after {
+    .c5:focus:before,
+    .c5:hover:before,
+    .c5:focus:after,
+    .c5:hover:after {
       display: none;
     }
 
@@ -76,10 +76,10 @@ test('renders correctly', () => {
       text-shadow: none;
     }
 
-    .c5:visited:focus::before,
-    .c5:visited:hover::before,
-    .c5:visited:focus::after,
-    .c5:visited:hover::after {
+    .c5:visited:focus:before,
+    .c5:visited:hover:before,
+    .c5:visited:focus:after,
+    .c5:visited:hover:after {
       display: none;
     }
 
@@ -94,19 +94,19 @@ test('renders correctly', () => {
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c3::before,
-    .c3::after {
+    .c3:before,
+    .c3:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c3::before {
+    .c3:before {
       margin-bottom: -0.2555em;
     }
 
-    .c3::after {
+    .c3:after {
       margin-top: -0.4025em;
     }
 

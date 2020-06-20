@@ -35,19 +35,19 @@ test('renders correctly', () => {
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c0::before,
-    .c0::after {
+    .c0:before,
+    .c0:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c0::before {
+    .c0:before {
       margin-bottom: -0.2555em;
     }
 
-    .c0::after {
+    .c0:after {
       margin-top: -0.4025em;
     }
 
@@ -106,23 +106,23 @@ test('renders correctly', () => {
       text-align: right;
     }
 
-    .c9::before,
-    .c9::after {
+    .c9:before,
+    .c9:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c9::before {
+    .c9:before {
       margin-bottom: -0.2555em;
     }
 
-    .c9::after {
+    .c9:after {
       margin-top: -0.4025em;
     }
 
-    .c9::before {
+    .c9:before {
       margin-bottom: -0.4165em;
     }
 

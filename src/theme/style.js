@@ -60,8 +60,8 @@ const linkTextStyle = css`
     background: ${colorPalette.link.background.hover};
     outline: none;
     text-shadow: none;
-    &::before,
-    &::after {
+    &:before,
+    &:after {
       display: none; /* Disable Text Crop */
     }
   }
@@ -75,8 +75,8 @@ const linkTextStyle = css`
     background: ${colorPalette.link.background.hoverVisited};
     outline: none;
     text-shadow: none;
-    &::before,
-    &::after {
+    &:before,
+    &:after {
       display: none; /* Disable Text Crop */
     }
   }
@@ -107,17 +107,17 @@ export const SectionTitle = styled.h2`
     font-size: ${fontPalette.fontSize.desktop.sectionTitle}rem;
   }
   /* Text Box Cropping parameters */
-  &::before,
-  &::after {
+  &:before,
+  &:after {
     content: '';
     display: block;
     height: 0;
     width: 0;
   }
-  &::before {
+  &:before {
     margin-bottom: -${fontPalette.textCrop.topCap.sectionTitle}em;
   }
-  &::after {
+  &:after {
     margin-top: -${fontPalette.textCrop.bottom.sectionTitle}em;
   }
 `;
@@ -131,17 +131,17 @@ export const ParagraphOneRem = styled.p`
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
 
   /* Text Box Cropping */
-  &::before,
-  &::after {
+  &:before,
+  &:after {
     content: '';
     display: block;
     height: 0;
     width: 0;
   }
-  &::before {
+  &:before {
     margin-bottom: -${fontPalette.textCrop.topCap.bodyText}em;
   }
-  &::after {
+  &:after {
     margin-top: -${fontPalette.textCrop.bottom.bodyText}em;
   }
 `;
@@ -302,17 +302,17 @@ export const StepNumber = styled.a`
   }
 
   /* Text Box Cropping parameters */
-  &::before,
-  &::after {
+  &:before,
+  &:after {
     content: '';
     display: block;
     height: 0;
     width: 0;
   }
-  &::before {
+  &:before {
     margin-bottom: -${fontPalette.textCrop.topCap.stepNumber}em;
   }
-  &::after {
+  &:after {
     margin-top: -${fontPalette.textCrop.bottom.stepNumber}em;
   }
 `;
@@ -366,21 +366,21 @@ export const UserDataDisplay = styled.p`
     padding-top: ${fontPalette.fontName.paddingTop.desktop.toFixed(4)}rem;
   }
   /* Text Box Cropping parameters */
-  &::before,
-  &::after {
+  &:before,
+  &:after {
     content: '';
     display: block;
     height: 0;
     width: 0;
   }
-  &::before {
+  &:before {
     margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
         .fontSize}px) {
       margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
     }
   }
-  &::after {
+  &:after {
     margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
         .fontSize}px) {
@@ -448,7 +448,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonWithRightArrow = styled(Button)`
-  &::after {
+  &:after {
     content: '→';
     position: absolute;
     right: ${buttonSize.paddingSide.mobile / 2}px;
@@ -460,7 +460,7 @@ export const ButtonWithRightArrow = styled(Button)`
 `;
 
 export const ButtonWithLeftArrow = styled(Button)`
-  &::before {
+  &:before {
     content: '←';
     position: absolute;
     left: ${buttonSize.paddingSide.mobile / 2}px;
@@ -553,7 +553,7 @@ export const NumberInput = styled(Input).attrs(props => ({
 export const InputInstruction = styled(ParagraphOneRem)`
   text-align: right;
   /* Crop top of text box to x-height, not cap-height */
-  &::before {
+  &:before {
     margin-bottom: -${fontPalette.textCrop.topX.bodyText}em;
   }
 `;

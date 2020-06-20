@@ -36,19 +36,19 @@ test('renders correctly', () => {
       padding-top: 1.3058rem;
     }
 
-    .c1::before,
-    .c1::after {
+    .c1:before,
+    .c1:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c1::before {
+    .c1:before {
       margin-bottom: -NaNrem;
     }
 
-    .c1::after {
+    .c1:after {
       margin-top: -NaNrem;
     }
 
@@ -68,13 +68,13 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c1::before {
+      .c1:before {
         margin-bottom: -NaNrem;
       }
     }
 
     @media only screen and (min-width:728px) {
-      .c1::after {
+      .c1:after {
         margin-top: -NaNrem;
       }
     }

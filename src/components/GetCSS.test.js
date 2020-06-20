@@ -54,10 +54,10 @@ test('renders correctly', () => {
       text-shadow: none;
     }
 
-    .c13:focus::before,
-    .c13:hover::before,
-    .c13:focus::after,
-    .c13:hover::after {
+    .c13:focus:before,
+    .c13:hover:before,
+    .c13:focus:after,
+    .c13:hover:after {
       display: none;
     }
 
@@ -72,10 +72,10 @@ test('renders correctly', () => {
       text-shadow: none;
     }
 
-    .c13:visited:focus::before,
-    .c13:visited:hover::before,
-    .c13:visited:focus::after,
-    .c13:visited:hover::after {
+    .c13:visited:focus:before,
+    .c13:visited:hover:before,
+    .c13:visited:focus:after,
+    .c13:visited:hover:after {
       display: none;
     }
 
@@ -94,19 +94,19 @@ test('renders correctly', () => {
       line-height: 1.0920;
     }
 
-    .c2::before,
-    .c2::after {
+    .c2:before,
+    .c2:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c2::before {
+    .c2:before {
       margin-bottom: -0.1190em;
     }
 
-    .c2::after {
+    .c2:after {
       margin-top: -0.2660em;
     }
 
@@ -117,19 +117,19 @@ test('renders correctly', () => {
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c11::before,
-    .c11::after {
+    .c11:before,
+    .c11:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c11::before {
+    .c11:before {
       margin-bottom: -0.2555em;
     }
 
-    .c11::after {
+    .c11:after {
       margin-top: -0.4025em;
     }
 
@@ -140,19 +140,19 @@ test('renders correctly', () => {
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c12::before,
-    .c12::after {
+    .c12:before,
+    .c12:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c12::before {
+    .c12:before {
       margin-bottom: -0.2555em;
     }
 
-    .c12::after {
+    .c12:after {
       margin-top: -0.4025em;
     }
 
@@ -299,7 +299,7 @@ test('renders correctly', () => {
       opacity: 0.35;
     }
 
-    .c8::before {
+    .c8:before {
       content: '←';
       position: absolute;
       left: 14.464285714285712px;
@@ -347,7 +347,7 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c8::before {
+      .c8:before {
         left: 16.875px;
       }
     }

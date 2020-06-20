@@ -66,7 +66,7 @@ test('renders correctly', () => {
       opacity: 0.35;
     }
 
-    .c0::after {
+    .c0:after {
       content: '→';
       position: absolute;
       right: 14.464285714285712px;
@@ -82,7 +82,7 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c0::after {
+      .c0:after {
         right: 16.875px;
       }
     }
