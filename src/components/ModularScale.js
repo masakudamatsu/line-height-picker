@@ -127,9 +127,9 @@ const ModularScale = props => {
 };
 
 ModularScale.propTypes = {
-  ascender: PropTypes.number,
-  capHeight: PropTypes.number,
-  descender: PropTypes.number,
+  ascender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  capHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  descender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   disablePreviewButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
@@ -143,8 +143,11 @@ ModularScale.propTypes = {
   lineHeightRatio: PropTypes.string,
   lineHeightRatioRangeError: PropTypes.string,
   lineHeightRatioStepError: PropTypes.string,
-  previewButtonDisabled: PropTypes.bool,
-  unitsPerEm: PropTypes.number,
+  previewButtonDisabled: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(['']),
+  ]),
+  unitsPerEm: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   validateFileType: PropTypes.func.isRequired,
   validateLineHeightRatio: PropTypes.func.isRequired,
   validateXHeightRatio: PropTypes.func.isRequired,

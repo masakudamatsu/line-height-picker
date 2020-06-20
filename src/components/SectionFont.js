@@ -46,15 +46,15 @@ const SectionFont = props => {
 };
 
 SectionFont.propTypes = {
-  ascender: PropTypes.number,
-  capHeight: PropTypes.number,
-  descender: PropTypes.number,
+  ascender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  capHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  descender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontSubfamily: PropTypes.string,
   fontWeight: PropTypes.string,
   handleFontFile: PropTypes.func.isRequired,
-  unitsPerEm: PropTypes.number,
+  unitsPerEm: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   validateFileType: PropTypes.func.isRequired,
 };
 

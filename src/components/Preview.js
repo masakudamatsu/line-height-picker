@@ -146,10 +146,13 @@ const Preview = props => {
 };
 
 Preview.propTypes = {
-  ascender: PropTypes.number,
-  capHeight: PropTypes.number,
-  cssButtonDisabled: PropTypes.bool,
-  descender: PropTypes.number,
+  ascender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  capHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  cssButtonDisabled: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(['']),
+  ]),
+  descender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   disableCssButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
@@ -168,7 +171,7 @@ Preview.propTypes = {
   lineHeightRatioRangeError: PropTypes.string,
   lineHeightRatioStepError: PropTypes.string,
   marginTop: PropTypes.string,
-  unitsPerEm: PropTypes.number,
+  unitsPerEm: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   validateFileType: PropTypes.func.isRequired,
   validateLineHeightRatio: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,

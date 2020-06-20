@@ -93,9 +93,9 @@ const Xheight = props => {
 };
 
 Xheight.propTypes = {
-  ascender: PropTypes.number,
-  capHeight: PropTypes.number,
-  descender: PropTypes.number,
+  ascender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  capHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  descender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   disableNextButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
@@ -104,8 +104,11 @@ Xheight.propTypes = {
   handleFontFile: PropTypes.func.isRequired,
   handleNoXHeight: PropTypes.func.isRequired,
   handleXHeightChange: PropTypes.func.isRequired,
-  nextButtonDisabled: PropTypes.bool,
-  unitsPerEm: PropTypes.number,
+  nextButtonDisabled: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(['']),
+  ]),
+  unitsPerEm: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   validateFileType: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
