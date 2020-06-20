@@ -351,9 +351,9 @@ export const UserDataDisplay = styled.p`
       fontPalette.fontName.capHeight.mobile
     ).toFixed(4)}rem;
   font-weight: ${props => props.fontWeight};
-  line-height: ${fontPalette.fontName.lineHeightRem.mobile.toFixed(4)}rem;
-  padding-bottom: ${fontPalette.fontName.paddingBottom.mobile.toFixed(4)}rem;
-  padding-top: ${fontPalette.fontName.paddingTop.mobile.toFixed(4)}rem;
+  line-height: ${fontPalette.fontName.lineHeightRem.mobile}rem;
+  padding-bottom: ${fontPalette.fontName.paddingBottom.mobile}rem;
+  padding-top: ${fontPalette.fontName.paddingTop.mobile}rem;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
       .fontSize}px) {
     font-size: ${props =>
@@ -361,9 +361,9 @@ export const UserDataDisplay = styled.p`
         (props.unitsPerEm / props.capHeight) *
         fontPalette.fontName.capHeight.desktop
       ).toFixed(4)}rem;
-    line-height: ${fontPalette.fontName.lineHeightRem.desktop.toFixed(4)}rem;
-    padding-bottom: ${fontPalette.fontName.paddingBottom.desktop.toFixed(4)}rem;
-    padding-top: ${fontPalette.fontName.paddingTop.desktop.toFixed(4)}rem;
+    line-height: ${fontPalette.fontName.lineHeightRem.desktop}rem;
+    padding-bottom: ${fontPalette.fontName.paddingBottom.desktop}rem;
+    padding-top: ${fontPalette.fontName.paddingTop.desktop}rem;
   }
   /* Text Box Cropping parameters */
   &:before,
@@ -374,17 +374,17 @@ export const UserDataDisplay = styled.p`
     width: 0;
   }
   &:before {
-    margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
+    margin-bottom: -${props => (((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.mobile).toFixed(4)}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
         .fontSize}px) {
-      margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
+      margin-bottom: -${props => (((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.desktop).toFixed(4)}rem;
     }
   }
   &:after {
-    margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
+    margin-top: -${props => ((-props.descender / props.capHeight) * fontPalette.fontName.capHeight.mobile).toFixed(4)}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
         .fontSize}px) {
-      margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
+      margin-top: -${props => ((-props.descender / props.capHeight) * fontPalette.fontName.capHeight.desktop).toFixed(4)}rem;
     }
   }
 `;

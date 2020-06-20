@@ -42,11 +42,26 @@ const buttonWidth = {
 };
 
 const buttonSize = {
-  borderRadius: buttonBorderRadius,
-  fontSize: buttonFontSize,
-  height: buttonHeight,
-  paddingSide: buttonPaddingSide,
-  width: buttonWidth,
+  borderRadius: {
+    mobile: buttonBorderRadius.mobile.toFixed(4),
+    desktop: buttonBorderRadius.desktop.toFixed(4),
+  },
+  fontSize: {
+    mobile: buttonFontSize.mobile.toFixed(4),
+    desktop: buttonFontSize.desktop.toFixed(4),
+  },
+  height: {
+    mobile: buttonHeight.mobile.toFixed(4),
+    desktop: buttonHeight.desktop.toFixed(4),
+  },
+  paddingSide: {
+    mobile: buttonPaddingSide.mobile.toFixed(4),
+    desktop: buttonPaddingSide.desktop.toFixed(4),
+  },
+  width: {
+    mobile: buttonWidth.mobile.toFixed(4),
+    desktop: buttonWidth.desktop.toFixed(4),
+  },
 };
 
 export default buttonSize;

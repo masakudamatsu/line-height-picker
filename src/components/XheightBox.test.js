@@ -88,7 +88,7 @@ test('renders correctly', () => {
     }
 
     .c0 {
-      height: 97.63392857142857px;
+      height: 97.6339px;
       position: relative;
     }
 
@@ -96,7 +96,7 @@ test('renders correctly', () => {
       position: absolute;
       left: 16px;
       top: 8px;
-      top: calc( 8px - 0.07162480376766091rem );
+      top: calc( 8px - 0.0716rem );
     }
 
     .c7 {
@@ -188,13 +188,13 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:728px) {
       .c0 {
-        height: 113.90625px;
+        height: 113.9063px;
       }
     }
 
     @media only screen and (min-width:728px) {
       .c1 {
-        top: calc( 8px - 0.08356227106227106rem );
+        top: calc( 8px - 0.0836rem );
       }
     }
 

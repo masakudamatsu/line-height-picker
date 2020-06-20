@@ -25,7 +25,7 @@ test('renders correctly', () => {
       display: -ms-flexbox;
       display: flex;
       height: auto;
-      min-height: 97.63392857142857px;
+      min-height: 97.6339px;
     }
 
     .c1 {
@@ -54,7 +54,7 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:728px) {
       .c0 {
-        min-height: 113.90625px;
+        min-height: 113.9063px;
       }
     }
 

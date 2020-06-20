@@ -113,7 +113,7 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:799px) {
       .c0 {
-        max-width: calc( 388px + 33em + 22.5px );
+        max-width: calc( 388px + 33em + 22.5000px );
       }
     }
 

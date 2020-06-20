@@ -112,7 +112,7 @@ const getTextCropBottom = lineHeightCss => {
   return (
     fontMetricsFedraSans.descender / fontMetricsFedraSans.unitsPerEm +
     (lineHeightCss - 1) / 2
-  ).toFixed(4);
+  );
 };
 
 const getTextCropTopCap = lineHeightCss => {
@@ -120,7 +120,7 @@ const getTextCropTopCap = lineHeightCss => {
     (fontMetricsFedraSans.ascender - fontMetricsFedraSans.capHeight) /
       fontMetricsFedraSans.unitsPerEm +
     (lineHeightCss - 1) / 2
-  ).toFixed(4);
+  );
 };
 
 const getTextCropTopX = lineHeightCss => {
@@ -128,7 +128,7 @@ const getTextCropTopX = lineHeightCss => {
     (fontMetricsFedraSans.ascender - fontMetricsFedraSans.xHeight) /
       fontMetricsFedraSans.unitsPerEm +
     (lineHeightCss - 1) / 2
-  ).toFixed(4);
+  );
 };
 
 // Side margins
@@ -162,10 +162,7 @@ const breakpointSideMargin = {
 };
 
 // Breakpoint for layout
-const breakpointLayout = (
-  controlPanelWidth * 2 +
-  sideMarginDesktop.first
-).toFixed(0);
+const breakpointLayout = controlPanelWidth * 2 + sideMarginDesktop.first;
 
 // Alert Icon
 const alertIconPx = {
@@ -275,27 +272,27 @@ const fontPalette = {
   },
   textCrop: {
     bottom: {
-      bodyText: getTextCropBottom(lineHeightCss.bodyText),
-      sectionTitle: getTextCropBottom(lineHeightCss.sectionTitle),
-      stepNumber: getTextCropBottom(lineHeightCss.stepNumber),
+      bodyText: getTextCropBottom(lineHeightCss.bodyText).toFixed(4),
+      sectionTitle: getTextCropBottom(lineHeightCss.sectionTitle).toFixed(4),
+      stepNumber: getTextCropBottom(lineHeightCss.stepNumber).toFixed(4),
     },
     topCap: {
-      bodyText: getTextCropTopCap(lineHeightCss.bodyText),
-      sectionTitle: getTextCropTopCap(lineHeightCss.sectionTitle),
-      stepNumber: getTextCropTopCap(lineHeightCss.stepNumber),
+      bodyText: getTextCropTopCap(lineHeightCss.bodyText).toFixed(4),
+      sectionTitle: getTextCropTopCap(lineHeightCss.sectionTitle).toFixed(4),
+      stepNumber: getTextCropTopCap(lineHeightCss.stepNumber).toFixed(4),
     },
     topX: {
-      bodyText: getTextCropTopX(lineHeightCss.bodyText),
+      bodyText: getTextCropTopX(lineHeightCss.bodyText).toFixed(4),
     },
   },
   code: {
     paddingBottom: {
-      mobile: lineHeightRem.code.mobile,
-      desktop: lineHeightRem.code.desktop,
+      mobile: lineHeightRem.code.mobile.toFixed(4),
+      desktop: lineHeightRem.code.desktop.toFixed(4),
     },
     paddingTop: {
-      mobile: lineHeightRem.code.mobile,
-      desktop: lineHeightRem.code.desktop,
+      mobile: lineHeightRem.code.mobile.toFixed(4),
+      desktop: lineHeightRem.code.desktop.toFixed(4),
     },
   },
   fontMetrics: fontMetricsFedraSans,
@@ -305,24 +302,28 @@ const fontPalette = {
       desktop: capHeightRem.desktop.fontName,
     },
     lineHeightRem: {
-      mobile: lineHeightRem.fontName.mobile,
-      desktop: lineHeightRem.fontName.desktop,
+      mobile: lineHeightRem.fontName.mobile.toFixed(4),
+      desktop: lineHeightRem.fontName.desktop.toFixed(4),
     },
     paddingBottom: {
-      mobile:
+      mobile: (
         (lineHeightRem.fontName.mobile - capHeightRem.mobile.fontName) *
-        modularScale,
-      desktop:
+        modularScale
+      ).toFixed(4),
+      desktop: (
         (lineHeightRem.fontName.desktop - capHeightRem.desktop.fontName) *
-        modularScale,
+        modularScale
+      ).toFixed(4),
     },
     paddingTop: {
-      mobile:
+      mobile: (
         (lineHeightRem.fontName.mobile - capHeightRem.mobile.fontName) *
-        modularScale,
-      desktop:
+        modularScale
+      ).toFixed(4),
+      desktop: (
         (lineHeightRem.fontName.desktop - capHeightRem.desktop.fontName) *
-        modularScale,
+        modularScale
+      ).toFixed(4),
     },
   },
   icon: {
@@ -336,19 +337,26 @@ const fontPalette = {
     width: alertIconEm.boxSize.toFixed(4),
   },
   marginSide: {
-    mobile: sideMarginMobile,
-    desktop: sideMarginDesktop,
+    mobile: {
+      first: sideMarginMobile.first.toFixed(4),
+      second: sideMarginMobile.second.toFixed(4),
+      third: sideMarginMobile.third.toFixed(4),
+    },
+    desktop: {
+      first: sideMarginDesktop.first.toFixed(4),
+      second: sideMarginDesktop.second.toFixed(4),
+    },
   }, // This value has to be in px, to avoid the side margin from expanding when the user enlarges the base font size.
   maxWidthInEm: maxWidthInEm,
   mediaQueryCutoff: {
     fontSize: breakpointFontSize,
-    layout: breakpointLayout,
+    layout: breakpointLayout.toFixed(0),
     sideMargin: breakpointSideMargin,
   },
   minScreenWidth: {
     px: {
       mobile: minScreenWidthPx.mobile,
-      desktop: minScreenWidthPx.desktop,
+      desktop: minScreenWidthPx.desktop.toFixed(0),
     },
   },
   modularScale: modularScale,
