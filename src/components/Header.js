@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import store from '../helper/store';
 
-import Title from './Title';
 import Step from './Step';
+import Title from './Title';
+
 import {
   HeaderWrapper,
   Logo,
   StepIndicator,
   StepIndicatorWrapper,
 } from '../theme/style';
-
-import store from '../helper/store';
 
 const Header = props => {
   let step1 = <Step number={1} stepNow={props.stepNow} />;

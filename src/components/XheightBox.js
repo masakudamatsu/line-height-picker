@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import handleArrowKey from '../helper/handleArrowKey';
+
 import {
   AlertIcon,
   AlertMessage,
@@ -13,6 +13,8 @@ import {
   ParagraphOneRem,
   SpacerVertical,
 } from '../theme/style';
+
+import handleArrowKey from '../helper/handleArrowKey';
 
 const XheightBox = props => {
   const handleChange = event => {
@@ -56,6 +58,7 @@ const XheightBox = props => {
         <XheightInput
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"
+          error={props.xHeightRangeError || props.xHeightStepError}
           onBlur={handleBlur}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
@@ -64,7 +67,6 @@ const XheightBox = props => {
           required
           value={props.xHeightPx}
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
-          error={props.xHeightRangeError || props.xHeightStepError}
         />
         <XheightInputUnit>px</XheightInputUnit>
       </InputWrapper>

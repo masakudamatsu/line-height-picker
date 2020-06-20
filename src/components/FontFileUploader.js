@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {useHistory} from 'react-router';
+
 import {Button} from '../theme/style';
+
 import {fontFileExtensionsArray as acceptableFileExtensions} from '../helper/fontFileExtensions';
 
 const FontFileUploader = props => {
@@ -54,9 +55,9 @@ const FontFileUploader = props => {
 };
 
 FontFileUploader.propTypes = {
+  handleFontFile: PropTypes.func.isRequired,
   home: PropTypes.bool,
   validateFileType: PropTypes.func.isRequired,
-  handleFontFile: PropTypes.func.isRequired,
 };
 
 export default FontFileUploader;

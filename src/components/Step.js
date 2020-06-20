@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import store from '../helper/store';
 import {useHistory} from 'react-router';
 
 import {StepNumber, StepNumberBox} from '../theme/style';
-
-import store from '../helper/store';
 
 const Step = props => {
   let internalURL;
@@ -101,9 +99,9 @@ const Step = props => {
     <StepNumberBox data-testid="StepNumberBox" now={props.now}>
       <StepNumber
         href={internalURL ? `.${internalURL}` : ''}
-        onClick={handleClick}
         done={props.done}
         now={props.now}
+        onClick={handleClick}
         tabIndex={props.done ? '0' : '-1'}
       >
         {props.number}
