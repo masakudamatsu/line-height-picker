@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import store from '../helper/store';
+import {useHistory} from 'react-router-dom';
 
+import LineHeightGuide from './LineHeightGuide';
 import ModularScaleBoxes from './ModularScaleBoxes';
 import SectionFont from './SectionFont';
 import XheightBox from './XheightBox';
-import LineHeightGuide from './LineHeightGuide';
+
 import {
   ButtonWithRightArrow,
   ControlPanel,
@@ -15,9 +18,6 @@ import {
   SpacerHorizontal,
   SpacerVertical,
 } from '../theme/style';
-import {useHistory} from 'react-router-dom';
-
-import store from '../helper/store';
 
 const ModularScale = props => {
   React.useEffect(() => {
@@ -68,22 +68,22 @@ const ModularScale = props => {
             <SpacerVertical height="2" />
             <Form noValidate onSubmit={handleSubmit}>
               <ModularScaleBoxes
-                handleXHeightRatioChange={props.handleXHeightRatioChange}
                 handleLineHeightRatioChange={props.handleLineHeightRatioChange}
+                handleXHeightRatioChange={props.handleXHeightRatioChange}
                 lineHeightRatio={props.lineHeightRatio}
                 lineHeightRatioRangeError={props.lineHeightRatioRangeError}
                 lineHeightRatioStepError={props.lineHeightRatioStepError}
-                xHeightRatioRangeError={props.xHeightRatioRangeError}
-                xHeightRatioStepError={props.xHeightRatioStepError}
                 validateLineHeightRatio={props.validateLineHeightRatio}
                 validateXHeightRatio={props.validateXHeightRatio}
                 xHeightRatio={props.xHeightRatio}
+                xHeightRatioRangeError={props.xHeightRatioRangeError}
+                xHeightRatioStepError={props.xHeightRatioStepError}
               />{' '}
               <SpacerVertical height="2" />
               <ButtonWithRightArrow
                 type="submit"
-                primary
                 disabled={props.previewButtonDisabled}
+                primary
               >
                 Preview
               </ButtonWithRightArrow>
@@ -98,8 +98,8 @@ const ModularScale = props => {
               <SpacerVertical height="2" />
               <XheightBox
                 handleXHeightChange={props.handleXHeightChange}
-                xHeightPx={props.xHeightPx}
                 validateXHeight={props.validateXHeight}
+                xHeightPx={props.xHeightPx}
                 xHeightRangeError={props.xHeightRangeError}
                 xHeightStepError={props.xHeightStepError}
               />
@@ -143,8 +143,6 @@ ModularScale.propTypes = {
   lineHeightRatio: PropTypes.string,
   lineHeightRatioRangeError: PropTypes.string,
   lineHeightRatioStepError: PropTypes.string,
-  xHeightRatioRangeError: PropTypes.string,
-  xHeightRatioStepError: PropTypes.string,
   previewButtonDisabled: PropTypes.bool,
   unitsPerEm: PropTypes.number,
   validateFileType: PropTypes.func.isRequired,
@@ -152,8 +150,10 @@ ModularScale.propTypes = {
   validateXHeightRatio: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
   xHeightRangeError: PropTypes.string,
-  xHeightRatio: PropTypes.string,
   xHeightStepError: PropTypes.string,
+  xHeightRatio: PropTypes.string,
+  xHeightRatioRangeError: PropTypes.string,
+  xHeightRatioStepError: PropTypes.string,
 };
 
 export default ModularScale;

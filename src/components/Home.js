@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import store from '../helper/store';
 
+import About from './About';
+import DemoStartButton from './DemoStartButton';
 import Description from './Description';
+import FontFileErrorMessage from './FontFileErrorMessage';
+import FontFileUploader from './FontFileUploader';
+
 import {
   Logo,
   MainLandingPage,
@@ -9,11 +15,6 @@ import {
   Section,
   SpacerVertical,
 } from '../theme/style';
-import FontFileUploader from './FontFileUploader';
-import DemoStartButton from './DemoStartButton';
-import FontFileErrorMessage from './FontFileErrorMessage';
-import About from './About';
-import store from '../helper/store';
 
 const Home = props => {
   React.useEffect(() => {
@@ -32,9 +33,9 @@ const Home = props => {
           <SpacerVertical height="3" />
           <Section>
             <FontFileUploader
+              handleFontFile={props.handleFontFile}
               home
               validateFileType={props.validateFileType}
-              handleFontFile={props.handleFontFile}
             >
               Open font file…
             </FontFileUploader>
@@ -55,10 +56,10 @@ const Home = props => {
 };
 
 Home.propTypes = {
-  validateFileType: PropTypes.func.isRequired,
+  fontFileError: PropTypes.string.isRequired,
   handleDemo: PropTypes.func.isRequired,
   handleFontFile: PropTypes.func.isRequired,
-  fontFileError: PropTypes.string.isRequired,
+  validateFileType: PropTypes.func.isRequired,
 };
 
 export default Home;

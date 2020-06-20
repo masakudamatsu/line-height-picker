@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import store from '../helper/store';
 import {useHistory} from 'react-router-dom';
 
+import ModularScaleBoxes from './ModularScaleBoxes';
+import PreviewGuide from './PreviewGuide';
 import SampleParagraphs from './SampleParagraphs';
 import SectionFont from './SectionFont';
 import XheightBox from './XheightBox';
-import ModularScaleBoxes from './ModularScaleBoxes';
-import PreviewGuide from './PreviewGuide';
+
 import {
   ButtonWithRightArrow,
   ControlPanel,
@@ -18,8 +20,6 @@ import {
   SpacerHorizontal,
   SpacerVertical,
 } from '../theme/style';
-
-import store from '../helper/store';
 
 const Preview = props => {
   React.useEffect(() => {
@@ -81,8 +81,8 @@ const Preview = props => {
                 <ButtonWithRightArrow
                   type="submit"
                   data-testid="get-css-code-button"
-                  primary
                   disabled={props.cssButtonDisabled}
+                  primary
                 >
                   CSS code
                 </ButtonWithRightArrow>
@@ -96,16 +96,16 @@ const Preview = props => {
                 <SectionTitle>Line spacing</SectionTitle>
                 <SpacerVertical height="2" />
                 <ModularScaleBoxes
-                  xHeightRatio={props.xHeightRatio}
-                  handleXHeightRatioChange={props.handleXHeightRatioChange}
                   handleLineHeightRatioChange={
                     props.handleLineHeightRatioChange
                   }
+                  handleXHeightRatioChange={props.handleXHeightRatioChange}
                   lineHeightRatio={props.lineHeightRatio}
                   lineHeightRatioRangeError={props.lineHeightRatioRangeError}
                   lineHeightRatioStepError={props.lineHeightRatioStepError}
-                  validateLineHeightRatio={props.validateLineHeightRatio}
                   validateXHeightRatio={props.validateXHeightRatio}
+                  validateLineHeightRatio={props.validateLineHeightRatio}
+                  xHeightRatio={props.xHeightRatio}
                   xHeightRatioRangeError={props.xHeightRatioRangeError}
                   xHeightRatioStepError={props.xHeightRatioStepError}
                 />
@@ -116,8 +116,8 @@ const Preview = props => {
                 <SpacerVertical height="2" />
                 <XheightBox
                   handleXHeightChange={props.handleXHeightChange}
-                  xHeightPx={props.xHeightPx}
                   validateXHeight={props.validateXHeight}
+                  xHeightPx={props.xHeightPx}
                   xHeightRangeError={props.xHeightRangeError}
                   xHeightStepError={props.xHeightStepError}
                 />
@@ -168,17 +168,17 @@ Preview.propTypes = {
   lineHeightRatioRangeError: PropTypes.string,
   lineHeightRatioStepError: PropTypes.string,
   marginTop: PropTypes.string,
-  xHeightRatioRangeError: PropTypes.string,
-  xHeightRatioStepError: PropTypes.string,
   unitsPerEm: PropTypes.number,
   validateFileType: PropTypes.func.isRequired,
   validateLineHeightRatio: PropTypes.func.isRequired,
-  validateXHeightRatio: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
+  validateXHeightRatio: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
   xHeightRangeError: PropTypes.string,
-  xHeightRatio: PropTypes.string,
   xHeightStepError: PropTypes.string,
+  xHeightRatio: PropTypes.string,
+  xHeightRatioRangeError: PropTypes.string,
+  xHeightRatioStepError: PropTypes.string,
 };
 
 export default Preview;

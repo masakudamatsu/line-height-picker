@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import store from '../helper/store';
+import {useHistory} from 'react-router-dom';
 
-import XheightBox from './XheightBox';
 import SectionFont from './SectionFont';
+import XheightBox from './XheightBox';
 import XheightGuide from './XheightGuide';
+
 import {
   ButtonWithRightArrow,
   ControlPanel,
@@ -14,9 +17,6 @@ import {
   SpacerHorizontal,
   SpacerVertical,
 } from '../theme/style';
-import {useHistory} from 'react-router-dom';
-
-import store from '../helper/store';
 
 const Xheight = props => {
   React.useEffect(() => {
@@ -60,8 +60,8 @@ const Xheight = props => {
               <SpacerVertical height="2" />
               <ButtonWithRightArrow
                 type="submit"
-                primary
                 disabled={props.nextButtonDisabled}
+                primary
               >
                 Next
               </ButtonWithRightArrow>
@@ -94,7 +94,6 @@ const Xheight = props => {
 
 Xheight.propTypes = {
   ascender: PropTypes.number,
-  nextButtonDisabled: PropTypes.bool,
   capHeight: PropTypes.number,
   descender: PropTypes.number,
   disableNextButton: PropTypes.func.isRequired,
@@ -105,9 +104,10 @@ Xheight.propTypes = {
   handleFontFile: PropTypes.func.isRequired,
   handleNoXHeight: PropTypes.func.isRequired,
   handleXHeightChange: PropTypes.func.isRequired,
+  nextButtonDisabled: PropTypes.bool,
+  unitsPerEm: PropTypes.number,
   validateFileType: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
-  unitsPerEm: PropTypes.number,
   xHeightPx: PropTypes.string,
   xHeightRangeError: PropTypes.string.isRequired,
   xHeightStepError: PropTypes.string.isRequired,

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useHistory} from 'react-router-dom';
+import store from '../helper/store';
 
 import CssGuide from './CssGuide';
+
 import {
   AlertIcon,
   AlertMessage,
@@ -16,9 +18,8 @@ import {
   Section,
   SpacerVertical,
 } from '../theme/style';
-import {clipboardError} from '../helper/errorMessages';
 
-import store from '../helper/store';
+import {clipboardError} from '../helper/errorMessages';
 
 const GetCSS = props => {
   React.useEffect(() => {
