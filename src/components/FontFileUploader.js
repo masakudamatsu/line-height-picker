@@ -9,8 +9,10 @@ import {fontFileExtensionsArray as acceptableFileExtensions} from '../helper/fon
 const FontFileUploader = props => {
   const history = useHistory();
 
+  const hiddenFileInput = React.useRef(null);
+
   const handleClick = event => {
-    document.getElementById('hiddenFileInput').click();
+    hiddenFileInput.current.click();
   };
 
   const handleChange = async event => {
@@ -43,7 +45,7 @@ const FontFileUploader = props => {
       <input
         type="file"
         data-testid="hiddenFileInput"
-        id="hiddenFileInput"
+        ref={hiddenFileInput}
         accept={acceptableFileExtensions.join()}
         onChange={handleChange}
         style={{display: 'none'}}
