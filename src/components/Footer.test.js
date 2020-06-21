@@ -10,7 +10,7 @@ import Footer from './Footer';
 test('renders correctly', () => {
   const {container} = render(<Footer />);
   expect(container).toMatchInlineSnapshot(`
-    .c4 {
+    .c3 {
       background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
       background-position: 0 calc( 0.125em + 0.707em );
@@ -23,45 +23,45 @@ test('renders correctly', () => {
       text-shadow: 0.03em 0 hsl(0,0%,10%), -0.03em 0 hsl(0,0%,10%),0 0.03em hsl(0,0%,10%), 0 -0.03em hsl(0,0%,10%);
     }
 
-    .c4:visited {
+    .c3:visited {
       background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
       color: currentColor;
     }
 
-    .c4:focus,
-    .c4:hover {
+    .c3:focus,
+    .c3:hover {
       background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
     }
 
-    .c4:focus:before,
-    .c4:hover:before,
-    .c4:focus:after,
-    .c4:hover:after {
+    .c3:focus:before,
+    .c3:hover:before,
+    .c3:focus:after,
+    .c3:hover:after {
       display: none;
     }
 
-    .c4:active {
+    .c3:active {
       background: none;
     }
 
-    .c4:visited:focus,
-    .c4:visited:hover {
+    .c3:visited:focus,
+    .c3:visited:hover {
       background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
     }
 
-    .c4:visited:focus:before,
-    .c4:visited:hover:before,
-    .c4:visited:focus:after,
-    .c4:visited:hover:after {
+    .c3:visited:focus:before,
+    .c3:visited:hover:before,
+    .c3:visited:focus:after,
+    .c3:visited:hover:after {
       display: none;
     }
 
-    .c4:visited:active {
+    .c3:visited:active {
       background: none;
     }
 
@@ -106,7 +106,7 @@ test('renders correctly', () => {
       width: auto;
     }
 
-    .c3 {
+    .c4 {
       height: 0.8035714285714286rem;
       width: auto;
     }
@@ -130,7 +130,7 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c3 {
+      .c4 {
         height: 0.9375rem;
       }
     }
@@ -147,39 +147,183 @@ test('renders correctly', () => {
         <p
           class="sc-AxgMl c2"
         >
-          Designed and Coded by Masa Kudamatsu in 2020.
+          Designed, Written, and Coded by Masa Kudamatsu (
+          <a
+            class="c3"
+            href="https://twitter.com/masa_kudamatsu"
+          >
+            @masa_kudamatsu
+          </a>
+          ) in 2020.
         </p>
         <div
-          class="c3"
+          class="c4"
           height="1"
         />
         <p
           class="sc-AxgMl c2"
         >
-          Powered by
+          GitHub hosts
            
           <a
-            class="c4"
-            href="https://opentype.js.org/"
+            class="c3"
+            href="https://github.com/masakudamatsu/line-height-picker"
           >
-            Opentype.js.
+            the source code for the Line-height Picker
           </a>
+          . Please report bugs and send feature requests there.
         </p>
         <div
-          class="c3"
+          class="c4"
           height="1"
         />
         <p
           class="sc-AxgMl c2"
         >
+          The Line-height Picker is powered by
+           
           <a
-            class="c4"
-            href="https://github.com/masakudamatsu/line-height-picker"
+            class="c3"
+            href="https://github.com/opentypejs/opentype.js"
           >
-            The source code is available at GitHub
+            Opentype.js
           </a>
-          .
+           
+          for extracting font file information;
+           
+          <a
+            class="c3"
+            href="https://create-react-app.dev/"
+          >
+            Create React App
+          </a>
+          ,
+           
+          <a
+            class="c3"
+            href="https://reacttraining.com/react-router/"
+          >
+            React Router
+          </a>
+          ,
+           
+          <a
+            class="c3"
+            href="https://reactcommunity.org/react-transition-group/"
+          >
+            React Transition Group
+          </a>
+          ,
+           
+          <a
+            class="c3"
+            href="https://styled-components.com/"
+          >
+            Styled Components
+          </a>
+          ,
+           
+          <a
+            class="c3"
+            href="https://github.com/marcuswestin/store.js/"
+          >
+            Store.js
+          </a>
+           
+          for building what you see and interact with;
+           
+          <a
+            class="c3"
+            href="https://www.cypress.io/"
+          >
+            Cypress
+          </a>
+          ,
+           
+          <a
+            class="c3"
+            href="https://testing-library.com/"
+          >
+            Testing Library
+          </a>
+          , 
+          <a
+            class="c3"
+            href="https://jestjs.io/"
+          >
+            Jest
+          </a>
+          ,
+           
+          <a
+            class="c3"
+            href="https://eslint.org/"
+          >
+            ESLint
+          </a>
+          , and
+           
+          <a
+            class="c3"
+            href="https://prettier.io/"
+          >
+            Prettier
+          </a>
+           for minimizing the number of errors you might encounter; and—last but not least—
+          <a
+            class="c3"
+            href="https://www.nouvellenoire.ch/product/atl-aleph/"
+          >
+            Aleph
+          </a>
+           
+          and
+           
+          <a
+            class="c3"
+            href="https://www.typotheque.com/fonts/fedra_sans"
+          >
+            Fedra Sans
+          </a>
+           
+          for the beautiful typefaces.
         </p>
+        <div
+          class="c4"
+          height="1"
+        />
+        <p
+          class="sc-AxgMl c2"
+        >
+          Special thanks go to
+           
+          <a
+            class="c3"
+            href="https://tbrown.org/"
+          >
+            Tim Brown
+          </a>
+           for inspiring the basic idea of the Line-height Picker through his book Flexible Typesetting,
+           
+          <a
+            class="c3"
+            href="https://kentcdodds.com/"
+          >
+            Kent C. Dodds
+          </a>
+           
+          for teaching how to test JavaScript applications in his course TestingJavaScript.com, Philippe Apeloig and the
+           
+          <a
+            class="c3"
+            href="https://www.100daysofcode.com/"
+          >
+            #100DaysOfCode
+          </a>
+           
+          community for encouragement during the 100 days of making the Line-height Picker.
+        </p>
+         
         <div
           class="c1"
           height="2"
