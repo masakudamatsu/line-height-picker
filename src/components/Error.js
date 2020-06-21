@@ -41,7 +41,7 @@ const Error = () => {
             </InternalLink>
             .
           </ParagraphOneRem>
-          <SpacerVertical height="3" />{' '}
+          <SpacerVertical height="3" />
         </Section>
       </main>
     </>

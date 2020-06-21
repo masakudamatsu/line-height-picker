@@ -278,7 +278,7 @@ test('renders correctly', () => {
             class="c6"
           >
             We cannot find the page you are looking for. Please visit the
-
+             
             <a
               class="c7"
               href="/"
@@ -291,7 +291,6 @@ test('renders correctly', () => {
             class="c1"
             height="3"
           />
-
         </section>
       </main>
     </div>
