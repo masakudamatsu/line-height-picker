@@ -2,9 +2,6 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import {
-  Code,
-  ExternalLink,
-  NoWrap,
   ParagraphOneRem,
   Section,
   SectionTitle,

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, {css} from 'styled-components';
 import {Link} from 'react-router-dom';
 import colorPalette from './colorPalette';
@@ -8,13 +7,8 @@ import inputSize from './inputSize';
 import LogoImage from '../img/LogoImage';
 import AlertIconImage from '../img/AlertIconImage';
 
-// Parameters
-const minFontSizePx = 16;
-
 // Layout parameters
-const logoWidth = 0.8;
 const maxLogoWidthPx = 700;
-const mediaQueryCutoff = maxLogoWidthPx / logoWidth;
 
 // Inline modifier
 export const NoWrap = styled.span`
@@ -214,12 +208,6 @@ export const LinearLight = styled.div`
 `;
 
 // Logo
-
-// Calculate the Logo's margin-top property vaue
-const scale = 1.5;
-const verticalSpacePx = 42; // a space between the two lines when the logo width is 700px.
-const logoMarginTopAboveCutoffPx = verticalSpacePx * scale;
-const logoMarginTopBelowCutoff = logoMarginTopAboveCutoffPx / mediaQueryCutoff;
 
 export const Logo = styled(LogoImage)`
   display: block;
