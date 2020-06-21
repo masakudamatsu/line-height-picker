@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import {
+  Code,
   ExternalLink,
   ParagraphOneRem,
   Section,
@@ -16,105 +17,134 @@ const CssGuide = () => {
         <SectionTitle>How we obtain the above CSS values</SectionTitle>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          We use font metrics, extracted from the font file you have selected to
-          convert the x-height value and its ratio to line-height into font-size
-          and line-height values (and the margin-top value for a paragraph
-          element directly after another paragraph element).
+          We use font metrics—extracted from the font file you have selected—to
+          convert the x-height value and its ratio to line-height into{' '}
+          <Code>font-size</Code>, <Code>line-height</Code>, and{' '}
+          <Code>margin-top</Code> values.
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          To learn about font metrics, I recommend reading{' '}
+          Below we explain how the Line-height Picker obtains each of these
+          three CSS values. To learn more about font metrics, I recommend
+          reading{' '}
           <ExternalLink href="http://westonthayer.com/writing/intro-to-font-metrics/">
-            Weston Thayer’s article entitled “Intro to Font Metrics”
+            “Intro to Font Metrics”
           </ExternalLink>
-          .
+          , an article written by Weston Thayer in 2019 .
         </ParagraphOneRem>
         <SpacerVertical height="3" />
         <SectionTitle as="h3">Font-size</SectionTitle>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          To convert the x-height value you have entered into the font-size
-          value shown above, we use the ratio of two font metric values:
-          sxHeight and unitsPerEm.
+          To convert your x-height value into the <Code>font-size</Code> value
+          shown above, we use the ratio of two font metric values:{' '}
+          <Code>unitsPerEm</Code> and <Code>sxHeight</Code>.
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          The unitsPerEm is the number of units that correspond to the font-size
-          value. It is usually either 1000 or 2048. The sxHeight value refers to
-          the size of x-height in the number of units defined by unitsPerEm.
+          The <Code>unitsPerEm</Code> is the number of font-metric units that
+          correspond to the <Code>font-size</Code> value. It is usually either
+          1000 or 2048. For example, Open Sans has the <Code>unitsPerEm</Code>{' '}
+          value of 2048. If you set <Code>font-size</Code> to be 20.48px, then
+          one font-metric unit equals to 0.01px.
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          For example, Open Sans has the values of 2048 for unitsPerEm and of
-          1096 for sxHeight. For the ease of calculation, imagine you set
-          font-size to be 20.48px. Then one unit in these font metric values
-          equals to 0.01px. Consequently, the x-height will be 10.96px.
+          The <Code>sxHeight</Code> value specifies the size of x-height in the
+          number of font-metric units. Continuing the Open Sans example, we have
+          the <Code>sxHeight</Code> value of 1096. Consequently, the x-height
+          will be 10.96px if <Code>font-size</Code> is 20.48px, because one
+          font-metric unit is then 0.01px as explained above.
+        </ParagraphOneRem>
+        <SpacerVertical height="2" />{' '}
+        <ParagraphOneRem>
           Conversely, if you select Open Sans and the x-height value of 10.96px,
-          then the font-size will be 20.48px. That is exactly how we convert
-          x-height into font-size.
+          then the <Code>font-size</Code> will be 20.48px. This is exactly how
+          we convert x-height into <Code>font-size</Code>.
         </ParagraphOneRem>
         <SpacerVertical height="3" />
         <SectionTitle as="h3">Line-height</SectionTitle>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          The line-height value is then calculated as follows. We use the ratio
-          of x-height to line-height to obtain the line-height value in px from
-          the x-height value. For example, if you set x-height to be 10.96px and
-          the ratio to be 1:3, then the line-height value is 32.88px. We then
-          divide this value with the font-size value calculated in the way the
-          previous paragraph describes.
+          The <Code>line-height</Code> value is then calculated in two steps.
+        </ParagraphOneRem>
+        <SpacerVertical height="2" />{' '}
+        <ParagraphOneRem>
+          First, we use the ratio of x-height to line-height to obtain the
+          line-height value in px from the x-height value. For example, if you
+          set x-height to be 10.96px and the ratio to be 1:3, then the
+          line-height value is 32.88px.
+        </ParagraphOneRem>
+        <SpacerVertical height="2" />{' '}
+        <ParagraphOneRem>
+          In the second step, we convert the px value of line-height into the
+          unitless value relative to <Code>font-size</Code>, by dividing the
+          former with the <Code>font-size</Code> value. Continuing the same
+          example, we divide the line-height value of 32.88px with the{' '}
+          <Code>font-size</Code> value of 20.48px, to obtain 1.6055. (We round
+          to four decimal places.)
         </ParagraphOneRem>
         <SpacerVertical height="3" />
         <SectionTitle as="h3">Margin-top</SectionTitle>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          The margin-top value for vertical space between paragraphs is
-          calculated in three steps.
+          The <Code>margin-top</Code> value for vertical space between
+          paragraphs is calculated in three steps. (If you haven't read “Space
+          between Paragraphs” in{' '}
+          <ExternalLink href="preview">the Preview page</ExternalLink>, we
+          recommend reading it first.)
         </ParagraphOneRem>
-        <SpacerVertical height="2" />{' '}
+        <SpacerVertical height="2" />
         <ParagraphOneRem>
           We first use the ratio of x-height to line-height to obtain the
           vertical space in px from x-height. If x-height is 10.96px and the
-          ratio is 1:3, then we multiply 10.96px with two twice to obtain
-          43.84px.
+          ratio is 1:3, then we multiply 10.96px twice with two (
+          <Code>=3-1</Code>) to obtain 43.84px.
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          The next step subtracts the height of whitespace included in the text
-          boxes in the last line of the first paragraph and the first line of
-          the second paragraph.
+          The next step calculates the distance from the bottom of the x-height
+          stripe to the top of the uppercase letter when <Code>margin-top</Code>{' '}
+          is zero. It is the amount of whitespace we need to subtract from the
+          total vertical distance between paragraphs. For this purpose, we need
+          two values.
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          For the last line of the first paragraph, the font metric called
-          descender gives the negative number of units, defined by unitsPerEm,
-          for the distance between the bottom of the x-height stripe and the
-          bottom of the text box. For Open Sans, it is -600. In our example, the
-          font-size is 20.48px. So we will subtract 6px from the 43.84px of
-          between-paragraph vertical space.
+          The first value is the distance from the top of an uppercase letter to
+          the top of the lowercase x. Another font metric value called{' '}
+          <Code>sCapHeight</Code> gives the distance from the top of an
+          uppercase letter to the bottom of the x-height stripe. We then
+          subtract from it the <Code>sxHeight</Code> value. In our example, Open
+          Sans has the <Code>sCapHeight</Code> of 1462. Its difference from the{' '}
+          <Code>sxHeight</Code> value of 1096 is then 466. As one font-metric
+          unit is 0.01px in our example, it amounts to 3.66px.
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          For the first line of the second paragraph, we use two font metrics,
-          ascender and sCapHeight. The ascender value refers to the distance
-          between the top of the text box to the bottom of the x-height stripe.
-          The sCapHeight indicates the distance between the top of the uppercase
-          H (and other uppercase characters) and the bottom of the x-height
-          stripe. What we need is the difference between the two, that is the
-          distance from the top of the text box to the top of an uppercase
-          chracter. For Open Sans, it is 727 (the ascender of 2189 subtracted by
-          the sCapHeight of 1462). If the font-size is 20.48px, we will then
-          subtract 7.27px from the 43.84px of between-paragraph vertical space.
+          The second value is the distance between two consequtive x-height
+          stripes. It equals to the difference between the line-height value and
+          the x-height value. In our example, the former is 32.88px while the
+          latter is 10.96px. Therefore, we have 21.92px.
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          In the final step, we further subtract the value of line-height in px
-          minus font-size.
+          Consequently, the difference between these two values, 18.26px (
+          <Code>=21.92-3.66</Code>), is what we are after: the distance from the
+          bottom of the x-height stripe to the top of the uppercase letter when{' '}
+          <Code>margin-top</Code> is zero.
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          So the margin-top value will be 26.73px.
+          In the final step, we obtain the extra amount of whitespace to achieve
+          the desired distance between paragraphs from the two values obtained
+          in the previous two steps. In our example, we subtract the whitespace
+          in the absence of any margin, 18.26px, from the target whitespace of
+          43.84px. So the <Code>margin-top</Code> value will be 25.58px (
+          <Code>=43.84-18.26</Code>).
         </ParagraphOneRem>
+        <SpacerVertical height="2" />
+        <ParagraphOneRem>Phew! :-)</ParagraphOneRem>
       </Section>
     </>
   );
