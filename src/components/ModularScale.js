@@ -143,10 +143,7 @@ ModularScale.propTypes = {
   lineHeightRatio: PropTypes.string,
   lineHeightRatioRangeError: PropTypes.string,
   lineHeightRatioStepError: PropTypes.string,
-  previewButtonDisabled: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.oneOf(['']),
-  ]),
+  previewButtonDisabled: PropTypes.string,
   unitsPerEm: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   validateFileType: PropTypes.func.isRequired,
   validateLineHeightRatio: PropTypes.func.isRequired,

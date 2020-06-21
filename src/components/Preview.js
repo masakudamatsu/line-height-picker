@@ -148,10 +148,7 @@ const Preview = props => {
 Preview.propTypes = {
   ascender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   capHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
-  cssButtonDisabled: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.oneOf(['']),
-  ]),
+  cssButtonDisabled: PropTypes.string,
   descender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   disableCssButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,

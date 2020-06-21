@@ -104,10 +104,7 @@ Xheight.propTypes = {
   handleFontFile: PropTypes.func.isRequired,
   handleNoXHeight: PropTypes.func.isRequired,
   handleXHeightChange: PropTypes.func.isRequired,
-  nextButtonDisabled: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.oneOf(['']),
-  ]),
+  nextButtonDisabled: PropTypes.string,
   unitsPerEm: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   validateFileType: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
