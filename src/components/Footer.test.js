@@ -65,6 +65,10 @@ test('renders correctly', () => {
       background: none;
     }
 
+    .c5 {
+      font-style: italic;
+    }
+
     .c0 {
       max-width: 33em;
       border-top: 1px solid hsl(0,0%,90%);
@@ -303,7 +307,22 @@ test('renders correctly', () => {
           >
             Tim Brown
           </a>
-           for inspiring the basic idea of the Line-height Picker through his book Flexible Typesetting,
+           for inspiring the basic idea of the Line-height Picker through his book
+           
+          <cite
+            class="c5"
+          >
+            Flexible Typesetting
+          </cite>
+          ;
+           
+          <a
+            class="c3"
+            href=""
+          >
+            CodeCademy
+          </a>
+           for teaching the basics of HTML, CSS, JavaScript, and React;
            
           <a
             class="c3"
@@ -312,7 +331,13 @@ test('renders correctly', () => {
             Kent C. Dodds
           </a>
            
-          for teaching how to test JavaScript applications in his course TestingJavaScript.com, Philippe Apeloig and the
+          for teaching how to test JavaScript applications in his course
+          <cite
+            class="c5"
+          >
+            TestingJavaScript.com
+          </cite>
+          ; and the
            
           <a
             class="c3"

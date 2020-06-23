@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import {
-  Code,
+  CodeInline,
   ExternalLink,
   ParagraphOneRem,
   Section,
@@ -18,20 +18,20 @@ const LineHeightGuide = () => {
         <SpacerVertical height="2" />
         <ParagraphOneRem>
           When you select the text for copy-and-paste it, the box will appear
-          that surrounds the selected text. The height of this box is the
-          <Code>line-height</Code> value.
+          that surrounds the selected text. The height of this box is set by the{' '}
+          <CodeInline>line-height</CodeInline> CSS value.
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          Consequently, the <Code>line-height</Code> value is the sum of
-          x-height and the vertical distance of whitespace between the two
-          consequtive x-height stripes.
+          The <CodeInline>line-height</CodeInline> value is also the sum of
+          x-height and vertical space between the two consequtive x-height
+          stripes.
         </ParagraphOneRem>
       </Section>
       <SpacerVertical height="3" />
       <Section>
         <SectionTitle>
-          Choosing the ratio of x-height to line-height
+          How to choose the x-height to line-height ratio
         </SectionTitle>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
@@ -51,9 +51,9 @@ const LineHeightGuide = () => {
             rule of thirds
           </ExternalLink>{' '}
           tells you to place the main object at one-third of the photo-frame
-          length from the edge for taking a beautiful photograph. The object
-          then divides the photo into two sections, one of which is twice as
-          large as the other.
+          length from the edge, in order to take a beautiful photograph. In a
+          photo shot this way, the object divides the image into two sections,
+          one of which is twice as large as the other.
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
@@ -79,20 +79,20 @@ const LineHeightGuide = () => {
         <SpacerVertical height="2" />
         <ParagraphOneRem>
           Of course, we need to consider practial constraints when we choose{' '}
-          <Code>line-height</Code> values.
+          <CodeInline>line-height</CodeInline> values.
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
           {' '}
           The simplest ratio would be 1:2, which means the x-height stripe has
-          the same height as the whitespace stripe. But such a tight
-          line-spacing is likely to make the lowerpart of lowercase letters such
-          as g and y (known as “
+          the same height as the whitespace stripe. But such tight line-spacing
+          is likely to make the lowerpart of lowercase letters such as g and y
+          (known as the “
           <ExternalLink href="https://en.wikipedia.org/wiki/Descender">
             descender
           </ExternalLink>
           ”) overlap the upper part of lowercase letters such as d and h (known
-          as “
+          as the “
           <ExternalLink href="https://en.wikipedia.org/wiki/Ascender_(typography)">
             ascender
           </ExternalLink>
@@ -100,12 +100,12 @@ const LineHeightGuide = () => {
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          Also, the white space between two x-height stripes should be at least
+          Also, the whitespace between two x-height stripes should be at least
           as wide as the space between words (which is about half of the{' '}
-          <Code>font-size</Code>, but differs across fonts). Otherwise, one word
-          may appear to belong to another word in the next line, instead of the
-          words before and after in the same line. This will disrupt people from
-          reading line by line.
+          <CodeInline>font-size</CodeInline>, but differs across fonts).
+          Otherwise, one word may appear to belong to another word in the next
+          line, instead of the words before and after in the same line. This
+          will disrupt people from reading line by line.
         </ParagraphOneRem>{' '}
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
@@ -118,11 +118,18 @@ const LineHeightGuide = () => {
         </ParagraphOneRem>{' '}
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          The most important thing is whether the chosen line-height value
-          provides comfortable reading experiences to the user. The pleasant
-          appearance thanks to the simple ratio of x-height to line-height is
-          just one of several factors to ensure the best reading experience, but
-          perhaps it is a good starting point.
+          The most important thing is whether the chosen{' '}
+          <CodeInline>line-height</CodeInline> value provides comfortable
+          reading experiences to the user. The pleasant appearance due to the
+          simple ratio of x-height to line-height is just one of several factors
+          to ensure the best reading experience, but perhaps it is a good
+          starting point.
+        </ParagraphOneRem>{' '}
+        <SpacerVertical height="2" />{' '}
+        <ParagraphOneRem>
+          The Line-height Picker helps you convert your chosen ratio of x-height
+          to line-height into the <CodeInline>line-height</CodeInline> CSS
+          value.
         </ParagraphOneRem>{' '}
       </Section>
     </>

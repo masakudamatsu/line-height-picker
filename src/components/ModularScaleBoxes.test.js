@@ -257,7 +257,7 @@ test('renders correctly', () => {
         class="c2"
       >
         <div
-          class="sc-fzqARJ c3"
+          class="sc-fzoyTs c3"
         >
           <label
             class="c4"
@@ -268,7 +268,7 @@ test('renders correctly', () => {
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
             autocomplete="off"
-            class="sc-fzoyTs sc-fzoNJl c5"
+            class="sc-fzoXWK sc-fzpmMD c5"
             data-testid="x-height-for-ratio"
             id="x-height-for-ratio"
             inputmode="decimal"
@@ -284,7 +284,7 @@ test('renders correctly', () => {
           :
         </span>
         <div
-          class="sc-fzqARJ c3"
+          class="sc-fzoyTs c3"
         >
           <label
             class="c4"
@@ -295,7 +295,7 @@ test('renders correctly', () => {
           <input
             aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
             autocomplete="off"
-            class="sc-fzoyTs sc-fzoNJl c5"
+            class="sc-fzoXWK sc-fzpmMD c5"
             data-testid="line-height-for-ratio"
             id="line-height-for-ratio"
             inputmode="decimal"

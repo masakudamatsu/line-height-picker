@@ -36,9 +36,9 @@ const PreviewGuide = () => {
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
           To clearly indicate a new paragraph, rather than the continuation of
-          the same paragraph, the space between paragraphs should be larger than
-          the space between lines within a paragraph. The question is how much
-          larger it should be.
+          the same paragraph, the whitespace between paragraphs should be larger
+          than the whitespace between lines within a paragraph. The question is
+          how much larger it should be.
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
@@ -46,16 +46,15 @@ const PreviewGuide = () => {
           between-paragraph whitespace to be the same as the ratio of x-height
           to within-paragraph whitespace. If we multiply x-height with 1.5 to
           obtain the height of the within-paragraph whitespace, we will multiply
-          x-height with 1.5 twice (that is, 2,25) to obtain the vertical space
-          between paragraphs.
+          x-height with 1.5 twice (that is, 2,25) to obtain the
+          between-paragraph whitespace.
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          The vertical space between paragraphs is defined as the length from
+          We measure the vertical space between paragraphs as the length from
           the bottom of the last x-height stripe in the previous paragraph to
           the top of the uppercase letter at the beginning of the next
-          paragraph, not to the top of the first x-height stripe in the next
-          paragraph as you might expect.
+          paragraph. The reason is as follows.
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>

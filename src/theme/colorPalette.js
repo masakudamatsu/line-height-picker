@@ -19,6 +19,9 @@ const colorPalette = {
     focus: figureDark,
     shadow: light.reflection,
   },
+  codeInline: {
+    background: backgroundLight,
+  },
   controlPanel: {
     background: backgroundDark,
     border: backgroundLight,
