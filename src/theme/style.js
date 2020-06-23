@@ -520,6 +520,7 @@ export const Input = styled.input.attrs(props => ({
   font-size: ${fontPalette.fontSize.mobile.inputNumber}rem;
   font-weight: ${fontPalette.fontWeight.inputNumber};
   height: 100%;
+  letter-spacing: -0.05em;
   line-height: 1;
   padding-left: ${inputSize.paddingSidePx - 4}px; /* optical adjustmnet */
   padding-top: ${inputSize.extraTopPaddingToCenterAlignRem.mobile +
