@@ -56,7 +56,7 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-weight: 500;
       visibility: hidden;
     }
@@ -147,7 +147,7 @@ test('renders correctly', () => {
       border: 2px solid hsl(0,0%,40%);
       border-radius: 4px;
       color: hsl(0,0%,90%);
-      font-family: 'Fedra Mono 2',monospace;
+      font-family: 'Fedra Mono',monospace;
       font-size: 2.5573rem;
       font-weight: 300;
       height: 100%;

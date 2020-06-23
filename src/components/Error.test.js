@@ -80,7 +80,7 @@ test('renders correctly', () => {
     }
 
     .c2 {
-      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.4717rem;
       font-weight: 300;
       line-height: 1.0920;

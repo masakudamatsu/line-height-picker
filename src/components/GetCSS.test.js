@@ -88,7 +88,7 @@ test('renders correctly', () => {
     }
 
     .c2 {
-      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.4717rem;
       font-weight: 300;
       line-height: 1.0920;
@@ -165,7 +165,7 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-weight: 500;
       visibility: hidden;
     }
@@ -190,12 +190,12 @@ test('renders correctly', () => {
     }
 
     .c6 {
-      font-family: 'Fedra Mono 2',monospace;
+      font-family: 'Fedra Mono',monospace;
       font-weight: 300;
     }
 
     .c13 {
-      font-family: 'Fedra Mono 2',monospace;
+      font-family: 'Fedra Mono',monospace;
       font-weight: 300;
       background-color: hsl(0,0%,40%);
       -webkit-letter-spacing: -0.04em;
@@ -226,7 +226,7 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.5983rem;
       font-weight: 500;
       height: 65.0893px;
@@ -275,7 +275,7 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.5983rem;
       font-weight: 500;
       height: 65.0893px;

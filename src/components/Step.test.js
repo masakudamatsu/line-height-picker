@@ -38,7 +38,7 @@ test('renders correctly', () => {
       color: hsl(0,0%,90%);
       cursor: default;
       display: inline-block;
-      font-family: 'Fedra Mono 2',monospace;
+      font-family: 'Fedra Mono',monospace;
       font-size: 1.1366rem;
       font-weight: 300;
       line-height: 1.0000;
