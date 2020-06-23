@@ -427,7 +427,13 @@ test('renders correctly', () => {
             class="c7"
             data-testid="copy-button"
           >
-            Copy CSS code
+            <span>
+              Copy 
+              <abbr>
+                CSS
+              </abbr>
+               code
+            </span>
           </button>
           <div
             class="c3"

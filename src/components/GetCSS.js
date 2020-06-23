@@ -44,10 +44,14 @@ p + p {
 
   // Copy button text
   const copyButtonText = {
-    default: 'Copy CSS code',
+    default: (
+      <span>
+        Copy <abbr>CSS</abbr> code
+      </span>
+    ),
     afterClick: 'Copied!',
   };
-  const [buttonText, setButtonText] = React.useState(copyButtonText.default);
+  const [copied, setCopied] = React.useState(false);
 
   // Handling copy to clipboard
   const [error, setError] = React.useState(false);
@@ -78,9 +82,9 @@ p + p {
         return;
       }
     }
-    setButtonText(copyButtonText.afterClick);
+    setCopied(true);
     setTimeout(() => {
-      setButtonText(copyButtonText.default);
+      setCopied(false);
     }, 1500);
   };
 
@@ -115,7 +119,7 @@ p + p {
             primary
             aria-describedby="whatHappened howToResolve extraText"
           >
-            {buttonText}
+            {copied ? copyButtonText.afterClick : copyButtonText.default}
           </Button>
           <SpacerVertical height="2" />
           <ButtonWithLeftArrow onClick={handleClick}>Back</ButtonWithLeftArrow>
