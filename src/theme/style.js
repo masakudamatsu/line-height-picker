@@ -186,6 +186,15 @@ export const Code = styled.code`
   font-weight: ${fontPalette.fontWeight.code};
 `;
 
+export const CodeInline = styled(Code)`
+  background-color: ${colorPalette.codeInline.background};
+  letter-spacing: -0.04em;
+`;
+
+export const BookTitle = styled.cite`
+  font-style: italic;
+`;
+
 export const HiddenH1 = styled.h1`
   /* Hide the h1 element except for the screen reader. */
   clip: rect(1px 1px 1px 1px);
