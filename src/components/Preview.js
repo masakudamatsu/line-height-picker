@@ -10,6 +10,7 @@ import SectionFont from './SectionFont';
 import XheightBox from './XheightBox';
 
 import {
+  Abbr,
   ButtonWithRightArrow,
   ControlPanel,
   Flexbox,
@@ -84,7 +85,7 @@ const Preview = props => {
                   disabled={props.cssButtonDisabled}
                   primary
                 >
-                  CSS code
+                  <Abbr>Css</Abbr>&nbsp;code
                 </ButtonWithRightArrow>
                 <SpacerVertical height="3" />
               </Section>

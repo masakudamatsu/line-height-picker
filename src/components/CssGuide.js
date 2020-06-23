@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import {
+  Abbr,
   CodeInline,
   ExternalLink,
   ParagraphOneRem,
@@ -14,7 +15,9 @@ const CssGuide = () => {
   return (
     <>
       <Section>
-        <SectionTitle>How we obtain the above CSS values</SectionTitle>
+        <SectionTitle>
+          How we obtain the above <Abbr>css</Abbr> values
+        </SectionTitle>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
           We use font metrics—extracted from the font file you have selected—to
@@ -26,8 +29,8 @@ const CssGuide = () => {
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
           Below we explain how the Line-height Picker obtains each of these
-          three CSS values. To learn more about font metrics, I recommend
-          reading{' '}
+          three <Abbr>css</Abbr> values. To learn more about font metrics, I
+          recommend reading{' '}
           <ExternalLink href="http://westonthayer.com/writing/intro-to-font-metrics/">
             “Intro to Font Metrics”
           </ExternalLink>

@@ -195,6 +195,15 @@ export const BookTitle = styled.cite`
   font-style: italic;
 `;
 
+export const Abbr = styled.abbr`
+  font-feature-settings: 'smcp';
+  letter-spacing: 0.01em; /* following Flexible Typesetting */
+  @supports (font-variant-caps: small-caps) {
+    font-variant-caps: small-caps;
+    font-feature-settings: normal;
+  }
+`;
+
 export const HiddenH1 = styled.h1`
   /* Hide the h1 element except for the screen reader. */
   clip: rect(1px 1px 1px 1px);

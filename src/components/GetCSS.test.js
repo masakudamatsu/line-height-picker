@@ -28,7 +28,7 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c14 {
+    .c15 {
       background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
       background-position: 0 calc( 0.125em + 0.707em );
@@ -41,45 +41,45 @@ test('renders correctly', () => {
       text-shadow: 0.03em 0 hsl(0,0%,10%), -0.03em 0 hsl(0,0%,10%),0 0.03em hsl(0,0%,10%), 0 -0.03em hsl(0,0%,10%);
     }
 
-    .c14:visited {
+    .c15:visited {
       background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
       color: currentColor;
     }
 
-    .c14:focus,
-    .c14:hover {
+    .c15:focus,
+    .c15:hover {
       background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
     }
 
-    .c14:focus:before,
-    .c14:hover:before,
-    .c14:focus:after,
-    .c14:hover:after {
+    .c15:focus:before,
+    .c15:hover:before,
+    .c15:focus:after,
+    .c15:hover:after {
       display: none;
     }
 
-    .c14:active {
+    .c15:active {
       background: none;
     }
 
-    .c14:visited:focus,
-    .c14:visited:hover {
+    .c15:visited:focus,
+    .c15:visited:hover {
       background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
     }
 
-    .c14:visited:focus:before,
-    .c14:visited:hover:before,
-    .c14:visited:focus:after,
-    .c14:visited:hover:after {
+    .c15:visited:focus:before,
+    .c15:visited:hover:before,
+    .c15:visited:focus:after,
+    .c15:visited:hover:after {
       display: none;
     }
 
-    .c14:visited:active {
+    .c15:visited:active {
       background: none;
     }
 
@@ -110,32 +110,9 @@ test('renders correctly', () => {
       margin-top: -0.2660em;
     }
 
-    .c11 {
+    .c12 {
       color: hsl(51,100%,44%);
       font-weight: 500;
-      font-variant-numeric: oldstyle-nums;
-      font-feature-settings: 'calt','clig','kern','liga','onum';
-    }
-
-    .c11:before,
-    .c11:after {
-      content: '';
-      display: block;
-      height: 0;
-      width: 0;
-    }
-
-    .c11:before {
-      margin-bottom: -0.2555em;
-    }
-
-    .c11:after {
-      margin-top: -0.4025em;
-    }
-
-    .c12 {
-      color: currentColor;
-      font-weight: inherit;
       font-variant-numeric: oldstyle-nums;
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
@@ -156,7 +133,30 @@ test('renders correctly', () => {
       margin-top: -0.4025em;
     }
 
-    .c9 {
+    .c13 {
+      color: currentColor;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+    }
+
+    .c13:before,
+    .c13:after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c13:before {
+      margin-bottom: -0.2555em;
+    }
+
+    .c13:after {
+      margin-top: -0.4025em;
+    }
+
+    .c10 {
       -webkit-align-items: flex-start;
       -webkit-box-align: flex-start;
       -ms-flex-align: flex-start;
@@ -170,7 +170,7 @@ test('renders correctly', () => {
       visibility: hidden;
     }
 
-    .c10 {
+    .c11 {
       -webkit-flex: 0 0 0.9427em;
       -ms-flex: 0 0 0.9427em;
       flex: 0 0 0.9427em;
@@ -183,18 +183,18 @@ test('renders correctly', () => {
       visibility: hidden;
     }
 
-    .c5 {
+    .c6 {
       padding-bottom: 1.3393rem;
       padding-top: 1.3393rem;
       white-space: pre-wrap;
     }
 
-    .c6 {
+    .c7 {
       font-family: 'Fedra Mono',monospace;
       font-weight: 300;
     }
 
-    .c13 {
+    .c14 {
       font-family: 'Fedra Mono',monospace;
       font-weight: 300;
       background-color: hsl(0,0%,40%);
@@ -204,60 +204,19 @@ test('renders correctly', () => {
       letter-spacing: -0.04em;
     }
 
-    .c4 {
+    .c3 {
+      font-feature-settings: 'smcp';
+      -webkit-letter-spacing: 0.01em;
+      -moz-letter-spacing: 0.01em;
+      -ms-letter-spacing: 0.01em;
+      letter-spacing: 0.01em;
+    }
+
+    .c5 {
       background: hsla(0,0%,100%,0.9);
       box-shadow: 0 0 10px 0 hsla(0,0%,100%,0.56), 0 0 20px 0 hsla(0,0%,100%,0.56), 0 0 40px 0 hsla(0,0%,100%,0.56);
       height: 2px;
       width: 100%;
-    }
-
-    .c7 {
-      -webkit-align-items: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      background-color: inherit;
-      border: none;
-      border-radius: 7.2321px;
-      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.56), 0 -3px 3px 0px hsla(0,0%,100%,0.56), 3px 0 3px 0 hsla(0,0%,100%,0.56), 0 3px 3px 0 hsla(0,0%,100%,0.56);
-      color: inherit;
-      cursor: pointer;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 1.5983rem;
-      font-weight: 500;
-      height: 65.0893px;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      position: relative;
-      -webkit-text-decoration: none;
-      text-decoration: none;
-      width: 294.2858px;
-    }
-
-    .c7:focus,
-    .c7:hover {
-      background-color: hsl(0,0%,51%);
-      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.56), 0 -6px 6px 0px hsla(0,0%,100%,0.56), 6px 0 6px 0 hsla(0,0%,100%,0.56), 0 6px 6px 0 hsla(0,0%,100%,0.56);
-      outline: none;
-    }
-
-    .c7:active {
-      background-color: hsl(0,0%,51%);
-      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.56), 0 -1px 1px 0px hsla(0,0%,100%,0.56), 1px 0 1px 0 hsla(0,0%,100%,0.56), 0 1px 1px 0 hsla(0,0%,100%,0.56);
-      outline: none;
-    }
-
-    .c7[disabled] {
-      border: 1px solid hsla(0,0%,100%,0.56);
-      box-shadow: none;
-      cursor: not-allowed;
-      opacity: 0.35;
     }
 
     .c8 {
@@ -309,7 +268,56 @@ test('renders correctly', () => {
       opacity: 0.35;
     }
 
-    .c8:before {
+    .c9 {
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: inherit;
+      border: none;
+      border-radius: 7.2321px;
+      box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.56), 0 -3px 3px 0px hsla(0,0%,100%,0.56), 3px 0 3px 0 hsla(0,0%,100%,0.56), 0 3px 3px 0 hsla(0,0%,100%,0.56);
+      color: inherit;
+      cursor: pointer;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 1.5983rem;
+      font-weight: 500;
+      height: 65.0893px;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      position: relative;
+      -webkit-text-decoration: none;
+      text-decoration: none;
+      width: 294.2858px;
+    }
+
+    .c9:focus,
+    .c9:hover {
+      background-color: hsl(0,0%,51%);
+      box-shadow: -6px 0 6px 0px hsla(0,0%,100%,0.56), 0 -6px 6px 0px hsla(0,0%,100%,0.56), 6px 0 6px 0 hsla(0,0%,100%,0.56), 0 6px 6px 0 hsla(0,0%,100%,0.56);
+      outline: none;
+    }
+
+    .c9:active {
+      background-color: hsl(0,0%,51%);
+      box-shadow: -1px 0 1px 0px hsla(0,0%,100%,0.56), 0 -1px 1px 0px hsla(0,0%,100%,0.56), 1px 0 1px 0 hsla(0,0%,100%,0.56), 0 1px 1px 0 hsla(0,0%,100%,0.56);
+      outline: none;
+    }
+
+    .c9[disabled] {
+      border: 1px solid hsla(0,0%,100%,0.56);
+      box-shadow: none;
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+
+    .c9:before {
       content: '←';
       position: absolute;
       left: 14.4643px;
@@ -320,7 +328,7 @@ test('renders correctly', () => {
       width: auto;
     }
 
-    .c3 {
+    .c4 {
       height: 1.2053571428571428rem;
       width: auto;
     }
@@ -332,18 +340,16 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c5 {
+      .c6 {
         padding-bottom: 1.5625rem;
         padding-top: 1.5625rem;
       }
     }
 
-    @media only screen and (min-width:728px) {
-      .c7 {
-        border-radius: 8.4375;
-        font-size: 1.8647rem;
-        height: 75.9375px;
-        width: 343.3334px;
+    @supports (font-variant-caps:small-caps) {
+      .c3 {
+        font-variant-caps: small-caps;
+        font-feature-settings: normal;
       }
     }
 
@@ -357,7 +363,16 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c8:before {
+      .c9 {
+        border-radius: 8.4375;
+        font-size: 1.8647rem;
+        height: 75.9375px;
+        width: 343.3334px;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c9:before {
         left: 16.875px;
       }
     }
@@ -369,7 +384,7 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c3 {
+      .c4 {
         height: 1.40625rem;
       }
     }
@@ -386,20 +401,25 @@ test('renders correctly', () => {
           <h2
             class="c2"
           >
-            Get CSS
+            Get 
+            <abbr
+              class="c3"
+            >
+              css
+            </abbr>
           </h2>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
           <div
-            class="c4"
+            class="c5"
           />
           <pre
-            class="c5"
+            class="c6"
           >
             <code
-              class="c6"
+              class="c7"
               data-testid="cssCode"
               id="cssCode"
             >
@@ -416,43 +436,45 @@ test('renders correctly', () => {
             </code>
           </pre>
           <div
-            class="c4"
+            class="c5"
           />
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
           <button
             aria-describedby="whatHappened howToResolve extraText"
-            class="c7"
+            class="c8"
             data-testid="copy-button"
           >
             <span>
               Copy 
-              <abbr>
-                CSS
+              <abbr
+                class="c3"
+              >
+                css
               </abbr>
                code
             </span>
           </button>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
           <button
-            class="c8"
+            class="c9"
           >
             Back
           </button>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
           <div
-            class="c9"
+            class="c10"
           >
             <svg
-              class="c10"
+              class="c11"
               fill="none"
               height="24"
               role="img"
@@ -479,7 +501,7 @@ test('renders correctly', () => {
               />
             </svg>
             <p
-              class="c11"
+              class="c12"
             >
               <span
                 data-testid="whatHappened"
@@ -512,50 +534,62 @@ test('renders correctly', () => {
           <h2
             class="c2"
           >
-            How we obtain the above CSS values
+            How we obtain the above 
+            <abbr
+              class="c3"
+            >
+              css
+            </abbr>
+             values
           </h2>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
           <p
-            class="c12"
+            class="c13"
           >
             We use font metrics—extracted from the font file you have selected—to convert the x-height value and its ratio to line-height into
              
             <code
-              class="c13"
+              class="c14"
             >
               font-size
             </code>
             ,
              
             <code
-              class="c13"
+              class="c14"
             >
               line-height
             </code>
             , and
              
             <code
-              class="c13"
+              class="c14"
             >
               margin-top
             </code>
              values.
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
-            Below we explain how the Line-height Picker obtains each of these three CSS values. To learn more about font metrics, I recommend reading
+            Below we explain how the Line-height Picker obtains each of these three 
+            <abbr
+              class="c3"
+            >
+              css
+            </abbr>
+             values. To learn more about font metrics, I recommend reading
              
             <a
-              class="c14"
+              class="c15"
               href="http://westonthayer.com/writing/intro-to-font-metrics/"
             >
               “Intro to Font Metrics”
@@ -572,117 +606,117 @@ test('renders correctly', () => {
             Font-size
           </h3>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
           <p
-            class="c12"
+            class="c13"
           >
             To convert your x-height value into the
              
             <code
-              class="c13"
+              class="c14"
             >
               font-size
             </code>
              value shown above, we use the ratio of two font metric values: 
             <code
-              class="c13"
+              class="c14"
             >
               unitsPerEm
             </code>
              and
              
             <code
-              class="c13"
+              class="c14"
             >
               sxHeight
             </code>
             .
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
           <p
-            class="c12"
+            class="c13"
           >
             The 
             <code
-              class="c13"
+              class="c14"
             >
               unitsPerEm
             </code>
              value is the number of font-metric units that correspond to the
              
             <code
-              class="c13"
+              class="c14"
             >
               font-size
             </code>
              value. It is usually either 1000 or 2048. For example, Open Sans has the
              
             <code
-              class="c13"
+              class="c14"
             >
               unitsPerEm
             </code>
              value of 2048. If you set
              
             <code
-              class="c13"
+              class="c14"
             >
               font-size
             </code>
              to be 20.48px, then one font-metric unit equals to 0.01px.
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
             The 
             <code
-              class="c13"
+              class="c14"
             >
               sxHeight
             </code>
              value specifies the size of x-height in the number of font-metric units. Continuing the Open Sans example, we have the 
             <code
-              class="c13"
+              class="c14"
             >
               sxHeight
             </code>
              value of 1096. Consequently, the x-height will be 10.96px if
              
             <code
-              class="c13"
+              class="c14"
             >
               font-size
             </code>
              is 20.48px, because one font-metric unit is then 0.01px as explained above.
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
             Conversely, if you select Open Sans and the x-height value of 10.96px, then the 
             <code
-              class="c13"
+              class="c14"
             >
               font-size
             </code>
              value will be 20.48px. This is exactly how we convert x-height into
              
             <code
-              class="c13"
+              class="c14"
             >
               font-size
             </code>
@@ -698,53 +732,53 @@ test('renders correctly', () => {
             Line-height
           </h3>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
           <p
-            class="c12"
+            class="c13"
           >
             The 
             <code
-              class="c13"
+              class="c14"
             >
               line-height
             </code>
              value is then calculated in two steps.
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
             First, we use the ratio of x-height to line-height to obtain the line-height value in px from the x-height value. For example, if you set x-height to be 10.96px and the ratio to be 1:3, then the line-height value is 32.88px.
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
             In the second step, we convert the px value of line-height into the unitless value relative to 
             <code
-              class="c13"
+              class="c14"
             >
               font-size
             </code>
             , by dividing the former with the 
             <code
-              class="c13"
+              class="c14"
             >
               font-size
             </code>
              value. Continuing the same example, we divide the line-height value of 32.88px with the 
             <code
-              class="c13"
+              class="c14"
             >
               font-size
             </code>
@@ -760,23 +794,23 @@ test('renders correctly', () => {
             Margin-top
           </h3>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
             The 
             <code
-              class="c13"
+              class="c14"
             >
               margin-top
             </code>
              value for vertical space between paragraphs is calculated in three steps. (If you haven't read “Space between Paragraphs” in
              
             <a
-              class="c14"
+              class="c15"
               href="preview"
             >
               the Preview page
@@ -784,132 +818,132 @@ test('renders correctly', () => {
             , we recommend reading it first.)
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
           <p
-            class="c12"
+            class="c13"
           >
             We first use the ratio of x-height to line-height to obtain the vertical space in px from x-height. If x-height is 10.96px and the ratio is 1:3, then we multiply 10.96px twice with two (
             <code
-              class="c13"
+              class="c14"
             >
               =3-1
             </code>
             ) to obtain 43.84px.
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
             The next step calculates the distance from the bottom of the x-height stripe to the top of the uppercase letter when
              
             <code
-              class="c13"
+              class="c14"
             >
               margin-top
             </code>
              is zero. It is the amount of whitespace we need to subtract from the total vertical distance between paragraphs. For this purpose, we need two values.
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
             The first value is the distance from the top of an uppercase letter to the top of the lowercase x. Another font metric value called
              
             <code
-              class="c13"
+              class="c14"
             >
               sCapHeight
             </code>
              gives the distance from the top of an uppercase letter to the bottom of the x-height stripe. We then subtract from it the 
             <code
-              class="c13"
+              class="c14"
             >
               sxHeight
             </code>
              value. In our example, Open Sans has the 
             <code
-              class="c13"
+              class="c14"
             >
               sCapHeight
             </code>
              of 1462. Its difference from the 
             <code
-              class="c13"
+              class="c14"
             >
               sxHeight
             </code>
              value of 1096 is then 466. As one font-metric unit is 0.01px in our example, it amounts to 3.66px.
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
             The second value is the distance between two consequtive x-height stripes. It equals to the difference between the line-height value and the x-height value. In our example, the former is 32.88px while the latter is 10.96px. Therefore, we have 21.92px.
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
             Consequently, the difference between these two values, 18.26px (
             <code
-              class="c13"
+              class="c14"
             >
               =21.92-3.66
             </code>
             ), is what we are after: the distance from the bottom of the x-height stripe to the top of the uppercase letter when 
             <code
-              class="c13"
+              class="c14"
             >
               margin-top
             </code>
              is zero.
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
            
           <p
-            class="c12"
+            class="c13"
           >
             In the final step, we obtain the extra amount of whitespace to achieve the desired distance between paragraphs from the two values obtained in the previous two steps. In our example, we subtract the whitespace in the absence of any margin, 18.26px, from the target whitespace of 43.84px. So the 
             <code
-              class="c13"
+              class="c14"
             >
               margin-top
             </code>
              value will be 25.58px (
             <code
-              class="c13"
+              class="c14"
             >
               =43.84-18.26
             </code>
             ).
           </p>
           <div
-            class="c3"
+            class="c4"
             height="2"
           />
           <p
-            class="c12"
+            class="c13"
           >
             Phew! :-)
           </p>

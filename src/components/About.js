@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import {
+  Abbr,
   CodeInline,
   ExternalLink,
   ParagraphOneRem,
@@ -34,10 +35,11 @@ const About = () => {
       <ParagraphOneRem>
         However, it is challenging to control the height of stripes in a
         paragraph on webpages. We cannot directly specify the size of x-height
-        in CSS. The ratio of x-height to the <CodeInline>font-size</CodeInline>{' '}
-        CSS property value varies across fonts. And the{' '}
-        <CodeInline>line-height</CodeInline> value needs to be relative to{' '}
-        <CodeInline>font-size</CodeInline>, not to x-height.
+        in <Abbr>css</Abbr>. The ratio of x-height to the{' '}
+        <CodeInline>font-size</CodeInline> <Abbr>css</Abbr> property value
+        varies across fonts. And the <CodeInline>line-height</CodeInline> value
+        needs to be relative to <CodeInline>font-size</CodeInline>, not to
+        x-height.
       </ParagraphOneRem>
       <SpacerVertical height="2" />
       <ParagraphOneRem>
@@ -45,8 +47,8 @@ const About = () => {
         to line-height, and then the Line-height Picker converts them into the{' '}
         <CodeInline>font-size</CodeInline> and{' '}
         <CodeInline>line-height</CodeInline> values, based on the font you have
-        selected. You can then copy these values into the CSS stylesheet for
-        your webpages.
+        selected. You can then copy these values into the <Abbr>css</Abbr>{' '}
+        stylesheet for your webpages.
       </ParagraphOneRem>
       <SpacerVertical height="2" />
       <ParagraphOneRem>

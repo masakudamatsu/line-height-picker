@@ -69,6 +69,14 @@ test('renders correctly', () => {
       font-style: italic;
     }
 
+    .c6 {
+      font-feature-settings: 'smcp';
+      -webkit-letter-spacing: 0.01em;
+      -moz-letter-spacing: 0.01em;
+      -ms-letter-spacing: 0.01em;
+      letter-spacing: 0.01em;
+    }
+
     .c0 {
       max-width: 33em;
       border-top: 1px solid hsl(0,0%,90%);
@@ -113,6 +121,13 @@ test('renders correctly', () => {
     .c4 {
       height: 0.8035714285714286rem;
       width: auto;
+    }
+
+    @supports (font-variant-caps:small-caps) {
+      .c6 {
+        font-variant-caps: small-caps;
+        font-feature-settings: normal;
+      }
     }
 
     @media only screen and (min-width:799px) {
@@ -322,7 +337,19 @@ test('renders correctly', () => {
           >
             CodeCademy
           </a>
-           for teaching the basics of HTML, CSS, JavaScript, and React;
+           for teaching the basics of 
+          <abbr
+            class="c6"
+          >
+            HTML
+          </abbr>
+          , 
+          <abbr
+            class="c6"
+          >
+            css
+          </abbr>
+          , JavaScript, and React;
            
           <a
             class="c3"
@@ -332,6 +359,7 @@ test('renders correctly', () => {
           </a>
            
           for teaching how to test JavaScript applications in his course
+           
           <cite
             class="c5"
           >

@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import {
+  Abbr,
   CodeInline,
   ExternalLink,
   ParagraphOneRem,
@@ -19,7 +20,7 @@ const LineHeightGuide = () => {
         <ParagraphOneRem>
           When you select the text for copy-and-paste it, the box will appear
           that surrounds the selected text. The height of this box is set by the{' '}
-          <CodeInline>line-height</CodeInline> CSS value.
+          <CodeInline>line-height</CodeInline> <Abbr>css</Abbr> value.
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
@@ -128,7 +129,8 @@ const LineHeightGuide = () => {
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
           The Line-height Picker helps you convert your chosen ratio of x-height
-          to line-height into the <CodeInline>line-height</CodeInline> CSS
+          to line-height into the <CodeInline>line-height</CodeInline>{' '}
+          <Abbr>css</Abbr>
           value.
         </ParagraphOneRem>{' '}
       </Section>

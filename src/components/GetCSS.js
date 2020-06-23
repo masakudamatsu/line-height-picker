@@ -6,6 +6,7 @@ import store from '../helper/store';
 import CssGuide from './CssGuide';
 
 import {
+  Abbr,
   AlertIcon,
   AlertMessage,
   Button,
@@ -46,7 +47,7 @@ p + p {
   const copyButtonText = {
     default: (
       <span>
-        Copy <abbr>CSS</abbr> code
+        Copy <Abbr>css</Abbr> code
       </span>
     ),
     afterClick: 'Copied!',
@@ -102,7 +103,9 @@ p + p {
       <main>
         <Section>
           <SpacerVertical height="3" />
-          <SectionTitle>Get CSS</SectionTitle>
+          <SectionTitle>
+            Get <Abbr>css</Abbr>
+          </SectionTitle>
           <SpacerVertical height="2" />
           <LinearLight />
           <CodeSnippet>

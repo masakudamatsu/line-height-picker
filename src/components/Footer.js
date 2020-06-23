@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Abbr,
   BookTitle,
   ExternalLink,
   FooterWrapper,
@@ -78,11 +79,11 @@ const Footer = props => {
         inspiring the basic idea of the Line-height Picker through his book{' '}
         <BookTitle>Flexible Typesetting</BookTitle>;{' '}
         <ExternalLink href="">CodeCademy</ExternalLink> for teaching the basics
-        of HTML, CSS, JavaScript, and React;{' '}
+        of <Abbr>HTML</Abbr>, <Abbr>css</Abbr>, JavaScript, and React;{' '}
         <ExternalLink href="https://kentcdodds.com/">
           Kent C. Dodds
         </ExternalLink>{' '}
-        for teaching how to test JavaScript applications in his course
+        for teaching how to test JavaScript applications in his course{' '}
         <BookTitle>TestingJavaScript.com</BookTitle>; and the{' '}
         <ExternalLink href="https://www.100daysofcode.com/">
           #100DaysOfCode
