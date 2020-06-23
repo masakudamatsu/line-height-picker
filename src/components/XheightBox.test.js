@@ -151,6 +151,10 @@ test('renders correctly', () => {
       font-size: 2.5573rem;
       font-weight: 300;
       height: 100%;
+      -webkit-letter-spacing: -0.05em;
+      -moz-letter-spacing: -0.05em;
+      -ms-letter-spacing: -0.05em;
+      letter-spacing: -0.05em;
       line-height: 1;
       padding-left: 12px;
       padding-top: 1.5696044186813187rem;
