@@ -1,4 +1,4 @@
-import pageTitle from '../../src/helper/pageTitle';
+import {pageTitle} from '../../src/helper/metaData';
 
 describe('The 404 Page', () => {
   beforeEach(() => {

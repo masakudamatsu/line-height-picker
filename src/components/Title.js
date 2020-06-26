@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {HiddenH1} from '../theme/style';
-import pageTitle from '../helper/pageTitle';
+import {pageTitle} from '../helper/metaData';
 
 const Title = props => {
   let pageTitleText;

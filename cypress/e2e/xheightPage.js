@@ -1,5 +1,5 @@
 import colorPalette from '../../src/theme/colorPalette';
-import pageTitle from '../../src/helper/pageTitle';
+import {pageTitle} from '../../src/helper/metaData';
 
 const validInputs = [{xHeight: 10}, {xHeight: 11}];
 
