@@ -89,7 +89,7 @@ test('renders correctly', () => {
 
     <div>
       <button
-        class="sc-fzqARJ c0"
+        class="sc-fzqNqU c0"
         data-testid="demo-start-button"
       >
         Demo
