@@ -18,6 +18,7 @@ describe('X-height page in demo', () => {
   });
 
   it('shows the non-interactive UI components correctly', () => {
+    cy.title().should('eq', 'Line-height Picker: Text size (step 2 of 5)');
     cy.checkHeaderFooterRendering();
     cy.findByTestId('FontNameDisplay').should('exist');
   });

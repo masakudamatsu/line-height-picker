@@ -18,6 +18,7 @@ describe('Get CSS Page', () => {
   });
 
   it('shows the non-interactive UI components correctly', () => {
+    cy.title().should('eq', 'Line-height Picker: CSS code (step 5 of 5)');
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByTestId('cssCode').should('exist');
     cy.findByTestId('copy-button').should('exist');

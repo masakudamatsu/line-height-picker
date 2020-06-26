@@ -39,6 +39,7 @@ describe('Preview Page in demo', () => {
   });
 
   it('shows the non-interactive UI components correctly', () => {
+    cy.title().should('eq', 'Line-height Picker: Preview (step 4 of 5)');
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByTestId('sampleParagraph1').should('exist');
     cy.findByTestId('sampleParagraph2').should('exist');

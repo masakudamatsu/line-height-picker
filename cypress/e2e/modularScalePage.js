@@ -24,8 +24,8 @@ describe('Modular Scale Page in demo', () => {
   });
 
   it('shows the non-interactive UI components correctly', () => {
+    cy.title().should('eq', 'Line-height Picker: Line spacing (step 3 of 5)');
     cy.checkHeaderFooterRendering(); // See support/commands.js
-    cy.findByText(/line spacing/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
   });
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import Page from './components/Page';
 import store from './helper/store';
 
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
@@ -550,138 +551,185 @@ function App() {
                     >
                       <div>
                         <Switch location={location}>
-                          <Route path="/" exact>
-                            <Home
-                              fontFileError={fontFileError}
-                              handleDemo={handleDemo}
-                              handleFontFile={handleFontFile}
-                              validateFileType={validateFileType}
-                            />
-                            <Footer />
-                          </Route>
-                          <Route path="/x-height">
-                            <Xheight
-                              ascender={fontMetrics.ascender}
-                              capHeight={fontMetrics.capHeight}
-                              descender={fontMetrics.descender}
-                              disableNextButton={disableNextButton}
-                              fontFamily={fontMetrics.fontFamily}
-                              fontFileError={fontFileError}
-                              fontSubfamily={fontMetrics.fontSubfamily}
-                              fontWeight={fontMetrics.fontWeight}
-                              handleFontFile={handleFontFile}
-                              handleNoXHeight={handleNoXHeight}
-                              handleXHeightChange={handleXHeightChange}
-                              nextButtonDisabled={nextButtonDisabled}
-                              unitsPerEm={fontMetrics.unitsPerEm}
-                              validateFileType={validateFileType}
-                              validateXHeight={validateXHeight}
-                              xHeightPx={xHeightPx}
-                              xHeightRangeError={xHeightRangeError}
-                              xHeightStepError={xHeightStepError}
-                            />
-                            <Footer />
-                          </Route>
-                          <Route path="/modular-scale">
-                            <ModularScale
-                              ascender={fontMetrics.ascender}
-                              capHeight={fontMetrics.capHeight}
-                              descender={fontMetrics.descender}
-                              disablePreviewButton={disablePreviewButton}
-                              fontFamily={fontMetrics.fontFamily}
-                              fontFileError={fontFileError}
-                              fontSubfamily={fontMetrics.fontSubfamily}
-                              fontWeight={fontMetrics.fontWeight}
-                              handleFontFile={handleFontFile}
-                              handleLineHeightRatioChange={
-                                handleLineHeightRatioChange
-                              }
-                              handleNoLineHeightRatio={handleNoLineHeightRatio}
-                              handleNoModularScale={handleNoModularScale}
-                              handleNoXHeight={handleNoXHeight}
-                              handleXHeightChange={handleXHeightChange}
-                              handleXHeightRatioChange={
-                                handleXHeightRatioChange
-                              }
-                              lineHeightRatio={lineHeightRatio}
-                              lineHeightRatioRangeError={
-                                lineHeightRatioRangeError
-                              }
-                              lineHeightRatioStepError={
-                                lineHeightRatioStepError
-                              }
-                              previewButtonDisabled={previewButtonDisabled}
-                              unitsPerEm={fontMetrics.unitsPerEm}
-                              validateFileType={validateFileType}
-                              validateLineHeightRatio={validateLineHeightRatio}
-                              validateXHeight={validateXHeight}
-                              validateXHeightRatio={validateXHeightRatio}
-                              xHeightPx={xHeightPx}
-                              xHeightRangeError={xHeightRangeError}
-                              xHeightStepError={xHeightStepError}
-                              xHeightRatio={xHeightRatio}
-                              xHeightRatioRangeError={xHeightRatioRangeError}
-                              xHeightRatioStepError={xHeightRatioStepError}
-                            />
-                            <Footer />
-                          </Route>
-                          <Route path="/preview">
-                            <Preview
-                              ascender={fontMetrics.ascender}
-                              capHeight={fontMetrics.capHeight}
-                              cssButtonDisabled={cssButtonDisabled}
-                              descender={fontMetrics.descender}
-                              disableCssButton={disableCssButton}
-                              fontFamily={fontMetrics.fontFamily}
-                              fontFileError={fontFileError}
-                              fontMetrics={fontMetrics}
-                              fontSize={fontSizePx}
-                              fontSubfamily={fontMetrics.fontSubfamily}
-                              fontWeight={fontMetrics.fontWeight}
-                              handleFontFile={handleFontFile}
-                              handleLineHeightRatioChange={
-                                handleLineHeightRatioChange
-                              }
-                              handleNoLineHeightRatio={handleNoLineHeightRatio}
-                              handleNoModularScale={handleNoModularScale}
-                              handleNoXHeight={handleNoXHeight}
-                              handleXHeightChange={handleXHeightChange}
-                              handleXHeightRatioChange={
-                                handleXHeightRatioChange
-                              }
-                              lineHeight={lineHeight}
-                              lineHeightRatio={lineHeightRatio}
-                              lineHeightRatioRangeError={
-                                lineHeightRatioRangeError
-                              }
-                              lineHeightRatioStepError={
-                                lineHeightRatioStepError
-                              }
-                              marginTop={marginTop}
-                              unitsPerEm={fontMetrics.unitsPerEm}
-                              validateFileType={validateFileType}
-                              validateLineHeightRatio={validateLineHeightRatio}
-                              validateXHeight={validateXHeight}
-                              validateXHeightRatio={validateXHeightRatio}
-                              xHeightPx={xHeightPx}
-                              xHeightRangeError={xHeightRangeError}
-                              xHeightStepError={xHeightStepError}
-                              xHeightRatio={xHeightRatio}
-                              xHeightRatioRangeError={xHeightRatioRangeError}
-                              xHeightRatioStepError={xHeightRatioStepError}
-                            />
-                            <Footer />
-                          </Route>
-                          <Route path="/css">
-                            <GetCSS
-                              fontFamily={fontMetrics.fontFamily}
-                              fontSize={fontSizePx}
-                              fontWeight={fontMetrics.fontWeight}
-                              lineHeight={lineHeight}
-                              marginTop={marginTop}
-                            />
-                            <Footer />
-                          </Route>
+                          <Route
+                            path="/"
+                            exact
+                            render={props => (
+                              <Page title="Line-height Picker: Font (step 1 of 5)">
+                                <Home
+                                  fontFileError={fontFileError}
+                                  handleDemo={handleDemo}
+                                  handleFontFile={handleFontFile}
+                                  validateFileType={validateFileType}
+                                />
+                                <Footer />
+                              </Page>
+                            )}
+                          />
+                          <Route
+                            path="/x-height"
+                            render={props => (
+                              <Page title="Line-height Picker: Text size (step 2 of 5)">
+                                <Xheight
+                                  ascender={fontMetrics.ascender}
+                                  capHeight={fontMetrics.capHeight}
+                                  descender={fontMetrics.descender}
+                                  disableNextButton={disableNextButton}
+                                  fontFamily={fontMetrics.fontFamily}
+                                  fontFileError={fontFileError}
+                                  fontSubfamily={fontMetrics.fontSubfamily}
+                                  fontWeight={fontMetrics.fontWeight}
+                                  handleFontFile={handleFontFile}
+                                  handleNoXHeight={handleNoXHeight}
+                                  handleXHeightChange={handleXHeightChange}
+                                  nextButtonDisabled={nextButtonDisabled}
+                                  unitsPerEm={fontMetrics.unitsPerEm}
+                                  validateFileType={validateFileType}
+                                  validateXHeight={validateXHeight}
+                                  xHeightPx={xHeightPx}
+                                  xHeightRangeError={xHeightRangeError}
+                                  xHeightStepError={xHeightStepError}
+                                />
+                                <Footer />
+                              </Page>
+                            )}
+                          />
+                          <Route
+                            path="/modular-scale"
+                            render={props => (
+                              <Page
+                                title="Line-height Picker: Line spacing (step 3
+                              of 5)"
+                              >
+                                <ModularScale
+                                  ascender={fontMetrics.ascender}
+                                  capHeight={fontMetrics.capHeight}
+                                  descender={fontMetrics.descender}
+                                  disablePreviewButton={disablePreviewButton}
+                                  fontFamily={fontMetrics.fontFamily}
+                                  fontFileError={fontFileError}
+                                  fontSubfamily={fontMetrics.fontSubfamily}
+                                  fontWeight={fontMetrics.fontWeight}
+                                  handleFontFile={handleFontFile}
+                                  handleLineHeightRatioChange={
+                                    handleLineHeightRatioChange
+                                  }
+                                  handleNoLineHeightRatio={
+                                    handleNoLineHeightRatio
+                                  }
+                                  handleNoModularScale={handleNoModularScale}
+                                  handleNoXHeight={handleNoXHeight}
+                                  handleXHeightChange={handleXHeightChange}
+                                  handleXHeightRatioChange={
+                                    handleXHeightRatioChange
+                                  }
+                                  lineHeightRatio={lineHeightRatio}
+                                  lineHeightRatioRangeError={
+                                    lineHeightRatioRangeError
+                                  }
+                                  lineHeightRatioStepError={
+                                    lineHeightRatioStepError
+                                  }
+                                  previewButtonDisabled={previewButtonDisabled}
+                                  unitsPerEm={fontMetrics.unitsPerEm}
+                                  validateFileType={validateFileType}
+                                  validateLineHeightRatio={
+                                    validateLineHeightRatio
+                                  }
+                                  validateXHeight={validateXHeight}
+                                  validateXHeightRatio={validateXHeightRatio}
+                                  xHeightPx={xHeightPx}
+                                  xHeightRangeError={xHeightRangeError}
+                                  xHeightStepError={xHeightStepError}
+                                  xHeightRatio={xHeightRatio}
+                                  xHeightRatioRangeError={
+                                    xHeightRatioRangeError
+                                  }
+                                  xHeightRatioStepError={xHeightRatioStepError}
+                                />
+                                <Footer />
+                              </Page>
+                            )}
+                          />
+                          <Route
+                            path="/preview"
+                            render={props => (
+                              <Page
+                                title="Line-height Picker: Preview (step 4
+                            of 5)"
+                              >
+                                <Preview
+                                  ascender={fontMetrics.ascender}
+                                  capHeight={fontMetrics.capHeight}
+                                  cssButtonDisabled={cssButtonDisabled}
+                                  descender={fontMetrics.descender}
+                                  disableCssButton={disableCssButton}
+                                  fontFamily={fontMetrics.fontFamily}
+                                  fontFileError={fontFileError}
+                                  fontMetrics={fontMetrics}
+                                  fontSize={fontSizePx}
+                                  fontSubfamily={fontMetrics.fontSubfamily}
+                                  fontWeight={fontMetrics.fontWeight}
+                                  handleFontFile={handleFontFile}
+                                  handleLineHeightRatioChange={
+                                    handleLineHeightRatioChange
+                                  }
+                                  handleNoLineHeightRatio={
+                                    handleNoLineHeightRatio
+                                  }
+                                  handleNoModularScale={handleNoModularScale}
+                                  handleNoXHeight={handleNoXHeight}
+                                  handleXHeightChange={handleXHeightChange}
+                                  handleXHeightRatioChange={
+                                    handleXHeightRatioChange
+                                  }
+                                  lineHeight={lineHeight}
+                                  lineHeightRatio={lineHeightRatio}
+                                  lineHeightRatioRangeError={
+                                    lineHeightRatioRangeError
+                                  }
+                                  lineHeightRatioStepError={
+                                    lineHeightRatioStepError
+                                  }
+                                  marginTop={marginTop}
+                                  unitsPerEm={fontMetrics.unitsPerEm}
+                                  validateFileType={validateFileType}
+                                  validateLineHeightRatio={
+                                    validateLineHeightRatio
+                                  }
+                                  validateXHeight={validateXHeight}
+                                  validateXHeightRatio={validateXHeightRatio}
+                                  xHeightPx={xHeightPx}
+                                  xHeightRangeError={xHeightRangeError}
+                                  xHeightStepError={xHeightStepError}
+                                  xHeightRatio={xHeightRatio}
+                                  xHeightRatioRangeError={
+                                    xHeightRatioRangeError
+                                  }
+                                  xHeightRatioStepError={xHeightRatioStepError}
+                                />
+                                <Footer />
+                              </Page>
+                            )}
+                          />
+                          <Route
+                            path="/css"
+                            render={props => (
+                              <Page
+                                title="Line-height Picker: CSS code (step 5
+                          of 5)"
+                              >
+                                <GetCSS
+                                  fontFamily={fontMetrics.fontFamily}
+                                  fontSize={fontSizePx}
+                                  fontWeight={fontMetrics.fontWeight}
+                                  lineHeight={lineHeight}
+                                  marginTop={marginTop}
+                                />
+                                <Footer />
+                              </Page>
+                            )}
+                          />
                         </Switch>
                       </div>
                     </CSSTransition>
