@@ -1,3 +1,5 @@
+import pageTitle from '../../src/helper/pageTitle';
+
 describe('Landing Page', () => {
   beforeEach(() => {
     sessionStorage.clear();
@@ -5,7 +7,7 @@ describe('Landing Page', () => {
   });
 
   it('shows the non-interactive UI components correctly', () => {
-    cy.title().should('eq', 'Line-height Picker: Font (step 1 of 5)');
+    cy.title().should('eq', pageTitle.home);
     cy.get('h1').should('have.text', 'Line-height Picker');
     cy.findAllByAltText(/logo/i).should('exist'); // The logo exists both in the header and the body.
     cy.findByTestId('stepIndicator').should('exist');

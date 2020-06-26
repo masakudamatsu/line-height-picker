@@ -26,6 +26,7 @@ import Xheight from './components/Xheight';
 import {fontFileExtensionsRegex as validFontFileTypes} from './helper/fontFileExtensions';
 import getFontMetrics from './helper/getFontMetrics';
 import {getFontSize, getLineHeight, getMarginTop} from './helper/cssGenerators';
+import pageTitle from './helper/pageTitle';
 
 const opentype = require('opentype.js');
 
@@ -555,7 +556,7 @@ function App() {
                             path="/"
                             exact
                             render={props => (
-                              <Page title="Line-height Picker: Font (step 1 of 5)">
+                              <Page title={pageTitle.home}>
                                 <Home
                                   fontFileError={fontFileError}
                                   handleDemo={handleDemo}
@@ -569,7 +570,7 @@ function App() {
                           <Route
                             path="/x-height"
                             render={props => (
-                              <Page title="Line-height Picker: Text size (step 2 of 5)">
+                              <Page title={pageTitle.xHeight}>
                                 <Xheight
                                   ascender={fontMetrics.ascender}
                                   capHeight={fontMetrics.capHeight}
@@ -597,10 +598,7 @@ function App() {
                           <Route
                             path="/modular-scale"
                             render={props => (
-                              <Page
-                                title="Line-height Picker: Line spacing (step 3
-                              of 5)"
-                              >
+                              <Page title={pageTitle.modularScale}>
                                 <ModularScale
                                   ascender={fontMetrics.ascender}
                                   capHeight={fontMetrics.capHeight}
@@ -654,10 +652,7 @@ function App() {
                           <Route
                             path="/preview"
                             render={props => (
-                              <Page
-                                title="Line-height Picker: Preview (step 4
-                            of 5)"
-                              >
+                              <Page title={pageTitle.preview}>
                                 <Preview
                                   ascender={fontMetrics.ascender}
                                   capHeight={fontMetrics.capHeight}
@@ -715,10 +710,7 @@ function App() {
                           <Route
                             path="/css"
                             render={props => (
-                              <Page
-                                title="Line-height Picker: CSS code (step 5
-                          of 5)"
-                              >
+                              <Page title={pageTitle.css}>
                                 <GetCSS
                                   fontFamily={fontMetrics.fontFamily}
                                   fontSize={fontSizePx}
