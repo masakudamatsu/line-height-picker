@@ -42,6 +42,7 @@ describe('Preview Page in demo', () => {
 
   it('shows the non-interactive UI components correctly', () => {
     cy.title().should('eq', pageTitle.preview);
+    cy.get('h1').should('have.text', pageTitle.preview);
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByTestId('sampleParagraph1').should('exist');
     cy.findByTestId('sampleParagraph2').should('exist');

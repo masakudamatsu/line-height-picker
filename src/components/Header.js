@@ -64,7 +64,7 @@ const Header = props => {
   }
   return (
     <HeaderWrapper as="header">
-      <Title />
+      <Title stepNow={props.stepNow} />
       <LogoFrame header topPage={props.topPage}>
         <a href="/">
           <LogoImage src={headerLogo3x} alt="Logo of Line-height Picker" />

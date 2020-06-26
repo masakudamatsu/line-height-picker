@@ -20,6 +20,7 @@ describe('X-height page in demo', () => {
 
   it('shows the non-interactive UI components correctly', () => {
     cy.title().should('eq', pageTitle.xHeight);
+    cy.get('h1').should('have.text', pageTitle.xHeight);
     cy.checkHeaderFooterRendering();
     cy.findByTestId('FontNameDisplay').should('exist');
   });

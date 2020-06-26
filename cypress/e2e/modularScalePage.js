@@ -27,6 +27,7 @@ describe('Modular Scale Page in demo', () => {
 
   it('shows the non-interactive UI components correctly', () => {
     cy.title().should('eq', pageTitle.modularScale);
+    cy.get('h1').should('have.text', pageTitle.modularScale);
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByTestId('FontNameDisplay').should('exist');
   });

@@ -21,6 +21,7 @@ describe('Get CSS Page', () => {
 
   it('shows the non-interactive UI components correctly', () => {
     cy.title().should('eq', pageTitle.css);
+    cy.get('h1').should('have.text', pageTitle.css);
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByTestId('cssCode').should('exist');
     cy.findByTestId('copy-button').should('exist');
