@@ -48,7 +48,10 @@ const LineHeightGuide = () => {
         <ParagraphOneRem>
           What we tend to find beautiful often comes from such a simple size
           ratio. In photography, the{' '}
-          <ExternalLink href="https://en.wikipedia.org/wiki/Rule_of_thirds">
+          <ExternalLink
+            href="https://en.wikipedia.org/wiki/Rule_of_thirds"
+            title="Wikipedia entry on the rule of the thirds"
+          >
             rule of thirds
           </ExternalLink>{' '}
           tells you to place the main object at one-third of the photo-frame
@@ -89,12 +92,18 @@ const LineHeightGuide = () => {
           the same height as the whitespace stripe. But such tight line-spacing
           is likely to make the lowerpart of lowercase letters such as g and y
           (known as the “
-          <ExternalLink href="https://en.wikipedia.org/wiki/Descender">
+          <ExternalLink
+            href="https://en.wikipedia.org/wiki/Descender"
+            title="Wikipedia entry on the descender"
+          >
             descender
           </ExternalLink>
           ”) overlap the upper part of lowercase letters such as d and h (known
           as the “
-          <ExternalLink href="https://en.wikipedia.org/wiki/Ascender_(typography)">
+          <ExternalLink
+            href="https://en.wikipedia.org/wiki/Ascender_(typography)"
+            title="Wikipedia entry on the ascender"
+          >
             ascender
           </ExternalLink>
           ”).

@@ -19,7 +19,10 @@ const About = () => {
       <ParagraphOneRem>
         The idea starts with a simple observation: a paragraph of text in Latin
         alphabets consists of stripes of{' '}
-        <ExternalLink href="https://en.wikipedia.org/wiki/X-height">
+        <ExternalLink
+          href="https://en.wikipedia.org/wiki/X-height"
+          title="Wikipedia entry on x-height"
+        >
           x-height
         </ExternalLink>{' '}
         and whitespace.
@@ -55,11 +58,17 @@ const About = () => {
         We will take you through this process step by step. Click the “Open font
         file...” button above to select a font file. Or click the “Start demo”
         button to see how the Line-height Picker works, with{' '}
-        <ExternalLink href="https://fonts.google.com/specimen/Open+Sans">
+        <ExternalLink
+          href="https://fonts.google.com/specimen/Open+Sans"
+          title="Google Fonts page for Open Sans"
+        >
           Open Sans
         </ExternalLink>
         —the second most popular font in Google Fonts (
-        <ExternalLink href="https://fonts.google.com/analytics">
+        <ExternalLink
+          href="https://fonts.google.com/analytics"
+          title="Number of views on Google Fonts"
+        >
           source
         </ExternalLink>
         )—as a sample font.

@@ -89,7 +89,10 @@ const XheightGuide = () => {
             ITC Charter
           </ExternalLink>{' '}
           as its body text font (
-          <ExternalLink href="https://medium.design/project-tnt-4b9b4ea97cda">
+          <ExternalLink
+            href="https://medium.design/project-tnt-4b9b4ea97cda"
+            title="Medium design team member's article on Medium's typography refresh in October 2015"
+          >
             source
           </ExternalLink>
           ). Its x-height is 10px for desktop screens, based on my own
