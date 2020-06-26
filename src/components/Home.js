@@ -9,6 +9,7 @@ import FontFileErrorMessage from './FontFileErrorMessage';
 import FontFileUploader from './FontFileUploader';
 
 import {
+  HiddenH1,
   LogoFrame,
   LogoImage,
   MainLandingPage,
@@ -28,7 +29,7 @@ const Home = props => {
       <MainLandingPage>
         <RightAligner>
           <SpacerVertical height="3" />
-          <Section>
+          <Section as="header">
             <LogoFrame>
               <LogoImage src={logo3x} alt="Logo of Line-height Picker" />
             </LogoFrame>
@@ -37,6 +38,7 @@ const Home = props => {
           </Section>
           <SpacerVertical height="3" />
           <Section>
+            <HiddenH1 as="h2">Getting started</HiddenH1>
             <FontFileUploader
               handleFontFile={props.handleFontFile}
               home
