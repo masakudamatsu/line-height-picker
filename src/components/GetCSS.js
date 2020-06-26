@@ -104,7 +104,7 @@ p + p {
         <Section>
           <SpacerVertical height="3" />
           <SectionTitle>
-            Get <Abbr>css</Abbr>
+            <Abbr>Css</Abbr> code
           </SectionTitle>
           <SpacerVertical height="2" />
           <LinearLight />

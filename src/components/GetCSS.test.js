@@ -197,7 +197,7 @@ test('renders correctly', () => {
     .c14 {
       font-family: 'Fedra Mono',monospace;
       font-weight: 300;
-      background-color: hsl(0,0%,40%);
+      background-color: hsl(0,0%,23%);
       -webkit-letter-spacing: -0.04em;
       -moz-letter-spacing: -0.04em;
       -ms-letter-spacing: -0.04em;
@@ -405,12 +405,12 @@ test('renders correctly', () => {
           <h2
             class="c2"
           >
-            Get 
             <abbr
               class="c3"
             >
-              css
+              Css
             </abbr>
+             code
           </h2>
           <div
             class="c4"
@@ -608,353 +608,362 @@ test('renders correctly', () => {
             class="c1"
             height="3"
           />
-          <h3
-            class="c2"
-          >
-            Font-size
-          </h3>
-          <div
-            class="c4"
-            height="2"
-          />
-          <p
-            class="c13"
-          >
-            To convert your x-height value into the
+          <section>
+            <h3
+              class="c2"
+            >
+              Font-size
+            </h3>
+            <div
+              class="c4"
+              height="2"
+            />
+            <p
+              class="c13"
+            >
+              To convert your x-height value into the
+               
+              <code
+                class="c14"
+              >
+                font-size
+              </code>
+               value shown above, we use the ratio of two font metric values: 
+              <code
+                class="c14"
+              >
+                unitsPerEm
+              </code>
+               
+              and 
+              <code
+                class="c14"
+              >
+                sxHeight
+              </code>
+              .
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
+            <p
+              class="c13"
+            >
+              The 
+              <code
+                class="c14"
+              >
+                unitsPerEm
+              </code>
+               value is the number of font-metric units that correspond to the
+               
+              <code
+                class="c14"
+              >
+                font-size
+              </code>
+               value. It is usually either 1000 or 2048. For example, Open Sans has the
+               
+              <code
+                class="c14"
+              >
+                unitsPerEm
+              </code>
+               value of 2048. If you set
+               
+              <code
+                class="c14"
+              >
+                font-size
+              </code>
+               to be 20.48px, then one font-metric unit equals to 0.01px.
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
              
-            <code
-              class="c14"
+            <p
+              class="c13"
             >
-              font-size
-            </code>
-             value shown above, we use the ratio of two font metric values: 
-            <code
-              class="c14"
-            >
-              unitsPerEm
-            </code>
-             and
+              The 
+              <code
+                class="c14"
+              >
+                sxHeight
+              </code>
+               value specifies the size of x-height in the number of font-metric units. Continuing the Open Sans example, we have the 
+              <code
+                class="c14"
+              >
+                sxHeight
+              </code>
+               value of 1096. Consequently, the x-height will be 10.96px if
+               
+              <code
+                class="c14"
+              >
+                font-size
+              </code>
+               is 20.48px, because one font-metric unit is then 0.01px as explained above.
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
              
-            <code
-              class="c14"
+            <p
+              class="c13"
             >
-              sxHeight
-            </code>
-            .
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-          <p
-            class="c13"
-          >
-            The 
-            <code
-              class="c14"
-            >
-              unitsPerEm
-            </code>
-             value is the number of font-metric units that correspond to the
-             
-            <code
-              class="c14"
-            >
-              font-size
-            </code>
-             value. It is usually either 1000 or 2048. For example, Open Sans has the
-             
-            <code
-              class="c14"
-            >
-              unitsPerEm
-            </code>
-             value of 2048. If you set
-             
-            <code
-              class="c14"
-            >
-              font-size
-            </code>
-             to be 20.48px, then one font-metric unit equals to 0.01px.
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-           
-          <p
-            class="c13"
-          >
-            The 
-            <code
-              class="c14"
-            >
-              sxHeight
-            </code>
-             value specifies the size of x-height in the number of font-metric units. Continuing the Open Sans example, we have the 
-            <code
-              class="c14"
-            >
-              sxHeight
-            </code>
-             value of 1096. Consequently, the x-height will be 10.96px if
-             
-            <code
-              class="c14"
-            >
-              font-size
-            </code>
-             is 20.48px, because one font-metric unit is then 0.01px as explained above.
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-           
-          <p
-            class="c13"
-          >
-            Conversely, if you select Open Sans and the x-height value of 10.96px, then the 
-            <code
-              class="c14"
-            >
-              font-size
-            </code>
-             value will be 20.48px. This is exactly how we convert x-height into
-             
-            <code
-              class="c14"
-            >
-              font-size
-            </code>
-            .
-          </p>
+              Conversely, if you select Open Sans and the x-height value of 10.96px, then the 
+              <code
+                class="c14"
+              >
+                font-size
+              </code>
+               value will be 20.48px. This is exactly how we convert x-height into
+               
+              <code
+                class="c14"
+              >
+                font-size
+              </code>
+              .
+            </p>
+          </section>
           <div
             class="c1"
             height="3"
           />
-          <h3
-            class="c2"
-          >
-            Line-height
-          </h3>
-          <div
-            class="c4"
-            height="2"
-          />
-          <p
-            class="c13"
-          >
-            The 
-            <code
-              class="c14"
+          <section>
+            <h3
+              class="c2"
             >
-              line-height
-            </code>
-             value is then calculated in two steps.
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-           
-          <p
-            class="c13"
-          >
-            First, we use the ratio of x-height to line-height to obtain the line-height value in px from the x-height value. For example, if you set x-height to be 10.96px and the ratio to be 1:3, then the line-height value is 32.88px.
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-           
-          <p
-            class="c13"
-          >
-            In the second step, we convert the px value of line-height into the unitless value relative to 
-            <code
-              class="c14"
+              Line-height
+            </h3>
+            <div
+              class="c4"
+              height="2"
+            />
+            <p
+              class="c13"
             >
-              font-size
-            </code>
-            , by dividing the former with the 
-            <code
-              class="c14"
+              The 
+              <code
+                class="c14"
+              >
+                line-height
+              </code>
+               value is then calculated in two steps.
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
+             
+            <p
+              class="c13"
             >
-              font-size
-            </code>
-             value. Continuing the same example, we divide the line-height value of 32.88px with the 
-            <code
-              class="c14"
+              First, we use the ratio of x-height to line-height to obtain the line-height value in px from the x-height value. For example, if you set x-height to be 10.96px and the ratio to be 1:3, then the line-height value is 32.88px.
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
+             
+            <p
+              class="c13"
             >
-              font-size
-            </code>
-             value of 20.48px, to obtain 1.6055. (We round to four decimal places.)
-          </p>
+              In the second step, we convert the px value of line-height into the unitless value relative to 
+              <code
+                class="c14"
+              >
+                font-size
+              </code>
+              , by dividing the former with the 
+              <code
+                class="c14"
+              >
+                font-size
+              </code>
+               
+              value. Continuing the same example, we divide the line-height value of 32.88px with the 
+              <code
+                class="c14"
+              >
+                font-size
+              </code>
+               value of 20.48px, to obtain 1.6055. (We round to four decimal places.)
+            </p>
+          </section>
           <div
             class="c1"
             height="3"
           />
-          <h3
-            class="c2"
-          >
-            Margin-top
-          </h3>
-          <div
-            class="c4"
-            height="2"
-          />
-           
-          <p
-            class="c13"
-          >
-            The 
-            <code
-              class="c14"
+          <section>
+            <h3
+              class="c2"
             >
-              margin-top
-            </code>
-             value for vertical space between paragraphs is calculated in three steps. (If you haven't read “Space between Paragraphs” in
+              Margin-top
+            </h3>
+            <div
+              class="c4"
+              height="2"
+            />
              
-            <a
-              class="c16"
-              href="preview"
+            <p
+              class="c13"
             >
-              the Preview page
-            </a>
-            , we recommend reading it first.)
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-          <p
-            class="c13"
-          >
-            We first use the ratio of x-height to line-height to obtain the vertical space in px from x-height. If x-height is 10.96px and the ratio is 1:3, then we multiply 10.96px twice with two (
-            <code
-              class="c14"
+              The 
+              <code
+                class="c14"
+              >
+                margin-top
+              </code>
+               value for vertical space between paragraphs is calculated in three steps. (If you haven't read “Space between Paragraphs” in
+               
+              <a
+                class="c16"
+                href="preview"
+              >
+                the Preview page
+              </a>
+              , we recommend reading it first.)
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
+            <p
+              class="c13"
             >
-              =3-1
-            </code>
-            ) to obtain 43.84px.
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-           
-          <p
-            class="c13"
-          >
-            The next step calculates the distance from the bottom of the x-height stripe to the top of the uppercase letter when
+              We first use the ratio of x-height to line-height to obtain the vertical space in px from x-height. If x-height is 10.96px and the ratio is 1:3, then we multiply 10.96px twice with two (
+              <code
+                class="c14"
+              >
+                =3-1
+              </code>
+              ) to obtain 43.84px.
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
              
-            <code
-              class="c14"
+            <p
+              class="c13"
             >
-              margin-top
-            </code>
-             is zero. It is the amount of whitespace we need to subtract from the total vertical distance between paragraphs. For this purpose, we need two values.
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-           
-          <p
-            class="c13"
-          >
-            The first value is the distance from the top of an uppercase letter to the top of the lowercase x. Another font metric value called
+              The next step calculates the distance from the bottom of the x-height stripe to the top of the uppercase letter when
+               
+              <code
+                class="c14"
+              >
+                margin-top
+              </code>
+               is zero. It is the amount of whitespace we need to subtract from the total vertical distance between paragraphs. For this purpose, we need two values.
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
              
-            <code
-              class="c14"
+            <p
+              class="c13"
             >
-              sCapHeight
-            </code>
-             gives the distance from the top of an uppercase letter to the bottom of the x-height stripe. We then subtract from it the 
-            <code
-              class="c14"
+              The first value is the distance from the top of an uppercase letter to the top of the lowercase x. Another font metric value called
+               
+              <code
+                class="c14"
+              >
+                sCapHeight
+              </code>
+               gives the distance from the top of an uppercase letter to the bottom of the x-height stripe. We then subtract from it the 
+              <code
+                class="c14"
+              >
+                sxHeight
+              </code>
+               value. In our example, Open Sans has the 
+              <code
+                class="c14"
+              >
+                sCapHeight
+              </code>
+               of 1462. Its difference from the 
+              <code
+                class="c14"
+              >
+                sxHeight
+              </code>
+               
+              value of 1096 is then 466. As one font-metric unit is 0.01px in our example, it amounts to 3.66px.
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
+             
+            <p
+              class="c13"
             >
-              sxHeight
-            </code>
-             value. In our example, Open Sans has the 
-            <code
-              class="c14"
+              The second value is the distance between two consequtive x-height stripes. It equals to the difference between the line-height value and the x-height value. In our example, the former is 32.88px while the latter is 10.96px. Therefore, we have 21.92px.
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
+             
+            <p
+              class="c13"
             >
-              sCapHeight
-            </code>
-             of 1462. Its difference from the 
-            <code
-              class="c14"
+              Consequently, the difference between these two values, 18.26px (
+              <code
+                class="c14"
+              >
+                =21.92-3.66
+              </code>
+              ), is what we are after: the distance from the bottom of the x-height stripe to the top of the uppercase letter when 
+              <code
+                class="c14"
+              >
+                margin-top
+              </code>
+               is zero.
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
+             
+            <p
+              class="c13"
             >
-              sxHeight
-            </code>
-             value of 1096 is then 466. As one font-metric unit is 0.01px in our example, it amounts to 3.66px.
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-           
-          <p
-            class="c13"
-          >
-            The second value is the distance between two consequtive x-height stripes. It equals to the difference between the line-height value and the x-height value. In our example, the former is 32.88px while the latter is 10.96px. Therefore, we have 21.92px.
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-           
-          <p
-            class="c13"
-          >
-            Consequently, the difference between these two values, 18.26px (
-            <code
-              class="c14"
+              In the final step, we obtain the extra amount of whitespace to achieve the desired distance between paragraphs from the two values obtained in the previous two steps. In our example, we subtract the whitespace in the absence of any margin, 18.26px, from the target whitespace of 43.84px. So the 
+              <code
+                class="c14"
+              >
+                margin-top
+              </code>
+               
+              value will be 25.58px (
+              <code
+                class="c14"
+              >
+                =43.84-18.26
+              </code>
+              ).
+            </p>
+            <div
+              class="c4"
+              height="2"
+            />
+            <p
+              class="c13"
             >
-              =21.92-3.66
-            </code>
-            ), is what we are after: the distance from the bottom of the x-height stripe to the top of the uppercase letter when 
-            <code
-              class="c14"
-            >
-              margin-top
-            </code>
-             is zero.
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-           
-          <p
-            class="c13"
-          >
-            In the final step, we obtain the extra amount of whitespace to achieve the desired distance between paragraphs from the two values obtained in the previous two steps. In our example, we subtract the whitespace in the absence of any margin, 18.26px, from the target whitespace of 43.84px. So the 
-            <code
-              class="c14"
-            >
-              margin-top
-            </code>
-             value will be 25.58px (
-            <code
-              class="c14"
-            >
-              =43.84-18.26
-            </code>
-            ).
-          </p>
-          <div
-            class="c4"
-            height="2"
-          />
-          <p
-            class="c13"
-          >
-            Phew! :-)
-          </p>
+              Phew! :-)
+            </p>
+          </section>
         </section>
         <div
           class="c1"
