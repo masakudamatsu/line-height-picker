@@ -29,7 +29,7 @@ describe('Get CSS Page', () => {
 
   it('temporarily changes the copy button text upon the click ', () => {
     // test the text before clicking
-    const buttonText = 'Copy CSS code';
+    const buttonText = 'Copy css code';
     cy.findByTestId('copy-button').should('have.text', buttonText);
 
     // setup
