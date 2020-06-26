@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {HiddenH1} from '../theme/style';
 import pageTitle from '../helper/pageTitle';
 
@@ -24,6 +25,10 @@ const Title = props => {
       break;
   }
   return <HiddenH1>{pageTitleText}</HiddenH1>;
+};
+
+Title.propTypes = {
+  stepNow: PropTypes.number.isRequired,
 };
 
 export default Title;
