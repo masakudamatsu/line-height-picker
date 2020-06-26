@@ -131,6 +131,10 @@ const getTextCropTopX = lineHeightCss => {
   );
 };
 
+// Step Number Padding top/bottom
+const stepNumberPaddingMobile = (capHeightRem.mobile.stepNumber / 3) * 2;
+const stepNumberPaddingDesktop = (capHeightRem.desktop.stepNumber / 3) * 2;
+
 // Side margins
 const sideMarginMobile = {
   first: xHeightPx.mobile * Math.pow(modularScale, 1), // space between lines
@@ -361,6 +365,12 @@ const fontPalette = {
   },
   modularScale: modularScale,
   rem: oneRemPx,
+  stepNumber: {
+    padding: {
+      mobile: stepNumberPaddingMobile,
+      desktop: stepNumberPaddingDesktop,
+    },
+  },
   width: {
     controlPanel: controlPanelWidth.toFixed(0),
   },

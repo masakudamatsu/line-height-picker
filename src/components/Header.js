@@ -7,10 +7,13 @@ import Title from './Title';
 
 import {
   HeaderWrapper,
-  Logo,
+  LogoFrame,
+  LogoImage,
   StepIndicator,
   StepIndicatorWrapper,
 } from '../theme/style';
+
+import headerLogo3x from '../img/headerLogo3x.png';
 
 const Header = props => {
   let step1 = <Step number={1} stepNow={props.stepNow} />;
@@ -62,7 +65,9 @@ const Header = props => {
   return (
     <HeaderWrapper as="header">
       <Title />
-      <Logo header topPage={props.topPage} />
+      <LogoFrame header topPage={props.topPage}>
+        <LogoImage src={headerLogo3x} alt="Logo of Line-height Picker" />
+      </LogoFrame>
       <StepIndicatorWrapper>
         <StepIndicator data-testid="stepIndicator">
           {step1}

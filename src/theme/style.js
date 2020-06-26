@@ -247,6 +247,7 @@ export const HeaderWrapper = styled(Section)`
 
 export const LogoFrame = styled.figure`
   overflow: hidden; /* Control the image size by the box size of the figure */
+  visibility: ${props => (props.topPage ? 'hidden' : 'visible')};
   width: ${props => (props.header ? '140px' : '100%')};
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
       .fontSize}px) {
@@ -262,7 +263,8 @@ export const LogoImage = styled.img`
 `;
 
 export const StepIndicatorWrapper = styled.nav`
-  width: 70%;
+  flex-grow: 0.5;
+  width: 50%;
 `;
 export const StepIndicator = styled.ol`
   aling-items: center;
@@ -293,14 +295,14 @@ export const StepNumber = styled.a`
   line-height: ${fontPalette.lineHeight.stepNumber};
   opacity: ${props =>
     !props.done && !props.now ? colorPalette.disabledText : '1'};
-  padding: ${fontPalette.xHeight.mobile.rem}rem 0;
+  padding: ${fontPalette.stepNumber.padding.mobile}rem 0;
   text-align: center;
   text-decoration: none;
   width: 100%;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
       .fontSize}px) {
     font-size: ${fontPalette.fontSize.desktop.stepNumber}rem;
-    padding: ${fontPalette.xHeight.desktop.rem}rem 0;
+    padding: ${fontPalette.stepNumber.padding.desktop}rem 0;
   }
 
   &:focus,
