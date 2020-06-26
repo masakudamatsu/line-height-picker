@@ -6,6 +6,9 @@ import pageTitle from '../helper/pageTitle';
 const Title = props => {
   let pageTitleText;
   switch (props.stepNow) {
+    case 0:
+      pageTitleText = pageTitle.notFound;
+      break;
     case 1:
       pageTitleText = pageTitle.home;
       break;

@@ -518,13 +518,17 @@ function App() {
               <Route path="/css">
                 <Header stepNow={5} />
               </Route>
-              <Route>
-                <FullScreenSpreader>
-                  <Header stepNow={0} />
-                  <Error />
-                  <Footer page404 />
-                </FullScreenSpreader>
-              </Route>
+              <Route
+                render={props => (
+                  <Page title={pageTitle.notFound}>
+                    <FullScreenSpreader>
+                      <Header stepNow={0} />
+                      <Error />
+                      <Footer page404 />
+                    </FullScreenSpreader>
+                  </Page>
+                )}
+              />
             </Switch>
             <Route
               render={({location}) => {

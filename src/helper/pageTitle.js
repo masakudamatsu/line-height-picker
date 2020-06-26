@@ -4,6 +4,7 @@ const pageTitle = {
   modularScale: 'Line-height Picker: Line spacing (step 3 of 5)',
   preview: 'Line-height Picker: Preview (step 4 of 5)',
   css: 'Line-height Picker: CSS code (step 5 of 5)',
+  notFound: 'Line-height Picker: Page not found',
 };
 
 export default pageTitle;

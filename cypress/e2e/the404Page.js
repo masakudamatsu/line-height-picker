@@ -1,3 +1,5 @@
+import pageTitle from '../../src/helper/pageTitle';
+
 describe('The 404 Page', () => {
   beforeEach(() => {
     sessionStorage.clear();
@@ -8,7 +10,8 @@ describe('The 404 Page', () => {
     cy.findByText(/We cannot find the page you are looking for/i).should(
       'exist',
     );
-    cy.get('h1').should('have.text', 'Line-height Picker');
+    cy.title().should('eq', pageTitle.notFound);
+    cy.get('h1').should('have.text', pageTitle.notFound);
     cy.findByAltText(/logo/i).should('exist');
   });
 
