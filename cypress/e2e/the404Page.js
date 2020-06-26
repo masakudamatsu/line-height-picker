@@ -9,7 +9,7 @@ describe('The 404 Page', () => {
       'exist',
     );
     cy.get('h1').should('have.text', 'Line-height Picker');
-    cy.findByTitle(/logo/i).should('exist');
+    cy.findByAltText(/logo/i).should('exist');
   });
 
   it('guides the user to the landing page', () => {

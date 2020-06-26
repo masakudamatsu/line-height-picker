@@ -6,7 +6,7 @@ const textColorAlert = 'rgb(224, 191, 0)';
 
 Cypress.Commands.add('checkHeaderFooterRendering', () => {
   cy.get('h1').should('have.text', 'Line-height Picker');
-  cy.findByTitle(/logo/i).should('exist');
+  cy.findByAltText(/logo/i).should('exist');
   cy.findByTestId('stepIndicator').should('exist');
   cy.findByTestId('footer').should('exist');
 });
