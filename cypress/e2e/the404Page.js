@@ -23,4 +23,12 @@ describe('The 404 Page', () => {
   it('shows other UI components', () => {
     cy.findByTestId('footer').should('exist');
   });
+
+  it('prevents search engines from crawling', () => {
+    cy.get('head meta[name="robots"]').should(
+      'have.attr',
+      'content',
+      'noindex',
+    );
+  });
 });

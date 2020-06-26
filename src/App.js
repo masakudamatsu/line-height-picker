@@ -520,7 +520,10 @@ function App() {
               </Route>
               <Route
                 render={props => (
-                  <Page title={pageTitle.notFound}>
+                  <Page
+                    title={pageTitle.notFound}
+                    meta={{name: 'robots', content: 'noindex'}} // Prevent Google from crawling; https://support.google.com/webmasters/answer/93710
+                  >
                     <FullScreenSpreader>
                       <Header stepNow={0} />
                       <Error />
