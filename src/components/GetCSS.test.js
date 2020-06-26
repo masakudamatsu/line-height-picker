@@ -28,7 +28,7 @@ test('renders correctly', () => {
     />,
   );
   expect(container).toMatchInlineSnapshot(`
-    .c15 {
+    .c16 {
       background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
       background-position: 0 calc( 0.125em + 0.707em );
@@ -41,45 +41,45 @@ test('renders correctly', () => {
       text-shadow: 0.03em 0 hsl(0,0%,10%), -0.03em 0 hsl(0,0%,10%),0 0.03em hsl(0,0%,10%), 0 -0.03em hsl(0,0%,10%);
     }
 
-    .c15:visited {
+    .c16:visited {
       background: hsl(0,0%,40%);
       background: linear-gradient( to bottom, transparent 50%, currentColor 50%, currentColor );
       color: currentColor;
     }
 
-    .c15:focus,
-    .c15:hover {
+    .c16:focus,
+    .c16:hover {
       background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
     }
 
-    .c15:focus:before,
-    .c15:hover:before,
-    .c15:focus:after,
-    .c15:hover:after {
+    .c16:focus:before,
+    .c16:hover:before,
+    .c16:focus:after,
+    .c16:hover:after {
       display: none;
     }
 
-    .c15:active {
+    .c16:active {
       background: none;
     }
 
-    .c15:visited:focus,
-    .c15:visited:hover {
+    .c16:visited:focus,
+    .c16:visited:hover {
       background: hsl(0,0%,40%);
       outline: none;
       text-shadow: none;
     }
 
-    .c15:visited:focus:before,
-    .c15:visited:hover:before,
-    .c15:visited:focus:after,
-    .c15:visited:hover:after {
+    .c16:visited:focus:before,
+    .c16:visited:hover:before,
+    .c16:visited:focus:after,
+    .c16:visited:hover:after {
       display: none;
     }
 
-    .c15:visited:active {
+    .c16:visited:active {
       background: none;
     }
 
@@ -202,6 +202,10 @@ test('renders correctly', () => {
       -moz-letter-spacing: -0.04em;
       -ms-letter-spacing: -0.04em;
       letter-spacing: -0.04em;
+    }
+
+    .c15 {
+      font-style: normal;
     }
 
     .c3 {
@@ -588,12 +592,16 @@ test('renders correctly', () => {
             </abbr>
              values. To learn more about font metrics, I recommend reading
              
-            <a
+            <cite
               class="c15"
-              href="http://westonthayer.com/writing/intro-to-font-metrics/"
             >
-              “Intro to Font Metrics”
-            </a>
+              <a
+                class="c16"
+                href="http://westonthayer.com/writing/intro-to-font-metrics/"
+              >
+                “Intro to Font Metrics”
+              </a>
+            </cite>
             , an article written by Weston Thayer in 2019 .
           </p>
           <div
@@ -810,7 +818,7 @@ test('renders correctly', () => {
              value for vertical space between paragraphs is calculated in three steps. (If you haven't read “Space between Paragraphs” in
              
             <a
-              class="c15"
+              class="c16"
               href="preview"
             >
               the Preview page

@@ -3,6 +3,7 @@ import React from 'react';
 
 import {
   Abbr,
+  ArticleTitle,
   CodeInline,
   ExternalLink,
   ParagraphOneRem,
@@ -31,9 +32,11 @@ const CssGuide = () => {
           Below we explain how the Line-height Picker obtains each of these
           three <Abbr>css</Abbr> values. To learn more about font metrics, I
           recommend reading{' '}
+          <ArticleTitle>
           <ExternalLink href="http://westonthayer.com/writing/intro-to-font-metrics/">
             “Intro to Font Metrics”
           </ExternalLink>
+          </ArticleTitle>
           , an article written by Weston Thayer in 2019 .
         </ParagraphOneRem>
         <SpacerVertical height="3" />

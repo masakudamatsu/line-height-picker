@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import {
+  ArticleTitle,
   BookTitle,
   CodeInline,
   ExternalLink,
@@ -42,9 +43,11 @@ const XheightGuide = () => {
           <CodeInline>font-size</CodeInline> value does not ensure the same
           x-height across fonts. For more detail on this point, I recommend
           reading{' '}
-          <ExternalLink href="https://www.fonts.com/content/learning/fontology/level-1/type-anatomy/x-height">
-            “X-height”
-          </ExternalLink>
+          <ArticleTitle>
+            <ExternalLink href="https://www.fonts.com/content/learning/fontology/level-1/type-anatomy/x-height">
+              “X-height”
+            </ExternalLink>
+          </ArticleTitle>
           , a Fonts.com article written by Allan Haley.
         </ParagraphOneRem>
       </Section>

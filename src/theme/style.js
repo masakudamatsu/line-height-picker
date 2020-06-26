@@ -194,6 +194,10 @@ export const BookTitle = styled.cite`
   font-style: italic;
 `;
 
+export const ArticleTitle = styled.cite`
+  font-style: normal;
+`;
+
 export const Abbr = styled.abbr`
   font-feature-settings: 'smcp';
   letter-spacing: 0.01em; /* following Flexible Typesetting */
