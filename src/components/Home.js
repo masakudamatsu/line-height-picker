@@ -9,12 +9,15 @@ import FontFileErrorMessage from './FontFileErrorMessage';
 import FontFileUploader from './FontFileUploader';
 
 import {
-  Logo,
+  LogoFrame,
+  LogoImage,
   MainLandingPage,
   RightAligner,
   Section,
   SpacerVertical,
 } from '../theme/style';
+
+import logo3x from '../img/logo3x.png';
 
 const Home = props => {
   React.useEffect(() => {
@@ -26,7 +29,9 @@ const Home = props => {
         <RightAligner>
           <SpacerVertical height="3" />
           <Section>
-            <Logo />
+            <LogoFrame>
+              <LogoImage src={logo3x} alt="Logo of Line-height Picker" />
+            </LogoFrame>
             <SpacerVertical height="3" />
             <Description />
           </Section>

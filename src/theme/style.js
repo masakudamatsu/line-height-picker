@@ -244,6 +244,23 @@ export const HeaderWrapper = styled(Section)`
       0;
   }
 `;
+
+export const LogoFrame = styled.figure`
+  overflow: hidden; /* Control the image size by the box size of the figure */
+  width: ${props => (props.header ? '140px' : '100%')};
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
+    width: ${props => (props.header ? '163px' : '100%')};
+  }
+`;
+
+export const LogoImage = styled.img`
+  display: block; /* Prevent images from aligning with other contents */
+  height: auto; /* Preserve the aspect ratio */
+  max-width: 100%; /* Control the image size by the box size of the figure */
+  margin: auto; /* For vertically centering the image #2 */
+`;
+
 export const StepIndicatorWrapper = styled.nav`
   width: 70%;
 `;
