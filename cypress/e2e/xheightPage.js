@@ -1,5 +1,5 @@
 import colorPalette from '../../src/theme/colorPalette';
-import {pageTitle} from '../../src/helper/metaData';
+import {pageTitle, pageDescription} from '../../src/helper/metaData';
 
 const validInputs = [{xHeight: 10}, {xHeight: 11}];
 
@@ -23,6 +23,14 @@ describe('X-height page in demo', () => {
     cy.get('h1').should('have.text', pageTitle.xHeight);
     cy.checkHeaderFooterRendering();
     cy.findByTestId('FontNameDisplay').should('exist');
+  });
+
+  it.only('describes the page content for search engines as expected', () => {
+    cy.get('head meta[name="description"]').should(
+      'have.attr',
+      'content',
+      pageDescription.xHeight,
+    );
   });
 
   validInputs.forEach(validInput => {

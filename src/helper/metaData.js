@@ -6,3 +6,11 @@ export const pageTitle = {
   css: 'Line-height Picker: CSS code (step 5 of 5)',
   notFound: 'Line-height Picker: Page not found',
 };
+
+export const pageDescription = {
+  home: '',
+  xHeight: '',
+  modularScale: '',
+  preview: '',
+  css: '',
+};

@@ -1,4 +1,4 @@
-import {pageTitle} from '../../src/helper/metaData';
+import {pageTitle, pageDescription} from '../../src/helper/metaData';
 
 const userData = {
   xHeight: 10,
@@ -48,6 +48,14 @@ describe('Preview Page in demo', () => {
     cy.findByTestId('sampleParagraph2').should('exist');
     cy.findByText(/excerpt/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
+  });
+
+  it.only('describes the page content for search engines as expected', () => {
+    cy.get('head meta[name="description"]').should(
+      'have.attr',
+      'content',
+      pageDescription.preview,
+    );
   });
 
   it('Reloading the page does not alter the font size', () => {

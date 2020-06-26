@@ -1,4 +1,4 @@
-import {pageTitle} from '../../src/helper/metaData';
+import {pageTitle, pageDescription} from '../../src/helper/metaData';
 
 const userData = {
   xHeight: 10,
@@ -25,6 +25,14 @@ describe('Get CSS Page', () => {
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByTestId('cssCode').should('exist');
     cy.findByTestId('copy-button').should('exist');
+  });
+
+  it.only('describes the page content for search engines as expected', () => {
+    cy.get('head meta[name="description"]').should(
+      'have.attr',
+      'content',
+      pageDescription.css,
+    );
   });
 
   it('allows the user to copy the CSS code onto their clipboard', () => {

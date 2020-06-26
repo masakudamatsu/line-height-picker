@@ -1,4 +1,4 @@
-import {pageTitle} from '../../src/helper/metaData';
+import {pageTitle, pageDescription} from '../../src/helper/metaData';
 
 describe('Landing Page', () => {
   beforeEach(() => {
@@ -13,6 +13,14 @@ describe('Landing Page', () => {
     cy.findByTestId('stepIndicator').should('exist');
     cy.findByTestId('footer').should('exist');
     cy.findByTestId('description').should('exist');
+  });
+
+  it.only('describes the page content for search engines as expected', () => {
+    cy.get('head meta[name="description"]').should(
+      'have.attr',
+      'content',
+      pageDescription.home,
+    );
   });
 
   it('Clicking the demo button takes users to x-height page and shows "Open Sans" as the chosen font name in all subsequent pages', () => {

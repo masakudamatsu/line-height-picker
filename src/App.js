@@ -26,7 +26,7 @@ import Xheight from './components/Xheight';
 import {fontFileExtensionsRegex as validFontFileTypes} from './helper/fontFileExtensions';
 import getFontMetrics from './helper/getFontMetrics';
 import {getFontSize, getLineHeight, getMarginTop} from './helper/cssGenerators';
-import {pageTitle} from './helper/metaData';
+import {pageTitle, pageDescription} from './helper/metaData';
 
 const opentype = require('opentype.js');
 
@@ -565,7 +565,10 @@ function App() {
                             render={props => (
                               <Page
                                 title={pageTitle.home}
-                                meta={{name: 'description', content: ''}}
+                                meta={{
+                                  name: 'description',
+                                  content: pageDescription.home,
+                                }}
                               >
                                 <Home
                                   fontFileError={fontFileError}
@@ -582,7 +585,10 @@ function App() {
                             render={props => (
                               <Page
                                 title={pageTitle.xHeight}
-                                meta={{name: 'description', content: ''}}
+                                meta={{
+                                  name: 'description',
+                                  content: pageDescription.xHeight,
+                                }}
                               >
                                 <Xheight
                                   ascender={fontMetrics.ascender}
@@ -613,7 +619,10 @@ function App() {
                             render={props => (
                               <Page
                                 title={pageTitle.modularScale}
-                                meta={{name: 'description', content: ''}}
+                                meta={{
+                                  name: 'description',
+                                  content: pageDescription.modularScale,
+                                }}
                               >
                                 <ModularScale
                                   ascender={fontMetrics.ascender}
@@ -670,7 +679,10 @@ function App() {
                             render={props => (
                               <Page
                                 title={pageTitle.preview}
-                                meta={{name: 'description', content: ''}}
+                                meta={{
+                                  name: 'description',
+                                  content: pageDescription.preview,
+                                }}
                               >
                                 <Preview
                                   ascender={fontMetrics.ascender}
@@ -731,7 +743,10 @@ function App() {
                             render={props => (
                               <Page
                                 title={pageTitle.css}
-                                meta={{name: 'description', content: ''}}
+                                meta={{
+                                  name: 'description',
+                                  content: pageDescription.css,
+                                }}
                               >
                                 <GetCSS
                                   fontFamily={fontMetrics.fontFamily}

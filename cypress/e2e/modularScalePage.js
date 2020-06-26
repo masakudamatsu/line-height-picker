@@ -1,4 +1,4 @@
-import {pageTitle} from '../../src/helper/metaData';
+import {pageTitle, pageDescription} from '../../src/helper/metaData';
 
 const userData = {
   xHeight: 10,
@@ -30,6 +30,14 @@ describe('Modular Scale Page in demo', () => {
     cy.get('h1').should('have.text', pageTitle.modularScale);
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByTestId('FontNameDisplay').should('exist');
+  });
+
+  it.only('describes the page content for search engines as expected', () => {
+    cy.get('head meta[name="description"]').should(
+      'have.attr',
+      'content',
+      pageDescription.modularScale,
+    );
   });
 
   it('keeps input fields empty, and does not show alerts, when the user reloads the page', () => {
