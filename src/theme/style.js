@@ -4,7 +4,6 @@ import colorPalette from './colorPalette';
 import fontPalette from './fontPalette';
 import buttonSize from './buttonSize';
 import inputSize from './inputSize';
-import LogoImage from '../img/LogoImage';
 import AlertIconImage from '../img/AlertIconImage';
 
 // Layout parameters
@@ -223,16 +222,6 @@ export const LinearLight = styled.div`
     0 0 40px 0 ${colorPalette.linearLight.shadow};
   height: 2px;
   width: 100%;
-`;
-
-// Logo
-
-export const Logo = styled(LogoImage)`
-  display: block;
-  fill: currentColor;
-  height: auto;
-  visibility: ${props => (props.topPage ? 'hidden' : 'visible')};
-  width: ${props => (props.header ? '20%' : '100%')};
 `;
 
 // Header
