@@ -582,6 +582,11 @@ describe('Preview page: Navigation bar', () => {
     cy.findByText(/preview/i).click();
   });
 
+  it('takes the user to the landing page after clicking the logo', () => {
+    cy.findByAltText(/logo/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+  });
+
   it('takes the user to the landing page after clicking number 1 in the header', () => {
     cy.findByText('1').click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);

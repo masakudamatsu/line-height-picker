@@ -66,7 +66,9 @@ const Header = props => {
     <HeaderWrapper as="header">
       <Title />
       <LogoFrame header topPage={props.topPage}>
-        <LogoImage src={headerLogo3x} alt="Logo of Line-height Picker" />
+        <a href="/">
+          <LogoImage src={headerLogo3x} alt="Logo of Line-height Picker" />
+        </a>
       </LogoFrame>
       <StepIndicatorWrapper>
         <StepIndicator data-testid="stepIndicator">

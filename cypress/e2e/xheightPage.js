@@ -388,6 +388,10 @@ describe('X-height page: Navigation bar', () => {
     cy.findByTestId('demo-start-button').click();
   });
 
+  it('takes the user to the landing page after clicking the logo', () => {
+    cy.findByAltText(/logo/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+  });
   it('takes the user to the landing page after clicking number 1 in the header', () => {
     cy.findByText('1').click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
