@@ -14,7 +14,7 @@ const Footer = props => {
       <SpacerVertical height="2" />
       <ParagraphFooter>
         Designed, Written, and Coded by Masa Kudamatsu (
-        <ExternalLink href="https://twitter.com/masa_kudamatsu">
+        <ExternalLink href="https://twitter.com/masa_kudamatsu" rel="author">
           @masa_kudamatsu
         </ExternalLink>
         ) in 2020.
