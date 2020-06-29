@@ -1,0 +1,1 @@
+This is a dummy file to test if uploading a file in the wrong format returns an error message.
