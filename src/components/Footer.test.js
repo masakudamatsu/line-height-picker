@@ -170,6 +170,7 @@ test('renders correctly', () => {
           <a
             class="c3"
             href="https://twitter.com/masa_kudamatsu"
+            rel="author"
           >
             @masa_kudamatsu
           </a>
