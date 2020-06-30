@@ -186,8 +186,10 @@ export const Code = styled.code`
 `;
 
 export const CodeInline = styled(Code)`
-  background-color: ${colorPalette.codeInline.background};
+  border: 1px solid ${colorPalette.codeInline.background};
+  font-size: 85%;
   letter-spacing: -0.04em;
+  padding: 2px 4px 1px;
 `;
 
 export const BookTitle = styled.cite`

@@ -197,11 +197,13 @@ test('renders correctly', () => {
     .c14 {
       font-family: 'Fedra Mono',monospace;
       font-weight: 300;
-      background-color: hsl(0,0%,40%);
+      border: 1px solid hsl(0,0%,40%);
+      font-size: 85%;
       -webkit-letter-spacing: -0.04em;
       -moz-letter-spacing: -0.04em;
       -ms-letter-spacing: -0.04em;
       letter-spacing: -0.04em;
+      padding: 2px 4px 1px;
     }
 
     .c15 {
