@@ -1,6 +1,6 @@
 # Line-height Picker
 ---
-A front-end web app that helps web designers / developers pick the best line-height value for their websites. 
+A front-end web app that helps web designers / developers pick the best `line-height` value for their websites. 
 
 ## URL
 [line-height-picker.app](line-height-picker.app), where you will find more detail about the app.
