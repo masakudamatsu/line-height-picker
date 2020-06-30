@@ -787,3 +787,17 @@ export const Rotate = styled.span`
   text-transform: uppercase;
   transform: rotate(${props => props.degree}deg);
 `;
+
+export const FigureFrame = styled.figure`
+  border: 1px solid ${colorPalette.figure.border};
+  max-width: ${fontPalette.maxWidthInEm}em;
+  overflow: hidden; /* Control the image size by the box size of the figure */
+  width: 100%;
+`;
+
+export const Image = styled.img`
+  display: block; /* Prevent images from aligning with other contents */
+  height: auto; /* Preserve the aspect ratio */
+  max-width: 100%; /* Control the image size by the box size of the figure */
+  margin: auto; /* For vertically centering the image #2 */
+`;

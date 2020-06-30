@@ -6,11 +6,15 @@ import {
   ArticleTitle,
   CodeInline,
   ExternalLink,
+  FigureFrame,
+  Image,
   ParagraphOneRem,
   Section,
   SectionTitle,
   SpacerVertical,
 } from '../theme/style';
+
+import imageMarginTop3x from '../img/margin-top3x.png';
 
 const CssGuide = () => {
   return (
@@ -30,8 +34,8 @@ const CssGuide = () => {
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
           Below we explain how the Line-height Picker obtains each of these
-          three <Abbr>css</Abbr> values. To learn more about font metrics, I
-          recommend reading{' '}
+          three <Abbr>css</Abbr> values. To learn more about font metrics, have
+          a look at{' '}
           <ArticleTitle>
             <ExternalLink href="http://westonthayer.com/writing/intro-to-font-metrics/">
               “Intro to Font Metrics”
@@ -107,21 +111,33 @@ const CssGuide = () => {
           <SpacerVertical height="2" />{' '}
           <ParagraphOneRem>
             The <CodeInline>margin-top</CodeInline> value for vertical space
-            between paragraphs is calculated in three steps. (If you haven't
-            read “Space between Paragraphs” in{' '}
+            between paragraphs is calculated in three steps. The diagram below
+            indicates what lengths the <CodeInline>margin-top</CodeInline> value
+            and the vertical space between paragraphs refer to, respectively:
+          </ParagraphOneRem>
+          <SpacerVertical height="1" />
+          <FigureFrame>
+            <Image
+              src={imageMarginTop3x}
+              alt="Diagram indicating what length is referred to by the margin-top and the vertical space between paragraphs"
+            />
+          </FigureFrame>
+          <SpacerVertical height="1" />
+          <ParagraphOneRem>
+            (If you haven't read “Space between Paragraphs” in{' '}
             <ExternalLink href="preview">the Preview page</ExternalLink>, we
             recommend reading it first.)
           </ParagraphOneRem>
           <SpacerVertical height="2" />
           <ParagraphOneRem>
-            We first use the ratio of x-height to line-height to obtain the
-            vertical space in px from x-height. If x-height is 10.96px and the
-            ratio is 1:3, then we multiply 10.96px twice with two (
+            Step 1—We first use the ratio of x-height to line-height to obtain
+            the vertical space in px from x-height. If x-height is 10.96px and
+            the ratio is 1:3, then we multiply 10.96px twice with two (
             <CodeInline>=3-1</CodeInline>) to obtain 43.84px.
           </ParagraphOneRem>
           <SpacerVertical height="2" />{' '}
           <ParagraphOneRem>
-            The next step calculates the distance from the bottom of the
+            Step 2—We then calculates the distance from the bottom of the
             x-height stripe to the top of the uppercase letter when{' '}
             <CodeInline>margin-top</CodeInline> is zero. It is the amount of
             whitespace we need to subtract from the total vertical distance
@@ -129,22 +145,22 @@ const CssGuide = () => {
           </ParagraphOneRem>
           <SpacerVertical height="2" />{' '}
           <ParagraphOneRem>
-            The first value is the distance from the top of an uppercase letter
-            to the top of the lowercase x. Another font metric value called{' '}
-            <CodeInline>sCapHeight</CodeInline> gives the distance from the top
-            of an uppercase letter to the bottom of the x-height stripe. We then
-            subtract from it the <CodeInline>sxHeight</CodeInline> value. In our
-            example, Open Sans has the <CodeInline>sCapHeight</CodeInline> of
-            1462. Its difference from the <CodeInline>sxHeight</CodeInline>{' '}
-            value of 1096 is then 466. As one font-metric unit is 0.01px in our
-            example, it amounts to 3.66px.
+            The first value we need is the distance from the top of an uppercase
+            letter to the top of the lowercase x. Another font metric value
+            called <CodeInline>sCapHeight</CodeInline> gives the distance from
+            the top of an uppercase letter to the bottom of the x-height stripe.
+            We then subtract from it the <CodeInline>sxHeight</CodeInline>{' '}
+            value. In our example, Open Sans has the{' '}
+            <CodeInline>sCapHeight</CodeInline> of 1462. Its difference from the{' '}
+            <CodeInline>sxHeight</CodeInline> value of 1096 is then 366. As one
+            font-metric unit is 0.01px in our example, it amounts to 3.66px.
           </ParagraphOneRem>
           <SpacerVertical height="2" />{' '}
           <ParagraphOneRem>
-            The second value is the distance between two consequtive x-height
-            stripes. It equals to the difference between the line-height value
-            and the x-height value. In our example, the former is 32.88px while
-            the latter is 10.96px. Therefore, we have 21.92px.
+            The second value we need is the distance between two consequtive
+            x-height stripes. It equals to the difference between the
+            line-height value and the x-height value. In our example, the former
+            is 32.88px while the latter is 10.96px. Therefore, we have 21.92px.
           </ParagraphOneRem>
           <SpacerVertical height="2" />{' '}
           <ParagraphOneRem>
@@ -155,9 +171,9 @@ const CssGuide = () => {
           </ParagraphOneRem>
           <SpacerVertical height="2" />{' '}
           <ParagraphOneRem>
-            In the final step, we obtain the extra amount of whitespace to
-            achieve the desired distance between paragraphs from the two values
-            obtained in the previous two steps. In our example, we subtract the
+            Step 3—Finally, we obtain the extra amount of whitespace to achieve
+            the desired distance between paragraphs from the two values obtained
+            in the previous two steps. In our example, we subtract the
             whitespace in the absence of any margin, 18.26px, from the target
             whitespace of 43.84px. So the <CodeInline>margin-top</CodeInline>{' '}
             value will be 25.58px (<CodeInline>=43.84-18.26</CodeInline>).

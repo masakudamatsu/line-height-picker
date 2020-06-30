@@ -339,6 +339,25 @@ test('renders correctly', () => {
       width: auto;
     }
 
+    .c17 {
+      height: 0.8035714285714286rem;
+      width: auto;
+    }
+
+    .c18 {
+      border: 1px solid hsl(0,0%,40%);
+      max-width: 33em;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .c19 {
+      display: block;
+      height: auto;
+      max-width: 100%;
+      margin: auto;
+    }
+
     @media only screen and (min-width:728px) {
       .c2 {
         font-size: 1.7170rem;
@@ -392,6 +411,12 @@ test('renders correctly', () => {
     @media only screen and (min-width:728px) {
       .c4 {
         height: 1.40625rem;
+      }
+    }
+
+    @media only screen and (min-width:728px) {
+      .c17 {
+        height: 0.9375rem;
       }
     }
 
@@ -592,7 +617,7 @@ test('renders correctly', () => {
             >
               css
             </abbr>
-             values. To learn more about font metrics, I recommend reading
+             values. To learn more about font metrics, have a look at
              
             <cite
               class="c15"
@@ -823,7 +848,35 @@ test('renders correctly', () => {
               >
                 margin-top
               </code>
-               value for vertical space between paragraphs is calculated in three steps. (If you haven't read “Space between Paragraphs” in
+               value for vertical space between paragraphs is calculated in three steps. The diagram below indicates what lengths the 
+              <code
+                class="c14"
+              >
+                margin-top
+              </code>
+               value and the vertical space between paragraphs refer to, respectively:
+            </p>
+            <div
+              class="c17"
+              height="1"
+            />
+            <figure
+              class="c18"
+            >
+              <img
+                alt="Diagram indicating what length is referred to by the margin-top and the vertical space between paragraphs"
+                class="c19"
+                src="margin-top3x.png"
+              />
+            </figure>
+            <div
+              class="c17"
+              height="1"
+            />
+            <p
+              class="c13"
+            >
+              (If you haven't read “Space between Paragraphs” in
                
               <a
                 class="c16"
@@ -840,7 +893,7 @@ test('renders correctly', () => {
             <p
               class="c13"
             >
-              We first use the ratio of x-height to line-height to obtain the vertical space in px from x-height. If x-height is 10.96px and the ratio is 1:3, then we multiply 10.96px twice with two (
+              Step 1—We first use the ratio of x-height to line-height to obtain the vertical space in px from x-height. If x-height is 10.96px and the ratio is 1:3, then we multiply 10.96px twice with two (
               <code
                 class="c14"
               >
@@ -856,7 +909,7 @@ test('renders correctly', () => {
             <p
               class="c13"
             >
-              The next step calculates the distance from the bottom of the x-height stripe to the top of the uppercase letter when
+              Step 2—We then calculates the distance from the bottom of the x-height stripe to the top of the uppercase letter when
                
               <code
                 class="c14"
@@ -873,8 +926,7 @@ test('renders correctly', () => {
             <p
               class="c13"
             >
-              The first value is the distance from the top of an uppercase letter to the top of the lowercase x. Another font metric value called
-               
+              The first value we need is the distance from the top of an uppercase letter to the top of the lowercase x. Another font metric value called 
               <code
                 class="c14"
               >
@@ -886,20 +938,22 @@ test('renders correctly', () => {
               >
                 sxHeight
               </code>
-               value. In our example, Open Sans has the 
+               
+              value. In our example, Open Sans has the
+               
               <code
                 class="c14"
               >
                 sCapHeight
               </code>
-               of 1462. Its difference from the 
+               of 1462. Its difference from the
+               
               <code
                 class="c14"
               >
                 sxHeight
               </code>
-               
-              value of 1096 is then 466. As one font-metric unit is 0.01px in our example, it amounts to 3.66px.
+               value of 1096 is then 366. As one font-metric unit is 0.01px in our example, it amounts to 3.66px.
             </p>
             <div
               class="c4"
@@ -909,7 +963,7 @@ test('renders correctly', () => {
             <p
               class="c13"
             >
-              The second value is the distance between two consequtive x-height stripes. It equals to the difference between the line-height value and the x-height value. In our example, the former is 32.88px while the latter is 10.96px. Therefore, we have 21.92px.
+              The second value we need is the distance between two consequtive x-height stripes. It equals to the difference between the line-height value and the x-height value. In our example, the former is 32.88px while the latter is 10.96px. Therefore, we have 21.92px.
             </p>
             <div
               class="c4"
@@ -941,7 +995,7 @@ test('renders correctly', () => {
             <p
               class="c13"
             >
-              In the final step, we obtain the extra amount of whitespace to achieve the desired distance between paragraphs from the two values obtained in the previous two steps. In our example, we subtract the whitespace in the absence of any margin, 18.26px, from the target whitespace of 43.84px. So the 
+              Step 3—Finally, we obtain the extra amount of whitespace to achieve the desired distance between paragraphs from the two values obtained in the previous two steps. In our example, we subtract the whitespace in the absence of any margin, 18.26px, from the target whitespace of 43.84px. So the 
               <code
                 class="c14"
               >

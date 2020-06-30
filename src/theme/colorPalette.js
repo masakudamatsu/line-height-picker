@@ -30,6 +30,9 @@ const colorPalette = {
   disabledText: opacityForDisabledText,
   footerText: figureLight,
   errorText: alert,
+  figure: {
+    border: backgroundLight,
+  },
   inputField: backgroundLight,
   linearLight: {
     backgroundColor: light.source,

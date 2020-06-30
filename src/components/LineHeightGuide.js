@@ -5,11 +5,15 @@ import {
   Abbr,
   CodeInline,
   ExternalLink,
+  FigureFrame,
+  Image,
   ParagraphOneRem,
   Section,
   SectionTitle,
   SpacerVertical,
 } from '../theme/style';
+
+import lineHeight3x from '../img/line-height3x.png';
 
 const LineHeightGuide = () => {
   return (
@@ -18,7 +22,7 @@ const LineHeightGuide = () => {
         <SectionTitle>What is line-height?</SectionTitle>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          When you select the text for copy-and-paste it, the box will appear
+          When you select the text to copy-and-paste it, you will see the box
           that surrounds the selected text. The height of this box is set by the{' '}
           <CodeInline>line-height</CodeInline> <Abbr>css</Abbr> value.
         </ParagraphOneRem>
@@ -28,6 +32,13 @@ const LineHeightGuide = () => {
           x-height and vertical space between the two consequtive x-height
           stripes.
         </ParagraphOneRem>
+        <SpacerVertical height="1" />
+        <FigureFrame>
+          <Image
+            src={lineHeight3x}
+            alt="Diagram indicating which lengths the line-height CSS value refers to"
+          />
+        </FigureFrame>
       </Section>
       <SpacerVertical height="3" />
       <Section>
@@ -36,7 +47,7 @@ const LineHeightGuide = () => {
         </SectionTitle>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          I recommend picking a simple ratio such as 1:3 or 2:5.
+          We recommend picking a simple ratio such as 1:3 or 2:5.
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
@@ -46,8 +57,8 @@ const LineHeightGuide = () => {
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          What we tend to find beautiful often comes from such a simple size
-          ratio. In photography, the{' '}
+          A simple size ratio often ensures the beauty of what we see. In
+          photography, the{' '}
           <ExternalLink
             href="https://en.wikipedia.org/wiki/Rule_of_thirds"
             title="Wikipedia entry on the rule of the thirds"
@@ -55,31 +66,45 @@ const LineHeightGuide = () => {
             rule of thirds
           </ExternalLink>{' '}
           tells you to place the main object at one-third of the photo-frame
-          length from the edge, in order to take a beautiful photograph. In a
-          photo shot this way, the object divides the image into two sections,
+          length from the edge, in order to shoot a beautiful photograph. In a
+          photo taken this way, the object divides the image into two sections,
           one of which is twice as large as the other.
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          Professional typographers often recommend taking a cue from musical
+          In typography, professionals often recommend taking a cue from musical
           scale such as the perfect fifth (2:3) or perfect forth (3:4),
-          believing in that graphically applying the same ratio will deliever
-          the same kind of feelings as the corresponding musical harmony does.
-          We could apply the perfect fifth to obtain 2:5 or the perfect forth to
-          obtain 3:7 as the ratio of x-height and line-height. There appeaers to
-          be something about the simple ratios when it comes to what we perceive
-          as pleasant.
+          believing in that applying the same ratio graphically will deliever
+          the same kind of feelings as the corresponding musical harmony does
+          (as{' '}
+          <ExternalLink
+            href="https://youtu.be/_PGOlb2eKf0?t=595"
+            title="a YouTube video of James Steinbach's talk entitled Using Musical Scales to Build Harmonious Typography"
+          >
+            demonstrated by James Steinbach at the Scotland CSS conference in
+            2016
+          </ExternalLink>
+          ).
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          The 2:5 ratio of x-height to line-height is actually used in Twitter
-          (at least on iOS devices). The font is SF Pro Display, iOS’s system
-          font. The font-size is 25px, yielding the x-height of 14px. The
-          line-height is 35px, 2.5 times as large as x-height. Personally,
-          reading tweets on Twitter never disrupts the flow of reading text,
-          while many news websites often distract me from reading their article
-          because there is something weird about whitespace.
+          We could apply the rule of thirds in photography to obtain 1:3, or the
+          perfect fifth in musical scale to obtain 2:5, as the ratio of x-height
+          and line-height. This paragraph uses the ratio of 2:5.
         </ParagraphOneRem>
+        <SpacerVertical height="2" />
+        <ParagraphOneRem>
+          The 2:5 ratio of x-height to line-height is actually used in{' '}
+          <ExternalLink href="https://twitter.com/">Twitter</ExternalLink>, at
+          least on Mac OS and iOS devices. Personally, reading tweets on Twitter
+          never disrupts the flow of reading text, while many news websites
+          often distract me from reading their articles because there is
+          something weird about whitespace.
+        </ParagraphOneRem>
+      </Section>
+      <SpacerVertical height="3" />
+      <Section>
+        <SectionTitle>Other considerations on line-height</SectionTitle>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
           Of course, we need to consider practial constraints when we choose{' '}
@@ -87,19 +112,16 @@ const LineHeightGuide = () => {
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          {' '}
-          The simplest ratio would be 1:2, which means the x-height stripe has
-          the same height as the whitespace stripe. But such tight line-spacing
-          is likely to make the lowerpart of lowercase letters such as g and y
-          (known as the “
+          Too small line-height values will cause the overlapping of the lower
+          part of lowercase letters such as g and y (known as the “
           <ExternalLink
             href="https://en.wikipedia.org/wiki/Descender"
             title="Wikipedia entry on the descender"
           >
             descender
           </ExternalLink>
-          ”) overlap the upper part of lowercase letters such as d and h (known
-          as the “
+          ”) with the upper part of lowercase letters such as d and h (known as
+          the “
           <ExternalLink
             href="https://en.wikipedia.org/wiki/Ascender_(typography)"
             title="Wikipedia entry on the ascender"
@@ -111,11 +133,10 @@ const LineHeightGuide = () => {
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
           Also, the whitespace between two x-height stripes should be at least
-          as wide as the space between words (which is about half of the{' '}
-          <CodeInline>font-size</CodeInline>, but differs across fonts).
-          Otherwise, one word may appear to belong to another word in the next
-          line, instead of the words before and after in the same line. This
-          will disrupt people from reading line by line.
+          as wide as the space between words. Otherwise, one word will appear to
+          belong to another word in the next line, instead of the words before
+          and after in the same line. This will disrupt people from reading line
+          by line.
         </ParagraphOneRem>{' '}
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
@@ -123,7 +144,7 @@ const LineHeightGuide = () => {
           textbooks typically recommend that line-height should be shorter for
           narrower paragraphs. For a narrow column of text, it is not very
           difficult to spot the beginning of next line while reading a
-          paragraph. So the space between lines does not need to be large to
+          paragraph. So the space between lines does not need to be so large to
           clearly indicate where next line starts.
         </ParagraphOneRem>{' '}
         <SpacerVertical height="2" />{' '}
@@ -139,9 +160,8 @@ const LineHeightGuide = () => {
         <ParagraphOneRem>
           The Line-height Picker helps you convert your chosen ratio of x-height
           to line-height into the <CodeInline>line-height</CodeInline>{' '}
-          <Abbr>css</Abbr>
-          value.
-        </ParagraphOneRem>{' '}
+          <Abbr>css</Abbr> value.
+        </ParagraphOneRem>
       </Section>
     </>
   );
