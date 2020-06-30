@@ -36,7 +36,7 @@ const Home = props => {
             <SpacerVertical height="3" />
             <Description />
           </Section>
-          <SpacerVertical height="3" />
+          <SpacerVertical height="4" />
           <Section>
             <HiddenH1 as="h2">Getting started</HiddenH1>
             <FontFileUploader
@@ -52,7 +52,7 @@ const Home = props => {
               data-testid="error-message-font-file"
               fontFileError={props.fontFileError}
             />
-            <SpacerVertical height="3" />
+            <SpacerVertical height="4" />
           </Section>
           <About />
           <SpacerVertical height="3" />

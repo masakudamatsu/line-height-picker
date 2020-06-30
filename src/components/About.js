@@ -17,6 +17,33 @@ const About = () => {
       <SectionTitle>About the Line-height Picker</SectionTitle>
       <SpacerVertical height="2" />
       <ParagraphOneRem>
+        How do you choose line-height for your webpage? Recommended values vary
+        by whom you ask: 1.2–1.45 (
+        <ExternalLink
+          href="https://practicaltypography.com/line-spacing.html"
+          title="Butterick's Practical Typography (2nd Edition)"
+        >
+          Matthew Butterick
+        </ExternalLink>
+        ), 1.4–1.6 (
+        <ExternalLink
+          href="https://prowebtype.com/setting-type/"
+          title="Professional Web Typography (2nd Edition)"
+        >
+          Donny Truong
+        </ExternalLink>
+        ), 1.5–2 (
+        <ExternalLink
+          href="https://www.w3.org/TR/WCAG20-TECHS/C21.html"
+          title="Techniques and Failures for Web Content Accessibility Guidelines 2.0"
+        >
+          WCAG 2.0
+        </ExternalLink>
+        ), etc. The Line-height Picker is an attempt to logically pin down the
+        optimal line-height value for your webpage.
+      </ParagraphOneRem>
+      <SpacerVertical height="2" />
+      <ParagraphOneRem>
         The idea starts with a simple observation: a paragraph of text in Latin
         alphabets consists of stripes of{' '}
         <ExternalLink

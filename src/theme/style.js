@@ -339,7 +339,7 @@ export const StepNumber = styled.a`
 
 // Landing Page
 
-export const DescriptionWrapper = styled.p`
+export const DescriptionWrapper = styled(ParagraphOneRem)`
   font-family: ${fontPalette.fontFamily.landingPage};
   font-size: ${fontPalette.fontSize.mobile.landingPage}rem;
   font-weight: ${fontPalette.fontWeight.landingPage};
