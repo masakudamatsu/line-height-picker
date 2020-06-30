@@ -186,8 +186,10 @@ export const Code = styled.code`
 `;
 
 export const CodeInline = styled(Code)`
-  background-color: ${colorPalette.codeInline.background};
+  border: 1px solid ${colorPalette.codeInline.background};
+  font-size: 85%;
   letter-spacing: -0.04em;
+  padding: 2px 4px 1px;
 `;
 
 export const BookTitle = styled.cite`
@@ -337,7 +339,7 @@ export const StepNumber = styled.a`
 
 // Landing Page
 
-export const DescriptionWrapper = styled.p`
+export const DescriptionWrapper = styled(ParagraphOneRem)`
   font-family: ${fontPalette.fontFamily.landingPage};
   font-size: ${fontPalette.fontSize.mobile.landingPage}rem;
   font-weight: ${fontPalette.fontWeight.landingPage};
@@ -784,4 +786,18 @@ export const Rotate = styled.span`
   display: inline-block;
   text-transform: uppercase;
   transform: rotate(${props => props.degree}deg);
+`;
+
+export const FigureFrame = styled.figure`
+  border: 1px solid ${colorPalette.figure.border};
+  max-width: ${fontPalette.maxWidthInEm}em;
+  overflow: hidden; /* Control the image size by the box size of the figure */
+  width: 100%;
+`;
+
+export const Image = styled.img`
+  display: block; /* Prevent images from aligning with other contents */
+  height: auto; /* Preserve the aspect ratio */
+  max-width: 100%; /* Control the image size by the box size of the figure */
+  margin: auto; /* For vertically centering the image #2 */
 `;

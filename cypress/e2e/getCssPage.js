@@ -27,7 +27,7 @@ describe('Get CSS Page', () => {
     cy.findByTestId('copy-button').should('exist');
   });
 
-  it.only('describes the page content for search engines as expected', () => {
+  it('describes the page content for search engines as expected', () => {
     cy.get('head meta[name="description"]').should(
       'have.attr',
       'content',

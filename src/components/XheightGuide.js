@@ -26,10 +26,10 @@ const XheightGuide = () => {
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          In addition, the top of the x is lined up with the lowercase g, j, p,
-          q, y. The bottom of the x is lined up with the lowercase b, d, h, k,
-          l, and all the uppercase letters (and the lowercase f as well,
-          usually, but the font used in this paragraph is an exception).
+          In addition, the top of the x is roughly lined up with the lowercase
+          g, j, p, q, y. The bottom of the x is lined up with the lowercase b,
+          d, h, k, l, and all the uppercase letters (and usually the lowercase f
+          as well; the font used in this paragraph is an exception).
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
@@ -41,8 +41,7 @@ const XheightGuide = () => {
           Each font has its own ratio of x-height to{' '}
           <CodeInline>font-size</CodeInline>. Therefore, the same{' '}
           <CodeInline>font-size</CodeInline> value does not ensure the same
-          x-height across fonts. For more detail on this point, I recommend
-          reading{' '}
+          x-height across fonts. For more detail, have a look at{' '}
           <ArticleTitle>
             <ExternalLink href="https://www.fonts.com/content/learning/fontology/level-1/type-anatomy/x-height">
               “X-height”
@@ -98,8 +97,8 @@ const XheightGuide = () => {
           >
             source
           </ExternalLink>
-          ). Its x-height is 10px for desktop screens, based on my own
-          measurement. So the ratio of x-height to{' '}
+          ). Its x-height is 10px for desktop screens (based on our own
+          measurement). So the ratio of x-height to{' '}
           <CodeInline>font-size</CodeInline> is 10:21. Which means the x-height
           for mobile screens is 8.5714px.
         </ParagraphOneRem>
@@ -116,8 +115,9 @@ const XheightGuide = () => {
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          The Line-height Picker will convert this x-height value into the{' '}
-          <CodeInline>font-size</CodeInline> value for the font of your choice.
+          The Line-height Picker will convert the x-height value into the{' '}
+          <CodeInline>font-size</CodeInline> value for the font of your choice,
+          helping you choose text size based on x-height.
         </ParagraphOneRem>{' '}
       </Section>
     </>
