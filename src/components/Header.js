@@ -71,7 +71,7 @@ const Header = props => {
       <LogoFrame header topPage={props.topPage}>
         <a href="/">
           <LogoImage
-            src={logoHeader4x}
+            src={logoHeader1x}
             srcSet={`${logoHeader1x} 163w, ${logoHeader2x} 326w, ${logoHeader3x} 489w ${logoHeader4x} 652w`}
             sizes="(min-width: 728px) 163px, 140px"
             alt="Logo of Line-height Picker"

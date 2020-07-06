@@ -35,7 +35,7 @@ const Home = props => {
           <Section as="header">
             <LogoFrame>
               <LogoImage
-                src={logo4x}
+                src={logo1x}
                 srcSet={`${logo1x} 605w, ${logo2x} 1210w, ${logo3x} 1815w, ${logo4x} 2420w`}
                 sizes="(min-width: 728px) 605px, (min-width: 557px) 518px, 100vw"
                 alt="Logo of Line-height Picker"
