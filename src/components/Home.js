@@ -18,6 +18,8 @@ import {
   SpacerVertical,
 } from '../theme/style';
 
+import logo1x from '../img/logo1x.png';
+import logo2x from '../img/logo2x.png';
 import logo3x from '../img/logo3x.png';
 
 const Home = props => {
@@ -31,7 +33,12 @@ const Home = props => {
           <SpacerVertical height="3" />
           <Section as="header">
             <LogoFrame>
-              <LogoImage src={logo3x} alt="Logo of Line-height Picker" />
+              <LogoImage
+                src={logo3x}
+                srcSet={`${logo1x} 605w, ${logo2x} 1210w, ${logo3x} 1815w`}
+                sizes="(min-width: 728px) 605px, (min-width: 557px) 518px, 100vw"
+                alt="Logo of Line-height Picker"
+              />
             </LogoFrame>
             <SpacerVertical height="3" />
             <Description />
