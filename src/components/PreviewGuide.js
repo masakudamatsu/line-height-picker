@@ -12,7 +12,10 @@ import {
   SpacerVertical,
 } from '../theme/style';
 
+import betweenParagraphWhitespace1x from '../img/between-paragraph-whitespace1x.png';
+import betweenParagraphWhitespace2x from '../img/between-paragraph-whitespace2x.png';
 import betweenParagraphWhitespace3x from '../img/between-paragraph-whitespace3x.png';
+import betweenParagraphWhitespace4x from '../img/between-paragraph-whitespace4x.png';
 
 const PreviewGuide = () => {
   return (
@@ -65,7 +68,9 @@ const PreviewGuide = () => {
         <SpacerVertical height="1" />
         <FigureFrame>
           <Image
-            src={betweenParagraphWhitespace3x}
+            src={betweenParagraphWhitespace1x}
+            srcSet={`${betweenParagraphWhitespace1x} 605w, ${betweenParagraphWhitespace2x} 1210w, ${betweenParagraphWhitespace3x} 1815w, ${betweenParagraphWhitespace4x} 2420w`}
+            sizes="(min-width: 740px) 602px, (min-width: 600px) 516px, (min-width: 380px) calc(82vw + 40px), calc(66.67vw + 92px)"
             alt="Diagram indicating the vertical space between paragraphs"
           />
         </FigureFrame>
