@@ -13,7 +13,10 @@ import {
   StepIndicatorWrapper,
 } from '../theme/style';
 
-import headerLogo3x from '../img/headerLogo3x.png';
+import logoHeader1x from '../img/logoHeader1x.png';
+import logoHeader2x from '../img/logoHeader2x.png';
+import logoHeader3x from '../img/logoHeader3x.png';
+import logoHeader4x from '../img/logoHeader4x.png';
 
 const Header = props => {
   let step1 = <Step number={1} stepNow={props.stepNow} />;
@@ -67,7 +70,12 @@ const Header = props => {
       <Title stepNow={props.stepNow} />
       <LogoFrame header topPage={props.topPage}>
         <a href="/">
-          <LogoImage src={headerLogo3x} alt="Logo of Line-height Picker" />
+          <LogoImage
+            src={logoHeader1x}
+            srcSet={`${logoHeader1x} 163w, ${logoHeader2x} 326w, ${logoHeader3x} 489w, ${logoHeader4x} 652w`}
+            sizes="(min-width: 728px) 163px, 140px"
+            alt="Logo of Line-height Picker"
+          />
         </a>
       </LogoFrame>
       <StepIndicatorWrapper>

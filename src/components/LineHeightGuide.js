@@ -13,7 +13,10 @@ import {
   SpacerVertical,
 } from '../theme/style';
 
+import lineHeight1x from '../img/line-height1x.png';
+import lineHeight2x from '../img/line-height2x.png';
 import lineHeight3x from '../img/line-height3x.png';
+import lineHeight4x from '../img/line-height4x.png';
 
 const LineHeightGuide = () => {
   return (
@@ -35,7 +38,9 @@ const LineHeightGuide = () => {
         <SpacerVertical height="1" />
         <FigureFrame>
           <Image
-            src={lineHeight3x}
+            src={lineHeight1x}
+            srcSet={`${lineHeight1x} 605w, ${lineHeight2x} 1210w, ${lineHeight3x} 1815w, ${lineHeight4x} 2420w`}
+            sizes="(min-width: 740px) 602px, (min-width: 600px) 516px, (min-width: 380px) calc(82vw + 40px), calc(66.67vw + 92px)"
             alt="Diagram indicating which lengths the line-height CSS value refers to"
           />
         </FigureFrame>

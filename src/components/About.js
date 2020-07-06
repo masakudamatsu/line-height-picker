@@ -13,7 +13,10 @@ import {
   SpacerVertical,
 } from '../theme/style';
 
+import xHeightStripes1x from '../img/x-height-stripes1x.png';
+import xHeightStripes2x from '../img/x-height-stripes2x.png';
 import xHeightStripes3x from '../img/x-height-stripes3x.png';
+import xHeightStripes4x from '../img/x-height-stripes4x.png';
 
 const About = () => {
   return (
@@ -62,7 +65,9 @@ const About = () => {
       <SpacerVertical height="1" />
       <FigureFrame>
         <Image
-          src={xHeightStripes3x}
+          src={xHeightStripes1x}
+          srcSet={`${xHeightStripes1x} 605w, ${xHeightStripes2x} 1210w, ${xHeightStripes3x} 1815w, ${xHeightStripes4x} 2420w`}
+          sizes="(min-width: 740px) 602px, (min-width: 600px) 516px, (min-width: 380px) calc(82vw + 40px), calc(66.67vw + 92px)"
           alt="Diagram indicating how a paragraph of text in Latin alphabets can be seen as stripes of x-height and whitespace"
         />
       </FigureFrame>
