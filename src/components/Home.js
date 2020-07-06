@@ -21,6 +21,7 @@ import {
 import logo1x from '../img/logo1x.png';
 import logo2x from '../img/logo2x.png';
 import logo3x from '../img/logo3x.png';
+import logo4x from '../img/logo4x.png';
 
 const Home = props => {
   React.useEffect(() => {
@@ -34,8 +35,8 @@ const Home = props => {
           <Section as="header">
             <LogoFrame>
               <LogoImage
-                src={logo3x}
-                srcSet={`${logo1x} 605w, ${logo2x} 1210w, ${logo3x} 1815w`}
+                src={logo4x}
+                srcSet={`${logo1x} 605w, ${logo2x} 1210w, ${logo3x} 1815w, ${logo4x} 2420w`}
                 sizes="(min-width: 728px) 605px, (min-width: 557px) 518px, 100vw"
                 alt="Logo of Line-height Picker"
               />
