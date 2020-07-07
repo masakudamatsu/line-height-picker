@@ -8,7 +8,7 @@ addMatchImageSnapshotCommand({
   failureThreshold: 0.0,
   failureThresholdType: 'percent',
   customDiffConfig: {threshold: 0.0},
-  capture: 'viewport',
+  capture: 'fullPage',
 });
 
 Cypress.Commands.add('setResolution', size => {
