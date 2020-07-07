@@ -20,6 +20,7 @@
     "eject": "react-scripts eject",
     "test:e2e": "start-server-and-test start http://localhost:3000 cy:open",
     "test:visual": "cypress run --spec cypress/e2e/visual-tests.js",
+    "test:update": "test:visual --env updateSnapshots=true",
     "cy:open": "cypress open",
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "node server",
