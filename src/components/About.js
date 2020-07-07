@@ -20,7 +20,7 @@ import xHeightStripes4x from '../img/x-height-stripes4x.png';
 
 const About = () => {
   return (
-    <Section>
+    <Section data-testid="about">
       <SectionTitle>About the Line-height Picker</SectionTitle>
       <SpacerVertical height="2" />
       <ParagraphOneRem>
