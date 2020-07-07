@@ -4,12 +4,19 @@ import {getFontSize, getLineHeight, getMarginTop} from './utils';
 // Cypress Image Snapshot: Start ////////////////////
 import {addMatchImageSnapshotCommand} from 'cypress-image-snapshot/command';
 
-addMatchImageSnapshotCommand({
-  failureThreshold: 0.0,
-  failureThresholdType: 'percent',
-  customDiffConfig: {threshold: 0.0},
-  capture: 'fullPage',
-});
+if (Cypress.config('isInteractive')) {
+  // Skip taking snapshots with Cypress GUI. See https://glebbahmutov.com/blog/open-source-visual-testing-of-components/#local-workflow
+  Cypress.Commands.add('matchImageSnapshot', () => {
+    cy.log('Skipping snapshot 👀');
+  });
+} else {
+  addMatchImageSnapshotCommand({
+    failureThreshold: 0.0,
+    failureThresholdType: 'percent',
+    customDiffConfig: {threshold: 0.0},
+    capture: 'fullPage',
+  });
+}
 
 Cypress.Commands.add('setResolution', size => {
   if (Cypress._.isArray(size)) {
