@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import store from '../helper/store';
 import {useHistory} from 'react-router-dom';
 
+import ModularScaleBoxes from './ModularScaleBoxes';
+import PreviewGuide from './PreviewGuide';
 import SampleParagraphs from './SampleParagraphs';
 import SectionFont from './SectionFont';
 import XheightBox from './XheightBox';
-import ModularScaleBoxes from './ModularScaleBoxes';
-import PreviewGuide from './PreviewGuide';
+
 import {
+  Abbr,
   ButtonWithRightArrow,
   ControlPanel,
   Flexbox,
@@ -18,8 +21,6 @@ import {
   SpacerHorizontal,
   SpacerVertical,
 } from '../theme/style';
-
-import store from '../helper/store';
 
 const Preview = props => {
   React.useEffect(() => {
@@ -81,10 +82,10 @@ const Preview = props => {
                 <ButtonWithRightArrow
                   type="submit"
                   data-testid="get-css-code-button"
-                  primary
                   disabled={props.cssButtonDisabled}
+                  primary
                 >
-                  Get CSS code
+                  <Abbr>Css</Abbr>&nbsp;code
                 </ButtonWithRightArrow>
                 <SpacerVertical height="3" />
               </Section>
@@ -96,16 +97,16 @@ const Preview = props => {
                 <SectionTitle>Line spacing</SectionTitle>
                 <SpacerVertical height="2" />
                 <ModularScaleBoxes
-                  xHeightRatio={props.xHeightRatio}
-                  handleXHeightRatioChange={props.handleXHeightRatioChange}
                   handleLineHeightRatioChange={
                     props.handleLineHeightRatioChange
                   }
+                  handleXHeightRatioChange={props.handleXHeightRatioChange}
                   lineHeightRatio={props.lineHeightRatio}
                   lineHeightRatioRangeError={props.lineHeightRatioRangeError}
                   lineHeightRatioStepError={props.lineHeightRatioStepError}
-                  validateLineHeightRatio={props.validateLineHeightRatio}
                   validateXHeightRatio={props.validateXHeightRatio}
+                  validateLineHeightRatio={props.validateLineHeightRatio}
+                  xHeightRatio={props.xHeightRatio}
                   xHeightRatioRangeError={props.xHeightRatioRangeError}
                   xHeightRatioStepError={props.xHeightRatioStepError}
                 />
@@ -116,8 +117,8 @@ const Preview = props => {
                 <SpacerVertical height="2" />
                 <XheightBox
                   handleXHeightChange={props.handleXHeightChange}
-                  xHeightPx={props.xHeightPx}
                   validateXHeight={props.validateXHeight}
+                  xHeightPx={props.xHeightPx}
                   xHeightRangeError={props.xHeightRangeError}
                   xHeightStepError={props.xHeightStepError}
                 />
@@ -146,10 +147,10 @@ const Preview = props => {
 };
 
 Preview.propTypes = {
-  ascender: PropTypes.number,
-  capHeight: PropTypes.number,
-  cssButtonDisabled: PropTypes.bool,
-  descender: PropTypes.number,
+  ascender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  capHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  cssButtonDisabled: PropTypes.string,
+  descender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   disableCssButton: PropTypes.func.isRequired,
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
@@ -168,17 +169,17 @@ Preview.propTypes = {
   lineHeightRatioRangeError: PropTypes.string,
   lineHeightRatioStepError: PropTypes.string,
   marginTop: PropTypes.string,
-  xHeightRatioRangeError: PropTypes.string,
-  xHeightRatioStepError: PropTypes.string,
-  unitsPerEm: PropTypes.number,
+  unitsPerEm: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   validateFileType: PropTypes.func.isRequired,
   validateLineHeightRatio: PropTypes.func.isRequired,
-  validateXHeightRatio: PropTypes.func.isRequired,
   validateXHeight: PropTypes.func.isRequired,
+  validateXHeightRatio: PropTypes.func.isRequired,
   xHeightPx: PropTypes.string,
   xHeightRangeError: PropTypes.string,
-  xHeightRatio: PropTypes.string,
   xHeightStepError: PropTypes.string,
+  xHeightRatio: PropTypes.string,
+  xHeightRatioRangeError: PropTypes.string,
+  xHeightRatioStepError: PropTypes.string,
 };
 
 export default Preview;

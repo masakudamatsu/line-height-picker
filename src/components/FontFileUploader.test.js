@@ -57,7 +57,7 @@ test('renders correctly', () => {
       align-items: center;
       background-color: inherit;
       border: none;
-      border-radius: 7.232142857142856px;
+      border-radius: 7.2321px;
       box-shadow: -3px 0 3px 0px hsla(0,0%,100%,0.56), 0 -3px 3px 0px hsla(0,0%,100%,0.56), 3px 0 3px 0 hsla(0,0%,100%,0.56), 0 3px 3px 0 hsla(0,0%,100%,0.56);
       color: inherit;
       cursor: pointer;
@@ -65,10 +65,10 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
-      font-size: 1.5983342594463528rem;
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-size: 1.5983rem;
       font-weight: 500;
-      height: 65.08928571428571px;
+      height: 65.0893px;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -76,7 +76,7 @@ test('renders correctly', () => {
       position: relative;
       -webkit-text-decoration: none;
       text-decoration: none;
-      width: 294.2857142857143px;
+      width: 294.2858px;
     }
 
     .c0:focus,
@@ -102,9 +102,9 @@ test('renders correctly', () => {
     @media only screen and (min-width:728px) {
       .c0 {
         border-radius: 8.4375;
-        font-size: 1.8647233026874117rem;
+        font-size: 1.8647rem;
         height: 75.9375px;
-        width: 343.33333333333337px;
+        width: 343.3334px;
       }
     }
 
@@ -120,7 +120,6 @@ test('renders correctly', () => {
         accept=".ttf,.otf,.woff"
         aria-describedby="whatHappened-fontFile howToResolve-fontFile extraText-fontFile"
         data-testid="hiddenFileInput"
-        id="hiddenFileInput"
         style="display: none;"
         type="file"
       />

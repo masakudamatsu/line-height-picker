@@ -8,6 +8,7 @@ import {
   ParagraphOneRem,
   SpacerVertical,
 } from '../theme/style';
+
 import {
   fileExtensionError,
   fileReaderApiError,
@@ -42,8 +43,8 @@ const FontFileErrorMessage = props => {
   }
   return (
     <FontFileErrorWrapper
-      fontFileError={fontFileError}
       data-testid="error-message-font-file"
+      fontFileError={fontFileError}
     >
       <SpacerVertical height="2" />
       <AlertMessage error={true}>

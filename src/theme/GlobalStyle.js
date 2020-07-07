@@ -22,15 +22,15 @@ html {
 }
 
 *,
-::before,
-::after {
+:before,
+:after {
   background-repeat: no-repeat; /* Set to all elements and pseudo elements */
   box-sizing: inherit;
 }
 
-::before,
-::after {
-  text-decoration: inherit; /* Inherit text-decoration and vertical align to ::before and ::after pseudo elements */
+:before,
+:after {
+  text-decoration: inherit; /* Inherit text-decoration and vertical align to :before and :after pseudo elements */
   vertical-align: inherit;
 }
 

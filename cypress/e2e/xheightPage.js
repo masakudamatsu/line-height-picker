@@ -1,4 +1,5 @@
 import colorPalette from '../../src/theme/colorPalette';
+import {pageTitle, pageDescription} from '../../src/helper/metaData';
 
 const validInputs = [{xHeight: 10}, {xHeight: 11}];
 
@@ -18,8 +19,18 @@ describe('X-height page in demo', () => {
   });
 
   it('shows the non-interactive UI components correctly', () => {
+    cy.title().should('eq', pageTitle.xHeight);
+    cy.get('h1').should('have.text', pageTitle.xHeight);
     cy.checkHeaderFooterRendering();
     cy.findByTestId('FontNameDisplay').should('exist');
+  });
+
+  it('describes the page content for search engines as expected', () => {
+    cy.get('head meta[name="description"]').should(
+      'have.attr',
+      'content',
+      pageDescription.xHeight,
+    );
   });
 
   validInputs.forEach(validInput => {
@@ -388,6 +399,10 @@ describe('X-height page: Navigation bar', () => {
     cy.findByTestId('demo-start-button').click();
   });
 
+  it('takes the user to the landing page after clicking the logo', () => {
+    cy.findByAltText(/logo/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+  });
   it('takes the user to the landing page after clicking number 1 in the header', () => {
     cy.findByText('1').click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);

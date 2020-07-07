@@ -13,17 +13,25 @@ const getFontMetrics = font => {
 
   const headTable = font.tables['head'];
   fontMetrics.unitsPerEm = headTable['unitsPerEm'];
-
   const hheaTable = font.tables['hhea'];
   fontMetrics.ascender = hheaTable['ascender'];
   fontMetrics.descender = hheaTable['descender'];
-  console.log(fontMetrics.ascender);
-  console.log(fontMetrics.descender);
 
   const os2Table = font.tables['os2'];
   fontMetrics.fontWeight = os2Table['usWeightClass'].toString();
   fontMetrics.xHeight = os2Table['sxHeight'];
   fontMetrics.capHeight = os2Table['sCapHeight'];
+
+  console.log(
+    `The following font metrics for ${fontMetrics.fontFamily} ${fontMetrics.fontSubfamily} are extracted:`,
+  );
+
+  console.log(`head.unitsPerEm: ${fontMetrics.unitsPerEm}`);
+  console.log(`hhea.ascender: ${fontMetrics.ascender}`);
+  console.log(`hhea.descender: ${fontMetrics.descender}`);
+  console.log(`os2.sxHeight: ${fontMetrics.xHeight}`);
+  console.log(`os2.sCapHeight: ${fontMetrics.capHeight}`);
+
   return fontMetrics;
 };
 

@@ -6,7 +6,6 @@ import FontFileUploader from './FontFileUploader';
 import FontNameDisplay from './FontNameDisplay';
 
 import {
-  ButtonContainer,
   LinearLight,
   Section,
   SectionTitle,
@@ -30,34 +29,32 @@ const SectionFont = props => {
         unitsPerEm={props.unitsPerEm}
       />
       <LinearLight />
-      <ButtonContainer>
-        <SpacerVertical height="2" />
-        <FontFileUploader
-          handleFontFile={props.handleFontFile}
-          validateFileType={props.validateFileType}
-        >
-          Change font…
-        </FontFileUploader>
-        <FontFileErrorMessage
-          data-testid="error-message-font-file"
-          fontFileError={props.fontFileError}
-        />
-      </ButtonContainer>
+      <SpacerVertical height="2" />
+      <FontFileUploader
+        handleFontFile={props.handleFontFile}
+        validateFileType={props.validateFileType}
+      >
+        Change font…
+      </FontFileUploader>
+      <FontFileErrorMessage
+        data-testid="error-message-font-file"
+        fontFileError={props.fontFileError}
+      />
       <SpacerVertical height="3" />
     </Section>
   );
 };
 
 SectionFont.propTypes = {
-  ascender: PropTypes.number,
-  capHeight: PropTypes.number,
-  descender: PropTypes.number,
+  ascender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  capHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
+  descender: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   fontFamily: PropTypes.string,
   fontFileError: PropTypes.string.isRequired,
   fontSubfamily: PropTypes.string,
   fontWeight: PropTypes.string,
   handleFontFile: PropTypes.func.isRequired,
-  unitsPerEm: PropTypes.number,
+  unitsPerEm: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([''])]),
   validateFileType: PropTypes.func.isRequired,
 };
 

@@ -1,3 +1,5 @@
+import {pageTitle, pageDescription} from '../../src/helper/metaData';
+
 const userData = {
   xHeight: 10,
   xHeightRatio: 1,
@@ -24,9 +26,18 @@ describe('Modular Scale Page in demo', () => {
   });
 
   it('shows the non-interactive UI components correctly', () => {
+    cy.title().should('eq', pageTitle.modularScale);
+    cy.get('h1').should('have.text', pageTitle.modularScale);
     cy.checkHeaderFooterRendering(); // See support/commands.js
-    cy.findByText(/line spacing/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
+  });
+
+  it('describes the page content for search engines as expected', () => {
+    cy.get('head meta[name="description"]').should(
+      'have.attr',
+      'content',
+      pageDescription.modularScale,
+    );
   });
 
   it('keeps input fields empty, and does not show alerts, when the user reloads the page', () => {
@@ -472,6 +483,11 @@ describe('Modular-scale page: Navigation bar', () => {
     cy.findByTestId('demo-start-button').click();
     cy.findByTestId('x-height-in-pixel').type(userData.xHeight);
     cy.findByText(/next/i).click();
+  });
+
+  it('takes the user to the landing page after clicking the logo', () => {
+    cy.findByAltText(/logo/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
 
   it('takes the user to the landing page after clicking number 1 in the header', () => {

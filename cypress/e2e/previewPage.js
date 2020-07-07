@@ -1,3 +1,5 @@
+import {pageTitle, pageDescription} from '../../src/helper/metaData';
+
 const userData = {
   xHeight: 10,
   xHeightRatio: 1,
@@ -39,11 +41,21 @@ describe('Preview Page in demo', () => {
   });
 
   it('shows the non-interactive UI components correctly', () => {
+    cy.title().should('eq', pageTitle.preview);
+    cy.get('h1').should('have.text', pageTitle.preview);
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByTestId('sampleParagraph1').should('exist');
     cy.findByTestId('sampleParagraph2').should('exist');
     cy.findByText(/excerpt/i).should('exist');
     cy.findByTestId('FontNameDisplay').should('exist');
+  });
+
+  it('describes the page content for search engines as expected', () => {
+    cy.get('head meta[name="description"]').should(
+      'have.attr',
+      'content',
+      pageDescription.preview,
+    );
   });
 
   it('Reloading the page does not alter the font size', () => {
@@ -580,6 +592,11 @@ describe('Preview page: Navigation bar', () => {
     cy.findByTestId('x-height-for-ratio').type(userData.xHeightRatio);
     cy.findByTestId('line-height-for-ratio').type(userData.lineHeightRatio);
     cy.findByText(/preview/i).click();
+  });
+
+  it('takes the user to the landing page after clicking the logo', () => {
+    cy.findByAltText(/logo/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
 
   it('takes the user to the landing page after clicking number 1 in the header', () => {

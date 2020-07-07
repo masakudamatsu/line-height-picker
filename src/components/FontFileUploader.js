@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {useHistory} from 'react-router';
+
 import {Button} from '../theme/style';
+
 import {fontFileExtensionsArray as acceptableFileExtensions} from '../helper/fontFileExtensions';
 
 const FontFileUploader = props => {
   const history = useHistory();
 
+  const hiddenFileInput = React.useRef(null);
+
   const handleClick = event => {
-    document.getElementById('hiddenFileInput').click();
+    hiddenFileInput.current.click();
   };
 
   const handleChange = async event => {
@@ -42,7 +45,7 @@ const FontFileUploader = props => {
       <input
         type="file"
         data-testid="hiddenFileInput"
-        id="hiddenFileInput"
+        ref={hiddenFileInput}
         accept={acceptableFileExtensions.join()}
         onChange={handleChange}
         style={{display: 'none'}}
@@ -54,9 +57,9 @@ const FontFileUploader = props => {
 };
 
 FontFileUploader.propTypes = {
+  handleFontFile: PropTypes.func.isRequired,
   home: PropTypes.bool,
   validateFileType: PropTypes.func.isRequired,
-  handleFontFile: PropTypes.func.isRequired,
 };
 
 export default FontFileUploader;

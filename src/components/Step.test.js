@@ -38,7 +38,7 @@ test('renders correctly', () => {
       color: hsl(0,0%,90%);
       cursor: default;
       display: inline-block;
-      font-family: 'Fedra Mono 2',monospace;
+      font-family: 'Fedra Mono',monospace;
       font-size: 1.1366rem;
       font-weight: 300;
       line-height: 1.0000;
@@ -59,19 +59,19 @@ test('renders correctly', () => {
       background: none;
     }
 
-    .c1::before,
-    .c1::after {
+    .c1:before,
+    .c1:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c1::before {
+    .c1:before {
       margin-bottom: -0.0730em;
     }
 
-    .c1::after {
+    .c1:after {
       margin-top: -0.2200em;
     }
 

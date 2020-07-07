@@ -24,19 +24,19 @@ test('renders correctly', () => {
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c4::before,
-    .c4::after {
+    .c4:before,
+    .c4:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c4::before {
+    .c4:before {
       margin-bottom: -0.2555em;
     }
 
-    .c4::after {
+    .c4:after {
       margin-top: -0.4025em;
     }
 
@@ -49,7 +49,7 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-weight: 500;
       visibility: visible;
     }

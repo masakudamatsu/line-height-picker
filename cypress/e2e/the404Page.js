@@ -1,3 +1,5 @@
+import {pageTitle} from '../../src/helper/metaData';
+
 describe('The 404 Page', () => {
   beforeEach(() => {
     sessionStorage.clear();
@@ -5,15 +7,28 @@ describe('The 404 Page', () => {
   });
 
   it('shows up when the URL contains random text', () => {
-    cy.findByText(/404/).should('exist');
-    cy.get('h1').should('have.text', 'Line-height Picker');
-    cy.findByTitle(/logo/i).should('exist');
+    cy.findByText(/We cannot find the page you are looking for/i).should(
+      'exist',
+    );
+    cy.title().should('eq', pageTitle.notFound);
+    cy.get('h1').should('have.text', pageTitle.notFound);
+    cy.findByAltText(/logo/i).should('exist');
   });
+
   it('guides the user to the landing page', () => {
-    cy.findByText(/click/i).click();
+    cy.findByText(/landing page/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
+
   it('shows other UI components', () => {
     cy.findByTestId('footer').should('exist');
+  });
+
+  it('prevents search engines from crawling', () => {
+    cy.get('head meta[name="robots"]').should(
+      'have.attr',
+      'content',
+      'noindex',
+    );
   });
 });

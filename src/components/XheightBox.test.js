@@ -31,19 +31,19 @@ test('renders correctly', () => {
       font-feature-settings: 'calt','clig','kern','liga','onum';
     }
 
-    .c11::before,
-    .c11::after {
+    .c11:before,
+    .c11:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c11::before {
+    .c11:before {
       margin-bottom: -0.2555em;
     }
 
-    .c11::after {
+    .c11:after {
       margin-top: -0.4025em;
     }
 
@@ -56,7 +56,7 @@ test('renders correctly', () => {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
-      font-family: 'Fedra Sans 3',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      font-family: 'Fedra Sans',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-weight: 500;
       visibility: hidden;
     }
@@ -88,7 +88,7 @@ test('renders correctly', () => {
     }
 
     .c0 {
-      height: 97.63392857142857px;
+      height: 97.6339px;
       position: relative;
     }
 
@@ -96,7 +96,7 @@ test('renders correctly', () => {
       position: absolute;
       left: 16px;
       top: 8px;
-      top: calc( 8px - 0.07162480376766091rem );
+      top: calc( 8px - 0.0716rem );
     }
 
     .c7 {
@@ -107,23 +107,23 @@ test('renders correctly', () => {
       text-align: right;
     }
 
-    .c7::before,
-    .c7::after {
+    .c7:before,
+    .c7:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c7::before {
+    .c7:before {
       margin-bottom: -0.2555em;
     }
 
-    .c7::after {
+    .c7:after {
       margin-top: -0.4025em;
     }
 
-    .c7::before {
+    .c7:before {
       margin-bottom: -0.4165em;
     }
 
@@ -147,10 +147,14 @@ test('renders correctly', () => {
       border: 2px solid hsl(0,0%,40%);
       border-radius: 4px;
       color: hsl(0,0%,90%);
-      font-family: 'Fedra Mono 2',monospace;
+      font-family: 'Fedra Mono',monospace;
       font-size: 2.5573rem;
       font-weight: 300;
       height: 100%;
+      -webkit-letter-spacing: -0.05em;
+      -moz-letter-spacing: -0.05em;
+      -ms-letter-spacing: -0.05em;
+      letter-spacing: -0.05em;
       line-height: 1;
       padding-left: 12px;
       padding-top: 1.5696044186813187rem;
@@ -188,13 +192,13 @@ test('renders correctly', () => {
 
     @media only screen and (min-width:728px) {
       .c0 {
-        height: 113.90625px;
+        height: 113.9063px;
       }
     }
 
     @media only screen and (min-width:728px) {
       .c1 {
-        top: calc( 8px - 0.08356227106227106rem );
+        top: calc( 8px - 0.0836rem );
       }
     }
 
@@ -237,7 +241,7 @@ test('renders correctly', () => {
         <input
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
           autocomplete="off"
-          class="sc-fzoNJl sc-fzoXWK c2"
+          class="sc-fznMAR sc-fznWOq c2"
           data-testid="x-height-in-pixel"
           id="x-height-in-pixel"
           inputmode="decimal"

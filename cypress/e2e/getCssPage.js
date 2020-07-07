@@ -1,3 +1,5 @@
+import {pageTitle, pageDescription} from '../../src/helper/metaData';
+
 const userData = {
   xHeight: 10,
   xHeightRatio: 1,
@@ -18,9 +20,19 @@ describe('Get CSS Page', () => {
   });
 
   it('shows the non-interactive UI components correctly', () => {
+    cy.title().should('eq', pageTitle.css);
+    cy.get('h1').should('have.text', pageTitle.css);
     cy.checkHeaderFooterRendering(); // See support/commands.js
     cy.findByTestId('cssCode').should('exist');
     cy.findByTestId('copy-button').should('exist');
+  });
+
+  it('describes the page content for search engines as expected', () => {
+    cy.get('head meta[name="description"]').should(
+      'have.attr',
+      'content',
+      pageDescription.css,
+    );
   });
 
   it('allows the user to copy the CSS code onto their clipboard', () => {
@@ -29,7 +41,7 @@ describe('Get CSS Page', () => {
 
   it('temporarily changes the copy button text upon the click ', () => {
     // test the text before clicking
-    const buttonText = 'Copy CSS code';
+    const buttonText = 'Copy css code';
     cy.findByTestId('copy-button').should('have.text', buttonText);
 
     // setup
@@ -48,6 +60,11 @@ describe('Get CSS Page', () => {
   it('takes the user back to the preview page after clicking the button for it', () => {
     cy.findByText(/back/i).click();
     cy.url().should('eq', `${Cypress.config().baseUrl}/preview`);
+  });
+
+  it('takes the user to the landing page after clicking the logo', () => {
+    cy.findByAltText(/logo/i).click();
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`);
   });
 
   it('takes the user to the landing page after clicking number 1 in the header', () => {

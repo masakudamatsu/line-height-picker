@@ -2,7 +2,9 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import {
-  Code,
+  ArticleTitle,
+  BookTitle,
+  CodeInline,
   ExternalLink,
   NoWrap,
   ParagraphOneRem,
@@ -24,10 +26,10 @@ const XheightGuide = () => {
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          In addition, the top of the x is lined up with the lowercase g, j, p,
-          q, y. The bottom of the x is lined up with the lowercase b, d, h, k,
-          l, and all the uppercase letters (and the lowercase f as well for most
-          fonts except the one you see now).
+          In addition, the top of the x is roughly lined up with the lowercase
+          g, j, p, q, y. The bottom of the x is lined up with the lowercase b,
+          d, h, k, l, and all the uppercase letters (and usually the lowercase f
+          as well; the font used in this paragraph is an exception).
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
@@ -36,28 +38,32 @@ const XheightGuide = () => {
         </ParagraphOneRem>
         <SpacerVertical height="2" />{' '}
         <ParagraphOneRem>
-          Each font has its own ratio of x-height to <Code>font-size</Code>.
-          Therefore, the same <Code>font-size</Code> value does not ensure the
-          same x-height—and the overall size of text— across fonts. For more
-          detail on this point, I recommend reading{' '}
-          <ExternalLink href="https://www.fonts.com/content/learning/fontology/level-1/type-anatomy/x-height">
-            Allan Haley's article entitled "X-height"
-          </ExternalLink>
-          .
+          Each font has its own ratio of x-height to{' '}
+          <CodeInline>font-size</CodeInline>. Therefore, the same{' '}
+          <CodeInline>font-size</CodeInline> value does not ensure the same
+          x-height across fonts. For more detail, have a look at{' '}
+          <ArticleTitle>
+            <ExternalLink href="https://www.fonts.com/content/learning/fontology/level-1/type-anatomy/x-height">
+              “X-height”
+            </ExternalLink>
+          </ArticleTitle>
+          , a Fonts.com article written by Allan Haley.
         </ParagraphOneRem>
       </Section>
       <SpacerVertical height="3" />
       <Section>
         <SectionTitle>
-          Choosing <NoWrap>x-height</NoWrap> for your website
+          How to choose <NoWrap>x-height</NoWrap> for your website
         </SectionTitle>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
           Here is one idea, largely inspired by what Tim Brown suggests in
           Chapter 4 of his book{' '}
-          <ExternalLink href="https://abookapart.com/products/flexible-typesetting">
-            Flexible Typesetting
-          </ExternalLink>{' '}
+          <BookTitle>
+            <ExternalLink href="https://abookapart.com/products/flexible-typesetting">
+              Flexible Typesetting
+            </ExternalLink>
+          </BookTitle>{' '}
           (A Book Apart, 2018).
         </ParagraphOneRem>
         <SpacerVertical height="2" />
@@ -78,19 +84,23 @@ const XheightGuide = () => {
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          Continuing the above example, Medium.com sets <Code>font-size</Code>{' '}
-          to be 18px for mobile screens and 21px for desktop screens. Medium
-          uses{' '}
+          Continuing the above example, Medium.com sets{' '}
+          <CodeInline>font-size</CodeInline> to be 18px for mobile screens and
+          21px for desktop screens. Medium uses{' '}
           <ExternalLink href="https://www.myfonts.com/fonts/itc/charter/">
             ITC Charter
           </ExternalLink>{' '}
           as its body text font (
-          <ExternalLink href="https://medium.design/project-tnt-4b9b4ea97cda">
+          <ExternalLink
+            href="https://medium.design/project-tnt-4b9b4ea97cda"
+            title="Medium design team member's article on Medium's typography refresh in October 2015"
+          >
             source
           </ExternalLink>
-          ). Its x-height is 10px for desktop screens, based on my own
-          measurement. So the ratio of x-height to font-size is 10:21. Which
-          means the x-height for mobile screens is 8.5714px.
+          ). Its x-height is 10px for desktop screens (based on our own
+          measurement). So the ratio of x-height to{' '}
+          <CodeInline>font-size</CodeInline> is 10:21. Which means the x-height
+          for mobile screens is 8.5714px.
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
@@ -105,8 +115,9 @@ const XheightGuide = () => {
         </ParagraphOneRem>
         <SpacerVertical height="2" />
         <ParagraphOneRem>
-          The Line-height Picker will convert this x-height value into the{' '}
-          <Code>font-size</Code> value for the font of your choice.
+          The Line-height Picker will convert the x-height value into the{' '}
+          <CodeInline>font-size</CodeInline> value for the font of your choice,
+          helping you choose text size based on x-height.
         </ParagraphOneRem>{' '}
       </Section>
     </>

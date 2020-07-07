@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {useHistory} from 'react-router-dom';
 
 import {ButtonWithRightArrow} from '../theme/style';
-import {useHistory} from 'react-router-dom';
 
 const DemoStartButton = props => {
   const history = useHistory();
@@ -16,7 +16,7 @@ const DemoStartButton = props => {
   };
   return (
     <ButtonWithRightArrow data-testid="demo-start-button" onClick={handleClick}>
-      Start demo
+      Demo
     </ButtonWithRightArrow>
   );
 };

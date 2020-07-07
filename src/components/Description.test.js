@@ -15,12 +15,32 @@ test('renders correctly', () => {
     }
 
     .c0 {
-      font-family: 'Fedra Sans Alt 2',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      color: currentColor;
+      font-weight: inherit;
+      font-variant-numeric: oldstyle-nums;
+      font-feature-settings: 'calt','clig','kern','liga','onum';
+      font-family: 'Fedra Sans Alt',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
       font-size: 1.4717rem;
       font-weight: 300;
       margin: 0;
       text-indent: -1px;
       width: 100%;
+    }
+
+    .c0:before,
+    .c0:after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c0:before {
+      margin-bottom: -0.2555em;
+    }
+
+    .c0:after {
+      margin-top: -0.4025em;
     }
 
     @media only screen and (min-width:728px) {
@@ -31,7 +51,7 @@ test('renders correctly', () => {
 
     <div>
       <p
-        class="c0"
+        class="sc-AxgMl c0"
         data-testid="description"
       >
         Beautify paragraphs on your website

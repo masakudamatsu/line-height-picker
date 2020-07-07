@@ -19,6 +19,9 @@ const colorPalette = {
     focus: figureDark,
     shadow: light.reflection,
   },
+  codeInline: {
+    background: backgroundLight,
+  },
   controlPanel: {
     background: backgroundDark,
     border: backgroundLight,
@@ -27,6 +30,9 @@ const colorPalette = {
   disabledText: opacityForDisabledText,
   footerText: figureLight,
   errorText: alert,
+  figure: {
+    border: backgroundLight,
+  },
   inputField: backgroundLight,
   linearLight: {
     backgroundColor: light.source,

@@ -25,7 +25,7 @@ test('renders correctly', () => {
       display: -ms-flexbox;
       display: flex;
       height: auto;
-      min-height: 97.63392857142857px;
+      min-height: 97.6339px;
     }
 
     .c1 {
@@ -36,25 +36,25 @@ test('renders correctly', () => {
       padding-top: 1.3058rem;
     }
 
-    .c1::before,
-    .c1::after {
+    .c1:before,
+    .c1:after {
       content: '';
       display: block;
       height: 0;
       width: 0;
     }
 
-    .c1::before {
+    .c1:before {
       margin-bottom: -NaNrem;
     }
 
-    .c1::after {
+    .c1:after {
       margin-top: -NaNrem;
     }
 
     @media only screen and (min-width:728px) {
       .c0 {
-        min-height: 113.90625px;
+        min-height: 113.9063px;
       }
     }
 
@@ -68,13 +68,13 @@ test('renders correctly', () => {
     }
 
     @media only screen and (min-width:728px) {
-      .c1::before {
+      .c1:before {
         margin-bottom: -NaNrem;
       }
     }
 
     @media only screen and (min-width:728px) {
-      .c1::after {
+      .c1:after {
         margin-top: -NaNrem;
       }
     }

@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useHistory} from 'react-router-dom';
+import store from '../helper/store';
 
 import CssGuide from './CssGuide';
+
 import {
+  Abbr,
   AlertIcon,
   AlertMessage,
   Button,
@@ -16,9 +19,8 @@ import {
   Section,
   SpacerVertical,
 } from '../theme/style';
-import {clipboardError} from '../helper/errorMessages';
 
-import store from '../helper/store';
+import {clipboardError} from '../helper/errorMessages';
 
 const GetCSS = props => {
   React.useEffect(() => {
@@ -43,10 +45,14 @@ p + p {
 
   // Copy button text
   const copyButtonText = {
-    default: 'Copy CSS code',
+    default: (
+      <span>
+        Copy <Abbr>css</Abbr> code
+      </span>
+    ),
     afterClick: 'Copied!',
   };
-  const [buttonText, setButtonText] = React.useState(copyButtonText.default);
+  const [copied, setCopied] = React.useState(false);
 
   // Handling copy to clipboard
   const [error, setError] = React.useState(false);
@@ -77,9 +83,9 @@ p + p {
         return;
       }
     }
-    setButtonText(copyButtonText.afterClick);
+    setCopied(true);
     setTimeout(() => {
-      setButtonText(copyButtonText.default);
+      setCopied(false);
     }, 1500);
   };
 
@@ -97,7 +103,9 @@ p + p {
       <main>
         <Section>
           <SpacerVertical height="3" />
-          <SectionTitle>Get CSS</SectionTitle>
+          <SectionTitle>
+            <Abbr>Css</Abbr> code
+          </SectionTitle>
           <SpacerVertical height="2" />
           <LinearLight />
           <CodeSnippet>
@@ -114,7 +122,7 @@ p + p {
             primary
             aria-describedby="whatHappened howToResolve extraText"
           >
-            {buttonText}
+            {copied ? copyButtonText.afterClick : copyButtonText.default}
           </Button>
           <SpacerVertical height="2" />
           <ButtonWithLeftArrow onClick={handleClick}>Back</ButtonWithLeftArrow>

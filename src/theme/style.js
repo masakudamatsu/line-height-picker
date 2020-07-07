@@ -1,20 +1,13 @@
-import React from 'react';
 import styled, {css} from 'styled-components';
 import {Link} from 'react-router-dom';
 import colorPalette from './colorPalette';
 import fontPalette from './fontPalette';
 import buttonSize from './buttonSize';
 import inputSize from './inputSize';
-import LogoImage from '../img/LogoImage';
 import AlertIconImage from '../img/AlertIconImage';
 
-// Parameters
-const minFontSizePx = 16;
-
 // Layout parameters
-const logoWidth = 0.8;
 const maxLogoWidthPx = 700;
-const mediaQueryCutoff = maxLogoWidthPx / logoWidth;
 
 // Inline modifier
 export const NoWrap = styled.span`
@@ -60,8 +53,8 @@ const linkTextStyle = css`
     background: ${colorPalette.link.background.hover};
     outline: none;
     text-shadow: none;
-    &::before,
-    &::after {
+    &:before,
+    &:after {
       display: none; /* Disable Text Crop */
     }
   }
@@ -75,8 +68,8 @@ const linkTextStyle = css`
     background: ${colorPalette.link.background.hoverVisited};
     outline: none;
     text-shadow: none;
-    &::before,
-    &::after {
+    &:before,
+    &:after {
       display: none; /* Disable Text Crop */
     }
   }
@@ -107,17 +100,17 @@ export const SectionTitle = styled.h2`
     font-size: ${fontPalette.fontSize.desktop.sectionTitle}rem;
   }
   /* Text Box Cropping parameters */
-  &::before,
-  &::after {
+  &:before,
+  &:after {
     content: '';
     display: block;
     height: 0;
     width: 0;
   }
-  &::before {
+  &:before {
     margin-bottom: -${fontPalette.textCrop.topCap.sectionTitle}em;
   }
-  &::after {
+  &:after {
     margin-top: -${fontPalette.textCrop.bottom.sectionTitle}em;
   }
 `;
@@ -131,17 +124,17 @@ export const ParagraphOneRem = styled.p`
   font-feature-settings: 'calt', 'clig', 'kern', 'liga', 'onum';
 
   /* Text Box Cropping */
-  &::before,
-  &::after {
+  &:before,
+  &:after {
     content: '';
     display: block;
     height: 0;
     width: 0;
   }
-  &::before {
+  &:before {
     margin-bottom: -${fontPalette.textCrop.topCap.bodyText}em;
   }
-  &::after {
+  &:after {
     margin-top: -${fontPalette.textCrop.bottom.bodyText}em;
   }
 `;
@@ -192,6 +185,30 @@ export const Code = styled.code`
   font-weight: ${fontPalette.fontWeight.code};
 `;
 
+export const CodeInline = styled(Code)`
+  border: 1px solid ${colorPalette.codeInline.background};
+  font-size: 85%;
+  letter-spacing: -0.04em;
+  padding: 2px 4px 1px;
+`;
+
+export const BookTitle = styled.cite`
+  font-style: italic;
+`;
+
+export const ArticleTitle = styled.cite`
+  font-style: normal;
+`;
+
+export const Abbr = styled.abbr`
+  font-feature-settings: 'smcp';
+  letter-spacing: 0.01em; /* following Flexible Typesetting */
+  @supports (font-variant-caps: small-caps) {
+    font-variant-caps: small-caps;
+    font-feature-settings: normal;
+  }
+`;
+
 export const HiddenH1 = styled.h1`
   /* Hide the h1 element except for the screen reader. */
   clip: rect(1px 1px 1px 1px);
@@ -211,22 +228,6 @@ export const LinearLight = styled.div`
     0 0 40px 0 ${colorPalette.linearLight.shadow};
   height: 2px;
   width: 100%;
-`;
-
-// Logo
-
-// Calculate the Logo's margin-top property vaue
-const scale = 1.5;
-const verticalSpacePx = 42; // a space between the two lines when the logo width is 700px.
-const logoMarginTopAboveCutoffPx = verticalSpacePx * scale;
-const logoMarginTopBelowCutoff = logoMarginTopAboveCutoffPx / mediaQueryCutoff;
-
-export const Logo = styled(LogoImage)`
-  display: block;
-  fill: currentColor;
-  height: auto;
-  visibility: ${props => (props.topPage ? 'hidden' : 'visible')};
-  width: ${props => (props.header ? '20%' : '100%')};
 `;
 
 // Header
@@ -249,8 +250,27 @@ export const HeaderWrapper = styled(Section)`
       0;
   }
 `;
+
+export const LogoFrame = styled.figure`
+  overflow: hidden; /* Control the image size by the box size of the figure */
+  visibility: ${props => (props.topPage ? 'hidden' : 'visible')};
+  width: ${props => (props.header ? '140px' : '100%')};
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
+    width: ${props => (props.header ? '163px' : '100%')};
+  }
+`;
+
+export const LogoImage = styled.img`
+  display: block; /* Prevent images from aligning with other contents */
+  height: auto; /* Preserve the aspect ratio */
+  max-width: 100%; /* Control the image size by the box size of the figure */
+  margin: auto; /* For vertically centering the image #2 */
+`;
+
 export const StepIndicatorWrapper = styled.nav`
-  width: 70%;
+  flex-grow: 0.5;
+  width: 50%;
 `;
 export const StepIndicator = styled.ol`
   aling-items: center;
@@ -281,14 +301,14 @@ export const StepNumber = styled.a`
   line-height: ${fontPalette.lineHeight.stepNumber};
   opacity: ${props =>
     !props.done && !props.now ? colorPalette.disabledText : '1'};
-  padding: ${fontPalette.xHeight.mobile.rem}rem 0;
+  padding: ${fontPalette.stepNumber.padding.mobile}rem 0;
   text-align: center;
   text-decoration: none;
   width: 100%;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
       .fontSize}px) {
     font-size: ${fontPalette.fontSize.desktop.stepNumber}rem;
-    padding: ${fontPalette.xHeight.desktop.rem}rem 0;
+    padding: ${fontPalette.stepNumber.padding.desktop}rem 0;
   }
 
   &:focus,
@@ -302,24 +322,24 @@ export const StepNumber = styled.a`
   }
 
   /* Text Box Cropping parameters */
-  &::before,
-  &::after {
+  &:before,
+  &:after {
     content: '';
     display: block;
     height: 0;
     width: 0;
   }
-  &::before {
+  &:before {
     margin-bottom: -${fontPalette.textCrop.topCap.stepNumber}em;
   }
-  &::after {
+  &:after {
     margin-top: -${fontPalette.textCrop.bottom.stepNumber}em;
   }
 `;
 
 // Landing Page
 
-export const DescriptionWrapper = styled.p`
+export const DescriptionWrapper = styled(ParagraphOneRem)`
   font-family: ${fontPalette.fontFamily.landingPage};
   font-size: ${fontPalette.fontSize.mobile.landingPage}rem;
   font-weight: ${fontPalette.fontWeight.landingPage};
@@ -351,9 +371,9 @@ export const UserDataDisplay = styled.p`
       fontPalette.fontName.capHeight.mobile
     ).toFixed(4)}rem;
   font-weight: ${props => props.fontWeight};
-  line-height: ${fontPalette.fontName.lineHeightRem.mobile.toFixed(4)}rem;
-  padding-bottom: ${fontPalette.fontName.paddingBottom.mobile.toFixed(4)}rem;
-  padding-top: ${fontPalette.fontName.paddingTop.mobile.toFixed(4)}rem;
+  line-height: ${fontPalette.fontName.lineHeightRem.mobile}rem;
+  padding-bottom: ${fontPalette.fontName.paddingBottom.mobile}rem;
+  padding-top: ${fontPalette.fontName.paddingTop.mobile}rem;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
       .fontSize}px) {
     font-size: ${props =>
@@ -361,39 +381,35 @@ export const UserDataDisplay = styled.p`
         (props.unitsPerEm / props.capHeight) *
         fontPalette.fontName.capHeight.desktop
       ).toFixed(4)}rem;
-    line-height: ${fontPalette.fontName.lineHeightRem.desktop.toFixed(4)}rem;
-    padding-bottom: ${fontPalette.fontName.paddingBottom.desktop.toFixed(4)}rem;
-    padding-top: ${fontPalette.fontName.paddingTop.desktop.toFixed(4)}rem;
+    line-height: ${fontPalette.fontName.lineHeightRem.desktop}rem;
+    padding-bottom: ${fontPalette.fontName.paddingBottom.desktop}rem;
+    padding-top: ${fontPalette.fontName.paddingTop.desktop}rem;
   }
   /* Text Box Cropping parameters */
-  &::before,
-  &::after {
+  &:before,
+  &:after {
     content: '';
     display: block;
     height: 0;
     width: 0;
   }
-  &::before {
-    margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
+  &:before {
+    margin-bottom: -${props => (((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.mobile).toFixed(4)}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
         .fontSize}px) {
-      margin-bottom: -${props => ((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
+      margin-bottom: -${props => (((props.ascender - props.capHeight) / props.capHeight) * fontPalette.fontName.capHeight.desktop).toFixed(4)}rem;
     }
   }
-  &::after {
-    margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.mobile}rem;
+  &:after {
+    margin-top: -${props => ((-props.descender / props.capHeight) * fontPalette.fontName.capHeight.mobile).toFixed(4)}rem;
     @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
         .fontSize}px) {
-      margin-top: -${props => (-props.descender / props.capHeight) * fontPalette.fontName.capHeight.desktop}rem;
+      margin-top: -${props => ((-props.descender / props.capHeight) * fontPalette.fontName.capHeight.desktop).toFixed(4)}rem;
     }
   }
 `;
 
 // Buttons
-
-export const ButtonContainer = styled.div`
-  width: 100%;
-`;
 
 export const Button = styled.button`
   align-items: center; /* For when the as={Link} attribute is added.  */
@@ -452,7 +468,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonWithRightArrow = styled(Button)`
-  &::after {
+  &:after {
     content: '→';
     position: absolute;
     right: ${buttonSize.paddingSide.mobile / 2}px;
@@ -464,7 +480,7 @@ export const ButtonWithRightArrow = styled(Button)`
 `;
 
 export const ButtonWithLeftArrow = styled(Button)`
-  &::before {
+  &:before {
     content: '←';
     position: absolute;
     left: ${buttonSize.paddingSide.mobile / 2}px;
@@ -518,6 +534,7 @@ export const Input = styled.input.attrs(props => ({
   font-size: ${fontPalette.fontSize.mobile.inputNumber}rem;
   font-weight: ${fontPalette.fontWeight.inputNumber};
   height: 100%;
+  letter-spacing: -0.05em;
   line-height: 1;
   padding-left: ${inputSize.paddingSidePx - 4}px; /* optical adjustmnet */
   padding-top: ${inputSize.extraTopPaddingToCenterAlignRem.mobile +
@@ -557,7 +574,7 @@ export const NumberInput = styled(Input).attrs(props => ({
 export const InputInstruction = styled(ParagraphOneRem)`
   text-align: right;
   /* Crop top of text box to x-height, not cap-height */
-  &::before {
+  &:before {
     margin-bottom: -${fontPalette.textCrop.topX.bodyText}em;
   }
 `;
@@ -598,7 +615,7 @@ export const ModularScaleInputWrapper = styled.div`
 `;
 
 export const RatioWrapper = styled(InputWrapper)`
-  width: 45%;
+  width: 48%;
 `;
 
 export const ModularScaleInput = styled(NumberInput)`
@@ -606,7 +623,16 @@ export const ModularScaleInput = styled(NumberInput)`
   width: 100%;
 `;
 
-export const ModularScaleInputUnit = styled.span``;
+export const ModularScaleInputUnit = styled.span`
+  color: ${colorPalette.bodyText};
+  font-family: ${fontPalette.fontFamily.inputNumber};
+  font-size: ${fontPalette.fontSize.mobile.modularScaleColon}rem;
+  font-weight: ${fontPalette.fontWeight.inputNumber};
+  @media only screen and (min-width: ${fontPalette.mediaQueryCutoff
+      .fontSize}px) {
+    font-size: ${fontPalette.fontSize.desktop.modularScaleColon}rem;
+  }
+`;
 
 export const SampleParagraphWrapper = styled.div`
   font-family: ${props => props.fontMetrics.fontFamily};
@@ -637,6 +663,7 @@ export const FooterWrapper = styled(Section)`
   position: ${props => (props.page404 ? 'absolute' : 'inherit')};
   bottom: 0;
   left: 0;
+  width: 100%;
   @media only screen and (min-width: ${fontPalette.mediaQueryCutoff.layout}px) {
     max-width: calc(
       ${fontPalette.width.controlPanel}px + ${fontPalette.maxWidthInEm}em +
@@ -658,6 +685,7 @@ export const ParagraphFooter = styled(ParagraphOneRem)`
 
 export const FullScreenSpreader = styled.div`
   height: 100vh;
+  position: relative; /* For the absolutely positioned FooterWrapper to respect the side margin set by SideMarginRegulator */
 `;
 
 // Layout
@@ -748,4 +776,28 @@ export const ControlPanel = styled.div`
     padding: 0 ${fontPalette.marginSide.desktop.first}px;
     width: ${fontPalette.width.controlPanel}px;
   }
+`;
+
+export const ErrorPageTitleWord = styled.div`
+  display: inline-block;
+  padding-right: 0.5em;
+`;
+export const Rotate = styled.span`
+  display: inline-block;
+  text-transform: uppercase;
+  transform: rotate(${props => props.degree}deg);
+`;
+
+export const FigureFrame = styled.figure`
+  border: 1px solid ${colorPalette.figure.border};
+  max-width: ${fontPalette.maxWidthInEm}em;
+  overflow: hidden; /* Control the image size by the box size of the figure */
+  width: 100%;
+`;
+
+export const Image = styled.img`
+  display: block; /* Prevent images from aligning with other contents */
+  height: auto; /* Preserve the aspect ratio */
+  max-width: 100%; /* Control the image size by the box size of the figure */
+  margin: auto; /* For vertically centering the image #2 */
 `;

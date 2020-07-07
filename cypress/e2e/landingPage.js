@@ -1,3 +1,5 @@
+import {pageTitle, pageDescription} from '../../src/helper/metaData';
+
 describe('Landing Page', () => {
   beforeEach(() => {
     sessionStorage.clear();
@@ -5,11 +7,20 @@ describe('Landing Page', () => {
   });
 
   it('shows the non-interactive UI components correctly', () => {
-    cy.get('h1').should('have.text', 'Line-height Picker');
-    cy.findAllByTitle(/logo/i).should('exist'); // The logo exists both in the header and the body.
+    cy.title().should('eq', pageTitle.home);
+    cy.get('h1').should('have.text', pageTitle.home);
+    cy.findAllByAltText(/logo/i).should('exist'); // The logo exists both in the header and the body.
     cy.findByTestId('stepIndicator').should('exist');
     cy.findByTestId('footer').should('exist');
     cy.findByTestId('description').should('exist');
+  });
+
+  it('describes the page content for search engines as expected', () => {
+    cy.get('head meta[name="description"]').should(
+      'have.attr',
+      'content',
+      pageDescription.home,
+    );
   });
 
   it('Clicking the demo button takes users to x-height page and shows "Open Sans" as the chosen font name in all subsequent pages', () => {

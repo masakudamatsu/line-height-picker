@@ -40,20 +40,27 @@ const inputHeight = {
 };
 
 const inputSize = {
-  height: inputHeight,
-  labelLeftPx: paddingSidePx,
-  labelTopPx: labelPaddingTopPx,
-  labelTopOffsetRem: {
-    mobile: getTextBoxTopToCapTopInRem(fontPalette.xHeight.mobile.rem),
-    desktop: getTextBoxTopToCapTopInRem(fontPalette.xHeight.desktop.rem),
-  },
-  labelTopFallbackPx: labelPaddingTopPx, // For IE and Opera Mini
-  paddingSidePx: paddingSidePx,
   extraTopPaddingToCenterAlignRem: {
     mobile: getExtraTopPadding(fontPalette.fontSize.mobile.inputNumber),
     desktop: getExtraTopPadding(fontPalette.fontSize.desktop.inputNumber),
   },
+  height: {
+    mobile: inputHeight.mobile.toFixed(4),
+    desktop: inputHeight.desktop.toFixed(4),
+  },
+  labelLeftPx: paddingSidePx,
   labelTextCapHeightRem: labelTextHeightInRem,
+  labelTopFallbackPx: labelPaddingTopPx, // For IE and Opera Mini
+  labelTopOffsetRem: {
+    mobile: getTextBoxTopToCapTopInRem(fontPalette.xHeight.mobile.rem).toFixed(
+      4,
+    ),
+    desktop: getTextBoxTopToCapTopInRem(
+      fontPalette.xHeight.desktop.rem,
+    ).toFixed(4),
+  },
+  labelTopPx: labelPaddingTopPx,
+  paddingSidePx: paddingSidePx,
   suffixBottomPx: {
     mobile: 18,
     desktop: 22,

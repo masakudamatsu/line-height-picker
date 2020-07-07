@@ -8,7 +8,7 @@ import 'jest-axe/extend-expect';
 import Title from './Title';
 
 test('renders the H1 element for the screen reader, but invisible on the browser', () => {
-  const {container} = render(<Title />);
+  const {container} = render(<Title stepNow={1} />);
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       -webkit-clip: rect(1px 1px 1px 1px);
@@ -28,14 +28,14 @@ test('renders the H1 element for the screen reader, but invisible on the browser
       <h1
         class="c0"
       >
-        Line-height Picker
+        Line-height Picker: Font (step 1 of 5)
       </h1>
     </div>
   `);
 });
 
 test('is accessible', async () => {
-  const {container} = render(<Title />);
+  const {container} = render(<Title stepNow={1} />);
   const results = await axe(container);
   expect(results).toHaveNoViolations();
   cleanup();
