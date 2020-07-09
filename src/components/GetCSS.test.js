@@ -866,7 +866,9 @@ test('renders correctly', () => {
               <img
                 alt="Diagram indicating what length is referred to by the margin-top and the vertical space between paragraphs"
                 class="c19"
-                src="margin-top3x.png"
+                sizes="(min-width: 740px) 602px, (min-width: 600px) 516px, (min-width: 380px) calc(82vw + 40px), calc(66.67vw + 92px)"
+                src="margin-top1x.png"
+                srcset="margin-top1x.png 605w, margin-top2x.png 1210w, margin-top3x.png 1815w, margin-top4x.png 2430w"
               />
             </figure>
             <div
