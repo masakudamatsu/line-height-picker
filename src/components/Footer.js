@@ -61,8 +61,11 @@ const Footer = props => {
         , <ExternalLink href="https://jestjs.io/">Jest</ExternalLink>,{' '}
         <ExternalLink href="https://eslint.org/">ESLint</ExternalLink>, and{' '}
         <ExternalLink href="https://prettier.io/">Prettier</ExternalLink> for
-        minimizing the number of errors you might encounter; and—last but not
-        least—
+        minimizing the number of errors you might encounter;{' '}
+        <ExternalLink href="https://github.com/tabler/tabler-icons">
+          Tabler Icons
+        </ExternalLink>{' '}
+        for the error message icon; and—last but not least—
         <ExternalLink href="https://www.nouvellenoire.ch/product/atl-aleph/">
           Aleph
         </ExternalLink>{' '}

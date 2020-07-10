@@ -289,7 +289,16 @@ test('renders correctly', () => {
           >
             Prettier
           </a>
-           for minimizing the number of errors you might encounter; and—last but not least—
+           for minimizing the number of errors you might encounter;
+           
+          <a
+            class="c3"
+            href="https://github.com/tabler/tabler-icons"
+          >
+            Tabler Icons
+          </a>
+           
+          for the error message icon; and—last but not least—
           <a
             class="c3"
             href="https://www.nouvellenoire.ch/product/atl-aleph/"
