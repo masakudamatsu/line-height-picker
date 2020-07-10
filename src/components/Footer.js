@@ -81,8 +81,11 @@ const Footer = props => {
         <ExternalLink href="https://tbrown.org/">Tim Brown</ExternalLink> for
         inspiring the basic idea of the Line-height Picker through his book{' '}
         <BookTitle>Flexible Typesetting</BookTitle>;{' '}
-        <ExternalLink href="">CodeCademy</ExternalLink> for teaching the basics
-        of <Abbr>HTML</Abbr>, <Abbr>css</Abbr>, JavaScript, and React;{' '}
+        <ExternalLink href="https://www.codecademy.com/">
+          CodeCademy
+        </ExternalLink>{' '}
+        for teaching the basics of <Abbr>HTML</Abbr>, <Abbr>css</Abbr>,
+        JavaScript, and React;{' '}
         <ExternalLink href="https://kentcdodds.com/">
           Kent C. Dodds
         </ExternalLink>{' '}
