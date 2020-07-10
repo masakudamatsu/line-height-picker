@@ -343,11 +343,12 @@ test('renders correctly', () => {
            
           <a
             class="c3"
-            href=""
+            href="https://www.codecademy.com/"
           >
             CodeCademy
           </a>
-           for teaching the basics of 
+           
+          for teaching the basics of 
           <abbr
             class="c6"
           >
