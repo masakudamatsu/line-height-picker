@@ -186,6 +186,12 @@ To run component tests with Testing-Library and Jest:
 $ npm test
 ```
 
+## Contact
+
+Line-height Picker is developed by Masa Kudamatsu. You can find me on Twitter
+([@masa_kudamatsu](https://twitter.com/masa_kudamatsu)). Alternatively, email me
+at [masakudamatsu@gmail.com](mailto:masakudamatsu@gmail.com).
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
