@@ -190,7 +190,7 @@ $ npm test
 
 Line-height Picker is developed by Masa Kudamatsu. You can find me on Twitter
 ([@masa_kudamatsu](https://twitter.com/masa_kudamatsu)). Alternatively, email me
-at [masakudamatsu@gmail.com](mailto:masakudamatsu@gmail.com).
+at masakudamatsu[at]gmail.com
 
 ## License
 
