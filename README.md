@@ -27,6 +27,7 @@ into the CSS values of
 In addition, the app uses these CSS values to render two paragraphs excerpted
 from Steve Jobs's famous speech in the user-selected font. This way, the user
 can check whether they are happy with the result.
+![preview page screenshot](public/previewpage-screenshot.png)
 
 ## JS libraries used
 
