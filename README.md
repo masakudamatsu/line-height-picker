@@ -14,7 +14,7 @@ find more detail about the app (motivation, how to use, etc.).
 
 In essence, Line-height Picker converts three user inputs
 
-- Font file (.otf, .ttf, .woff)
+- Font file (`.otf`, `.ttf`, `.woff`)
 - X-height value in pixel
 - Ratio of x-height to line-height
 
@@ -61,7 +61,7 @@ can check whether they are happy with the result.
   stores the font rendering information.
 - The URL will automatically change to `https://line-height-picker.app/x-height`
   with `history.push` from
-  [React Router](https://reacttraining.com/react-router/) and page transition
+  [React Router](https://reacttraining.com/react-router/), and page transition
   animation is activated with
   [React Transition Group](https://reactcommunity.org/react-transition-group/).
 - The new page displays the font name by using the extracted font metric values.
