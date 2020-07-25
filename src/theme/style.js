@@ -659,7 +659,7 @@ export const Cite = styled.cite`
 // Footer
 
 export const FooterWrapper = styled(Section)`
-  border-top: 1px solid ${colorPalette.footerText};
+  border-top: 1px solid ${colorPalette.footer.divider};
   position: ${props => (props.page404 ? 'absolute' : 'inherit')};
   bottom: 0;
   left: 0;
@@ -673,7 +673,7 @@ export const FooterWrapper = styled(Section)`
 `;
 
 export const ParagraphFooter = styled(ParagraphOneRem)`
-  color: ${colorPalette.footerText};
+  color: ${colorPalette.footer.text};
   font-family: ${fontPalette.fontFamily.footer};
   font-size: ${fontPalette.fontSize.mobile.footer}rem;
   font-weight: ${fontPalette.fontWeight.footer};

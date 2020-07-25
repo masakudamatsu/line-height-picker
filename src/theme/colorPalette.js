@@ -28,7 +28,10 @@ const colorPalette = {
     borderRadius: '0',
   },
   disabledText: opacityForDisabledText,
-  footerText: figureLight,
+  footer: {
+    divider: backgroundLight,
+    text: figureLight,
+  },
   errorText: alert,
   figure: {
     border: backgroundLight,
