@@ -33,7 +33,7 @@ const colorPalette = {
   figure: {
     border: backgroundLight,
   },
-  inputField: backgroundLight,
+  inputField: figureDark,
   linearLight: {
     backgroundColor: light.source,
     shadow: light.reflection,
