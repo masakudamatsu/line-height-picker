@@ -165,7 +165,7 @@ test('renders correctly', () => {
 
     .c5 {
       background-color: hsl(0,0%,10%);
-      border: 2px solid hsl(0,0%,40%);
+      border: 2px solid hsl(0,0%,51%);
       border-radius: 4px;
       color: hsl(0,0%,90%);
       font-family: 'Fedra Mono',monospace;
