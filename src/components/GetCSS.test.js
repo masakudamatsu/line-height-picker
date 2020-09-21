@@ -479,7 +479,7 @@ test('renders correctly', () => {
             data-testid="copy-button"
           >
             <span>
-              Copy
+              Copy 
               <abbr
                 class="c3"
               >
@@ -540,12 +540,12 @@ test('renders correctly', () => {
               >
                 The browser doesn't allow us to copy the CSS code into your clipboard.
               </span>
-
+               
               <span
                 data-testid="howToResolve"
                 id="howToResolve"
               >
-
+                 
                 Please select the CSS code on your own to copy and paste it.
               </span>
             </p>
@@ -565,7 +565,7 @@ test('renders correctly', () => {
           <h2
             class="c2"
           >
-            How we obtain the above
+            How we obtain the above 
             <abbr
               class="c3"
             >
@@ -581,21 +581,21 @@ test('renders correctly', () => {
             class="c13"
           >
             We use font metrics—extracted from the font file you have selected—to convert the x-height value and its ratio to line-height into
-
+             
             <code
               class="c14"
             >
               font-size
             </code>
             ,
-
+             
             <code
               class="c14"
             >
               line-height
             </code>
             , and
-
+             
             <code
               class="c14"
             >
@@ -607,18 +607,18 @@ test('renders correctly', () => {
             class="c4"
             height="2"
           />
-
+           
           <p
             class="c13"
           >
-            Below we explain how the Line-height Picker obtains each of these three
+            Below we explain how the Line-height Picker obtains each of these three 
             <abbr
               class="c3"
             >
               css
             </abbr>
              values. To learn more about font metrics, have a look at
-
+             
             <cite
               class="c15"
             >
@@ -649,20 +649,20 @@ test('renders correctly', () => {
               class="c13"
             >
               To convert your x-height value into the
-
+               
               <code
                 class="c14"
               >
                 font-size
               </code>
-               value shown above, we use the ratio of two font metric values:
+               value shown above, we use the ratio of two font metric values: 
               <code
                 class="c14"
               >
                 unitsPerEm
               </code>
-
-              and
+               
+              and 
               <code
                 class="c14"
               >
@@ -677,28 +677,28 @@ test('renders correctly', () => {
             <p
               class="c13"
             >
-              The
+              The 
               <code
                 class="c14"
               >
                 unitsPerEm
               </code>
                value is the number of font-metric units that correspond to the
-
+               
               <code
                 class="c14"
               >
                 font-size
               </code>
                value. It is usually either 1000 or 2048. For example, Open Sans has the
-
+               
               <code
                 class="c14"
               >
                 unitsPerEm
               </code>
                value of 2048. If you set
-
+               
               <code
                 class="c14"
               >
@@ -710,24 +710,24 @@ test('renders correctly', () => {
               class="c4"
               height="2"
             />
-
+             
             <p
               class="c13"
             >
-              The
+              The 
               <code
                 class="c14"
               >
                 sxHeight
               </code>
-               value specifies the size of x-height in the number of font-metric units. Continuing the Open Sans example, we have the
+               value specifies the size of x-height in the number of font-metric units. Continuing the Open Sans example, we have the 
               <code
                 class="c14"
               >
                 sxHeight
               </code>
                value of 1096. Consequently, the x-height will be 10.96px if
-
+               
               <code
                 class="c14"
               >
@@ -739,18 +739,18 @@ test('renders correctly', () => {
               class="c4"
               height="2"
             />
-
+             
             <p
               class="c13"
             >
-              Conversely, if you select Open Sans and the x-height value of 10.96px, then the
+              Conversely, if you select Open Sans and the x-height value of 10.96px, then the 
               <code
                 class="c14"
               >
                 font-size
               </code>
                value will be 20.48px. This is exactly how we convert x-height into
-
+               
               <code
                 class="c14"
               >
@@ -776,7 +776,7 @@ test('renders correctly', () => {
             <p
               class="c13"
             >
-              The
+              The 
               <code
                 class="c14"
               >
@@ -788,7 +788,7 @@ test('renders correctly', () => {
               class="c4"
               height="2"
             />
-
+             
             <p
               class="c13"
             >
@@ -798,24 +798,24 @@ test('renders correctly', () => {
               class="c4"
               height="2"
             />
-
+             
             <p
               class="c13"
             >
-              In the second step, we convert the px value of line-height into the unitless value relative to
+              In the second step, we convert the px value of line-height into the unitless value relative to 
               <code
                 class="c14"
               >
                 font-size
               </code>
-              , by dividing the former with the
+              , by dividing the former with the 
               <code
                 class="c14"
               >
                 font-size
               </code>
-
-              value. Continuing the same example, we divide the line-height value of 32.88px with the
+               
+              value. Continuing the same example, we divide the line-height value of 32.88px with the 
               <code
                 class="c14"
               >
@@ -838,17 +838,17 @@ test('renders correctly', () => {
               class="c4"
               height="2"
             />
-
+             
             <p
               class="c13"
             >
-              The
+              The 
               <code
                 class="c14"
               >
                 margin-top
               </code>
-               value for vertical space between paragraphs is calculated in three steps. The diagram below indicates what lengths the
+               value for vertical space between paragraphs is calculated in three steps. The diagram below indicates what lengths the 
               <code
                 class="c14"
               >
@@ -879,7 +879,7 @@ test('renders correctly', () => {
               class="c13"
             >
               (If you haven't read “Space between Paragraphs” in
-
+               
               <a
                 class="c16"
                 href="preview"
@@ -907,12 +907,12 @@ test('renders correctly', () => {
               class="c4"
               height="2"
             />
-
+             
             <p
               class="c13"
             >
               Step 2—We then calculates the distance from the bottom of the x-height stripe to the top of the uppercase letter when
-
+               
               <code
                 class="c14"
               >
@@ -924,32 +924,32 @@ test('renders correctly', () => {
               class="c4"
               height="2"
             />
-
+             
             <p
               class="c13"
             >
-              The first value we need is the distance from the top of an uppercase letter to the top of the lowercase x. Another font metric value called
+              The first value we need is the distance from the top of an uppercase letter to the top of the lowercase x. Another font metric value called 
               <code
                 class="c14"
               >
                 sCapHeight
               </code>
-               gives the distance from the top of an uppercase letter to the bottom of the x-height stripe. We then subtract from it the
+               gives the distance from the top of an uppercase letter to the bottom of the x-height stripe. We then subtract from it the 
               <code
                 class="c14"
               >
                 sxHeight
               </code>
-
+               
               value. In our example, Open Sans has the
-
+               
               <code
                 class="c14"
               >
                 sCapHeight
               </code>
                of 1462. Its difference from the
-
+               
               <code
                 class="c14"
               >
@@ -961,7 +961,7 @@ test('renders correctly', () => {
               class="c4"
               height="2"
             />
-
+             
             <p
               class="c13"
             >
@@ -971,7 +971,7 @@ test('renders correctly', () => {
               class="c4"
               height="2"
             />
-
+             
             <p
               class="c13"
             >
@@ -981,7 +981,7 @@ test('renders correctly', () => {
               >
                 =21.92-3.66
               </code>
-              ), is what we are after: the distance from the bottom of the x-height stripe to the top of the uppercase letter when
+              ), is what we are after: the distance from the bottom of the x-height stripe to the top of the uppercase letter when 
               <code
                 class="c14"
               >
@@ -993,17 +993,17 @@ test('renders correctly', () => {
               class="c4"
               height="2"
             />
-
+             
             <p
               class="c13"
             >
-              Step 3—Finally, we obtain the extra amount of whitespace to achieve the desired distance between paragraphs from the two values obtained in the previous two steps. In our example, we subtract the whitespace in the absence of any margin, 18.26px, from the target whitespace of 43.84px. So the
+              Step 3—Finally, we obtain the extra amount of whitespace to achieve the desired distance between paragraphs from the two values obtained in the previous two steps. In our example, we subtract the whitespace in the absence of any margin, 18.26px, from the target whitespace of 43.84px. So the 
               <code
                 class="c14"
               >
                 margin-top
               </code>
-
+               
               value will be 25.58px (
               <code
                 class="c14"
