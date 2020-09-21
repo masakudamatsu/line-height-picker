@@ -183,6 +183,23 @@ test('renders correctly', () => {
         <p
           class="sc-AxgMl c2"
         >
+          See
+           
+          <a
+            class="c3"
+            href="https://medium.com/@masakudamatsu/optimal-line-height-reconsidered-part-1-web-dev-survey-from-kyoto-a0357d8f6282"
+          >
+            “Optimal Line-height Reconsidered”
+          </a>
+          —a series of articles I wrote to accompany the Line-height Picker—if you are interested in the detail of ideas behind the Line-height Picker and/or the comprehensive overview of how to choose the line-height value.
+        </p>
+        <div
+          class="c4"
+          height="1"
+        />
+        <p
+          class="sc-AxgMl c2"
+        >
           GitHub hosts
            
           <a

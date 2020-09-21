@@ -21,6 +21,17 @@ const Footer = props => {
       </ParagraphFooter>
       <SpacerVertical height="1" />
       <ParagraphFooter>
+        See{' '}
+        <ExternalLink href="https://medium.com/@masakudamatsu/optimal-line-height-reconsidered-part-1-web-dev-survey-from-kyoto-a0357d8f6282">
+          “Optimal Line-height Reconsidered”
+        </ExternalLink>
+        —a series of articles I wrote to accompany the Line-height Picker—if you
+        are interested in the detail of ideas behind the Line-height Picker
+        and/or the comprehensive overview of how to choose the line-height
+        value.
+      </ParagraphFooter>
+      <SpacerVertical height="1" />
+      <ParagraphFooter>
         GitHub hosts{' '}
         <ExternalLink href="https://github.com/masakudamatsu/line-height-picker">
           the source code for the Line-height Picker
