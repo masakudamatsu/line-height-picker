@@ -121,6 +121,8 @@ const CssGuide = () => {
           <SpacerVertical height="1" />
           <FigureFrame>
             <Image
+              width={606}
+              height={403}
               src={imageMarginTop1x}
               srcSet={`${imageMarginTop1x} 605w, ${imageMarginTop2x} 1210w, ${imageMarginTop3x} 1815w, ${imageMarginTop4x} 2430w`}
               sizes="(min-width: 740px) 602px, (min-width: 600px) 516px, (min-width: 380px) calc(82vw + 40px), calc(66.67vw + 92px)"

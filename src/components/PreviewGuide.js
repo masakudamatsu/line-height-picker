@@ -68,6 +68,8 @@ const PreviewGuide = () => {
         <SpacerVertical height="1" />
         <FigureFrame>
           <Image
+            width={605}
+            height={403}
             src={betweenParagraphWhitespace1x}
             srcSet={`${betweenParagraphWhitespace1x} 605w, ${betweenParagraphWhitespace2x} 1210w, ${betweenParagraphWhitespace3x} 1815w, ${betweenParagraphWhitespace4x} 2420w`}
             sizes="(min-width: 740px) 602px, (min-width: 600px) 516px, (min-width: 380px) calc(82vw + 40px), calc(66.67vw + 92px)"
