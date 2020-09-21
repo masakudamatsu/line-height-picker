@@ -46,8 +46,12 @@ const About = () => {
         >
           WCAG 2.0
         </ExternalLink>
-        ), etc. The Line-height Picker is an attempt to logically pin down the
-        best line-height value for your webpage.
+        ), etc. It is pretty much confusing.
+      </ParagraphOneRem>
+      <SpacerVertical height="2" />
+      <ParagraphOneRem>
+        The Line-height Picker is an attempt to logically pin down the best
+        line-height value for your webpage.
       </ParagraphOneRem>
       <SpacerVertical height="2" />
       <ParagraphOneRem>
