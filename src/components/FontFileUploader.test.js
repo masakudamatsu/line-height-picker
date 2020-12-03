@@ -7,7 +7,7 @@ import 'jest-axe/extend-expect';
 
 import FontFileUploader from './FontFileUploader';
 
-const mockHistoryPush = jest.fn();
+const mockHistoryPush = jest.fn().mockName('useHistory.push');
 
 const argumentForHistoryPush = {
   pathname: '/x-height',
@@ -21,15 +21,21 @@ jest.mock('react-router', () => ({
   }),
 }));
 
-const mockHandleFontFile = jest.fn(() => {
-  return true;
-});
-const mockValidateFileTypeReturningTrue = jest.fn(() => {
-  return true;
-});
-const mockValidateFileTypeReturningFalse = jest.fn(() => {
-  return false;
-});
+const mockHandleFontFile = jest
+  .fn(() => {
+    return true;
+  })
+  .mockName('handleFontFile');
+const mockValidateFileTypeReturningTrue = jest
+  .fn(() => {
+    return true;
+  })
+  .mockName('validateFileType');
+const mockValidateFileTypeReturningFalse = jest
+  .fn(() => {
+    return false;
+  })
+  .mockName('validateFileType');
 
 // mock ttf file
 const ttfFile = new File(['dummy data'], 'dummytypeface.ttf', {

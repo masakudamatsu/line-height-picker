@@ -9,8 +9,8 @@ import 'jest-axe/extend-expect';
 
 import XheightBox from './XheightBox';
 
-const mockXHeightToFontSize = jest.fn();
-const mockValidateXHeight = jest.fn();
+const mockXHeightToFontSize = jest.fn().mockName('xHeightToFontSize');
+const mockValidateXHeight = jest.fn().mockName('validateXHeight');
 
 afterEach(() => {
   jest.clearAllMocks();

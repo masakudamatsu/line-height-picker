@@ -8,7 +8,7 @@ import 'jest-axe/extend-expect';
 
 import DemoStartButton from './DemoStartButton';
 
-const mockHandleDemo = jest.fn();
+const mockHandleDemo = jest.fn().mockName('handleDemo');
 
 afterEach(() => {
   jest.clearAllMocks();

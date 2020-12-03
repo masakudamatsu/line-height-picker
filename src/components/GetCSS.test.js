@@ -1075,7 +1075,7 @@ test('renders props correctly', () => {
 
 test('Clicking the button calls navigator.clipboard.writeText() with the appropriate argument', () => {
   // Mock the Clipboard function
-  const mockWriteText = jest.fn();
+  const mockWriteText = jest.fn().mockName('navigator.clipboard.writeText');
   const originalNavigator = {...navigator};
   const originalClipboard = {...navigator.clipboard};
   const navigatorSpy = jest.spyOn(global, 'navigator', 'get');
@@ -1124,7 +1124,9 @@ test('Clicking the copy button calls document.execCommand if Clipboard API fails
     clipboard: false,
   }));
   // Mock document.queryCommandSupported
-  const mockQueryCommandSupported = jest.fn();
+  const mockQueryCommandSupported = jest
+    .fn()
+    .mockName('document.queryCommandSuported');
   const originalQueryCommandSupported = document.queryCommandSupported;
   document.queryCommandSupported = mockQueryCommandSupported;
 
