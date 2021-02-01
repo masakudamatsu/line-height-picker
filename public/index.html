@@ -36,28 +36,57 @@
     />
 
     <meta name="robots" content="" />
+    <!-- Serving web fonts -->
+    <link
+      rel="preconnect"
+      href="https://s3-ap-northeast-1.amazonaws.com/fonts-tokyo.typotheque.com/"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.typotheque.com/WF-034916-011153.css"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.typotheque.com/WF-034916-011154.css"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.typotheque.com/WF-034916-011155.css"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+    />
     <!-- Fedra Sans (Light, Light Italic, Demi) -->
     <link
       rel="stylesheet"
       href="https://fonts.typotheque.com/WF-034916-011153.css"
-      type="text/css"
+      media="print"
+      onload="this.media='all'"
     />
     <!-- Fedra Sans Alt (Light, Demi) -->
     <link
       rel="stylesheet"
       href="https://fonts.typotheque.com/WF-034916-011154.css"
-      type="text/css"
+      media="print"
+      onload="this.media='all'"
     />
     <!-- Fedra Mono -->
     <link
       rel="stylesheet"
       href="https://fonts.typotheque.com/WF-034916-011155.css"
-      type="text/css"
+      media="print"
+      onload="this.media='all'"
     />
     <!-- Open Sans -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
