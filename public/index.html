@@ -36,44 +36,57 @@
     />
 
     <meta name="robots" content="" />
-    <!-- Preload Fedra Sans Alt Light in WOFF2 -->
+    <!-- Serving web fonts -->
     <link
-      rel="preload"
-      href="https://s3-ap-northeast-1.amazonaws.com/fonts-tokyo.typotheque.com/WF-034916-011154-000168-61fe80f7add88cf326d11f2d4e741142.woff2"
-      type="font/woff2"
-      as="font"
-      crossorigin
+      rel="preconnect"
+      href="https://s3-ap-northeast-1.amazonaws.com/fonts-tokyo.typotheque.com/"
     />
-    <!-- Preload Fedra Sans Alt Demi in WOFF2 -->
     <link
       rel="preload"
-      href="https://s3-ap-northeast-1.amazonaws.com/fonts-tokyo.typotheque.com/WF-034916-011154-000176-c8e79af1cb8fea70a042fe8e69ff5a4c.woff2"
-      type="font/woff2"
-      as="font"
-      crossorigin
+      as="style"
+      href="https://fonts.typotheque.com/WF-034916-011153.css"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.typotheque.com/WF-034916-011154.css"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.typotheque.com/WF-034916-011155.css"
+    />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
     />
     <!-- Fedra Sans (Light, Light Italic, Demi) -->
     <link
       rel="stylesheet"
       href="https://fonts.typotheque.com/WF-034916-011153.css"
-      type="text/css"
+      media="print"
+      onload="this.media='all'"
     />
     <!-- Fedra Sans Alt (Light, Demi) -->
     <link
       rel="stylesheet"
       href="https://fonts.typotheque.com/WF-034916-011154.css"
-      type="text/css"
+      media="print"
+      onload="this.media='all'"
     />
     <!-- Fedra Mono -->
     <link
       rel="stylesheet"
       href="https://fonts.typotheque.com/WF-034916-011155.css"
-      type="text/css"
+      media="print"
+      onload="this.media='all'"
     />
     <!-- Open Sans -->
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
