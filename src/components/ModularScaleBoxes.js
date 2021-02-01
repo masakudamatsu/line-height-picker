@@ -40,16 +40,6 @@ const ModularScaleBoxes = props => {
   };
 
   let ignoreKeyForXHeight = false; // For preventing the cursor from moving to the leftmost position after pressing ArrowUp key. See https://stackoverflow.com/a/1081114/11847654
-  const handleXHeightKeyPress = event => {
-    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-      handleArrowKey(
-        event,
-        props.handleXHeightRatioChange,
-        props.validateXHeightRatio,
-        ignoreKeyForXHeight,
-      );
-    }
-  };
   const handleXHeightKeyDown = event => {
     if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
       handleArrowKey(
@@ -61,16 +51,6 @@ const ModularScaleBoxes = props => {
     }
   };
   let ignoreKeyForLineHeight = false; // For preventing the cursor from moving to the leftmost position after pressing ArrowUp key. See https://stackoverflow.com/a/1081114/11847654
-  const handleLineHeightKeyPress = event => {
-    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-      handleArrowKey(
-        event,
-        props.handleLineHeightRatioChange,
-        props.validateLineHeightRatio,
-        ignoreKeyForLineHeight,
-      );
-    }
-  };
   const handleLineHeightKeyDown = event => {
     if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
       handleArrowKey(
@@ -96,7 +76,6 @@ const ModularScaleBoxes = props => {
             onBlur={handleXHeightBlur}
             onChange={handleXHeightChange}
             onKeyDown={handleXHeightKeyDown}
-            onKeyPress={handleXHeightKeyPress}
             pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
             required
             value={props.xHeightRatio}
@@ -115,7 +94,6 @@ const ModularScaleBoxes = props => {
             onBlur={handleLineHeightRatioBlur}
             onChange={handleLineHeightChange}
             onKeyDown={handleLineHeightKeyDown}
-            onKeyPress={handleLineHeightKeyPress}
             pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
             required
             value={props.lineHeightRatio}

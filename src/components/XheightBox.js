@@ -31,16 +31,6 @@ const XheightBox = props => {
 
   let ignoreKey = false; // For preventing the cursor from moving to the leftmost position after pressing ArrowUp key. See https://stackoverflow.com/a/1081114/11847654
 
-  const handleKeyPress = event => {
-    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-      handleArrowKey(
-        event,
-        props.handleXHeightChange,
-        props.validateXHeight,
-        ignoreKey,
-      );
-    }
-  };
   const handleKeyDown = event => {
     if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
       handleArrowKey(
@@ -62,7 +52,6 @@ const XheightBox = props => {
           onBlur={handleBlur}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          onKeyPress={handleKeyPress}
           pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
           required
           value={props.xHeightPx}

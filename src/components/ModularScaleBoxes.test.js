@@ -9,10 +9,16 @@ import 'jest-axe/extend-expect';
 
 import ModularScaleBoxes from './ModularScaleBoxes';
 
-const mockHandleXHeightRatioChange = jest.fn();
-const mockHandleLineHeightRatioChange = jest.fn();
-const mockValidateXHeightRatio = jest.fn();
-const mockValidateLineHeightRatio = jest.fn();
+const mockHandleXHeightRatioChange = jest
+  .fn()
+  .mockName('handleXHeightRatioChange');
+const mockHandleLineHeightRatioChange = jest
+  .fn()
+  .mockName('handleLineHeightRatioChange');
+const mockValidateXHeightRatio = jest.fn().mockName('validateXHeightRatio');
+const mockValidateLineHeightRatio = jest
+  .fn()
+  .mockName('validateLineHeightRatio');
 
 afterEach(() => {
   jest.clearAllMocks();
