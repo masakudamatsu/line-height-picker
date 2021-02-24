@@ -16,7 +16,9 @@ import {
 
 import handleArrowKey from '../helper/handleArrowKey';
 
-const XheightBox = props => {
+function XheightBox(props, ref) {
+  const xHeightInputRef = React.useRef();
+
   const handleChange = event => {
     const xHeightValue = event.target.value;
     const errors = event.target.validity;
@@ -41,6 +43,14 @@ const XheightBox = props => {
       );
     }
   };
+
+  React.useImperativeHandle(ref, () => {
+    return {
+      focus: () => xHeightInputRef.current.focus(),
+      validity: xHeightInputRef.current.validity,
+    };
+  });
+
   return (
     <>
       <InputWrapper>
@@ -53,6 +63,7 @@ const XheightBox = props => {
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           pattern="([1-9]|[1-9][0-9])([.,]\d{1,4})?|100"
+          ref={xHeightInputRef}
           required
           value={props.xHeightPx}
           aria-describedby="howManyDecimalPlacesAllowed rangeOfNumbersAllowed"
@@ -83,7 +94,10 @@ const XheightBox = props => {
       </AlertMessage>
     </>
   );
-};
+}
+
+// eslint-disable-next-line no-func-assign
+XheightBox = React.forwardRef(XheightBox);
 
 XheightBox.propTypes = {
   handleXHeightChange: PropTypes.func.isRequired,

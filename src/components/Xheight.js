@@ -19,6 +19,8 @@ import {
 } from '../theme/style';
 
 const Xheight = props => {
+  const xHeightBoxRef = React.useRef();
+
   React.useEffect(() => {
     store.set('x-height', 'visited');
   }, []);
@@ -27,8 +29,7 @@ const Xheight = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const xHeightInputField = document.getElementById('x-height-in-pixel'); // useRef(null) or createRef() doesn't work for some reason
-    const errors = xHeightInputField.validity;
+    const errors = xHeightBoxRef.current.validity;
     if (errors.valid) {
       history.push({
         pathname: '/modular-scale',
@@ -36,7 +37,7 @@ const Xheight = props => {
       });
     } else {
       props.handleNoXHeight(errors);
-      xHeightInputField.focus();
+      xHeightBoxRef.current.focus();
       props.disableNextButton();
     }
   };
@@ -52,6 +53,7 @@ const Xheight = props => {
             <Form noValidate onSubmit={handleSubmit}>
               <XheightBox
                 handleXHeightChange={props.handleXHeightChange}
+                ref={xHeightBoxRef}
                 validateXHeight={props.validateXHeight}
                 xHeightPx={props.xHeightPx}
                 xHeightRangeError={props.xHeightRangeError}

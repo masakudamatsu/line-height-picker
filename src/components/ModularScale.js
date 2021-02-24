@@ -20,6 +20,8 @@ import {
 } from '../theme/style';
 
 const ModularScale = props => {
+  const xHeightBoxRef = React.useRef();
+
   React.useEffect(() => {
     store.set('modular-scale', 'visited');
   }, []);
@@ -32,8 +34,7 @@ const ModularScale = props => {
       .validity;
     const lineHeightErrors = document.getElementById('line-height-for-ratio')
       .validity;
-    const xHeightValueErrors = document.getElementById('x-height-in-pixel')
-      .validity;
+    const xHeightValueErrors = xHeightBoxRef.current.validity;
 
     if (
       xHeightErrors.valid &&
@@ -54,7 +55,7 @@ const ModularScale = props => {
       props.disablePreviewButton();
     } else if (!xHeightValueErrors.valid) {
       props.handleNoXHeight(xHeightValueErrors);
-      document.getElementById('x-height-in-pixel').focus();
+      xHeightBoxRef.current.focus();
       props.disablePreviewButton();
     }
   };
@@ -98,6 +99,7 @@ const ModularScale = props => {
               <SpacerVertical height="2" />
               <XheightBox
                 handleXHeightChange={props.handleXHeightChange}
+                ref={xHeightBoxRef}
                 validateXHeight={props.validateXHeight}
                 xHeightPx={props.xHeightPx}
                 xHeightRangeError={props.xHeightRangeError}
