@@ -7,7 +7,7 @@ A front-end web app that helps web designers / developers pick the best
 
 ## URL
 
-[https://line-height-picker.app](https://line-height-picker.app), where you will
+[https://line-height-picker.vercel.app](https://line-height-picker.vercel.app), where you will
 find more detail about the app (motivation, how to use, etc.).
 
 ## Features
@@ -60,7 +60,7 @@ can check whether they are happy with the result.
 - Finally,
   [FontFace API](https://developer.mozilla.org/en-US/docs/Web/API/FontFace)
   stores the font rendering information.
-- The URL will automatically change to `https://line-height-picker.app/x-height`
+- The URL will automatically change to `https://line-height-picker.vercel.app/x-height`
   with `history.push` from
   [React Router](https://reacttraining.com/react-router/), and page transition
   animation is activated with
@@ -74,7 +74,7 @@ can check whether they are happy with the result.
 - The x-height value will then be converted into the `font-size` CSS value by
   using the extracted font metric values.
 - When the user clicks the "Next" button, the URL changes to
-  `https://line-height-picker.app/modular-scale` (with
+  `https://line-height-picker.vercel.app/modular-scale` (with
   [React Router](https://reacttraining.com/react-router/) and
   [React Transition Group](https://reactcommunity.org/react-transition-group/)
   as before).
@@ -88,7 +88,7 @@ can check whether they are happy with the result.
 - The ratio values will then be converted into the `line-height` and
   `margin-top` CSS values by using the extracted font metric values.
 - When the user clicks the "Preview" button, the URL changes to
-  `https://line-height-picker.app/preview` (with
+  `https://line-height-picker.vercel.app/preview` (with
   [React Router](https://reacttraining.com/react-router/) and
   [React Transition Group](https://reactcommunity.org/react-transition-group/)
   as before).
@@ -101,7 +101,7 @@ can check whether they are happy with the result.
   x-height to line-height ratio), and the change will immediately be reflected
   in the rendering of sample paragraphs.
 - When the user clicks the "CSS code" button, the URL changes to
-  `https://line-height-picker.app/css` (with
+  `https://line-height-picker.vercel.app/css` (with
   [React Router](https://reacttraining.com/react-router/) and
   [React Transition Group](https://reactcommunity.org/react-transition-group/)
   as before).
@@ -114,7 +114,7 @@ can check whether they are happy with the result.
   into the user's clipboard with
   [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard).
 - When the user clicks the "Back" button, the URL changes back to
-  `https://line-height-picker.app/preview` (with
+  `https://line-height-picker.vercel.app/preview` (with
   [React Router](https://reacttraining.com/react-router/) and
   [React Transition Group](https://reactcommunity.org/react-transition-group/)
   as before).
